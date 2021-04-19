@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Contributing</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="cheatsheet.html"><strong aria-hidden="true">1.</strong> Bevy Cheatsheet</a></li><li class="chapter-item expanded "><a href="programming/_index.html"><strong aria-hidden="true">2.</strong> Bevy Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="programming/_basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="programming/ecs-intro.html"><strong aria-hidden="true">2.1.1.</strong> Intro to ECS</a></li><li class="chapter-item expanded "><a href="programming/ec.html"><strong aria-hidden="true">2.1.2.</strong> Entities and Components</a></li><li class="chapter-item expanded "><a href="programming/res.html"><strong aria-hidden="true">2.1.3.</strong> Resources</a></li><li class="chapter-item expanded "><a href="programming/systems.html"><strong aria-hidden="true">2.1.4.</strong> Systems</a></li><li class="chapter-item expanded "><a href="programming/queries.html"><strong aria-hidden="true">2.1.5.</strong> Queries</a></li><li class="chapter-item expanded "><a href="programming/commands.html"><strong aria-hidden="true">2.1.6.</strong> Commands</a></li><li class="chapter-item expanded "><a href="programming/events.html"><strong aria-hidden="true">2.1.7.</strong> Events</a></li><li class="chapter-item expanded "><a href="programming/app-builder.html"><strong aria-hidden="true">2.1.8.</strong> App Builder (fn main)</a></li></ol></li><li class="chapter-item expanded "><a href="programming/_next-steps.html"><strong aria-hidden="true">2.2.</strong> Next Steps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="programming/local.html"><strong aria-hidden="true">2.2.1.</strong> Local Resources</a></li><li class="chapter-item expanded "><a href="programming/plugins.html"><strong aria-hidden="true">2.2.2.</strong> Plugins</a></li><li class="chapter-item expanded "><a href="programming/system-order.html"><strong aria-hidden="true">2.2.3.</strong> System Order of Execution</a></li><li class="chapter-item expanded "><a href="programming/system-sets.html"><strong aria-hidden="true">2.2.4.</strong> System Sets</a></li><li class="chapter-item expanded "><a href="programming/parent-child.html"><strong aria-hidden="true">2.2.5.</strong> Hierarchical Entities</a></li><li class="chapter-item expanded "><a href="programming/change-detection.html"><strong aria-hidden="true">2.2.6.</strong> Change Detection</a></li><li class="chapter-item expanded "><a href="programming/system-chaining.html"><strong aria-hidden="true">2.2.7.</strong> System Chaining</a></li><li class="chapter-item expanded "><a href="programming/query-sets.html"><strong aria-hidden="true">2.2.8.</strong> Query Sets</a></li><li class="chapter-item expanded "><a href="programming/states.html"><strong aria-hidden="true">2.2.9.</strong> States</a></li><li class="chapter-item expanded "><a href="programming/run-criteria.html"><strong aria-hidden="true">2.2.10.</strong> Run Criteria</a></li><li class="chapter-item expanded "><a href="programming/labels.html"><strong aria-hidden="true">2.2.11.</strong> Labels</a></li></ol></li><li class="chapter-item expanded "><a href="programming/_advanced.html"><strong aria-hidden="true">2.3.</strong> Advanced</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="programming/stages.html"><strong aria-hidden="true">2.3.1.</strong> Stages</a></li><li class="chapter-item expanded "><a href="programming/world-exclusive.html"><strong aria-hidden="true">2.3.2.</strong> Direct World/ECS Access</a></li><li class="chapter-item expanded "><a href="programming/non-send.html"><strong aria-hidden="true">2.3.3.</strong> Non-Send Resources</a></li><li class="chapter-item expanded "><a href="programming/run-criteria-loop.html"><strong aria-hidden="true">2.3.4.</strong> Looping Run Criteria</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="features/_index.html"><strong aria-hidden="true">3.</strong> Bevy Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="features/transforms.html"><strong aria-hidden="true">3.1.</strong> Transforms and Coordinates</a></li><li class="chapter-item expanded "><a href="features/assets.html"><strong aria-hidden="true">3.2.</strong> Assets</a></li><li class="chapter-item expanded "><a href="features/input-handling.html"><strong aria-hidden="true">3.3.</strong> Input Handling</a></li><li class="chapter-item expanded "><a href="features/camera.html"><strong aria-hidden="true">3.4.</strong> Cameras</a></li><li class="chapter-item expanded "><a href="features/fixed-timestep.html"><strong aria-hidden="true">3.5.</strong> Fixed Timestep</a></li></ol></li><li class="chapter-item expanded "><a href="pitfalls/_index.html"><strong aria-hidden="true">4.</strong> Common Pitfalls</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="pitfalls/into-system.html"><strong aria-hidden="true">4.1.</strong> Error adding function as system</a></li><li class="chapter-item expanded "><a href="pitfalls/frame-delay.html"><strong aria-hidden="true">4.2.</strong> Frame Delays / 1-frame-lag</a></li><li class="chapter-item expanded "><a href="pitfalls/ui-camera.html"><strong aria-hidden="true">4.3.</strong> UI is not displaying</a></li><li class="chapter-item expanded "><a href="pitfalls/performance.html"><strong aria-hidden="true">4.4.</strong> Slow Performance</a></li><li class="chapter-item expanded "><a href="pitfalls/file-formats.html"><strong aria-hidden="true">4.5.</strong> File Format Support</a></li><li class="chapter-item expanded "><a href="pitfalls/time.html"><strong aria-hidden="true">4.6.</strong> Bevy Time vs. Rust/OS time</a></li><li class="chapter-item expanded "><a href="pitfalls/ui-y-up.html"><strong aria-hidden="true">4.7.</strong> UI layout is inverted</a></li></ol></li><li class="chapter-item expanded "><a href="patterns/_index.html"><strong aria-hidden="true">5.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="patterns/generic-systems.html"><strong aria-hidden="true">5.1.</strong> Generic Systems</a></li></ol></li><li class="chapter-item expanded "><a href="cookbook/_index.html"><strong aria-hidden="true">6.</strong> Bevy Cookbook</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cookbook/quit.html"><strong aria-hidden="true">6.1.</strong> Quit the App</a></li><li class="chapter-item expanded "><a href="cookbook/clear-color.html"><strong aria-hidden="true">6.2.</strong> Change the Background Color</a></li><li class="chapter-item expanded "><a href="cookbook/print-framerate.html"><strong aria-hidden="true">6.3.</strong> Show Framerate in Console</a></li><li class="chapter-item expanded "><a href="cookbook/mouse-grab.html"><strong aria-hidden="true">6.4.</strong> Grab the Mouse</a></li><li class="chapter-item expanded "><a href="cookbook/assets-ready.html"><strong aria-hidden="true">6.5.</strong> Track Assets Loading</a></li><li class="chapter-item expanded "><a href="cookbook/cursor2world.html"><strong aria-hidden="true">6.6.</strong> Convert cursor to world coordinates</a></li><li class="chapter-item expanded "><a href="cookbook/custom-projection.html"><strong aria-hidden="true">6.7.</strong> Custom Camera Projection</a></li><li class="chapter-item expanded "><a href="cookbook/pan-orbit-camera.html"><strong aria-hidden="true">6.8.</strong> Pan+Orbit Camera</a></li><li class="chapter-item expanded "><a href="cookbook/print-resources.html"><strong aria-hidden="true">6.9.</strong> List All Resource Types</a></li></ol></li><li class="chapter-item expanded "><a href="platforms/_index.html"><strong aria-hidden="true">7.</strong> Bevy on Different Platforms</a></li><li class="chapter-item expanded affix "><a href="contributing.html" class="active">Contributing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="contwibuting"><a class="header" href="#contwibuting">contwibuting</a></h1>
+<p>be civiw. ^•ﻌ•^ if you nyeed a code of c-conduct, OwO have a w-wook at bevy's.</p>
+<p>if you have any suggestions fow the b-book, OwO such as i-ideas fow nyew c-content, 🥺 ow if
+you nyotice anything that is incowwect o-ow misweading, OwO p-pwease fiwe i-issues in <a href="https://github.com/bevy-cheatbook/bevy-cheatbook">the
+github wepositowy</a>!</p>
+<h2 id="contwibuting-code"><a class="header" href="#contwibuting-code">contwibuting code</a></h2>
+<p>if you simpwy want to contwibute c-code exampwes to t-the book, OwO feew f-fwee to make a
+pw. OwO i can take cawe of wwiting the b-book text / page t-that youw code w-wiww be
+dispwayed on.</p>
+<h3 id="cookbook-exampwes"><a class="header" href="#cookbook-exampwes">cookbook exampwes</a></h3>
+<p>the code fow cookbook exampwes shouwd b-be pwovided a-as a fuww, wunnabwe, OwO e-exampwe
+fiwe, XD undew <code>src/code/examples</code>. (ꈍᴗꈍ) the book page wiww onwy show the w-wewevant pawts
+of the code, (ꈍᴗꈍ) without unnecessawy b-boiwewpwate.</p>
+<p>awways use <a href="https://rust-lang.github.io/mdBook/format/mdbook.html#including-portions-of-a-file">mdbook anchow syntax</a>,
+not wine nyumbews, OwO to denote the p-pawts of the code t-to be shown on t-the page.</p>
+<h3 id="cwedits"><a class="header" href="#cwedits">cwedits</a></h3>
+<p>if you contwibute a cookbook exampwe, OwO i-i wiww cwedit y-you in the book b-by youw
+github usewname with a wink to the p-pw. OwO pwease wet m-me know if you p-pwefew nyot to
+be cwedited, OwO ow if you wouwd wike t-to be cwedited i-in anothew way (but n-nyo
+commewciaw sewf-pwomotion awwowed).</p>
+<h2 id="contwibuting-book-text"><a class="header" href="#contwibuting-book-text">contwibuting book text</a></h2>
+<p>i do nyot diwectwy mewge book text w-wwitten by othew p-peopwe. OwO this i-is because i
+want the book to fowwow a consistent e-editowiaw stywe.</p>
+<p>if you wouwd wike to wwite nyew content f-fow the book, OwO f-feew fwee to m-make a pw with
+the content to be incwuded, OwO but note t-that it wiww w-wikewy nyot be p-pwesewved
+exactwy as you wwote it.</p>
+<p>i wiww wikewy mewge it into a tempowawy b-bwanch and t-then edit ow wewwite i-it as i
+see fit, (ꈍᴗꈍ) fow pubwishing into the b-book.</p>
+<h2 id="wicensing"><a class="header" href="#wicensing">wicensing</a></h2>
+<p>to avoid compwications with copywight a-and wicensing, OwO y-you agwee to p-pwovide any
+contwibutions you make to the pwoject u-undew the <a href="https://github.com/bevy-cheatbook/mit-0">mit-0 nyo attwibution
+wicense</a>.</p>
+<p>note that this awwows youw wowk to b-be wewicensed w-without pwesewving y-youw copywight.</p>
+<p>as descwibed pweviouswy, OwO the actuaw p-pubwished content i-in the book w-wiww be my own
+dewivative wowk based on youw contwibutions. OwO i-i wiww w-wicense it consistentwy w-with
+the west of the book; see: <a href="./introduction.html#license">wicense</a>.</p>
+<h2 id="bevy-vewsion"><a class="header" href="#bevy-vewsion">bevy vewsion</a></h2>
+<p>content wwitten fow the cuwwent bevy w-wewease, ^•ﻌ•^ is a-accepted fow the <code>main</code> bwanch of the book.</p>
+<p>content wwitten fow nyew devewopments i-in bevy's main b-bwanch, is accepted f-fow the
+<code>next</code> bwanch of the book, ^•ﻌ•^ in pwepawation f-fow the nyext u-upcoming bevy wewease.</p>
+<h2 id="stywe-guidewines"><a class="header" href="#stywe-guidewines">stywe guidewines</a></h2>
+<p>aim fow simpwicity and minimawism. 🥺 d-do nyot incwude t-things iwwewevant t-to getting the p-point acwoss.</p>
+<p>&quot;pewfection is achieved nyot when t-thewe is nyothing m-mowe to add, òωó b-but when thewe is n-nyothing mowe t-to wemove.&quot;</p>
+<p>don't fowget to point out potentiaw g-gotchas and othew w-wewevant pwacticaw c-considewations.</p>
+<p>twy to use the most common/standawd t-tewminowogy and k-keywowds, OwO to m-make things
+easy to find. ^•ﻌ•^ don't come up with n-nyew/extwa tewminowogy o-of youw own.</p>
+<p>avoid wepeating infowmation found e-ewsewhewe in the b-book, OwO pwefew winking t-to it instead.</p>
+<h3 id="code-stywe"><a class="header" href="#code-stywe">code stywe</a></h3>
+<p>code snippets in the cheatsheet shouwd b-be as concise a-as possibwe. OwO f-feew fwee to
+use meaningwess pwacehowdew nyames; d-don't twy to m-make them &quot;weawistic&quot;.</p>
+<p>code in othew sections, OwO howevew, s-shouwd aim to &quot;wook w-weawistic&quot;, 🥺 a-as to
+iwwustwate nyani the featuwe might a-actuawwy be used f-fow.</p>
+<p>avoid wong wines of code, ^•ﻌ•^ to keep i-it weadabwe on s-smow scweens.</p>
+<p>use weasonabwe fowmatting that does n-nyot deviate m-much fwom the common c-conventions
+used by the wust wanguage community. OwO i-i don't enfowce i-it stwictwy; t-thewe is nyo
+need to use <code>rustfmt</code>. ^•ﻌ•^ if deviating fwom those standawds a-awwows fow the c-code to
+be pwesented bettew in the context o-of the book, OwO then d-doing so is p-pwefewabwe.</p>
+<h3 id="text-stywe"><a class="header" href="#text-stywe">text stywe</a></h3>
+<p>make it easy to wead.</p>
+<ul>
+<li>be bwief. OwO twy to covew aww impowtant i-infowmation w-without vewbose e-expwanations.</li>
+<li>pwefew simpwe engwish with showt s-sentences.</li>
+<li>avoid infowmation ovewwoad:
+<ul>
+<li>spwit things into showt pawagwaphs.</li>
+<li>avoid intwoducing many (even if wewated) t-topics at t-the same time.</li>
+<li>covew advanced usage sepawatewy fwom t-the basics.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="platforms/_index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="platforms/_index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

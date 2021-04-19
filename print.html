@@ -1,0 +1,3017 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="favicon.png">
+        
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        
+        <link rel="stylesheet" href="css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="cheatsheet.html"><strong aria-hidden="true">1.</strong> Bevy Cheatsheet</a></li><li class="chapter-item expanded "><a href="programming/_index.html"><strong aria-hidden="true">2.</strong> Bevy Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="programming/_basics.html"><strong aria-hidden="true">2.1.</strong> Basics</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="programming/ecs-intro.html"><strong aria-hidden="true">2.1.1.</strong> Intro to ECS</a></li><li class="chapter-item expanded "><a href="programming/ec.html"><strong aria-hidden="true">2.1.2.</strong> Entities and Components</a></li><li class="chapter-item expanded "><a href="programming/res.html"><strong aria-hidden="true">2.1.3.</strong> Resources</a></li><li class="chapter-item expanded "><a href="programming/systems.html"><strong aria-hidden="true">2.1.4.</strong> Systems</a></li><li class="chapter-item expanded "><a href="programming/queries.html"><strong aria-hidden="true">2.1.5.</strong> Queries</a></li><li class="chapter-item expanded "><a href="programming/commands.html"><strong aria-hidden="true">2.1.6.</strong> Commands</a></li><li class="chapter-item expanded "><a href="programming/events.html"><strong aria-hidden="true">2.1.7.</strong> Events</a></li><li class="chapter-item expanded "><a href="programming/app-builder.html"><strong aria-hidden="true">2.1.8.</strong> App Builder (fn main)</a></li></ol></li><li class="chapter-item expanded "><a href="programming/_next-steps.html"><strong aria-hidden="true">2.2.</strong> Next Steps</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="programming/local.html"><strong aria-hidden="true">2.2.1.</strong> Local Resources</a></li><li class="chapter-item expanded "><a href="programming/plugins.html"><strong aria-hidden="true">2.2.2.</strong> Plugins</a></li><li class="chapter-item expanded "><a href="programming/system-order.html"><strong aria-hidden="true">2.2.3.</strong> System Order of Execution</a></li><li class="chapter-item expanded "><a href="programming/system-sets.html"><strong aria-hidden="true">2.2.4.</strong> System Sets</a></li><li class="chapter-item expanded "><a href="programming/parent-child.html"><strong aria-hidden="true">2.2.5.</strong> Hierarchical Entities</a></li><li class="chapter-item expanded "><a href="programming/change-detection.html"><strong aria-hidden="true">2.2.6.</strong> Change Detection</a></li><li class="chapter-item expanded "><a href="programming/system-chaining.html"><strong aria-hidden="true">2.2.7.</strong> System Chaining</a></li><li class="chapter-item expanded "><a href="programming/query-sets.html"><strong aria-hidden="true">2.2.8.</strong> Query Sets</a></li><li class="chapter-item expanded "><a href="programming/states.html"><strong aria-hidden="true">2.2.9.</strong> States</a></li><li class="chapter-item expanded "><a href="programming/run-criteria.html"><strong aria-hidden="true">2.2.10.</strong> Run Criteria</a></li><li class="chapter-item expanded "><a href="programming/labels.html"><strong aria-hidden="true">2.2.11.</strong> Labels</a></li></ol></li><li class="chapter-item expanded "><a href="programming/_advanced.html"><strong aria-hidden="true">2.3.</strong> Advanced</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="programming/stages.html"><strong aria-hidden="true">2.3.1.</strong> Stages</a></li><li class="chapter-item expanded "><a href="programming/world-exclusive.html"><strong aria-hidden="true">2.3.2.</strong> Direct World/ECS Access</a></li><li class="chapter-item expanded "><a href="programming/non-send.html"><strong aria-hidden="true">2.3.3.</strong> Non-Send Resources</a></li><li class="chapter-item expanded "><a href="programming/run-criteria-loop.html"><strong aria-hidden="true">2.3.4.</strong> Looping Run Criteria</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="features/_index.html"><strong aria-hidden="true">3.</strong> Bevy Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="features/transforms.html"><strong aria-hidden="true">3.1.</strong> Transforms and Coordinates</a></li><li class="chapter-item expanded "><a href="features/assets.html"><strong aria-hidden="true">3.2.</strong> Assets</a></li><li class="chapter-item expanded "><a href="features/input-handling.html"><strong aria-hidden="true">3.3.</strong> Input Handling</a></li><li class="chapter-item expanded "><a href="features/camera.html"><strong aria-hidden="true">3.4.</strong> Cameras</a></li><li class="chapter-item expanded "><a href="features/fixed-timestep.html"><strong aria-hidden="true">3.5.</strong> Fixed Timestep</a></li></ol></li><li class="chapter-item expanded "><a href="pitfalls/_index.html"><strong aria-hidden="true">4.</strong> Common Pitfalls</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="pitfalls/into-system.html"><strong aria-hidden="true">4.1.</strong> Error adding function as system</a></li><li class="chapter-item expanded "><a href="pitfalls/frame-delay.html"><strong aria-hidden="true">4.2.</strong> Frame Delays / 1-frame-lag</a></li><li class="chapter-item expanded "><a href="pitfalls/ui-camera.html"><strong aria-hidden="true">4.3.</strong> UI is not displaying</a></li><li class="chapter-item expanded "><a href="pitfalls/performance.html"><strong aria-hidden="true">4.4.</strong> Slow Performance</a></li><li class="chapter-item expanded "><a href="pitfalls/file-formats.html"><strong aria-hidden="true">4.5.</strong> File Format Support</a></li><li class="chapter-item expanded "><a href="pitfalls/time.html"><strong aria-hidden="true">4.6.</strong> Bevy Time vs. Rust/OS time</a></li><li class="chapter-item expanded "><a href="pitfalls/ui-y-up.html"><strong aria-hidden="true">4.7.</strong> UI layout is inverted</a></li></ol></li><li class="chapter-item expanded "><a href="patterns/_index.html"><strong aria-hidden="true">5.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="patterns/generic-systems.html"><strong aria-hidden="true">5.1.</strong> Generic Systems</a></li></ol></li><li class="chapter-item expanded "><a href="cookbook/_index.html"><strong aria-hidden="true">6.</strong> Bevy Cookbook</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cookbook/quit.html"><strong aria-hidden="true">6.1.</strong> Quit the App</a></li><li class="chapter-item expanded "><a href="cookbook/clear-color.html"><strong aria-hidden="true">6.2.</strong> Change the Background Color</a></li><li class="chapter-item expanded "><a href="cookbook/print-framerate.html"><strong aria-hidden="true">6.3.</strong> Show Framerate in Console</a></li><li class="chapter-item expanded "><a href="cookbook/mouse-grab.html"><strong aria-hidden="true">6.4.</strong> Grab the Mouse</a></li><li class="chapter-item expanded "><a href="cookbook/assets-ready.html"><strong aria-hidden="true">6.5.</strong> Track Assets Loading</a></li><li class="chapter-item expanded "><a href="cookbook/cursor2world.html"><strong aria-hidden="true">6.6.</strong> Convert cursor to world coordinates</a></li><li class="chapter-item expanded "><a href="cookbook/custom-projection.html"><strong aria-hidden="true">6.7.</strong> Custom Camera Projection</a></li><li class="chapter-item expanded "><a href="cookbook/pan-orbit-camera.html"><strong aria-hidden="true">6.8.</strong> Pan+Orbit Camera</a></li><li class="chapter-item expanded "><a href="cookbook/print-resources.html"><strong aria-hidden="true">6.9.</strong> List All Resource Types</a></li></ol></li><li class="chapter-item expanded "><a href="platforms/_index.html"><strong aria-hidden="true">7.</strong> Bevy on Different Platforms</a></li><li class="chapter-item expanded affix "><a href="contributing.html">Contributing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="unofficiaw-bevy-cheat-book"><a class="header" href="#unofficiaw-bevy-cheat-book">unofficiaw bevy cheat book</a></h1>
+<p>concise pwacticaw wefewence to the <a href="https://github.com/bevyengine/bevy">bevy game engine</a>.</p>
+<p>covews usefuw syntax, 🥺 featuwes, pwogwamming p-pattewns, òωó a-and sowutions f-fow common game d-devewopment tasks.</p>
+<p>designed to be easy to wead, òωó stwaight t-to the point, o.O u-using simpwe w-wanguage to focus o-on the impowtant i-infowmation.</p>
+<p>whiwe wich in content, OwO this book d-does nyot aim to b-be exhaustive ow c-compwete. 🥺 it
+cannot feasibwy covew evewy featuwe o-of bevy. OwO it is m-my best attempt t-to teach the
+most pwacticawwy-wewevant aspects.</p>
+<p>the book has sevewaw sections:</p>
+<ul>
+<li><a href="./cheatsheet.html">bevy cheatsheet</a>: condensed one-page wisting of common b-bevy syntax a-and featuwes</li>
+<li><a href="./programming/_index.html">bevy pwogwamming</a>: ovewview of pwogwamming in bevy</li>
+<li><a href="./features/_index.html">bevy featuwes</a>: usage nyotes about some common b-bevy featuwes</li>
+<li><a href="./pitfalls/_index.html">common pitfawws</a>: common issues ow suwpwises to watch o-out fow</li>
+<li><a href="./patterns/_index.html">advanced pattewns</a>: nyon-obvious twicks ow techniques; m-may be contwovewsiaw</li>
+<li><a href="./cookbook/_index.html">bevy cookbook</a>: exampwes covewing common pwacticaw u-use cases</li>
+</ul>
+<p>not intended to be wead in owdew. OwO j-jump to nyanievew i-is usefuw to y-you!</p>
+<p><em><strong>wewcome! (ꈍᴗꈍ) may this book sewve you w-weww!</strong></em></p>
+<p>(don't fowget to
+<a class="github-button" href="https://github.com/bevy-cheatbook/bevy-cheatbook" data-icon="octicon-star" aria-label="Star bevy-cheatbook/bevy-cheatbook on GitHub">staw</a></p>
+<p>the book's <a href="https://github.com/bevy-cheatbook/bevy-cheatbook">github wepositowy</a> 😉)</p>
+<h2 id="wecommended-additionaw-wesouwces"><a class="header" href="#wecommended-additionaw-wesouwces">wecommended additionaw wesouwces</a></h2>
+<p>bevy has a wich cowwection of <a href="https://github.com/bevyengine/bevy/tree/latest/examples#examples">officiaw code exampwes</a>.</p>
+<p>check out the <a href="https://github.com/bevyengine/awesome-bevy">awesome-bevy</a> wist,
+fow community-made wesouwces.</p>
+<p>ouw community is vewy fwiendwy and h-hewpfuw. OwO feew w-wewcome to join t-the <a href="https://discord.gg/bevy">bevy
+discowd</a> to chat, (ꈍᴗꈍ) ask questions, ^•ﻌ•^ ow get invowved i-in the pwoject!</p>
+<h2 id="stabiwity-wawning"><a class="header" href="#stabiwity-wawning">stabiwity wawning</a></h2>
+<p>bevy is stiww a vewy nyew and expewimentaw g-game engine! OwO i-it has onwy b-been pubwic
+fow wess than a yeaw!</p>
+<p>whiwe impwovements have been happening a-at an incwedibwe p-pace, OwO and d-devewopment is
+active, (ꈍᴗꈍ) bevy simpwy hasn't yet had t-the time to matuwe.</p>
+<p><em>thewe awe nyo stabiwity guawantees a-and bweaking changes h-happen often!</em></p>
+<p>usuawwy, OwO it nyot hawd to adapt to c-changes with nyew w-weweases (ow e-even twack the
+main git devewopment bwanch), (ꈍᴗꈍ) but y-you have been wawned!</p>
+<h2 id="maintenance"><a class="header" href="#maintenance">maintenance</a></h2>
+<p>this vewsion of the book is fow bevy w-wewease 0.5.</p>
+<p>you may awso access <a href="https://bevy-cheatbook.github.io/next/">the <code>next</code> bwanch</a>.
+it contains any wip effowts to covew n-nyewew devewopments i-in bevy's m-main git
+bwanch, (ꈍᴗꈍ) in pwepawation fow the nyext w-wewease.</p>
+<p>i intend to keep this book up-to-date a-and wewevant w-with evewy nyew b-bevy wewease.
+i awso twy to weguwawwy make genewaw i-impwovements t-to it, OwO when i can m-manage it.</p>
+<h2 id="wicense"><a class="header" href="#wicense">wicense</a></h2>
+<p>copywight © 2021 jasen bowisov.</p>
+<p>aww code in the book is pwovided u-undew the <a href="https://github.com/bevy-cheatbook/mit-0">mit-0 wicense</a>.</p>
+<p>the text of the book is pwovided u-undew <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">cc by-nc-sa 4.0</a>.</p>
+<p>exception: if used fow the puwpose o-of contwibution t-to the officiaw b-bevy pwoject
+and/ow its officiaw documentation, OwO t-the entiwe content o-of the book m-may be used
+undew the <a href="https://github.com/bevy-cheatbook/mit-0">mit-0 wicense</a>.</p>
+<h2 id="contwibutions"><a class="header" href="#contwibutions">contwibutions</a></h2>
+<p>devewopment of the book is hosted o-on <a href="https://github.com/bevy-cheatbook/bevy-cheatbook">github</a>.</p>
+<p>pwease fiwe github issues fow any w-wwong/confusing/misweading i-infowmation, OwO a-as
+weww as suggestions fow nyew content y-you'd wike to b-be added to the b-book.</p>
+<p>contwibutions awe accepted, (ꈍᴗꈍ) with s-some wimitations.</p>
+<p>see the <a href="./contributing.html">contwibuting</a> section fow aww the detaiws.</p>
+<h2 id="suppowt-bevy"><a class="header" href="#suppowt-bevy">suppowt bevy</a></h2>
+<p>if you wike the bevy game engine, OwO y-you shouwd considew d-donating to t-the officiaw
+pwoject, XD using <a href="https://github.com/sponsors/cart">github sponsows</a>. XD hewp it be
+sustainabwe!</p>
+<h1 id="bevy-cheatsheet"><a class="header" href="#bevy-cheatsheet">bevy cheatsheet</a></h1>
+<p>condensed singwe-page wisting of c-common bevy featuwes a-and syntax.</p>
+<p>bookmawk this page in youw bwowsew, OwO f-fow a quick wefewence w-when wowking w-with bevy!</p>
+<p>intended fow peopwe who awe famiwiaw w-with the concepts.</p>
+<p>if you awe nyew to bevy ow nyeed a-a wefweshew, ^•ﻌ•^ cwick o-on the &quot;[expwain]&quot; winks nyeaw
+each featuwe, ^•ﻌ•^ to go to the fuww page a-about the featuwe, OwO i-in the
+<a href="./programming/_index.html">bevy pwogwamming</a> chaptew!</p>
+<hr />
+<h2 id="tabwe-of-contents"><a class="header" href="#tabwe-of-contents">tabwe of contents</a></h2>
+<p>awphabeticaw index of bevy featuwes c-covewed on this p-page.</p>
+<p>|topic | definition |
+|------|------------|
+|<a href="cheatsheet.html#app-builder">app buiwdew</a> | bevy entwy point; setup aww the t-things to wun. (ꈍᴗꈍ) |
+|<a href="cheatsheet.html#assets">assets</a> | woad extewnaw fiwes into the game. &gt;<em>&lt; |
+|<a href="cheatsheet.html#change-detection">change detection</a> | wwite wogic that wesponds to data b-being changed. (ꈍᴗꈍ) |
+|<a href="cheatsheet.html#commands">commands</a> | spawn/despawn entities, ^•ﻌ•^ manage c-components and w-wesouwces. OwO |
+|<a href="cheatsheet.html#entities-and-components">components</a> | basic data pwimitive in bevy. |
+|<a href="cheatsheet.html#entities-and-components">entities</a> | id fow a set of component vawues. &gt;</em>&lt; |
+|<a href="cheatsheet.html#events">events</a> | communicate between systems. (ꈍᴗꈍ) send/weceive d-data. ^•ﻌ•^ |
+|<a href="cheatsheet.html#labels">wabews</a> | nyames fow systems, (ꈍᴗꈍ) stages, and o-othew things. ^•ﻌ•^ |
+|<a href="cheatsheet.html#local-resources">wocaw wesouwces</a> | pew-system data. XD |
+|<a href="cheatsheet.html#parentchild-hierarchy">pawent/chiwd hiewawchy</a> | entities in a hiewawchy. &gt;<em>&lt; |
+|<a href="cheatsheet.html#plugins">pwugins</a> | use the app buiwdew in a moduwaw w-way. (ꈍᴗꈍ) |
+|<a href="cheatsheet.html#queries">quewies</a> | access component data; find matching e-entities. (ꈍᴗꈍ) |
+|<a href="cheatsheet.html#query-sets">quewy sets</a> | wesowve quewy confwicts. &gt;</em>&lt; |
+|<a href="cheatsheet.html#resources">wesouwces</a> | gwobaw data fow the whowe app. &gt;<em>&lt; |
+|<a href="cheatsheet.html#app-builder">stages</a> | hawd synchwonization points fow w-wuntime scheduwing. (ꈍᴗꈍ) |
+|<a href="cheatsheet.html#states">states</a> | muwtipwe &quot;modes&quot; fow youw appwication. &gt;</em>&lt; |
+|<a href="cheatsheet.html#systems">systems</a> | the functions that contain youw g-game wogic. |
+|<a href="cheatsheet.html#system-chaining">system chaining</a> | combine muwtipwe wust functions i-into one big system. (ꈍᴗꈍ) |
+|<a href="cheatsheet.html#system-order">system owdew</a> | contwow the wuntime owdew of execution o-of systems. (ꈍᴗꈍ) |
+|<a href="cheatsheet.html#transforms">twansfowms</a> | position and owientation of an o-object in the game w-wowwd. ^•ﻌ•^ |</p>
+<hr />
+<h2 id="systems"><a class="header" href="#systems">systems</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/systems.html">expwain</a>]</p>
+<p>weguwaw wust functions, ^•ﻌ•^ but can onwy a-accept pawametews t-that impwement <a href="https://docs.rs/bevy/0.5.0/bevy/ecs/system/trait.SystemParam.html">twait <code>SystemParam</code></a>.</p>
+<p>the standawd system pawametew types p-pwovided by bevy:</p>
+<ul>
+<li><code>Commands</code></li>
+<li><code>Res&lt;T&gt;</code> / <code>ResMut&lt;T&gt;</code></li>
+<li><code>Option&lt;Res&lt;T&gt;&gt;</code> / <code>Option&lt;ResMut&lt;T&gt;&gt;</code></li>
+<li><code>Local&lt;T&gt;</code></li>
+<li><code>EventReader&lt;T&gt;</code></li>
+<li><code>EventWriter&lt;T&gt;</code></li>
+<li><code>Query&lt;T, F = ()&gt;</code>; can contain tupwes of up to 15 t-types</li>
+<li><code>QuerySet</code> with up to 4 quewies</li>
+<li><code>NonSend&lt;T&gt;</code> / <code>NonSendMut&lt;T&gt;</code></li>
+<li><code>Entities</code></li>
+<li><code>Components</code></li>
+<li><code>Bundles</code></li>
+<li><code>Archetypes</code></li>
+<li><code>RemovedComponents&lt;T&gt;</code></li>
+<li><code>Arc&lt;parking_lot::Mutex&lt;Commands&gt;&gt;</code></li>
+<li><code>DrawContext</code></li>
+<li>tupwes containing any of these types, ^•ﻌ•^ w-with up to 16 m-membews</li>
+</ul>
+<p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe, gwoup
+them into tupwes to wowk awound the w-wimit.</p>
+<h2 id="entities-and-components"><a class="header" href="#entities-and-components">entities and components</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/ec.html">expwain</a>]</p>
+<p>any wust type (<code>struct</code> ow <code>enum</code>) can be used as a component.</p>
+<p>an entity is a simpwe integew id f-fow a set of components.</p>
+<p>type must be unique; onwy one instance p-pew type pew e-entity can exist. OwO u-use nyewtypes.</p>
+<p>see <a href="cheatsheet.html#commands"><code>Commands</code></a> fow how to add components to entities a-and spawn e-entities.</p>
+<p>component bundwes:</p>
+<pre><code class="language-rust no_run noplayground">#[dewive(bundwe)]
+stwuct abbundwe {
+    a: componenta, (ꈍᴗꈍ)
+    b-b: componentb, ^•ﻌ•^
+}
+</code></pre>
+<h2 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/res.html">expwain</a>]</p>
+<p>any wust type (<code>struct</code> ow <code>enum</code>) can be used as a wesouwce.</p>
+<p>type must be unique; onwy one instance p-pew type can e-exist. ^•ﻌ•^ use nyewtypes.</p>
+<p>access fwom system:</p>
+<pre><code class="language-rust no_run noplayground">fn my_system(a: wes&lt;mywesouwcea&gt;, ^•ﻌ•^ mut b: wesmut&lt;mywesouwceb&gt;) {
+    // d-do something w-with `a` and `b`
+}
+</code></pre>
+<p>add when <a href="cheatsheet.html#app-builder-main-function">buiwding the app</a>:</p>
+<pre><code class="language-rust no_run noplayground">    fn main() {
+        app::buiwd()
+            // s-specific wesouwce v-vawue
+            .insewt_wesouwce(mywesouwce::new())
+            // a-auto-init u-using `defauwt` o-ow `fwomwowwd`
+            .init_wesouwce::&lt;myautowesouwce&gt;()
+            .wun();
+    }
+</code></pre>
+<p>manage using <a href="cheatsheet.html#commands"><code>Commands</code></a>:</p>
+<pre><code class="language-rust no_run noplayground">    commands.insewt_wesouwce(mydata::defauwt());
+</code></pre>
+<p>fow compwex wesouwce initiawization, (ꈍᴗꈍ) i-impwement <code>FromWorld</code>:</p>
+<pre><code class="language-rust no_run noplayground">impw fwomwowwd fow myfancywesouwce {
+    f-fn fwom_wowwd(wowwd: &amp;mut w-wowwd) -&gt; sewf {
+        // y-you h-have fuww access t-to anything in t-the ecs fwom hewe. σωσ
+
+        // f-fow instance, &gt;_&lt; you c-can mutate othew wesouwces:
+        wet mut x = wowwd.get_wesouwce_mut::&lt;myothewwesouwce&gt;().unwwap();
+        x.do_mut_stuff();
+
+        m-myfancywesouwce { /* stuff */ }
+    }
+}
+</code></pre>
+<h2 id="commands"><a class="header" href="#commands">commands</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/commands.html">expwain</a>]</p>
+<pre><code class="language-rust no_run noplayground">fn manage_entities_components_wesouwces(mut commands: c-commands) {
+    // w-wepwaces a-any existing wesouwce o-of this type
+    c-commands.insewt_wesouwce(mydata::defauwt());
+
+    // c-cweate/spawn a-a nyew e-entity
+    wet id = commands.spawn()
+        // add a bundwe
+        .insewt_bundwe(mybundwe::defauwt())
+        // add a singwe component
+        .insewt(mycomponent::defauwt())
+        // get t-the entity id
+        .id();
+
+    // showthand syntax fow using a-a bundwe
+    commands.spawn_bundwe(mybundwe::defauwt())
+        .insewt(extwacomponent);
+
+    // a-add components to existing entity
+    commands.entity(id)
+        .insewt_bundwe(mybundwe::defauwt())
+        .insewt(mycomponent::defauwt());
+
+    // wemove c-components fwom entity
+    commands.entity(id)
+        .wemove::&lt;mycomponent&gt;()
+        .wemove_bundwe::&lt;mybundwe&gt;();
+
+    // d-despawn an entity
+    c-commands.entity(id).despawn();
+}
+</code></pre>
+<p>these actions awe appwied at the e-end of the stage.</p>
+<h2 id="quewies"><a class="header" href="#quewies">quewies</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/queries.html">expwain</a>]</p>
+<p>itewate aww matching entities:</p>
+<pre><code class="language-rust no_run noplayground">fn my_system(
+    mut quewy: quewy&lt;(entity, (ˆ ﻌ ˆ)♡ &amp;componenta, (⑅˘꒳˘) &amp;mut c-componentb, (U ᵕ U❁) o-option&lt;&amp;mut c-componentc&gt;)&gt;
+) {
+    // o-opewate o-on aww matching e-entities
+    f-fow (entity, -.- a-a, ^^;; mut b, c) in quewy.itew_mut() {
+        // do something with `a` and `b`; `entity` i-is the entity id
+        if wet some(mut c) = c-c {
+            // do something w-with `c` if it exists
+        }
+    }
+}
+</code></pre>
+<p>ow, (ꈍᴗꈍ) if expecting the quewy to match o-onwy one entity (wetuwns <code>Result</code>):</p>
+<pre><code class="language-rust no_run noplayground">    wet (a, 🥺 mut b) = quewy.singwe_mut()
+        .expect(&quot;thewe s-shouwd o-onwy be one e-entity with a and b-b!&quot;);
+</code></pre>
+<p>to opewate on a specific entity:</p>
+<pre><code class="language-rust no_run noplayground">    if wet ok((a, o.O mut b)) = quewy.get_mut(entity) {
+        // d-do s-something with `a` a-and `b`
+    } e-ewse {
+        // e-entity does n-nyot match the quewy
+    }
+</code></pre>
+<p>add quewy fiwtews:</p>
+<pre><code class="language-rust no_run noplayground">fn with_fiwtew(quewy: quewy&lt;&amp;mydata, (⑅˘꒳˘) (without&lt;componenta&gt;, ( ͡o ω ͡o ) o-ow&lt;(with&lt;foo&gt;, UwU w-with&lt;baw&gt;)&gt;)&gt;) {
+    // o-onwy get `data` f-fow entities that m-match the fiwtew c-cwitewia
+    f-fow data in quewy.itew() {
+        // u-use data
+    }
+}
+</code></pre>
+<h2 id="change-detection"><a class="header" href="#change-detection">change detection</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/change-detection.html">expwain</a>]</p>
+<p>quewy fiwtews:</p>
+<ul>
+<li><code>Added&lt;T&gt;</code>: detect adding new components to e-existing entities</li>
+<li><code>Changed&lt;T&gt;</code>: detect when a component is modified</li>
+</ul>
+<pre><code class="language-rust no_run noplayground">fn with_change_detection(quewy: quewy&lt;&amp;mydata, òωó changed&lt;mydata&gt;&gt;) {
+    // o-onwy get `data` i-if it changed
+    f-fow data i-in quewy.itew() {
+        // u-use data
+    }
+}
+</code></pre>
+<p>change detection is twiggewed by <code>DerefMut</code>. &gt;_&lt; accessing components via a mutabwe
+quewy without it actuawwy being a <code>&amp;mut</code> access, XD wiww <em>not</em> twiggew it.</p>
+<p>bewawe of <a href="./pitfalls/frame-delay.html">fwame deway / 1-fwame-wag</a>. XD you may want
+to use <a href="cheatsheet.html#system-order">expwicit system owdewing</a>.</p>
+<h2 id="quewy-sets"><a class="header" href="#quewy-sets">quewy sets</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/query-sets.html">expwain</a>]</p>
+<pre><code class="language-rust no_run noplayground">fn confwicting_quewies(
+    mut set: q-quewyset&lt;(
+        // t-these q-quewies cannot be u-used at the same t-time, (⑅˘꒳˘) due to m-mutabiwity confwict
+        q-quewy&lt;&amp;mut m-mydata, (U ᵕ U❁) with&lt;componenta&gt;&gt;, -.-
+        quewy&lt;&amp;mut mydata, ^^;; with&lt;componentb&gt;&gt;,
+    )&gt;, &gt;_&lt;
+) {
+    fow data in set.q0_mut().itew_mut() {
+        // access `data` of e-entities that match the fiwst quewy
+    }
+    f-fow data in set.q1_mut().itew_mut() {
+        // access `data` of e-entities that match the second quewy
+    }
+}
+</code></pre>
+<h2 id="events"><a class="header" href="#events">events</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/events.html">expwain</a>]</p>
+<pre><code class="language-rust no_run noplayground">stwuct myevent;
+
+fn sendew(mut wwitew: e-eventwwitew&lt;myevent&gt;) {
+    w-wwitew.send(myevent);
+}
+
+f-fn weceivew(mut w-weadew: e-eventweadew&lt;myevent&gt;) {
+    fow e-event in weadew.itew() {
+        // h-handwe event
+    }
+}
+
+f-fn main() {
+    app::buiwd()
+        .add_event::&lt;myevent&gt;()
+        // ...
+        .wun();
+}
+</code></pre>
+<p>events don't pewsist. OwO they awe stowed u-untiw the end o-of the nyext f-fwame, 🥺 aftew
+which they awe wost. OwO if youw systems d-do nyot handwe e-events evewy f-fwame, 🥺 you couwd
+miss some.</p>
+<p>bewawe of <a href="./pitfalls/frame-delay.html">fwame deway / 1-fwame-wag</a>. XD you may want
+to use <a href="cheatsheet.html#system-order">expwicit system owdewing</a>.</p>
+<h2 id="wocaw-wesouwces"><a class="header" href="#wocaw-wesouwces">wocaw wesouwces</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/local.html">expwain</a>]</p>
+<pre><code class="language-rust no_run noplayground">fn with_wocaw(wocaw: wocaw&lt;mydata&gt;) {
+    // `wocaw` i-is an instance o-of `mydata` uniquewy f-fow this s-system
+}
+</code></pre>
+<p>the type must impwement <code>Default</code> ow <code>FromWorld</code>. &gt;_&lt; it is automaticawwy initiawized.</p>
+<h2 id="wabews"><a class="header" href="#wabews">wabews</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/labels.html">expwain</a>]</p>
+<p>wabews can be stwings, OwO ow any othew t-type that impwements t-the wewevant t-twaits.</p>
+<p>fow exampwe, &gt;_&lt; a custom enum type:</p>
+<pre><code class="language-rust no_run noplayground">    // wequiwed twaits:
+    #[dewive(debug, UwU cwone, rawr x3 p-pawtiaweq, eq, rawr h-hash)]
+    #[dewive(stagewabew)] // f-fow stages
+    #[dewive(systemwabew)] // f-fow s-systems
+    #[dewive(wuncwitewiawabew)] // f-fow w-wun cwitewia
+    #[dewive(ambiguitysetwabew)] // f-fow ambiguity sets
+    enum mywabews {
+        input, σωσ
+    }
+</code></pre>
+<h2 id="pwugins"><a class="header" href="#pwugins">pwugins</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/plugins.html">expwain</a>]</p>
+<pre><code class="language-rust no_run noplayground">stwuct mypwugin;
+
+impw pwugin fow m-mypwugin {
+    f-fn buiwd(&amp;sewf, 🥺 a-app: &amp;mut appbuiwdew) {
+        // u-use `app` buiwdew
+    }
+}
+</code></pre>
+<h2 id="app-buiwdew"><a class="header" href="#app-buiwdew">app buiwdew</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/app-builder.html">expwain</a>, rawr x3 <a href="./programming/stages.html">stages</a>]</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    // wabews fow custom s-stages:
+    s-static debug: &amp;stw = &quot;debug&quot;;
+    s-static my_stawt: &amp;stw = &quot;my_stawt&quot;;
+
+    a-app::buiwd()
+        // b-bevy
+        .add_pwugins(defauwtpwugins)
+        // c-custom pwugin
+        .add_pwugin(mypwugin::defauwt())
+        // s-specific w-wesouwce vawue
+        .insewt_wesouwce(mywesouwce::new())
+        // auto-init using `defauwt` ow `fwomwowwd`
+        .init_wesouwce::&lt;myautowesouwce&gt;()
+        // add a custom e-event type:
+        .add_event::&lt;myevent&gt;()
+        // wun once at stawtup:
+        .add_stawtup_system(setup.system())
+        // w-wun each fwame (in `update` s-stage):
+        .add_system(game_update.system())
+        // add custom stage:
+        .add_stage_befowe(cowestage::update, ( ͡o ω ͡o ) my_stawt, systemstage::pawawwew())
+        // sewiaw s-stage (pawawwew system execution d-disabwed)
+        .add_stage_aftew(cowestage::update, rawr x3 d-debug, systemstage::singwe_thweaded())
+        // wun system in specific stage:
+        .add_system_to_stage(debug, nyaa~~ d-debug_system.system())
+        // entew the bevy wuntime
+        .wun();
+
+}
+</code></pre>
+<h2 id="system-owdew"><a class="header" href="#system-owdew">system owdew</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/system-order.html">expwain</a>]</p>
+<p>execution owdew is <em>nondetewministic</em> and may change evewy fwame!</p>
+<p>use <a href="cheatsheet.html#labels">wabews</a> to specify owdew expwicitwy:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    app::buiwd()
+        .add_pwugins(defauwtpwugins)
+        // nyon-detewministic owdew:
+        .add_system(pawticwe_effects.system())
+        // c-cweate wabews, rawr because w-we nyeed t-to owdew othew systems a-awound these:
+        .add_system(map_pwayew_input.system().wabew(mywabews::input))
+        // t-this wiww a-awways wun befowe a-anything with t-the input wabew
+        .add_system(input_pawametews.system().befowe(mywabews::input))
+        // this wiww awways wun aftew anything with the input wabew
+        .add_system(pwayew_movement.system().aftew(mywabews::input))
+        .wun();
+}
+</code></pre>
+<h2 id="states"><a class="header" href="#states">states</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/states.html">expwain</a>]</p>
+<p>app buiwdew with states:</p>
+<pre><code class="language-rust no_run noplayground">#[dewive(debug, σωσ cwone, &gt;_&lt; pawtiaweq, :3 eq, hash)]
+enum m-mystate {
+    mainmenu, (U ﹏ U)
+    i-ingame, -.-
+}
+
+f-fn main() {
+    a-app::buiwd()
+        // a-add the app state t-type
+        .add_state(mystate::mainmenu)
+        // t-this one w-wiww wun wegawdwess of state
+        .add_system(state_independent.system())
+        // add systems to states
+        .add_system_set(
+            systemset::on_entew(mystate::mainmenu)
+                .with_system(setup_menu.system())
+        )
+        .add_system_set(
+            s-systemset::on_exit(mystate::mainmenu)
+                .with_system(cwose_menu.system())
+        )
+        .add_system_set(
+            systemset::on_update(mystate::ingame)
+                .with_system(update_pwayew.system())
+        )
+        .wun();
+}
+</code></pre>
+<p>change ow check states:</p>
+<pre><code class="language-rust no_run noplayground">fn manage_state(mut state: wesmut&lt;state&lt;mystate&gt;&gt;) {
+    i-if *state.cuwwent() == mystate::mainmenu {
+        // f-fixme n-nyew states
+        s-state.set(mystate::ingame).unwwap();
+        // ^ e-ewwow i-if anothew state c-change is pending
+        // o-ow if awweady in the tawget state
+    }
+}
+</code></pre>
+<h2 id="twansfowms"><a class="header" href="#twansfowms">twansfowms</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./features/transforms.html">expwain</a>]</p>
+<p>coowdinate system: +x is wight, 🥺 +y i-is up, òωó +z is out o-of the scween. o.O w-wight-handed. (U ᵕ U❁) 3d m-matches 2d.</p>
+<p>twansfowms consist of: twanswation (coowdinates), (ꈍᴗꈍ) w-wotation, scawe.</p>
+<p>the <code>Transform</code> component is the wewative/wocaw t-twansfowm. ^•ﻌ•^ you may m-modify this diwectwy.</p>
+<p>the <code>GlobalTransform</code> component is the absowute/gwobaw t-twansfowm. 🥺 do not m-modify; intewnawwy m-managed by b-bevy.</p>
+<h2 id="pawentchiwd-hiewawchy"><a class="header" href="#pawentchiwd-hiewawchy">pawent/chiwd hiewawchy</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/parent-child.html">expwain</a>]</p>
+<pre><code class="language-rust no_run noplayground">fn spawn_nested(mut commands: commands) {
+    w-wet p-pawent = commands.spawn_bundwe(mypawentbundwe::defauwt())
+        .with_chiwdwen(|pawent| {
+            p-pawent.spawn_bundwe(mychiwdbundwe::defauwt());
+        }).id();
+
+    // d-despawn a pawent a-and aww its chiwdwen
+    c-commands.entity(pawent).despawn_wecuwsive();
+}
+</code></pre>
+<p>wepawent an existing entity:</p>
+<pre><code class="language-rust no_run noplayground">    commands.entity(pawent).push_chiwdwen(&amp;[chiwd]);
+</code></pre>
+<p>twansfowms: ensuwe both pawent and c-chiwd have both c-components: <code>Transform</code>, rawr x3 <code>GlobalTransform</code>.</p>
+<h2 id="system-chaining"><a class="header" href="#system-chaining">system chaining</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./programming/system-chaining.html">expwain</a>]</p>
+<pre><code class="language-rust no_run noplayground">fn output_system(/* system pawams */) -&gt; m-mydata {
+    m-mydata
+}
+
+fn i-input_system(in(data): i-in&lt;mydata&gt;) {
+    // u-use `data`
+}
+
+f-fn main() {
+    a-app::buiwd()
+        .add_system(output_system.system().chain(input_system.system()))
+        .wun();
+}
+</code></pre>
+<h2 id="assets"><a class="header" href="#assets">assets</a></h2>
+<p><a href="cheatsheet.html#table-of-contents">(back to top)</a> [<a href="./features/assets.html">expwain</a>]</p>
+<p>woad asset:</p>
+<pre><code class="language-rust no_run noplayground">fn asset_setup(sewvew: wes&lt;assetsewvew&gt;) {
+    // w-woad path as an a-asset of specified t-type
+    wet h-handwe: handwe&lt;myassettype&gt; = sewvew.woad(&quot;path/to/asset.fiwe&quot;);
+    // a-autodetect t-type based on f-fiwe extension
+    w-wet untyped = sewvew.woad_untyped(&quot;path/to/fiwe.png&quot;);
+    // woad a whowe fowdew
+    wet handwes = sewvew.woad_fowdew(&quot;path/to/fowdew&quot;);
+}
+</code></pre>
+<p>access assets fwom systems:</p>
+<pre><code class="language-rust no_run noplayground">// stowe the handwe somewhewe (in a-a component ow w-wesouwce)
+stwuct m-myasset(handwe&lt;myassettype&gt;);
+
+f-fn asset_use(assets: w-wes&lt;assets&lt;myassettype&gt;&gt;, &gt;_&lt; my: w-wes&lt;myasset&gt;) {
+    // t-the asset m-might nyot have finished woading yet
+    if wet some(data) = assets.get(&amp;my.0) {
+        // i-it's weady
+    } ewse {
+        // it's nyot weady
+    }
+}
+</code></pre>
+<p>cweate assets fwom code:</p>
+<pre><code class="language-rust no_run noplayground">fn genewate_asset(mut assets: wesmut&lt;assets&lt;myassettype&gt;&gt;) {
+    a-assets.add(myassettype::new());
+}
+</code></pre>
+<p>asset events:</p>
+<pre><code class="language-rust no_run noplayground">fn asset_events(mut weadew: eventweadew&lt;assetevent&lt;myassettype&gt;&gt;) {
+    f-fow event i-in weadew.itew() {
+        m-match e-event {
+            a-assetevent::cweated { h-handwe } =&gt; {
+                // a-asset j-just finished woading
+            }
+            assetevent::modified { handwe } =&gt; {
+                // asset w-was changed
+            }
+            assetevent::wemoved { handwe } =&gt; {
+                // a-asset was unwoaded
+            }
+        }
+    }
+}
+</code></pre>
+<h1 id="intwoduction-to-bevy-pwogwamming"><a class="header" href="#intwoduction-to-bevy-pwogwamming">intwoduction to bevy pwogwamming</a></h1>
+<p>ovewview of pwogwamming in bevy.</p>
+<p>incwudes concise expwanations of e-each cowe concept, OwO w-with exampwe c-code to show how
+it might be used in a game. ^•ﻌ•^ cawe i-is taken to point o-out any impowtant
+considewations fow using each featuwe a-and to wecommend k-known good p-pwactices.</p>
+<p>intended fow peopwe weawning how t-to use bevy.</p>
+<p>if you awe awweady famiwiaw with t-the concepts, check o-out
+<a href="programming/../cheatsheet.html">bevy cheatsheet</a>
+fow a condensed wisting of just the s-syntax + impowtant u-usage nyotes.</p>
+<p>this chaptew is spwit into thwee s-sections:</p>
+<ul>
+<li><a href="programming/./_basics.html">basics</a>: covews the absowute essentiaws y-you nyeed to get s-stawted.</li>
+<li><a href="programming/./_next-steps.html">next steps</a>: the nyext steps. OwO things you wiww w-wikewy nyeed fow n-nyon-twiviaw p-pwojects.</li>
+<li><a href="programming/./_advanced.html">advanced</a>: advanced topics, OwO may be usefuw f-fow speciawized s-scenawios in compwex p-pwojects.</li>
+</ul>
+<h1 id="bevy-programming-basics"><a class="header" href="#bevy-programming-basics">Bevy Programming: Basics</a></h1>
+<p>This sub-chapter covers the absolute essentials of Bevy programming -- the
+minimum concepts you need to get started.</p>
+<p>Every Bevy project, no matter how simple, requires you to be familiar with these
+concepts.</p>
+<p>You could conceivably make something like a simple game-jam game or prototype
+using just the concepts presented in this sub-chapter.</p>
+<p>As your project grows, you will likely quickly run into the need for some of the
+topics in the following <a href="programming/./_next-steps.html">Next Steps sub-chapter</a>.</p>
+<h1 id="ecs-as-a-data-structure"><a class="header" href="#ecs-as-a-data-structure">ECS as a Data Structure</a></h1>
+<p>Bevy stores and manages all your data for you, using the Bevy ECS (Entity-Component System).</p>
+<p>Conceptually, you can think of it by analogy with tables, like in a database or
+spreadsheet. Your different data types (Components) are like the &quot;columns&quot; of a
+table, and there can be arbitrarily many &quot;rows&quot; (Entities) containing values /
+instances of each component.</p>
+<p>For example, you could create a <code>Health</code> component for your game. You could then
+have many entities representing different things in your game, such as the
+player, NPCs, or monsters, all of which can have a <code>Health</code> value (as well as
+other relevant components).</p>
+<p>This makes it easy to write game logic (<a href="programming/./systems.html">Systems</a>) that can
+operate on any entity with the necessary components (such as a health/damage
+system for anything that has <code>Health</code>), regardless of whether that's the player,
+an NPC, or a monster (or anything else). This makes your game logic very
+flexible and reusable.</p>
+<p>The set / combination of components that a given entity has, is called the
+entity's Archetype.</p>
+<p>Note that entities aren't limited to just &quot;objects in the game world&quot;. The ECS
+is a general-purpose data structure. You can create entities and components to
+store any data.</p>
+<h2 id="performance"><a class="header" href="#performance">Performance</a></h2>
+<p>Bevy has a smart scheduling algorithm that runs your systems in parallel as much
+as possible. It does that automatically, when your functions don't require
+conflicting access to the same data. Your game will scale to run on multiple CPU
+cores &quot;for free&quot;; that is, without requiring extra development effort from you.</p>
+<p>To improve the chances for parallelism, you can make your data and code more
+granular. Split your data into smaller types / <code>struct</code>s. Split your logic into
+multiple smaller systems / functions. Have each system access only the data that
+is relevant to it. The fewer access conflicts, the faster your game will run.</p>
+<p>The general rule of thumb for Bevy performance is: more granular is better.</p>
+<h2 id="note-for-programmers-coming-from-object-oriented-languages"><a class="header" href="#note-for-programmers-coming-from-object-oriented-languages">Note for Programmers coming from Object-Oriented Languages</a></h2>
+<p>You may be used to thinking in terms of &quot;object classes&quot;. For example, you might
+be tempted to define a big monolithic <code>struct Player</code> containing all the
+fields / properties of the player.</p>
+<p>In Bevy, this is considered bad practice, because doing it that way can make it
+more difficult to work with your data, and limit performance.</p>
+<p>Instead, you should make things granular, when different pieces of data may be
+accessed independently.</p>
+<p>For example, represent the Player in your game as an entity, composed of
+separate component types (separate <code>struct</code>s) for things like the health, XP, or
+whatever is relevant to your game. You can also attach standard Bevy components
+like <code>Transform</code> to it.</p>
+<p>This will make it easier for you to develop your systems (game logic /
+behaviors), as well as make your game's runtime performance better.</p>
+<p>However, something like a <code>Transform</code>, or a set of coordinates, still makes
+sense as a single <code>struct</code>, because its fields are not likely to be useful
+independently.</p>
+<h1 id="entities"><a class="header" href="#entities">Entities</a></h1>
+<p>Entities are just a simple integer ID, that identifies a particular set of
+component values.</p>
+<h1 id="components"><a class="header" href="#components">Components</a></h1>
+<p>Components are the data associated with entities.</p>
+<p>Any Rust type (<code>struct</code> or <code>enum</code>) can be used as a component.</p>
+<pre><code class="language-rust no_run noplayground">struct Health {
+    hp: f32,
+    extra: f32,
+}
+</code></pre>
+<p>Types must be unique -- an entity can only have one component per Rust type.</p>
+<p>Use wrapper (newtype) structs to make unique components out of simpler types:</p>
+<pre><code class="language-rust no_run noplayground">struct PlayerXp(u32);
+
+struct PlayerName(String);
+</code></pre>
+<p>You can use empty structs to mark specific entities. These are known as &quot;marker
+components&quot;. Useful with <a href="programming/./queries.html#filter-by-component">query filters</a>.</p>
+<pre><code class="language-rust no_run noplayground">/// Add this to all menu ui entities to help identify them
+struct MainMenuUI;
+/// Marker to help identify the player
+struct Player;
+/// Marker for hostiles
+struct Enemy;
+</code></pre>
+<p>Components can be accessed from <a href="programming/./systems.html">systems</a>, using <a href="programming/./queries.html">queries</a>. </p>
+<h1 id="component-bundles"><a class="header" href="#component-bundles">Component Bundles</a></h1>
+<p>Bundles are like &quot;templates&quot;, to make it easy to create entities with a common set of components.</p>
+<pre><code class="language-rust no_run noplayground">#[derive(Bundle)]
+struct PlayerBundle {
+    xp: PlayerXp,
+    name: PlayerName,
+    health: Health,
+    _p: Player,
+
+    // We can nest/include another bundle.
+    // Add the components for a standard Bevy Sprite:
+    #[bundle]
+    sprite: SpriteSheetBundle,
+}
+</code></pre>
+<p>Bevy also considers arbitrary tuples of components as bundles:</p>
+<pre><code>(ComponentA, ComponentB, ComponentC)
+</code></pre>
+<h2 id="common-pitfalls"><a class="header" href="#common-pitfalls">Common Pitfalls</a></h2>
+<p>Because both bundles and individual components are regular Rust structs, Bevy /
+the Rust compiler often has no way to distinguish them.</p>
+<p>If you accidentally use a bundle struct somewhere where Bevy expects a
+component, you will not get an error. Bevy will just treat it as a component of
+that struct type!</p>
+<p>For example, this is why we needed the <code>#[bundle]</code> annotation to include a
+sub-bundle in the example above.</p>
+<p>Other places where this issue may come up are: when using
+<a href="programming/./commands.html"><code>Commands</code></a>, and when <a href="programming/./queries.html">querying</a> (queries <em>only</em>
+work with components!).</p>
+<h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
+<p>Resources allow you to store a single global instance of some data type, independently of entities.</p>
+<p>Use them for data that is truly global for your app, such as configuration / settings.</p>
+<p>Similar to components, any Rust type (<code>struct</code> or <code>enum</code>) can be used as a resource.</p>
+<p>Types must be unique; there can only be one instance of a given type.</p>
+<pre><code class="language-rust no_run noplayground">struct GoalsReached {
+    main_goal: bool,
+    bonus: bool,
+}
+</code></pre>
+<p>Resources can be accessed from <a href="programming/./systems.html">systems</a>, using <code>Res</code>/<code>ResMut</code>.</p>
+<h2 id="resource-initialization"><a class="header" href="#resource-initialization">Resource Initialization</a></h2>
+<p>Implement <code>Default</code> for simple resources:</p>
+<pre><code class="language-rust no_run noplayground">#[derive(Default)]
+struct StartingLevel(usize);
+</code></pre>
+<p>For resources that need complex initialization, implement <code>FromWorld</code>:</p>
+<pre><code class="language-rust no_run noplayground">struct MyFancyResource { /* stuff */ }
+
+impl FromWorld for MyFancyResource {
+    fn from_world(world: &amp;mut World) -&gt; Self {
+        // You have full access to anything in the ECS from here.
+        // For instance, you can mutate other resources:
+        let mut x = world.get_resource_mut::&lt;MyOtherResource&gt;().unwrap();
+        x.do_mut_stuff();
+
+        MyFancyResource { /* stuff */ }
+    }
+}
+</code></pre>
+<p>You can create your resources at <a href="programming/./app-builder.html"><code>App</code> creation</a>:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    App::build()
+        // ...
+
+        // if it implements `Default` or `FromWorld`
+        .init_resource::&lt;MyFancyResource&gt;()
+        // if not, or if you want to set a specific value
+        .insert_resource(StartingLevel(3))
+
+        // ...
+        .run();
+}
+</code></pre>
+<p>Or using <a href="programming/./commands.html"><code>Commands</code></a> from inside a system:</p>
+<pre><code class="language-rust no_run noplayground">commands.insert_resource(GoalsReached { main_goal: false, bonus: false });
+commands.remove_resource::&lt;MyResource&gt;();
+</code></pre>
+<p>If you insert a resource of a type that already exists, it will be overwritten.</p>
+<h2 id="usage-advice"><a class="header" href="#usage-advice">Usage Advice</a></h2>
+<p>The choice of when to use entities/components vs. resources is typically about
+how you want to access the data: globally from anywhere (resources), or using
+ECS patterns (entities/components).</p>
+<p>Even if there is only one of a certain thing in your game (such as the player in
+a single-player game), it can be a good fit to use an entity instead of
+resources, because entities are composed of multiple components, some of which
+can be common with other entities. This can make your game logic more flexible.
+For example, you could have a &quot;health/damage system&quot; that works with both the
+player and enemies.</p>
+<h1 id="systems-1"><a class="header" href="#systems-1">Systems</a></h1>
+<p>Systems are functions you write, which are run by Bevy.</p>
+<p>This is where you implement all your game logic.</p>
+<p>These functions can only take special parameter types, to specify what you need
+access to. <a href="programming/../pitfalls/into-system.html">If you use unsupported parameter types in your function, you will
+get confusing compiler errors!</a></p>
+<p>Some of the options are:</p>
+<ul>
+<li>accessing <a href="programming/./res.html">resources</a> using <code>Res</code>/<code>ResMut</code></li>
+<li>accessing <a href="programming/./ec.html">components of entities</a> using <a href="programming/./queries.html">queries</a></li>
+<li>creating/destroying entities, components, and resources using <a href="programming/./commands.html"><code>Commands</code></a></li>
+<li>sending/receiving <a href="programming/./events.html">events</a> using <code>EventWriter</code>/<code>EventReader</code>.</li>
+</ul>
+<pre><code class="language-rust no_run noplayground">fn debug_start(
+    // access resource
+    start: Res&lt;StartingLevel&gt;
+) {
+    eprintln!(&quot;Starting on level {:?}&quot;, *start);
+}
+</code></pre>
+<p>System parameters can be grouped into tuples (which can be nested). This is
+useful for organization.</p>
+<pre><code class="language-rust no_run noplayground">fn complex_system(
+    (a, mut b): (Res&lt;ResourceA&gt;, ResMut&lt;ResourceB&gt;),
+    // this resource might not exist, so wrap it in an Option
+    mut c: Option&lt;ResMut&lt;ResourceC&gt;&gt;,
+) {
+    if let Some(mut c) = c {
+        // do something
+    }
+}
+</code></pre>
+<p>The maximum number of top-level system parameters, or tuple members, is 11. You
+can group/nest them into tuples, if you need to work around that limitation.</p>
+<h2 id="runtime"><a class="header" href="#runtime">Runtime</a></h2>
+<p>To run your systems, you need to add them to Bevy via the <a href="programming/./app-builder.html">app builder</a>:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    App::build()
+        // ...
+
+        // run it only once at launch
+        .add_startup_system(init_menu.system())
+        .add_startup_system(debug_start.system())
+
+        // run it every frame update
+        .add_system(move_player.system())
+        .add_system(enemies_ai.system())
+
+        // ...
+        .run();
+}
+</code></pre>
+<p>The above is enough for simple projects.</p>
+<p>As your project grows more complex, you might want to enhance your app builder
+with some of the powerful tools that Bevy offers for managing when/how your
+systems run, such as: <a href="programming/./system-order.html">explicit ordering</a> with
+<a href="programming/./labels.html">labels</a>, <a href="programming/./system-sets.html">system sets</a>, <a href="programming/./states.html">states</a>,
+<a href="programming/./run-criteria.html">run criteria</a>, and <a href="programming/./stages.html">stages</a>.</p>
+<h1 id="queries"><a class="header" href="#queries">Queries</a></h1>
+<p>Queries let you access components of entities.</p>
+<pre><code class="language-rust no_run noplayground">fn check_zero_health(
+    // access entities that have `Health` and `Transform` components
+    // get read-only access to `Health` and mutable access to `Transform`
+    // optional component: get access to `Player` if it exists
+    mut query: Query&lt;(&amp;Health, &amp;mut Transform, Option&lt;&amp;Player&gt;)&gt;,
+) {
+    // get all matching entities
+    for (health, mut transform, player) in query.iter_mut() {
+        eprintln!(&quot;Entity at {} has {} HP.&quot;, transform.translation, health.hp);
+
+        // center if hp is zero
+        if health.hp &lt;= 0.0 {
+            transform.translation = Vec3::ZERO;
+        }
+
+        if let Some(player) = player {
+            // the current entity is the player!
+            // do something special!
+        }
+    }
+}
+</code></pre>
+<p>Get the components associated with a specific entity:</p>
+<pre><code class="language-rust no_run noplayground">    if let Ok((health, mut transform)) = query.get_mut(entity) {
+        // do something with the components
+    } else {
+        // the entity does not have the components from the query
+    }
+</code></pre>
+<p>Get the IDs of the entities you access with your queries:</p>
+<pre><code class="language-rust no_run noplayground">// add `Entity` to `Query` to get Entity IDs
+fn query_entities(q: Query&lt;(Entity, /* ... */)&gt;) {
+    for (e, /* ... */) in q.iter() {
+        // `e` is the Entity ID of the entity we are accessing
+    }
+}
+</code></pre>
+<p>If you know that the query should only ever match a single entity, you can use <code>single</code>/<code>single_mut</code> (returns a <code>Result</code>), instead of iterating:</p>
+<pre><code class="language-rust no_run noplayground">fn query_player(mut q: Query&lt;(&amp;Player, &amp;mut Transform)&gt;) {
+    let (player, mut transform) = q.single_mut()
+        .expect(&quot;There should always be exactly one player in the game!&quot;);
+
+    // do something with the player and its transform
+}
+</code></pre>
+<h2 id="bundles"><a class="header" href="#bundles">Bundles</a></h2>
+<p>Queries work with individual components. If you created an entity using a
+<a href="programming/./ec.html#component-bundles">bundle</a>, you need to query for the specific
+components from that bundle that you care about.</p>
+<p>A common beginner mistake is to query for the bundle type!</p>
+<h2 id="query-filters"><a class="header" href="#query-filters">Query Filters</a></h2>
+<p>Add query filters to narrow down the entities you get from the query.</p>
+<p>Use <code>With</code>/<code>Without</code> to only get entities that have specific components.</p>
+<pre><code class="language-rust no_run noplayground">fn debug_player_hp(
+    // access the health, only for friendly players, optionally with name
+    query: Query&lt;(&amp;Health, Option&lt;&amp;PlayerName&gt;), (With&lt;Player&gt;, Without&lt;Enemy&gt;)&gt;,
+) {
+    // get all matching entities
+    for (health, name) in query.iter() {
+        if let Some(name) = name {
+            eprintln!(&quot;Player {} has {} HP.&quot;, name.0, health.hp);
+        } else {
+            eprintln!(&quot;Unknown player has {} HP.&quot;, health.hp);
+        }
+    }
+}
+</code></pre>
+<p>Multiple filters can be combined:</p>
+<ul>
+<li>in a tuple to apply all of them (AND logic)</li>
+<li>using the <code>Or&lt;(...)&gt;</code> wrapper to detect any of them (OR logic).
+<ul>
+<li>(note the tuple inside)</li>
+</ul>
+</li>
+</ul>
+<h1 id="commands-1"><a class="header" href="#commands-1">Commands</a></h1>
+<p>Use <code>Commands</code> to spawn/despawn entities, add/remove components on existing entities, manage resources.</p>
+<p>These actions do not take effect immediately; they are queued to be performed later when it is safe to do so. See: <a href="programming/./stages.html">stages</a>.</p>
+<p>(if you are not using stages, that means your systems will see them <a href="programming/../pitfalls/frame-delay.html">on the next frame update</a>)</p>
+<pre><code class="language-rust no_run noplayground">fn spawn_player(
+    mut commands: Commands,
+) {
+    // manage resources
+    commands.insert_resource(GoalsReached { main_goal: false, bonus: false });
+    commands.remove_resource::&lt;MyResource&gt;();
+
+    // create a new entity using `spawn`
+    let entity_id = commands.spawn()
+        // add a component
+        .insert(ComponentA)
+        // add a bundle
+        .insert_bundle(MyBundle::default())
+        // get the Entity ID
+        .id();
+
+    // shorthand for creating an entity with a bundle
+    commands.spawn_bundle(PlayerBundle {
+        name: PlayerName(&quot;Henry&quot;.into()),
+        xp: PlayerXp(1000),
+        health: Health {
+            hp: 100.0, extra: 20.0
+        },
+        _p: Player,
+        sprite: Default::default(),
+    });
+
+    // spawn another entity
+    // NOTE: tuples of arbitrary components are valid bundles
+    let other = commands.spawn_bundle((
+        ComponentA::default(),
+        ComponentB::default(),
+        ComponentC::default(),
+    )).id();
+
+    // add/remove components of an existing entity
+    commands.entity(entity_id)
+        .insert(ComponentB)
+        .remove::&lt;ComponentA&gt;()
+        .remove_bundle::&lt;MyBundle&gt;();
+
+    // despawn an entity
+    commands.entity(other).despawn();
+}
+
+fn make_all_players_hostile(
+    mut commands: Commands,
+    query: Query&lt;Entity, With&lt;Player&gt;&gt;,
+) {
+    for entity in query.iter() {
+        // add an `Enemy` component to the entity
+        commands.entity(entity).insert(Enemy);
+    }
+}
+</code></pre>
+<p>Be careful not to confuse components and bundles. For example: <code>.insert_bundle</code>
+is correct: it will add all the components from the bundle; if you instead use
+<code>.insert</code> with a bundle type, the bundle struct will be added as a single
+component!</p>
+<h1 id="events-1"><a class="header" href="#events-1">Events</a></h1>
+<p>Send data between systems! Let your systems communicate with each other!</p>
+<p>To send events, use an <code>EventWriter&lt;T&gt;</code>. To receive events, use an <code>EventReader&lt;T&gt;</code>.</p>
+<p>Every reader tracks the events it has read independently, so you can handle the
+same events from multiple systems.</p>
+<pre><code class="language-rust no_run noplayground">struct LevelUpEvent(Entity);
+
+fn player_level_up(
+    mut ev_levelup: EventWriter&lt;LevelUpEvent&gt;,
+    query: Query&lt;(Entity, &amp;PlayerXp)&gt;,
+) {
+    for (entity, xp) in query.iter() {
+        if xp.0 &gt; 1000 {
+            ev_levelup.send(LevelUpEvent(entity));
+        }
+    }
+}
+
+fn debug_levelups(
+    mut ev_levelup: EventReader&lt;LevelUpEvent&gt;,
+) {
+    for ev in ev_levelup.iter() {
+        eprintln!(&quot;Entity {:?} leveled up!&quot;, ev.0);
+    }
+}
+</code></pre>
+<p>You need to add your custom event types via the <a href="programming/./app-builder.html">app builder</a>:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    App::build()
+        // ...
+        .add_event::&lt;LevelUpEvent&gt;()
+        // ...
+        .run();
+}
+</code></pre>
+<p>Events should be your go-to data flow tool. As events can be sent from any
+system and received by multiple systems, they are <em>extremely</em> versatile.</p>
+<h2 id="possible-pitfalls"><a class="header" href="#possible-pitfalls">Possible Pitfalls</a></h2>
+<p>Events don't persist. They are stored until the end of the next frame, after
+which they are lost. If your systems do not handle events every frame, you could
+miss some.</p>
+<p>The advantage of this design is that you don't have to worry about excessive
+memory use from unhandled events.</p>
+<p>Also beware of <a href="programming/../pitfalls/frame-delay.html">frame delay / 1-frame-lag</a>. This can
+occur if Bevy runs the receiving system before the sending system. The receiving
+system will only get a chance to receive the events on the next frame update.</p>
+<p>If you need to ensure that events are handled immediately / during the same frame,
+you can use <a href="programming/./system-order.html">explicit system ordering</a>.</p>
+<h1 id="app-builder-main-function"><a class="header" href="#app-builder-main-function">App Builder (main function)</a></h1>
+<p>To enter the bevy runtime, you need to configure an <code>App</code>, composed of all the
+<a href="programming/./systems.html">systems</a>, <a href="programming/./plugins.html">plugins</a>, <a href="programming/./events.html">event</a> types,
+and <a href="programming/./res.html">resources</a>, that you want to use.</p>
+<p>Everything must be registered in the <code>App</code>, or it will not work.</p>
+<p>Component types and <a href="programming/./local.html">local resources</a> do not need to be registered.</p>
+<p>Resources can also be created later, using <a href="programming/./commands.html"><code>Commands</code></a>.</p>
+<p>You also need to add Bevy's built-in functionality: either <code>DefaultPlugins</code> if
+you are making a full game/app, or <code>MinimalPlugins</code> for something like a
+headless server.</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    App::build()
+        // bevy
+        .add_plugins(DefaultPlugins)
+
+        // resources:
+        .insert_resource(StartingLevel(3))
+        // if it implements `Default` or `FromWorld`
+        .init_resource::&lt;MyFancyResource&gt;()
+
+        // events:
+        .add_event::&lt;LevelUpEvent&gt;()
+
+        // systems to run once at startup:
+        .add_startup_system(spawn_player.system())
+
+        // systems to run each frame:
+        .add_system(player_level_up.system())
+        .add_system(debug_levelups.system())
+        .add_system(debug_stats_change.system())
+        // ...
+
+        // launch the app!
+        .run();
+}
+</code></pre>
+<h1 id="bevy-programming-next-steps"><a class="header" href="#bevy-programming-next-steps">Bevy Programming: Next Steps</a></h1>
+<p>This sub-chapter covers aspects of Bevy programming beyond the absolute basics.</p>
+<p>You could get started building simple things with Bevy before you have
+familiarized yourself with these concepts.</p>
+<p>However, they would probably become useful to you pretty quickly -- you will
+likely need at least some of these features as your project grows in complexity.</p>
+<h1 id="local-resources"><a class="header" href="#local-resources">Local Resources</a></h1>
+<p><code>Local&lt;T&gt;</code> is a system parameter similar to <code>ResMut&lt;T&gt;</code>, which gives you full
+mutable access to an instance of some data type, that is independent from
+entities and components.</p>
+<p><code>Res&lt;T&gt;</code>/<code>ResMut&lt;T&gt;</code> refer to a single global instance of the type, shared
+between all systems. On the other hand, every <code>Local&lt;T&gt;</code> parameter is a separate
+instance, exclusively for that system.</p>
+<pre><code class="language-rust no_run noplayground">fn my_system1(mut local: Local&lt;MyState&gt;) {
+    // you can do anything you want with the local here
+}
+
+fn my_system2(mut local: Local&lt;MyState&gt;) {
+    // the local in this system is a different instance
+}
+</code></pre>
+<p>The type must implement <code>Default</code> or <code>FromWorld</code>. It is automatically initialized.</p>
+<p>A system can have multiple <code>Local</code>s of the same type.</p>
+<h1 id="plugins"><a class="header" href="#plugins">Plugins</a></h1>
+<p>As your project grows, it can be useful to make it more modular. You can split it into plugins.</p>
+<p>Plugins are simply collections of things to be added to the <a href="programming/./app-builder.html">App Builder</a>.</p>
+<pre><code class="language-rust no_run noplayground">struct MyPlugin;
+
+impl Plugin for MyPlugin {
+    fn build(&amp;self, app: &amp;mut AppBuilder) {
+        app
+            .init_resource::&lt;MyOtherResource&gt;()
+            .add_event::&lt;MyEvent&gt;()
+            .add_startup_system(plugin_init.system())
+            .add_system(my_system.system());
+    }
+}
+
+fn main() {
+    App::build()
+        .add_plugins(DefaultPlugins)
+        .add_plugin(MyPlugin)
+        .run();
+}
+</code></pre>
+<p>For internal organization in your own project, the main value of plugins comes
+from not having to declare all your Rust types and functions as <code>pub</code>, just so
+they can be accessible from <code>main</code> to be added to the app builder. Plugins let
+you add things to your app from multiple different places, like separate Rust
+files / modules.</p>
+<p>You can decide how plugins fit into the architecture of your game. Some suggestions:</p>
+<ul>
+<li>Create plugins for different <a href="programming/./states.html">states</a>.</li>
+<li>Create plugins for various sub-systems, like physics or input handling.</li>
+</ul>
+<h2 id="publishing-crates"><a class="header" href="#publishing-crates">Publishing Crates</a></h2>
+<p>Plugins give you a nice way to publish Bevy-based libraries for other people to
+easily include into their projects.</p>
+<p>If you intend to publish plugins as crates for public use, you should read
+<a href="https://github.com/bevyengine/bevy/blob/main/docs/plugins_guidelines.md">the official guidelines for plugin authors</a>.</p>
+<h2 id="plugin-groups"><a class="header" href="#plugin-groups">Plugin groups</a></h2>
+<p>Plugin groups register multiple plugins at once. Bevy's <code>DefaultPlugins</code> and
+<code>MinimalPlugins</code> are examples of this. To create your own plugin group:</p>
+<pre><code class="language-rust no_run noplayground">struct MyPluginGroup;
+
+impl PluginGroup for MyPluginGroup {
+    fn build(&amp;mut self, group: &amp;mut PluginGroupBuilder) {
+        group
+            .add(FooPlugin)
+            .add(BarPlugin);
+    }
+}
+
+fn main() {
+    App::build()
+        .add_plugins(DefaultPlugins)
+        .add_plugins(MyPluginGroup)
+        .run();
+}
+</code></pre>
+<p>When adding a plugin group, you can disable some plugins while keeping the rest.</p>
+<p>For example, if you want to manually set up logging (with your own <code>tracing</code>
+subscriber), you can disable <code>LogPlugin</code>:</p>
+<pre><code class="language-rust no_run noplayground">App::build()
+    .add_plugins_with(DefaultPlugins, |plugins| {
+        plugins.disable::&lt;LogPlugin&gt;()
+    })
+    .run();
+</code></pre>
+<p>Note that this simply disables the functionality, but it cannot actually remove
+the code to avoid binary bloat. The disabled plugins still have to be compiled
+into your program.</p>
+<p>If you want to slim down your build, you should look at disabling Bevy's default
+cargo features, or depending on the various Bevy sub-crates individually.</p>
+<h1 id="system-order-of-execution"><a class="header" href="#system-order-of-execution">System Order of Execution</a></h1>
+<p>Bevy's scheduling algorithm is designed to deliver maximum performance by
+running as many systems as possible in parallel across the available CPU
+threads.</p>
+<p>This is possible when the systems do not conflict over the data they need
+to access. However, when a system needs to have mutable (exclusive) access to a
+piece of data, other systems that need to access the same data cannot be run at
+the same time. Bevy determines all of this information from the system's
+function signature (the types of the parameters it takes).</p>
+<p>In such situations, the order is <em>nondeterministic</em> by default. Bevy takes no
+regard for when each system will run, and the order could even change every frame!</p>
+<h2 id="does-it-even-matter"><a class="header" href="#does-it-even-matter">Does it even matter?</a></h2>
+<p>In many cases, you don't need to worry about this.</p>
+<p>However, sometimes you need to rely on specific systems to run in a particular
+order. For example:</p>
+<ul>
+<li>Maybe the logic you wrote in one of your systems needs any modifications
+done to that data by another system to always happen first?</li>
+<li>One system needs to receive <a href="programming/./events.html">events</a> sent by another system.</li>
+<li>You are using <a href="programming/./change-detection.html">change detection</a>.</li>
+</ul>
+<p>In such situations, systems running in the wrong order typically causes their
+behavior <a href="programming/../pitfalls/frame-delay.html">to be delayed until the next frame</a>. In
+rare cases, depending on your game logic, it may even result in more serious
+logic bugs!</p>
+<p>It is up to you to decide if this is important.</p>
+<p>With many things in typical games, such as juicy visual effects, it probably
+doesn't matter if they get delayed by a frame. It might not be worthwhile to
+bother with it. If you don't care, leaving the order ambiguous may also result
+in better performance.</p>
+<p>On the other hand, for things like handling the player input controls, this
+would result in annoying lag, so you should probably fix it.</p>
+<h2 id="explicit-system-ordering"><a class="header" href="#explicit-system-ordering">Explicit System Ordering</a></h2>
+<p>The solution is to use system <a href="programming/./labels.html">labels</a> to explicitly specify the
+order you want:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    App::build()
+        .add_plugins(DefaultPlugins)
+
+        // order doesn't matter for these systems:
+        .add_system(particle_effects.system())
+        .add_system(npc_behaviors.system())
+        .add_system(enemy_movement.system())
+
+        // create labels, because we need to order other systems around these:
+        .add_system(map_player_input.system().label(&quot;input&quot;))
+        .add_system(update_map.system().label(&quot;map&quot;))
+
+        // this will always run before anything labeled &quot;input&quot;
+        .add_system(input_parameters.system().before(&quot;input&quot;))
+
+        // this will always run after anything labeled &quot;input&quot; and &quot;map&quot;
+        // also label it just in case
+        .add_system(
+            player_movement.system()
+                .label(&quot;player_movement&quot;)
+                .after(&quot;input&quot;)
+                .after(&quot;map&quot;)
+        )
+        .run();
+}
+</code></pre>
+<p>Each label is a reference point that other systems can be ordered around.</p>
+<p><code>.label</code>/<code>.before</code>/<code>.after</code> may be used as many times as you need on one system.</p>
+<p>You can place multiple labels on one system.</p>
+<p>You can also use the same label on multiple systems.</p>
+<p>When you have multiple systems with common labels or ordering, it may be
+convenient to use <a href="programming/./system-sets.html">system sets</a>.</p>
+<h2 id="circular-dependencies"><a class="header" href="#circular-dependencies">Circular Dependencies</a></h2>
+<p>If you have multiple systems mutually depending on each other, then it is
+clearly impossible to resolve the situation completely like that.</p>
+<p>You should try to redesign your game to avoid such situations, or just accept
+the consequences. You can at least make it behave predictably, using explicit
+ordering to specify the order you prefer.</p>
+<p>In really advanced scenarios, if you insist on all affected systems becoming
+settled during the same frame, you might be able to do it using <a href="programming/./run-criteria-loop.html">Looping Run
+Criteria</a> or <a href="programming/./states.html">states</a>.</p>
+<h1 id="system-sets"><a class="header" href="#system-sets">System Sets</a></h1>
+<p>System Sets allow you to easily apply common properties to multiple systems, for
+purposes such as <a href="programming/./labels.html">labeling</a>, <a href="programming/./system-order.html">ordering</a>, <a href="programming/./run-criteria.html">run
+criteria</a>, and <a href="programming/./states.html">states</a>.</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    App::build()
+        .add_plugins(DefaultPlugins)
+
+        // group our input handling systems into a set
+        .add_system_set(
+            SystemSet::new()
+                .label(&quot;input&quot;)
+                .with_system(keyboard_input.system())
+                .with_system(gamepad_input.system())
+        )
+
+        // our &quot;net&quot; systems should run before &quot;input&quot;
+        .add_system_set(
+            SystemSet::new()
+                .label(&quot;net&quot;)
+                .before(&quot;input&quot;)
+                // individual systems can still have
+                // their own labels (and ordering)
+                .with_system(server_session.system().label(&quot;session&quot;))
+                .with_system(server_updates.system().after(&quot;session&quot;))
+        )
+
+        // some ungrouped systems
+        .add_system(player_movement.system().after(&quot;input&quot;))
+        .add_system(session_ui.system().after(&quot;session&quot;))
+        .add_system(smoke_particles.system())
+
+        .run();
+}
+</code></pre>
+<h1 id="hierarchical-parentchild-entities"><a class="header" href="#hierarchical-parentchild-entities">Hierarchical (Parent/Child) Entities</a></h1>
+<p>Technically, the Entities/Components themselves cannot form a hierarchy (it is a
+flat data structure). However, logical hierarchies are a common pattern in games.</p>
+<p>Bevy supports creating such a logical link between entities, to form a virtual
+&quot;hierarchy&quot;, by simply adding <code>Parent</code> and  <code>Children</code> components on the
+respective entities.</p>
+<p><code>Commands</code> has methods for adding children to entities, which automatically add the correct components:</p>
+<pre><code class="language-rust no_run noplayground">// spawn the parent and get its Entity id
+let parent = commands.spawn_bundle(MyParentBundle::default())
+    .id();
+
+// do the same for the child
+let child = commands.spawn_bundle(MyChildBundle::default())
+    .id();
+
+// add the child to the parent
+commands.entity(parent).push_children(&amp;[child]);
+
+// you can also use `with_children`:
+commands.spawn_bundle(MyParentBundle::default())
+    .with_children(|parent| {
+        parent.spawn_bundle(MyChildBundle::default());
+    });
+</code></pre>
+<p>You can despawn an entire hierarchy with a single command:</p>
+<pre><code class="language-rust no_run noplayground">fn close_menu(
+    mut commands: Commands,
+    query: Query&lt;Entity, With&lt;MainMenuUI&gt;&gt;,
+) {
+    for entity in query.iter() {
+        // despawn the entity and its children
+        commands.entity(entity).despawn_recursive();
+    }
+}
+</code></pre>
+<h2 id="accessing-the-parent-or-children"><a class="header" href="#accessing-the-parent-or-children">Accessing the Parent or Children</a></h2>
+<p>To make a system that works with the hierarchy, you typically need two queries:</p>
+<ul>
+<li>one with the components you need from the child entities</li>
+<li>one with the components you need from the parent entities</li>
+</ul>
+<p>One of the two queries should include the appropriate component, to obtain the
+entity ids to use with the other one:</p>
+<ul>
+<li><code>Parent</code> in the child query, if you want to iterate entities and look up
+their parents, or</li>
+<li><code>Children</code> in the parent query, if you want to iterate entities and look up
+their children</li>
+</ul>
+<p>For example, if we want to get the <code>Transform</code> of cameras that have a parent,
+and the <code>GlobalTransform</code> of their parent:</p>
+<pre><code class="language-rust no_run noplayground">fn camera_with_parent(
+    q_child: Query&lt;(&amp;Parent, &amp;Transform), With&lt;Camera&gt;&gt;,
+    q_parent: Query&lt;&amp;GlobalTransform&gt;,
+) {
+    for (parent, child_transform) in q_child.iter() {
+        // `parent` contains the Entity ID we can use
+        // to query components from the parent:
+        let parent_global_transform = q_parent.get(parent.0);
+
+        // do something with the components
+    }
+}
+</code></pre>
+<p>As another example, say we are making a strategy game, and we have Units that are
+children of a Squad. Say we need to make a system that works on each Squad, and it
+needs some information about the children:</p>
+<pre><code class="language-rust no_run noplayground">fn process_squad_damage(
+    q_parent: Query&lt;(&amp;MySquadDamage, &amp;Children)&gt;,
+    q_child: Query&lt;&amp;MyUnitHealth&gt;,
+) {
+    // get the properties of each squad
+    for (squad_dmg, children) in q_parent.iter() {
+        // `children` is a collection of Entity IDs
+        for &amp;child in children.iter() {
+            // get the health of each child unit
+            let health = q_child.get(child);
+
+            // do something
+        }
+    }
+}
+</code></pre>
+<h2 id="relative-transforms"><a class="header" href="#relative-transforms">Relative Transforms</a></h2>
+<p>If your entities represent &quot;objects in the game world&quot;, you probably expect the
+child to be positioned relative to the parent and move with it.</p>
+<p>All Bundles that come with Bevy provide this behavior automatically.</p>
+<p>If you are not using such a bundle, you need to make sure to add these components to both the parent and the child: <code>GlobalTransform</code> and <code>Transform</code>.</p>
+<p>The <code>Transform</code> represents the relative position. You can manipulate it directly.</p>
+<p>The <code>GlobalTransform</code> represents the absolute position. It is managed by bevy internally; do not manipulate it yourself.</p>
+<p>For more info, see the <a href="programming/../features/transforms.html">dedicated page about transforms</a>.</p>
+<h1 id="change-detection-1"><a class="header" href="#change-detection-1">Change Detection</a></h1>
+<p>Bevy allows you to easily detect when data is changed. You can use this to
+perform actions in response to changes.</p>
+<h1 id="components-1"><a class="header" href="#components-1">Components</a></h1>
+<p>Use <a href="programming/./queries.html#query-filters">query filters</a>:</p>
+<ul>
+<li><code>Added&lt;T&gt;</code>: detect new component instances
+<ul>
+<li>if the component was added to an existing entity</li>
+<li>if a new entity with the component was spawned</li>
+</ul>
+</li>
+<li><code>Changed&lt;T&gt;</code>: detect component instances that have been changed
+<ul>
+<li>triggers when the component is accessed mutably</li>
+<li>also triggers if the component is newly-added (as per <code>Added</code>)</li>
+</ul>
+</li>
+</ul>
+<pre><code class="language-rust no_run noplayground">/// Print the stats of friendly players when they change
+fn debug_stats_change(
+    query: Query&lt;
+        // components
+        (&amp;Health, &amp;PlayerXp),
+        // filters
+        (Without&lt;Enemy&gt;, Or&lt;(Changed&lt;Health&gt;, Changed&lt;PlayerXp&gt;)&gt;), 
+    &gt;,
+) {
+    for (health, xp) in query.iter() {
+        eprintln!(
+            &quot;hp: {}+{}, xp: {}&quot;,
+            health.hp, health.extra, xp.0
+        );
+    }
+}
+
+/// detect new enemies and print their health
+fn debug_new_hostiles(
+    query: Query&lt;(Entity, &amp;Health), Added&lt;Enemy&gt;&gt;,
+) {
+    for (entity, health) in query.iter() {
+        eprintln!(&quot;Entity {:?} is now an enemy! HP: {}&quot;, entity, health.hp);
+    }
+}
+</code></pre>
+<p><code>Changed</code> detection is triggered by <code>DerefMut</code>. Simply accessing components via a
+mutable query, without actually performing a <code>&amp;mut</code> access, will <em>not</em> trigger it.</p>
+<p>This makes change detection quite accurate. You can rely on it to optimize
+your game's performance, or to otherwise trigger things to happen.</p>
+<p>Also note that when you mutate a component, Bevy does not track if the new value
+is actually different from the old value. It will always trigger the change
+detection. If you want to avoid that, simply check it yourself:</p>
+<pre><code class="language-rust no_run noplayground">fn update_player_xp(
+    mut query: Query&lt;&amp;mut PlayerXp&gt;,
+) {
+    for mut xp in query.iter_mut() {
+        let new_xp = maybe_lvl_up(&amp;xp);
+
+        // avoid triggering change detection if the value is the same
+        if new_xp != *xp {
+            *xp = new_xp;
+        }
+    }
+}
+</code></pre>
+<p>Change detection is reliable -- it will detect any changes that have occured
+since the last time your detecting system ran. If your system only runs
+sometimes (such as with <a href="programming/./states.html">states</a> or <a href="programming/./run-criteria.html">run criteria</a>),
+you <em>do not</em> have to worry about missing changes.</p>
+<h2 id="possible-pitfalls-1"><a class="header" href="#possible-pitfalls-1">Possible Pitfalls</a></h2>
+<p>Beware of <a href="programming/../pitfalls/frame-delay.html">frame delay / 1-frame-lag</a>. This can
+occur if Bevy runs the detecting system before the changing system. The
+detecting system will see the change the next time it runs, typically on the
+next frame update.</p>
+<p>If you need to ensure that changes are handled immediately / during the same frame,
+you can use <a href="programming/./system-order.html">explicit system ordering</a>.</p>
+<p>However, when detecting component additions with <code>Added&lt;T&gt;</code> (which are typically
+done using <a href="programming/./commands.html"><code>Commands</code></a>), this is not enough; you need <a href="programming/./stages.html">stages</a>.</p>
+<h1 id="system-chaining-1"><a class="header" href="#system-chaining-1">System Chaining</a></h1>
+<p>Systems can take an input and produce an output, and be connected together to
+run as a single larger system (chain).</p>
+<p>Think of this as &quot;glue&quot;, for constructing a larger system out of multiple Rust functions.</p>
+<p>One useful application is to be able to return errors from systems (allowing the
+use of Rust's <code>?</code> operator) and handle them elsewhere:</p>
+<pre><code class="language-rust no_run noplayground">fn net_receive(mut netcode: ResMut&lt;MyNetProto&gt;) -&gt; std::io::Result&lt;()&gt; {
+    netcode.receive_updates()?;
+
+    Ok(())
+}
+
+fn handle_io_errors(In(result): In&lt;std::io::Result&lt;()&gt;&gt;) {
+    if let Err(e) = result {
+        eprintln!(&quot;I/O error occurred: {}&quot;, e);
+    }
+}
+</code></pre>
+<p>Such systems cannot be registered individually (Bevy doesn't know what to do
+with the input/output). You have to connect them in a chain:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    App::build()
+        // ...
+        .add_system(net_receive.system().chain(handle_io_errors.system()))
+        // ...
+        .run();
+}
+</code></pre>
+<p>Chaining effectively constructs a single large system out of modular parts. It
+is <em>not</em> a channel for passing data around. If you want to pass data between
+systems, you probably want to use <a href="programming/./events.html">Events</a> instead.</p>
+<h2 id="performance-warning"><a class="header" href="#performance-warning">Performance Warning</a></h2>
+<p>Beware that Bevy treats the whole chain as if it was a single big system, with
+all the combined resources and queries. This implies that parallelism could be
+limited, affecting performance.</p>
+<p>Avoid adding a system that requires mutable access to anything, as part of
+multiple chains. It would block all affected chains (and other systems accessing
+the same data) from running in parallel.</p>
+<h1 id="query-sets"><a class="header" href="#query-sets">Query Sets</a></h1>
+<p>For safety reasons, a system cannot have multiple queries with mutability conflicts on the same components.</p>
+<p>Bevy provides a solution: wrap them in a <code>QuerySet</code>:</p>
+<pre><code class="language-rust no_run noplayground">fn reset_health(
+    // access the health of enemies and the health of players
+    // (note: some entities could be both!)
+    mut q: QuerySet&lt;(
+        Query&lt;&amp;mut Health, With&lt;Enemy&gt;&gt;,
+        Query&lt;&amp;mut Health, With&lt;Player&gt;&gt;
+    )&gt;,
+) {
+    // set health of enemies
+    for mut health in q.q0_mut().iter_mut() {
+        health.hp = 50.0;
+    }
+
+    // set health of players
+    for mut health in q.q1_mut().iter_mut() {
+        health.hp = 100.0;
+    }
+}
+</code></pre>
+<p>This ensures that only one of the conflicting queries can be used at the same time.</p>
+<p>The maximum number of queries in a query set is 4.</p>
+<h1 id="states-1"><a class="header" href="#states-1">States</a></h1>
+<p>States allow you to structure the runtime &quot;flow&quot; of your app.</p>
+<p>This is how you can implement things like:</p>
+<ul>
+<li>A menu screen or a loading screen</li>
+<li>Pausing / unpausing the game</li>
+<li>Different game modes</li>
+<li>...</li>
+</ul>
+<p>In every state, you can have different systems running. You can also add
+one-shot setup and cleanup systems to run when entering or exiting a state.</p>
+<p>To use states, define an enum type and add <a href="programming/./system-sets.html">system sets</a> to
+your <a href="programming/./app-builder.html">app builder</a>:</p>
+<pre><code class="language-rust no_run noplayground">#[derive(Debug, Clone, Eq, PartialEq, Hash)]
+enum AppState {
+    MainMenu,
+    InGame,
+    Paused,
+}
+
+fn main() {
+    App::build()
+        .add_plugins(DefaultPlugins)
+
+        // add the app state type
+        .add_state(AppState::MainMenu)
+
+        // add systems to run regardless of state, as usual
+        .add_system(play_music.system())
+
+        // systems to run only in the main menu
+        .add_system_set(
+            SystemSet::on_update(AppState::MainMenu)
+                .with_system(handle_ui_buttons.system())
+        )
+
+        // setup when entering the state
+        .add_system_set(
+            SystemSet::on_enter(AppState::MainMenu)
+                .with_system(setup_menu.system())
+        )
+
+        // cleanup when exiting the state
+        .add_system_set(
+            SystemSet::on_exit(AppState::MainMenu)
+                .with_system(close_menu.system())
+        )
+        .run();
+}
+</code></pre>
+<p>It is OK to have multiple system sets for the same state.</p>
+<p>This is useful when you want to place <a href="programming/./labels.html">labels</a> and use <a href="programming/./system-order.html">explicit
+system ordering</a>.</p>
+<p>This can also be useful with <a href="programming/./plugins.html">Plugins</a>. Each plugin can add its
+own set of systems to the same state.</p>
+<p>States are implemented using <a href="programming/./run-criteria.html">run criteria</a> under the hood.
+These special system set constructors are really just helpers to automatically
+add the state management run criteria.</p>
+<h2 id="controlling-states"><a class="header" href="#controlling-states">Controlling States</a></h2>
+<p>Inside of systems, you can check and control the state using the <code>State&lt;T&gt;</code> resource:</p>
+<pre><code class="language-rust no_run noplayground">fn play_music(
+    app_state: Res&lt;State&lt;AppState&gt;&gt;,
+    // ...
+) {
+    match app_state.current() {
+        AppState::MainMenu =&gt; {
+            // TODO: play menu music
+        }
+        AppState::InGame =&gt; {
+            // TODO: play game music
+        }
+        AppState::Paused =&gt; {
+            // TODO: play pause screen music
+        }
+    }
+}
+</code></pre>
+<p>To change to another state:</p>
+<pre><code class="language-rust no_run noplayground">fn enter_game(mut app_state: ResMut&lt;State&lt;AppState&gt;&gt;) {
+    app_state.set(AppState::InGame).unwrap();
+    // ^ this can fail if we are already in the target state
+    // or if another state change is already queued
+}
+</code></pre>
+<p>After the systems of the current state complete, Bevy will transition to the
+next state you set.</p>
+<p>You can do arbitrarily many state transitions in a single frame update. Bevy
+will handle all of them and execute all the relevant systems (before moving on
+to the next <a href="programming/./stages.html">stage</a>).</p>
+<p>(if you are curious about how this is implemented, see <a href="programming/./run-criteria-loop.html">Looping Run
+Criteria</a>)</p>
+<h2 id="state-stack"><a class="header" href="#state-stack">State Stack</a></h2>
+<p>Instead of completely transitioning from one state to another, you can also
+overlay states, forming a stack.</p>
+<p>This is how you can implement things like a &quot;game paused&quot; screen, or an overlay
+menu, with the game world still visible / running in the background.</p>
+<p>You can have some systems that are still running even when the state is
+&quot;inactive&quot; (that is, in the background, with other states running on top).
+You can also add one-shot systems to run when &quot;pausing&quot; or &quot;resuming&quot; the state.</p>
+<p>In your <a href="programming/./app-builder.html">app builder</a>:</p>
+<pre><code class="language-rust no_run noplayground">        // player movement only when actively playing
+        .add_system_set(
+            SystemSet::on_update(AppState::InGame)
+                .with_system(player_movement.system())
+        )
+        // player idle animation while paused
+        .add_system_set(
+            SystemSet::on_inactive_update(AppState::InGame)
+                .with_system(player_idle.system())
+        )
+        // animations both while paused and while active
+        .add_system_set(
+            SystemSet::on_in_stack_update(AppState::InGame)
+                .with_system(animate_trees.system())
+                .with_system(animate_water.system())
+        )
+        // things to do when becoming inactive
+        .add_system_set(
+            SystemSet::on_pause(AppState::InGame)
+                .with_system(hide_enemies.system())
+        )
+        // things to do when becoming active again
+        .add_system_set(
+            SystemSet::on_resume(AppState::InGame)
+                .with_system(reset_player.system())
+        )
+        // setup when first entering the game
+        .add_system_set(
+            SystemSet::on_enter(AppState::InGame)
+                .with_system(setup_player.system())
+                .with_system(setup_map.system())
+        )
+        // cleanup when finally exiting the game
+        .add_system_set(
+            SystemSet::on_exit(AppState::InGame)
+                .with_system(despawn_player.system())
+                .with_system(despawn_map.system())
+        )
+</code></pre>
+<p>To manage states like this, use <code>push</code>/<code>pop</code>:</p>
+<pre><code class="language-rust no_run noplayground">    // to go into the pause screen
+    app_state.push(AppState::Paused).unwrap();
+    // to go back into the game
+    app_state.pop().unwrap();
+</code></pre>
+<p>(using <code>.set</code> as shown before replaces the active state at the top of the stack)</p>
+<h2 id="known-pitfalls-and-limitations"><a class="header" href="#known-pitfalls-and-limitations">Known Pitfalls and Limitations</a></h2>
+<h3 id="combining-with-other-run-criteria"><a class="header" href="#combining-with-other-run-criteria">Combining with Other Run Criteria</a></h3>
+<p>Because states are implemented using run criteria, it is tricky to combine them
+with other uses of run criteria, such as <a href="programming/../features/fixed-timestep.html">fixed timestep</a>.</p>
+<p>If you try to add another run criteria to your system set, it would replace
+Bevy's state-management run criteria! This would make the system set no longer
+constrained to run as part of a state!</p>
+<p>It may still be possible to accomplish such use cases using some trickery.</p>
+<p>(TODO) show an example of how it could be done.</p>
+<h3 id="with-input"><a class="header" href="#with-input">With Input</a></h3>
+<p>If you want to use <code>Input&lt;T&gt;</code> to trigger state transitions using a button/key
+press, you need to clear the input manually by calling <code>.reset</code>:</p>
+<pre><code class="language-rust no_run noplayground">fn esc_to_menu(
+    mut keys: ResMut&lt;Input&lt;KeyCode&gt;&gt;,
+    mut app_state: ResMut&lt;State&lt;AppState&gt;&gt;,
+) {
+    if keys.just_pressed(KeyCode::Escape) {
+        app_state.set(AppState::MainMenu).unwrap();
+        keys.reset(KeyCode::Escape);
+    }
+}
+</code></pre>
+<p>(note that this requires <code>ResMut</code>)</p>
+<p>Not doing this can cause <a href="https://github.com/bevyengine/bevy/issues/1700">issues</a>.</p>
+<h3 id="multiple-stages"><a class="header" href="#multiple-stages">Multiple Stages</a></h3>
+<p>(TODO) move this under the <a href="programming/../patterns/_index.html">Advanced Patterns</a> chapter.</p>
+<p>If you need state-dependent systems in multiple <a href="programming/./stages.html">stages</a>, a workaround is required.</p>
+<p>You must add the state to one stage only, and then call [<code>.get_driver()</code>](TODO
+DOCS.RS) and add that to the other stages before any state-dependent system sets
+in those stages.</p>
+<p>(TODO) example</p>
+<h1 id="run-criteria"><a class="header" href="#run-criteria">Run Criteria</a></h1>
+<p>Run Criteria are a mechanism for controlling if Bevy should run specific
+systems, at runtime. This is how you can make functionality that only runs under
+certain conditions.</p>
+<p>Run Criteria are a lower-level primitive. Bevy provides higher-level
+abstractions on top, such as <a href="programming/./states.html">States</a>. You can use Run Criteria
+without such abstractions, if you really need more direct control.</p>
+<p>Run Criteria can be applied to individual <a href="programming/./systems.html">systems</a>, <a href="programming/./system-sets.html">system sets</a>, and <a href="programming/./stages.html">stages</a>.</p>
+<p>Run Criteria are Bevy systems that return a value of type <a href="https://docs.rs/bevy/0.5.0/bevy/ecs/schedule/enum.ShouldRun.html"><code>enum ShouldRun</code></a>.
+They can accept any system parameters, like a normal system.</p>
+<p>This example shows how run criteria might be used to implement different
+multiplayer modes:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::ecs::schedule::ShouldRun;
+
+#[derive(Debug, PartialEq, Eq)]
+enum MultiplayerKind {
+    Client,
+    Host,
+    Local,
+}
+
+fn run_if_connected(
+    mode: Res&lt;MultiplayerKind&gt;,
+    session: Res&lt;MyNetworkSession&gt;,
+) -&gt; ShouldRun
+{
+    if *mode == MultiplayerKind::Client &amp;&amp; session.is_connected() {
+        ShouldRun::Yes
+    } else {
+        ShouldRun::No
+    }
+}
+
+fn run_if_host(
+    mode: Res&lt;MultiplayerKind&gt;,
+) -&gt; ShouldRun
+{
+    if *mode == MultiplayerKind::Host || *mode == MultiplayerKind::Local {
+        ShouldRun::Yes
+    } else {
+        ShouldRun::No
+    }
+}
+
+fn main() {
+    App::build()
+        .add_plugins(DefaultPlugins)
+
+        // if we are currently connected to a server,
+        // activate our client systems
+        .add_system_set(
+            SystemSet::new()
+                .with_run_criteria(run_if_connected.system())
+                .before(&quot;input&quot;)
+                .with_system(server_session.system())
+                .with_system(fetch_server_updates.system())
+        )
+
+        // if we are hosting the game,
+        // activate our game hosting systems
+        .add_system_set(
+            SystemSet::new()
+                .with_run_criteria(run_if_host.system())
+                .before(&quot;input&quot;)
+                .with_system(host_session.system())
+                .with_system(host_player_movement.system())
+                .with_system(host_enemy_ai.system())
+        )
+
+        // other systems in our game
+        .add_system(smoke_particles.system())
+        .add_system(water_animation.system())
+        .add_system_set(
+            SystemSet::new()
+                .label(&quot;input&quot;)
+                .with_system(keyboard_input.system())
+                .with_system(gamepad_input.system())
+        )
+        .run();
+}
+</code></pre>
+<h2 id="run-criteria-labels"><a class="header" href="#run-criteria-labels">Run Criteria Labels</a></h2>
+<p>If you have multiple systems or system sets that you want to share the same run
+criteria, you can give it a <a href="programming/./labels.html">label</a>.</p>
+<p>When you use a label, Bevy will only execute the run criteria once, remember its
+output, and apply it to everything with the label.</p>
+<pre><code class="language-rust no_run noplayground">#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(RunCriteriaLabel)]
+enum MyRunCriteria {
+    Client,
+    Host,
+}
+
+fn main() {
+    App::build()
+        // ...
+        .add_system_set(
+            SystemSet::new()
+                .with_run_criteria(
+                    // assign it a label
+                    run_if_host.system()
+                        .label(MyRunCriteria::Host)
+                )
+                .with_system(host_session.system())
+                .with_system(host_player_movement.system())
+                .with_system(host_enemy_ai.system())
+        )
+
+        // extra system for debugging the host
+        // it can share our previously-registered run criteria
+        .add_system(host_debug.system()
+            .with_run_criteria(MyRunCriteria::Host)
+        )
+        .run();
+}
+
+</code></pre>
+<p>The run-once property is especially important if you have a complex run criteria
+system that performs mutations or is otherwise non-idempotent.</p>
+<hr />
+<p>(for information about the other <code>ShouldRun</code> values besides <code>Yes</code>/<code>No</code>,
+see <a href="programming/./run-criteria-loop.html">Looping Run Criteria</a>)</p>
+<p>Bevy's <a href="programming/../features/fixed-timestep.html">fixed timestep</a> is also implemented using
+run criteria under the hood.</p>
+<h1 id="labels"><a class="header" href="#labels">Labels</a></h1>
+<p>You need labels to name various things in your app, such as
+<a href="programming/./system-order.html">systems</a>, <a href="programming/./run-criteria.html">run criteria</a>,
+<a href="programming/./stages.html">stages</a>, and ambiguity sets<!-- TODO: add a link -->.</p>
+<p>Bevy uses some clever Rust type system magic, to allow you to use strings
+as well as your own custom types for labels, and even mix them!</p>
+<p>You may use a value of any type as a label, as long as it has the following
+standard Rust traits: <code>Clone + Eq + Hash + Debug</code> (and the implied <code>+ Send + Sync + 'static</code>).</p>
+<p>You need to derive the appropriate trait: <code>StageLabel</code>, <code>SystemLabel</code>, <code>RunCriteriaLabel</code>, or <code>AmbiguitySetLabel</code>.</p>
+<pre><code class="language-rust no_run noplayground">#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(SystemLabel)]
+enum MySystems {
+    InputSet,
+    Movement,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(StageLabel)]
+enum MyStages {
+    Prepare,
+    Cleanup,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(StageLabel)]
+struct DebugStage;
+
+fn main() {
+    App::build()
+        .add_plugins(DefaultPlugins)
+
+        // Add our game systems:
+        .add_system_set(
+            SystemSet::new()
+                .label(MySystems::InputSet)
+                .with_system(keyboard_input.system())
+                .with_system(gamepad_input.system())
+        )
+        .add_system(player_movement.system().label(MySystems::Movement))
+
+        // temporary debug system, let's just use a string label
+        .add_system(debug_movement.system().label(&quot;temp-debug&quot;))
+
+        // Add our custom stages:
+        // note that Bevy's `CoreStage` is an enum just like ours!
+        .add_stage_before(CoreStage::Update, MyStages::Prepare, SystemStage::parallel())
+        .add_stage_after(CoreStage::Update, MyStages::Cleanup, SystemStage::parallel())
+
+        .add_stage_after(CoreStage::Update, DebugStage, SystemStage::parallel())
+
+        // we can just use a string for this one:
+        .add_stage_before(CoreStage::PostUpdate, &quot;temp-debug-hack&quot;, SystemStage::parallel())
+
+        .run();
+}
+</code></pre>
+<p>For quick prototyping, it is convenient to just use strings as labels.</p>
+<p>However, by defining your labels as custom types, the Rust compiler can check
+them for you, and your IDE can auto-complete them. It is the recommended way, as
+it prevents mistakes, and helps you stay organized in larger projects.</p>
+<h1 id="bevy-programming-advanced"><a class="header" href="#bevy-programming-advanced">Bevy Programming: Advanced</a></h1>
+<p>This sub-chapter covers advanced Bevy programming.</p>
+<p>These topics may be useful for specialized scenarios in complex projects.</p>
+<p>Most typical Bevy users are unlikely to need these features.</p>
+<h1 id="stages"><a class="header" href="#stages">Stages</a></h1>
+<p>All systems to be run by Bevy are contained in stages. Every frame update, Bevy
+executes each stage, in order. Within each stage, Bevy's scheduling algorithm
+can run many systems in parallel, using multiple CPU cores for good performance.</p>
+<p>The boundaries between stages are effectively hard synchronization points.
+They ensure that all systems of the previous stage have completed before any
+systems of the next stage begin, and that there is a moment in time when no
+systems are in-progress.</p>
+<p>This makes it possible/safe to apply <a href="programming/./commands.html"><code>Commands</code></a>. Any operations
+performed by systems using <code>Commands</code> are applied at the end of each stage.</p>
+<p>Internally, Bevy has at least these built-in stages: <code>First</code>, <code>PreUpdate</code>, <code>Update</code>, <code>PostUpdate</code>, <code>Last</code>.</p>
+<p>(<a href="programming/./labels.html">labeled</a> with <code>enum CoreStage</code>)</p>
+<p>By default, when you add your systems, they are added to <code>CoreStage::Update</code>.</p>
+<p>Bevy's internal systems are in the other stages, to ensure they are ordered
+correctly relative to your game logic.</p>
+<p>If you want to add your own systems to any of Bevy's internal stages, you need
+to beware of potential unexpected interactions with Bevy's own internal systems.
+Remember: Bevy's internals are implemented using ordinary systems and ECS, just
+like your own stuff!</p>
+<p>You can add your own additional stages. For example, if we want our debug
+systems to run after our game logic:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    // label for our debug stage
+    static DEBUG: &amp;str = &quot;debug&quot;;
+
+    App::build()
+        .add_plugins(DefaultPlugins)
+
+        // add DEBUG stage after Bevy's Update
+        // also make it single-threaded
+        .add_stage_after(CoreStage::Update, DEBUG, SystemStage::single_threaded())
+
+        // systems are added to the `CoreStage::Update` stage by default
+        .add_system(player_gather_xp.system())
+        .add_system(player_take_damage.system())
+
+        // add our debug systems
+        .add_system_to_stage(DEBUG, debug_player_hp.system())
+        .add_system_to_stage(DEBUG, debug_stats_change.system())
+        .add_system_to_stage(DEBUG, debug_new_hostiles.system())
+
+        .run();
+}
+</code></pre>
+<p>If you need to manage when your systems run, relative to one another, it is
+generally preferable to avoid using stages, and to use <a href="programming/./system-order.html">explicit system
+ordering</a> instead. Stages limit parallel execution and the
+performance of your game.</p>
+<p>However, stages can make it easier to organize things, when you really want to
+be sure that all previous systems have completed. Stages are also the only way
+to apply <code>Commands</code>.</p>
+<p>If you have systems that need to rely on the actions that other systems have
+performed by using <code>Commands</code>, and need to do so during the same frame, placing
+those systems into separate stages is the only way to accomplish that.</p>
+<p><a href="programming/../pitfalls/frame-delay.html#commands">More information on avoiding frame delays / 1-frame-lag, when using <code>Commands</code>.</a></p>
+<h1 id="direct-world-access"><a class="header" href="#direct-world-access">Direct World Access</a></h1>
+<p>(This page hasn't been written yet...)</p>
+<h1 id="non-send-resources"><a class="header" href="#non-send-resources">Non-Send Resources</a></h1>
+<p>(This page hasn't been written yet...)</p>
+<h1 id="looping-run-criteria"><a class="header" href="#looping-run-criteria">Looping Run Criteria</a></h1>
+<p>(This page hasn't been written yet...)</p>
+<h1 id="bevy-featuwes"><a class="header" href="#bevy-featuwes">bevy featuwes</a></h1>
+<p>this chaptew covews specific bevy f-featuwes and the k-knowwedge you n-nyeed to use them.</p>
+<p>it does nyot aim to covew aww (ow a-any nyumbew) of b-bevy featuwes. OwO i-instead, this chaptew
+is focused on pwoviding the impowtant i-infowmation a-about the specific f-featuwes, OwO that
+peopwe nyew to bevy may nyeed to k-know, ^•ﻌ•^ to be abwe t-to use bevy effectivewy.</p>
+<p>intended fow peopwe weawning how t-to use bevy.</p>
+<h1 id="transforms-and-coordinates"><a class="header" href="#transforms-and-coordinates">Transforms and Coordinates</a></h1>
+<p>First, a quick definition, if you are new to game development:</p>
+<p>a Transform is what allows you to place an object in the game world. It is a
+combination of the object's &quot;translation&quot; (position/coordinates), &quot;rotation&quot;,
+and &quot;scale&quot; (size adjustment).</p>
+<p>You move objects around by modifying the translation, rotate them by modifying
+the rotation, and make them larger or smaller by modifying the scale.</p>
+<h2 id="bevys-coordinate-system"><a class="header" href="#bevys-coordinate-system">Bevy's Coordinate System</a></h2>
+<p>Bevy uses the same coordinate system for 3D, 2D, and UI, for consistency.</p>
+<p>It is easiest to explain in terms of 2D:</p>
+<ul>
+<li>The X axis goes from left to right (+X points right).</li>
+<li>The Y axis goes from bottom to top (+Y points up).</li>
+<li>The Z axis goes from far to near (+Z points towards you, out of the screen).</li>
+<li>For 2D, the origin (X=0.0; Y=0.0) is at the <em>center of the screen</em> by default.
+<ul>
+<li>For UI, the origin is at the <em>bottom left</em> corner.</li>
+</ul>
+</li>
+</ul>
+<p>When you are working with 2D sprites, you can put the background on Z=0.0, and
+place other sprites at increasing positive Z coordinates to layer them on top.</p>
+<p>In 3D, the axes are oriented the same way.</p>
+<p>This is a right-handed coordinate system.</p>
+<p>It is the same as Godot, Maya, and OpenGL. Compared to Unity, the Z axis is inverted.</p>
+<p>Note: In Bevy, the Y axis always points <em>UP</em>.</p>
+<p>This may feel <a href="features/../pitfalls/ui-y-up.html">unintuitive when working with UI</a> (as it
+is the opposite from web pages), or if you are used to working with 2D libraries
+where the Y axis points down.</p>
+<h2 id="bevys-transforms"><a class="header" href="#bevys-transforms">Bevy's Transforms</a></h2>
+<p>In Bevy, transforms are represented by <em>two</em> <a href="features/../programming/ec.html">components</a>:
+<code>Transform</code> and <code>GlobalTransform</code>. Any <a href="features/../programming/ecs-intro.html">Entity</a> that
+represents an object in the game world needs to have both.</p>
+<p><code>Transform</code> is what you typically work with. It is a <code>struct</code> containing the
+translation, rotation, and scale. To read or manipulate these values, access
+them from your <a href="features/../programming/systems.html">systems</a> using a <a href="features/../programming/queries.html">query</a>.</p>
+<p>If the entity has a <a href="features/../programming/parent-child.html">parent</a>, the <code>Transform</code>
+component is relative to the parent. This means that the child object will
+move/rotate/scale along with the parent.</p>
+<p><code>GlobalTransform</code> represents the absolute global position in the world. If the
+entity does not have a parent, then this will have the same value as the
+<code>Transform</code>. The value of <code>GlobalTransform</code> is calculated/managed internally by
+Bevy. You should treat it as read-only; do not mutate it.</p>
+<h1 id="assets-1"><a class="header" href="#assets-1">Assets</a></h1>
+<p>Bevy has a flexible system for loading and managing your game assets
+asynchronously (in the background, without causing lag spikes in your game).</p>
+<p>The data of your loaded assets is stored in <code>Assets&lt;T&gt;</code> resources.</p>
+<p>Assets are tracked using handles. Handles are just lightweight IDs for specific assets.</p>
+<h2 id="loading-using-assetserver"><a class="header" href="#loading-using-assetserver">Loading using AssetServer</a></h2>
+<p>To load assets from files, use the <code>AssetServer</code> resource.</p>
+<pre><code class="language-rust no_run noplayground">struct UiFont(Handle&lt;Font&gt;);
+
+fn load_ui_font(
+    mut commands: Commands,
+    server: Res&lt;AssetServer&gt;
+) {
+    let handle: Handle&lt;Font&gt; = server.load(&quot;font.ttf&quot;);
+
+    // we can store the handle in a resource:
+    //  - to prevent the asset from being unloaded
+    //  - if we want to use it to access the asset later
+    commands.insert_resource(UiFont(handle));
+}
+</code></pre>
+<p>This queues the asset loading to happen in the background. The asset will take
+some time to become available. You cannot access the actual data immediately in
+the same system, but you can use the handle.</p>
+<p>You can spawn your 2D sprites, 3D models, and UI, using the handle, even before
+the asset has loaded. They will just &quot;pop in&quot; later, when the asset becomes ready.</p>
+<p>Note that it is OK to call <code>asset_server.load</code> as many times as you want, even
+if the asset is currently loading, or already loaded. It will just provide you
+with the same handle. If the asset is unavailable, it will begin loading.</p>
+<h2 id="creating-your-own-assets"><a class="header" href="#creating-your-own-assets">Creating your own assets</a></h2>
+<p>You can also add assets to <code>Assets&lt;T&gt;</code> manually.</p>
+<p>This is useful if you want to create them using code (such as for procedural
+generation), or if you have gotten the data in some other way.</p>
+<pre><code class="language-rust no_run noplayground">fn add_material(
+    mut materials: ResMut&lt;Assets&lt;StandardMaterial&gt;&gt;,
+) {
+    let new_mat = StandardMaterial {
+        base_color: Color::rgba(0.25, 0.50, 0.75, 1.0),
+        unlit: true,
+        ..Default::default()
+    };
+
+    materials.add(new_mat);
+}
+</code></pre>
+<h2 id="handles"><a class="header" href="#handles">Handles</a></h2>
+<p>Handles are the typical way to refer to a particular asset. When you spawn
+things into your game, such as 2D sprites, 3D models, or UI, their respective
+components will need handles for the assets they use.</p>
+<p>You could store your handles somewhere that is convenient for you (such as in
+<a href="features/../programming/res.html">resources</a>).</p>
+<p>If you don't have your handle stored anywhere, you can always generate one from
+a path by calling <code>asset_server.load</code>. You could simply do that whenever you
+need, and not bother storing handles.</p>
+<h2 id="accessing-the-assets"><a class="header" href="#accessing-the-assets">Accessing the Assets</a></h2>
+<p>To access the actual asset data from systems, use the <code>Assets&lt;T&gt;</code> resource.</p>
+<p>You can identify your desired asset, using either the handle or the asset path:</p>
+<pre><code class="language-rust no_run noplayground">struct SpriteSheets {
+    map_tiles: Handle&lt;TextureAtlas&gt;,
+}
+
+fn use_sprites(
+    handles: Res&lt;SpriteSheets&gt;,
+    atlases: Res&lt;Assets&lt;TextureAtlas&gt;&gt;,
+    textures: Res&lt;Assets&lt;Texture&gt;&gt;,
+) {
+    // Could be `None` if the asset isn't loaded yet
+    if let Some(atlas) = atlases.get(&amp;handles.map_tiles) {
+        // do something with the texture atlas
+    }
+
+    // Can use a path instead of a handle
+    if let Some(map_tex) = textures.get(&quot;map.png&quot;) {
+        // if &quot;map.png&quot; was loaded, we can use it!
+    }
+}
+</code></pre>
+<h2 id="assetpath-and-labels"><a class="header" href="#assetpath-and-labels">AssetPath and Labels</a></h2>
+<p>Assets from the filesystem can be identified by an <code>AssetPath</code>, which consists of
+the file path + a label. Labels are used in situations where multiple assets are
+contained in the same file. An example of this are GLTF files, which can contain
+meshes, scenes, textures, materials, etc.</p>
+<p>Asset paths can be created from a string, with the label (if any) attached after a <code>#</code> symbol.</p>
+<pre><code class="language-rust no_run noplayground">fn load_gltf_things(
+    mut commands: Commands,
+    server: Res&lt;AssetServer&gt;
+) {
+    // get a specific mesh
+    let my_mesh: Handle&lt;Mesh&gt; = server.load(&quot;my_scene.gltf#Mesh0/Primitive0&quot;);
+
+    // spawn a whole scene
+    let my_scene: Handle&lt;Scene&gt; = server.load(&quot;my_scene.gltf#Scene0&quot;);
+    commands.spawn_scene(my_scene);
+}
+</code></pre>
+<p>(For GLTF, Bevy will generate labels like <code>Scene0</code> based on the index of each
+object in the file, but if your GLTF file includes names/labels exported from
+your 3D modeling software, Bevy will make those available, too)</p>
+<h2 id="handles-and-asset-lifetime-garbage-collection"><a class="header" href="#handles-and-asset-lifetime-garbage-collection">Handles and Asset Lifetime (Garbage Collection)</a></h2>
+<p>Handles have built-in reference counting (similar to <code>Rc</code>/<code>Arc</code> in Rust). This
+allows Bevy to track if an asset is still needed, and automatically unload it
+when it no longer is.</p>
+<p>You can use <code>.clone()</code> to create multiple handles to the same asset. The clone
+is a cheap operation, but it is explicit, to ensure that you are aware of the
+places in your code that create additional handles and may affect the lifetime
+of assets.</p>
+<h3 id="weak-handles"><a class="header" href="#weak-handles">Weak Handles</a></h3>
+<p>Handles can be &quot;strong&quot; (the default) or &quot;weak&quot;. Only strong handles are counted
+and cause the asset to remain loaded. Weak handles let you refer to an asset,
+while allowing it to be garbage-collected when no more strong handles remain.</p>
+<p>You can create weak handles using <code>.clone_weak()</code> instead of <code>.clone()</code>.</p>
+<h2 id="untyped-handles"><a class="header" href="#untyped-handles">Untyped Handles</a></h2>
+<p>Bevy also has a <code>HandleUntyped</code> type. Use this type of handle if you need to
+be able to refer to any asset, regardless of the asset type.</p>
+<p>This allows you to store a collection (such as <code>Vec</code> or <code>HashMap</code>) containing
+assets of mixed types.</p>
+<p>You can create an untyped handle using <code>.clone_untyped()</code>.</p>
+<h3 id="untyped-loading"><a class="header" href="#untyped-loading">Untyped Loading</a></h3>
+<p>Conveniently, the <code>AssetServer</code> supports untyped loading, if you don't know
+what asset type the files are. You can also load an entire folder:</p>
+<pre><code class="language-rust no_run noplayground">struct ExtraAssets(Vec&lt;HandleUntyped&gt;);
+
+fn load_extra_assets(
+    mut commands: Commands,
+    server: Res&lt;AssetServer&gt;,
+) {
+    if let Ok(handles) = server.load_folder(&quot;extra&quot;) {
+        commands.insert_resource(ExtraAssets(handles));
+    }
+}
+</code></pre>
+<p>It will try to detect the format of each asset based on the file extension.</p>
+<h2 id="assetevent"><a class="header" href="#assetevent">AssetEvent</a></h2>
+<p>If you need to perform specific actions when the asset has finished loading, is
+modified, or removed, you can react to <code>AssetEvent</code>s.</p>
+<pre><code class="language-rust no_run noplayground">struct MapTexture {
+    handle: Handle&lt;Texture&gt;,
+}
+
+fn fixup_textures(
+    mut ev_asset: EventReader&lt;AssetEvent&lt;Texture&gt;&gt;,
+    mut assets: ResMut&lt;Assets&lt;Texture&gt;&gt;,
+    map_tex: Res&lt;MapTexture&gt;,
+) {
+    for ev in ev_asset.iter() {
+        if let AssetEvent::Created { handle } = ev {
+            // a texture was just loaded!
+
+            let texture = assets.get_mut(handle).unwrap();
+            // ^ unwrap is OK, because we know it is loaded now
+
+            if *handle == map_tex.handle {
+                // it is our special map texture!
+            } else {
+                // it is some other texture
+            }
+        }
+    }
+}
+</code></pre>
+<h1 id="input-handling"><a class="header" href="#input-handling">Input Handling</a></h1>
+<p><a href="features/../code/examples/input.rs">Click here to download the example code.</a></p>
+<hr />
+<p>Since bevy resources and events are global and accessible from any system, you
+don't need to centralize your input handling code in one place. You can consume
+any relevant inputs wherever you need them.</p>
+<p>If you simply need to check the current state of specific keyboard keys or mouse buttons:</p>
+<pre><code class="language-rust no_run noplayground">fn my_simple_system(keys: Res&lt;Input&lt;KeyCode&gt;&gt;, btns: Res&lt;Input&lt;MouseButton&gt;&gt;) {
+    // Keyboard input
+    if keys.pressed(KeyCode::Space) {
+        // space is being held down
+    }
+
+    // Mouse buttons
+    if btns.just_pressed(MouseButton::Left) {
+        // a left click just happened
+    }
+}
+</code></pre>
+<p>For more powerful input handling, to detect all activity, use input events:</p>
+<pre><code class="language-rust no_run noplayground">fn my_fancy_system(
+    mut evr_keys: EventReader&lt;KeyboardInput&gt;,
+    mut evr_cursor: EventReader&lt;CursorMoved&gt;,
+    mut evr_motion: EventReader&lt;MouseMotion&gt;,
+    mut evr_mousebtn: EventReader&lt;MouseButtonInput&gt;,
+    mut evr_scroll: EventReader&lt;MouseWheel&gt;,
+    mut evr_touch: EventReader&lt;TouchInput&gt;,
+) {
+    // Keyboard input
+    for ev in evr_keys.iter() {
+        if ev.state.is_pressed() {
+            eprintln!(&quot;Just pressed key: {:?}&quot;, ev.key_code);
+        } else {
+            eprintln!(&quot;Just released key: {:?}&quot;, ev.key_code);
+        }
+    }
+
+    // Absolute cursor position (in window coordinates)
+    for ev in evr_cursor.iter() {
+        eprintln!(&quot;Cursor at: {}&quot;, ev.position);
+    }
+
+    // Relative mouse motion
+    for ev in evr_motion.iter() {
+        eprintln!(&quot;Mouse moved {} pixels&quot;, ev.delta);
+    }
+
+    // Mouse buttons
+    for ev in evr_mousebtn.iter() {
+        if ev.state.is_pressed() {
+            eprintln!(&quot;Just pressed mouse button: {:?}&quot;, ev.button);
+        } else {
+            eprintln!(&quot;Just released mouse button: {:?}&quot;, ev.button);
+        }
+    }
+
+    // scrolling (mouse wheel, touchpad, etc.)
+    for ev in evr_scroll.iter() {
+        eprintln!(&quot;Scrolled vertically by {} and horizontally by {}.&quot;, ev.y, ev.x);
+    }
+
+    // touch input
+    for ev in evr_touch.iter() {
+        eprintln!(&quot;Touch {} in {:?} at {}.&quot;, ev.id, ev.phase, ev.position);
+    }
+}
+</code></pre>
+<h1 id="cameras"><a class="header" href="#cameras">Cameras</a></h1>
+<p>(This page hasn't been written yet...)</p>
+<h1 id="fixed-timestep"><a class="header" href="#fixed-timestep">Fixed Timestep</a></h1>
+<p>(This page hasn't been written yet...)</p>
+<h1 id="common-pitfawws"><a class="header" href="#common-pitfawws">common pitfawws</a></h1>
+<p>this chaptew covews some common issues o-ow suwpwises t-that you might b-be wikewy to
+encountew when wowking with bevy, OwO w-with specific advice a-about how t-to addwess them.</p>
+<h1 id="error-adding-function-as-system"><a class="header" href="#error-adding-function-as-system">Error adding function as system</a></h1>
+<p>You can sometimes get confusing arcane compiler errors when you try to add
+systems to your Bevy app.</p>
+<p>The errors can look like this:</p>
+<pre><code>no method named `system` found for fn item `for&lt;'r, 's&gt; fn(...) {my_system}` in the current scope
+`my_system` is a function, perhaps you wish to call it
+</code></pre>
+<p>This is caused by your function having incompatible parameters. Bevy can only
+accept special types as system parameters.</p>
+<p>You might also errors that look like this:</p>
+<pre><code>the trait bound `Component: WorldQuery` is not satisfied
+the trait `WorldQuery` is not implemented for `Component`
+</code></pre>
+<pre><code>this struct takes at most 2 type arguments but 3 type arguments were supplied
+</code></pre>
+<p>These errors are caused by a malformed query.</p>
+<h2 id="common-beginner-mistakes"><a class="header" href="#common-beginner-mistakes">Common beginner mistakes</a></h2>
+<ul>
+<li>Using <code>&amp;mut Commands</code> (bevy 0.4 syntax) instead of <code>Commands</code>.</li>
+<li>Using <code>Query&lt;MyStuff&gt;</code> instead of <code>Query&lt;&amp;MyStuff&gt;</code> or <code>Query&lt;&amp;mut MyStuff&gt;</code>.</li>
+<li>Using <code>Query&lt;&amp;ComponentA, &amp;ComponentB&gt;</code> instead of <code>Query&lt;(&amp;ComponentA, &amp;ComponentB)&gt;</code> (forgetting the tuple)</li>
+<li>Using your resource types directly without <code>Res</code> or <code>ResMut</code>.</li>
+<li>Using your component types directly without putting them in a <code>Query</code>.</li>
+<li>Using other arbitrary types in your function.</li>
+</ul>
+<p>Note that <code>Query&lt;Entity&gt;</code> is correct, because the Entity ID is special; it is not a component.</p>
+<h2 id="supported-types"><a class="header" href="#supported-types">Supported types</a></h2>
+<p>It can be difficult to figure out what types are supported from the <a href="https://docs.rs/bevy/0.5.0/bevy/ecs/trait.SystemParam.html">API
+docs</a>, so here is a list:</p>
+<p>Only the following types are supported as system parameters:</p>
+<ul>
+<li><code>Commands</code></li>
+<li><code>Res&lt;T&gt;</code> / <code>ResMut&lt;T&gt;</code></li>
+<li><code>Option&lt;Res&lt;T&gt;&gt;</code> / <code>Option&lt;ResMut&lt;T&gt;&gt;</code></li>
+<li><code>Local&lt;T&gt;</code></li>
+<li><code>EventReader&lt;T&gt;</code></li>
+<li><code>EventWriter&lt;T&gt;</code></li>
+<li><code>Query&lt;T, F = ()&gt;</code>; can contain tuples of up to 15 types</li>
+<li><code>QuerySet</code> with up to 4 queries</li>
+<li><code>NonSend&lt;T&gt;</code> / <code>NonSendMut&lt;T&gt;</code></li>
+<li><code>Entities</code></li>
+<li><code>Components</code></li>
+<li><code>Bundles</code></li>
+<li><code>Archetypes</code></li>
+<li><code>RemovedComponents&lt;T&gt;</code></li>
+<li><code>Arc&lt;parking_lot::Mutex&lt;Commands&gt;&gt;</code></li>
+<li><code>DrawContext</code></li>
+<li>tuples containing any of these types, with up to 16 members</li>
+</ul>
+<p>Your function can have a maximum of 16 total parameters. If you need more, group
+them into tuples to work around the limit.</p>
+<p>Note: the tuple/parameter limit used to be 16 (in Bevy 0.4). It was reduced due
+to limitations from the Rust standard library.</p>
+<p>You can nest tuples as much as you want, to avoid running into the limits on the
+maximum numbers of parameters, or simply to organize your parameters into groups.</p>
+<h1 id="avoiding-frame-delays--1-frame-lag"><a class="header" href="#avoiding-frame-delays--1-frame-lag">Avoiding Frame Delays / 1-frame-lag</a></h1>
+<p>(This page hasn't been written yet...)</p>
+<h1 id="i-cant-see-my-ui"><a class="header" href="#i-cant-see-my-ui">I can't see my UI!</a></h1>
+<p>If you are trying to build a UI, but it is not showing on the screen, you
+probably forgot to spawn a UI Camera. The UI Camera is required for Bevy to
+render UI.</p>
+<pre><code class="language-rust no_run noplayground">commands.spawn_bundle(UiCameraBundle::default());
+</code></pre>
+<h1 id="slow-performance"><a class="header" href="#slow-performance">Slow Performance</a></h1>
+<p>(unoptimized debug builds)</p>
+<p>Rust without compiler optimizations is <em>very slow</em>. With Bevy in particular, the default debug build settings will lead to <em>awful</em> runtime performance. Assets are slow to load and FPS is low.</p>
+<p>Common symptoms:</p>
+<ul>
+<li>Loading 3D models from GLB files can take over 20 seconds! This can trick you into thinking that your code is not working, because you will not see anything on the screen until it is ready.</li>
+<li>After spawning some 2D sprites or 3D models, framerate may drop to unplayable levels.</li>
+</ul>
+<p>However, fully-optimized release builds can be slow to compile.</p>
+<p>Solutions:</p>
+<pre><code class="language-toml"># in `Cargo.toml` or `.cargo/config`
+
+# Enable optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package.&quot;*&quot;]
+opt-level = 3
+
+# Maybe also enable only a small amount of optimization for our code:
+[profile.dev]
+opt-level = 1
+</code></pre>
+<h1 id="support-for-loading-different-file-formats"><a class="header" href="#support-for-loading-different-file-formats">Support for loading different file formats</a></h1>
+<p>By default, only a few asset file formats are enabled:</p>
+<ul>
+<li>Images: PNG and HDR</li>
+<li>Audio: MP3</li>
+</ul>
+<p>You can enable more formats with cargo features:</p>
+<ul>
+<li>Images: JPEG, TGA, BMP, DDS</li>
+<li>Audio: FLAC, OGG, WAV</li>
+</ul>
+<pre><code class="language-toml">[dependencies.bevy]
+version = &quot;0.4&quot;
+features = [&quot;jpeg&quot;, &quot;tga&quot;, &quot;bmp&quot;, &quot;dds&quot;, &quot;flac&quot;, &quot;ogg&quot;, &quot;wav&quot;]
+</code></pre>
+<h1 id="bevy-time-vs-rustos-time"><a class="header" href="#bevy-time-vs-rustos-time">Bevy Time vs. Rust/OS time</a></h1>
+<p>Do <em>not</em> use <code>std::time::Instant::now()</code> to get the current time. Use Bevy's
+<code>Res&lt;Time&gt;</code>.</p>
+<p>Rust (and the OS) give you the precise time of the moment you call that
+function. However, that's not what you want.</p>
+<p>Your game systems are run by Bevy's parallel scheduler, which means that they
+could be called at vastly different instants every frame! This will result in
+inconsistent / jittery timings and make your game misbehave or look stuttery.</p>
+<p>Bevy's <code>Time</code> gives you timing information that is correct and consistent. It's
+designed to be used for game logic.</p>
+<p>This is not Bevy-specific, but applies to game development in general. Always
+get your time from your game engine, not from your programming language or
+operating system.</p>
+<h1 id="ui-layout-is-inverted"><a class="header" href="#ui-layout-is-inverted">UI layout is inverted</a></h1>
+<p><a href="pitfalls/../features/transforms.html">In bevy, the Y axis always points <em>UP</em>. When working with UI, the origin is at
+the <em>bottom left</em> corner of the screen.</a></p>
+<p>This means that UI is laid out from bottom to top.</p>
+<p>This is the opposite of the typical behavior of web pages and other UI toolkits,
+where layout works from top to bottom.</p>
+<p>Bevy uses the Flexbox layout model for UI, but unlike in web pages / CSS, the
+vertical axis is inverted.</p>
+<p>Unintuitively, this means that to build UIs that flow from top to bottom, you
+need to use <code>FlexDirection::ColumnReverse</code>.</p>
+<h1 id="advanced-pattewns"><a class="header" href="#advanced-pattewns">advanced pattewns</a></h1>
+<p>this chaptew is about any nyon-obvious t-twicks, pwogwamming t-techniques, OwO o-ow othew
+advanced uses of bevy.</p>
+<p>these topics awe intended fow peopwe a-awweady comfowtabwe w-with <a href="patterns/../programming/_index.html">bevy
+pwogwamming</a>.</p>
+<p>they may ow may not be appwicabwe t-to youw pwoject. OwO t-the things covewed i-in this
+chaptew may be contwovewsiaw ow not u-univewsawwy good p-pwactice. OwO fowm y-youw own
+opinions and use at youw own discwetion.</p>
+<h1 id="generic-systems"><a class="header" href="#generic-systems">Generic Systems</a></h1>
+<p><a href="patterns/../code/examples/generic-systems.rs">Click here to download the code from this page.</a></p>
+<hr />
+<p>Bevy systems are just plain rust functions, which means they can be generic.</p>
+<p>This is especially useful when combined with bevy states. You can do the same thing to different sets of entities depending on state.</p>
+<hr />
+<p>One use-case is for cleanup.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::ecs::component::Component;
+
+/// Marker components to group entities for cleanup
+mod cleanup {
+    pub struct LevelUnload;
+    pub struct MenuExit;
+}
+
+fn cleanup_system&lt;T: Component&gt;(
+    mut commands: Commands,
+    q: Query&lt;Entity, With&lt;T&gt;&gt;,
+) {
+    for e in q.iter() {
+        commands.entity(e).despawn_recursive();
+    }
+}
+</code></pre>
+<p>Menu entities can be tagged with <code>cleanup::MenuExit</code>, entities from the game map can be tagged with <code>cleanup::LevelUnload</code>.</p>
+<p>We can add the generic cleanup system to our state transitions, to take care of the respective entities:</p>
+<pre><code class="language-rust no_run noplayground">#[derive(Debug, Clone, Eq, PartialEq, Hash)]
+enum AppState {
+    MainMenu,
+    InGame,
+}
+
+fn main() {
+    App::build()
+        .add_plugins(DefaultPlugins)
+        .add_state(AppState::MainMenu)
+        // add the cleanup systems
+        .add_system_set(SystemSet::on_exit(AppState::MainMenu)
+            .with_system(cleanup_system::&lt;cleanup::MenuExit&gt;.system()))
+        .add_system_set(SystemSet::on_exit(AppState::InGame)
+            .with_system(cleanup_system::&lt;cleanup::LevelUnload&gt;.system()))
+        .run();
+}
+</code></pre>
+<h1 id="bevy-cookbook"><a class="header" href="#bevy-cookbook">bevy cookbook</a></h1>
+<p>this chaptew shows you how to do v-vawious pwacticaw t-things using bevy.</p>
+<p>indended as a suppwement to bevy's <a href="https://github.com/bevyengine/bevy/tree/latest/examples#examples">officiaw exampwes</a>.</p>
+<p>the exampwes awe wwitten to onwy f-focus on the wewevant i-infowmation f-fow the task at h-hand.</p>
+<p>onwy the wewevant pawts of the code a-awe shown. fuww c-compiwabwe exampwe f-fiwes awe
+avaiwabwe and winked on each page.</p>
+<p>it is assumed that you awe awweady f-famiwiaw with <a href="cookbook/../programming/_index.html">bevy pwogwamming</a>.</p>
+<h1 id="quitting-the-app"><a class="header" href="#quitting-the-app">Quitting the App</a></h1>
+<p><a href="cookbook/../code/examples/quit.rs">Click here for the full example code.</a></p>
+<hr />
+<p>To cleanly shut down bevy, send an <code>AppExit</code> event from any system:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::app::AppExit;
+
+fn exit_system(mut exit: EventWriter&lt;AppExit&gt;) {
+    exit.send(AppExit);
+}
+</code></pre>
+<p>For prototyping, bevy provides a system you can add, to exit on pressing the Esc key:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    App::build()
+        .add_plugins(DefaultPlugins)
+        .add_system(bevy::input::system::exit_on_esc_system.system())
+        .run();
+}
+</code></pre>
+<h1 id="changing-the-background-color"><a class="header" href="#changing-the-background-color">Changing the Background Color</a></h1>
+<p><a href="cookbook/../code/examples/clear-color.rs">Click here for the full example code.</a></p>
+<hr />
+<p>Use the <code>ClearColor</code> resource to choose the background color.</p>
+<p>It must be added before the default plugins.</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    App::build()
+        .insert_resource(ClearColor(Color::rgb(0.4, 0.4, 0.4)))
+        .add_plugins(DefaultPlugins)
+        .run();
+}
+</code></pre>
+<h1 id="show-framerate-in-console"><a class="header" href="#show-framerate-in-console">Show Framerate in Console</a></h1>
+<p><a href="cookbook/../code/examples/print-framerate.rs">Click here for the full example code.</a></p>
+<hr />
+<p>You can use bevy's builtin diagnostics system to print framerate (FPS) to the console, for monitoring performance.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::diagnostic::{FrameTimeDiagnosticsPlugin, LogDiagnosticsPlugin};
+
+fn main() {
+    App::build()
+        .add_plugins(DefaultPlugins)
+        .add_plugin(LogDiagnosticsPlugin::default())
+        .add_plugin(FrameTimeDiagnosticsPlugin::default())
+        .run();
+}
+</code></pre>
+<h1 id="grabbing-the-mouse"><a class="header" href="#grabbing-the-mouse">Grabbing the Mouse</a></h1>
+<p><a href="cookbook/../code/examples/mouse-grab.rs">Click here for the full example code.</a></p>
+<hr />
+<p>You can lock/release the mouse cursor using bevy's <a href="https://github.com/bevyengine/bevy/blob/latest/examples/window/window_settings.rs">window settings API</a>.</p>
+<p>Here is an example that locks and hides the cursor in the primary window on mouse click and releases it when pressing Esc:</p>
+<pre><code class="language-rust no_run noplayground">fn cursor_grab_system(
+    mut windows: ResMut&lt;Windows&gt;,
+    btn: Res&lt;Input&lt;MouseButton&gt;&gt;,
+    key: Res&lt;Input&lt;KeyCode&gt;&gt;,
+) {
+    let window = windows.get_primary_mut().unwrap();
+
+    if btn.just_pressed(MouseButton::Left) {
+        window.set_cursor_lock_mode(true);
+        window.set_cursor_visibility(false);
+    }
+
+    if key.just_pressed(KeyCode::Escape) {
+        window.set_cursor_lock_mode(false);
+        window.set_cursor_visibility(true);
+    }
+}
+</code></pre>
+<h1 id="track-assets-loading"><a class="header" href="#track-assets-loading">Track Assets Loading</a></h1>
+<p><a href="cookbook/../code/examples/assets-ready.rs">Click here for the full example code.</a></p>
+<hr />
+<p>You might want to know when your various assets have all finished loading, and
+take some action, such as exiting your loading screen and starting gameplay.</p>
+<p>To do this, we can convert our various handles to <code>HandleUntyped</code>s, so we
+can add them all into a single collection. Then we can loop over the collection
+and ask the <code>AssetServer</code> about their status.</p>
+<pre><code class="language-rust no_run noplayground">struct AssetsLoading(Vec&lt;HandleUntyped&gt;);
+
+fn setup(
+    server: Res&lt;AssetServer&gt;,
+    mut loading: ResMut&lt;AssetsLoading&gt;,
+) {
+    // we can have different asset types
+    let font: Handle&lt;Font&gt; = server.load(&quot;my_font.ttf&quot;);
+    let menu_bg: Handle&lt;Texture&gt; = server.load(&quot;menu.png&quot;);
+    let scene: Handle&lt;Scene&gt; = server.load(&quot;level01.gltf#Scene0&quot;);
+
+    // add them all to our collection for tracking
+    loading.0.push(font.clone_untyped());
+    loading.0.push(menu_bg.clone_untyped());
+    loading.0.push(scene.clone_untyped());
+}
+
+fn check_assets_ready(
+    server: Res&lt;AssetServer&gt;,
+    loading: Res&lt;AssetsLoading&gt;,
+) {
+    use bevy::asset::LoadState;
+
+    let mut ready = true;
+
+    for handle in loading.0.iter() {
+        match server.get_load_state(handle) {
+            LoadState::Failed =&gt; {
+                // one of our assets had an error
+            }
+            LoadState::Loaded =&gt; {}
+            _ =&gt; {
+                ready = false;
+            }
+        }
+    }
+
+    if !ready {
+        return;
+    }
+
+    // all assets are now ready
+}
+</code></pre>
+<h1 id="convert-cursor-to-world-coordinates"><a class="header" href="#convert-cursor-to-world-coordinates">Convert cursor to world coordinates</a></h1>
+<p><a href="cookbook/../code/examples/cursor2world.rs">Click here for the full example code.</a></p>
+<hr />
+<p>Bevy does not yet provide built-in functions to help with finding out what the cursor is pointing at.</p>
+<h2 id="3d-games"><a class="header" href="#3d-games">3D games</a></h2>
+<p>There is a good (unofficial) plugin: <a href="https://github.com/aevyrie/bevy_mod_picking"><code>bevy_mod_picking</code></a>.</p>
+<h2 id="2d-games"><a class="header" href="#2d-games">2D games</a></h2>
+<p>For a game using the default bevy 2d orthographic camera:</p>
+<pre><code class="language-rust no_run noplayground">/// Used to help identify our main camera
+struct MainCamera;
+
+fn setup(mut commands: Commands) {
+    commands.spawn()
+        .insert_bundle(OrthographicCameraBundle::new_2d())
+        .insert(MainCamera);
+}
+
+fn my_cursor_system(
+    // events to get cursor position
+    mut evr_cursor: EventReader&lt;CursorMoved&gt;,
+    // need to get window dimensions
+    wnds: Res&lt;Windows&gt;,
+    // query to get camera transform
+    q_camera: Query&lt;&amp;Transform, With&lt;MainCamera&gt;&gt;
+) {
+    // assuming there is exactly one main camera entity, so this is OK
+    let camera_transform = q_camera.iter().next().unwrap();
+
+    for ev in evr_cursor.iter() {
+        // get the size of the window that the event is for
+        let wnd = wnds.get(ev.id).unwrap();
+        let size = Vec2::new(wnd.width() as f32, wnd.height() as f32);
+
+        // the default orthographic projection is in pixels from the center;
+        // just undo the translation
+        let p = ev.position - size / 2.0;
+
+        // apply the camera transform
+        let pos_wld = camera_transform.compute_matrix() * p.extend(0.0).extend(1.0);
+        eprintln!(&quot;World coords: {}/{}&quot;, pos_wld.x, pos_wld.y);
+    }
+}
+</code></pre>
+<h1 id="custom-camera-projection"><a class="header" href="#custom-camera-projection">Custom Camera Projection</a></h1>
+<p><a href="cookbook/../code/examples/custom-projection.rs">Click here for the full example code.</a></p>
+<hr />
+<p>Camera with a custom projection (not using one of bevy's standard perspective or orthographic projections).</p>
+<p>Here we implement a simple orthographic projection that maps <code>-1.0</code> to <code>1.0</code> to the vertical axis of the window,
+and respects the window's aspect ratio for the horizontal axis:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::render::camera::{Camera, CameraProjection, DepthCalculation, VisibleEntities};
+
+struct SimpleOrthoProjection {
+    far: f32,
+    aspect: f32,
+}
+
+impl CameraProjection for SimpleOrthoProjection {
+    fn get_projection_matrix(&amp;self) -&gt; Mat4 {
+        Mat4::orthographic_rh(
+            -self.aspect, self.aspect, -1.0, 1.0, 0.0, self.far
+        )
+    }
+
+    // what to do on window resize
+    fn update(&amp;mut self, width: f32, height: f32) {
+        self.aspect = width / height;
+    }
+
+    fn depth_calculation(&amp;self) -&gt; DepthCalculation {
+        // for 2D (camera doesn't rotate)
+        //DepthCalculation::ZDifference
+
+        // otherwise
+        DepthCalculation::Distance
+    }
+}
+
+impl Default for SimpleOrthoProjection {
+    fn default() -&gt; Self {
+        Self { far: 1000.0, aspect: 1.0 }
+    }
+}
+
+fn setup(mut commands: Commands) {
+    // same components as bevy's Camera2dBundle,
+    // but with our custom projection
+
+    let projection = SimpleOrthoProjection::default();
+
+    // Need to set the camera name to one of the bevy-internal magic constants,
+    // depending on which camera we are implementing (2D, 3D, or UI).
+    // Bevy uses this name to find the camera and configure the rendering.
+    // Since this example is a 2d camera:
+
+    let cam_name = bevy::render::render_graph::base::camera::CAMERA_2D;
+
+    let mut camera = Camera::default();
+    camera.name = Some(cam_name.to_string());
+
+    commands.spawn_bundle((
+        // position the camera like bevy would do by default for 2D:
+        Transform::from_translation(Vec3::new(0.0, 0.0, projection.far - 0.1)),
+        GlobalTransform::default(),
+        VisibleEntities::default(),
+        camera,
+        projection,
+    ));
+}
+
+fn main() {
+    // need to add a bevy-internal camera system to update
+    // the projection on window resizing
+
+    use bevy::render::camera::camera_system;
+
+    App::build()
+        .add_plugins(DefaultPlugins)
+        .add_startup_system(setup.system())
+        .add_system_to_stage(
+            CoreStage::PostUpdate,
+            camera_system::&lt;SimpleOrthoProjection&gt;.system(),
+        )
+        .run();
+}
+</code></pre>
+<h1 id="pan--orbit-camera"><a class="header" href="#pan--orbit-camera">Pan + Orbit Camera</a></h1>
+<p><a href="cookbook/../code/examples/pan-orbit-camera.rs">Click here for the full example code.</a></p>
+<hr />
+<p>This code is a community contribution.</p>
+<p>Current version developed by <a href="https://github.com/bevy-cheatbook/bevy-cheatbook/pull/1">@mirenbharta</a>. Initial work by <a href="https://github.com/jamadazi/bevy-cookbook/pull/2">@skairunner</a>.</p>
+<hr />
+<p>This is a camera controller similar to the ones in 3D editors like Blender.</p>
+<p>Use the right mouse button to rotate, middle button to pan, scroll wheel to move inwards/outwards.</p>
+<pre><code class="language-rust no_run noplayground">/// Tags an entity as capable of panning and orbiting.
+struct PanOrbitCamera {
+    /// The &quot;focus point&quot; to orbit around. It is automatically updated when panning the camera
+    pub focus: Vec3,
+    pub radius: f32,
+    pub upside_down: bool,
+}
+
+impl Default for PanOrbitCamera {
+    fn default() -&gt; Self {
+        PanOrbitCamera {
+            focus: Vec3::ZERO,
+            radius: 5.0,
+            upside_down: false,
+        }
+    }
+}
+
+/// Pan the camera with middle mouse click, zoom with scroll wheel, orbit with right mouse click.
+fn pan_orbit_camera(
+    windows: Res&lt;Windows&gt;,
+    mut ev_motion: EventReader&lt;MouseMotion&gt;,
+    mut ev_scroll: EventReader&lt;MouseWheel&gt;,
+    input_mouse: Res&lt;Input&lt;MouseButton&gt;&gt;,
+    mut query: Query&lt;(&amp;mut PanOrbitCamera, &amp;mut Transform, &amp;PerspectiveProjection)&gt;,
+) {
+    // change input mapping for orbit and panning here
+    let orbit_button = MouseButton::Right;
+    let pan_button = MouseButton::Middle;
+
+    let mut pan = Vec2::ZERO;
+    let mut rotation_move = Vec2::ZERO;
+    let mut scroll = 0.0;
+    let mut orbit_button_changed = false;
+
+    if input_mouse.pressed(orbit_button) {
+        for ev in ev_motion.iter() {
+            rotation_move += ev.delta;
+        }
+    } else if input_mouse.pressed(pan_button) {
+        // Pan only if we're not rotating at the moment
+        for ev in ev_motion.iter() {
+            pan += ev.delta;
+        }
+    }
+    for ev in ev_scroll.iter() {
+        scroll += ev.y;
+    }
+    if input_mouse.just_released(orbit_button) || input_mouse.just_pressed(orbit_button) {
+        orbit_button_changed = true;
+    }
+
+    for (mut pan_orbit, mut transform, projection) in query.iter_mut() {
+        if orbit_button_changed {
+            // only check for upside down when orbiting started or ended this frame
+            // if the camera is &quot;upside&quot; down, panning horizontally would be inverted, so invert the input to make it correct
+            let up = transform.rotation * Vec3::Y;
+            pan_orbit.upside_down = up.y &lt;= 0.0;
+        }
+
+        let mut any = false;
+        if rotation_move.length_squared() &gt; 0.0 {
+            any = true;
+            let window = get_primary_window_size(&amp;windows);
+            let delta_x = {
+                let delta = rotation_move.x / window.x * std::f32::consts::PI * 2.0;
+                if pan_orbit.upside_down { -delta } else { delta }
+            };
+            let delta_y = rotation_move.y / window.y * std::f32::consts::PI;
+            let yaw = Quat::from_rotation_y(-delta_x);
+            let pitch = Quat::from_rotation_x(-delta_y);
+            transform.rotation = yaw * transform.rotation; // rotate around global y axis
+            transform.rotation = transform.rotation * pitch; // rotate around local x axis
+        } else if pan.length_squared() &gt; 0.0 {
+            any = true;
+            // make panning distance independent of resolution and FOV,
+            let window = get_primary_window_size(&amp;windows);
+            pan *= Vec2::new(projection.fov * projection.aspect_ratio, projection.fov) / window;
+            // translate by local axes
+            let right = transform.rotation * Vec3::X * -pan.x;
+            let up = transform.rotation * Vec3::Y * pan.y;
+            // make panning proportional to distance away from focus point
+            let translation = (right + up) * pan_orbit.radius;
+            pan_orbit.focus += translation;
+        } else if scroll.abs() &gt; 0.0 {
+            any = true;
+            pan_orbit.radius -= scroll * pan_orbit.radius * 0.2;
+            // dont allow zoom to reach zero or you get stuck
+            pan_orbit.radius = f32::max(pan_orbit.radius, 0.05);
+        }
+
+        if any {
+            // emulating parent/child to make the yaw/y-axis rotation behave like a turntable
+            // parent = x and y rotation
+            // child = z-offset
+            let rot_matrix = Mat3::from_quat(transform.rotation);
+            transform.translation = pan_orbit.focus + rot_matrix.mul_vec3(Vec3::new(0.0, 0.0, pan_orbit.radius));
+        }
+    }
+}
+
+fn get_primary_window_size(windows: &amp;Res&lt;Windows&gt;) -&gt; Vec2 {
+    let window = windows.get_primary().unwrap();
+    let window = Vec2::new(window.width() as f32, window.height() as f32);
+    window
+}
+
+/// Spawn a camera like this
+fn spawn_camera(mut commands: Commands) {
+    let translation = Vec3::new(-2.0, 2.5, 5.0);
+    let radius = translation.length();
+
+    commands.spawn_bundle(PerspectiveCameraBundle {
+        transform: Transform::from_translation(translation)
+            .looking_at(Vec3::ZERO, Vec3::Y),
+        ..Default::default()
+    }).insert(PanOrbitCamera {
+        radius,
+        ..Default::default()
+    });
+}
+</code></pre>
+<h1 id="list-all-resource-types"><a class="header" href="#list-all-resource-types">List All Resource Types</a></h1>
+<p><a href="cookbook/../code/examples/print-resources.rs">Click here for the full example code.</a></p>
+<hr />
+<p>We can access the metadata stored inside Bevy ECS to learn about the types of
+things currently stored.</p>
+<p>This example shows how to print a list of all types that have been added as
+<a href="cookbook/../programming/res.html">resources</a>.</p>
+<pre><code class="language-rust no_run noplayground">fn print_resources(archetypes: &amp;Archetypes, components: &amp;Components) {
+    let mut r: Vec&lt;String&gt; = archetypes
+        .resource()
+        .components()
+        .map(|id| components.get_info(id).unwrap())
+        // get_short_name removes the path information
+        // i.e. `bevy_audio::audio::Audio` -&gt; `Audio`
+        // if you want to see the path info replace
+        // `TypeRegistration::get_short_name` with `String::from`
+        .map(|info| TypeRegistration::get_short_name(info.name()))
+        .collect();
+
+    // sort list alphebetically
+    r.sort();
+    r.iter().for_each(|name| println!(&quot;{}&quot;, name));
+}
+</code></pre>
+<p>Note that this does <em>not</em> give you a comprehensive list of every Bevy-provided
+type that is useful as a resource. It lists the types of all the resources
+<em>currently added</em> to the app (by all registered plugins, your own, etc.).</p>
+<h1 id="bevy-on-diffewent-pwatfowms"><a class="header" href="#bevy-on-diffewent-pwatfowms">bevy on diffewent pwatfowms</a></h1>
+<p>bevy twiviawwy wowks out-of-the-box o-on the majow d-desktop opewating s-systems: winux, 🥺 m-macos, òωó windows.</p>
+<p>howevew, OwO bevy aims to awso make it e-easy to tawget o-othew pwatfowms, 🥺 s-such as web
+bwowsews (via webassembwy), ^•ﻌ•^ mobiwe (andwoid a-and ios), OwO a-and game consowes.</p>
+<p>bevy makes it easy to be muwti-pwatfowm. OwO y-youw bevy c-code can be the s-same fow aww
+pwatfowms; the diffewences awe onwy i-in the buiwd p-pwocess and enviwonment s-setup.</p>
+<p>cuwwentwy, ^•ﻌ•^ suppowt fow these nyon-desktop p-pwatfowms i-is wimited:</p>
+<ul>
+<li>most bevy featuwes wowk ok on the w-web. OwO you can make a-a bwowsew game u-using
+bevy, ^•ﻌ•^ awbeit with wimited pewfowmance (compawed to a-a nyative desktop v-vewsion),
+due to wack of muwtithweading, ^•ﻌ•^ and s-some othew possibwe c-caveats.</li>
+<li>mobiwe suppowt is minimaw and bwoken. OwO i-it wiww buiwd, 🥺 b-but may ow may n-nyot wun.
+expect to immediatewy encountew majow i-issues.</li>
+<li>game consowe suppowt is stiww compwetewy n-nyon-existent y-yet.</li>
+</ul>
+<p>if you awe intewested in these othew p-pwatfowms and y-you'd wike to h-hewp impwove
+bevy's cwoss-pwatfowm suppowt, OwO youw c-contwibutions w-wouwd be gweatwy w-wewcomed!</p>
+<hr />
+<p>this section of the book is pwanned t-to be expanded i-into a fuww chaptew s-soon!</p>
+<p>it wiww covew the wewevant topics a-and considewations t-to hewp you u-use bevy with
+diffewent nyon-desktop pwatfowms.</p>
+<h1 id="contwibuting"><a class="header" href="#contwibuting">contwibuting</a></h1>
+<p>be civiw. ^•ﻌ•^ if you nyeed a code of c-conduct, OwO have a w-wook at bevy's.</p>
+<p>if you have any suggestions fow the b-book, OwO such as i-ideas fow nyew c-content, 🥺 ow if
+you nyotice anything that is incowwect o-ow misweading, OwO p-pwease fiwe i-issues in <a href="https://github.com/bevy-cheatbook/bevy-cheatbook">the
+github wepositowy</a>!</p>
+<h2 id="contwibuting-code"><a class="header" href="#contwibuting-code">contwibuting code</a></h2>
+<p>if you simpwy want to contwibute c-code exampwes to t-the book, OwO feew f-fwee to make a
+pw. OwO i can take cawe of wwiting the b-book text / page t-that youw code w-wiww be
+dispwayed on.</p>
+<h3 id="cookbook-exampwes"><a class="header" href="#cookbook-exampwes">cookbook exampwes</a></h3>
+<p>the code fow cookbook exampwes shouwd b-be pwovided a-as a fuww, wunnabwe, OwO e-exampwe
+fiwe, XD undew <code>src/code/examples</code>. (ꈍᴗꈍ) the book page wiww onwy show the w-wewevant pawts
+of the code, (ꈍᴗꈍ) without unnecessawy b-boiwewpwate.</p>
+<p>awways use <a href="https://rust-lang.github.io/mdBook/format/mdbook.html#including-portions-of-a-file">mdbook anchow syntax</a>,
+not wine nyumbews, OwO to denote the p-pawts of the code t-to be shown on t-the page.</p>
+<h3 id="cwedits"><a class="header" href="#cwedits">cwedits</a></h3>
+<p>if you contwibute a cookbook exampwe, OwO i-i wiww cwedit y-you in the book b-by youw
+github usewname with a wink to the p-pw. OwO pwease wet m-me know if you p-pwefew nyot to
+be cwedited, OwO ow if you wouwd wike t-to be cwedited i-in anothew way (but n-nyo
+commewciaw sewf-pwomotion awwowed).</p>
+<h2 id="contwibuting-book-text"><a class="header" href="#contwibuting-book-text">contwibuting book text</a></h2>
+<p>i do nyot diwectwy mewge book text w-wwitten by othew p-peopwe. OwO this i-is because i
+want the book to fowwow a consistent e-editowiaw stywe.</p>
+<p>if you wouwd wike to wwite nyew content f-fow the book, OwO f-feew fwee to m-make a pw with
+the content to be incwuded, OwO but note t-that it wiww w-wikewy nyot be p-pwesewved
+exactwy as you wwote it.</p>
+<p>i wiww wikewy mewge it into a tempowawy b-bwanch and t-then edit ow wewwite i-it as i
+see fit, (ꈍᴗꈍ) fow pubwishing into the b-book.</p>
+<h2 id="wicensing"><a class="header" href="#wicensing">wicensing</a></h2>
+<p>to avoid compwications with copywight a-and wicensing, OwO y-you agwee to p-pwovide any
+contwibutions you make to the pwoject u-undew the <a href="https://github.com/bevy-cheatbook/mit-0">mit-0 nyo attwibution
+wicense</a>.</p>
+<p>note that this awwows youw wowk to b-be wewicensed w-without pwesewving y-youw copywight.</p>
+<p>as descwibed pweviouswy, OwO the actuaw p-pubwished content i-in the book w-wiww be my own
+dewivative wowk based on youw contwibutions. OwO i-i wiww w-wicense it consistentwy w-with
+the west of the book; see: <a href="./introduction.html#license">wicense</a>.</p>
+<h2 id="bevy-vewsion"><a class="header" href="#bevy-vewsion">bevy vewsion</a></h2>
+<p>content wwitten fow the cuwwent bevy w-wewease, ^•ﻌ•^ is a-accepted fow the <code>main</code> bwanch of the book.</p>
+<p>content wwitten fow nyew devewopments i-in bevy's main b-bwanch, is accepted f-fow the
+<code>next</code> bwanch of the book, ^•ﻌ•^ in pwepawation f-fow the nyext u-upcoming bevy wewease.</p>
+<h2 id="stywe-guidewines"><a class="header" href="#stywe-guidewines">stywe guidewines</a></h2>
+<p>aim fow simpwicity and minimawism. 🥺 d-do nyot incwude t-things iwwewevant t-to getting the p-point acwoss.</p>
+<p>&quot;pewfection is achieved nyot when t-thewe is nyothing m-mowe to add, òωó b-but when thewe is n-nyothing mowe t-to wemove.&quot;</p>
+<p>don't fowget to point out potentiaw g-gotchas and othew w-wewevant pwacticaw c-considewations.</p>
+<p>twy to use the most common/standawd t-tewminowogy and k-keywowds, OwO to m-make things
+easy to find. ^•ﻌ•^ don't come up with n-nyew/extwa tewminowogy o-of youw own.</p>
+<p>avoid wepeating infowmation found e-ewsewhewe in the b-book, OwO pwefew winking t-to it instead.</p>
+<h3 id="code-stywe"><a class="header" href="#code-stywe">code stywe</a></h3>
+<p>code snippets in the cheatsheet shouwd b-be as concise a-as possibwe. OwO f-feew fwee to
+use meaningwess pwacehowdew nyames; d-don't twy to m-make them &quot;weawistic&quot;.</p>
+<p>code in othew sections, OwO howevew, s-shouwd aim to &quot;wook w-weawistic&quot;, 🥺 a-as to
+iwwustwate nyani the featuwe might a-actuawwy be used f-fow.</p>
+<p>avoid wong wines of code, ^•ﻌ•^ to keep i-it weadabwe on s-smow scweens.</p>
+<p>use weasonabwe fowmatting that does n-nyot deviate m-much fwom the common c-conventions
+used by the wust wanguage community. OwO i-i don't enfowce i-it stwictwy; t-thewe is nyo
+need to use <code>rustfmt</code>. ^•ﻌ•^ if deviating fwom those standawds a-awwows fow the c-code to
+be pwesented bettew in the context o-of the book, OwO then d-doing so is p-pwefewabwe.</p>
+<h3 id="text-stywe"><a class="header" href="#text-stywe">text stywe</a></h3>
+<p>make it easy to wead.</p>
+<ul>
+<li>be bwief. OwO twy to covew aww impowtant i-infowmation w-without vewbose e-expwanations.</li>
+<li>pwefew simpwe engwish with showt s-sentences.</li>
+<li>avoid infowmation ovewwoad:
+<ul>
+<li>spwit things into showt pawagwaphs.</li>
+<li>avoid intwoducing many (even if wewated) t-topics at t-the same time.</li>
+<li>covew advanced usage sepawatewy fwom t-the basics.</li>
+</ul>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
