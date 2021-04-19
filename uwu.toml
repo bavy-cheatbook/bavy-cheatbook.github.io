@@ -1,0 +1,4 @@
+
+[preprocessor.uwuify]
+command = "uwuify-mdbook"
+renderer = ["html", "epub"]
