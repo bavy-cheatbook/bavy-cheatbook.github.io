@@ -163,30 +163,30 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="query-sets"><a class="header" href="#query-sets">Query Sets</a></h1>
-<p>For safety reasons, a system cannot have multiple queries with mutability conflicts on the same components.</p>
-<p>Bevy provides a solution: wrap them in a <code>QuerySet</code>:</p>
-<pre><code class="language-rust no_run noplayground">fn reset_health(
-    // access the health of enemies and the health of players
-    // (note: some entities could be both!)
-    mut q: QuerySet&lt;(
-        Query&lt;&amp;mut Health, With&lt;Enemy&gt;&gt;,
-        Query&lt;&amp;mut Health, With&lt;Player&gt;&gt;
-    )&gt;,
+                        <h1 id="quewy-sets"><a class="header" href="#quewy-sets">quewy sets</a></h1>
+<p>fow safety weasons, 🥺 a system cannot h-have muwtipwe q-quewies with mutabiwity c-confwicts o-on the same components.</p>
+<p>bevy pwovides a sowution: wwap them i-in a <code>QuerySet</code>:</p>
+<pre><code class="language-rust no_run noplayground">fn weset_heawth(
+    // access the h-heawth of enemies a-and the heawth o-of pwayews
+    // (note: s-some e-entities couwd b-be both!)
+    mut q-q: quewyset&lt;(
+        q-quewy&lt;&amp;mut heawth, (⑅˘꒳˘) with&lt;enemy&gt;&gt;, (U ᵕ U❁)
+        quewy&lt;&amp;mut heawth, -.- with&lt;pwayew&gt;&gt;
+    )&gt;, ^^;;
 ) {
-    // set health of enemies
-    for mut health in q.q0_mut().iter_mut() {
-        health.hp = 50.0;
+    // set heawth o-of enemies
+    fow mut heawth in q.q0_mut().itew_mut() {
+        h-heawth.hp = 50.0;
     }
 
-    // set health of players
-    for mut health in q.q1_mut().iter_mut() {
-        health.hp = 100.0;
+    // set heawth of pwayews
+    f-fow mut heawth in q.q1_mut().itew_mut() {
+        heawth.hp = 100.0;
     }
 }
 </code></pre>
-<p>This ensures that only one of the conflicting queries can be used at the same time.</p>
-<p>The maximum number of queries in a query set is 4.</p>
+<p>this ensuwes that onwy one of the c-confwicting quewies c-can be used a-at the same time.</p>
+<p>the maximum nyumbew of quewies in a-a quewy set is 4.</p>
 
                     </main>
 

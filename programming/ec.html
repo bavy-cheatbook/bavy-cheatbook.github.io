@@ -163,62 +163,62 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="entities"><a class="header" href="#entities">Entities</a></h1>
-<p>Entities are just a simple integer ID, that identifies a particular set of
-component values.</p>
-<h1 id="components"><a class="header" href="#components">Components</a></h1>
-<p>Components are the data associated with entities.</p>
-<p>Any Rust type (<code>struct</code> or <code>enum</code>) can be used as a component.</p>
-<pre><code class="language-rust no_run noplayground">struct Health {
-    hp: f32,
-    extra: f32,
+                        <h1 id="entities"><a class="header" href="#entities">entities</a></h1>
+<p>entities awe just a simpwe integew i-id, OwO that identifies a-a pawticuwaw s-set of
+component vawues.</p>
+<h1 id="components"><a class="header" href="#components">components</a></h1>
+<p>components awe the data associated w-with entities.</p>
+<p>any wust type (<code>struct</code> ow <code>enum</code>) can be used as a component.</p>
+<pre><code class="language-rust no_run noplayground">stwuct heawth {
+    hp: f32, (ꈍᴗꈍ)
+    e-extwa: f32, ^•ﻌ•^
 }
 </code></pre>
-<p>Types must be unique -- an entity can only have one component per Rust type.</p>
-<p>Use wrapper (newtype) structs to make unique components out of simpler types:</p>
-<pre><code class="language-rust no_run noplayground">struct PlayerXp(u32);
+<p>types must be unique -- an entity c-can onwy have one c-component pew w-wust type.</p>
+<p>use wwappew (newtype) stwucts to m-make unique components o-out of simpwew t-types:</p>
+<pre><code class="language-rust no_run noplayground">stwuct pwayewxp(u32);
 
-struct PlayerName(String);
+stwuct pwayewname(stwing);
 </code></pre>
-<p>You can use empty structs to mark specific entities. These are known as &quot;marker
-components&quot;. Useful with <a href="./queries.html#filter-by-component">query filters</a>.</p>
-<pre><code class="language-rust no_run noplayground">/// Add this to all menu ui entities to help identify them
-struct MainMenuUI;
-/// Marker to help identify the player
-struct Player;
-/// Marker for hostiles
-struct Enemy;
+<p>you can use empty stwucts to mawk s-specific entities. OwO t-these awe known a-as &quot;mawkew
+components&quot;. &gt;_&lt; usefuw with <a href="./queries.html#filter-by-component">quewy fiwtews</a>.</p>
+<pre><code class="language-rust no_run noplayground">/// add this to aww menu ui entities t-to hewp identify t-them
+stwuct m-mainmenuui;
+/// m-mawkew to hewp i-identify the pwayew
+s-stwuct pwayew;
+/// m-mawkew fow h-hostiwes
+stwuct enemy;
 </code></pre>
-<p>Components can be accessed from <a href="./systems.html">systems</a>, using <a href="./queries.html">queries</a>. </p>
-<h1 id="component-bundles"><a class="header" href="#component-bundles">Component Bundles</a></h1>
-<p>Bundles are like &quot;templates&quot;, to make it easy to create entities with a common set of components.</p>
-<pre><code class="language-rust no_run noplayground">#[derive(Bundle)]
-struct PlayerBundle {
-    xp: PlayerXp,
-    name: PlayerName,
-    health: Health,
-    _p: Player,
+<p>components can be accessed fwom <a href="./systems.html">systems</a>, XD using <a href="./queries.html">quewies</a>. rawr x3 </p>
+<h1 id="component-bundwes"><a class="header" href="#component-bundwes">component bundwes</a></h1>
+<p>bundwes awe wike &quot;tempwates&quot;, 🥺 to m-make it easy to c-cweate entities w-with a common set o-of components.</p>
+<pre><code class="language-rust no_run noplayground">#[dewive(bundwe)]
+stwuct pwayewbundwe {
+    xp: pwayewxp, rawr
+    n-nyame: p-pwayewname, σωσ
+    h-heawth: heawth, σωσ
+    _p: p-pwayew, &gt;_&lt;
 
-    // We can nest/include another bundle.
-    // Add the components for a standard Bevy Sprite:
-    #[bundle]
-    sprite: SpriteSheetBundle,
+    // w-we can n-nyest/incwude a-anothew bundwe. :3
+    // a-add the components fow a standawd bevy spwite:
+    #[bundwe]
+    spwite: spwitesheetbundwe, (U ﹏ U)
 }
 </code></pre>
-<p>Bevy also considers arbitrary tuples of components as bundles:</p>
-<pre><code>(ComponentA, ComponentB, ComponentC)
+<p>bevy awso considews awbitwawy tupwes o-of components a-as bundwes:</p>
+<pre><code>(componenta, &gt;_&lt; componentb, (ꈍᴗꈍ) componentc)
 </code></pre>
-<h2 id="common-pitfalls"><a class="header" href="#common-pitfalls">Common Pitfalls</a></h2>
-<p>Because both bundles and individual components are regular Rust structs, Bevy /
-the Rust compiler often has no way to distinguish them.</p>
-<p>If you accidentally use a bundle struct somewhere where Bevy expects a
-component, you will not get an error. Bevy will just treat it as a component of
-that struct type!</p>
-<p>For example, this is why we needed the <code>#[bundle]</code> annotation to include a
-sub-bundle in the example above.</p>
-<p>Other places where this issue may come up are: when using
-<a href="./commands.html"><code>Commands</code></a>, and when <a href="./queries.html">querying</a> (queries <em>only</em>
-work with components!).</p>
+<h2 id="common-pitfawws"><a class="header" href="#common-pitfawws">common pitfawws</a></h2>
+<p>because both bundwes and individuaw c-components awe w-weguwaw wust stwucts, OwO b-bevy /
+the wust compiwew often has nyo way t-to distinguish t-them.</p>
+<p>if you accidentawwy use a bundwe s-stwuct somewhewe w-whewe bevy expects a-a
+component, OwO you wiww nyot get an ewwow. 🥺 b-bevy wiww j-just tweat it as a-a component of
+that stwuct type!</p>
+<p>fow exampwe, (ꈍᴗꈍ) this is why we nyeeded t-the <code>#[bundle]</code> annotation to incwude a
+sub-bundwe in the exampwe above.</p>
+<p>othew pwaces whewe this issue may c-come up awe: when u-using
+<a href="./commands.html"><code>Commands</code></a>, XD and when <a href="./queries.html">quewying</a> (quewies <em>onwy</em>
+wowk with components!).</p>
 
                     </main>
 

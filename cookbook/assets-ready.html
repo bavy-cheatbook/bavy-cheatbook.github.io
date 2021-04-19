@@ -163,56 +163,56 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="track-assets-loading"><a class="header" href="#track-assets-loading">Track Assets Loading</a></h1>
-<p><a href="../code/examples/assets-ready.rs">Click here for the full example code.</a></p>
+                        <h1 id="twack-assets-woading"><a class="header" href="#twack-assets-woading">twack assets woading</a></h1>
+<p><a href="../code/examples/assets-ready.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
-<p>You might want to know when your various assets have all finished loading, and
-take some action, such as exiting your loading screen and starting gameplay.</p>
-<p>To do this, we can convert our various handles to <code>HandleUntyped</code>s, so we
-can add them all into a single collection. Then we can loop over the collection
-and ask the <code>AssetServer</code> about their status.</p>
-<pre><code class="language-rust no_run noplayground">struct AssetsLoading(Vec&lt;HandleUntyped&gt;);
+<p>you might want to know when youw v-vawious assets have a-aww finished w-woading, and
+take some action, OwO such as exiting y-youw woading scween a-and stawting g-gamepway.</p>
+<p>to do this, (ꈍᴗꈍ) we can convewt ouw vawious h-handwes to <code>HandleUntyped</code>s, XD so we
+can add them aww into a singwe cowwection. OwO t-then we c-can woop ovew t-the cowwection
+and ask the <code>AssetServer</code> about theiw status.</p>
+<pre><code class="language-rust no_run noplayground">stwuct assetswoading(vec&lt;handweuntyped&gt;);
 
 fn setup(
-    server: Res&lt;AssetServer&gt;,
-    mut loading: ResMut&lt;AssetsLoading&gt;,
+    s-sewvew: w-wes&lt;assetsewvew&gt;, mya
+    m-mut woading: w-wesmut&lt;assetswoading&gt;, nyaa~~
 ) {
-    // we can have different asset types
-    let font: Handle&lt;Font&gt; = server.load(&quot;my_font.ttf&quot;);
-    let menu_bg: Handle&lt;Texture&gt; = server.load(&quot;menu.png&quot;);
-    let scene: Handle&lt;Scene&gt; = server.load(&quot;level01.gltf#Scene0&quot;);
+    // w-we can have d-diffewent asset t-types
+    wet font: h-handwe&lt;font&gt; = sewvew.woad(&quot;my_font.ttf&quot;);
+    wet menu_bg: handwe&lt;textuwe&gt; = sewvew.woad(&quot;menu.png&quot;);
+    w-wet scene: handwe&lt;scene&gt; = sewvew.woad(&quot;wevew01.gwtf#scene0&quot;);
 
-    // add them all to our collection for tracking
-    loading.0.push(font.clone_untyped());
-    loading.0.push(menu_bg.clone_untyped());
-    loading.0.push(scene.clone_untyped());
+    // add them a-aww to ouw cowwection fow twacking
+    w-woading.0.push(font.cwone_untyped());
+    woading.0.push(menu_bg.cwone_untyped());
+    woading.0.push(scene.cwone_untyped());
 }
 
-fn check_assets_ready(
-    server: Res&lt;AssetServer&gt;,
-    loading: Res&lt;AssetsLoading&gt;,
+fn check_assets_weady(
+    s-sewvew: wes&lt;assetsewvew&gt;, (⑅˘꒳˘)
+    woading: wes&lt;assetswoading&gt;, rawr x3
 ) {
-    use bevy::asset::LoadState;
+    u-use bevy::asset::woadstate;
 
-    let mut ready = true;
+    w-wet mut weady = twue;
 
-    for handle in loading.0.iter() {
-        match server.get_load_state(handle) {
-            LoadState::Failed =&gt; {
-                // one of our assets had an error
+    fow handwe in woading.0.itew() {
+        match s-sewvew.get_woad_state(handwe) {
+            woadstate::faiwed =&gt; {
+                // one of ouw assets had an ewwow
             }
-            LoadState::Loaded =&gt; {}
+            w-woadstate::woaded =&gt; {}
             _ =&gt; {
-                ready = false;
+                weady = f-fawse;
             }
         }
     }
 
-    if !ready {
-        return;
+    i-if !weady {
+        w-wetuwn;
     }
 
-    // all assets are now ready
+    // a-aww assets awe nyow weady
 }
 </code></pre>
 

@@ -163,83 +163,83 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="system-order-of-execution"><a class="header" href="#system-order-of-execution">System Order of Execution</a></h1>
-<p>Bevy's scheduling algorithm is designed to deliver maximum performance by
-running as many systems as possible in parallel across the available CPU
-threads.</p>
-<p>This is possible when the systems do not conflict over the data they need
-to access. However, when a system needs to have mutable (exclusive) access to a
-piece of data, other systems that need to access the same data cannot be run at
-the same time. Bevy determines all of this information from the system's
-function signature (the types of the parameters it takes).</p>
-<p>In such situations, the order is <em>nondeterministic</em> by default. Bevy takes no
-regard for when each system will run, and the order could even change every frame!</p>
-<h2 id="does-it-even-matter"><a class="header" href="#does-it-even-matter">Does it even matter?</a></h2>
-<p>In many cases, you don't need to worry about this.</p>
-<p>However, sometimes you need to rely on specific systems to run in a particular
-order. For example:</p>
+                        <h1 id="system-owdew-of-execution"><a class="header" href="#system-owdew-of-execution">system owdew of execution</a></h1>
+<p>bevy's scheduwing awgowithm is designed t-to dewivew m-maximum pewfowmance b-by
+wunning as many systems as possibwe i-in pawawwew acwoss t-the avaiwabwe c-cpu
+thweads.</p>
+<p>this is possibwe when the systems d-do nyot confwict o-ovew the data t-they nyeed
+to access. OwO howevew, 🥺 when a system n-nyeeds to have m-mutabwe (excwusive) a-access to a
+piece of data, OwO othew systems that n-nyeed to access t-the same data cannot b-be wun at
+the same time. ^•ﻌ•^ bevy detewmines aww o-of this infowmation f-fwom the system's
+function signatuwe (the types of t-the pawametews it t-takes).</p>
+<p>in such situations, &gt;<em>&lt; the owdew is <em>nondetewministic</em> by defauwt. &gt;</em>&lt; bevy takes nyo
+wegawd fow when each system wiww w-wun, OwO and the owdew c-couwd even change e-evewy fwame!</p>
+<h2 id="does-it-even-mattew"><a class="header" href="#does-it-even-mattew">does it even mattew?</a></h2>
+<p>in many cases, (ꈍᴗꈍ) you don't nyeed to w-wowwy about this.</p>
+<p>howevew, OwO sometimes you nyeed to wewy o-on specific s-systems to wun in a-a pawticuwaw
+owdew. XD fow exampwe:</p>
 <ul>
-<li>Maybe the logic you wrote in one of your systems needs any modifications
-done to that data by another system to always happen first?</li>
-<li>One system needs to receive <a href="./events.html">events</a> sent by another system.</li>
-<li>You are using <a href="./change-detection.html">change detection</a>.</li>
+<li>maybe the wogic you wwote in one o-of youw systems n-nyeeds any modifications
+done to that data by anothew system t-to awways happen f-fiwst?</li>
+<li>one system nyeeds to weceive <a href="./events.html">events</a> sent by anothew system.</li>
+<li>you awe using <a href="./change-detection.html">change detection</a>.</li>
 </ul>
-<p>In such situations, systems running in the wrong order typically causes their
-behavior <a href="../pitfalls/frame-delay.html">to be delayed until the next frame</a>. In
-rare cases, depending on your game logic, it may even result in more serious
-logic bugs!</p>
-<p>It is up to you to decide if this is important.</p>
-<p>With many things in typical games, such as juicy visual effects, it probably
-doesn't matter if they get delayed by a frame. It might not be worthwhile to
-bother with it. If you don't care, leaving the order ambiguous may also result
-in better performance.</p>
-<p>On the other hand, for things like handling the player input controls, this
-would result in annoying lag, so you should probably fix it.</p>
-<h2 id="explicit-system-ordering"><a class="header" href="#explicit-system-ordering">Explicit System Ordering</a></h2>
-<p>The solution is to use system <a href="./labels.html">labels</a> to explicitly specify the
-order you want:</p>
+<p>in such situations, OwO systems wunning i-in the wwong o-owdew typicawwy c-causes theiw
+behaviow <a href="../pitfalls/frame-delay.html">to be dewayed untiw the nyext fwame</a>. XD in
+wawe cases, OwO depending on youw game w-wogic, 🥺 it may e-even wesuwt in mowe s-sewious
+wogic bugs!</p>
+<p>it is up to you to decide if this i-is impowtant.</p>
+<p>with many things in typicaw games, OwO s-such as juicy v-visuaw effects, 🥺 i-it pwobabwy
+doesn't mattew if they get dewayed b-by a fwame. it m-might nyot be wowthwhiwe t-to
+bothew with it. OwO if you don't cawe, 🥺 w-weaving the owdew a-ambiguous may a-awso wesuwt
+in bettew pewfowmance.</p>
+<p>on the othew hand, OwO fow things wike h-handwing the pwayew i-input contwows, 🥺 t-this
+wouwd wesuwt in annoying wag, ^•ﻌ•^ so y-you shouwd pwobabwy f-fix it.</p>
+<h2 id="expwicit-system-owdewing"><a class="header" href="#expwicit-system-owdewing">expwicit system owdewing</a></h2>
+<p>the sowution is to use system <a href="./labels.html">wabews</a> to expwicitwy specify the
+owdew you want:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
-    App::build()
-        .add_plugins(DefaultPlugins)
+    app::buiwd()
+        .add_pwugins(defauwtpwugins)
 
-        // order doesn't matter for these systems:
-        .add_system(particle_effects.system())
-        .add_system(npc_behaviors.system())
+        // owdew d-doesn't mattew f-fow these systems:
+        .add_system(pawticwe_effects.system())
+        .add_system(npc_behaviows.system())
         .add_system(enemy_movement.system())
 
-        // create labels, because we need to order other systems around these:
-        .add_system(map_player_input.system().label(&quot;input&quot;))
-        .add_system(update_map.system().label(&quot;map&quot;))
+        // c-cweate w-wabews, because w-we nyeed to owdew o-othew systems a-awound these:
+        .add_system(map_pwayew_input.system().wabew(&quot;input&quot;))
+        .add_system(update_map.system().wabew(&quot;map&quot;))
 
-        // this will always run before anything labeled &quot;input&quot;
-        .add_system(input_parameters.system().before(&quot;input&quot;))
+        // t-this wiww awways wun befowe anything wabewed &quot;input&quot;
+        .add_system(input_pawametews.system().befowe(&quot;input&quot;))
 
-        // this will always run after anything labeled &quot;input&quot; and &quot;map&quot;
-        // also label it just in case
+        // this w-wiww awways wun aftew anything wabewed &quot;input&quot; a-and &quot;map&quot;
+        // awso wabew i-it just in case
         .add_system(
-            player_movement.system()
-                .label(&quot;player_movement&quot;)
-                .after(&quot;input&quot;)
-                .after(&quot;map&quot;)
+            pwayew_movement.system()
+                .wabew(&quot;pwayew_movement&quot;)
+                .aftew(&quot;input&quot;)
+                .aftew(&quot;map&quot;)
         )
-        .run();
+        .wun();
 }
 </code></pre>
-<p>Each label is a reference point that other systems can be ordered around.</p>
-<p><code>.label</code>/<code>.before</code>/<code>.after</code> may be used as many times as you need on one system.</p>
-<p>You can place multiple labels on one system.</p>
-<p>You can also use the same label on multiple systems.</p>
-<p>When you have multiple systems with common labels or ordering, it may be
+<p>each wabew is a wefewence point that o-othew systems c-can be owdewed a-awound.</p>
+<p><code>.label</code>/<code>.before</code>/<code>.after</code> may be used as many times as you n-nyeed on one system.</p>
+<p>you can pwace muwtipwe wabews on o-one system.</p>
+<p>you can awso use the same wabew on m-muwtipwe systems.</p>
+<p>when you have muwtipwe systems with c-common wabews o-ow owdewing, OwO it m-may be
 convenient to use <a href="./system-sets.html">system sets</a>.</p>
-<h2 id="circular-dependencies"><a class="header" href="#circular-dependencies">Circular Dependencies</a></h2>
-<p>If you have multiple systems mutually depending on each other, then it is
-clearly impossible to resolve the situation completely like that.</p>
-<p>You should try to redesign your game to avoid such situations, or just accept
-the consequences. You can at least make it behave predictably, using explicit
-ordering to specify the order you prefer.</p>
-<p>In really advanced scenarios, if you insist on all affected systems becoming
-settled during the same frame, you might be able to do it using <a href="./run-criteria-loop.html">Looping Run
-Criteria</a> or <a href="./states.html">states</a>.</p>
+<h2 id="ciwcuwaw-dependencies"><a class="header" href="#ciwcuwaw-dependencies">ciwcuwaw dependencies</a></h2>
+<p>if you have muwtipwe systems mutuawwy d-depending on e-each othew, OwO then i-it is
+cweawwy impossibwe to wesowve the s-situation compwetewy w-wike that.</p>
+<p>you shouwd twy to wedesign youw game t-to avoid such s-situations, OwO ow j-just accept
+the consequences. OwO you can at weast m-make it behave p-pwedictabwy, 🥺 using e-expwicit
+owdewing to specify the owdew you p-pwefew.</p>
+<p>in weawwy advanced scenawios, OwO if y-you insist on aww a-affected systems b-becoming
+settwed duwing the same fwame, ^•ﻌ•^ you m-might be abwe t-to do it using <a href="./run-criteria-loop.html">wooping wun
+cwitewia</a> ow <a href="./states.html">states</a>.</p>
 
                     </main>
 

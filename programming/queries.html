@@ -163,81 +163,81 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="queries"><a class="header" href="#queries">Queries</a></h1>
-<p>Queries let you access components of entities.</p>
-<pre><code class="language-rust no_run noplayground">fn check_zero_health(
-    // access entities that have `Health` and `Transform` components
-    // get read-only access to `Health` and mutable access to `Transform`
-    // optional component: get access to `Player` if it exists
-    mut query: Query&lt;(&amp;Health, &amp;mut Transform, Option&lt;&amp;Player&gt;)&gt;,
+                        <h1 id="quewies"><a class="header" href="#quewies">quewies</a></h1>
+<p>quewies wet you access components o-of entities.</p>
+<pre><code class="language-rust no_run noplayground">fn check_zewo_heawth(
+    // access e-entities that h-have `heawth` and `twansfowm` components
+    // g-get wead-onwy access t-to `heawth` a-and mutabwe access t-to `twansfowm`
+    // o-optionaw c-component: get access to `pwayew` if it exists
+    mut quewy: quewy&lt;(&amp;heawth, rawr &amp;mut t-twansfowm, OwO option&lt;&amp;pwayew&gt;)&gt;, (U ﹏ U)
 ) {
-    // get all matching entities
-    for (health, mut transform, player) in query.iter_mut() {
-        eprintln!(&quot;Entity at {} has {} HP.&quot;, transform.translation, health.hp);
+    // get aww matching e-entities
+    fow (heawth, &gt;_&lt; mut twansfowm, rawr x3 p-pwayew) in quewy.itew_mut() {
+        epwintwn!(&quot;entity at {} has {} hp.&quot;, mya t-twansfowm.twanswation, nyaa~~ heawth.hp);
 
-        // center if hp is zero
-        if health.hp &lt;= 0.0 {
-            transform.translation = Vec3::ZERO;
+        // c-centew if hp i-is zewo
+        if heawth.hp &lt;= 0.0 {
+            twansfowm.twanswation = vec3::zewo;
         }
 
-        if let Some(player) = player {
-            // the current entity is the player!
-            // do something special!
+        if wet s-some(pwayew) = pwayew {
+            // the cuwwent entity is the pwayew! (⑅˘꒳˘)
+            // d-do something speciaw! rawr x3
         }
     }
 }
 </code></pre>
-<p>Get the components associated with a specific entity:</p>
-<pre><code class="language-rust no_run noplayground">    if let Ok((health, mut transform)) = query.get_mut(entity) {
-        // do something with the components
-    } else {
-        // the entity does not have the components from the query
+<p>get the components associated with a-a specific entity:</p>
+<pre><code class="language-rust no_run noplayground">    if wet ok((heawth, ( ͡o ω ͡o ) mut twansfowm)) = q-quewy.get_mut(entity) {
+        // d-do something w-with the c-components
+    } e-ewse {
+        // t-the entity does n-nyot have the c-components fwom the quewy
     }
 </code></pre>
-<p>Get the IDs of the entities you access with your queries:</p>
-<pre><code class="language-rust no_run noplayground">// add `Entity` to `Query` to get Entity IDs
-fn query_entities(q: Query&lt;(Entity, /* ... */)&gt;) {
-    for (e, /* ... */) in q.iter() {
-        // `e` is the Entity ID of the entity we are accessing
+<p>get the ids of the entities you access w-with youw q-quewies:</p>
+<pre><code class="language-rust no_run noplayground">// add `entity` to `quewy` to get e-entity ids
+fn quewy_entities(q: q-quewy&lt;(entity, (U ᵕ U❁) /* ... */)&gt;) {
+    f-fow (e, (⑅˘꒳˘) /* ... */) i-in q.itew() {
+        // `e` i-is the entity i-id of the entity w-we awe accessing
     }
 }
 </code></pre>
-<p>If you know that the query should only ever match a single entity, you can use <code>single</code>/<code>single_mut</code> (returns a <code>Result</code>), instead of iterating:</p>
-<pre><code class="language-rust no_run noplayground">fn query_player(mut q: Query&lt;(&amp;Player, &amp;mut Transform)&gt;) {
-    let (player, mut transform) = q.single_mut()
-        .expect(&quot;There should always be exactly one player in the game!&quot;);
+<p>if you know that the quewy shouwd o-onwy evew match a-a singwe entity, OwO y-you can use <code>single</code>/<code>single_mut</code> (wetuwns a <code>Result</code>), XD instead of itewating:</p>
+<pre><code class="language-rust no_run noplayground">fn quewy_pwayew(mut q: quewy&lt;(&amp;pwayew, rawr x3 &amp;mut t-twansfowm)&gt;) {
+    w-wet (pwayew, rawr m-mut twansfowm) = q-q.singwe_mut()
+        .expect(&quot;thewe s-shouwd awways b-be exactwy one pwayew i-in the game!&quot;);
 
-    // do something with the player and its transform
+    // d-do something with the pwayew and its twansfowm
 }
 </code></pre>
-<h2 id="bundles"><a class="header" href="#bundles">Bundles</a></h2>
-<p>Queries work with individual components. If you created an entity using a
-<a href="./ec.html#component-bundles">bundle</a>, you need to query for the specific
-components from that bundle that you care about.</p>
-<p>A common beginner mistake is to query for the bundle type!</p>
-<h2 id="query-filters"><a class="header" href="#query-filters">Query Filters</a></h2>
-<p>Add query filters to narrow down the entities you get from the query.</p>
-<p>Use <code>With</code>/<code>Without</code> to only get entities that have specific components.</p>
-<pre><code class="language-rust no_run noplayground">fn debug_player_hp(
-    // access the health, only for friendly players, optionally with name
-    query: Query&lt;(&amp;Health, Option&lt;&amp;PlayerName&gt;), (With&lt;Player&gt;, Without&lt;Enemy&gt;)&gt;,
+<h2 id="bundwes"><a class="header" href="#bundwes">bundwes</a></h2>
+<p>quewies wowk with individuaw components. OwO i-if you cweated a-an entity u-using a
+<a href="./ec.html#component-bundles">bundwe</a>, &gt;_&lt; you nyeed to quewy fow the specific
+components fwom that bundwe that y-you cawe about.</p>
+<p>a common beginnew mistake is to quewy f-fow the bundwe t-type!</p>
+<h2 id="quewy-fiwtews"><a class="header" href="#quewy-fiwtews">quewy fiwtews</a></h2>
+<p>add quewy fiwtews to nyawwow down t-the entities you g-get fwom the quewy.</p>
+<p>use <code>With</code>/<code>Without</code> to onwy get entities that have specific c-components.</p>
+<pre><code class="language-rust no_run noplayground">fn debug_pwayew_hp(
+    // access t-the heawth, (⑅˘꒳˘) onwy f-fow fwiendwy pwayews, (U ᵕ U❁) o-optionawwy w-with nyame
+    q-quewy: quewy&lt;(&amp;heawth, -.- o-option&lt;&amp;pwayewname&gt;), ^^;; (with&lt;pwayew&gt;, &gt;_&lt; w-without&lt;enemy&gt;)&gt;, mya
 ) {
-    // get all matching entities
-    for (health, name) in query.iter() {
-        if let Some(name) = name {
-            eprintln!(&quot;Player {} has {} HP.&quot;, name.0, health.hp);
-        } else {
-            eprintln!(&quot;Unknown player has {} HP.&quot;, health.hp);
+    // g-get aww matching entities
+    fow (heawth, mya nyame) in quewy.itew() {
+        i-if wet some(name) = nyame {
+            epwintwn!(&quot;pwayew {} has {} hp.&quot;, 😳 n-nyame.0, heawth.hp);
+        } ewse {
+            e-epwintwn!(&quot;unknown pwayew has {} hp.&quot;, heawth.hp);
         }
     }
 }
 </code></pre>
-<p>Multiple filters can be combined:</p>
+<p>muwtipwe fiwtews can be combined:</p>
 <ul>
-<li>in a tuple to apply all of them (AND logic)</li>
-<li>using the <code>Or&lt;(...)&gt;</code> wrapper to detect any of them (OR logic).
+<li>in a tupwe to appwy aww of them (and w-wogic)</li>
+<li>using the <code>Or&lt;(...)&gt;</code> wwappew to detect any of them (ow w-wogic).
 <ul>
-<li>(note the tuple inside)</li>
+<li>(note the tupwe inside)</li>
 </ul>
 </li>
 </ul>

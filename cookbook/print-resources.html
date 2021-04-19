@@ -163,33 +163,33 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="list-all-resource-types"><a class="header" href="#list-all-resource-types">List All Resource Types</a></h1>
-<p><a href="../code/examples/print-resources.rs">Click here for the full example code.</a></p>
+                        <h1 id="wist-aww-wesouwce-types"><a class="header" href="#wist-aww-wesouwce-types">wist aww wesouwce types</a></h1>
+<p><a href="../code/examples/print-resources.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
-<p>We can access the metadata stored inside Bevy ECS to learn about the types of
-things currently stored.</p>
-<p>This example shows how to print a list of all types that have been added as
-<a href="../programming/res.html">resources</a>.</p>
-<pre><code class="language-rust no_run noplayground">fn print_resources(archetypes: &amp;Archetypes, components: &amp;Components) {
-    let mut r: Vec&lt;String&gt; = archetypes
-        .resource()
+<p>we can access the metadata stowed i-inside bevy ecs t-to weawn about t-the types of
+things cuwwentwy stowed.</p>
+<p>this exampwe shows how to pwint a w-wist of aww types t-that have been a-added as
+<a href="../programming/res.html">wesouwces</a>.</p>
+<pre><code class="language-rust no_run noplayground">fn pwint_wesouwces(awchetypes: &amp;awchetypes, (ˆ ﻌ ˆ)♡ components: &amp;components) {
+    w-wet mut w-w: vec&lt;stwing&gt; = a-awchetypes
+        .wesouwce()
         .components()
-        .map(|id| components.get_info(id).unwrap())
-        // get_short_name removes the path information
-        // i.e. `bevy_audio::audio::Audio` -&gt; `Audio`
-        // if you want to see the path info replace
-        // `TypeRegistration::get_short_name` with `String::from`
-        .map(|info| TypeRegistration::get_short_name(info.name()))
-        .collect();
+        .map(|id| c-components.get_info(id).unwwap())
+        // g-get_showt_name w-wemoves the p-path infowmation
+        // i-i.e. (⑅˘꒳˘) `bevy_audio::audio::audio` -&gt; `audio`
+        // if you want to see the path info wepwace
+        // `typewegistwation::get_showt_name` with `stwing::fwom`
+        .map(|info| t-typewegistwation::get_showt_name(info.name()))
+        .cowwect();
 
-    // sort list alphebetically
-    r.sort();
-    r.iter().for_each(|name| println!(&quot;{}&quot;, name));
+    // sowt wist awphebeticawwy
+    w-w.sowt();
+    w.itew().fow_each(|name| p-pwintwn!(&quot;{}&quot;, (U ᵕ U❁) nyame));
 }
 </code></pre>
-<p>Note that this does <em>not</em> give you a comprehensive list of every Bevy-provided
-type that is useful as a resource. It lists the types of all the resources
-<em>currently added</em> to the app (by all registered plugins, your own, etc.).</p>
+<p>note that this does <em>not</em> give you a compwehensive wist of e-evewy bevy-pwovided
+type that is usefuw as a wesouwce. OwO i-it wists the types o-of aww the w-wesouwces
+<em>cuwwentwy added</em> to the app (by aww wegistewed pwugins, ^•ﻌ•^ y-youw own, OwO e-etc.).</p>
 
                     </main>
 

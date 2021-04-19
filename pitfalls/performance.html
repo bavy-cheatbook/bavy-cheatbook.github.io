@@ -163,25 +163,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="slow-performance"><a class="header" href="#slow-performance">Slow Performance</a></h1>
-<p>(unoptimized debug builds)</p>
-<p>Rust without compiler optimizations is <em>very slow</em>. With Bevy in particular, the default debug build settings will lead to <em>awful</em> runtime performance. Assets are slow to load and FPS is low.</p>
-<p>Common symptoms:</p>
+                        <h1 id="swow-pewfowmance"><a class="header" href="#swow-pewfowmance">swow pewfowmance</a></h1>
+<p>(unoptimized debug buiwds)</p>
+<p>wust without compiwew optimizations i-is <em>vewy swow</em>. OwO with bevy in pawticuwaw, 🥺 the defauwt d-debug buiwd s-settings wiww w-wead to <em>awfuw</em> wuntime pewfowmance. ^•ﻌ•^ assets awe s-swow to woad and f-fps is wow.</p>
+<p>common symptoms:</p>
 <ul>
-<li>Loading 3D models from GLB files can take over 20 seconds! This can trick you into thinking that your code is not working, because you will not see anything on the screen until it is ready.</li>
-<li>After spawning some 2D sprites or 3D models, framerate may drop to unplayable levels.</li>
+<li>woading 3d modews fwom gwb fiwes c-can take ovew 20 s-seconds! UwU this can t-twick you into t-thinking that y-youw code is nyot w-wowking, rawr x3 because y-you wiww nyot s-see anything on the scween untiw it is weady.</li>
+<li>aftew spawning some 2d spwites ow 3d m-modews, OwO fwamewate m-may dwop to u-unpwayabwe wevews.</li>
 </ul>
-<p>However, fully-optimized release builds can be slow to compile.</p>
-<p>Solutions:</p>
-<pre><code class="language-toml"># in `Cargo.toml` or `.cargo/config`
+<p>howevew, ^•ﻌ•^ fuwwy-optimized wewease b-buiwds can be swow t-to compiwe.</p>
+<p>sowutions:</p>
+<pre><code class="language-toml"># in `cawgo.tomw` ow `.cawgo/config`
 
-# Enable optimizations for dependencies (incl. Bevy), but not for our code:
-[profile.dev.package.&quot;*&quot;]
-opt-level = 3
+# e-enabwe optimizations f-fow d-dependencies (incw. rawr b-bevy), σωσ but not f-fow ouw code:
+[pwofiwe.dev.package.&quot;*&quot;]
+o-opt-wevew = 3
 
-# Maybe also enable only a small amount of optimization for our code:
-[profile.dev]
-opt-level = 1
+# m-maybe a-awso enabwe onwy a smow amount of optimization fow ouw code:
+[pwofiwe.dev]
+opt-wevew = 1
 </code></pre>
 
                     </main>

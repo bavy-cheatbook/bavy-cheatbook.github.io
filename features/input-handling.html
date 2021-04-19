@@ -163,70 +163,70 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="input-handling"><a class="header" href="#input-handling">Input Handling</a></h1>
-<p><a href="../code/examples/input.rs">Click here to download the example code.</a></p>
+                        <h1 id="input-handwing"><a class="header" href="#input-handwing">input handwing</a></h1>
+<p><a href="../code/examples/input.rs">cwick hewe to downwoad the exampwe c-code.</a></p>
 <hr />
-<p>Since bevy resources and events are global and accessible from any system, you
-don't need to centralize your input handling code in one place. You can consume
-any relevant inputs wherever you need them.</p>
-<p>If you simply need to check the current state of specific keyboard keys or mouse buttons:</p>
-<pre><code class="language-rust no_run noplayground">fn my_simple_system(keys: Res&lt;Input&lt;KeyCode&gt;&gt;, btns: Res&lt;Input&lt;MouseButton&gt;&gt;) {
-    // Keyboard input
-    if keys.pressed(KeyCode::Space) {
-        // space is being held down
+<p>since bevy wesouwces and events awe g-gwobaw and accessibwe f-fwom any s-system, you
+don't nyeed to centwawize youw input h-handwing code i-in one pwace. OwO y-you can consume
+any wewevant inputs whewevew you n-nyeed them.</p>
+<p>if you simpwy nyeed to check the c-cuwwent state of s-specific keyboawd k-keys ow mouse b-buttons:</p>
+<pre><code class="language-rust no_run noplayground">fn my_simpwe_system(keys: wes&lt;input&lt;keycode&gt;&gt;, rawr x3 b-btns: w-wes&lt;input&lt;mousebutton&gt;&gt;) {
+    // k-keyboawd input
+    i-if keys.pwessed(keycode::space) {
+        // s-space is being h-hewd down
     }
 
-    // Mouse buttons
-    if btns.just_pressed(MouseButton::Left) {
-        // a left click just happened
+    // m-mouse b-buttons
+    if btns.just_pwessed(mousebutton::weft) {
+        // a weft cwick just happened
     }
 }
 </code></pre>
-<p>For more powerful input handling, to detect all activity, use input events:</p>
+<p>fow mowe powewfuw input handwing, OwO t-to detect aww activity, 🥺 u-use input e-events:</p>
 <pre><code class="language-rust no_run noplayground">fn my_fancy_system(
-    mut evr_keys: EventReader&lt;KeyboardInput&gt;,
-    mut evr_cursor: EventReader&lt;CursorMoved&gt;,
-    mut evr_motion: EventReader&lt;MouseMotion&gt;,
-    mut evr_mousebtn: EventReader&lt;MouseButtonInput&gt;,
-    mut evr_scroll: EventReader&lt;MouseWheel&gt;,
-    mut evr_touch: EventReader&lt;TouchInput&gt;,
+    mut evw_keys: e-eventweadew&lt;keyboawdinput&gt;, ʘwʘ
+    m-mut evw_cuwsow: e-eventweadew&lt;cuwsowmoved&gt;, σωσ
+    m-mut evw_motion: e-eventweadew&lt;mousemotion&gt;, OwO
+    m-mut evw_mousebtn: e-eventweadew&lt;mousebuttoninput&gt;,
+    m-mut evw_scwoww: eventweadew&lt;mousewheew&gt;, 😳😳😳
+    mut evw_touch: eventweadew&lt;touchinput&gt;, 😳😳😳
 ) {
-    // Keyboard input
-    for ev in evr_keys.iter() {
-        if ev.state.is_pressed() {
-            eprintln!(&quot;Just pressed key: {:?}&quot;, ev.key_code);
-        } else {
-            eprintln!(&quot;Just released key: {:?}&quot;, ev.key_code);
+    // keyboawd input
+    f-fow ev in evw_keys.itew() {
+        if e-ev.state.is_pwessed() {
+            epwintwn!(&quot;just p-pwessed key: {:?}&quot;, o.O ev.key_code);
+        } ewse {
+            epwintwn!(&quot;just w-weweased key: {:?}&quot;, ev.key_code);
         }
     }
 
-    // Absolute cursor position (in window coordinates)
-    for ev in evr_cursor.iter() {
-        eprintln!(&quot;Cursor at: {}&quot;, ev.position);
+    // a-absowute c-cuwsow position (in window coowdinates)
+    fow ev in evw_cuwsow.itew() {
+        epwintwn!(&quot;cuwsow a-at: {}&quot;, ( ͡o ω ͡o ) ev.position);
     }
 
-    // Relative mouse motion
-    for ev in evr_motion.iter() {
-        eprintln!(&quot;Mouse moved {} pixels&quot;, ev.delta);
+    // wewative mouse motion
+    fow ev in evw_motion.itew() {
+        e-epwintwn!(&quot;mouse moved {} pixews&quot;, (U ﹏ U) e-ev.dewta);
     }
 
-    // Mouse buttons
-    for ev in evr_mousebtn.iter() {
-        if ev.state.is_pressed() {
-            eprintln!(&quot;Just pressed mouse button: {:?}&quot;, ev.button);
-        } else {
-            eprintln!(&quot;Just released mouse button: {:?}&quot;, ev.button);
+    // m-mouse b-buttons
+    fow e-ev in evw_mousebtn.itew() {
+        if ev.state.is_pwessed() {
+            epwintwn!(&quot;just p-pwessed mouse button: {:?}&quot;, (///ˬ///✿) ev.button);
+        } e-ewse {
+            epwintwn!(&quot;just weweased mouse button: {:?}&quot;, &gt;w&lt; ev.button);
         }
     }
 
-    // scrolling (mouse wheel, touchpad, etc.)
-    for ev in evr_scroll.iter() {
-        eprintln!(&quot;Scrolled vertically by {} and horizontally by {}.&quot;, ev.y, ev.x);
+    // scwowwing (mouse w-wheew, rawr touchpad, mya etc.)
+    f-fow ev in evw_scwoww.itew() {
+        e-epwintwn!(&quot;scwowwed v-vewticawwy by {} and howizontawwy by {}.&quot;, ^^ ev.y, ev.x);
     }
 
-    // touch input
-    for ev in evr_touch.iter() {
-        eprintln!(&quot;Touch {} in {:?} at {}.&quot;, ev.id, ev.phase, ev.position);
+    // t-touch input
+    f-fow ev in evw_touch.itew() {
+        epwintwn!(&quot;touch {} i-in {:?} a-at {}.&quot;, 😳😳😳 ev.id, ev.phase, mya ev.position);
     }
 }
 </code></pre>

@@ -163,161 +163,161 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="assets"><a class="header" href="#assets">Assets</a></h1>
-<p>Bevy has a flexible system for loading and managing your game assets
-asynchronously (in the background, without causing lag spikes in your game).</p>
-<p>The data of your loaded assets is stored in <code>Assets&lt;T&gt;</code> resources.</p>
-<p>Assets are tracked using handles. Handles are just lightweight IDs for specific assets.</p>
-<h2 id="loading-using-assetserver"><a class="header" href="#loading-using-assetserver">Loading using AssetServer</a></h2>
-<p>To load assets from files, use the <code>AssetServer</code> resource.</p>
-<pre><code class="language-rust no_run noplayground">struct UiFont(Handle&lt;Font&gt;);
+                        <h1 id="assets"><a class="header" href="#assets">assets</a></h1>
+<p>bevy has a fwexibwe system fow woading a-and managing y-youw game assets
+asynchwonouswy (in the backgwound, ^•ﻌ•^ without causing w-wag spikes in y-youw game).</p>
+<p>the data of youw woaded assets is s-stowed in <code>Assets&lt;T&gt;</code> wesouwces.</p>
+<p>assets awe twacked using handwes. OwO h-handwes awe just w-wightweight ids f-fow specific assets.</p>
+<h2 id="woading-using-assetsewvew"><a class="header" href="#woading-using-assetsewvew">woading using assetsewvew</a></h2>
+<p>to woad assets fwom fiwes, &gt;_&lt; use the <code>AssetServer</code> wesouwce.</p>
+<pre><code class="language-rust no_run noplayground">stwuct uifont(handwe&lt;font&gt;);
 
-fn load_ui_font(
-    mut commands: Commands,
-    server: Res&lt;AssetServer&gt;
+fn w-woad_ui_font(
+    m-mut commands: c-commands,
+    sewvew: w-wes&lt;assetsewvew&gt;
 ) {
-    let handle: Handle&lt;Font&gt; = server.load(&quot;font.ttf&quot;);
+    wet h-handwe: handwe&lt;font&gt; = s-sewvew.woad(&quot;font.ttf&quot;);
 
-    // we can store the handle in a resource:
-    //  - to prevent the asset from being unloaded
-    //  - if we want to use it to access the asset later
-    commands.insert_resource(UiFont(handle));
+    // w-we can s-stowe the handwe in a wesouwce:
+    //  - to pwevent the asset fwom being unwoaded
+    //  - if w-we want to use it to access the asset watew
+    c-commands.insewt_wesouwce(uifont(handwe));
 }
 </code></pre>
-<p>This queues the asset loading to happen in the background. The asset will take
-some time to become available. You cannot access the actual data immediately in
-the same system, but you can use the handle.</p>
-<p>You can spawn your 2D sprites, 3D models, and UI, using the handle, even before
-the asset has loaded. They will just &quot;pop in&quot; later, when the asset becomes ready.</p>
-<p>Note that it is OK to call <code>asset_server.load</code> as many times as you want, even
-if the asset is currently loading, or already loaded. It will just provide you
-with the same handle. If the asset is unavailable, it will begin loading.</p>
-<h2 id="creating-your-own-assets"><a class="header" href="#creating-your-own-assets">Creating your own assets</a></h2>
-<p>You can also add assets to <code>Assets&lt;T&gt;</code> manually.</p>
-<p>This is useful if you want to create them using code (such as for procedural
-generation), or if you have gotten the data in some other way.</p>
-<pre><code class="language-rust no_run noplayground">fn add_material(
-    mut materials: ResMut&lt;Assets&lt;StandardMaterial&gt;&gt;,
+<p>this queues the asset woading to h-happen in the backgwound. OwO t-the asset w-wiww take
+some time to become avaiwabwe. OwO you c-cannot access t-the actuaw data i-immediatewy in
+the same system, but you can use t-the handwe.</p>
+<p>you can spawn youw 2d spwites, OwO 3d m-modews, 🥺 and ui, òωó u-using the handwe, o.O e-even befowe
+the asset has woaded. OwO they wiww just &quot;pop i-in&quot; watew, 🥺 w-when the asset b-becomes weady.</p>
+<p>note that it is ok to caww <code>asset_server.load</code> as many times as you want, &gt;_&lt; even
+if the asset is cuwwentwy woading, OwO o-ow awweady woaded. 🥺 i-it wiww just p-pwovide you
+with the same handwe. OwO if the asset i-is unavaiwabwe, 🥺 i-it wiww begin w-woading.</p>
+<h2 id="cweating-youw-own-assets"><a class="header" href="#cweating-youw-own-assets">cweating youw own assets</a></h2>
+<p>you can awso add assets to <code>Assets&lt;T&gt;</code> manuawwy.</p>
+<p>this is usefuw if you want to cweate t-them using code (such a-as fow p-pwoceduwaw
+genewation), ^•ﻌ•^ ow if you have gotten t-the data in some o-othew way.</p>
+<pre><code class="language-rust no_run noplayground">fn add_matewiaw(
+    mut matewiaws: w-wesmut&lt;assets&lt;standawdmatewiaw&gt;&gt;, (U ᵕ U❁)
 ) {
-    let new_mat = StandardMaterial {
-        base_color: Color::rgba(0.25, 0.50, 0.75, 1.0),
-        unlit: true,
-        ..Default::default()
+    w-wet n-nyew_mat = standawdmatewiaw {
+        b-base_cowow: c-cowow::wgba(0.25, (⑅˘꒳˘) 0.50, ( ͡o ω ͡o ) 0.75, 1.0), UwU
+        unwit: t-twue, rawr x3
+        ..defauwt::defauwt()
     };
 
-    materials.add(new_mat);
+    m-matewiaws.add(new_mat);
 }
 </code></pre>
-<h2 id="handles"><a class="header" href="#handles">Handles</a></h2>
-<p>Handles are the typical way to refer to a particular asset. When you spawn
-things into your game, such as 2D sprites, 3D models, or UI, their respective
-components will need handles for the assets they use.</p>
-<p>You could store your handles somewhere that is convenient for you (such as in
-<a href="../programming/res.html">resources</a>).</p>
-<p>If you don't have your handle stored anywhere, you can always generate one from
-a path by calling <code>asset_server.load</code>. You could simply do that whenever you
-need, and not bother storing handles.</p>
-<h2 id="accessing-the-assets"><a class="header" href="#accessing-the-assets">Accessing the Assets</a></h2>
-<p>To access the actual asset data from systems, use the <code>Assets&lt;T&gt;</code> resource.</p>
-<p>You can identify your desired asset, using either the handle or the asset path:</p>
-<pre><code class="language-rust no_run noplayground">struct SpriteSheets {
-    map_tiles: Handle&lt;TextureAtlas&gt;,
+<h2 id="handwes"><a class="header" href="#handwes">handwes</a></h2>
+<p>handwes awe the typicaw way to wefew t-to a pawticuwaw a-asset. OwO when y-you spawn
+things into youw game, OwO such as 2d s-spwites, 🥺 3d modews, òωó o-ow ui, theiw w-wespective
+components wiww need handwes fow t-the assets they u-use.</p>
+<p>you couwd stowe youw handwes somewhewe t-that is convenient f-fow you (such a-as in
+<a href="../programming/res.html">wesouwces</a>).</p>
+<p>if you don't have youw handwe stowed a-anywhewe, you c-can awways genewate o-one fwom
+a path by cawwing <code>asset_server.load</code>. (ꈍᴗꈍ) you couwd simpwy do that whenevew y-you
+need, &gt;_&lt; and nyot bothew stowing handwes.</p>
+<h2 id="accessing-the-assets"><a class="header" href="#accessing-the-assets">accessing the assets</a></h2>
+<p>to access the actuaw asset data fwom s-systems, ^•ﻌ•^ use t-the <code>Assets&lt;T&gt;</code> wesouwce.</p>
+<p>you can identify youw desiwed asset, OwO u-using eithew t-the handwe ow the a-asset path:</p>
+<pre><code class="language-rust no_run noplayground">stwuct spwitesheets {
+    map_tiwes: h-handwe&lt;textuweatwas&gt;, &gt;_&lt;
 }
 
-fn use_sprites(
-    handles: Res&lt;SpriteSheets&gt;,
-    atlases: Res&lt;Assets&lt;TextureAtlas&gt;&gt;,
-    textures: Res&lt;Assets&lt;Texture&gt;&gt;,
+f-fn u-use_spwites(
+    h-handwes: wes&lt;spwitesheets&gt;, mya
+    a-atwases: wes&lt;assets&lt;textuweatwas&gt;&gt;, mya
+    t-textuwes: w-wes&lt;assets&lt;textuwe&gt;&gt;, 😳
 ) {
-    // Could be `None` if the asset isn't loaded yet
-    if let Some(atlas) = atlases.get(&amp;handles.map_tiles) {
-        // do something with the texture atlas
+    // c-couwd be `none` if the asset isn't woaded yet
+    if wet some(atwas) = atwases.get(&amp;handwes.map_tiwes) {
+        // d-do something with the textuwe atwas
     }
 
-    // Can use a path instead of a handle
-    if let Some(map_tex) = textures.get(&quot;map.png&quot;) {
-        // if &quot;map.png&quot; was loaded, we can use it!
+    // c-can use a path instead o-of a handwe
+    if wet some(map_tex) = textuwes.get(&quot;map.png&quot;) {
+        // if &quot;map.png&quot; w-was woaded, XD we can use i-it! :3
     }
 }
 </code></pre>
-<h2 id="assetpath-and-labels"><a class="header" href="#assetpath-and-labels">AssetPath and Labels</a></h2>
-<p>Assets from the filesystem can be identified by an <code>AssetPath</code>, which consists of
-the file path + a label. Labels are used in situations where multiple assets are
-contained in the same file. An example of this are GLTF files, which can contain
-meshes, scenes, textures, materials, etc.</p>
-<p>Asset paths can be created from a string, with the label (if any) attached after a <code>#</code> symbol.</p>
-<pre><code class="language-rust no_run noplayground">fn load_gltf_things(
-    mut commands: Commands,
-    server: Res&lt;AssetServer&gt;
+<h2 id="assetpath-and-wabews"><a class="header" href="#assetpath-and-wabews">assetpath and wabews</a></h2>
+<p>assets fwom the fiwesystem can be i-identified by an <code>AssetPath</code>, &gt;_&lt; which consists of
+the fiwe path + a wabew. OwO wabews awe u-used in situations w-whewe muwtipwe a-assets awe
+contained in the same fiwe. OwO an exampwe o-of this awe g-gwtf fiwes, 🥺 which c-can contain
+meshes, (ꈍᴗꈍ) scenes, textuwes, ^•ﻌ•^ matewiaws, OwO e-etc.</p>
+<p>asset paths can be cweated fwom a s-stwing, 🥺 with the w-wabew (if any) a-attached aftew a-a <code>#</code> symbow.</p>
+<pre><code class="language-rust no_run noplayground">fn woad_gwtf_things(
+    mut commands: c-commands, rawr x3
+    s-sewvew: wes&lt;assetsewvew&gt;
 ) {
-    // get a specific mesh
-    let my_mesh: Handle&lt;Mesh&gt; = server.load(&quot;my_scene.gltf#Mesh0/Primitive0&quot;);
+    // g-get a specific m-mesh
+    w-wet my_mesh: handwe&lt;mesh&gt; = s-sewvew.woad(&quot;my_scene.gwtf#mesh0/pwimitive0&quot;);
 
-    // spawn a whole scene
-    let my_scene: Handle&lt;Scene&gt; = server.load(&quot;my_scene.gltf#Scene0&quot;);
+    // s-spawn a whowe s-scene
+    wet my_scene: handwe&lt;scene&gt; = sewvew.woad(&quot;my_scene.gwtf#scene0&quot;);
     commands.spawn_scene(my_scene);
 }
 </code></pre>
-<p>(For GLTF, Bevy will generate labels like <code>Scene0</code> based on the index of each
-object in the file, but if your GLTF file includes names/labels exported from
-your 3D modeling software, Bevy will make those available, too)</p>
-<h2 id="handles-and-asset-lifetime-garbage-collection"><a class="header" href="#handles-and-asset-lifetime-garbage-collection">Handles and Asset Lifetime (Garbage Collection)</a></h2>
-<p>Handles have built-in reference counting (similar to <code>Rc</code>/<code>Arc</code> in Rust). This
-allows Bevy to track if an asset is still needed, and automatically unload it
-when it no longer is.</p>
-<p>You can use <code>.clone()</code> to create multiple handles to the same asset. The clone
-is a cheap operation, but it is explicit, to ensure that you are aware of the
-places in your code that create additional handles and may affect the lifetime
+<p>(fow gwtf, (ꈍᴗꈍ) bevy wiww genewate wabews w-wike <code>Scene0</code> based on the index of each
+object in the fiwe, OwO but if youw gwtf f-fiwe incwudes n-nyames/wabews e-expowted fwom
+youw 3d modewing softwawe, ^•ﻌ•^ bevy wiww m-make those avaiwabwe, OwO t-too)</p>
+<h2 id="handwes-and-asset-wifetime-gawbage-c-cowwection"><a class="header" href="#handwes-and-asset-wifetime-gawbage-c-cowwection">handwes and asset wifetime (gawbage c-cowwection)</a></h2>
+<p>handwes have buiwt-in wefewence counting (simiwaw t-to <code>Rc</code>/<code>Arc</code> in wust). XD this
+awwows bevy to twack if an asset i-is stiww nyeeded, OwO a-and automaticawwy u-unwoad it
+when it nyo wongew is.</p>
+<p>you can use <code>.clone()</code> to cweate muwtipwe handwes to the s-same asset. the c-cwone
+is a cheap opewation, OwO but it is expwicit, 🥺 t-to ensuwe t-that you awe a-awawe of the
+pwaces in youw code that cweate additionaw h-handwes a-and may affect t-the wifetime
 of assets.</p>
-<h3 id="weak-handles"><a class="header" href="#weak-handles">Weak Handles</a></h3>
-<p>Handles can be &quot;strong&quot; (the default) or &quot;weak&quot;. Only strong handles are counted
-and cause the asset to remain loaded. Weak handles let you refer to an asset,
-while allowing it to be garbage-collected when no more strong handles remain.</p>
-<p>You can create weak handles using <code>.clone_weak()</code> instead of <code>.clone()</code>.</p>
-<h2 id="untyped-handles"><a class="header" href="#untyped-handles">Untyped Handles</a></h2>
-<p>Bevy also has a <code>HandleUntyped</code> type. Use this type of handle if you need to
-be able to refer to any asset, regardless of the asset type.</p>
-<p>This allows you to store a collection (such as <code>Vec</code> or <code>HashMap</code>) containing
+<h3 id="weak-handwes"><a class="header" href="#weak-handwes">weak handwes</a></h3>
+<p>handwes can be &quot;stwong&quot; (the defauwt) o-ow &quot;weak&quot;. OwO o-onwy stwong handwes a-awe counted
+and cause the asset to wemain woaded. OwO w-weak handwes w-wet you wefew t-to an asset,
+whiwe awwowing it to be gawbage-cowwected w-when nyo m-mowe stwong handwes w-wemain.</p>
+<p>you can cweate weak handwes using <code>.clone_weak()</code> instead of <code>.clone()</code>.</p>
+<h2 id="untyped-handwes"><a class="header" href="#untyped-handwes">untyped handwes</a></h2>
+<p>bevy awso has a <code>HandleUntyped</code> type. (ꈍᴗꈍ) use this type of handwe if y-you nyeed to
+be abwe to wefew to any asset, ^•ﻌ•^ wegawdwess o-of the a-asset type.</p>
+<p>this awwows you to stowe a cowwection (such a-as <code>Vec</code> ow <code>HashMap</code>) containing
 assets of mixed types.</p>
-<p>You can create an untyped handle using <code>.clone_untyped()</code>.</p>
-<h3 id="untyped-loading"><a class="header" href="#untyped-loading">Untyped Loading</a></h3>
-<p>Conveniently, the <code>AssetServer</code> supports untyped loading, if you don't know
-what asset type the files are. You can also load an entire folder:</p>
-<pre><code class="language-rust no_run noplayground">struct ExtraAssets(Vec&lt;HandleUntyped&gt;);
+<p>you can cweate an untyped handwe u-using <code>.clone_untyped()</code>.</p>
+<h3 id="untyped-woading"><a class="header" href="#untyped-woading">untyped woading</a></h3>
+<p>convenientwy, XD the <code>AssetServer</code> suppowts untyped woading, (ꈍᴗꈍ) if you d-don't know
+nani asset type the fiwes awe. ^•ﻌ•^ you c-can awso woad a-an entiwe fowdew:</p>
+<pre><code class="language-rust no_run noplayground">stwuct extwaassets(vec&lt;handweuntyped&gt;);
 
-fn load_extra_assets(
-    mut commands: Commands,
-    server: Res&lt;AssetServer&gt;,
+fn woad_extwa_assets(
+    m-mut commands: c-commands, o.O
+    sewvew: w-wes&lt;assetsewvew&gt;, (U ᵕ U❁)
 ) {
-    if let Ok(handles) = server.load_folder(&quot;extra&quot;) {
-        commands.insert_resource(ExtraAssets(handles));
+    i-if wet ok(handwes) = s-sewvew.woad_fowdew(&quot;extwa&quot;) {
+        c-commands.insewt_wesouwce(extwaassets(handwes));
     }
 }
 </code></pre>
-<p>It will try to detect the format of each asset based on the file extension.</p>
-<h2 id="assetevent"><a class="header" href="#assetevent">AssetEvent</a></h2>
-<p>If you need to perform specific actions when the asset has finished loading, is
-modified, or removed, you can react to <code>AssetEvent</code>s.</p>
-<pre><code class="language-rust no_run noplayground">struct MapTexture {
-    handle: Handle&lt;Texture&gt;,
+<p>it wiww twy to detect the fowmat o-of each asset based o-on the fiwe e-extension.</p>
+<h2 id="assetevent"><a class="header" href="#assetevent">assetevent</a></h2>
+<p>if you nyeed to pewfowm specific a-actions when the a-asset has finished w-woading, OwO is
+modified, (ꈍᴗꈍ) ow wemoved, ^•ﻌ•^ you can weact t-to <code>AssetEvent</code>s.</p>
+<pre><code class="language-rust no_run noplayground">stwuct maptextuwe {
+    handwe: handwe&lt;textuwe&gt;,
 }
 
-fn fixup_textures(
-    mut ev_asset: EventReader&lt;AssetEvent&lt;Texture&gt;&gt;,
-    mut assets: ResMut&lt;Assets&lt;Texture&gt;&gt;,
-    map_tex: Res&lt;MapTexture&gt;,
+f-fn fixup_textuwes(
+    m-mut ev_asset: e-eventweadew&lt;assetevent&lt;textuwe&gt;&gt;,
+    m-mut a-assets: wesmut&lt;assets&lt;textuwe&gt;&gt;, mya
+    m-map_tex: w-wes&lt;maptextuwe&gt;, 😳
 ) {
-    for ev in ev_asset.iter() {
-        if let AssetEvent::Created { handle } = ev {
-            // a texture was just loaded!
+    f-fow ev in ev_asset.itew() {
+        if wet assetevent::cweated { handwe } = e-ev {
+            // a textuwe was just woaded! XD
 
-            let texture = assets.get_mut(handle).unwrap();
-            // ^ unwrap is OK, because we know it is loaded now
+            w-wet textuwe = assets.get_mut(handwe).unwwap();
+            // ^ unwwap is ok, :3 because w-we know it is woaded nyow
 
-            if *handle == map_tex.handle {
-                // it is our special map texture!
-            } else {
-                // it is some other texture
+            if *handwe == map_tex.handwe {
+                // i-it is ouw speciaw map textuwe! 😳😳😳
+            } e-ewse {
+                // i-it is some othew textuwe
             }
         }
     }

@@ -163,54 +163,54 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="events"><a class="header" href="#events">Events</a></h1>
-<p>Send data between systems! Let your systems communicate with each other!</p>
-<p>To send events, use an <code>EventWriter&lt;T&gt;</code>. To receive events, use an <code>EventReader&lt;T&gt;</code>.</p>
-<p>Every reader tracks the events it has read independently, so you can handle the
-same events from multiple systems.</p>
-<pre><code class="language-rust no_run noplayground">struct LevelUpEvent(Entity);
+                        <h1 id="events"><a class="header" href="#events">events</a></h1>
+<p>send data between systems! OwO wet youw s-systems communicate w-with each o-othew!</p>
+<p>to send events, &gt;<em>&lt; use an <code>EventWriter&lt;T&gt;</code>. &gt;</em>&lt; to weceive events, (ꈍᴗꈍ) use an <code>EventReader&lt;T&gt;</code>.</p>
+<p>evewy weadew twacks the events it h-has wead independentwy, OwO s-so you c-can handwe the
+same events fwom muwtipwe systems.</p>
+<pre><code class="language-rust no_run noplayground">stwuct wevewupevent(entity);
 
-fn player_level_up(
-    mut ev_levelup: EventWriter&lt;LevelUpEvent&gt;,
-    query: Query&lt;(Entity, &amp;PlayerXp)&gt;,
+fn p-pwayew_wevew_up(
+    m-mut ev_wevewup: e-eventwwitew&lt;wevewupevent&gt;, :3
+    q-quewy: quewy&lt;(entity, (U ﹏ U) &amp;pwayewxp)&gt;,
 ) {
-    for (entity, xp) in query.iter() {
-        if xp.0 &gt; 1000 {
-            ev_levelup.send(LevelUpEvent(entity));
+    fow (entity, -.- x-xp) i-in quewy.itew() {
+        i-if xp.0 &gt; 1000 {
+            e-ev_wevewup.send(wevewupevent(entity));
         }
     }
 }
 
-fn debug_levelups(
-    mut ev_levelup: EventReader&lt;LevelUpEvent&gt;,
+fn debug_wevewups(
+    mut ev_wevewup: eventweadew&lt;wevewupevent&gt;, (ˆ ﻌ ˆ)♡
 ) {
-    for ev in ev_levelup.iter() {
-        eprintln!(&quot;Entity {:?} leveled up!&quot;, ev.0);
+    fow ev i-in ev_wevewup.itew() {
+        epwintwn!(&quot;entity {:?} wevewed u-up!&quot;, (⑅˘꒳˘) ev.0);
     }
 }
 </code></pre>
-<p>You need to add your custom event types via the <a href="./app-builder.html">app builder</a>:</p>
+<p>you nyeed to add youw custom event t-types via the <a href="./app-builder.html">app buiwdew</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
-    App::build()
+    app::buiwd()
         // ...
-        .add_event::&lt;LevelUpEvent&gt;()
+        .add_event::&lt;wevewupevent&gt;()
         // ...
-        .run();
+        .wun();
 }
 </code></pre>
-<p>Events should be your go-to data flow tool. As events can be sent from any
-system and received by multiple systems, they are <em>extremely</em> versatile.</p>
-<h2 id="possible-pitfalls"><a class="header" href="#possible-pitfalls">Possible Pitfalls</a></h2>
-<p>Events don't persist. They are stored until the end of the next frame, after
-which they are lost. If your systems do not handle events every frame, you could
+<p>events shouwd be youw go-to data f-fwow toow. OwO as events c-can be sent f-fwom any
+system and weceived by muwtipwe systems, (ꈍᴗꈍ) t-they awe <em>extwemewy</em> vewsatiwe.</p>
+<h2 id="possibwe-pitfawws"><a class="header" href="#possibwe-pitfawws">possibwe pitfawws</a></h2>
+<p>events don't pewsist. OwO they awe stowed u-untiw the end o-of the nyext f-fwame, 🥺 aftew
+which they awe wost. OwO if youw systems d-do nyot handwe e-events evewy f-fwame, 🥺 you couwd
 miss some.</p>
-<p>The advantage of this design is that you don't have to worry about excessive
-memory use from unhandled events.</p>
-<p>Also beware of <a href="../pitfalls/frame-delay.html">frame delay / 1-frame-lag</a>. This can
-occur if Bevy runs the receiving system before the sending system. The receiving
-system will only get a chance to receive the events on the next frame update.</p>
-<p>If you need to ensure that events are handled immediately / during the same frame,
-you can use <a href="./system-order.html">explicit system ordering</a>.</p>
+<p>the advantage of this design is that y-you don't have t-to wowwy about e-excessive
+memowy use fwom unhandwed events.</p>
+<p>awso bewawe of <a href="../pitfalls/frame-delay.html">fwame deway / 1-fwame-wag</a>. XD this can
+occuw if bevy wuns the weceiving s-system befowe the s-sending system. OwO t-the weceiving
+system wiww onwy get a chance to w-weceive the events o-on the nyext f-fwame update.</p>
+<p>if you nyeed to ensuwe that events a-awe handwed immediatewy / d-duwing t-the same fwame,
+you can use <a href="./system-order.html">expwicit system owdewing</a>.</p>
 
                     </main>
 

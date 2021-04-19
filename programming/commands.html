@@ -163,68 +163,68 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="commands"><a class="header" href="#commands">Commands</a></h1>
-<p>Use <code>Commands</code> to spawn/despawn entities, add/remove components on existing entities, manage resources.</p>
-<p>These actions do not take effect immediately; they are queued to be performed later when it is safe to do so. See: <a href="./stages.html">stages</a>.</p>
-<p>(if you are not using stages, that means your systems will see them <a href="../pitfalls/frame-delay.html">on the next frame update</a>)</p>
-<pre><code class="language-rust no_run noplayground">fn spawn_player(
-    mut commands: Commands,
+                        <h1 id="commands"><a class="header" href="#commands">commands</a></h1>
+<p>use <code>Commands</code> to spawn/despawn entities, OwO add/wemove c-components o-on existing entities, 🥺 m-manage wesouwces.</p>
+<p>these actions do nyot take effect i-immediatewy; they a-awe queued to b-be pewfowmed watew w-when it is safe t-to do so. òωó see: <a href="./stages.html">stages</a>.</p>
+<p>(if you awe nyot using stages, ^•ﻌ•^ that m-means youw systems w-wiww see them <a href="../pitfalls/frame-delay.html">on the nyext fwame update</a>)</p>
+<pre><code class="language-rust no_run noplayground">fn spawn_pwayew(
+    mut commands: c-commands, &gt;_&lt;
 ) {
-    // manage resources
-    commands.insert_resource(GoalsReached { main_goal: false, bonus: false });
-    commands.remove_resource::&lt;MyResource&gt;();
+    // m-manage wesouwces
+    c-commands.insewt_wesouwce(goawsweached { m-main_goaw: fawse, &gt;_&lt; b-bonus: fawse });
+    c-commands.wemove_wesouwce::&lt;mywesouwce&gt;();
 
-    // create a new entity using `spawn`
-    let entity_id = commands.spawn()
+    // c-cweate a-a nyew entity using `spawn`
+    wet entity_id = commands.spawn()
         // add a component
-        .insert(ComponentA)
-        // add a bundle
-        .insert_bundle(MyBundle::default())
-        // get the Entity ID
+        .insewt(componenta)
+        // a-add a bundwe
+        .insewt_bundwe(mybundwe::defauwt())
+        // get the entity id
         .id();
 
-    // shorthand for creating an entity with a bundle
-    commands.spawn_bundle(PlayerBundle {
-        name: PlayerName(&quot;Henry&quot;.into()),
-        xp: PlayerXp(1000),
-        health: Health {
-            hp: 100.0, extra: 20.0
-        },
-        _p: Player,
-        sprite: Default::default(),
+    // s-showthand fow cweating an entity w-with a bundwe
+    commands.spawn_bundwe(pwayewbundwe {
+        nyame: pwayewname(&quot;henwy&quot;.into()), (⑅˘꒳˘)
+        xp: pwayewxp(1000), /(^•ω•^)
+        h-heawth: heawth {
+            h-hp: 100.0, rawr x3 e-extwa: 20.0
+        }, (U ﹏ U)
+        _p: pwayew, (U ﹏ U)
+        spwite: defauwt::defauwt(), (⑅˘꒳˘)
     });
 
-    // spawn another entity
-    // NOTE: tuples of arbitrary components are valid bundles
-    let other = commands.spawn_bundle((
-        ComponentA::default(),
-        ComponentB::default(),
-        ComponentC::default(),
+    // spawn anothew entity
+    // nyote: t-tupwes of awbitwawy components awe vawid bundwes
+    wet othew = commands.spawn_bundwe((
+        c-componenta::defauwt(), òωó
+        componentb::defauwt(), ʘwʘ
+        c-componentc::defauwt(), /(^•ω•^)
     )).id();
 
-    // add/remove components of an existing entity
+    // a-add/wemove components o-of an existing e-entity
     commands.entity(entity_id)
-        .insert(ComponentB)
-        .remove::&lt;ComponentA&gt;()
-        .remove_bundle::&lt;MyBundle&gt;();
+        .insewt(componentb)
+        .wemove::&lt;componenta&gt;()
+        .wemove_bundwe::&lt;mybundwe&gt;();
 
-    // despawn an entity
-    commands.entity(other).despawn();
+    // despawn an e-entity
+    commands.entity(othew).despawn();
 }
 
-fn make_all_players_hostile(
-    mut commands: Commands,
-    query: Query&lt;Entity, With&lt;Player&gt;&gt;,
+fn make_aww_pwayews_hostiwe(
+    mut commands: commands, ʘwʘ
+    q-quewy: quewy&lt;entity, σωσ with&lt;pwayew&gt;&gt;, OwO
 ) {
-    for entity in query.iter() {
-        // add an `Enemy` component to the entity
-        commands.entity(entity).insert(Enemy);
+    fow entity in quewy.itew() {
+        // add an `enemy` c-component to the entity
+        c-commands.entity(entity).insewt(enemy);
     }
 }
 </code></pre>
-<p>Be careful not to confuse components and bundles. For example: <code>.insert_bundle</code>
-is correct: it will add all the components from the bundle; if you instead use
-<code>.insert</code> with a bundle type, the bundle struct will be added as a single
+<p>be cawefuw nyot to confuse components a-and bundwes. ^•ﻌ•^ f-fow exampwe: <code>.insert_bundle</code>
+is cowwect: it wiww add aww the components f-fwom the b-bundwe; if you i-instead use
+<code>.insert</code> with a bundwe type, ^•ﻌ•^ the bundwe stwuct w-wiww be added a-as a singwe
 component!</p>
 
                     </main>

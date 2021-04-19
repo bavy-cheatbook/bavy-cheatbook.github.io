@@ -163,97 +163,97 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="hierarchical-parentchild-entities"><a class="header" href="#hierarchical-parentchild-entities">Hierarchical (Parent/Child) Entities</a></h1>
-<p>Technically, the Entities/Components themselves cannot form a hierarchy (it is a
-flat data structure). However, logical hierarchies are a common pattern in games.</p>
-<p>Bevy supports creating such a logical link between entities, to form a virtual
-&quot;hierarchy&quot;, by simply adding <code>Parent</code> and  <code>Children</code> components on the
-respective entities.</p>
-<p><code>Commands</code> has methods for adding children to entities, which automatically add the correct components:</p>
-<pre><code class="language-rust no_run noplayground">// spawn the parent and get its Entity id
-let parent = commands.spawn_bundle(MyParentBundle::default())
+                        <h1 id="hiewawchicaw-pawentchiwd-entities"><a class="header" href="#hiewawchicaw-pawentchiwd-entities">hiewawchicaw (pawent/chiwd) entities</a></h1>
+<p>technicawwy, OwO the entities/components t-themsewves cannot f-fowm a hiewawchy (it i-is a
+fwat data stwuctuwe). OwO howevew, wogicaw h-hiewawchies a-awe a common pattewn i-in games.</p>
+<p>bevy suppowts cweating such a wogicaw w-wink between e-entities, to fowm a-a viwtuaw
+&quot;hiewawchy&quot;, &gt;_&lt; by simpwy adding <code>Parent</code> and  <code>Children</code> components on the
+wespective entities.</p>
+<p><code>Commands</code> has methods fow adding chiwdwen t-to entities, 🥺 which a-automaticawwy a-add the cowwect c-components:</p>
+<pre><code class="language-rust no_run noplayground">// spawn the pawent and get its entity i-id
+wet pawent = c-commands.spawn_bundwe(mypawentbundwe::defauwt())
     .id();
 
-// do the same for the child
-let child = commands.spawn_bundle(MyChildBundle::default())
+// d-do the same f-fow the chiwd
+w-wet chiwd = commands.spawn_bundwe(mychiwdbundwe::defauwt())
     .id();
 
-// add the child to the parent
-commands.entity(parent).push_children(&amp;[child]);
+// a-add the c-chiwd to the p-pawent
+commands.entity(pawent).push_chiwdwen(&amp;[chiwd]);
 
-// you can also use `with_children`:
-commands.spawn_bundle(MyParentBundle::default())
-    .with_children(|parent| {
-        parent.spawn_bundle(MyChildBundle::default());
+// you can awso use `with_chiwdwen`:
+commands.spawn_bundwe(mypawentbundwe::defauwt())
+    .with_chiwdwen(|pawent| {
+        pawent.spawn_bundwe(mychiwdbundwe::defauwt());
     });
 </code></pre>
-<p>You can despawn an entire hierarchy with a single command:</p>
-<pre><code class="language-rust no_run noplayground">fn close_menu(
-    mut commands: Commands,
-    query: Query&lt;Entity, With&lt;MainMenuUI&gt;&gt;,
+<p>you can despawn an entiwe hiewawchy w-with a singwe c-command:</p>
+<pre><code class="language-rust no_run noplayground">fn cwose_menu(
+    mut commands: c-commands, ( ͡o ω ͡o )
+    quewy: q-quewy&lt;entity, UwU w-with&lt;mainmenuui&gt;&gt;, rawr x3
 ) {
-    for entity in query.iter() {
-        // despawn the entity and its children
-        commands.entity(entity).despawn_recursive();
+    f-fow e-entity in quewy.itew() {
+        // d-despawn the e-entity and its c-chiwdwen
+        commands.entity(entity).despawn_wecuwsive();
     }
 }
 </code></pre>
-<h2 id="accessing-the-parent-or-children"><a class="header" href="#accessing-the-parent-or-children">Accessing the Parent or Children</a></h2>
-<p>To make a system that works with the hierarchy, you typically need two queries:</p>
+<h2 id="accessing-the-pawent-ow-chiwdwen"><a class="header" href="#accessing-the-pawent-ow-chiwdwen">accessing the pawent ow chiwdwen</a></h2>
+<p>to make a system that wowks with t-the hiewawchy, OwO you t-typicawwy nyeed t-two quewies:</p>
 <ul>
-<li>one with the components you need from the child entities</li>
-<li>one with the components you need from the parent entities</li>
+<li>one with the components you nyeed f-fwom the chiwd e-entities</li>
+<li>one with the components you nyeed f-fwom the pawent e-entities</li>
 </ul>
-<p>One of the two queries should include the appropriate component, to obtain the
-entity ids to use with the other one:</p>
+<p>one of the two quewies shouwd incwude t-the appwopwiate c-component, OwO t-to obtain the
+entity ids to use with the othew o-one:</p>
 <ul>
-<li><code>Parent</code> in the child query, if you want to iterate entities and look up
-their parents, or</li>
-<li><code>Children</code> in the parent query, if you want to iterate entities and look up
-their children</li>
+<li><code>Parent</code> in the chiwd quewy, ^•ﻌ•^ if you want t-to itewate entities a-and wook up
+theiw pawents, XD ow</li>
+<li><code>Children</code> in the pawent quewy, ^•ﻌ•^ if you want t-to itewate entities a-and wook up
+theiw chiwdwen</li>
 </ul>
-<p>For example, if we want to get the <code>Transform</code> of cameras that have a parent,
-and the <code>GlobalTransform</code> of their parent:</p>
-<pre><code class="language-rust no_run noplayground">fn camera_with_parent(
-    q_child: Query&lt;(&amp;Parent, &amp;Transform), With&lt;Camera&gt;&gt;,
-    q_parent: Query&lt;&amp;GlobalTransform&gt;,
+<p>fow exampwe, &gt;_&lt; if we want to get the <code>Transform</code> of camewas that have a pawent,
+and the <code>GlobalTransform</code> of theiw pawent:</p>
+<pre><code class="language-rust no_run noplayground">fn camewa_with_pawent(
+    q_chiwd: q-quewy&lt;(&amp;pawent, :3 &amp;twansfowm), (U ﹏ U) w-with&lt;camewa&gt;&gt;, -.-
+    q-q_pawent: quewy&lt;&amp;gwobawtwansfowm&gt;, (ˆ ﻌ ˆ)♡
 ) {
-    for (parent, child_transform) in q_child.iter() {
-        // `parent` contains the Entity ID we can use
-        // to query components from the parent:
-        let parent_global_transform = q_parent.get(parent.0);
+    f-fow (pawent, (⑅˘꒳˘) c-chiwd_twansfowm) i-in q_chiwd.itew() {
+        // `pawent` c-contains the e-entity id we can use
+        // to quewy components fwom the pawent:
+        wet p-pawent_gwobaw_twansfowm = q_pawent.get(pawent.0);
 
-        // do something with the components
+        // do something with t-the components
     }
 }
 </code></pre>
-<p>As another example, say we are making a strategy game, and we have Units that are
-children of a Squad. Say we need to make a system that works on each Squad, and it
-needs some information about the children:</p>
-<pre><code class="language-rust no_run noplayground">fn process_squad_damage(
-    q_parent: Query&lt;(&amp;MySquadDamage, &amp;Children)&gt;,
-    q_child: Query&lt;&amp;MyUnitHealth&gt;,
+<p>as anothew exampwe, OwO say we awe making a-a stwategy g-game, 🥺 and we have u-units that awe
+chiwdwen of a squad. 🥺 say we nyeed t-to make a system t-that wowks on e-each squad, òωó and i-it
+needs some infowmation about the c-chiwdwen:</p>
+<pre><code class="language-rust no_run noplayground">fn pwocess_squad_damage(
+    q_pawent: q-quewy&lt;(&amp;mysquaddamage, -.- &amp;chiwdwen)&gt;, (ˆ ﻌ ˆ)♡
+    q-q_chiwd: q-quewy&lt;&amp;myunitheawth&gt;, (⑅˘꒳˘)
 ) {
-    // get the properties of each squad
-    for (squad_dmg, children) in q_parent.iter() {
-        // `children` is a collection of Entity IDs
-        for &amp;child in children.iter() {
-            // get the health of each child unit
-            let health = q_child.get(child);
+    // g-get the p-pwopewties of each s-squad
+    fow (squad_dmg, (U ᵕ U❁) c-chiwdwen) i-in q_pawent.itew() {
+        // `chiwdwen` is a cowwection of entity ids
+        fow &amp;chiwd in chiwdwen.itew() {
+            // g-get the heawth of each chiwd unit
+            w-wet heawth = q_chiwd.get(chiwd);
 
-            // do something
+            // d-do something
         }
     }
 }
 </code></pre>
-<h2 id="relative-transforms"><a class="header" href="#relative-transforms">Relative Transforms</a></h2>
-<p>If your entities represent &quot;objects in the game world&quot;, you probably expect the
-child to be positioned relative to the parent and move with it.</p>
-<p>All Bundles that come with Bevy provide this behavior automatically.</p>
-<p>If you are not using such a bundle, you need to make sure to add these components to both the parent and the child: <code>GlobalTransform</code> and <code>Transform</code>.</p>
-<p>The <code>Transform</code> represents the relative position. You can manipulate it directly.</p>
-<p>The <code>GlobalTransform</code> represents the absolute position. It is managed by bevy internally; do not manipulate it yourself.</p>
-<p>For more info, see the <a href="../features/transforms.html">dedicated page about transforms</a>.</p>
+<h2 id="wewative-twansfowms"><a class="header" href="#wewative-twansfowms">wewative twansfowms</a></h2>
+<p>if youw entities wepwesent &quot;objects i-in the game wowwd&quot;, OwO y-you pwobabwy e-expect the
+chiwd to be positioned wewative to t-the pawent and m-move with it.</p>
+<p>aww bundwes that come with bevy pwovide t-this behaviow a-automaticawwy.</p>
+<p>if you awe nyot using such a bundwe, òωó y-you nyeed to m-make suwe to add t-these components t-to both the pawent a-and the chiwd: <code>GlobalTransform</code> and <code>Transform</code>.</p>
+<p>the <code>Transform</code> wepwesents the wewative position. ^•ﻌ•^ y-you can manipuwate i-it diwectwy.</p>
+<p>the <code>GlobalTransform</code> wepwesents the absowute position. 🥺 i-it is managed b-by bevy intewnawwy; d-do nyot manipuwate i-it youwsewf.</p>
+<p>fow mowe info, &gt;_&lt; see the <a href="../features/transforms.html">dedicated page about twansfowms</a>.</p>
 
                     </main>
 

@@ -163,133 +163,133 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="pan--orbit-camera"><a class="header" href="#pan--orbit-camera">Pan + Orbit Camera</a></h1>
-<p><a href="../code/examples/pan-orbit-camera.rs">Click here for the full example code.</a></p>
+                        <h1 id="pan--owbit-camewa"><a class="header" href="#pan--owbit-camewa">pan + owbit camewa</a></h1>
+<p><a href="../code/examples/pan-orbit-camera.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
-<p>This code is a community contribution.</p>
-<p>Current version developed by <a href="https://github.com/bevy-cheatbook/bevy-cheatbook/pull/1">@mirenbharta</a>. Initial work by <a href="https://github.com/jamadazi/bevy-cookbook/pull/2">@skairunner</a>.</p>
+<p>this code is a community contwibution.</p>
+<p>cuwwent vewsion devewoped by <a href="https://github.com/bevy-cheatbook/bevy-cheatbook/pull/1">@miwenbhawta</a>. XD initiaw wowk by <a href="https://github.com/jamadazi/bevy-cookbook/pull/2">@skaiwunnew</a>.</p>
 <hr />
-<p>This is a camera controller similar to the ones in 3D editors like Blender.</p>
-<p>Use the right mouse button to rotate, middle button to pan, scroll wheel to move inwards/outwards.</p>
-<pre><code class="language-rust no_run noplayground">/// Tags an entity as capable of panning and orbiting.
-struct PanOrbitCamera {
-    /// The &quot;focus point&quot; to orbit around. It is automatically updated when panning the camera
-    pub focus: Vec3,
-    pub radius: f32,
-    pub upside_down: bool,
+<p>this is a camewa contwowwew simiwaw t-to the ones in 3d e-editows wike b-bwendew.</p>
+<p>use the wight mouse button to wotate, 🥺 m-middwe button t-to pan, òωó scwoww w-wheew to move i-inwawds/outwawds.</p>
+<pre><code class="language-rust no_run noplayground">/// tags an entity as capabwe of p-panning and owbiting. (˘ω˘)
+s-stwuct panowbitcamewa {
+    /// t-the &quot;focus p-point&quot; to owbit a-awound. ʘwʘ it is automaticawwy u-updated w-when panning t-the camewa
+    pub focus: vec3, ( ͡o ω ͡o )
+    pub wadius: f32, o.O
+    pub upside_down: boow, &gt;w&lt;
 }
 
-impl Default for PanOrbitCamera {
-    fn default() -&gt; Self {
-        PanOrbitCamera {
-            focus: Vec3::ZERO,
-            radius: 5.0,
-            upside_down: false,
+i-impw defauwt fow panowbitcamewa {
+    fn defauwt() -&gt; s-sewf {
+        panowbitcamewa {
+            f-focus: vec3::zewo,
+            wadius: 5.0, 😳
+            upside_down: fawse, 🥺
         }
     }
 }
 
-/// Pan the camera with middle mouse click, zoom with scroll wheel, orbit with right mouse click.
-fn pan_orbit_camera(
-    windows: Res&lt;Windows&gt;,
-    mut ev_motion: EventReader&lt;MouseMotion&gt;,
-    mut ev_scroll: EventReader&lt;MouseWheel&gt;,
-    input_mouse: Res&lt;Input&lt;MouseButton&gt;&gt;,
-    mut query: Query&lt;(&amp;mut PanOrbitCamera, &amp;mut Transform, &amp;PerspectiveProjection)&gt;,
+/// pan the c-camewa with middwe mouse cwick, rawr x3 z-zoom with scwoww w-wheew, o.O owbit with wight mouse cwick. rawr
+fn pan_owbit_camewa(
+    windows: wes&lt;windows&gt;, ʘwʘ
+    mut e-ev_motion: eventweadew&lt;mousemotion&gt;, 😳😳😳
+    mut ev_scwoww: eventweadew&lt;mousewheew&gt;, ^^;;
+    input_mouse: wes&lt;input&lt;mousebutton&gt;&gt;, o.O
+    mut q-quewy: quewy&lt;(&amp;mut panowbitcamewa, (///ˬ///✿) &amp;mut t-twansfowm, σωσ &amp;pewspectivepwojection)&gt;, nyaa~~
 ) {
-    // change input mapping for orbit and panning here
-    let orbit_button = MouseButton::Right;
-    let pan_button = MouseButton::Middle;
+    // c-change i-input mapping f-fow owbit and panning hewe
+    wet owbit_button = m-mousebutton::wight;
+    wet pan_button = mousebutton::middwe;
 
-    let mut pan = Vec2::ZERO;
-    let mut rotation_move = Vec2::ZERO;
-    let mut scroll = 0.0;
-    let mut orbit_button_changed = false;
+    w-wet mut pan = vec2::zewo;
+    wet mut wotation_move = vec2::zewo;
+    wet mut scwoww = 0.0;
+    w-wet mut owbit_button_changed = fawse;
 
-    if input_mouse.pressed(orbit_button) {
-        for ev in ev_motion.iter() {
-            rotation_move += ev.delta;
+    i-if input_mouse.pwessed(owbit_button) {
+        fow e-ev in ev_motion.itew() {
+            w-wotation_move += ev.dewta;
         }
-    } else if input_mouse.pressed(pan_button) {
-        // Pan only if we're not rotating at the moment
-        for ev in ev_motion.iter() {
-            pan += ev.delta;
+    } ewse if input_mouse.pwessed(pan_button) {
+        // pan onwy i-if we'we nyot wotating a-at the moment
+        fow e-ev in ev_motion.itew() {
+            p-pan += ev.dewta;
         }
     }
-    for ev in ev_scroll.iter() {
-        scroll += ev.y;
+    fow e-ev in ev_scwoww.itew() {
+        scwoww += ev.y;
     }
-    if input_mouse.just_released(orbit_button) || input_mouse.just_pressed(orbit_button) {
-        orbit_button_changed = true;
+    i-if input_mouse.just_weweased(owbit_button) || input_mouse.just_pwessed(owbit_button) {
+        owbit_button_changed = t-twue;
     }
 
-    for (mut pan_orbit, mut transform, projection) in query.iter_mut() {
-        if orbit_button_changed {
-            // only check for upside down when orbiting started or ended this frame
-            // if the camera is &quot;upside&quot; down, panning horizontally would be inverted, so invert the input to make it correct
-            let up = transform.rotation * Vec3::Y;
-            pan_orbit.upside_down = up.y &lt;= 0.0;
+    fow (mut pan_owbit, ^^;; m-mut twansfowm, ^•ﻌ•^ pwojection) i-in quewy.itew_mut() {
+        if o-owbit_button_changed {
+            // onwy check fow upside down when owbiting stawted ow ended this fwame
+            // if the c-camewa is &quot;upside&quot; d-down, σωσ panning howizontawwy w-wouwd be invewted, -.- s-so invewt the i-input to make it cowwect
+            wet up = twansfowm.wotation * v-vec3::y;
+            pan_owbit.upside_down = up.y &lt;= 0.0;
         }
 
-        let mut any = false;
-        if rotation_move.length_squared() &gt; 0.0 {
-            any = true;
-            let window = get_primary_window_size(&amp;windows);
-            let delta_x = {
-                let delta = rotation_move.x / window.x * std::f32::consts::PI * 2.0;
-                if pan_orbit.upside_down { -delta } else { delta }
+        wet mut any = fawse;
+        if w-wotation_move.wength_squawed() &gt; 0.0 {
+            any = twue;
+            w-wet w-window = get_pwimawy_window_size(&amp;windows);
+            w-wet dewta_x = {
+                wet dewta = w-wotation_move.x / w-window.x * s-std::f32::consts::pi * 2.0;
+                i-if pan_owbit.upside_down { -dewta } ewse { dewta }
             };
-            let delta_y = rotation_move.y / window.y * std::f32::consts::PI;
-            let yaw = Quat::from_rotation_y(-delta_x);
-            let pitch = Quat::from_rotation_x(-delta_y);
-            transform.rotation = yaw * transform.rotation; // rotate around global y axis
-            transform.rotation = transform.rotation * pitch; // rotate around local x axis
-        } else if pan.length_squared() &gt; 0.0 {
-            any = true;
-            // make panning distance independent of resolution and FOV,
-            let window = get_primary_window_size(&amp;windows);
-            pan *= Vec2::new(projection.fov * projection.aspect_ratio, projection.fov) / window;
-            // translate by local axes
-            let right = transform.rotation * Vec3::X * -pan.x;
-            let up = transform.rotation * Vec3::Y * pan.y;
-            // make panning proportional to distance away from focus point
-            let translation = (right + up) * pan_orbit.radius;
-            pan_orbit.focus += translation;
-        } else if scroll.abs() &gt; 0.0 {
-            any = true;
-            pan_orbit.radius -= scroll * pan_orbit.radius * 0.2;
-            // dont allow zoom to reach zero or you get stuck
-            pan_orbit.radius = f32::max(pan_orbit.radius, 0.05);
+            w-wet d-dewta_y = wotation_move.y / w-window.y * s-std::f32::consts::pi;
+            w-wet yaw = quat::fwom_wotation_y(-dewta_x);
+            wet pitch = quat::fwom_wotation_x(-dewta_y);
+            twansfowm.wotation = y-yaw * twansfowm.wotation; // wotate awound gwobaw y axis
+            twansfowm.wotation = t-twansfowm.wotation * pitch; // wotate awound wocaw x axis
+        } e-ewse i-if pan.wength_squawed() &gt; 0.0 {
+            a-any = twue;
+            // m-make panning distance independent o-of wesowution a-and fov, ^^;;
+            wet window = get_pwimawy_window_size(&amp;windows);
+            pan *= vec2::new(pwojection.fov * pwojection.aspect_watio, XD p-pwojection.fov) / window;
+            // t-twanswate by wocaw a-axes
+            w-wet wight = twansfowm.wotation * vec3::x * -pan.x;
+            wet up = twansfowm.wotation * v-vec3::y * p-pan.y;
+            // make p-panning pwopowtionaw t-to distance away fwom focus point
+            wet twanswation = (wight + up) * pan_owbit.wadius;
+            p-pan_owbit.focus += t-twanswation;
+        } ewse i-if scwoww.abs() &gt; 0.0 {
+            any = twue;
+            p-pan_owbit.wadius -= s-scwoww * pan_owbit.wadius * 0.2;
+            // dont awwow zoom t-to weach zewo ow you get stuck
+            pan_owbit.wadius = f32::max(pan_owbit.wadius, 🥺 0.05);
         }
 
         if any {
-            // emulating parent/child to make the yaw/y-axis rotation behave like a turntable
-            // parent = x and y rotation
-            // child = z-offset
-            let rot_matrix = Mat3::from_quat(transform.rotation);
-            transform.translation = pan_orbit.focus + rot_matrix.mul_vec3(Vec3::new(0.0, 0.0, pan_orbit.radius));
+            // emuwating pawent/chiwd t-to make the y-yaw/y-axis wotation behave wike a tuwntabwe
+            // p-pawent = x-x and y wotation
+            // chiwd = z-offset
+            wet wot_matwix = mat3::fwom_quat(twansfowm.wotation);
+            t-twansfowm.twanswation = pan_owbit.focus + wot_matwix.muw_vec3(vec3::new(0.0, òωó 0.0, pan_owbit.wadius));
         }
     }
 }
 
-fn get_primary_window_size(windows: &amp;Res&lt;Windows&gt;) -&gt; Vec2 {
-    let window = windows.get_primary().unwrap();
-    let window = Vec2::new(window.width() as f32, window.height() as f32);
+fn get_pwimawy_window_size(windows: &amp;wes&lt;windows&gt;) -&gt; v-vec2 {
+    wet window = windows.get_pwimawy().unwwap();
+    wet window = vec2::new(window.width() a-as f32, (ˆ ﻌ ˆ)♡ window.height() a-as f32);
     window
 }
 
-/// Spawn a camera like this
-fn spawn_camera(mut commands: Commands) {
-    let translation = Vec3::new(-2.0, 2.5, 5.0);
-    let radius = translation.length();
+/// spawn a camewa wike this
+f-fn spawn_camewa(mut c-commands: commands) {
+    wet twanswation = vec3::new(-2.0, 2.5, -.- 5.0);
+    w-wet wadius = twanswation.wength();
 
-    commands.spawn_bundle(PerspectiveCameraBundle {
-        transform: Transform::from_translation(translation)
-            .looking_at(Vec3::ZERO, Vec3::Y),
-        ..Default::default()
-    }).insert(PanOrbitCamera {
-        radius,
-        ..Default::default()
+    commands.spawn_bundwe(pewspectivecamewabundwe {
+        t-twansfowm: twansfowm::fwom_twanswation(twanswation)
+            .wooking_at(vec3::zewo, :3 vec3::y), ʘwʘ
+        ..defauwt::defauwt()
+    }).insewt(panowbitcamewa {
+        wadius, 🥺
+        ..defauwt::defauwt()
     });
 }
 </code></pre>

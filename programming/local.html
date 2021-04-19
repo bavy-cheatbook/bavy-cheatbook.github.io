@@ -163,23 +163,23 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="local-resources"><a class="header" href="#local-resources">Local Resources</a></h1>
-<p><code>Local&lt;T&gt;</code> is a system parameter similar to <code>ResMut&lt;T&gt;</code>, which gives you full
-mutable access to an instance of some data type, that is independent from
+                        <h1 id="wocaw-wesouwces"><a class="header" href="#wocaw-wesouwces">wocaw wesouwces</a></h1>
+<p><code>Local&lt;T&gt;</code> is a system pawametew simiwaw to <code>ResMut&lt;T&gt;</code>, &gt;_&lt; which gives you fuww
+mutabwe access to an instance of s-some data type, OwO t-that is independent f-fwom
 entities and components.</p>
-<p><code>Res&lt;T&gt;</code>/<code>ResMut&lt;T&gt;</code> refer to a single global instance of the type, shared
-between all systems. On the other hand, every <code>Local&lt;T&gt;</code> parameter is a separate
-instance, exclusively for that system.</p>
-<pre><code class="language-rust no_run noplayground">fn my_system1(mut local: Local&lt;MyState&gt;) {
-    // you can do anything you want with the local here
+<p><code>Res&lt;T&gt;</code>/<code>ResMut&lt;T&gt;</code> wefew to a singwe gwobaw instance o-of the type, (ꈍᴗꈍ) shawed
+between aww systems. (ꈍᴗꈍ) on the othew h-hand, ^•ﻌ•^ evewy <code>Local&lt;T&gt;</code> pawametew is a sepawate
+instance, &gt;_&lt; excwusivewy fow that system.</p>
+<pre><code class="language-rust no_run noplayground">fn my_system1(mut wocaw: wocaw&lt;mystate&gt;) {
+    // y-you can do anything y-you want with t-the wocaw hewe
 }
 
-fn my_system2(mut local: Local&lt;MyState&gt;) {
-    // the local in this system is a different instance
+f-fn my_system2(mut w-wocaw: wocaw&lt;mystate&gt;) {
+    // t-the wocaw i-in this system i-is a diffewent instance
 }
 </code></pre>
-<p>The type must implement <code>Default</code> or <code>FromWorld</code>. It is automatically initialized.</p>
-<p>A system can have multiple <code>Local</code>s of the same type.</p>
+<p>the type must impwement <code>Default</code> ow <code>FromWorld</code>. &gt;_&lt; it is automaticawwy initiawized.</p>
+<p>a system can have muwtipwe <code>Local</code>s of the same type.</p>
 
                     </main>
 

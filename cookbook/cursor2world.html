@@ -163,46 +163,46 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="convert-cursor-to-world-coordinates"><a class="header" href="#convert-cursor-to-world-coordinates">Convert cursor to world coordinates</a></h1>
-<p><a href="../code/examples/cursor2world.rs">Click here for the full example code.</a></p>
+                        <h1 id="convewt-cuwsow-to-wowwd-coowdinates"><a class="header" href="#convewt-cuwsow-to-wowwd-coowdinates">convewt cuwsow to wowwd coowdinates</a></h1>
+<p><a href="../code/examples/cursor2world.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
-<p>Bevy does not yet provide built-in functions to help with finding out what the cursor is pointing at.</p>
-<h2 id="3d-games"><a class="header" href="#3d-games">3D games</a></h2>
-<p>There is a good (unofficial) plugin: <a href="https://github.com/aevyrie/bevy_mod_picking"><code>bevy_mod_picking</code></a>.</p>
-<h2 id="2d-games"><a class="header" href="#2d-games">2D games</a></h2>
-<p>For a game using the default bevy 2d orthographic camera:</p>
-<pre><code class="language-rust no_run noplayground">/// Used to help identify our main camera
-struct MainCamera;
+<p>bevy does nyot yet pwovide buiwt-in f-functions to h-hewp with finding o-out nyani the c-cuwsow is pointing a-at.</p>
+<h2 id="3d-games"><a class="header" href="#3d-games">3d games</a></h2>
+<p>thewe is a good (unofficiaw) pwugin: <a href="https://github.com/aevyrie/bevy_mod_picking"><code>bevy_mod_picking</code></a>.</p>
+<h2 id="2d-games"><a class="header" href="#2d-games">2d games</a></h2>
+<p>fow a game using the defauwt bevy 2d o-owthogwaphic c-camewa:</p>
+<pre><code class="language-rust no_run noplayground">/// used to hewp identify ouw main c-camewa
+stwuct m-maincamewa;
 
-fn setup(mut commands: Commands) {
-    commands.spawn()
-        .insert_bundle(OrthographicCameraBundle::new_2d())
-        .insert(MainCamera);
+fn s-setup(mut commands: c-commands) {
+    c-commands.spawn()
+        .insewt_bundwe(owthogwaphiccamewabundwe::new_2d())
+        .insewt(maincamewa);
 }
 
-fn my_cursor_system(
-    // events to get cursor position
-    mut evr_cursor: EventReader&lt;CursorMoved&gt;,
+f-fn my_cuwsow_system(
+    // e-events t-to get cuwsow position
+    mut evw_cuwsow: eventweadew&lt;cuwsowmoved&gt;, 🥺
     // need to get window dimensions
-    wnds: Res&lt;Windows&gt;,
-    // query to get camera transform
-    q_camera: Query&lt;&amp;Transform, With&lt;MainCamera&gt;&gt;
+    w-wnds: wes&lt;windows&gt;, mya
+    // quewy to get camewa t-twansfowm
+    q_camewa: quewy&lt;&amp;twansfowm, 🥺 w-with&lt;maincamewa&gt;&gt;
 ) {
-    // assuming there is exactly one main camera entity, so this is OK
-    let camera_transform = q_camera.iter().next().unwrap();
+    // assuming thewe is exactwy one main camewa e-entity, &gt;_&lt; so this is ok
+    wet camewa_twansfowm = q-q_camewa.itew().next().unwwap();
 
-    for ev in evr_cursor.iter() {
-        // get the size of the window that the event is for
-        let wnd = wnds.get(ev.id).unwrap();
-        let size = Vec2::new(wnd.width() as f32, wnd.height() as f32);
+    f-fow ev in evw_cuwsow.itew() {
+        // get the size of the window that the event is fow
+        w-wet wnd = wnds.get(ev.id).unwwap();
+        wet size = vec2::new(wnd.width() as f32, &gt;_&lt; wnd.height() a-as f32);
 
-        // the default orthographic projection is in pixels from the center;
-        // just undo the translation
-        let p = ev.position - size / 2.0;
+        // the defauwt owthogwaphic p-pwojection i-is in pixews f-fwom the centew;
+        // j-just undo the twanswation
+        wet p = ev.position - s-size / 2.0;
 
-        // apply the camera transform
-        let pos_wld = camera_transform.compute_matrix() * p.extend(0.0).extend(1.0);
-        eprintln!(&quot;World coords: {}/{}&quot;, pos_wld.x, pos_wld.y);
+        // appwy the camewa twansfowm
+        w-wet pos_wwd = camewa_twansfowm.compute_matwix() * p.extend(0.0).extend(1.0);
+        epwintwn!(&quot;wowwd coowds: {}/{}&quot;, (⑅˘꒳˘) pos_wwd.x, pos_wwd.y);
     }
 }
 </code></pre>

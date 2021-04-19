@@ -163,22 +163,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="quitting-the-app"><a class="header" href="#quitting-the-app">Quitting the App</a></h1>
-<p><a href="../code/examples/quit.rs">Click here for the full example code.</a></p>
+                        <h1 id="quitting-the-app"><a class="header" href="#quitting-the-app">quitting the app</a></h1>
+<p><a href="../code/examples/quit.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
-<p>To cleanly shut down bevy, send an <code>AppExit</code> event from any system:</p>
-<pre><code class="language-rust no_run noplayground">use bevy::app::AppExit;
+<p>to cweanwy shut down bevy, &gt;_&lt; send an <code>AppExit</code> event fwom any system:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::app::appexit;
 
-fn exit_system(mut exit: EventWriter&lt;AppExit&gt;) {
-    exit.send(AppExit);
+fn exit_system(mut e-exit: e-eventwwitew&lt;appexit&gt;) {
+    e-exit.send(appexit);
 }
 </code></pre>
-<p>For prototyping, bevy provides a system you can add, to exit on pressing the Esc key:</p>
+<p>fow pwototyping, bevy pwovides a s-system you can add, 🥺 t-to exit on pwessing t-the esc k-key:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
-    App::build()
-        .add_plugins(DefaultPlugins)
+    app::buiwd()
+        .add_pwugins(defauwtpwugins)
         .add_system(bevy::input::system::exit_on_esc_system.system())
-        .run();
+        .wun();
 }
 </code></pre>
 

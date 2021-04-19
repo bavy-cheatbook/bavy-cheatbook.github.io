@@ -163,64 +163,64 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="systems"><a class="header" href="#systems">Systems</a></h1>
-<p>Systems are functions you write, which are run by Bevy.</p>
-<p>This is where you implement all your game logic.</p>
-<p>These functions can only take special parameter types, to specify what you need
-access to. <a href="../pitfalls/into-system.html">If you use unsupported parameter types in your function, you will
-get confusing compiler errors!</a></p>
-<p>Some of the options are:</p>
+                        <h1 id="systems"><a class="header" href="#systems">systems</a></h1>
+<p>systems awe functions you wwite, w-which awe wun by b-bevy.</p>
+<p>this is whewe you impwement aww youw g-game wogic.</p>
+<p>these functions can onwy take speciaw p-pawametew types, OwO t-to specify n-nyani you nyeed
+access to. XD <a href="../pitfalls/into-system.html">if you use unsuppowted pawametew t-types in youw function, ^•ﻌ•^ y-you wiww
+get confusing compiwew ewwows!</a></p>
+<p>some of the options awe:</p>
 <ul>
-<li>accessing <a href="./res.html">resources</a> using <code>Res</code>/<code>ResMut</code></li>
-<li>accessing <a href="./ec.html">components of entities</a> using <a href="./queries.html">queries</a></li>
-<li>creating/destroying entities, components, and resources using <a href="./commands.html"><code>Commands</code></a></li>
-<li>sending/receiving <a href="./events.html">events</a> using <code>EventWriter</code>/<code>EventReader</code>.</li>
+<li>accessing <a href="./res.html">wesouwces</a> using <code>Res</code>/<code>ResMut</code></li>
+<li>accessing <a href="./ec.html">components of entities</a> using <a href="./queries.html">quewies</a></li>
+<li>cweating/destwoying entities, (ꈍᴗꈍ) components, ^•ﻌ•^ and wesouwces u-using <a href="./commands.html"><code>Commands</code></a></li>
+<li>sending/weceiving <a href="./events.html">events</a> using <code>EventWriter</code>/<code>EventReader</code>.</li>
 </ul>
-<pre><code class="language-rust no_run noplayground">fn debug_start(
-    // access resource
-    start: Res&lt;StartingLevel&gt;
+<pre><code class="language-rust no_run noplayground">fn debug_stawt(
+    // access wesouwce
+    s-stawt: w-wes&lt;stawtingwevew&gt;
 ) {
-    eprintln!(&quot;Starting on level {:?}&quot;, *start);
+    e-epwintwn!(&quot;stawting o-on wevew {:?}&quot;, 🥺 *stawt);
 }
 </code></pre>
-<p>System parameters can be grouped into tuples (which can be nested). This is
-useful for organization.</p>
-<pre><code class="language-rust no_run noplayground">fn complex_system(
-    (a, mut b): (Res&lt;ResourceA&gt;, ResMut&lt;ResourceB&gt;),
-    // this resource might not exist, so wrap it in an Option
-    mut c: Option&lt;ResMut&lt;ResourceC&gt;&gt;,
+<p>system pawametews can be gwouped i-into tupwes (which c-can be nyested). OwO t-this is
+usefuw fow owganization.</p>
+<pre><code class="language-rust no_run noplayground">fn compwex_system(
+    (a, UwU mut b): (wes&lt;wesouwcea&gt;, rawr x3 w-wesmut&lt;wesouwceb&gt;), rawr
+    // t-this w-wesouwce might n-nyot exist, σωσ so w-wwap it in an option
+    m-mut c: o-option&lt;wesmut&lt;wesouwcec&gt;&gt;, σωσ
 ) {
-    if let Some(mut c) = c {
+    i-if wet some(mut c) = c {
         // do something
     }
 }
 </code></pre>
-<p>The maximum number of top-level system parameters, or tuple members, is 11. You
-can group/nest them into tuples, if you need to work around that limitation.</p>
-<h2 id="runtime"><a class="header" href="#runtime">Runtime</a></h2>
-<p>To run your systems, you need to add them to Bevy via the <a href="./app-builder.html">app builder</a>:</p>
+<p>the maximum nyumbew of top-wevew s-system pawametews, OwO o-ow tupwe membews, 🥺 i-is 11. òωó you
+can gwoup/nest them into tupwes, i-if you nyeed to w-wowk awound that w-wimitation.</p>
+<h2 id="wuntime"><a class="header" href="#wuntime">wuntime</a></h2>
+<p>to wun youw systems, ^•ﻌ•^ you nyeed to a-add them to bevy v-via the <a href="./app-builder.html">app buiwdew</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
-    App::build()
+    app::buiwd()
         // ...
 
-        // run it only once at launch
-        .add_startup_system(init_menu.system())
-        .add_startup_system(debug_start.system())
+        // wun it onwy o-once at waunch
+        .add_stawtup_system(init_menu.system())
+        .add_stawtup_system(debug_stawt.system())
 
-        // run it every frame update
-        .add_system(move_player.system())
+        // w-wun it evewy fwame u-update
+        .add_system(move_pwayew.system())
         .add_system(enemies_ai.system())
 
         // ...
-        .run();
+        .wun();
 }
 </code></pre>
-<p>The above is enough for simple projects.</p>
-<p>As your project grows more complex, you might want to enhance your app builder
-with some of the powerful tools that Bevy offers for managing when/how your
-systems run, such as: <a href="./system-order.html">explicit ordering</a> with
-<a href="./labels.html">labels</a>, <a href="./system-sets.html">system sets</a>, <a href="./states.html">states</a>,
-<a href="./run-criteria.html">run criteria</a>, and <a href="./stages.html">stages</a>.</p>
+<p>the above is enough fow simpwe pwojects.</p>
+<p>as youw pwoject gwows mowe compwex, OwO y-you might want t-to enhance youw a-app buiwdew
+with some of the powewfuw toows that b-bevy offews f-fow managing when/how y-youw
+systems wun, &gt;_&lt; such as: <a href="./system-order.html">expwicit owdewing</a> with
+<a href="./labels.html">wabews</a>, rawr x3 <a href="./system-sets.html">system sets</a>, rawr x3 <a href="./states.html">states</a>,
+<a href="./run-criteria.html">wun cwitewia</a>, XD and <a href="./stages.html">stages</a>.</p>
 
                     </main>
 

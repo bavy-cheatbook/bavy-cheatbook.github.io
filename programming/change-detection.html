@@ -163,84 +163,84 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="change-detection"><a class="header" href="#change-detection">Change Detection</a></h1>
-<p>Bevy allows you to easily detect when data is changed. You can use this to
-perform actions in response to changes.</p>
-<h1 id="components"><a class="header" href="#components">Components</a></h1>
-<p>Use <a href="./queries.html#query-filters">query filters</a>:</p>
+                        <h1 id="change-detection"><a class="header" href="#change-detection">change detection</a></h1>
+<p>bevy awwows you to easiwy detect w-when data is changed. OwO y-you can use t-this to
+pewfowm actions in wesponse to changes.</p>
+<h1 id="components"><a class="header" href="#components">components</a></h1>
+<p>use <a href="./queries.html#query-filters">quewy fiwtews</a>:</p>
 <ul>
-<li><code>Added&lt;T&gt;</code>: detect new component instances
+<li><code>Added&lt;T&gt;</code>: detect nyew component instances
 <ul>
-<li>if the component was added to an existing entity</li>
-<li>if a new entity with the component was spawned</li>
+<li>if the component was added to an e-existing entity</li>
+<li>if a nyew entity with the component w-was spawned</li>
 </ul>
 </li>
-<li><code>Changed&lt;T&gt;</code>: detect component instances that have been changed
+<li><code>Changed&lt;T&gt;</code>: detect component instances that h-have been changed
 <ul>
-<li>triggers when the component is accessed mutably</li>
-<li>also triggers if the component is newly-added (as per <code>Added</code>)</li>
+<li>twiggews when the component is accessed m-mutabwy</li>
+<li>awso twiggews if the component is n-nyewwy-added (as p-pew <code>Added</code>)</li>
 </ul>
 </li>
 </ul>
-<pre><code class="language-rust no_run noplayground">/// Print the stats of friendly players when they change
+<pre><code class="language-rust no_run noplayground">/// pwint the stats of fwiendwy pwayews w-when they c-change
 fn debug_stats_change(
-    query: Query&lt;
-        // components
-        (&amp;Health, &amp;PlayerXp),
-        // filters
-        (Without&lt;Enemy&gt;, Or&lt;(Changed&lt;Health&gt;, Changed&lt;PlayerXp&gt;)&gt;), 
-    &gt;,
+    q-quewy: quewy&lt;
+        // c-components
+        (&amp;heawth, 😳 &amp;pwayewxp),
+        // f-fiwtews
+        (without&lt;enemy&gt;, XD o-ow&lt;(changed&lt;heawth&gt;, :3 c-changed&lt;pwayewxp&gt;)&gt;), 😳😳😳 
+    &gt;, -.-
 ) {
-    for (health, xp) in query.iter() {
-        eprintln!(
-            &quot;hp: {}+{}, xp: {}&quot;,
-            health.hp, health.extra, xp.0
+    f-fow (heawth, ( ͡o ω ͡o ) xp) in quewy.itew() {
+        epwintwn!(
+            &quot;hp: {}+{}, rawr x3 xp: {}&quot;, nyaa~~
+            heawth.hp, /(^•ω•^) h-heawth.extwa, rawr xp.0
         );
     }
 }
 
-/// detect new enemies and print their health
-fn debug_new_hostiles(
-    query: Query&lt;(Entity, &amp;Health), Added&lt;Enemy&gt;&gt;,
+/// detect nyew e-enemies and pwint theiw heawth
+f-fn debug_new_hostiwes(
+    quewy: quewy&lt;(entity, OwO &amp;heawth), (U ﹏ U) added&lt;enemy&gt;&gt;,
 ) {
-    for (entity, health) in query.iter() {
-        eprintln!(&quot;Entity {:?} is now an enemy! HP: {}&quot;, entity, health.hp);
+    f-fow (entity, &gt;_&lt; heawth) in quewy.itew() {
+        e-epwintwn!(&quot;entity {:?} i-is nyow an enemy! rawr x3 hp: {}&quot;, entity, mya heawth.hp);
     }
 }
 </code></pre>
-<p><code>Changed</code> detection is triggered by <code>DerefMut</code>. Simply accessing components via a
-mutable query, without actually performing a <code>&amp;mut</code> access, will <em>not</em> trigger it.</p>
-<p>This makes change detection quite accurate. You can rely on it to optimize
-your game's performance, or to otherwise trigger things to happen.</p>
-<p>Also note that when you mutate a component, Bevy does not track if the new value
-is actually different from the old value. It will always trigger the change
-detection. If you want to avoid that, simply check it yourself:</p>
-<pre><code class="language-rust no_run noplayground">fn update_player_xp(
-    mut query: Query&lt;&amp;mut PlayerXp&gt;,
+<p><code>Changed</code> detection is twiggewed by <code>DerefMut</code>. (ꈍᴗꈍ) simpwy accessing components via a-a
+mutabwe quewy, (ꈍᴗꈍ) without actuawwy pewfowming a-a <code>&amp;mut</code> access, XD wiww <em>not</em> twiggew it.</p>
+<p>this makes change detection quite a-accuwate. OwO you can w-wewy on it to o-optimize
+youw game's pewfowmance, ^•ﻌ•^ ow to othewwise t-twiggew t-things to happen.</p>
+<p>awso nyote that when you mutate a c-component, OwO bevy d-does nyot twack i-if the nyew vawue
+is actuawwy diffewent fwom the owd v-vawue. OwO it wiww a-awways twiggew t-the change
+detection. ^•ﻌ•^ if you want to avoid that, OwO s-simpwy check i-it youwsewf:</p>
+<pre><code class="language-rust no_run noplayground">fn update_pwayew_xp(
+    mut quewy: q-quewy&lt;&amp;mut pwayewxp&gt;, UwU
 ) {
-    for mut xp in query.iter_mut() {
-        let new_xp = maybe_lvl_up(&amp;xp);
+    f-fow mut xp in quewy.itew_mut() {
+        w-wet nyew_xp = m-maybe_wvw_up(&amp;xp);
 
-        // avoid triggering change detection if the value is the same
-        if new_xp != *xp {
-            *xp = new_xp;
+        // a-avoid twiggewing c-change detection i-if the v-vawue is the same
+        if nyew_xp != *xp {
+            *xp = nyew_xp;
         }
     }
 }
 </code></pre>
-<p>Change detection is reliable -- it will detect any changes that have occured
-since the last time your detecting system ran. If your system only runs
-sometimes (such as with <a href="./states.html">states</a> or <a href="./run-criteria.html">run criteria</a>),
-you <em>do not</em> have to worry about missing changes.</p>
-<h2 id="possible-pitfalls"><a class="header" href="#possible-pitfalls">Possible Pitfalls</a></h2>
-<p>Beware of <a href="../pitfalls/frame-delay.html">frame delay / 1-frame-lag</a>. This can
-occur if Bevy runs the detecting system before the changing system. The
-detecting system will see the change the next time it runs, typically on the
-next frame update.</p>
-<p>If you need to ensure that changes are handled immediately / during the same frame,
-you can use <a href="./system-order.html">explicit system ordering</a>.</p>
-<p>However, when detecting component additions with <code>Added&lt;T&gt;</code> (which are typically
-done using <a href="./commands.html"><code>Commands</code></a>), this is not enough; you need <a href="./stages.html">stages</a>.</p>
+<p>change detection is wewiabwe -- it w-wiww detect any c-changes that have o-occuwed
+since the wast time youw detecting s-system wan. if y-youw system onwy w-wuns
+sometimes (such as with <a href="./states.html">states</a> ow <a href="./run-criteria.html">wun cwitewia</a>),
+you <em>do nyot</em> have to wowwy about missing changes.</p>
+<h2 id="possibwe-pitfawws"><a class="header" href="#possibwe-pitfawws">possibwe pitfawws</a></h2>
+<p>bewawe of <a href="../pitfalls/frame-delay.html">fwame deway / 1-fwame-wag</a>. XD this can
+occuw if bevy wuns the detecting s-system befowe the c-changing system. OwO t-the
+detecting system wiww see the change t-the nyext time i-it wuns, typicawwy o-on the
+next fwame update.</p>
+<p>if you nyeed to ensuwe that changes a-awe handwed immediatewy / d-duwing t-the same fwame,
+you can use <a href="./system-order.html">expwicit system owdewing</a>.</p>
+<p>howevew, (ꈍᴗꈍ) when detecting component a-additions with <code>Added&lt;T&gt;</code> (which awe typicawwy
+done using <a href="./commands.html"><code>Commands</code></a>), &gt;_&lt; this is nyot enough; you nyeed <a href="./stages.html">stages</a>.</p>
 
                     </main>
 

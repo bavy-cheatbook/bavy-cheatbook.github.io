@@ -163,86 +163,86 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="custom-camera-projection"><a class="header" href="#custom-camera-projection">Custom Camera Projection</a></h1>
-<p><a href="../code/examples/custom-projection.rs">Click here for the full example code.</a></p>
+                        <h1 id="custom-camewa-pwojection"><a class="header" href="#custom-camewa-pwojection">custom camewa pwojection</a></h1>
+<p><a href="../code/examples/custom-projection.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
-<p>Camera with a custom projection (not using one of bevy's standard perspective or orthographic projections).</p>
-<p>Here we implement a simple orthographic projection that maps <code>-1.0</code> to <code>1.0</code> to the vertical axis of the window,
-and respects the window's aspect ratio for the horizontal axis:</p>
-<pre><code class="language-rust no_run noplayground">use bevy::render::camera::{Camera, CameraProjection, DepthCalculation, VisibleEntities};
+<p>camewa with a custom pwojection (not u-using one of b-bevy's standawd p-pewspective ow o-owthogwaphic pwojections).</p>
+<p>hewe we impwement a simpwe owthogwaphic p-pwojection t-that maps <code>-1.0</code> to <code>1.0</code> to the vewticaw axis of the window,
+and wespects the window's aspect w-watio fow the howizontaw a-axis:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::wendew::camewa::{camewa, nyaa~~ camewapwojection, :3 d-depthcawcuwation, 😳😳😳 v-visibweentities};
 
-struct SimpleOrthoProjection {
-    far: f32,
-    aspect: f32,
+s-stwuct s-simpweowthopwojection {
+    f-faw: f-f32, (˘ω˘)
+    aspect: f-f32, ^^
 }
 
-impl CameraProjection for SimpleOrthoProjection {
-    fn get_projection_matrix(&amp;self) -&gt; Mat4 {
-        Mat4::orthographic_rh(
-            -self.aspect, self.aspect, -1.0, 1.0, 0.0, self.far
+impw camewapwojection f-fow simpweowthopwojection {
+    fn get_pwojection_matwix(&amp;sewf) -&gt; mat4 {
+        mat4::owthogwaphic_wh(
+            -sewf.aspect, :3 sewf.aspect, -1.0, -.- 1.0, 0.0, s-sewf.faw
         )
     }
 
-    // what to do on window resize
-    fn update(&amp;mut self, width: f32, height: f32) {
-        self.aspect = width / height;
+    // nyani to do on window wesize
+    f-fn update(&amp;mut sewf, 😳 width: f32, mya h-height: f32) {
+        sewf.aspect = width / height;
     }
 
-    fn depth_calculation(&amp;self) -&gt; DepthCalculation {
-        // for 2D (camera doesn't rotate)
-        //DepthCalculation::ZDifference
+    f-fn depth_cawcuwation(&amp;sewf) -&gt; depthcawcuwation {
+        // f-fow 2d (camewa doesn't w-wotate)
+        //depthcawcuwation::zdiffewence
 
-        // otherwise
-        DepthCalculation::Distance
-    }
-}
-
-impl Default for SimpleOrthoProjection {
-    fn default() -&gt; Self {
-        Self { far: 1000.0, aspect: 1.0 }
+        // othewwise
+        depthcawcuwation::distance
     }
 }
 
-fn setup(mut commands: Commands) {
-    // same components as bevy's Camera2dBundle,
-    // but with our custom projection
+impw defauwt fow simpweowthopwojection {
+    f-fn defauwt() -&gt; sewf {
+        sewf { faw: 1000.0, (˘ω˘) aspect: 1.0 }
+    }
+}
 
-    let projection = SimpleOrthoProjection::default();
+fn setup(mut commands: c-commands) {
+    // same components a-as bevy's c-camewa2dbundwe, &gt;_&lt;
+    // b-but with o-ouw custom pwojection
 
-    // Need to set the camera name to one of the bevy-internal magic constants,
-    // depending on which camera we are implementing (2D, 3D, or UI).
-    // Bevy uses this name to find the camera and configure the rendering.
-    // Since this example is a 2d camera:
+    wet pwojection = simpweowthopwojection::defauwt();
 
-    let cam_name = bevy::render::render_graph::base::camera::CAMERA_2D;
+    // n-nyeed to set the camewa nyame to one of t-the bevy-intewnaw magic constants, -.-
+    // depending on which camewa we awe impwementing (2d, 🥺 3d, ow ui). (U ﹏ U)
+    // b-bevy uses this nyame to find the c-camewa and configuwe t-the wendewing. &gt;w&lt;
+    // s-since this exampwe is a 2d camewa:
 
-    let mut camera = Camera::default();
-    camera.name = Some(cam_name.to_string());
+    wet cam_name = b-bevy::wendew::wendew_gwaph::base::camewa::camewa_2d;
 
-    commands.spawn_bundle((
-        // position the camera like bevy would do by default for 2D:
-        Transform::from_translation(Vec3::new(0.0, 0.0, projection.far - 0.1)),
-        GlobalTransform::default(),
-        VisibleEntities::default(),
-        camera,
-        projection,
+    wet m-mut camewa = camewa::defauwt();
+    c-camewa.name = s-some(cam_name.to_stwing());
+
+    commands.spawn_bundwe((
+        // p-position the camewa wike b-bevy wouwd do by defauwt fow 2d:
+        twansfowm::fwom_twanswation(vec3::new(0.0, mya 0.0, p-pwojection.faw - 0.1)), &gt;w&lt;
+        gwobawtwansfowm::defauwt(), nyaa~~
+        visibweentities::defauwt(), (✿oωo)
+        c-camewa, ʘwʘ
+        pwojection, (ˆ ﻌ ˆ)♡
     ));
 }
 
-fn main() {
-    // need to add a bevy-internal camera system to update
-    // the projection on window resizing
+f-fn main() {
+    // n-nyeed to add a bevy-intewnaw camewa system to update
+    // the pwojection on window wesizing
 
-    use bevy::render::camera::camera_system;
+    u-use bevy::wendew::camewa::camewa_system;
 
-    App::build()
-        .add_plugins(DefaultPlugins)
-        .add_startup_system(setup.system())
+    a-app::buiwd()
+        .add_pwugins(defauwtpwugins)
+        .add_stawtup_system(setup.system())
         .add_system_to_stage(
-            CoreStage::PostUpdate,
-            camera_system::&lt;SimpleOrthoProjection&gt;.system(),
+            cowestage::postupdate, 😳😳😳
+            c-camewa_system::&lt;simpweowthopwojection&gt;.system(), :3
         )
-        .run();
+        .wun();
 }
 </code></pre>
 

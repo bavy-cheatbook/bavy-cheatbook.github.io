@@ -163,61 +163,61 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="stages"><a class="header" href="#stages">Stages</a></h1>
-<p>All systems to be run by Bevy are contained in stages. Every frame update, Bevy
-executes each stage, in order. Within each stage, Bevy's scheduling algorithm
-can run many systems in parallel, using multiple CPU cores for good performance.</p>
-<p>The boundaries between stages are effectively hard synchronization points.
-They ensure that all systems of the previous stage have completed before any
-systems of the next stage begin, and that there is a moment in time when no
-systems are in-progress.</p>
-<p>This makes it possible/safe to apply <a href="./commands.html"><code>Commands</code></a>. Any operations
-performed by systems using <code>Commands</code> are applied at the end of each stage.</p>
-<p>Internally, Bevy has at least these built-in stages: <code>First</code>, <code>PreUpdate</code>, <code>Update</code>, <code>PostUpdate</code>, <code>Last</code>.</p>
-<p>(<a href="./labels.html">labeled</a> with <code>enum CoreStage</code>)</p>
-<p>By default, when you add your systems, they are added to <code>CoreStage::Update</code>.</p>
-<p>Bevy's internal systems are in the other stages, to ensure they are ordered
-correctly relative to your game logic.</p>
-<p>If you want to add your own systems to any of Bevy's internal stages, you need
-to beware of potential unexpected interactions with Bevy's own internal systems.
-Remember: Bevy's internals are implemented using ordinary systems and ECS, just
-like your own stuff!</p>
-<p>You can add your own additional stages. For example, if we want our debug
-systems to run after our game logic:</p>
+                        <h1 id="stages"><a class="header" href="#stages">stages</a></h1>
+<p>aww systems to be wun by bevy awe c-contained in stages. OwO e-evewy fwame u-update, bevy
+exekawaii~s each stage, OwO in owdew. 🥺 w-within each stage, òωó b-bevy's scheduwing a-awgowithm
+can wun many systems in pawawwew, OwO u-using muwtipwe c-cpu cowes fow good p-pewfowmance.</p>
+<p>the boundawies between stages awe e-effectivewy hawd s-synchwonization p-points.
+they ensuwe that aww systems of the p-pwevious stage h-have compweted b-befowe any
+systems of the nyext stage begin, OwO a-and that thewe i-is a moment in time w-when nyo
+systems awe in-pwogwess.</p>
+<p>this makes it possibwe/safe to appwy <a href="./commands.html"><code>Commands</code></a>. XD any opewations
+pewfowmed by systems using <code>Commands</code> awe appwied at the end of each stage.</p>
+<p>intewnawwy, (ꈍᴗꈍ) bevy has at weast these b-buiwt-in stages: <code>First</code>, rawr x3 <code>PreUpdate</code>, rawr x3 <code>Update</code>, rawr x3 <code>PostUpdate</code>, rawr x3 <code>Last</code>.</p>
+<p>(<a href="./labels.html">wabewed</a> with <code>enum CoreStage</code>)</p>
+<p>by defauwt, ^•ﻌ•^ when you add youw systems, OwO t-they awe added t-to <code>CoreStage::Update</code>.</p>
+<p>bevy's intewnaw systems awe in the o-othew stages, OwO t-to ensuwe they awe o-owdewed
+cowwectwy wewative to youw game wogic.</p>
+<p>if you want to add youw own systems t-to any of bevy's i-intewnaw stages, OwO y-you nyeed
+to bewawe of potentiaw unexpected i-intewactions with b-bevy's own intewnaw s-systems.
+wemembew: bevy's intewnaws awe impwemented u-using o-owdinawy systems a-and ecs, just
+wike youw own stuff!</p>
+<p>you can add youw own additionaw stages. OwO f-fow exampwe, 🥺 i-if we want ouw d-debug
+systems to wun aftew ouw game wogic:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
-    // label for our debug stage
-    static DEBUG: &amp;str = &quot;debug&quot;;
+    // wabew fow ouw d-debug stage
+    s-static debug: &amp;stw = &quot;debug&quot;;
 
-    App::build()
-        .add_plugins(DefaultPlugins)
+    a-app::buiwd()
+        .add_pwugins(defauwtpwugins)
 
-        // add DEBUG stage after Bevy's Update
-        // also make it single-threaded
-        .add_stage_after(CoreStage::Update, DEBUG, SystemStage::single_threaded())
+        // a-add debug stage a-aftew bevy's update
+        // a-awso make it singwe-thweaded
+        .add_stage_aftew(cowestage::update, (U ﹏ U) d-debug, s-systemstage::singwe_thweaded())
 
-        // systems are added to the `CoreStage::Update` stage by default
-        .add_system(player_gather_xp.system())
-        .add_system(player_take_damage.system())
+        // systems awe added to the `cowestage::update` stage by d-defauwt
+        .add_system(pwayew_gathew_xp.system())
+        .add_system(pwayew_take_damage.system())
 
-        // add our debug systems
-        .add_system_to_stage(DEBUG, debug_player_hp.system())
-        .add_system_to_stage(DEBUG, debug_stats_change.system())
-        .add_system_to_stage(DEBUG, debug_new_hostiles.system())
+        // add ouw debug systems
+        .add_system_to_stage(debug, -.- d-debug_pwayew_hp.system())
+        .add_system_to_stage(debug, (ˆ ﻌ ˆ)♡ debug_stats_change.system())
+        .add_system_to_stage(debug, (⑅˘꒳˘) debug_new_hostiwes.system())
 
-        .run();
+        .wun();
 }
 </code></pre>
-<p>If you need to manage when your systems run, relative to one another, it is
-generally preferable to avoid using stages, and to use <a href="./system-order.html">explicit system
-ordering</a> instead. Stages limit parallel execution and the
-performance of your game.</p>
-<p>However, stages can make it easier to organize things, when you really want to
-be sure that all previous systems have completed. Stages are also the only way
-to apply <code>Commands</code>.</p>
-<p>If you have systems that need to rely on the actions that other systems have
-performed by using <code>Commands</code>, and need to do so during the same frame, placing
-those systems into separate stages is the only way to accomplish that.</p>
-<p><a href="../pitfalls/frame-delay.html#commands">More information on avoiding frame delays / 1-frame-lag, when using <code>Commands</code>.</a></p>
+<p>if you nyeed to manage when youw s-systems wun, OwO wewative t-to one anothew, 🥺 i-it is
+genewawwy pwefewabwe to avoid using s-stages, ^•ﻌ•^ and to u-use <a href="./system-order.html">expwicit system
+owdewing</a> instead. (ꈍᴗꈍ) stages wimit pawawwew execution a-and the
+pewfowmance of youw game.</p>
+<p>howevew, OwO stages can make it easiew t-to owganize things, 🥺 w-when you weawwy w-want to
+be suwe that aww pwevious systems h-have compweted. OwO s-stages awe awso t-the onwy way
+to appwy <code>Commands</code>.</p>
+<p>if you have systems that nyeed to w-wewy on the actions t-that othew s-systems have
+pewfowmed by using <code>Commands</code>, (ꈍᴗꈍ) and nyeed to do so duwing the same f-fwame, ^•ﻌ•^ pwacing
+those systems into sepawate stages i-is the onwy way t-to accompwish t-that.</p>
+<p><a href="../pitfalls/frame-delay.html#commands">mowe infowmation on avoiding fwame d-deways / 1-fwame-wag, ^•ﻌ•^ w-when using <code>Commands</code>.</a></p>
 
                     </main>
 

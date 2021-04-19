@@ -163,130 +163,130 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="run-criteria"><a class="header" href="#run-criteria">Run Criteria</a></h1>
-<p>Run Criteria are a mechanism for controlling if Bevy should run specific
-systems, at runtime. This is how you can make functionality that only runs under
-certain conditions.</p>
-<p>Run Criteria are a lower-level primitive. Bevy provides higher-level
-abstractions on top, such as <a href="./states.html">States</a>. You can use Run Criteria
-without such abstractions, if you really need more direct control.</p>
-<p>Run Criteria can be applied to individual <a href="./systems.html">systems</a>, <a href="./system-sets.html">system sets</a>, and <a href="./stages.html">stages</a>.</p>
-<p>Run Criteria are Bevy systems that return a value of type <a href="https://docs.rs/bevy/0.5.0/bevy/ecs/schedule/enum.ShouldRun.html"><code>enum ShouldRun</code></a>.
-They can accept any system parameters, like a normal system.</p>
-<p>This example shows how run criteria might be used to implement different
-multiplayer modes:</p>
-<pre><code class="language-rust no_run noplayground">use bevy::ecs::schedule::ShouldRun;
+                        <h1 id="wun-cwitewia"><a class="header" href="#wun-cwitewia">wun cwitewia</a></h1>
+<p>wun cwitewia awe a mechanism fow c-contwowwing if bevy s-shouwd wun specific
+systems, OwO at wuntime. 🥺 this is how y-you can make functionawity t-that o-onwy wuns undew
+cewtain conditions.</p>
+<p>wun cwitewia awe a wowew-wevew pwimitive. ^•ﻌ•^ b-bevy pwovides h-highew-wevew
+abstwactions on top, &gt;<em>&lt; such as <a href="./states.html">states</a>. &gt;</em>&lt; you can use wun cwitewia
+without such abstwactions, ^•ﻌ•^ if you w-weawwy nyeed mowe d-diwect contwow.</p>
+<p>wun cwitewia can be appwied to individuaw <a href="./systems.html">systems</a>, rawr x3 <a href="./system-sets.html">system sets</a>, XD and <a href="./stages.html">stages</a>.</p>
+<p>wun cwitewia awe bevy systems that w-wetuwn a vawue o-of type <a href="https://docs.rs/bevy/0.5.0/bevy/ecs/schedule/enum.ShouldRun.html"><code>enum ShouldRun</code></a>.
+they can accept any system pawametews, ^•ﻌ•^ w-wike a nyowmaw s-system.</p>
+<p>this exampwe shows how wun cwitewia m-might be used t-to impwement diffewent
+muwtipwayew modes:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::ecs::scheduwe::shouwdwun;
 
-#[derive(Debug, PartialEq, Eq)]
-enum MultiplayerKind {
-    Client,
-    Host,
-    Local,
+#[dewive(debug, rawr x3 pawtiaweq, eq)]
+e-enum muwtipwayewkind {
+    cwient, mya
+    h-host, nyaa~~
+    w-wocaw, (⑅˘꒳˘)
 }
 
-fn run_if_connected(
-    mode: Res&lt;MultiplayerKind&gt;,
-    session: Res&lt;MyNetworkSession&gt;,
-) -&gt; ShouldRun
+fn w-wun_if_connected(
+    m-mode: wes&lt;muwtipwayewkind&gt;, rawr x3
+    s-session: w-wes&lt;mynetwowksession&gt;, (✿oωo)
+) -&gt; s-shouwdwun
 {
-    if *mode == MultiplayerKind::Client &amp;&amp; session.is_connected() {
-        ShouldRun::Yes
-    } else {
-        ShouldRun::No
+    if *mode == muwtipwayewkind::cwient &amp;&amp; session.is_connected() {
+        shouwdwun::yes
+    } e-ewse {
+        shouwdwun::no
     }
 }
 
-fn run_if_host(
-    mode: Res&lt;MultiplayerKind&gt;,
-) -&gt; ShouldRun
+fn wun_if_host(
+    m-mode: wes&lt;muwtipwayewkind&gt;, (ˆ ﻌ ˆ)♡
+) -&gt; shouwdwun
 {
-    if *mode == MultiplayerKind::Host || *mode == MultiplayerKind::Local {
-        ShouldRun::Yes
-    } else {
-        ShouldRun::No
+    i-if *mode == muwtipwayewkind::host || *mode == muwtipwayewkind::wocaw {
+        shouwdwun::yes
+    } e-ewse {
+        shouwdwun::no
     }
 }
 
-fn main() {
-    App::build()
-        .add_plugins(DefaultPlugins)
+fn m-main() {
+    app::buiwd()
+        .add_pwugins(defauwtpwugins)
 
-        // if we are currently connected to a server,
-        // activate our client systems
+        // i-if we awe cuwwentwy connected to a sewvew, (˘ω˘)
+        // activate ouw c-cwient systems
         .add_system_set(
-            SystemSet::new()
-                .with_run_criteria(run_if_connected.system())
-                .before(&quot;input&quot;)
-                .with_system(server_session.system())
-                .with_system(fetch_server_updates.system())
+            systemset::new()
+                .with_wun_cwitewia(wun_if_connected.system())
+                .befowe(&quot;input&quot;)
+                .with_system(sewvew_session.system())
+                .with_system(fetch_sewvew_updates.system())
         )
 
-        // if we are hosting the game,
-        // activate our game hosting systems
+        // if we awe hosting the game, (⑅˘꒳˘)
+        // a-activate ouw game hosting systems
         .add_system_set(
-            SystemSet::new()
-                .with_run_criteria(run_if_host.system())
-                .before(&quot;input&quot;)
+            s-systemset::new()
+                .with_wun_cwitewia(wun_if_host.system())
+                .befowe(&quot;input&quot;)
                 .with_system(host_session.system())
-                .with_system(host_player_movement.system())
+                .with_system(host_pwayew_movement.system())
                 .with_system(host_enemy_ai.system())
         )
 
-        // other systems in our game
-        .add_system(smoke_particles.system())
-        .add_system(water_animation.system())
+        // o-othew systems in o-ouw game
+        .add_system(smoke_pawticwes.system())
+        .add_system(watew_animation.system())
         .add_system_set(
-            SystemSet::new()
-                .label(&quot;input&quot;)
-                .with_system(keyboard_input.system())
+            s-systemset::new()
+                .wabew(&quot;input&quot;)
+                .with_system(keyboawd_input.system())
                 .with_system(gamepad_input.system())
         )
-        .run();
+        .wun();
 }
 </code></pre>
-<h2 id="run-criteria-labels"><a class="header" href="#run-criteria-labels">Run Criteria Labels</a></h2>
-<p>If you have multiple systems or system sets that you want to share the same run
-criteria, you can give it a <a href="./labels.html">label</a>.</p>
-<p>When you use a label, Bevy will only execute the run criteria once, remember its
-output, and apply it to everything with the label.</p>
-<pre><code class="language-rust no_run noplayground">#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[derive(RunCriteriaLabel)]
-enum MyRunCriteria {
-    Client,
-    Host,
+<h2 id="wun-cwitewia-wabews"><a class="header" href="#wun-cwitewia-wabews">wun cwitewia wabews</a></h2>
+<p>if you have muwtipwe systems ow system s-sets that y-you want to shawe t-the same wun
+cwitewia, &gt;_&lt; you can give it a <a href="./labels.html">wabew</a>.</p>
+<p>when you use a wabew, OwO bevy wiww onwy e-exekawaii~ the w-wun cwitewia o-once, 🥺 wemembew its
+output, (ꈍᴗꈍ) and appwy it to evewything w-with the wabew.</p>
+<pre><code class="language-rust no_run noplayground">#[dewive(debug, rawr cwone, σωσ pawtiaweq, σωσ eq, hash)]
+#[dewive(wuncwitewiawabew)]
+e-enum mywuncwitewia {
+    c-cwient, &gt;_&lt;
+    host, :3
 }
 
-fn main() {
-    App::build()
+f-fn main() {
+    a-app::buiwd()
         // ...
         .add_system_set(
-            SystemSet::new()
-                .with_run_criteria(
-                    // assign it a label
-                    run_if_host.system()
-                        .label(MyRunCriteria::Host)
+            s-systemset::new()
+                .with_wun_cwitewia(
+                    // a-assign it a wabew
+                    w-wun_if_host.system()
+                        .wabew(mywuncwitewia::host)
                 )
                 .with_system(host_session.system())
-                .with_system(host_player_movement.system())
+                .with_system(host_pwayew_movement.system())
                 .with_system(host_enemy_ai.system())
         )
 
-        // extra system for debugging the host
-        // it can share our previously-registered run criteria
+        // extwa s-system fow debugging the host
+        // it can shawe ouw pweviouswy-wegistewed wun cwitewia
         .add_system(host_debug.system()
-            .with_run_criteria(MyRunCriteria::Host)
+            .with_wun_cwitewia(mywuncwitewia::host)
         )
-        .run();
+        .wun();
 }
 
 </code></pre>
-<p>The run-once property is especially important if you have a complex run criteria
-system that performs mutations or is otherwise non-idempotent.</p>
+<p>the wun-once pwopewty is especiawwy i-impowtant if y-you have a compwex w-wun cwitewia
+system that pewfowms mutations ow i-is othewwise nyon-idempotent.</p>
 <hr />
-<p>(for information about the other <code>ShouldRun</code> values besides <code>Yes</code>/<code>No</code>,
-see <a href="./run-criteria-loop.html">Looping Run Criteria</a>)</p>
-<p>Bevy's <a href="../features/fixed-timestep.html">fixed timestep</a> is also implemented using
-run criteria under the hood.</p>
+<p>(fow infowmation about the othew <code>ShouldRun</code> vawues besides <code>Yes</code>/<code>No</code>,
+see <a href="./run-criteria-loop.html">wooping wun cwitewia</a>)</p>
+<p>bevy's <a href="../features/fixed-timestep.html">fixed timestep</a> is awso impwemented using
+wun cwitewia undew the hood.</p>
 
                     </main>
 

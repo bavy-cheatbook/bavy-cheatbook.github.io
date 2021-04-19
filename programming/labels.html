@@ -163,66 +163,66 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="labels"><a class="header" href="#labels">Labels</a></h1>
-<p>You need labels to name various things in your app, such as
-<a href="./system-order.html">systems</a>, <a href="./run-criteria.html">run criteria</a>,
-<a href="./stages.html">stages</a>, and ambiguity sets<!-- TODO: add a link -->.</p>
-<p>Bevy uses some clever Rust type system magic, to allow you to use strings
-as well as your own custom types for labels, and even mix them!</p>
-<p>You may use a value of any type as a label, as long as it has the following
-standard Rust traits: <code>Clone + Eq + Hash + Debug</code> (and the implied <code>+ Send + Sync + 'static</code>).</p>
-<p>You need to derive the appropriate trait: <code>StageLabel</code>, <code>SystemLabel</code>, <code>RunCriteriaLabel</code>, or <code>AmbiguitySetLabel</code>.</p>
-<pre><code class="language-rust no_run noplayground">#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[derive(SystemLabel)]
-enum MySystems {
-    InputSet,
-    Movement,
+                        <h1 id="wabews"><a class="header" href="#wabews">wabews</a></h1>
+<p>you nyeed wabews to nyame vawious t-things in youw a-app, ^•ﻌ•^ such as
+<a href="./system-order.html">systems</a>, rawr x3 <a href="./run-criteria.html">wun cwitewia</a>,
+<a href="./stages.html">stages</a>, XD and ambiguity sets<!-- TODO: add a link -->.</p>
+<p>bevy uses some cwevew wust type system m-magic, OwO to a-awwow you to use s-stwings
+as weww as youw own custom types f-fow wabews, ^•ﻌ•^ and e-even mix them!</p>
+<p>you may use a vawue of any type as a-a wabew, OwO as wong a-as it has the f-fowwowing
+standawd wust twaits: <code>Clone + Eq + Hash + Debug</code> (and the impwied <code>+ Send + Sync + 'static</code>).</p>
+<p>you nyeed to dewive the appwopwiate t-twait: <code>StageLabel</code>, rawr x3 <code>SystemLabel</code>, rawr x3 <code>RunCriteriaLabel</code>, XD ow <code>AmbiguitySetLabel</code>.</p>
+<pre><code class="language-rust no_run noplayground">#[dewive(debug, /(^•ω•^) cwone, rawr pawtiaweq, OwO eq, hash)]
+#[dewive(systemwabew)]
+e-enum mysystems {
+    i-inputset, (U ﹏ U)
+    m-movement, &gt;_&lt;
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[derive(StageLabel)]
-enum MyStages {
-    Prepare,
-    Cleanup,
+#[dewive(debug, rawr x3 c-cwone, mya pawtiaweq, e-eq, nyaa~~ hash)]
+#[dewive(stagewabew)]
+e-enum mystages {
+    p-pwepawe, (⑅˘꒳˘)
+    c-cweanup,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[derive(StageLabel)]
-struct DebugStage;
+#[dewive(debug, rawr x3 cwone, pawtiaweq, (✿oωo) eq, hash)]
+#[dewive(stagewabew)]
+stwuct debugstage;
 
 fn main() {
-    App::build()
-        .add_plugins(DefaultPlugins)
+    a-app::buiwd()
+        .add_pwugins(defauwtpwugins)
 
-        // Add our game systems:
+        // add ouw game systems:
         .add_system_set(
-            SystemSet::new()
-                .label(MySystems::InputSet)
-                .with_system(keyboard_input.system())
+            s-systemset::new()
+                .wabew(mysystems::inputset)
+                .with_system(keyboawd_input.system())
                 .with_system(gamepad_input.system())
         )
-        .add_system(player_movement.system().label(MySystems::Movement))
+        .add_system(pwayew_movement.system().wabew(mysystems::movement))
 
-        // temporary debug system, let's just use a string label
-        .add_system(debug_movement.system().label(&quot;temp-debug&quot;))
+        // tempowawy d-debug system, (ˆ ﻌ ˆ)♡ wet's just use a stwing wabew
+        .add_system(debug_movement.system().wabew(&quot;temp-debug&quot;))
 
-        // Add our custom stages:
-        // note that Bevy's `CoreStage` is an enum just like ours!
-        .add_stage_before(CoreStage::Update, MyStages::Prepare, SystemStage::parallel())
-        .add_stage_after(CoreStage::Update, MyStages::Cleanup, SystemStage::parallel())
+        // add o-ouw custom stages:
+        // note that bevy's `cowestage` i-is an e-enum just wike ouws! (˘ω˘)
+        .add_stage_befowe(cowestage::update, mystages::pwepawe, (⑅˘꒳˘) systemstage::pawawwew())
+        .add_stage_aftew(cowestage::update, (///ˬ///✿) mystages::cweanup, 😳😳😳 systemstage::pawawwew())
 
-        .add_stage_after(CoreStage::Update, DebugStage, SystemStage::parallel())
+        .add_stage_aftew(cowestage::update, 🥺 d-debugstage, systemstage::pawawwew())
 
-        // we can just use a string for this one:
-        .add_stage_before(CoreStage::PostUpdate, &quot;temp-debug-hack&quot;, SystemStage::parallel())
+        // we can just use a stwing fow this one:
+        .add_stage_befowe(cowestage::postupdate, mya &quot;temp-debug-hack&quot;, 🥺 s-systemstage::pawawwew())
 
-        .run();
+        .wun();
 }
 </code></pre>
-<p>For quick prototyping, it is convenient to just use strings as labels.</p>
-<p>However, by defining your labels as custom types, the Rust compiler can check
-them for you, and your IDE can auto-complete them. It is the recommended way, as
-it prevents mistakes, and helps you stay organized in larger projects.</p>
+<p>fow quick pwototyping, ^•ﻌ•^ it is convenient t-to just use s-stwings as wabews.</p>
+<p>howevew, OwO by defining youw wabews a-as custom types, 🥺 t-the wust compiwew c-can check
+them fow you, OwO and youw ide can auto-compwete t-them. 🥺 i-it is the wecommended w-way, òωó as
+it pwevents mistakes, ^•ﻌ•^ and hewps you s-stay owganized i-in wawgew pwojects.</p>
 
                     </main>
 

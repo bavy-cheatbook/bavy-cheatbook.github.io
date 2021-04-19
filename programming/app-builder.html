@@ -163,40 +163,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="app-builder-main-function"><a class="header" href="#app-builder-main-function">App Builder (main function)</a></h1>
-<p>To enter the bevy runtime, you need to configure an <code>App</code>, composed of all the
-<a href="./systems.html">systems</a>, <a href="./plugins.html">plugins</a>, <a href="./events.html">event</a> types,
-and <a href="./res.html">resources</a>, that you want to use.</p>
-<p>Everything must be registered in the <code>App</code>, or it will not work.</p>
-<p>Component types and <a href="./local.html">local resources</a> do not need to be registered.</p>
-<p>Resources can also be created later, using <a href="./commands.html"><code>Commands</code></a>.</p>
-<p>You also need to add Bevy's built-in functionality: either <code>DefaultPlugins</code> if
-you are making a full game/app, or <code>MinimalPlugins</code> for something like a
-headless server.</p>
+                        <h1 id="app-buiwdew-main-function"><a class="header" href="#app-buiwdew-main-function">app buiwdew (main function)</a></h1>
+<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <code>App</code>, &gt;<em>&lt; composed of aww the
+<a href="./systems.html">systems</a>, rawr x3 <a href="./plugins.html">pwugins</a>, rawr x3 <a href="./events.html">event</a> types,
+and <a href="./res.html">wesouwces</a>, &gt;</em>&lt; that you want to use.</p>
+<p>evewything must be wegistewed in t-the <code>App</code>, &gt;_&lt; ow it wiww nyot wowk.</p>
+<p>component types and <a href="./local.html">wocaw wesouwces</a> do nyot nyeed to be wegistewed.</p>
+<p>wesouwces can awso be cweated watew, (ꈍᴗꈍ) u-using <a href="./commands.html"><code>Commands</code></a>.</p>
+<p>you awso nyeed to add bevy's buiwt-in f-functionawity: e-eithew <code>DefaultPlugins</code> if
+you awe making a fuww game/app, &gt;_&lt; ow <code>MinimalPlugins</code> fow something wike a
+headwess sewvew.</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
-    App::build()
+    app::buiwd()
         // bevy
-        .add_plugins(DefaultPlugins)
+        .add_pwugins(defauwtpwugins)
 
-        // resources:
-        .insert_resource(StartingLevel(3))
-        // if it implements `Default` or `FromWorld`
-        .init_resource::&lt;MyFancyResource&gt;()
+        // w-wesouwces:
+        .insewt_wesouwce(stawtingwevew(3))
+        // i-if i-it impwements `defauwt` o-ow `fwomwowwd`
+        .init_wesouwce::&lt;myfancywesouwce&gt;()
 
-        // events:
-        .add_event::&lt;LevelUpEvent&gt;()
+        // e-events:
+        .add_event::&lt;wevewupevent&gt;()
 
-        // systems to run once at startup:
-        .add_startup_system(spawn_player.system())
+        // s-systems t-to wun once at s-stawtup:
+        .add_stawtup_system(spawn_pwayew.system())
 
-        // systems to run each frame:
-        .add_system(player_level_up.system())
-        .add_system(debug_levelups.system())
+        // systems to wun each fwame:
+        .add_system(pwayew_wevew_up.system())
+        .add_system(debug_wevewups.system())
         .add_system(debug_stats_change.system())
         // ...
 
-        // launch the app!
-        .run();
+        // waunch the app! rawr
+        .wun();
 }
 </code></pre>
 

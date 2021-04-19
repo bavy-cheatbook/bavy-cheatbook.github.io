@@ -163,49 +163,49 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="transforms-and-coordinates"><a class="header" href="#transforms-and-coordinates">Transforms and Coordinates</a></h1>
-<p>First, a quick definition, if you are new to game development:</p>
-<p>a Transform is what allows you to place an object in the game world. It is a
-combination of the object's &quot;translation&quot; (position/coordinates), &quot;rotation&quot;,
-and &quot;scale&quot; (size adjustment).</p>
-<p>You move objects around by modifying the translation, rotate them by modifying
-the rotation, and make them larger or smaller by modifying the scale.</p>
-<h2 id="bevys-coordinate-system"><a class="header" href="#bevys-coordinate-system">Bevy's Coordinate System</a></h2>
-<p>Bevy uses the same coordinate system for 3D, 2D, and UI, for consistency.</p>
-<p>It is easiest to explain in terms of 2D:</p>
+                        <h1 id="twansfowms-and-coowdinates"><a class="header" href="#twansfowms-and-coowdinates">twansfowms and coowdinates</a></h1>
+<p>fiwst, ^•ﻌ•^ a quick definition, OwO if you a-awe nyew to game d-devewopment:</p>
+<p>a twansfowm is nyani awwows you to p-pwace an object i-in the game wowwd. OwO i-it is a
+combination of the object's &quot;twanswation&quot; (position/coowdinates), &gt;_&lt; &quot;wotation&quot;,
+and &quot;scawe&quot; (size adjustment).</p>
+<p>you move objects awound by modifying t-the twanswation, OwO w-wotate them b-by modifying
+the wotation, ^•ﻌ•^ and make them wawgew o-ow smowew by modifying t-the scawe.</p>
+<h2 id="bevys-coowdinate-system"><a class="header" href="#bevys-coowdinate-system">bevy's coowdinate system</a></h2>
+<p>bevy uses the same coowdinate system f-fow 3d, ^•ﻌ•^ 2d, OwO a-and ui, fow consistency.</p>
+<p>it is easiest to expwain in tewms o-of 2d:</p>
 <ul>
-<li>The X axis goes from left to right (+X points right).</li>
-<li>The Y axis goes from bottom to top (+Y points up).</li>
-<li>The Z axis goes from far to near (+Z points towards you, out of the screen).</li>
-<li>For 2D, the origin (X=0.0; Y=0.0) is at the <em>center of the screen</em> by default.
+<li>the x axis goes fwom weft to wight (+x p-points wight).</li>
+<li>the y axis goes fwom bottom to top (+y p-points up).</li>
+<li>the z axis goes fwom faw to nyeaw (+z p-points towawds y-you, OwO out of t-the scween).</li>
+<li>fow 2d, (ꈍᴗꈍ) the owigin (x=0.0; y=0.0) i-is at the <em>centew of the scween</em> by defauwt.
 <ul>
-<li>For UI, the origin is at the <em>bottom left</em> corner.</li>
+<li>fow ui, &gt;_&lt; the owigin is at the <em>bottom weft</em> cownew.</li>
 </ul>
 </li>
 </ul>
-<p>When you are working with 2D sprites, you can put the background on Z=0.0, and
-place other sprites at increasing positive Z coordinates to layer them on top.</p>
-<p>In 3D, the axes are oriented the same way.</p>
-<p>This is a right-handed coordinate system.</p>
-<p>It is the same as Godot, Maya, and OpenGL. Compared to Unity, the Z axis is inverted.</p>
-<p>Note: In Bevy, the Y axis always points <em>UP</em>.</p>
-<p>This may feel <a href="../pitfalls/ui-y-up.html">unintuitive when working with UI</a> (as it
-is the opposite from web pages), or if you are used to working with 2D libraries
-where the Y axis points down.</p>
-<h2 id="bevys-transforms"><a class="header" href="#bevys-transforms">Bevy's Transforms</a></h2>
-<p>In Bevy, transforms are represented by <em>two</em> <a href="../programming/ec.html">components</a>:
-<code>Transform</code> and <code>GlobalTransform</code>. Any <a href="../programming/ecs-intro.html">Entity</a> that
-represents an object in the game world needs to have both.</p>
-<p><code>Transform</code> is what you typically work with. It is a <code>struct</code> containing the
-translation, rotation, and scale. To read or manipulate these values, access
-them from your <a href="../programming/systems.html">systems</a> using a <a href="../programming/queries.html">query</a>.</p>
-<p>If the entity has a <a href="../programming/parent-child.html">parent</a>, the <code>Transform</code>
-component is relative to the parent. This means that the child object will
-move/rotate/scale along with the parent.</p>
-<p><code>GlobalTransform</code> represents the absolute global position in the world. If the
-entity does not have a parent, then this will have the same value as the
-<code>Transform</code>. The value of <code>GlobalTransform</code> is calculated/managed internally by
-Bevy. You should treat it as read-only; do not mutate it.</p>
+<p>when you awe wowking with 2d spwites, OwO y-you can put t-the backgwound o-on z=0.0, and
+pwace othew spwites at incweasing p-positive z coowdinates t-to wayew t-them on top.</p>
+<p>in 3d, (ꈍᴗꈍ) the axes awe owiented the s-same way.</p>
+<p>this is a wight-handed coowdinate s-system.</p>
+<p>it is the same as godot, OwO maya, and o-opengw. 🥺 compawed t-to unity, òωó the z-z axis is invewted.</p>
+<p>note: in bevy, (ꈍᴗꈍ) the y axis awways p-points <em>up</em>.</p>
+<p>this may feew <a href="../pitfalls/ui-y-up.html">unintuitive when wowking with ui</a> (as it
+is the opposite fwom web pages), o-ow if you awe used t-to wowking with 2d w-wibwawies
+whewe the y axis points down.</p>
+<h2 id="bevys-twansfowms"><a class="header" href="#bevys-twansfowms">bevy's twansfowms</a></h2>
+<p>in bevy, (ꈍᴗꈍ) twansfowms awe wepwesented b-by <em>two</em> <a href="../programming/ec.html">components</a>:
+<code>Transform</code> and <code>GlobalTransform</code>. XD any <a href="../programming/ecs-intro.html">entity</a> that
+wepwesents an object in the game w-wowwd nyeeds to h-have both.</p>
+<p><code>Transform</code> is nyani you typicawwy wowk with. (ꈍᴗꈍ) i-it is a <code>struct</code> containing the
+twanswation, OwO wotation, 🥺 and scawe. òωó t-to wead ow manipuwate t-these vawues, o.O a-access
+them fwom youw <a href="../programming/systems.html">systems</a> using a <a href="../programming/queries.html">quewy</a>.</p>
+<p>if the entity has a <a href="../programming/parent-child.html">pawent</a>, XD the <code>Transform</code>
+component is wewative to the pawent. OwO t-this means that t-the chiwd object w-wiww
+move/wotate/scawe awong with the pawent.</p>
+<p><code>GlobalTransform</code> wepwesents the absowute gwobaw position i-in the wowwd. ^•ﻌ•^ i-if the
+entity does nyot have a pawent, OwO then t-this wiww have t-the same vawue a-as the
+<code>Transform</code>. XD the vawue of <code>GlobalTransform</code> is cawcuwated/managed intewnawwy b-by
+bevy. ^•ﻌ•^ you shouwd tweat it as wead-onwy; d-do nyot mutate i-it.</p>
 
                     </main>
 

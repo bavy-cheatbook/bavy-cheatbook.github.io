@@ -163,19 +163,19 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="bevy-time-vs-rustos-time"><a class="header" href="#bevy-time-vs-rustos-time">Bevy Time vs. Rust/OS time</a></h1>
-<p>Do <em>not</em> use <code>std::time::Instant::now()</code> to get the current time. Use Bevy's
+                        <h1 id="bevy-time-vs-_-wustos-time"><a class="header" href="#bevy-time-vs-_-wustos-time">bevy time vs. &gt;_&lt; wust/os time</a></h1>
+<p>do <em>not</em> use <code>std::time::Instant::now()</code> to get the cuwwent time. &gt;_&lt; use bevy's
 <code>Res&lt;Time&gt;</code>.</p>
-<p>Rust (and the OS) give you the precise time of the moment you call that
-function. However, that's not what you want.</p>
-<p>Your game systems are run by Bevy's parallel scheduler, which means that they
-could be called at vastly different instants every frame! This will result in
-inconsistent / jittery timings and make your game misbehave or look stuttery.</p>
-<p>Bevy's <code>Time</code> gives you timing information that is correct and consistent. It's
-designed to be used for game logic.</p>
-<p>This is not Bevy-specific, but applies to game development in general. Always
-get your time from your game engine, not from your programming language or
-operating system.</p>
+<p>wust (and the os) give you the pwecise t-time of the m-moment you caww t-that
+function. (ꈍᴗꈍ) howevew, ^•ﻌ•^ that's nyot nyani y-you want.</p>
+<p>youw game systems awe wun by bevy's p-pawawwew scheduwew, OwO w-which means t-that they
+couwd be cawwed at vastwy diffewent i-instants evewy f-fwame! OwO this wiww w-wesuwt in
+inconsistent / jittewy timings and m-make youw game m-misbehave ow wook s-stuttewy.</p>
+<p>bevy's <code>Time</code> gives you timing infowmation that i-is cowwect and c-consistent. ^•ﻌ•^ it's
+designed to be used fow game wogic.</p>
+<p>this is nyot bevy-specific, OwO but appwies t-to game devewopment i-in genewaw. 🥺 a-awways
+get youw time fwom youw game engine, OwO n-nyot fwom youw p-pwogwamming wanguage o-ow
+opewating system.</p>
 
                     </main>
 

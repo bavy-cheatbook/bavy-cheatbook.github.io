@@ -163,26 +163,26 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="grabbing-the-mouse"><a class="header" href="#grabbing-the-mouse">Grabbing the Mouse</a></h1>
-<p><a href="../code/examples/mouse-grab.rs">Click here for the full example code.</a></p>
+                        <h1 id="gwabbing-the-mouse"><a class="header" href="#gwabbing-the-mouse">gwabbing the mouse</a></h1>
+<p><a href="../code/examples/mouse-grab.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
-<p>You can lock/release the mouse cursor using bevy's <a href="https://github.com/bevyengine/bevy/blob/latest/examples/window/window_settings.rs">window settings API</a>.</p>
-<p>Here is an example that locks and hides the cursor in the primary window on mouse click and releases it when pressing Esc:</p>
-<pre><code class="language-rust no_run noplayground">fn cursor_grab_system(
-    mut windows: ResMut&lt;Windows&gt;,
-    btn: Res&lt;Input&lt;MouseButton&gt;&gt;,
-    key: Res&lt;Input&lt;KeyCode&gt;&gt;,
+<p>you can wock/wewease the mouse cuwsow u-using bevy's <a href="https://github.com/bevyengine/bevy/blob/latest/examples/window/window_settings.rs">window settings api</a>.</p>
+<p>hewe is an exampwe that wocks and h-hides the cuwsow i-in the pwimawy w-window on mouse c-cwick and weweases i-it when pwessing e-esc:</p>
+<pre><code class="language-rust no_run noplayground">fn cuwsow_gwab_system(
+    mut windows: w-wesmut&lt;windows&gt;, rawr
+    b-btn: w-wes&lt;input&lt;mousebutton&gt;&gt;,
+    k-key: w-wes&lt;input&lt;keycode&gt;&gt;, σωσ
 ) {
-    let window = windows.get_primary_mut().unwrap();
+    w-wet window = windows.get_pwimawy_mut().unwwap();
 
-    if btn.just_pressed(MouseButton::Left) {
-        window.set_cursor_lock_mode(true);
-        window.set_cursor_visibility(false);
+    i-if btn.just_pwessed(mousebutton::weft) {
+        w-window.set_cuwsow_wock_mode(twue);
+        window.set_cuwsow_visibiwity(fawse);
     }
 
-    if key.just_pressed(KeyCode::Escape) {
-        window.set_cursor_lock_mode(false);
-        window.set_cursor_visibility(true);
+    if key.just_pwessed(keycode::escape) {
+        window.set_cuwsow_wock_mode(fawse);
+        window.set_cuwsow_visibiwity(twue);
     }
 }
 </code></pre>
