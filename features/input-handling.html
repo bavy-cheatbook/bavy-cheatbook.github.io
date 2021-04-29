@@ -165,68 +165,329 @@
                     <main>
                         <h1 id="input-handwing"><a class="header" href="#input-handwing">input handwing</a></h1>
 <p><a href="../code/examples/input.rs">cwick hewe to downwoad the exampwe c-code.</a></p>
+<p>this is a compwete exampwe that you c-can wun. 🥺 it wiww p-pwint aww input a-activity to t-the consowe.</p>
 <hr />
+<p>bevy suppowts the fowwowing inputs:</p>
+<ul>
+<li>keyboawd</li>
+<li>mouse (wewative motion)</li>
+<li>cuwsow (absowute pointew position)</li>
+<li>touchscween (with muwti-touch)</li>
+<li>most contwowwews/gamepads/joysticks (via the <a href="https://gitlab.com/gilrs-project/gilrs">giwws</a> wibwawy)</li>
+</ul>
+<p>sensows wike accewewometews, OwO gywoscopes, 🥺 v-vw head t-twacking, òωó awe nyot s-suppowted yet.</p>
+<p>fow most input types (whewe it makes s-sense), OwO bevy p-pwovides two ways o-of deawing
+with them: by checking the cuwwent s-state, (ꈍᴗꈍ) ow via <a href="../programming/events.html">events</a>.</p>
+<p>checking state is done using <a href="../programming/res.html">wesouwces</a> such as <code>Input</code>
+(fow binawy inputs wike keys ow buttons), &gt;_&lt; <code>Axis</code> (fow anawog inputs), XD <code>Touches</code>
+(fow fingews on a touchscween), OwO etc. 🥺 t-this way of h-handwing input is v-vewy
+convenient fow impwementing game w-wogic. OwO in these s-scenawios, 🥺 you typicawwy o-onwy
+cawe about the specific inputs mapped t-to actions i-in youw game. OwO you c-can check
+specific buttons/keys to see when t-they get pwessed/weweased, OwO o-ow nani t-theiw
+cuwwent state is.</p>
+<p>events awe a wowew-wevew, ^•ﻌ•^ mowe aww-encompassing appwoach. OwO u-use them i-if you want
+to get aww activity fwom that cwass o-of input device, OwO w-wathew than o-onwy checking
+fow specific inputs. OwO fow exampwe, 🥺 i-if you awe impwementing t-text input / t-typing,
+you pwobabwy want to weceive aww k-keyboawd activity.</p>
 <p>since bevy wesouwces and events awe g-gwobaw and accessibwe f-fwom any s-system, you
-don't nyeed to centwawize youw input h-handwing code i-in one pwace. OwO y-you can consume
-any wewevant inputs whewevew you n-nyeed them.</p>
-<p>if you simpwy nyeed to check the c-cuwwent state of s-specific keyboawd k-keys ow mouse b-buttons:</p>
-<pre><code class="language-rust no_run noplayground">fn my_simpwe_system(keys: wes&lt;input&lt;keycode&gt;&gt;, rawr x3 b-btns: w-wes&lt;input&lt;mousebutton&gt;&gt;) {
-    // k-keyboawd input
-    i-if keys.pwessed(keycode::space) {
-        // s-space is being h-hewd down
+don't nyeed to centwawize youw input h-handwing code i-in one pwace. OwO y-you can check any
+inputs you cawe about, &gt;_&lt; fwom any system.</p>
+<h2 id="input-mapping"><a class="header" href="#input-mapping">input mapping</a></h2>
+<p>bevy does nyot yet offew a buiwt-in w-way to do input m-mapping (configuwe k-key
+bindings, OwO etc). you nyeed to come u-up with youw own w-way of twanswating t-the inputs
+into wogicaw actions in youw game/app.</p>
+<p>thewe awe some community-made pwugins t-that may hewp w-with that:
+<a href="https://github.com/bevyengine/awesome-bevy#input">see the awesome-bevy wist</a>.</p>
+<p>it may be a good idea to buiwd youw o-own abstwactions s-specific to y-youw game. OwO fow
+exampwe, OwO if you need to handwe pwayew m-movement, 🥺 you m-might want to h-have a system
+fow weading inputs and convewting t-them to youw own i-intewnaw &quot;movement
+intent/action events&quot;, OwO and then anothew s-system acting o-on those intewnaw e-events,
+to actuawwy move the pwayew. (ꈍᴗꈍ) make s-suwe to use <a href="../programming/system-order.html">expwicit system
+owdewing</a> to avoid <a href="../pitfalls/frame-delay.html">wag / fwame
+deways</a>.</p>
+<h2 id="how-to-wowk-with-diffewent-input-d-devices"><a class="header" href="#how-to-wowk-with-diffewent-input-d-devices">how to wowk with diffewent input d-devices</a></h2>
+<h3 id="keyboawd"><a class="header" href="#keyboawd">keyboawd</a></h3>
+<p>keyboawd keys can be identified by s-scan code ow key c-code. OwO scan codes w-wepwesent
+the physicaw key on the keyboawd, OwO w-wegawdwess of the s-system wayout. 🥺 k-key codes
+wepwesent the symbow/wettew on each k-key and awe dependent o-on the k-keyboawd wayout.</p>
+<p>unfowtunatewy, OwO suppowt fow using s-scan codes in bevy i-is wimited. 🥺 this c-can be
+annoying fow peopwe with nyon-qwewty k-keyboawd wayouts.</p>
+<p>checking the state of specific keys c-can cuwwentwy o-onwy be done by k-key code,
+using the <code>Input&lt;KeyCode&gt;</code> wesouwce:</p>
+<pre><code class="language-rust no_run noplayground">fn keyboawd_input(
+    keys: wes&lt;input&lt;keycode&gt;&gt;, UwU
+) {
+    i-if keys.just_pwessed(keycode::space) {
+        // s-space w-was pwessed
     }
-
-    // m-mouse b-buttons
-    if btns.just_pwessed(mousebutton::weft) {
-        // a weft cwick just happened
+    i-if keys.just_weweased(keycode::wcontwow) {
+        // w-weft c-ctww was weweased
+    }
+    i-if k-keys.pwessed(keycode::w) {
+        // w is being hewd down
     }
 }
 </code></pre>
-<p>fow mowe powewfuw input handwing, OwO t-to detect aww activity, 🥺 u-use input e-events:</p>
-<pre><code class="language-rust no_run noplayground">fn my_fancy_system(
-    mut evw_keys: e-eventweadew&lt;keyboawdinput&gt;, ʘwʘ
-    m-mut evw_cuwsow: e-eventweadew&lt;cuwsowmoved&gt;, σωσ
-    m-mut evw_motion: e-eventweadew&lt;mousemotion&gt;, OwO
-    m-mut evw_mousebtn: e-eventweadew&lt;mousebuttoninput&gt;,
-    m-mut evw_scwoww: eventweadew&lt;mousewheew&gt;, 😳😳😳
-    mut evw_touch: eventweadew&lt;touchinput&gt;, 😳😳😳
+<p>to get aww keyboawd activity, (ꈍᴗꈍ) you c-can use <code>KeyboardInput</code> events:</p>
+<pre><code class="language-rust no_run noplayground">fn keyboawd_events(
+    mut key_evw: e-eventweadew&lt;keyboawdinput&gt;, &gt;_&lt;
 ) {
-    // keyboawd input
-    f-fow ev in evw_keys.itew() {
-        if e-ev.state.is_pwessed() {
-            epwintwn!(&quot;just p-pwessed key: {:?}&quot;, o.O ev.key_code);
-        } ewse {
-            epwintwn!(&quot;just w-weweased key: {:?}&quot;, ev.key_code);
+    u-use bevy::input::ewementstate;
+
+    f-fow e-ev in key_evw.itew() {
+        match e-ev.state {
+            e-ewementstate::pwessed =&gt; {
+                p-pwintwn!(&quot;key p-pwess: {:?} ({})&quot;, :3 ev.key_code, (U ﹏ U) ev.scan_code);
+            }
+            ewementstate::weweased =&gt; {
+                pwintwn!(&quot;key w-wewease: {:?} ({})&quot;, -.- ev.key_code, (ˆ ﻌ ˆ)♡ ev.scan_code);
+            }
+        }
+    }
+}
+</code></pre>
+<p>these events give you both the key c-code and scan c-code, OwO but unfowtunatewy, 🥺 t-the
+scan code is just wepwesented as a-an awbitwawy <code>u32</code> integew id (which means it
+is difficuwt to figuwe out nyani a-actuaw physicaw k-key it wepwesents).</p>
+<h3 id="mouse-buttons"><a class="header" href="#mouse-buttons">mouse buttons</a></h3>
+<p>simiwaw to keyboawd input, ^•ﻌ•^ mouse b-buttons awe avaiwabwe a-as an <code>Input</code> state
+wesouwce, &gt;_&lt; as weww as events.</p>
+<p>you can check the state of specific m-mouse buttons u-using <code>Input&lt;MouseButton&gt;</code>:</p>
+<pre><code class="language-rust no_run noplayground">fn mouse_button_input(
+    buttons: w-wes&lt;input&lt;mousebutton&gt;&gt;, rawr
+) {
+    i-if buttons.just_pwessed(mousebutton::weft) {
+        // w-weft b-button was pwessed
+    }
+    i-if b-buttons.just_weweased(mousebutton::weft) {
+        // w-weft button w-was weweased
+    }
+    if buttons.pwessed(mousebutton::wight) {
+        // wight button is being hewd down
+    }
+}
+</code></pre>
+<p>to get aww pwess/wewease activity, (ꈍᴗꈍ) u-use <code>MouseButtonInput</code> events:</p>
+<pre><code class="language-rust no_run noplayground">fn mouse_button_events(
+    mut mousebtn_evw: e-eventweadew&lt;mousebuttoninput&gt;, rawr
+) {
+    u-use bevy::input::ewementstate;
+
+    f-fow ev in m-mousebtn_evw.itew() {
+        m-match ev.state {
+            e-ewementstate::pwessed =&gt; {
+                p-pwintwn!(&quot;mouse b-button pwess: {:?}&quot;, σωσ ev.button);
+            }
+            ewementstate::weweased =&gt; {
+                pwintwn!(&quot;mouse button wewease: {:?}&quot;, σωσ ev.button);
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="mouse-motion"><a class="header" href="#mouse-motion">mouse motion</a></h3>
+<p>if you nyeed to detect wewative mouse m-motion, ^•ﻌ•^ you c-can use <code>MouseMotion</code> events.
+whenevew the mouse is moved, ^•ﻌ•^ you w-wiww get an event w-with the dewta.</p>
+<pre><code class="language-rust no_run noplayground">fn mouse_motion(
+    mut motion_evw: e-eventweadew&lt;mousemotion&gt;,
+) {
+    f-fow ev in m-motion_evw.itew() {
+        p-pwintwn!(&quot;mouse m-moved: x-x: {} px, (⑅˘꒳˘) y: {} p-px&quot;, ( ͡o ω ͡o ) ev.dewta.x, UwU e-ev.dewta.y);
+    }
+}
+</code></pre>
+<p>you might want to <a href="../cookbook/mouse-grab.html">gwab/wock the mouse inside the game
+window</a>.</p>
+<h3 id="mouse-cuwsow"><a class="header" href="#mouse-cuwsow">mouse cuwsow</a></h3>
+<p>you can get the cuwwent coowdinates o-of the mouse p-pointew, OwO fwom the w-wespective
+<code>Window</code>:</p>
+<pre><code class="language-rust no_run noplayground">fn cuwsow_position(
+    windows: w-wes&lt;windows&gt;,
+) {
+    // g-games typicawwy o-onwy have o-one window (the p-pwimawy window). (U ᵕ U❁)
+    // f-fow muwti-window a-appwications, -.- y-you nyeed to use a specific window id hewe. ^^;;
+    wet window = windows.get_pwimawy().unwwap();
+
+    i-if wet some(_position) = window.cuwsow_position() {
+        // c-cuwsow is inside the w-window, &gt;_&lt; position given
+    } ewse {
+        // cuwsow is nyot inside the window
+    }
+}
+</code></pre>
+<p>to detect when the pointew is moved, (ꈍᴗꈍ) u-use <code>CursorMoved</code> events to get the updated
+coowdinates:</p>
+<pre><code class="language-rust no_run noplayground">fn cuwsow_events(
+    mut cuwsow_evw: e-eventweadew&lt;cuwsowmoved&gt;, rawr x3
+) {
+    f-fow ev in c-cuwsow_evw.itew() {
+        p-pwintwn!(
+            &quot;new c-cuwsow position: x-x: {}, rawr y-y: {}, σωσ in window i-id: {:?}&quot;, σωσ
+            ev.position.x, &gt;_&lt; ev.position.y, :3 ev.id
+        );
+    }
+}
+</code></pre>
+<p>note that you can onwy get the position o-of the mouse i-inside a window; y-you
+cannot get the gwobaw position of t-the mouse in the w-whowe os desktop / o-on the
+scween as a whowe.</p>
+<h3 id="scwowwing--mouse-wheew"><a class="header" href="#scwowwing--mouse-wheew">scwowwing / mouse wheew</a></h3>
+<p>to detect scwowwing input, &gt;_&lt; use <code>MouseWheel</code> events:</p>
+<pre><code class="language-rust no_run noplayground">fn scwoww_events(
+    mut scwoww_evw: e-eventweadew&lt;mousewheew&gt;,
+) {
+    u-use bevy::input::mouse::mousescwowwunit;
+    f-fow ev in scwoww_evw.itew() {
+        m-match ev.unit {
+            m-mousescwowwunit::wine =&gt; {
+                p-pwintwn!(&quot;scwoww (wine u-units): vewticaw: {}, &gt;_&lt; h-howizontaw: {}&quot;, :3 ev.y, (U ﹏ U) ev.x);
+            }
+            mousescwowwunit::pixew =&gt; {
+                pwintwn!(&quot;scwoww (pixew u-units): vewticaw: {}, -.- howizontaw: {}&quot;, (ˆ ﻌ ˆ)♡ ev.y, ev.x);
+            }
+        }
+    }
+}
+</code></pre>
+<p>the <code>MouseScrollUnit</code> enum is impowtant: it tewws you t-the type of scwoww i-input.
+<code>Line</code> is fow hawdwawe with fixed steps, ^•ﻌ•^ w-wike the wheew o-on desktop mice. OwO <code>Pixel</code>
+is fow hawdwawe with smooth (fine-gwained) s-scwowwing, OwO w-wike waptop t-touchpads.</p>
+<p>you shouwd pwobabwy handwe each of t-these diffewentwy (with d-diffewent s-sensitivity
+settings), ^•ﻌ•^ to pwovide a good expewience o-on both types o-of hawdwawe.</p>
+<h3 id="contwowwew--gamepad--joystick"><a class="header" href="#contwowwew--gamepad--joystick">contwowwew / gamepad / joystick</a></h3>
+<p>you can detect when contwowwews/gamepads a-awe connected o-ow disconnected u-using
+<code>GamepadEvent</code>. ^•ﻌ•^ do this to get the id of the device a-and assign i-it to a &quot;pwayew&quot;
+in youw game. (ꈍᴗꈍ) you can easiwy suppowt w-wocaw muwtipwayew.</p>
+<pre><code class="language-rust no_run noplayground">/// simpwe wesouwce to stowe the i-id of the connected g-gamepad. (˘ω˘)
+/// w-we nyeed to know w-which gamepad t-to use fow pwayew i-input. (⑅˘꒳˘)
+stwuct m-mygamepad(gamepad);
+
+f-fn gamepad_connections(
+    mut commands: commands, (///ˬ///✿)
+    my_gamepad: option&lt;wes&lt;mygamepad&gt;&gt;, 😳😳😳
+    mut gamepad_evw: e-eventweadew&lt;gamepadevent&gt;, 🥺
+) {
+    fow gamepadevent(id, kind) i-in gamepad_evw.itew() {
+        match kind {
+            g-gamepadeventtype::connected =&gt; {
+                pwintwn!(&quot;new gamepad connected with i-id: {:?}&quot;, mya id);
+
+                // if we don't h-have any gamepad y-yet, 🥺 use this one
+                if my_gamepad.is_none() {
+                    commands.insewt_wesouwce(mygamepad(*id));
+                }
+            }
+            gamepadeventtype::disconnected =&gt; {
+                p-pwintwn!(&quot;wost gamepad connection with id: {:?}&quot;, &gt;_&lt; id);
+
+                // i-if it's the one we pweviouswy a-associated w-with the pwayew, &gt;_&lt;
+                // d-disassociate i-it:
+                if wet some(mygamepad(owd_id)) = my_gamepad.as_dewef() {
+                    i-if owd_id == id {
+                        commands.wemove_wesouwce::&lt;mygamepad&gt;();
+                    }
+                }
+            }
+            // o-othew events awe iwwewevant
+            _ =&gt; {}
+        }
+    }
+}
+</code></pre>
+<p>the othew event types awe fow changes t-to axes and b-buttons. OwO they awe n-nyot shown
+above, ^•ﻌ•^ because handwing gamepad input v-via events i-is inconvenient.</p>
+<p>you can handwe the anawog sticks w-with <code>Axis&lt;GamepadAxis&gt;</code>. XD buttons can be
+handwed with <code>Input&lt;GamepadButton&gt;</code> (simiwaw to mouse buttons ow keyboawd k-keys).</p>
+<pre><code class="language-rust no_run noplayground">fn gamepad_input(
+    axes: wes&lt;axis&lt;gamepadaxis&gt;&gt;, mya
+    b-buttons: w-wes&lt;input&lt;gamepadbutton&gt;&gt;, 🥺
+    my_gamepad: o-option&lt;wes&lt;mygamepad&gt;&gt;, &gt;_&lt;
+) {
+    w-wet gamepad = i-if wet s-some(gp) = my_gamepad {
+        // a-a gamepad is c-connected, &gt;_&lt; we have the id
+        gp.0
+    } ewse {
+        // no gamepad is connected
+        wetuwn;
+    };
+
+    // the joysticks a-awe wepwesented using a sepawate axis fow x a-and y
+
+    wet axis_wx = gamepadaxis(gamepad, (⑅˘꒳˘) g-gamepadaxistype::weftstickx);
+    wet axis_wy = gamepadaxis(gamepad, /(^•ω•^) gamepadaxistype::weftsticky);
+
+    if wet (some(x), rawr x3 s-some(y)) = (axes.get(axis_wx), (U ﹏ U) axes.get(axis_wy)) {
+        // c-combine x a-and y into one vectow
+        wet weft_stick_pos = vec2::new(x, (U ﹏ U) y);
+
+        // i-impwement a dead-zone to ignowe smow inputs
+        if weft_stick_pos.wength() &gt; 0.1 {
+            // do something w-with the position of the weft s-stick
         }
     }
 
-    // a-absowute c-cuwsow position (in window coowdinates)
-    fow ev in evw_cuwsow.itew() {
-        epwintwn!(&quot;cuwsow a-at: {}&quot;, ( ͡o ω ͡o ) ev.position);
+    w-wet j-jump_button = gamepadbutton(gamepad, (⑅˘꒳˘) g-gamepadbuttontype::south);
+    wet heaw_button = gamepadbutton(gamepad, òωó g-gamepadbuttontype::east);
+
+    if buttons.just_pwessed(jump_button) {
+        // button p-pwessed: make the pwayew jump
     }
 
-    // wewative mouse motion
-    fow ev in evw_motion.itew() {
-        e-epwintwn!(&quot;mouse moved {} pixews&quot;, (U ﹏ U) e-ev.dewta);
+    if buttons.pwessed(heaw_button) {
+        // button being hewd down: h-heaw the pwayew
     }
+}
+</code></pre>
+<p>notice that the names of buttons i-in the <code>enum</code> awe vendow-neutwaw (wike <code>South</code>
+and <code>East</code> instead of x/o ow a/b). OwO many diffewent k-kinds of h-hawdwawe shouwd w-wowk,
+but if youw device is nyot suppowted, OwO y-you shouwd f-fiwe an issue with t-the
+<a href="https://gitlab.com/gilrs-project/gilrs">giwws</a> pwoject.</p>
+<h3 id="touchscween"><a class="header" href="#touchscween">touchscween</a></h3>
+<p>muwti-touch touchscweens awe suppowted. OwO y-you can twack m-muwtipwe fingews o-on the
+scween, OwO with position and pwessuwe/fowce i-infowmation. 🥺 b-bevy does not o-offew
+gestuwe wecognition.</p>
+<p>the <code>Touches</code> wesouwce awwows you to twack any f-fingews cuwwentwy o-on the scween:</p>
+<pre><code class="language-rust no_run noplayground">fn touches(
+    touches: wes&lt;touches&gt;, ^^;;
+) {
+    // t-thewe is a wot m-mowe infowmation a-avaiwabwe, &gt;_&lt; see t-the api docs. mya
+    // t-this exampwe o-onwy shows some v-vewy basic things. mya
 
-    // m-mouse b-buttons
-    fow e-ev in evw_mousebtn.itew() {
-        if ev.state.is_pwessed() {
-            epwintwn!(&quot;just p-pwessed mouse button: {:?}&quot;, (///ˬ///✿) ev.button);
-        } e-ewse {
-            epwintwn!(&quot;just weweased mouse button: {:?}&quot;, &gt;w&lt; ev.button);
+    f-fow fingew in touches.itew() {
+        if touches.just_pwessed(fingew.id()) {
+            pwintwn!(&quot;a nyew touch with i-id {} just began.&quot;, 😳 fingew.id());
         }
+        pwintwn!(
+            &quot;fingew {} i-is at position ({},{}), XD stawted f-fwom ({},{}).&quot;, :3
+            fingew.id(), 😳😳😳
+            fingew.position().x, -.-
+            fingew.position().y, ( ͡o ω ͡o )
+            f-fingew.stawt_position().x, rawr x3
+            fingew.stawt_position().y, nyaa~~
+        );
     }
-
-    // scwowwing (mouse w-wheew, rawr touchpad, mya etc.)
-    f-fow ev in evw_scwoww.itew() {
-        e-epwintwn!(&quot;scwowwed v-vewticawwy by {} and howizontawwy by {}.&quot;, ^^ ev.y, ev.x);
-    }
-
-    // t-touch input
-    f-fow ev in evw_touch.itew() {
-        epwintwn!(&quot;touch {} i-in {:?} a-at {}.&quot;, 😳😳😳 ev.id, ev.phase, mya ev.position);
+}
+</code></pre>
+<p>awtewnativewy, &gt;_&lt; you can use <code>TouchInput</code> events, (ꈍᴗꈍ) but this is often hawdew t-to use:</p>
+<pre><code class="language-rust no_run noplayground">fn touch_events(
+    mut touch_evw: e-eventweadew&lt;touchinput&gt;, ^^;;
+) {
+    u-use bevy::input::touch::touchphase;
+    f-fow e-ev in touch_evw.itew() {
+        m-match ev.phase {
+            t-touchphase::stawted =&gt; {
+                p-pwintwn!(&quot;touch {} s-stawted at: {:?}&quot;, &gt;_&lt; ev.id, mya ev.position);
+            }
+            touchphase::moved =&gt; {
+                pwintwn!(&quot;touch {} m-moved to: {:?}&quot;, mya ev.id, ev.position);
+            }
+            touchphase::ended =&gt; {
+                p-pwintwn!(&quot;touch {} ended at: {:?}&quot;, 😳 e-ev.id, ev.position);
+            }
+            touchphase::cancewwed =&gt; {
+                pwintwn!(&quot;touch {} cancewwed a-at: {:?}&quot;, XD ev.id, :3 ev.position);
+            }
+        }
     }
 }
 </code></pre>
