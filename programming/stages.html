@@ -166,24 +166,27 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="stages"><a class="header" href="#stages">stages</a></h1>
-<p>aww systems to be wun by bevy awe c-contained in stages. OwO e-evewy fwame u-update, bevy
-exekawaii~s each stage, OwO in owdew. 🥺 w-within each stage, òωó b-bevy's scheduwing a-awgowithm
-can wun many systems in pawawwew, OwO u-using muwtipwe c-cpu cowes fow good p-pewfowmance.</p>
+<p>aww systems to be wun by bevy awe c-contained in stages. OwO e-evewy fwame u-update,
+bevy exekawaii~s each stage, OwO in owdew. 🥺 w-within each s-stage, òωó bevy's s-scheduwing
+awgowithm can wun many systems in p-pawawwew, OwO using m-muwtipwe cpu cowes f-fow
+good pewfowmance.</p>
 <p>the boundawies between stages awe e-effectivewy hawd s-synchwonization p-points.
 they ensuwe that aww systems of the p-pwevious stage h-have compweted b-befowe any
 systems of the nyext stage begin, OwO a-and that thewe i-is a moment in time w-when nyo
 systems awe in-pwogwess.</p>
-<p>this makes it possibwe/safe to appwy <a href="./commands.html"><code>Commands</code></a>. XD any opewations
-pewfowmed by systems using <code>Commands</code> awe appwied at the end of each stage.</p>
-<p>intewnawwy, (ꈍᴗꈍ) bevy has at weast these b-buiwt-in stages: <code>First</code>, rawr x3 <code>PreUpdate</code>, rawr x3 <code>Update</code>, rawr x3 <code>PostUpdate</code>, rawr x3 <code>Last</code>.</p>
+<p>this makes it possibwe/safe to appwy <a href="./commands.html"><code>Commands</code></a>. XD any
+opewations pewfowmed by systems using <code>Commands</code> awe appwied at the end of
+each stage.</p>
+<p>intewnawwy, (ꈍᴗꈍ) bevy has at weast these b-buiwt-in stages: <code>First</code>, rawr x3 <code>PreUpdate</code>,
+<code>Update</code>, rawr x3 <code>PostUpdate</code>, rawr x3 <code>Last</code>.</p>
 <p>(<a href="./labels.html">wabewed</a> with <code>enum CoreStage</code>)</p>
 <p>by defauwt, ^•ﻌ•^ when you add youw systems, OwO t-they awe added t-to <code>CoreStage::Update</code>.</p>
 <p>bevy's intewnaw systems awe in the o-othew stages, OwO t-to ensuwe they awe o-owdewed
 cowwectwy wewative to youw game wogic.</p>
-<p>if you want to add youw own systems t-to any of bevy's i-intewnaw stages, OwO y-you nyeed
-to bewawe of potentiaw unexpected i-intewactions with b-bevy's own intewnaw s-systems.
-wemembew: bevy's intewnaws awe impwemented u-using o-owdinawy systems a-and ecs, just
-wike youw own stuff!</p>
+<p>if you want to add youw own systems t-to any of bevy's i-intewnaw stages, OwO y-you
+need to bewawe of potentiaw unexpected i-intewactions w-with bevy's own i-intewnaw
+systems. OwO  wemembew: bevy's intewnaws a-awe impwemented u-using owdinawy s-systems
+and ecs, &gt;_&lt; just wike youw own stuff!</p>
 <p>you can add youw own additionaw stages. OwO f-fow exampwe, 🥺 i-if we want ouw d-debug
 systems to wun aftew ouw game wogic:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
@@ -209,16 +212,16 @@ systems to wun aftew ouw game wogic:</p>
         .wun();
 }
 </code></pre>
-<p>if you nyeed to manage when youw s-systems wun, OwO wewative t-to one anothew, 🥺 i-it is
-genewawwy pwefewabwe to avoid using s-stages, ^•ﻌ•^ and to u-use <a href="./system-order.html">expwicit system
-owdewing</a> instead. (ꈍᴗꈍ) stages wimit pawawwew execution a-and the
-pewfowmance of youw game.</p>
-<p>howevew, OwO stages can make it easiew t-to owganize things, 🥺 w-when you weawwy w-want to
-be suwe that aww pwevious systems h-have compweted. OwO s-stages awe awso t-the onwy way
-to appwy <code>Commands</code>.</p>
-<p>if you have systems that nyeed to w-wewy on the actions t-that othew s-systems have
-pewfowmed by using <code>Commands</code>, (ꈍᴗꈍ) and nyeed to do so duwing the same f-fwame, ^•ﻌ•^ pwacing
-those systems into sepawate stages i-is the onwy way t-to accompwish t-that.</p>
+<p>if you nyeed to manage when youw s-systems wun, OwO wewative t-to one anothew, 🥺 i-it
+is genewawwy pwefewabwe to avoid u-using stages, and t-to use <a href="./system-order.html">expwicit system
+owdewing</a> instead. (ꈍᴗꈍ) stages wimit pawawwew execution a-and
+the pewfowmance of youw game.</p>
+<p>howevew, OwO stages can make it easiew t-to owganize things, 🥺 w-when you weawwy w-want
+to be suwe that aww pwevious systems h-have compweted. OwO s-stages awe awso t-the
+onwy way to appwy <code>Commands</code>.</p>
+<p>if you have systems that nyeed to w-wewy on the actions t-that othew s-systems
+have pewfowmed by using <code>Commands</code>, (ꈍᴗꈍ) and nyeed to do so duwing the same f-fwame,
+pwacing those systems into sepawate s-stages is the o-onwy way to accompwish t-that.</p>
 <p><a href="../pitfalls/frame-delay.html#commands">mowe infowmation on avoiding fwame d-deways / 1-fwame-wag, ^•ﻌ•^ w-when using <code>Commands</code>.</a></p>
 
                     </main>

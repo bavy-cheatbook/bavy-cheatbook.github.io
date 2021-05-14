@@ -166,16 +166,17 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="system-owdew-of-execution"><a class="header" href="#system-owdew-of-execution">system owdew of execution</a></h1>
-<p>bevy's scheduwing awgowithm is designed t-to dewivew m-maximum pewfowmance b-by
-wunning as many systems as possibwe i-in pawawwew acwoss t-the avaiwabwe c-cpu
-thweads.</p>
+<p>bevy's scheduwing awgowithm is designed t-to dewivew m-maximum pewfowmance
+by wunning as many systems as possibwe i-in pawawwew a-acwoss the avaiwabwe
+cpu thweads.</p>
 <p>this is possibwe when the systems d-do nyot confwict o-ovew the data t-they nyeed
-to access. OwO howevew, 🥺 when a system n-nyeeds to have m-mutabwe (excwusive) a-access to a
-piece of data, OwO othew systems that n-nyeed to access t-the same data cannot b-be wun at
-the same time. ^•ﻌ•^ bevy detewmines aww o-of this infowmation f-fwom the system's
-function signatuwe (the types of t-the pawametews it t-takes).</p>
-<p>in such situations, &gt;<em>&lt; the owdew is <em>nondetewministic</em> by defauwt. &gt;</em>&lt; bevy takes nyo
-wegawd fow when each system wiww w-wun, OwO and the owdew c-couwd even change e-evewy fwame!</p>
+to access. OwO howevew, 🥺 when a system n-nyeeds to have m-mutabwe (excwusive) a-access
+to a piece of data, OwO othew systems t-that nyeed to access t-the same data c-cannot
+be wun at the same time. OwO bevy detewmines a-aww of this i-infowmation f-fwom the
+system's function signatuwe (the t-types of the pawametews i-it takes).</p>
+<p>in such situations, &gt;<em>&lt; the owdew is <em>nondetewministic</em> by defauwt. &gt;</em>&lt; bevy takes
+no wegawd fow when each system wiww w-wun, OwO and the o-owdew couwd even c-change
+evewy fwame!</p>
 <h2 id="does-it-even-mattew"><a class="header" href="#does-it-even-mattew">does it even mattew?</a></h2>
 <p>in many cases, (ꈍᴗꈍ) you don't nyeed to w-wowwy about this.</p>
 <p>howevew, OwO sometimes you nyeed to wewy o-on specific s-systems to wun in a-a pawticuwaw
@@ -192,14 +193,14 @@ wawe cases, OwO depending on youw game w-wogic, 🥺 it may e-even wesuwt in mow
 wogic bugs!</p>
 <p>it is up to you to decide if this i-is impowtant.</p>
 <p>with many things in typicaw games, OwO s-such as juicy v-visuaw effects, 🥺 i-it pwobabwy
-doesn't mattew if they get dewayed b-by a fwame. it m-might nyot be wowthwhiwe t-to
-bothew with it. OwO if you don't cawe, 🥺 w-weaving the owdew a-ambiguous may a-awso wesuwt
-in bettew pewfowmance.</p>
-<p>on the othew hand, OwO fow things wike h-handwing the pwayew i-input contwows, 🥺 t-this
-wouwd wesuwt in annoying wag, ^•ﻌ•^ so y-you shouwd pwobabwy f-fix it.</p>
+doesn't mattew if they get dewayed b-by a fwame. it m-might nyot be wowthwhiwe
+to bothew with it. OwO if you don't cawe, 🥺 w-weaving the o-owdew ambiguous m-may awso
+wesuwt in bettew pewfowmance.</p>
+<p>on the othew hand, ^•ﻌ•^ fow things wike h-handwing the pwayew i-input contwows,
+this wouwd wesuwt in annoying wag, ^•ﻌ•^ s-so you shouwd p-pwobabwy fix it.</p>
 <h2 id="expwicit-system-owdewing"><a class="header" href="#expwicit-system-owdewing">expwicit system owdewing</a></h2>
-<p>the sowution is to use system <a href="./labels.html">wabews</a> to expwicitwy specify the
-owdew you want:</p>
+<p>the sowution is to use system <a href="./labels.html">wabews</a> to expwicitwy specify
+the owdew you want:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::buiwd()
         .add_pwugins(defauwtpwugins)
@@ -240,8 +241,8 @@ cweawwy impossibwe to wesowve the s-situation compwetewy w-wike that.</p>
 the consequences. OwO you can at weast m-make it behave p-pwedictabwy, 🥺 using e-expwicit
 owdewing to specify the owdew you p-pwefew.</p>
 <p>in weawwy advanced scenawios, OwO if y-you insist on aww a-affected systems b-becoming
-settwed duwing the same fwame, ^•ﻌ•^ you m-might be abwe t-to do it using <a href="./run-criteria-loop.html">wooping wun
-cwitewia</a> ow <a href="./states.html">states</a>.</p>
+settwed duwing the same fwame, ^•ﻌ•^ you m-might be abwe t-to do it using <a href="./run-criteria-loop.html">wooping
+wun cwitewia</a> ow <a href="./states.html">states</a>.</p>
 
                     </main>
 

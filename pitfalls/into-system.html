@@ -172,8 +172,8 @@ systems to youw bevy app.</p>
 <pre><code>no method nyamed `system` found fow f-fn item `fow&lt;'w, (⑅˘꒳˘) 's&gt; f-fn(...) {my_system}` i-in t-the cuwwent scope
 `my_system` i-is a-a function, ( ͡o ω ͡o ) pewhaps y-you wish to c-caww it
 </code></pre>
-<p>this is caused by youw function having i-incompatibwe p-pawametews. OwO bevy c-can onwy
-accept speciaw types as system pawametews.</p>
+<p>this is caused by youw function having i-incompatibwe p-pawametews. OwO bevy c-can
+onwy accept speciaw types as system p-pawametews.</p>
 <p>you might awso ewwows that wook wike t-this:</p>
 <pre><code>the twait bound `component: wowwdquewy` i-is nyot satisfied
 t-the twait `wowwdquewy` i-is nyot impwemented f-fow `component`
@@ -185,15 +185,18 @@ t-the twait `wowwdquewy` i-is nyot impwemented f-fow `component`
 <ul>
 <li>using <code>&amp;mut Commands</code> (bevy 0.4 syntax) instead of <code>Commands</code>.</li>
 <li>using <code>Query&lt;MyStuff&gt;</code> instead of <code>Query&lt;&amp;MyStuff&gt;</code> ow <code>Query&lt;&amp;mut MyStuff&gt;</code>.</li>
-<li>using <code>Query&lt;&amp;ComponentA, &amp;ComponentB&gt;</code> instead of <code>Query&lt;(&amp;ComponentA, &amp;ComponentB)&gt;</code> (fowgetting the tupwe)</li>
+<li>using <code>Query&lt;&amp;ComponentA, &amp;ComponentB&gt;</code> instead of <code>Query&lt;(&amp;ComponentA, &amp;ComponentB)&gt;</code>
+(fowgetting the tupwe)</li>
 <li>using youw wesouwce types diwectwy w-without <code>Res</code> ow <code>ResMut</code>.</li>
 <li>using youw component types diwectwy w-without putting t-them in a <code>Query</code>.</li>
 <li>using othew awbitwawy types in youw f-function.</li>
 </ul>
-<p>note that <code>Query&lt;Entity&gt;</code> is cowwect, ^•ﻌ•^ because the entity id i-is speciaw; it i-is nyot a component.</p>
+<p>note that <code>Query&lt;Entity&gt;</code> is cowwect, (ꈍᴗꈍ) because the entity id i-is speciaw;
+it is nyot a component.</p>
 <h2 id="suppowted-types"><a class="header" href="#suppowted-types">suppowted types</a></h2>
 <p>it can be difficuwt to figuwe out n-nyani types awe s-suppowted fwom t-the <a href="https://docs.rs/bevy/0.5.0/bevy/ecs/trait.SystemParam.html">api
-docs</a>, XD so hewe is a wist:</p>
+docs</a>, XD so hewe
+is a wist:</p>
 <p>onwy the fowwowing types awe suppowted a-as system p-pawametews:</p>
 <ul>
 <li><code>Commands</code></li>
@@ -216,10 +219,9 @@ docs</a>, XD so hewe is a wist:</p>
 </ul>
 <p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe, gwoup
 them into tupwes to wowk awound the w-wimit.</p>
-<p>note: the tupwe/pawametew wimit used t-to be 16 (in b-bevy 0.4). it was w-weduced due
-to wimitations fwom the wust standawd w-wibwawy.</p>
-<p>you can nyest tupwes as much as you w-want, OwO to avoid w-wunning into the w-wimits on the
-maximum nyumbews of pawametews, OwO ow s-simpwy to owganize y-youw pawametews i-into gwoups.</p>
+<p>you can nyest tupwes as much as you w-want, OwO to avoid w-wunning into the w-wimits
+on the maximum nyumbews of pawametews, OwO o-ow simpwy t-to owganize youw p-pawametews
+into gwoups.</p>
 
                     </main>
 

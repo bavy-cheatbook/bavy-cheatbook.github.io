@@ -175,20 +175,21 @@ devewopment, OwO and many of these techniques c-can get i-in the way of youw w-w
 they may come at the cost of wongew c-compiwe times o-ow wess debuggabiwity.</p>
 <p>depending on the nyatuwe of youw a-appwication, OwO youw m-miweage may vawy, 🥺 a-and
 pewfowming measuwements of binawy s-size and execution s-speed is wecommended.</p>
-<p><a href="https://github.com/rustwasm/twiggy">twiggy</a> is a code size pwofiwew fow wasm
-binawies, (ꈍᴗꈍ) which you can use to make m-measuwements.</p>
-<p>fow additionaw infowmation and mowe t-techniques, OwO wefew t-to the code s-size chaptew
-in the <a href="https://rustwasm.github.io/docs/book/reference/code-size.html">wust wasm book</a>.</p>
+<p><a href="https://github.com/rustwasm/twiggy">twiggy</a> is a code size pwofiwew fow
+wasm binawies, (ꈍᴗꈍ) which you can use t-to make measuwements.</p>
+<p>fow additionaw infowmation and mowe t-techniques,
+wefew to the code size chaptew in t-the <a href="https://rustwasm.github.io/docs/book/reference/code-size.html">wust wasm
+book</a>.</p>
 <h2 id="wink-time-optimization-wto"><a class="header" href="#wink-time-optimization-wto">wink-time optimization (wto)</a></h2>
 <p>in <code>Cargo.toml</code>, XD add the fowwowing:</p>
 <pre><code class="language-toml">[pwofiwe.wewease]
 wto = &quot;thin&quot;
 </code></pre>
-<p>wto tewws the compiwew to optimize a-aww code togethew, OwO c-considewing a-aww cwates as
-if they wewe one. OwO it may be abwe t-to inwine and pwune f-functions much m-mowe
-aggwessivewy.</p>
-<p>this typicawwy wesuwts in smowew s-size <em>and</em> bettew pewfowmance, &gt;_&lt; but do measuwe
-to confiwm. (ꈍᴗꈍ) sometimes, ^•ﻌ•^ the size can a-actuawwy be wawgew.</p>
+<p>wto tewws the compiwew to optimize a-aww code togethew, OwO c-considewing a-aww
+cwates as if they wewe one. ^•ﻌ•^ it may b-be abwe to inwine a-and pwune functions
+much mowe aggwessivewy.</p>
+<p>this typicawwy wesuwts in smowew s-size <em>and</em> bettew pewfowmance, &gt;_&lt; but do
+measuwe to confiwm. ^•ﻌ•^ sometimes, the s-size can actuawwy b-be wawgew.</p>
 <p>the downside hewe is that compiwation w-wiww take much w-wongew.</p>
 <h2 id="compiwing-fow-size-instead-of-speed"><a class="header" href="#compiwing-fow-size-instead-of-speed">compiwing fow size instead of speed</a></h2>
 <p>you can change the optimization pwofiwe o-of the compiwew, OwO t-to teww i-it to
@@ -202,13 +203,13 @@ opt-wevew = 's'
 opt-wevew = 'z'
 </code></pre>
 <p>these awe two diffewent pwofiwes f-fow size optimization. ^•ﻌ•^ u-usuawwy, OwO <code>z</code> pwoduces
-smowew fiwes than <code>s</code>, ^•ﻌ•^ but sometimes it can be the opposite. OwO m-measuwe to c-confiwm
-which one wowks bettew fow you.</p>
+smowew fiwes than <code>s</code>, (ꈍᴗꈍ) but sometimes it can be the opposite. ^•ﻌ•^ m-measuwe to
+confiwm which one wowks bettew fow y-you.</p>
 <h2 id="use-the-wasm-opt-toow"><a class="header" href="#use-the-wasm-opt-toow">use the <code>wasm-opt</code> toow</a></h2>
 <p>the <a href="https://github.com/WebAssembly/binaryen">binawyen</a> toowkit is a set of
 extwa toows fow wowking with wasm. (ꈍᴗꈍ) o-one of them is <code>wasm-opt</code>. XD it goes much
-fuwthew than nyani the compiwew can d-do, OwO and can be u-used to fuwthew o-optimize fow
-eithew speed ow size:</p>
+fuwthew than nyani the compiwew can d-do, OwO and can be u-used to fuwthew o-optimize
+fow eithew speed ow size:</p>
 <pre><code class="language-shell"># optimize fow size (s pwofiwe).
 w-wasm-opt -os -o o-output.wasm input.wasm
 
@@ -221,10 +222,10 @@ wasm-opt -o3 -o output.wasm input.wasm
 <p>note: <code>wasm-pack</code> pewfowms this pawtiawwy by defauwt.</p>
 <h2 id="use-the-wee-alloc-memowy-awwocatow"><a class="header" href="#use-the-wee-alloc-memowy-awwocatow">use the <code>wee-alloc</code> memowy awwocatow</a></h2>
 <p>you can wepwace wust's defauwt memowy a-awwocatow with
-<a href="https://github.com/rustwasm/wee_alloc">wee-awwoc</a>,
-which is swowew, but is wess than a-a singwe kiwobyte i-in size.</p>
-<p>this may wesuwt in a significant p-pewfowmance hit. OwO i-if youw game wuns f-fast enough
-with it, (ꈍᴗꈍ) the smowew downwoad size m-may be mowe impowtant.</p>
+<a href="https://github.com/rustwasm/wee_alloc">wee-awwoc</a>, &gt;_&lt; which is swowew, (ꈍᴗꈍ) but is
+wess than a singwe kiwobyte in size.</p>
+<p>this may wesuwt in a significant p-pewfowmance hit. OwO i-if youw game wuns f-fast
+enough with it, ^•ﻌ•^ the smowew downwoad s-size may be mowe i-impowtant.</p>
 <p>in <code>Cargo.toml</code>, XD add the fowwowing:</p>
 <pre><code class="language-toml">[dependencies]
 wee_awwoc = &quot;0.4&quot;

@@ -166,11 +166,12 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="system-chaining"><a class="header" href="#system-chaining">system chaining</a></h1>
-<p>systems can take an input and pwoduce a-an output, OwO a-and be connected t-togethew to
-wun as a singwe wawgew system (chain).</p>
-<p>think of this as &quot;gwue&quot;, OwO fow constwucting a-a wawgew s-system out of m-muwtipwe wust functions.</p>
-<p>one usefuw appwication is to be abwe t-to wetuwn ewwows f-fwom systems (awwowing t-the
-use of wust's <code>?</code> opewatow) and handwe them ewsewhewe:</p>
+<p>systems can take an input and pwoduce a-an output, OwO a-and be connected t-togethew
+to wun as a singwe wawgew system (chain).</p>
+<p>think of this as &quot;gwue&quot;, OwO fow constwucting a-a wawgew s-system out of m-muwtipwe
+wust functions.</p>
+<p>one usefuw appwication is to be abwe t-to wetuwn ewwows f-fwom systems (awwowing
+the use of wust's <code>?</code> opewatow) and handwe them ewsewhewe:</p>
 <pre><code class="language-rust no_run noplayground">fn nyet_weceive(mut nyetcode: wesmut&lt;mynetpwoto&gt;) -&gt; s-std::io::wesuwt&lt;()&gt; {
     n-nyetcode.weceive_updates()?;
 
@@ -183,8 +184,8 @@ fn handwe_io_ewwows(in(wesuwt): i-in&lt;std::io::wesuwt&lt;()&gt;&gt;) {
     }
 }
 </code></pre>
-<p>such systems cannot be wegistewed i-individuawwy (bevy d-doesn't know n-nyani to do
-with the input/output). ^•ﻌ•^ you have t-to connect them i-in a chain:</p>
+<p>such systems cannot be wegistewed i-individuawwy (bevy d-doesn't know n-nyani to
+do with the input/output). ^•ﻌ•^ you have t-to connect them i-in a chain:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::buiwd()
         // ...
@@ -197,12 +198,12 @@ with the input/output). ^•ﻌ•^ you have t-to connect them i-in a chain:</p>
 is <em>not</em> a channew fow passing data awound. ^•ﻌ•^ i-if you want to p-pass data between
 systems, &gt;_&lt; you pwobabwy want to use <a href="./events.html">events</a> instead.</p>
 <h2 id="pewfowmance-wawning"><a class="header" href="#pewfowmance-wawning">pewfowmance wawning</a></h2>
-<p>bewawe that bevy tweats the whowe c-chain as if it w-was a singwe big s-system, OwO with
-aww the combined wesouwces and quewies. OwO t-this impwies t-that pawawwewism c-couwd be
-wimited, &gt;_&lt; affecting pewfowmance.</p>
-<p>avoid adding a system that wequiwes m-mutabwe access t-to anything, OwO as p-pawt of
-muwtipwe chains. it wouwd bwock aww a-affected chains (and o-othew systems a-accessing
-the same data) fwom wunning in pawawwew.</p>
+<p>bewawe that bevy tweats the whowe c-chain as if it w-was a singwe big s-system,
+with aww the combined wesouwces and q-quewies. ^•ﻌ•^ this i-impwies that pawawwewism
+couwd be wimited, &gt;_&lt; affecting pewfowmance.</p>
+<p>avoid adding a system that wequiwes m-mutabwe access t-to anything, OwO as p-pawt
+of muwtipwe chains. OwO it wouwd bwock a-aww affected chains (and o-othew s-systems
+accessing the same data) fwom wunning i-in pawawwew.</p>
 
                     </main>
 

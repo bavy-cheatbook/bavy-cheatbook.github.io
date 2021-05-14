@@ -176,8 +176,8 @@
 </ul>
 <p>in evewy state, OwO you can have diffewent s-systems wunning. 🥺 y-you can awso a-add
 one-shot setup and cweanup systems t-to wun when entewing o-ow exiting a-a state.</p>
-<p>to use states, (ꈍᴗꈍ) define an enum type a-and add <a href="./system-sets.html">system sets</a> to
-youw <a href="./app-builder.html">app buiwdew</a>:</p>
+<p>to use states, (ꈍᴗꈍ) define an enum type a-and add <a href="./system-sets.html">system sets</a>
+to youw <a href="./app-builder.html">app buiwdew</a>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(debug, -.- cwone, ^^;; eq, pawtiaweq, &gt;_&lt; hash)]
 enum a-appstate {
     m-mainmenu, mya
@@ -218,13 +218,14 @@ f-fn main() {
 <p>it is ok to have muwtipwe system s-sets fow the same s-state.</p>
 <p>this is usefuw when you want to pwace <a href="./labels.html">wabews</a> and use <a href="./system-order.html">expwicit
 system owdewing</a>.</p>
-<p>this can awso be usefuw with <a href="./plugins.html">pwugins</a>. &gt;_&lt; each pwugin can add its
-own set of systems to the same state.</p>
+<p>this can awso be usefuw with <a href="./plugins.html">pwugins</a>. &gt;_&lt; each pwugin can add
+its own set of systems to the same s-state.</p>
 <p>states awe impwemented using <a href="./run-criteria.html">wun cwitewia</a> undew the hood.
 these speciaw system set constwuctows a-awe weawwy j-just hewpews to a-automaticawwy
 add the state management wun cwitewia.</p>
 <h2 id="contwowwing-states"><a class="header" href="#contwowwing-states">contwowwing states</a></h2>
-<p>inside of systems, ^•ﻌ•^ you can check a-and contwow the s-state using the <code>State&lt;T&gt;</code> wesouwce:</p>
+<p>inside of systems, ^•ﻌ•^ you can check a-and contwow the s-state using the <code>State&lt;T&gt;</code>
+wesouwce:</p>
 <pre><code class="language-rust no_run noplayground">fn pway_music(
     app_state: wes&lt;state&lt;appstate&gt;&gt;, rawr x3
     // ...
@@ -249,21 +250,21 @@ add the state management wun cwitewia.</p>
     // o-ow if anothew s-state change i-is awweady queued
 }
 </code></pre>
-<p>aftew the systems of the cuwwent s-state compwete, OwO b-bevy wiww twansition t-to the
-next state you set.</p>
+<p>aftew the systems of the cuwwent s-state compwete, OwO b-bevy wiww twansition t-to
+the nyext state you set.</p>
 <p>you can do awbitwawiwy many state t-twansitions in a-a singwe fwame update. OwO b-bevy
-wiww handwe aww of them and exekawaii~ a-aww the wewevant s-systems (befowe m-moving on
-to the nyext <a href="./stages.html">stage</a>).</p>
+wiww handwe aww of them and exekawaii~ a-aww the wewevant s-systems (befowe m-moving
+on to the nyext <a href="./stages.html">stage</a>).</p>
 <p>(if you awe cuwious about how this i-is impwemented, ^•ﻌ•^ s-see <a href="./run-criteria-loop.html">wooping wun
 cwitewia</a>)</p>
 <h2 id="state-stack"><a class="header" href="#state-stack">state stack</a></h2>
 <p>instead of compwetewy twansitioning f-fwom one state t-to anothew, OwO you c-can awso
 ovewway states, &gt;_&lt; fowming a stack.</p>
-<p>this is how you can impwement things w-wike a &quot;game p-paused&quot; scween, OwO o-ow an ovewway
-menu, ^•ﻌ•^ with the game wowwd stiww visibwe / w-wunning i-in the backgwound.</p>
+<p>this is how you can impwement things w-wike a &quot;game p-paused&quot; scween, OwO o-ow an
+ovewway menu, OwO with the game wowwd s-stiww visibwe / w-wunning in the b-backgwound.</p>
 <p>you can have some systems that awe s-stiww wunning e-even when the state i-is
-&quot;inactive&quot; (that is, ^•ﻌ•^ in the backgwound, OwO with othew s-states wunning o-on top).
-you can awso add one-shot systems t-to wun when &quot;pausing&quot; o-ow &quot;wesuming&quot; t-the state.</p>
+&quot;inactive&quot; (that is, ^•ﻌ•^ in the backgwound, OwO with othew s-states wunning o-on top). 🥺 you
+can awso add one-shot systems to w-wun when &quot;pausing&quot; o-ow &quot;wesuming&quot; t-the state.</p>
 <p>in youw <a href="./app-builder.html">app buiwdew</a>:</p>
 <pre><code class="language-rust no_run noplayground">        // pwayew movement onwy when a-activewy pwaying
         .add_system_set(
@@ -313,11 +314,12 @@ you can awso add one-shot systems t-to wun when &quot;pausing&quot; o-ow &quot;w
 <p>(using <code>.set</code> as shown befowe wepwaces the active s-state at the t-top of the stack)</p>
 <h2 id="known-pitfawws-and-wimitations"><a class="header" href="#known-pitfawws-and-wimitations">known pitfawws and wimitations</a></h2>
 <h3 id="combining-with-othew-wun-cwitewia"><a class="header" href="#combining-with-othew-wun-cwitewia">combining with othew wun cwitewia</a></h3>
-<p>because states awe impwemented using w-wun cwitewia, OwO i-it is twicky to c-combine them
-with othew uses of wun cwitewia, s-such as <a href="../features/fixed-timestep.html">fixed timestep</a>.</p>
+<p>because states awe impwemented using w-wun cwitewia, ^•ﻌ•^ i-it is twicky
+to combine them with othew uses of w-wun cwitewia, ^•ﻌ•^ s-such as <a href="../features/fixed-timestep.html">fixed
+timestep</a>.</p>
 <p>if you twy to add anothew wun cwitewia t-to youw system s-set, OwO it wouwd w-wepwace
-bevy's state-management wun cwitewia! OwO t-this wouwd m-make the system s-set nyo wongew
-constwained to wun as pawt of a state!</p>
+bevy's state-management wun cwitewia! OwO t-this wouwd m-make the system s-set nyo
+wongew constwained to wun as pawt o-of a state!</p>
 <p>it may stiww be possibwe to accompwish s-such use cases u-using some t-twickewy.</p>
 <p>(todo) show an exampwe of how it c-couwd be done.</p>
 <h3 id="with-input"><a class="header" href="#with-input">with input</a></h3>
@@ -337,10 +339,11 @@ pwess, (ꈍᴗꈍ) you nyeed to cweaw the input m-manuawwy by cawwing <code>.res
 <p>not doing this can cause <a href="https://github.com/bevyengine/bevy/issues/1700">issues</a>.</p>
 <h3 id="muwtipwe-stages"><a class="header" href="#muwtipwe-stages">muwtipwe stages</a></h3>
 <p>(todo) move this undew the <a href="../patterns/_index.html">advanced pattewns</a> chaptew.</p>
-<p>if you nyeed state-dependent systems i-in muwtipwe <a href="./stages.html">stages</a>, &gt;_&lt; a wowkawound is wequiwed.</p>
-<p>you must add the state to one stage o-onwy, ^•ﻌ•^ and then c-caww [<code>.get_driver()</code>](todo
-docs.ws) and add that to the othew s-stages befowe a-any state-dependent s-system sets
-in those stages.</p>
+<p>if you nyeed state-dependent systems i-in muwtipwe <a href="./stages.html">stages</a>,
+a wowkawound is wequiwed.</p>
+<p>you must add the state to one stage o-onwy, ^•ﻌ•^ and then c-caww <code>.get_driver()</code>
+and add that to the othew stages b-befowe any state-dependent s-system s-sets in
+those stages.</p>
 <p>(todo) exampwe</p>
 
                     </main>

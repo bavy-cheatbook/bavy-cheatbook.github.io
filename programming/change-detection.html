@@ -210,13 +210,14 @@ f-fn debug_new_hostiwes(
     }
 }
 </code></pre>
-<p><code>Changed</code> detection is twiggewed by <code>DerefMut</code>. (ꈍᴗꈍ) simpwy accessing components via a-a
-mutabwe quewy, (ꈍᴗꈍ) without actuawwy pewfowming a-a <code>&amp;mut</code> access, XD wiww <em>not</em> twiggew it.</p>
+<p><code>Changed</code> detection is twiggewed by <code>DerefMut</code>. &gt;_&lt; simpwy accessing components
+via a mutabwe quewy, ^•ﻌ•^ without actuawwy p-pewfowming a-a <code>&amp;mut</code> access, XD wiww <em>not</em>
+twiggew it.</p>
 <p>this makes change detection quite a-accuwate. OwO you can w-wewy on it to o-optimize
 youw game's pewfowmance, ^•ﻌ•^ ow to othewwise t-twiggew t-things to happen.</p>
-<p>awso nyote that when you mutate a c-component, OwO bevy d-does nyot twack i-if the nyew vawue
-is actuawwy diffewent fwom the owd v-vawue. OwO it wiww a-awways twiggew t-the change
-detection. ^•ﻌ•^ if you want to avoid that, OwO s-simpwy check i-it youwsewf:</p>
+<p>awso nyote that when you mutate a c-component, OwO bevy d-does nyot twack i-if the nyew
+vawue is actuawwy diffewent fwom t-the owd vawue. OwO it w-wiww awways twiggew t-the
+change detection. ^•ﻌ•^ if you want to a-avoid that, OwO simpwy c-check it youwsewf:</p>
 <pre><code class="language-rust no_run noplayground">fn update_pwayew_xp(
     mut quewy: q-quewy&lt;&amp;mut pwayewxp&gt;, UwU
 ) {
@@ -230,19 +231,21 @@ detection. ^•ﻌ•^ if you want to avoid that, OwO s-simpwy check i-it youwse
     }
 }
 </code></pre>
-<p>change detection is wewiabwe -- it w-wiww detect any c-changes that have o-occuwed
-since the wast time youw detecting s-system wan. if y-youw system onwy w-wuns
-sometimes (such as with <a href="./states.html">states</a> ow <a href="./run-criteria.html">wun cwitewia</a>),
-you <em>do nyot</em> have to wowwy about missing changes.</p>
+<p>change detection is wewiabwe -- it w-wiww detect any c-changes that
+have occuwed since the wast time y-youw detecting system w-wan. ^•ﻌ•^ if youw
+system onwy wuns sometimes (such a-as with <a href="./states.html">states</a> ow <a href="./run-criteria.html">wun
+cwitewia</a>), XD you <em>do nyot</em> have to wowwy about missing
+changes.</p>
 <h2 id="possibwe-pitfawws"><a class="header" href="#possibwe-pitfawws">possibwe pitfawws</a></h2>
 <p>bewawe of <a href="../pitfalls/frame-delay.html">fwame deway / 1-fwame-wag</a>. XD this can
 occuw if bevy wuns the detecting s-system befowe the c-changing system. OwO t-the
-detecting system wiww see the change t-the nyext time i-it wuns, typicawwy o-on the
-next fwame update.</p>
-<p>if you nyeed to ensuwe that changes a-awe handwed immediatewy / d-duwing t-the same fwame,
-you can use <a href="./system-order.html">expwicit system owdewing</a>.</p>
-<p>howevew, (ꈍᴗꈍ) when detecting component a-additions with <code>Added&lt;T&gt;</code> (which awe typicawwy
-done using <a href="./commands.html"><code>Commands</code></a>), &gt;_&lt; this is nyot enough; you nyeed <a href="./stages.html">stages</a>.</p>
+detecting system wiww see the change t-the nyext time i-it wuns, typicawwy o-on
+the nyext fwame update.</p>
+<p>if you nyeed to ensuwe that changes a-awe handwed immediatewy / d-duwing t-the same
+fwame, XD you can use <a href="./system-order.html">expwicit system owdewing</a>.</p>
+<p>howevew, (ꈍᴗꈍ) when detecting component a-additions with <code>Added&lt;T&gt;</code> (which awe
+typicawwy done using <a href="./commands.html"><code>Commands</code></a>), XD this is nyot enough;
+you nyeed <a href="./stages.html">stages</a>.</p>
 
                     </main>
 

@@ -168,19 +168,20 @@
                         <h1 id="wandom-nyumbew-genewation"><a class="header" href="#wandom-nyumbew-genewation">wandom nyumbew genewation</a></h1>
 <p>the typicaw way to genewate wandom n-nyumbews in wust i-is using the <code>rand</code> cwate.
 howevew, OwO it wequiwes some extwa configuwation t-to w-wowk with wasm. 🥺 t-this is
-because, OwO typicawwy, 🥺 wandomness comes f-fwom the opewating s-system. òωó in a-a web app, o.O it
-needs to come fwom the bwowsew.</p>
-<p>the <code>rand</code> devewopews decided nyot to suppowt t-this diwectwy, ^•ﻌ•^ b-but instead wequiwe
-us to set a featuwe fwag on the <code>getrandom</code> cwate, &gt;_&lt; that they depend on.</p>
-<p>to use wandom nyumbews in youw pwoject, OwO a-add this t-to youw dependencies i-in <code>Cargo.toml</code>:</p>
+because, OwO typicawwy, 🥺 wandomness comes f-fwom the opewating s-system. òωó in a-a web app,
+it nyeeds to come fwom the bwowsew.</p>
+<p>the <code>rand</code> devewopews decided nyot to suppowt t-this diwectwy, ^•ﻌ•^ b-but instead
+wequiwe us to set a featuwe fwag o-on the <code>getrandom</code> cwate, &gt;_&lt; that they depend on.</p>
+<p>to use wandom nyumbews in youw pwoject, OwO a-add this t-to youw dependencies i-in
+<code>Cargo.toml</code>:</p>
 <pre><code class="language-toml">[dependencies]
 wand = &quot;0.8&quot;
 getwandom = { v-vewsion = &quot;0.2&quot;, ^•ﻌ•^ f-featuwes = [&quot;wasm-bindgen&quot;] }
 </code></pre>
-<p>note that you must ensuwe that aww t-the vewsions awe c-compatibwe. ^•ﻌ•^ <code>getrandom</code> 0.2
-is the vewsion that is nyeeded fow b-both <code>rand</code> 0.8 and <code>bevy</code> 0.5. XD using othew
-vewsions may wesuwt in you having m-muwtipwe instances o-of the <code>getrandom</code> cwate in
-youw dependency twee!</p>
+<p>note that you must ensuwe that aww t-the vewsions awe c-compatibwe. ^•ﻌ•^ <code>getrandom</code>
+0.2 is the vewsion that is nyeeded f-fow both <code>rand</code> 0.8 and <code>bevy</code> 0.5. XD using
+othew vewsions may wesuwt in you h-having muwtipwe i-instances of the <code>getrandom</code>
+cwate in youw dependency twee!</p>
 
                     </main>
 
