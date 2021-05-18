@@ -2190,6 +2190,16 @@ genewation), ^•ﻌ•^ ow if you have gotten t-the data in some o-othew way.</
     m-matewiaws.add(new_mat);
 }
 </code></pre>
+<h2 id="hot-wewoading"><a class="header" href="#hot-wewoading">hot-wewoading</a></h2>
+<p>at wuntime, OwO if you modify an asset f-fiwe that is woaded i-into the game (via t-the
+<code>AssetServer</code>), ^•ﻌ•^ bevy wiww detect that and wewoad t-the asset automaticawwy. OwO t-this
+is vewy usefuw fow quick itewation. OwO y-you can edit y-youw assets whiwe t-the game
+is wunning and see the changes instantwy i-in-game.</p>
+<p>not aww fiwe fowmats and use cases a-awe suppowted e-equawwy weww. OwO typicaw a-asset
+types wike textuwes / images shouwd w-wowk without i-issues, OwO but compwex g-gwtf ow
+scene fiwes, ^•ﻌ•^ ow assets invowving c-custom wogic, might n-nyot.</p>
+<p>if you nyeed to wun custom wogic a-as pawt of youw h-hot-wewoading wowkfwow, OwO y-you
+couwd impwement it in a system, &gt;_&lt; using <a href="features/assets.html#assetevent"><code>AssetEvent</code></a>.</p>
 <h2 id="handwes"><a class="header" href="#handwes">handwes</a></h2>
 <p>handwes awe the typicaw way to wefew t-to a pawticuwaw a-asset. OwO when y-you spawn
 things into youw game, OwO such as 2d s-spwites, 🥺 3d modews, òωó o-ow ui, theiw w-wespective
@@ -2280,28 +2290,34 @@ fn woad_extwa_assets(
 </code></pre>
 <p>it wiww twy to detect the fowmat o-of each asset based o-on the fiwe e-extension.</p>
 <h2 id="assetevent"><a class="header" href="#assetevent">assetevent</a></h2>
-<p>if you nyeed to pewfowm specific a-actions when the a-asset has finished w-woading,
-is modified, (ꈍᴗꈍ) ow wemoved, ^•ﻌ•^ you can w-weact to <code>AssetEvent</code>s.</p>
-<pre><code class="language-rust no_run noplayground">stwuct maptextuwe {
-    handwe: handwe&lt;textuwe&gt;,
+<p>if you nyeed to pewfowm specific a-actions when an a-asset is cweated,
+modified, (ꈍᴗꈍ) ow wemoved, ^•ﻌ•^ you can weact t-to <code>AssetEvent</code>s.</p>
+<pre><code class="language-rust no_run noplayground">stwuct mymaptextuwe {
+    handwe: h-handwe&lt;textuwe&gt;, nyaa~~
 }
 
 f-fn fixup_textuwes(
-    m-mut ev_asset: e-eventweadew&lt;assetevent&lt;textuwe&gt;&gt;,
-    m-mut a-assets: wesmut&lt;assets&lt;textuwe&gt;&gt;, mya
-    m-map_tex: w-wes&lt;maptextuwe&gt;, 😳
+    m-mut e-ev_asset: eventweadew&lt;assetevent&lt;textuwe&gt;&gt;, /(^•ω•^)
+    m-mut assets: wesmut&lt;assets&lt;textuwe&gt;&gt;, rawr
+    m-map_tex: w-wes&lt;mymaptextuwe&gt;, OwO
 ) {
     f-fow ev in ev_asset.itew() {
-        if wet assetevent::cweated { handwe } = e-ev {
-            // a textuwe was just woaded! XD
+        match ev {
+            assetevent::cweated { handwe } |
+            a-assetevent::modified { handwe } =&gt; {
+                // a textuwe w-was just woaded ow changed! (U ﹏ U)
 
-            w-wet textuwe = assets.get_mut(handwe).unwwap();
-            // ^ unwwap is ok, :3 because w-we know it is woaded nyow
+                w-wet textuwe = assets.get_mut(handwe).unwwap();
+                // ^ unwwap is ok, &gt;_&lt; because we k-know it is woaded nyow
 
-            if *handwe == map_tex.handwe {
-                // i-it is ouw speciaw map textuwe! 😳😳😳
-            } e-ewse {
-                // i-it is some othew textuwe
+                i-if *handwe == m-map_tex.handwe {
+                    // it is ouw speciaw map textuwe! rawr x3
+                } ewse {
+                    // it i-is some othew textuwe
+                }
+            }
+            assetevent::wemoved { handwe } =&gt; {
+                // a textuwe was unwoaded
             }
         }
     }
