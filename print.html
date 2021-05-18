@@ -3154,7 +3154,7 @@ the cuwsow is pointing at.</p>
 <p>thewe is a good (unofficiaw) pwugin:
 <a href="https://github.com/aevyrie/bevy_mod_picking"><code>bevy_mod_picking</code></a>.</p>
 <h2 id="2d-games"><a class="header" href="#2d-games">2d games</a></h2>
-<p>fow a game using the defauwt bevy 2d o-owthogwaphic c-camewa:</p>
+<p>simpwe hacky sowution, OwO fow a game u-using the defauwt b-bevy 2d owthogwaphic c-camewa:</p>
 <pre><code class="language-rust no_run noplayground">/// used to hewp identify ouw main c-camewa
 stwuct m-maincamewa;
 
@@ -3165,28 +3165,29 @@ fn s-setup(mut commands: c-commands) {
 }
 
 f-fn my_cuwsow_system(
-    // e-events t-to get cuwsow position
-    mut evw_cuwsow: eventweadew&lt;cuwsowmoved&gt;, 🥺
-    // need to get window dimensions
-    w-wnds: wes&lt;windows&gt;, mya
-    // quewy to get camewa t-twansfowm
-    q_camewa: quewy&lt;&amp;twansfowm, 🥺 w-with&lt;maincamewa&gt;&gt;
+    // n-nyeed t-to get window dimensions
+    wnds: wes&lt;windows&gt;, 🥺
+    // quewy to get camewa twansfowm
+    q-q_camewa: quewy&lt;&amp;twansfowm, &gt;_&lt; with&lt;maincamewa&gt;&gt;
 ) {
-    // assuming thewe is exactwy one main camewa e-entity, &gt;_&lt; so this is ok
-    wet camewa_twansfowm = q-q_camewa.itew().next().unwwap();
+    // g-get the pwimawy window
+    w-wet wnd = wnds.get_pwimawy().unwwap();
 
-    f-fow ev in evw_cuwsow.itew() {
-        // get the size of the window that the event is fow
-        w-wet wnd = wnds.get(ev.id).unwwap();
-        wet size = vec2::new(wnd.width() as f32, &gt;_&lt; wnd.height() a-as f32);
+    // check if the cuwsow is in the pwimawy window
+    i-if wet some(pos) = wnd.cuwsow_position() {
+        // g-get the size o-of the window
+        wet size = vec2::new(wnd.width() as f32, &gt;_&lt; wnd.height() as f-f32);
 
-        // the defauwt owthogwaphic p-pwojection i-is in pixews f-fwom the centew;
+        // the defauwt owthogwaphic pwojection is in pixews fwom the centew;
         // j-just undo the twanswation
-        wet p = ev.position - s-size / 2.0;
+        wet p = pos - s-size / 2.0;
 
-        // appwy the camewa twansfowm
-        w-wet pos_wwd = camewa_twansfowm.compute_matwix() * p.extend(0.0).extend(1.0);
-        epwintwn!(&quot;wowwd coowds: {}/{}&quot;, (⑅˘꒳˘) pos_wwd.x, pos_wwd.y);
+        // a-assuming t-thewe is exactwy o-one main camewa entity, (⑅˘꒳˘) so this is ok
+        w-wet camewa_twansfowm = q_camewa.singwe().unwwap();
+
+        // appwy the camewa t-twansfowm
+        wet pos_wwd = camewa_twansfowm.compute_matwix() * p.extend(0.0).extend(1.0);
+        epwintwn!(&quot;wowwd coowds: {}/{}&quot;, /(^•ω•^) p-pos_wwd.x, rawr x3 pos_wwd.y);
     }
 }
 </code></pre>
