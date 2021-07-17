@@ -179,8 +179,8 @@ and considew <a href="introduction.html#support-me">donating</a> 🙂)</p>
 <h2 id="wecommended-additionaw-wesouwces"><a class="header" href="#wecommended-additionaw-wesouwces">wecommended additionaw wesouwces</a></h2>
 <p>bevy has a wich cowwection of <a href="https://github.com/bevyengine/bevy/tree/latest/examples#examples">officiaw code
 exampwes</a>.</p>
-<p>check out the <a href="https://github.com/bevyengine/awesome-bevy">awesome-bevy</a>
-wist, &gt;_&lt; fow community-made wesouwces.</p>
+<p>check out <a href="https://bevyengine.org/assets/#assets">bevy-assets</a>
+, &gt;_&lt; fow community-made wesouwces.</p>
 <p>ouw community is vewy fwiendwy and h-hewpfuw. OwO feew w-wewcome to join t-the <a href="https://discord.gg/bevy">bevy
 discowd</a> to chat, &gt;_&lt; ask questions, (ꈍᴗꈍ) ow get invowved
 in the pwoject!</p>
@@ -2340,8 +2340,8 @@ check any inputs you cawe about, f-fwom any system.</p>
 <p>bevy does nyot yet offew a buiwt-in w-way to do input m-mapping (configuwe k-key
 bindings, OwO etc). you nyeed to come u-up with youw own w-way of twanswating t-the
 inputs into wogicaw actions in youw g-game/app.</p>
-<p>thewe awe some community-made pwugins t-that may hewp w-with that: <a href="https://github.com/bevyengine/awesome-bevy#input">see the
-awesome-bevy wist</a>.</p>
+<p>thewe awe some community-made pwugins t-that may hewp w-with that: <a href="https://bevyengine.org/assets/#input">see the
+input-section on bevy-assets</a>.</p>
 <p>it may be a good idea to buiwd youw o-own abstwactions s-specific to y-youw
 game. OwO fow exampwe, 🥺 if you nyeed to h-handwe pwayew m-movement, òωó you might w-want to
 have a system fow weading inputs a-and convewting them t-to youw own i-intewnaw
@@ -3115,53 +3115,52 @@ mouse cwick and weweases it when p-pwessing <code>Esc</code>:</p>
 <hr />
 <p>you might want to know when youw v-vawious assets have a-aww finished w-woading, and
 take some action, OwO such as exiting y-youw woading scween a-and stawting g-gamepway.</p>
-<p>to do this, (ꈍᴗꈍ) we can convewt ouw vawious h-handwes to <code>HandleUntyped</code>s, XD so we can
-add them aww into a singwe cowwection. OwO t-then we can w-woop ovew the c-cowwection
-and ask the <code>AssetServer</code> about theiw status.</p>
+<p>to do this, (ꈍᴗꈍ) we can convewt ouw vawious h-handwes into <code>HandleUntyped</code>s, XD so we can
+add them aww into a singwe cowwection.</p>
+<p>we can then ask the <code>AssetServer</code> about the woading state of the cowwection.</p>
 <pre><code class="language-rust no_run noplayground">stwuct assetswoading(vec&lt;handweuntyped&gt;);
 
-fn setup(
-    s-sewvew: w-wes&lt;assetsewvew&gt;, mya
-    m-mut woading: w-wesmut&lt;assetswoading&gt;, nyaa~~
-) {
-    // w-we can have d-diffewent asset t-types
-    wet font: h-handwe&lt;font&gt; = sewvew.woad(&quot;my_font.ttf&quot;);
+fn setup(sewvew: w-wes&lt;assetsewvew&gt;, /(^•ω•^) m-mut w-woading: wesmut&lt;assetswoading&gt;) {
+    // w-we can h-have diffewent a-asset types
+    w-wet font: handwe&lt;font&gt; = s-sewvew.woad(&quot;my_font.ttf&quot;);
     wet menu_bg: handwe&lt;textuwe&gt; = sewvew.woad(&quot;menu.png&quot;);
-    w-wet scene: handwe&lt;scene&gt; = sewvew.woad(&quot;wevew01.gwtf#scene0&quot;);
+    wet scene: h-handwe&lt;scene&gt; = sewvew.woad(&quot;wevew01.gwtf#scene0&quot;);
 
-    // add them a-aww to ouw cowwection fow twacking
+    // add t-them aww to ouw cowwection fow twacking
     w-woading.0.push(font.cwone_untyped());
     woading.0.push(menu_bg.cwone_untyped());
     woading.0.push(scene.cwone_untyped());
 }
 
-fn check_assets_weady(
-    s-sewvew: wes&lt;assetsewvew&gt;, (⑅˘꒳˘)
-    woading: wes&lt;assetswoading&gt;, rawr x3
+fn c-check_assets_weady(
+    mut commands: c-commands, rawr x3
+    s-sewvew: wes&lt;assetsewvew&gt;, (U ﹏ U)
+    woading: wes&lt;assetswoading&gt;
 ) {
-    u-use bevy::asset::woadstate;
+    use bevy::asset::woadstate;
 
-    w-wet mut weady = twue;
+    match sewvew.get_gwoup_woad_state(woading.0.itew().map(|h| h.id)) {
+        w-woadstate::faiwed =&gt; {
+            // one of ouw assets had an ewwow
+        }
+        woadstate::woaded =&gt; {
+            // a-aww assets awe now weady
 
-    fow handwe in woading.0.itew() {
-        match s-sewvew.get_woad_state(handwe) {
-            woadstate::faiwed =&gt; {
-                // one of ouw assets had an ewwow
-            }
-            w-woadstate::woaded =&gt; {}
-            _ =&gt; {
-                weady = f-fawse;
-            }
+            // t-this might b-be a good pwace t-to twansition i-into youw in-game state
+
+            // wemove t-the wesouwce to dwop the twacking handwes
+            c-commands.wemove_wesouwce::&lt;assetswoading&gt;();
+            // (note: if you don't have any othew handwes to the assets
+            // ewsewhewe, (U ﹏ U) t-they wiww get unwoaded aftew t-this)
+        }
+        _ =&gt; {
+            // n-nyotwoaded/woading: n-nyot fuwwy weady yet
         }
     }
-
-    i-if !weady {
-        w-wetuwn;
-    }
-
-    // a-aww assets awe nyow weady
 }
 </code></pre>
+<p>it is awso possibwe to quewy the w-woad state of a s-singwe asset, OwO by p-passing an
+individuaw handwe to <code>AssetServer.get_load_state()</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="convewt-cuwsow-to-wowwd-coowdinates"><a class="header" href="#convewt-cuwsow-to-wowwd-coowdinates">convewt cuwsow to wowwd coowdinates</a></h1>
 <p><a href="cookbook/../code/examples/cursor2world.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
@@ -3661,7 +3660,7 @@ to give us the compwicated configuwation t-that cawgo m-make wequiwes.</p>
 using <code>rustup</code> to manage youw wust instawwation, ^•ﻌ•^ y-you can instaww i-it wike this:</p>
 <pre><code class="language-shell">wustup tawget add wasm32-unknown-unknown
 </code></pre>
-<p>you awso nyeed to instaww <code>wasm-pack</code>. &gt;_&lt; you can do that using <code>cargo</code>:</p>
+<p>you awso nyeed to instaww <code>cargo-make</code>. &gt;_&lt; you can do that using <code>cargo</code>:</p>
 <pre><code class="language-shell">cawgo instaww cawgo-make
 </code></pre>
 <h2 id="suppowting-fiwes"><a class="header" href="#suppowting-fiwes">suppowting fiwes</a></h2>
