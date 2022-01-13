@@ -1,0 +1,507 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>List of Bevy Builtins</title>
+        <!-- Custom HTML head -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="builtins.html" class="active">List of Bevy Builtins</a></li><li class="chapter-item expanded affix "><a href="cheatsheet.html">Alphabetical Index / Glossary</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="setup/_index.html"><strong aria-hidden="true">1.</strong> Bevy Setup Tips</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="setup/bevy-git.html"><strong aria-hidden="true">1.1.</strong> Using bleeding-edge Bevy (main)</a></li><li class="chapter-item expanded "><a href="setup/editor.html"><strong aria-hidden="true">1.2.</strong> Text Editor / IDE</a></li><li class="chapter-item expanded "><a href="setup/bevy-config.html"><strong aria-hidden="true">1.3.</strong> Customizing Bevy (features, modularity)</a></li><li class="chapter-item expanded "><a href="setup/bevy-tools.html"><strong aria-hidden="true">1.4.</strong> Dev Tools and Editors for Bevy</a></li><li class="chapter-item expanded "><a href="setup/unofficial-plugins.html"><strong aria-hidden="true">1.5.</strong> 3rd-party Plugins</a></li></ol></li><li class="chapter-item expanded "><a href="pitfalls/_index.html"><strong aria-hidden="true">2.</strong> Common Pitfalls</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="pitfalls/build-errors.html"><strong aria-hidden="true">2.1.</strong> Strange compile errors from Bevy or dependencies</a></li><li class="chapter-item expanded "><a href="pitfalls/performance.html"><strong aria-hidden="true">2.2.</strong> Slow Performance</a></li><li class="chapter-item expanded "><a href="pitfalls/into-system.html"><strong aria-hidden="true">2.3.</strong> Error adding function as system</a></li><li class="chapter-item expanded "><a href="pitfalls/ui-camera.html"><strong aria-hidden="true">2.4.</strong> UI is not displaying</a></li><li class="chapter-item expanded "><a href="pitfalls/2d-camera-z.html"><strong aria-hidden="true">2.5.</strong> 2D objects not displaying</a></li><li class="chapter-item expanded "><a href="pitfalls/3d-not-rendering.html"><strong aria-hidden="true">2.6.</strong> 3D objects not displaying</a></li><li class="chapter-item expanded "><a href="pitfalls/split-borrows.html"><strong aria-hidden="true">2.7.</strong> Borrow multiple fields from struct</a></li><li class="chapter-item expanded "><a href="pitfalls/time.html"><strong aria-hidden="true">2.8.</strong> Jittering Time (choppy movement/animation)</a></li><li class="chapter-item expanded "><a href="pitfalls/ui-y-up.html"><strong aria-hidden="true">2.9.</strong> UI layout is inverted</a></li><li class="chapter-item expanded "><a href="pitfalls/uv-coordinates.html"><strong aria-hidden="true">2.10.</strong> Textures/Images are flipped</a></li></ol></li><li class="chapter-item expanded "><a href="programming/_index.html"><strong aria-hidden="true">3.</strong> Bevy Programming</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="programming/ecs-intro.html"><strong aria-hidden="true">3.1.</strong> Intro to ECS</a></li><li class="chapter-item expanded "><a href="programming/ec.html"><strong aria-hidden="true">3.2.</strong> Entities and Components</a></li><li class="chapter-item expanded "><a href="programming/res.html"><strong aria-hidden="true">3.3.</strong> Resources</a></li><li class="chapter-item expanded "><a href="programming/systems.html"><strong aria-hidden="true">3.4.</strong> Systems</a></li><li class="chapter-item expanded "><a href="programming/queries.html"><strong aria-hidden="true">3.5.</strong> Queries</a></li><li class="chapter-item expanded "><a href="programming/commands.html"><strong aria-hidden="true">3.6.</strong> Commands</a></li><li class="chapter-item expanded "><a href="programming/events.html"><strong aria-hidden="true">3.7.</strong> Events</a></li><li class="chapter-item expanded "><a href="programming/app-builder.html"><strong aria-hidden="true">3.8.</strong> App Builder (fn main)</a></li><li class="chapter-item expanded "><a href="programming/quit.html"><strong aria-hidden="true">3.9.</strong> Quit the App</a></li><li class="chapter-item expanded "><a href="programming/local.html"><strong aria-hidden="true">3.10.</strong> Local Resources</a></li><li class="chapter-item expanded "><a href="programming/plugins.html"><strong aria-hidden="true">3.11.</strong> Plugins</a></li><li class="chapter-item expanded "><a href="programming/system-order.html"><strong aria-hidden="true">3.12.</strong> System Order of Execution</a></li><li class="chapter-item expanded "><a href="programming/system-sets.html"><strong aria-hidden="true">3.13.</strong> System Sets</a></li><li class="chapter-item expanded "><a href="programming/parent-child.html"><strong aria-hidden="true">3.14.</strong> Hierarchical Entities</a></li><li class="chapter-item expanded "><a href="programming/change-detection.html"><strong aria-hidden="true">3.15.</strong> Change Detection</a></li><li class="chapter-item expanded "><a href="programming/system-chaining.html"><strong aria-hidden="true">3.16.</strong> System Chaining</a></li><li class="chapter-item expanded "><a href="programming/query-sets.html"><strong aria-hidden="true">3.17.</strong> Query Sets</a></li><li class="chapter-item expanded "><a href="programming/states.html"><strong aria-hidden="true">3.18.</strong> States</a></li><li class="chapter-item expanded "><a href="programming/run-criteria.html"><strong aria-hidden="true">3.19.</strong> Run Criteria</a></li><li class="chapter-item expanded "><a href="programming/labels.html"><strong aria-hidden="true">3.20.</strong> Labels</a></li><li class="chapter-item expanded "><a href="programming/stages.html"><strong aria-hidden="true">3.21.</strong> Stages</a></li><li class="chapter-item expanded "><a href="programming/removal-detection.html"><strong aria-hidden="true">3.22.</strong> Removal Detection</a></li><li class="chapter-item expanded "><a href="programming/world-exclusive.html"><strong aria-hidden="true">3.23.</strong> [WIP] Direct World/ECS Access</a></li><li class="chapter-item expanded "><a href="programming/system-tests.html"><strong aria-hidden="true">3.24.</strong> Writing Tests for Systems</a></li></ol></li><li class="chapter-item expanded "><a href="features/_index.html"><strong aria-hidden="true">4.</strong> Bevy Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="features/transforms.html"><strong aria-hidden="true">4.1.</strong> Transforms and Coordinates</a></li><li class="chapter-item expanded "><a href="features/assets.html"><strong aria-hidden="true">4.2.</strong> Assets</a></li><li class="chapter-item expanded "><a href="features/hot-reload.html"><strong aria-hidden="true">4.3.</strong> Hot-Reloading Assets</a></li><li class="chapter-item expanded "><a href="features/file-formats.html"><strong aria-hidden="true">4.4.</strong> File Format Support</a></li><li class="chapter-item expanded "><a href="features/input-handling.html"><strong aria-hidden="true">4.5.</strong> Input Handling</a></li><li class="chapter-item expanded "><a href="features/gltf.html"><strong aria-hidden="true">4.6.</strong> 3D Models (GLTF)</a></li><li class="chapter-item expanded "><a href="features/fixed-timestep.html"><strong aria-hidden="true">4.7.</strong> Fixed Timestep</a></li><li class="chapter-item expanded "><a href="features/audio.html"><strong aria-hidden="true">4.8.</strong> Audio</a></li></ol></li><li class="chapter-item expanded "><a href="patterns/_index.html"><strong aria-hidden="true">5.</strong> Advanced Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="patterns/generic-systems.html"><strong aria-hidden="true">5.1.</strong> Generic Systems</a></li><li class="chapter-item expanded "><a href="patterns/manual-event-clear.html"><strong aria-hidden="true">5.2.</strong> Manual Event Clearing</a></li></ol></li><li class="chapter-item expanded "><a href="cookbook/_index.html"><strong aria-hidden="true">6.</strong> Bevy Cookbook</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="cookbook/clear-color.html"><strong aria-hidden="true">6.1.</strong> Change the Background Color</a></li><li class="chapter-item expanded "><a href="cookbook/print-framerate.html"><strong aria-hidden="true">6.2.</strong> Show Framerate in Console</a></li><li class="chapter-item expanded "><a href="cookbook/mouse-grab.html"><strong aria-hidden="true">6.3.</strong> Grab the Mouse</a></li><li class="chapter-item expanded "><a href="cookbook/window-icon.html"><strong aria-hidden="true">6.4.</strong> Setting the Window Icon</a></li><li class="chapter-item expanded "><a href="cookbook/assets-ready.html"><strong aria-hidden="true">6.5.</strong> Track Assets Loading</a></li><li class="chapter-item expanded "><a href="cookbook/cursor2world.html"><strong aria-hidden="true">6.6.</strong> Convert cursor to world coordinates</a></li><li class="chapter-item expanded "><a href="cookbook/custom-projection.html"><strong aria-hidden="true">6.7.</strong> Custom Camera Projection</a></li><li class="chapter-item expanded "><a href="cookbook/pan-orbit-camera.html"><strong aria-hidden="true">6.8.</strong> Pan+Orbit Camera</a></li><li class="chapter-item expanded "><a href="cookbook/print-resources.html"><strong aria-hidden="true">6.9.</strong> List All Resource Types</a></li></ol></li><li class="chapter-item expanded "><a href="platforms/_index.html"><strong aria-hidden="true">7.</strong> Bevy on Different Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="platforms/linux.html"><strong aria-hidden="true">7.1.</strong> Linux Desktop</a></li><li class="chapter-item expanded "><a href="platforms/macos.html"><strong aria-hidden="true">7.2.</strong> macOS Desktop</a></li><li class="chapter-item expanded "><a href="platforms/windows.html"><strong aria-hidden="true">7.3.</strong> Windows Desktop</a></li><li class="chapter-item expanded "><a href="platforms/wasm.html"><strong aria-hidden="true">7.4.</strong> Browser (WebAssembly)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="platforms/wasm/panic-console.html"><strong aria-hidden="true">7.4.1.</strong> Panic Messages</a></li><li class="chapter-item expanded "><a href="platforms/wasm/size-opt.html"><strong aria-hidden="true">7.4.2.</strong> Optimize for Size</a></li><li class="chapter-item expanded "><a href="platforms/wasm/gh-pages.html"><strong aria-hidden="true">7.4.3.</strong> Hosting on GitHub Pages</a></li><li class="spacer"></li></ol></li></ol></li><li class="chapter-item expanded "><a href="contributing.html">Contributing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="wist-of-bevy-buiwtins"><a class="header" href="#wist-of-bevy-buiwtins">wist of bevy buiwtins</a></h1>
+<p>this page is a quick condensed wisting o-of aww the i-impowtant things p-pwovided
+by bevy.</p>
+<ul>
+<li><a href="#systemparams">systempawams</a></li>
+<li><a href="#assets">assets</a></li>
+<li><a href="#bundles">bundwes</a></li>
+<li><a href="#configuration-resources">wesouwces (configuwation)</a></li>
+<li><a href="#engine-resources">wesouwces (engine usew)</a></li>
+<li><a href="#input-handling-resources">wesouwces (input)</a></li>
+<li><a href="#input-events">events (input)</a></li>
+<li><a href="#system-and-control-events">events (system/contwow)</a></li>
+<li><a href="#components">components</a></li>
+<li><a href="#stages">stages</a></li>
+</ul>
+<h2 id="systempawams"><a class="header" href="#systempawams">systempawams</a></h2>
+<p>these awe aww the speciaw types that c-can be used a-as <a href="/programming/systems.html">system</a> pawametews.</p>
+<p><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/trait.SystemParam.html#implementors">(wist in api docs)</a></p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>:
+manipuwate the ecs using <a href="/programming/commands.html">commands</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>:
+shawed access to a <a href="/programming/res.html">wesouwce</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>:
+excwusive (mutabwe) access to a <a href="/programming/res.html">wesouwce</a></li>
+<li><code>Option&lt;Res&lt;T&gt;&gt;</code>:
+shawed access to a wesouwce that m-may nyot exist</li>
+<li><code>Option&lt;ResMut&lt;T&gt;&gt;</code>:
+excwusive (mutabwe) access to a wesouwce that may n-nyot exist</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Query.html"><code>Query&lt;T, F = ()&gt;</code></a> (can contain tupwes of up to 15 t-types):
+access to <a href="/programming/ec.html">entities and components</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.QuerySet.html"><code>QuerySet</code></a> (with up to 4 quewies):
+wesowve <a href="/programming/query-sets.html">confwicting quewies</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
+data <a href="/programming/local.html">wocaw</a> to the system</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a>:
+weceive <a href="/programming/events.html">events</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a>:
+send <a href="/programming/events.html">events</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.RemovedComponents.html"><code>RemovedComponents&lt;T&gt;</code></a>:
+<a href="/programming/removal-detection.html">wemovaw detection</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a>:
+shawed access to <a href="/programming/non-send.html">non-<code>Send</code></a> (main thwead onwy) data</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a>:
+mut access to <a href="/programming/non-send.html">non-<code>Send</code></a> (main thwead onwy) data</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/entity/struct.Entities.html"><code>Entities</code></a>:
+wow-wevew ecs metadata: aww entities</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/component/struct.Components.html"><code>Components</code></a>:
+wow-wevew ecs metadata: aww components</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/bundle/struct.Bundles.html"><code>Bundles</code></a>:
+wow-wevew ecs metadata: aww bundwes</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/archetype/struct.Archetypes.html"><code>Archetypes</code></a>:
+wow-wevew ecs metadata: aww awchetypes</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.SystemChangeTick.html"><code>SystemChangeTick</code></a>:
+wow-wevew ecs metadata: tick used f-fow change detection</li>
+<li>tupwes containing any of these types, ^•ﻌ•^ w-with up to 16 m-membews</li>
+</ul>
+<p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe,
+gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up to
+16 membews, &gt;_&lt; but can be nyested indefinitewy.</p>
+<h2 id="assets"><a class="header" href="#assets">assets</a></h2>
+<p>these awe the asset types wegistewed b-by bevy by defauwt.</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/texture/struct.Image.html"><code>Image</code></a>:
+pixew data, (ꈍᴗꈍ) used as a textuwe fow 2d a-and 3d wendewing;
+awso contains the <a href="https://docs.rs/bevy/0.6.0/bevy/render/render_resource/struct.SamplerDescriptor.html"><code>SamplerDescriptor</code></a> fow textuwe fiwtewing settings</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.TextureAtlas.html"><code>TextureAtlas</code></a>:
+2d &quot;spwite sheet&quot; defining sub-images w-within a singwe w-wawgew image</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a>:
+3d mesh (geometwy data), OwO contains v-vewtex attwibutes (wike p-position, 🥺 u-uvs, nyowmaws)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/render_resource/struct.Shader.html"><code>Shader</code></a>:
+waw gpu shadew souwce code, OwO in one o-of the suppowted w-wanguages (wgsw o-ow spiw-v)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.ColorMaterial.html"><code>ColorMaterial</code></a>:
+basic &quot;2d matewiaw&quot;: contains cowow, ^•ﻌ•^ o-optionawwy an i-image</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a>:
+&quot;3d matewiaw&quot; with suppowt fow physicawwy-based wendewing</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/text/struct.Font.html"><code>Font</code></a>:
+font data used fow text wendewing</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/scene/struct.Scene.html"><code>Scene</code></a>:
+scene composed of witewaw ecs entities t-to instantiate</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/scene/struct.DynamicScene.html"><code>DynamicScene</code></a>:
+scene composed with dynamic typing a-and wefwection</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a>:
+<a href="/features/gltf.html#gltf-master-asset">gwtf mastew asset</a>: index of the entiwe contents of a-a gwtf fiwe</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/gltf/struct.GltfNode.html"><code>GltfNode</code></a>:
+wogicaw gwtf object in a scene</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/gltf/struct.GltfMesh.html"><code>GltfMesh</code></a>:
+wogicaw gwtf 3d modew, (ꈍᴗꈍ) consisting o-of muwtipwe <code>GltfPrimitive</code>s</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/gltf/struct.GltfPrimitive.html"><code>GltfPrimitive</code></a>:
+singwe unit to be wendewed, ^•ﻌ•^ contains t-the mesh and m-matewiaw to use</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/audio/struct.AudioSource.html"><code>AudioSource</code></a>:
+waw audio data fow <code>bevy_audio</code></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/text/struct.FontAtlasSet.html"><code>FontAtlasSet</code></a>:
+(intewnaw use fow text wendewing)</li>
+</ul>
+<h2 id="bundwes"><a class="header" href="#bundwes">bundwes</a></h2>
+<p>bevy's buiwt-in <a href="/programming/ec.html#component-bundles">bundwe</a> types, &gt;_&lt; fow spawning diffewent common
+kinds of entities.</p>
+<p><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/bundle/trait.Bundle.html#implementors">(wist in api docs)</a></p>
+<p>any tupwes of up to 15 <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/component/trait.Component.html"><code>Component</code></a> types awe vawid bundwes.</p>
+<p>bevy 3d:</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.PerspectiveCameraBundle.html"><code>PerspectiveCameraBundle</code></a>:
+3d camewa with a pewspective pwojection</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.OrthographicCameraBundle.html"><code>OrthographicCameraBundle</code></a>:
+camewa with an owthogwaphic pwojection, (ꈍᴗꈍ) 2d o-ow 3d</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.MaterialMeshBundle.html"><code>MaterialMeshBundle</code></a>:
+3d object/pwimitive: a mesh and the m-matewiaw to dwaw i-it with</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/type.PbrBundle.html"><code>PbrBundle</code></a>:
+3d object with the standawd physicawwy-based m-matewiaw (<code>MaterialMeshBundle&lt;StandardMaterial&gt;</code>)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.DirectionalLightBundle.html"><code>DirectionalLightBundle</code></a>: 
+3d diwectionaw wight (wike the sun)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.PointLightBundle.html"><code>PointLightBundle</code></a>: 
+3d point wight (wike a wamp ow candwe)</li>
+</ul>
+<p>bevy 2d:</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.OrthographicCameraBundle.html"><code>OrthographicCameraBundle</code></a>:
+camewa with an owthogwaphic pwojection, (ꈍᴗꈍ) 2d o-ow 3d</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.SpriteBundle.html"><code>SpriteBundle</code></a>: 
+2d spwite, &gt;_&lt; using a whowe image (<a href="https://docs.rs/bevy/0.6.0/bevy/render/texture/struct.Image.html"><code>Image</code></a> asset)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.SpriteSheetBundle.html"><code>SpriteSheetBundle</code></a>:
+2d spwite, (ꈍᴗꈍ) using a sub-wectangwe i-in a wawgew image (<a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.TextureAtlas.html"><code>TextureAtlas</code></a> asset)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.MaterialMesh2dBundle.html"><code>MaterialMesh2dBundle</code></a>:
+2d shape, (ꈍᴗꈍ) with custom mesh and matewiaw (simiwaw t-to 3d objects)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/text/struct.Text2dBundle.html"><code>Text2dBundle</code></a>:
+text to be dwawn in the 2d wowwd (not t-the ui)</li>
+</ul>
+<p>bevy ui:</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/entity/struct.UiCameraBundle.html"><code>UiCameraBundle</code></a>:
+the ui camewa</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/entity/struct.NodeBundle.html"><code>NodeBundle</code></a>:
+empty nyode ewement (wike htmw <code>&lt;div&gt;</code>)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/entity/struct.ButtonBundle.html"><code>ButtonBundle</code></a>:
+button ewement</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/entity/struct.ImageBundle.html"><code>ImageBundle</code></a>:
+image ewement</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/entity/struct.TextBundle.html"><code>TextBundle</code></a>:
+text ewement</li>
+</ul>
+<h2 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h2>
+<h3 id="configuwation-wesouwces"><a class="header" href="#configuwation-wesouwces">configuwation wesouwces</a></h3>
+<p>these wesouwces awwow you to change t-the settings f-fow how vawious p-pawts of bevy wowk.</p>
+<p>some of them affect the wow-wevew i-initiawization o-of the engine, 🥺 so m-must be pwesent f-fwom the
+stawt to take effect. ^•ﻌ•^ you nyeed to i-insewt these at t-the stawt of youw <a href="/programming/app-builder.html">app buiwdew</a>.</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/log/struct.LogSettings.html"><code>LogSettings</code></a>:
+configuwe nyani messages get wogged t-to the consowe</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowDescriptor.html"><code>WindowDescriptor</code></a>:
+settings fow the pwimawy appwication w-window</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/options/struct.WgpuOptions.html"><code>WgpuOptions</code></a>:
+wow-wevew settings fow the gpu api a-and backends</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServerSettings.html"><code>AssetServerSettings</code></a>:
+advanced configuwation of the <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a></li>
+</ul>
+<p>these may be insewted at the stawt, 🥺 b-but shouwd awso b-be fine to change a-at wuntime (fwom a-a
+<a href="/programming/systems.html">system</a>).</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/core_pipeline/struct.ClearColor.html"><code>ClearColor</code></a>:
+gwobaw wendewew backgwound cowow t-to cweaw the window a-at the stawt o-of each fwame</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.AmbientLight.html"><code>AmbientLight</code></a>:
+gwobaw wendewew &quot;fake wighting&quot;, s-so that shadows d-don't wook too dawk / b-bwack</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/view/struct.Msaa.html"><code>Msaa</code></a>:
+gwobaw wendewew setting fow muwti-sampwe a-anti-awiasing (some p-pwatfowms m-might onwy s-suppowt the vawues 1 a-and 4)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadSettings.html"><code>GamepadSettings</code></a>:
+gamepad input device settings, OwO wike j-joystick deadzones a-and button s-sensitivities</li>
+</ul>
+<h3 id="engine-wesouwces"><a class="header" href="#engine-wesouwces">engine wesouwces</a></h3>
+<p>these wesouwces pwovide access to d-diffewent featuwes o-of the game e-engine at wuntime.</p>
+<p>access them fwom youw <a href="/programming/systems.html">systems</a>, (ꈍᴗꈍ) if you nyeed theiw state, ^•ﻌ•^ ow to c-contwow the wespective
+pawts of bevy.</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.FixedTimesteps.html"><code>FixedTimesteps</code></a>:
+the state of aww wegistewed <a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.FixedTimestep.html"><code>FixedTimestep</code></a> dwivews</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.Time.html"><code>Time</code></a>:
+gwobaw time-wewated infowmation (cuwwent f-fwame dewta t-time, OwO time since s-stawtup, 🥺 etc.)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a>:
+contwow the asset system: woad assets, ^•ﻌ•^ c-check woad s-status, OwO etc.</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.Gamepads.html"><code>Gamepads</code></a>:
+wist of ids fow aww cuwwentwy-detected (connected) g-gamepad devices</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.Windows.html"><code>Windows</code></a>:
+aww the open windows (the pwimawy w-window + any additionaw w-windows i-in a muwti-window g-gui app)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a>:
+waw state of the <code>winit</code> backend fow each window</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/audio/struct.Audio.html"><code>Audio</code></a>:
+use this to pway sounds via <code>bevy_audio</code></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a>:
+task poow fow wunning backgwound c-cpu tasks</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/tasks/struct.ComputeTaskPool.html"><code>ComputeTaskPool</code></a>:
+task poow whewe the main app scheduwe (aww t-the systems) w-wuns</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/tasks/struct.IoTaskPool.html"><code>IoTaskPool</code></a>:
+task poow whewe backgwound i/o tasks w-wun (wike asset w-woading)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/diagnostic/struct.Diagnostics.html"><code>Diagnostics</code></a>:
+diagnostic data cowwected by the e-engine (wike fwame t-times)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/scene/struct.SceneSpawner.html"><code>SceneSpawner</code></a>:
+diwect contwow ovew spawning scenes i-into the main a-app wowwd</li>
+</ul>
+<h3 id="input-handwing-wesouwces"><a class="header" href="#input-handwing-wesouwces">input handwing wesouwces</a></h3>
+<p>these wesouwces wepwesent the cuwwent s-state of diffewent i-input devices. 🥺 w-wead them f-fwom youw
+<a href="/programming/systems.html">systems</a> to [handwe usew input][cb::input].</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/keyboard/enum.KeyCode.html"><code>Input&lt;KeyCode&gt;</code></a>:
+keyboawd key state, &gt;_&lt; as a binawy <a href="https://docs.rs/bevy/0.6.0/bevy/input/struct.Input.html">input</a> vawue</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/mouse/enum.MouseButton.html"><code>Input&lt;MouseButton&gt;</code></a>:
+mouse button state, &gt;_&lt; as a binawy <a href="https://docs.rs/bevy/0.6.0/bevy/input/struct.Input.html">input</a> vawue</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadButton.html"><code>Input&lt;GamepadButton&gt;</code></a>:
+gamepad buttons, as a binawy <a href="https://docs.rs/bevy/0.6.0/bevy/input/struct.Input.html">input</a> vawue</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadAxis.html"><code>Axis&lt;GamepadAxis&gt;</code></a>:
+anawog <a href="https://docs.rs/bevy/0.6.0/bevy/input/struct.Axis.html">axis</a> gamepad inputs (joysticks and twiggews)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadButton.html"><code>Axis&lt;GamepadButton&gt;</code></a>:
+gamepad buttons, wepwesented as an a-anawog <a href="https://docs.rs/bevy/0.6.0/bevy/input/struct.Axis.html">axis</a> vawue</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/touch/struct.Touches.html"><code>Touches</code></a>:
+the state of aww fingews cuwwentwy t-touching the touchscween</li>
+</ul>
+<h2 id="events"><a class="header" href="#events">events</a></h2>
+<h3 id="input-events"><a class="header" href="#input-events">input events</a></h3>
+<p>these <a href="/programming/events.html">events</a> fiwe on activity with input devices. (ꈍᴗꈍ) w-wead them to [handwe usew input][cb::input].</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/mouse/struct.MouseButtonInput.html"><code>MouseButtonInput</code></a>:
+changes in the state of mouse buttons</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/mouse/struct.MouseWheel.html"><code>MouseWheel</code></a>:
+scwowwing by a nyumbew of pixews o-ow wines (<a href="https://docs.rs/bevy/0.6.0/bevy/input/mouse/enum.MouseScrollUnit.html"><code>MouseScrollUnit</code></a>)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/mouse/struct.MouseMotion.html"><code>MouseMotion</code></a>:
+wewative movement of the mouse (pixews f-fwom pwevious f-fwame), wegawdwess o-of the os p-pointew/cuwsow</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a>:
+new position of the os mouse pointew/cuwsow</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/keyboard/struct.KeyboardInput.html"><code>KeyboardInput</code></a>:
+changes in the state of keyboawd k-keys (keypwesses, ^•ﻌ•^ n-nyot text)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.ReceivedCharacter.html"><code>ReceivedCharacter</code></a>:
+unicode text input fwom the os (cowwect h-handwing o-of the usew's wanguage a-and wayout)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/touch/struct.TouchInput.html"><code>TouchInput</code></a>:
+change in the state of a fingew touching t-the touchscween</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadEvent.html"><code>GamepadEvent</code></a>:
+changes in the state of a gamepad o-ow any of its buttons o-ow axes</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadEventRaw.html"><code>GamepadEventRaw</code></a>:
+gamepad events unaffected by <a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadSettings.html"><code>GamepadSettings</code></a></li>
+</ul>
+<h3 id="system-and-contwow-events"><a class="header" href="#system-and-contwow-events">system and contwow events</a></h3>
+<p>events fwom the os / windowing system, ^•ﻌ•^ o-ow to contwow b-bevy.</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.AppExit.html"><code>AppExit</code></a>:
+teww bevy to shut down</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.CloseWindow.html"><code>CloseWindow</code></a>:
+teww bevy to cwose a window</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.CreateWindow.html"><code>CreateWindow</code></a>:
+teww bevy to open a nyew window</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/enum.FileDragAndDrop.html"><code>FileDragAndDrop</code></a>:
+the usew dwag-and-dwopped a fiwe i-into ouw app</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.CursorEntered.html"><code>CursorEntered</code></a>:
+os mouse pointew/cuwsow entewed one o-of ouw windows</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.CursorLeft.html"><code>CursorLeft</code></a>:
+os mouse pointew/cuwsow exited one o-of ouw windows</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowCloseRequested.html"><code>WindowCloseRequested</code></a>:
+os wants to cwose one of ouw windows</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowCreated.html"><code>WindowCreated</code></a>:
+new appwication window opened</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowFocused.html"><code>WindowFocused</code></a>:
+one of ouw windows is nyow focused</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowMoved.html"><code>WindowMoved</code></a>:
+os/usew moved one of ouw windows</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowResized.html"><code>WindowResized</code></a>:
+os/usew wesized one of ouw windows</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowScaleFactorChanged.html"><code>WindowScaleFactorChanged</code></a>:
+one of ouw windows has changed its d-dpi scawing factow</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowBackendScaleFactorChanged.html"><code>WindowBackendScaleFactorChanged</code></a>:
+os wepowts change in dpi scawing f-factow fow a window</li>
+</ul>
+<h2 id="components"><a class="header" href="#components">components</a></h2>
+<p>the compwete wist of individuaw component t-types is t-too specific to b-be usefuw to wist h-hewe.</p>
+<p>see: <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/component/trait.Component.html#implementors">(wist in api docs)</a></p>
+<p>cuwated/opinionated wist of the most impowtant buiwt-in c-component t-types:</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>:
+wocaw twansfowm (wewative to pawent, (ꈍᴗꈍ) i-if any)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>:
+gwobaw twansfowm (in the wowwd)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Parent.html"><code>Parent</code></a>:
+entity's pawent, if in a hiewawchy</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Children.html"><code>Children</code></a>:
+entity's chiwdwen, &gt;_&lt; if in a hiewawchy</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.Timer.html"><code>Timer</code></a>:
+twack if a time intewvaw has ewapsed</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.Stopwatch.html"><code>Stopwatch</code></a>:
+twack how much time has passed</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.Handle.html"><code>Handle&lt;T&gt;</code></a>:
+wefewence to an asset of specific t-type</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a>:
+manuawwy contwow visibiwity, ^•ﻌ•^ whethew t-to dispway the e-entity (hide/show)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/view/visibility/struct.RenderLayers.html"><code>RenderLayers</code></a>:
+gwoup entities into &quot;wayews&quot; and c-contwow which &quot;wayews&quot; a-a camewa s-shouwd dispway</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a>:
+camewa used fow wendewing</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a>:
+owthogwaphic pwojection fow a camewa</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.PerspectiveProjection.html"><code>PerspectiveProjection</code></a>:
+pewspective pwojection fow a camewa</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.Sprite.html"><code>Sprite</code></a>:
+(2d) pwopewties of a spwite, (ꈍᴗꈍ) using a-a whowe image</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.TextureAtlasSprite.html"><code>TextureAtlasSprite</code></a>:
+(2d) pwopewties of a spwite, (ꈍᴗꈍ) using a-a spwite sheet</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.PointLight.html"><code>PointLight</code></a>:
+(3d) pwopewties of a point wight</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.DirectionalLight.html"><code>DirectionalLight</code></a>:
+(3d) pwopewties of a diwectionaw w-wight</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.NotShadowCaster.html"><code>NotShadowCaster</code></a>:
+(3d) disabwe entity fwom pwoducing d-dynamic shadows</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.NotShadowReceiver.html"><code>NotShadowReceiver</code></a>:
+(3d) disabwe entity fwom having dynamic s-shadows of o-othew entities</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/wireframe/struct.Wireframe.html"><code>Wireframe</code></a>:
+(3d) dwaw object in wiwefwame mode</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/struct.Node.html"><code>Node</code></a>:
+(ui) mawk entity as being contwowwed b-by the ui wayout s-system</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/struct.Style.html"><code>Style</code></a>:
+(ui) wayout pwopewties of the nyode</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/widget/struct.Button.html"><code>Button</code></a>:
+(ui) mawkew fow a pwessabwe button</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/enum.Interaction.html"><code>Interaction</code></a>:
+(ui) twack intewaction/sewection state: if the nyode i-is cwicked ow h-hovewed ovew</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/text/struct.Text.html"><code>Text</code></a>:
+text to be dispwayed</li>
+</ul>
+<h2 id="stages"><a class="header" href="#stages">stages</a></h2>
+<p>intewnawwy, (ꈍᴗꈍ) bevy has at weast these b-buiwt-in <a href="/programming/stages.html">stages</a>:</p>
+<ul>
+<li>in the <a href="/programming/app-builder.html">main app</a> (<a href="https://docs.rs/bevy/0.6.0/bevy/app/enum.CoreStage.html"><code>CoreStage</code></a>):
+<code>First</code>, rawr x3 <code>PreUpdate</code>, rawr x3 <code>Update</code>, rawr x3 <code>PostUpdate</code>, rawr x3 <code>Last</code></li>
+<li>in the wendew <a href="/programming/sub-apps.html">sub-app</a> (<a href="https://docs.rs/bevy/0.6.0/bevy/render/enum.RenderStage.html"><code>RenderStage</code></a>):
+<code>Extract</code>, rawr x3 <code>Prepare</code>, rawr x3 <code>Queue</code>, rawr x3 <code>PhaseSort</code>, rawr x3 <code>Render</code>, rawr x3 <code>Cleanup</code></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="cheatsheet.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="cheatsheet.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>
