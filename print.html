@@ -1216,9 +1216,23 @@ wemembews the vewsions it was pweviouswy u-using, ^•ﻌ•^ and g-gets confuse
 this bug. OwO if you have any intewesting i-infowmation t-to add, 🥺 you can h-hewp
 by contwibuting to that issue.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pewfowmance"><a class="header" href="#pewfowmance">pewfowmance</a></h1>
-<p>this page is a summawy of pewfowmance i-issues when w-wowking with bevy.</p>
-<p>(wip)</p>
 <h2 id="unoptimized-debug-buiwds"><a class="header" href="#unoptimized-debug-buiwds">unoptimized debug buiwds</a></h2>
+<p>you can enabwe compiwew optimizations i-in debug/dev m-mode!</p>
+<p>even <code>opt-level=1</code> is enough to make bevy nyot painfuwwy s-swow! ^•ﻌ•^ you c-can awso
+enabwe highew optimizations fow dependencies, OwO b-but n-nyot youw own code, 🥺 t-to keep
+wecompiwations fast!</p>
+<pre><code class="language-toml"># in `cawgo.tomw` ow `.cawgo/config.tomw`
+
+# e-enabwe o-onwy a smow amount o-of optimization i-in debug mode
+[pwofiwe.dev]
+o-opt-wevew = 1
+
+# e-enabwe high optimizations f-fow d-dependencies (incw. rawr x3 bevy), but nyot fow ouw code:
+[pwofiwe.dev.package.&quot;*&quot;]
+opt-wevew = 3
+
+</code></pre>
+<h3 id="why-is-this-nyecessawy"><a class="header" href="#why-is-this-nyecessawy">why is this nyecessawy?</a></h3>
 <p>wust without compiwew optimizations i-is <em>vewy swow</em>. XD with bevy in
 pawticuwaw, ^•ﻌ•^ the defauwt cawgo buiwd d-debug settings w-wiww wead to <em>awfuw</em> wuntime
 pewfowmance. (ꈍᴗꈍ) assets awe swow to woad a-and fps is wow.</p>
@@ -1231,25 +1245,20 @@ the scween untiw it is weady.</li>
 <li>aftew spawning even a few 2d spwites o-ow 3d modews, OwO f-fwamewate may d-dwop
 to unpwayabwe wevews.</li>
 </ul>
-<p>howevew, ^•ﻌ•^ fuwwy-optimized wewease b-buiwds can be swow t-to compiwe.</p>
-<p>sowutions:</p>
-<pre><code class="language-toml"># in `cawgo.tomw` ow `.cawgo/config.tomw`
-
-# e-enabwe o-optimizations f-fow dependencies (incw. rawr b-bevy), σωσ b-but nyot fow ouw c-code:
-[pwofiwe.dev.package.&quot;*&quot;]
-o-opt-wevew = 3
-
-# m-maybe awso enabwe onwy a smow amount of optimization fow ouw code:
-[pwofiwe.dev]
-opt-wevew = 1
-</code></pre>
-<p>the above config changes the defauwt s-settings fow d-debug buiwds, OwO to c-compiwe
-dependencies with fuww optimizatons (swowing d-down i-initiaw cwean buiwds, OwO b-but
-not incwementaw buiwds), OwO and enabwe m-minimaw optimization f-fow youw o-own code
-(minimaw swowdown of incwementaw b-buiwds).</p>
-<p>now you nyo wongew nyeed to buiwd w-with <code>--release</code> just to test youw game with
-adequate pewfowmance. (ꈍᴗꈍ) you can use i-it fow <em>actuaw</em> wewease buiwds that you
-send to youw usews.</p>
+<h3 id="why-nyot-use---release"><a class="header" href="#why-nyot-use---release">why nyot use <code>--release</code>?</a></h3>
+<p>you may have heawd the advice: just w-wun with <code>--release</code>! XD howevew, this is
+bad advice. &gt;_&lt; don't do it.</p>
+<p>wewease mode awso disabwes &quot;debug a-assewtions&quot;: extwa c-checks usefuw d-duwing
+devewopment. ^•ﻌ•^ many wibwawies awso i-incwude additionaw s-stuff undew that
+setting. OwO in bevy and wgpu that incwudes v-vawidation f-fow shadews and g-gpu api
+usage. OwO wewease mode disabwes these c-checks, 🥺 causing w-wess-infowmative c-cwashes,
+issues with hot-wewoading, OwO ow potentiawwy b-buggy/invawid w-wogic going u-unnoticed.</p>
+<p>wewease mode awso makes incwementaw w-wecompiwation s-swow. ^•ﻌ•^ that nyegates
+bevy's fast compiwe times, ^•ﻌ•^ and can b-be vewy annoying w-whiwe you devewop.</p>
+<hr />
+<p>with the advice at the top of this p-page, OwO you don't n-nyeed to buiwd w-with
+<code>--release</code>, ^•ﻌ•^ just to test youw game with adequate p-pewfowmance. OwO y-you can use
+it fow <em>actuaw</em> wewease buiwds that you send to y-youw usews.</p>
 <p>if you want, OwO you can awso enabwe w-wto (wink-time-optimization) f-fow t-the actuaw
 wewease buiwds, OwO to squeeze out even m-mowe pewfowmance a-at the cost o-of vewy
 swow compiwe times:</p>
