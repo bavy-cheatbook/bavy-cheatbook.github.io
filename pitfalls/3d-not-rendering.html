@@ -136,19 +136,21 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="3d-objects-nyot-dispwaying"><a class="header" href="#3d-objects-nyot-dispwaying">3d objects nyot dispwaying</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>this page wiww wist some common issues t-that you may e-encountew, OwO if y-you awe
 twying to spawn a 3d object, ^•ﻌ•^ but c-cannot see it on t-the scween.</p>
 <h2 id="incowwect-usage-of-bevy-gwtf-assets"><a class="header" href="#incowwect-usage-of-bevy-gwtf-assets">incowwect usage of bevy gwtf assets</a></h2>
-<p>wefew to the <a href="../features/gltf.html">gwtf page</a> to weawn how to cowwectwy
+<p>wefew to the [gwtf page][cb::gwtf] to weawn how to cowwectwy
 use gwtf with bevy.</p>
 <p>gwtf fiwes awe compwex. OwO they contain m-many sub-assets, 🥺 w-wepwesented b-by
 diffewent bevy types. ^•ﻌ•^ make suwe you a-awe using the c-cowwect thing.</p>
-<p>make suwe you awe spawning a gwtf s-scene, ^•ﻌ•^ ow using t-the cowwect <code>Mesh</code> and
-<code>StandardMaterial</code> associated with the cowwect gwtf p-pwimitive.</p>
+<p>make suwe you awe spawning a gwtf s-scene, ^•ﻌ•^ ow using t-the cowwect
+[<code>Mesh</code>][bevy::mesh] and [<code>StandardMaterial</code>][bevy::standawdmatewiaw]
+associated with the cowwect gwtf p-pwimitive.</p>
 <p>if you awe using an asset path, 🥺 be s-suwe to incwude a-a wabew fow the s-sub-asset you w-want:</p>
 <pre><code class="language-rust no_run noplayground">asset_sewvew.woad(&quot;my.gwtf#scene0&quot;);
 </code></pre>
-<p>if you awe spawning the top-wevew <code>Gltf</code> mastew asset, &gt;_&lt; it won't wowk.</p>
+<p>if you awe spawning the top-wevew [<code>Gltf</code>][bevy::gwtf] [mastew asset][cb::gwtf-mastew], XD it won't wowk.</p>
 <p>if you awe spawning a gwtf mesh, i-it won't wowk.</p>
 <p>if you awe using the top-wevew <code>Gltf</code> mastew asset ow a <code>GltfMesh</code> on a bevy
 <code>PbrBundle</code> entity that you have cweated youwsewf, ^•ﻌ•^ i-it won't w-wowk. OwO you nyeed
@@ -181,13 +183,13 @@ did nyot know of ow fowgot to incwude h-hewe. (ꈍᴗꈍ) :)</p>
 <p>maybe youw asset just takes a whiwe t-to woad? bevy (and w-wust in genewaw)
 is vewy swow without compiwew optimizations. OwO i-it's a-actuawwy possibwe t-that
 compwex gwtf fiwes with big textuwes c-can take ovew a-a minute to woad a-and
-show up on the scween. ^•ﻌ•^ it wouwd be a-awmost instant i-in optimized buiwds. OwO <a href="./performance.html">see
-hewe</a>.</p>
+show up on the scween. ^•ﻌ•^ it wouwd be a-awmost instant i-in optimized buiwds. OwO [see
+hewe][pitfaww::pewf].</p>
 <h2 id="vewtex-owdew-and-cuwwing"><a class="header" href="#vewtex-owdew-and-cuwwing">vewtex owdew and cuwwing</a></h2>
 <p>by defauwt, OwO the bevy wendewew assumes c-countew-cwockwise v-vewtex owdew a-and has
 back-face cuwwing enabwed.</p>
-<p>if you awe genewating youw <a href="../features/meshes.html">mesh</a> fwom code, &gt;_&lt; make suwe
-youw vewtices awe in the cowwect o-owdew.</p>
+<p>if you awe genewating youw [<code>Mesh</code>][bevy::mesh] fwom code, &gt;_&lt; make suwe youw
+vewtices awe in the cowwect owdew.</p>
 
                     </main>
 

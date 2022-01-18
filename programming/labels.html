@@ -136,15 +136,24 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="wabews"><a class="header" href="#wabews">wabews</a></h1>
-<p>you nyeed wabews to nyame vawious t-things in youw a-app, ^•ﻌ•^ such as
-<a href="./system-order.html">systems</a>, rawr x3 <a href="./run-criteria.html">wun cwitewia</a>,
-<a href="./stages.html">stages</a>, XD and ambiguity sets<!-- TODO: add a link -->.</p>
+<p>{{#incwude ../incwude/winks.md}}</p>
+<p>you nyeed wabews to nyame vawious t-things in youw [app][cb::app], XD such as
+[systems][cb::system] (fow [owdew contwow][cb::system-owdew]), rawr x3 [wun
+cwitewia][cb::wuncwitewia], rawr x3 [stages][cb::stage], XD and ambiguity sets.</p>
 <p>bevy uses some cwevew wust type system m-magic, OwO to a-awwow you to use s-stwings
 as weww as youw own custom types f-fow wabews, ^•ﻌ•^ and e-even mix them!</p>
-<p>you may use a vawue of any type as a-a wabew, OwO as wong a-as it has the f-fowwowing
-standawd wust twaits: <code>Clone + Eq + Hash + Debug</code> (and the impwied <code>+ Send + Sync + 'static</code>).</p>
-<p>you nyeed to dewive the appwopwiate t-twait: <code>StageLabel</code>, rawr x3 <code>SystemLabel</code>,
-<code>RunCriteriaLabel</code>, XD ow <code>AmbiguitySetLabel</code>.</p>
+<p>using stwings fow wabews is quick a-and easy fow pwototyping. OwO h-howevew, 🥺 t-they
+awe easy to mistype and awe unstwuctuwed. OwO t-the compiwew c-cannot vawidate t-them
+fow you, &gt;_&lt; to catch mistakes.</p>
+<p>you can awso use custom types (usuawwy <code>enum</code>s) to define youw wabews. &gt;_&lt; this
+awwows the compiwew to check them, OwO a-and hewps you s-stay owganized in w-wawgew
+pwojects.</p>
+<p>you nyeed to dewive the appwopwiate t-twait, OwO depending o-on nyani they w-wiww be
+used fow: <code>StageLabel</code>, rawr x3 <code>SystemLabel</code>, rawr x3 <code>RunCriteriaLabel</code>, XD ow <code>AmbiguitySetLabel</code>.</p>
+<p>any wust type is suitabwe, OwO as wong a-as it has the f-fowwowing standawd w-wust
+twaits: [<code>Clone</code>][std::cwone] + [<code>Eq</code>][std::eq] + [<code>Hash</code>][std::hash]
++ [<code>Debug</code>][std::debug] (and the impwied [<code>Send</code>][std::send] +
+[<code>Sync</code>][std::sync] + <code>'static</code>).</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(debug, nyaa~~ cwone, /(^•ω•^) pawtiaweq, rawr eq, hash)]
 #[dewive(systemwabew)]
 e-enum mysystems {

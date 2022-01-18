@@ -136,22 +136,23 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="systems"><a class="header" href="#systems">systems</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/latest/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>,
-<a href="https://github.com/bevyengine/bevy/blob/latest/examples/ecs/startup_system.rs"><code>startup_system</code></a>,
-<a href="https://github.com/bevyengine/bevy/blob/latest/examples/ecs/system_param.rs"><code>system_param</code></a>.</p>
+[<code>ecs_guide</code>][exampwe::ecs_guide],
+[<code>startup_system</code>][exampwe::stawtup_system],
+[<code>system_param</code>][exampwe::system_pawam].</p>
 <hr />
 <p>systems awe functions you wwite, w-which awe wun by b-bevy.</p>
 <p>this is whewe you impwement aww youw g-game wogic.</p>
-<p>these functions can onwy take speciaw p-pawametew types, OwO t-to specify n-nyani you
-need access to. XD <a href="../pitfalls/into-system.html">if you use unsuppowted pawametew t-types in youw function,
-you wiww get confusing compiwew ewwows!</a></p>
+<p>these functions can onwy take [speciaw pawametew types][buiwtins::systempawam],
+to specify nyani you nyeed access t-to. (ꈍᴗꈍ) [if you use unsuppowted pawametew t-types
+in youw function, ^•ﻌ•^ you wiww get confusing c-compiwew e-ewwows!][pitfaww::intosystem]</p>
 <p>some of the options awe:</p>
 <ul>
-<li>accessing <a href="./res.html">wesouwces</a> using <code>Res</code>/<code>ResMut</code></li>
-<li>accessing <a href="./ec.html">components of entities</a> using <a href="./queries.html">quewies</a></li>
-<li>cweating/destwoying entities, (ꈍᴗꈍ) components, ^•ﻌ•^ and wesouwces u-using <a href="./commands.html"><code>Commands</code></a></li>
-<li>sending/weceiving <a href="./events.html">events</a> using <code>EventWriter</code>/<code>EventReader</code>.</li>
+<li>accessing [wesouwces][cb::wes] using [<code>Res</code>][bevy::wes]/[<code>ResMut</code>][bevy::wesmut]</li>
+<li>accessing [components of entities][cb::component] using [quewies][cb::quewy] ([<code>Query</code>][bevy::quewy])</li>
+<li>cweating/destwoying entities, (ꈍᴗꈍ) components, ^•ﻌ•^ and wesouwces u-using [commands][cb::commands] ([<code>Commands</code>][bevy::commands])</li>
+<li>sending/weceiving [events][cb::event] using [<code>EventWriter</code>][bevy::eventwwitew]/[<code>EventReader</code>][bevy::eventweadew]</li>
 </ul>
 <pre><code class="language-rust no_run noplayground">fn debug_stawt(
     // access wesouwce
@@ -172,10 +173,11 @@ usefuw fow owganization.</p>
     }
 }
 </code></pre>
-<p>the maximum nyumbew of top-wevew s-system pawametews, OwO o-ow tupwe membews, 🥺 i-is 16. òωó you
-can gwoup/nest them into tupwes, i-if you nyeed to w-wowk awound that w-wimitation.</p>
+<p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe,
+gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up to
+16 membews, &gt;_&lt; but can be nyested indefinitewy.</p>
 <h2 id="wuntime"><a class="header" href="#wuntime">wuntime</a></h2>
-<p>to wun youw systems, ^•ﻌ•^ you nyeed to a-add them to bevy v-via the <a href="./app-builder.html">app buiwdew</a>:</p>
+<p>to wun youw systems, ^•ﻌ•^ you nyeed to a-add them to bevy v-via the [app buiwdew][cb::app]:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
         // ...
@@ -195,9 +197,9 @@ can gwoup/nest them into tupwes, i-if you nyeed to w-wowk awound that w-wimitati
 <p>the above is enough fow simpwe pwojects.</p>
 <p>as youw pwoject gwows mowe compwex, OwO y-you might want t-to enhance youw a-app buiwdew
 with some of the powewfuw toows that b-bevy offews f-fow managing when/how
-youw systems wun, &gt;_&lt; such as: <a href="./system-order.html">expwicit owdewing</a> with
-<a href="./labels.html">wabews</a>, rawr x3 <a href="./system-sets.html">system sets</a>, rawr x3 <a href="./states.html">states</a>,
-<a href="./run-criteria.html">wun cwitewia</a>, XD and <a href="./stages.html">stages</a>.</p>
+youw systems wun, &gt;_&lt; such as: [expwicit owdewing][cb::system-owdew] with
+[wabews][cb::wabew], rawr x3 [system sets][cb::systemset], rawr x3 [states][cb::state],
+[wun cwitewia][cb::wuncwitewia], XD and [stages][cb::stage].</p>
 
                     </main>
 

@@ -136,6 +136,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="ewwow-adding-function-as-system"><a class="header" href="#ewwow-adding-function-as-system">ewwow adding function as system</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>you can sometimes get confusing awcane c-compiwew ewwows w-when you twy t-to add
 systems to youw bevy app.</p>
 <p>the ewwows can wook wike this:</p>
@@ -152,55 +153,55 @@ t-the twait `wowwdquewy` i-is nyot impwemented f-fow `component`
 <p>these ewwows awe caused by a mawfowmed q-quewy.</p>
 <h2 id="common-beginnew-mistakes"><a class="header" href="#common-beginnew-mistakes">common beginnew mistakes</a></h2>
 <ul>
-<li>using <code>&amp;mut Commands</code> (bevy 0.4 syntax) instead of <code>Commands</code>.</li>
+<li>using <code>&amp;mut Commands</code> (bevy 0.4 syntax) instead of [<code>Commands</code>][bevy::commands].</li>
 <li>using <code>Query&lt;MyStuff&gt;</code> instead of <code>Query&lt;&amp;MyStuff&gt;</code> ow <code>Query&lt;&amp;mut MyStuff&gt;</code>.</li>
 <li>using <code>Query&lt;&amp;ComponentA, &amp;ComponentB&gt;</code> instead of <code>Query&lt;(&amp;ComponentA, &amp;ComponentB)&gt;</code>
 (fowgetting the tupwe)</li>
-<li>using youw wesouwce types diwectwy w-without <code>Res</code> ow <code>ResMut</code>.</li>
-<li>using youw component types diwectwy w-without putting t-them in a <code>Query</code>.</li>
+<li>using youw wesouwce types diwectwy w-without [<code>Res</code>][bevy::wes] ow [<code>ResMut</code>][bevy::wesmut].</li>
+<li>using youw component types diwectwy w-without putting t-them in a [<code>Query</code>][bevy::quewy].</li>
 <li>using othew awbitwawy types in youw f-function.</li>
 </ul>
 <p>note that <code>Query&lt;Entity&gt;</code> is cowwect, (ꈍᴗꈍ) because the entity id i-is speciaw;
 it is nyot a component.</p>
 <h2 id="suppowted-types"><a class="header" href="#suppowted-types">suppowted types</a></h2>
 <p>onwy the fowwowing types awe suppowted a-as system p-pawametews:</p>
-<p><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/trait.SystemParam.html#implementors">(wist in api docs)</a></p>
+<p>[(wist in api docs)][bevy::impw::systempawam]</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>:
-manipuwate the ecs using <a href="/programming/commands.html">commands</a></li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>:
-shawed access to a <a href="/programming/res.html">wesouwce</a></li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>:
-excwusive (mutabwe) access to a <a href="/programming/res.html">wesouwce</a></li>
+<li>[<code>Commands</code>][bevy::commands]:
+manipuwate the ecs using [commands][cb::commands]</li>
+<li>[<code>Res&lt;T&gt;</code>][bevy::wes]:
+shawed access to a [wesouwce][cb::wes]</li>
+<li>[<code>ResMut&lt;T&gt;</code>][bevy::wesmut]:
+excwusive (mutabwe) access to a [wesouwce][cb::wes]</li>
 <li><code>Option&lt;Res&lt;T&gt;&gt;</code>:
 shawed access to a wesouwce that m-may nyot exist</li>
 <li><code>Option&lt;ResMut&lt;T&gt;&gt;</code>:
 excwusive (mutabwe) access to a wesouwce that may n-nyot exist</li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Query.html"><code>Query&lt;T, F = ()&gt;</code></a> (can contain tupwes of up to 15 t-types):
-access to <a href="/programming/ec.html">entities and components</a></li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.QuerySet.html"><code>QuerySet</code></a> (with up to 4 quewies):
-wesowve <a href="/programming/query-sets.html">confwicting quewies</a></li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
-data <a href="/programming/local.html">wocaw</a> to the system</li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a>:
-weceive <a href="/programming/events.html">events</a></li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a>:
-send <a href="/programming/events.html">events</a></li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.RemovedComponents.html"><code>RemovedComponents&lt;T&gt;</code></a>:
-<a href="/programming/removal-detection.html">wemovaw detection</a></li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a>:
-shawed access to <a href="/programming/non-send.html">non-<code>Send</code></a> (main thwead onwy) data</li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a>:
-mut access to <a href="/programming/non-send.html">non-<code>Send</code></a> (main thwead onwy) data</li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/entity/struct.Entities.html"><code>Entities</code></a>:
+<li>[<code>Query&lt;T, F = ()&gt;</code>][bevy::quewy] (can contain tupwes of up to 15 t-types):
+access to [entities and components][cb::ec]</li>
+<li>[<code>QuerySet</code>][bevy::quewyset] (with up to 4 quewies):
+wesowve [confwicting quewies][cb::quewyset]</li>
+<li>[<code>Local&lt;T&gt;</code>][bevy::wocaw]:
+data [wocaw][cb::wocaw] to the system</li>
+<li>[<code>EventReader&lt;T&gt;</code>][bevy::eventweadew]:
+weceive [events][cb::event]</li>
+<li>[<code>EventWriter&lt;T&gt;</code>][bevy::eventwwitew]:
+send [events][cb::event]</li>
+<li>[<code>RemovedComponents&lt;T&gt;</code>][bevy::wemovedcomponents]:
+[wemovaw detection][cb::wemovaw-detection]</li>
+<li>[<code>NonSend&lt;T&gt;</code>][bevy::nonsend]:
+shawed access to [non-<code>Send</code>][cb::nonsend] (main thwead onwy) data</li>
+<li>[<code>NonSendMut&lt;T&gt;</code>][bevy::nonsendmut]:
+mut access to [non-<code>Send</code>][cb::nonsend] (main thwead onwy) data</li>
+<li>[<code>Entities</code>][bevy::entities]:
 wow-wevew ecs metadata: aww entities</li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/component/struct.Components.html"><code>Components</code></a>:
+<li>[<code>Components</code>][bevy::components]:
 wow-wevew ecs metadata: aww components</li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/bundle/struct.Bundles.html"><code>Bundles</code></a>:
+<li>[<code>Bundles</code>][bevy::bundwes]:
 wow-wevew ecs metadata: aww bundwes</li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/archetype/struct.Archetypes.html"><code>Archetypes</code></a>:
+<li>[<code>Archetypes</code>][bevy::awchetypes]:
 wow-wevew ecs metadata: aww awchetypes</li>
-<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.SystemChangeTick.html"><code>SystemChangeTick</code></a>:
+<li>[<code>SystemChangeTick</code>][bevy::systemchangetick]:
 wow-wevew ecs metadata: tick used f-fow change detection</li>
 <li>tupwes containing any of these types, ^•ﻌ•^ w-with up to 16 m-membews</li>
 </ul>

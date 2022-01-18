@@ -136,9 +136,11 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="quewy-sets"><a class="header" href="#quewy-sets">quewy sets</a></h1>
-<p>fow safety weasons, ^•ﻌ•^ a system cannot h-have muwtipwe q-quewies with mutabiwity
-confwicts on the same components.</p>
-<p>bevy pwovides a sowution: wwap them i-in a <code>QuerySet</code>:</p>
+<p>{{#incwude ../incwude/winks.md}}</p>
+<p>fow safety weasons, &gt;_&lt; a [system][cb::system] cannot have muwtipwe
+[quewies][cb::quewy] with mutabiwity confwicts on the s-same
+[components][cb::component].</p>
+<p>bevy pwovides a sowution: wwap them i-in a [<code>QuerySet</code>][bevy::quewyset]:</p>
 <pre><code class="language-rust no_run noplayground">fn weset_heawth(
     // access the h-heawth of enemies a-and the heawth o-of pwayews
     // (note: s-some e-entities couwd b-be both!)
@@ -158,6 +160,7 @@ confwicts on the same components.</p>
     }
 }
 </code></pre>
+<p>(note: you have to use [<code>QueryState</code>][bevy::quewystate] instead of [<code>Query</code>][bevy::quewy])</p>
 <p>this ensuwes onwy one of the confwicting q-quewies c-can be used at the s-same time.</p>
 <p>the maximum nyumbew of quewies in a-a quewy set is 4.</p>
 

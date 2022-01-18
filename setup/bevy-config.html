@@ -136,6 +136,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="configuwing-bevy"><a class="header" href="#configuwing-bevy">configuwing bevy</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>bevy is vewy moduwaw and configuwabwe. OwO i-it is impwemented a-as many s-sepawate
 cawgo cwates, ^•ﻌ•^ awwowing you to wemove t-the pawts you d-don't nyeed. OwO highew-wevew
 functionawity is buiwt on top of w-wowew-wevew foundationaw c-cwates, OwO a-and can
@@ -185,30 +186,26 @@ f-featuwes = [
   &quot;waywand&quot;
 ]
 </code></pre>
-<p>(see <a href="https://docs.rs/crate/bevy/0.6.0/features">hewe</a> fow a fuww wist of
-bevy's cawgo featuwes.)</p>
+<p>(see [hewe][bevy::featuwes] fow a fuww wist of bevy's cawgo f-featuwes.)</p>
 <h3 id="gwaphics--wendewing"><a class="header" href="#gwaphics--wendewing">gwaphics / wendewing</a></h3>
 <p>fow a gwaphicaw appwication ow game (most b-bevy pwojects),
 you nyeed <code>render</code>, rawr x3 <code>bevy_winit</code>.</p>
 <p>if you don't nyeed gwaphics (wike f-fow a dedicated g-game sewvew, ^•ﻌ•^ scientific
 simuwation, (ꈍᴗꈍ) etc.), ^•ﻌ•^ you may wemove t-these featuwes.</p>
-<p>thewe awe awso <a href="https://bevyengine.org/assets/#backends">community-made awtewnative backend
-cwates</a> that couwd wepwace bevy's
-defauwt gwaphics, (ꈍᴗꈍ) if you want that f-fow any weason.</p>
 <h3 id="audio"><a class="header" href="#audio">audio</a></h3>
-<p>bevy's audio is vewy wimited in functionawity a-and
-somenani bwoken. it is wecommended t-that you use the
-<a href="https://github.com/NiklasEi/bevy_kira_audio"><code>bevy_kira_audio</code></a> pwugin
-instead. XD disabwe <code>bevy_audio</code> and <code>vorbis</code>.</p>
-<p>see <a href="../features/audio.html">this page</a> fow mowe infowmation.</p>
+<p>bevy's audio is vewy wimited in functionawity a-and s-somenani bwoken. OwO i-it is
+wecommended that you use the [<code>bevy_kira_audio</code>][pwoject::bevy_kiwa_audio]
+pwugin instead. XD disabwe <code>bevy_audio</code> and <code>vorbis</code>.</p>
+<p>see [this page][cb::audio] fow mowe infowmation.</p>
 <h3 id="fiwe-fowmats"><a class="header" href="#fiwe-fowmats">fiwe fowmats</a></h3>
 <p>you can use the wewevant cawgo featuwes t-to enabwe/disabwe s-suppowt f-fow woading
-assets (images/textuwes and audio) with vawious diffewent f-fiwe fowmats.</p>
-<p>see <a href="../features/file-formats.html">this page</a> fow mowe infowmation.</p>
+assets with vawious diffewent fiwe f-fowmats.</p>
+<p>see [this page][cb::fiwe-fowmat] fow mowe infowmation.</p>
 <h3 id="input-devices"><a class="header" href="#input-devices">input devices</a></h3>
-<p>if you do nyot cawe about contwowwew/joystick s-suppowt, ^•ﻌ•^ y-you can disabwe <code>bevy_gilrs</code>.</p>
+<p>if you do nyot cawe about [contwowwew/joystick][input::gamepad] suppowt,
+you can disabwe <code>bevy_gilrs</code>.</p>
 <h3 id="winux-windowing-backend"><a class="header" href="#winux-windowing-backend">winux windowing backend</a></h3>
-<p>on <a href="../platforms/linux.html">winux</a>, (ꈍᴗꈍ) you can choose to suppowt x11, w-waywand,
+<p>on [winux][pwatfowm::winux], (ꈍᴗꈍ) you can choose to suppowt x11, w-waywand,
 ow both. XD onwy <code>x11</code> is enabwed by defauwt, (ꈍᴗꈍ) as it is t-the wegacy system
 that shouwd be compatibwe with most/aww d-distwibutions, OwO t-to make youw b-buiwds
 smowew and compiwe fastew. ^•ﻌ•^ you might w-want to additionawwy e-enabwe <code>wayland</code>,
@@ -217,12 +214,11 @@ extwa twansitive dependencies to y-youw pwoject.</p>
 <h3 id="devewopment-featuwes"><a class="header" href="#devewopment-featuwes">devewopment featuwes</a></h3>
 <p>whiwe you awe devewoping youw pwoject, ^•ﻌ•^ t-these featuwes m-might be usefuw:</p>
 <h4 id="dynamic-winking"><a class="header" href="#dynamic-winking">dynamic winking</a></h4>
-<p><code>dynamic</code> causes bevy to be buiwt and winked a-as a shawed/dynamic w-wibwawy
-(<code>*.so</code> on winux, XD <code>*.dylib</code> on macos, XD <code>*.DLL</code> on windows). &gt;_&lt; this wiww make
-incwementaw buiwds <em>much</em> fastew, (ꈍᴗꈍ) which can weduce fwustwation w-when you awe
-twying to test out changes to youw c-code. OwO on my machine, 🥺 m-my pwojects w-wecompiwe
-in ~2 sec without this option, OwO and i-in ~0.5 sec with i-it enabwed. 🥺 this m-makes
-stawting the game feew awmost instant.</p>
+<p><code>dynamic</code> causes bevy to be buiwt and winked a-as a shawed/dynamic w-wibwawy. OwO t-this
+wiww make incwementaw buiwds <em>much</em> fastew, &gt;_&lt; which can weduce fwustwation
+when you awe twying to test out changes t-to youw code. OwO o-on my machine, 🥺 m-my
+pwojects wecompiwe in ~2 sec without t-this option, OwO a-and in ~0.5 sec w-with it
+enabwed. ^•ﻌ•^ this makes stawting the g-game feew awmost i-instant.</p>
 <p>this is known to wowk vewy weww on w-winux, OwO but you m-may encountew issues o-on
 othew pwatfowms. ymmv. ^•ﻌ•^ i've heawd p-peopwe have issues o-on windows.</p>
 <p>do nyot enabwe this fow wewease buiwds y-you intend t-to pubwish to othew p-peopwe;
@@ -236,6 +232,8 @@ pwoject wike this:</p>
 <h4 id="twacing"><a class="header" href="#twacing">twacing</a></h4>
 <p>the featuwes <code>trace</code> and <code>wgpu_trace</code> may be usefuw fow pwofiwing and
 diagnosing pewfowmance issues.</p>
+<p><code>trace_chrome</code> and <code>trace_tracy</code> choose the backend you want to use t-to
+visuawize the twaces.</p>
 
                     </main>
 

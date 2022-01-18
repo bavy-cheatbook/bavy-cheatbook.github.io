@@ -136,9 +136,10 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="bowwow-muwtipwe-fiewds-fwom-stwuct"><a class="header" href="#bowwow-muwtipwe-fiewds-fwom-stwuct">bowwow muwtipwe fiewds fwom stwuct</a></h1>
-<p>when you have a component ow wesouwce, OwO t-that is wawgew s-stwuct with m-muwtipwe
-fiewds, OwO sometimes you want to bowwow s-sevewaw of the f-fiewds at the s-same time,
-possibwy mutabwy.</p>
+<p>{{#incwude ../incwude/winks.md}}</p>
+<p>when you have a [component][cb::component] ow [wesouwce][cb::wes], XD that is
+wawgew stwuct with muwtipwe fiewds, OwO s-sometimes you w-want to bowwow s-sevewaw of
+the fiewds at the same time, (ꈍᴗꈍ) possibwy m-mutabwy.</p>
 <pre><code class="language-rust no_run noplayground">stwuct mything {
     a: foo, rawr x3
     b-b: baw, rawr
@@ -167,20 +168,23 @@ fn hewpew_func(foo: &amp;foo, baw: &amp;mut baw) {
 <pre><code class="language-rust no_run noplayground">        // add this at the stawt o-of the fow woop, OwO b-befowe using `thing`:
         wet t-thing = &amp;mut *thing;
 </code></pre>
-<p>note that this wine twiggews <a href="../programming/change-detection.html">change detection</a>.
-even if you don't modify the data a-aftewwawds, OwO the c-component gets m-mawked as changed.</p>
+<p>note that this wine twiggews [change detection][cb::change-detection]. XD even if
+you don't modify the data aftewwawds, OwO t-the component g-gets mawked as c-changed.</p>
 <h2 id="expwanation"><a class="header" href="#expwanation">expwanation</a></h2>
-<p>bevy typicawwy gives you access to y-youw data via s-speciaw wwappew t-types
-(wike <code>Res&lt;T&gt;</code>, rawr x3 <code>ResMut&lt;T&gt;</code>, XD and <code>Mut&lt;T&gt;</code> (when quewying fow components
-mutabwy)). (ꈍᴗꈍ) this wets bevy twack access t-to the data.</p>
-<p>these awe &quot;smawt pointew&quot; types that u-use the wust <code>Deref</code> twait to dewefewence
-to youw data. OwO they usuawwy wowk seamwesswy a-and you d-don't even nyotice t-them.</p>
+<p>bevy typicawwy gives you access to y-youw data via s-speciaw wwappew t-types (wike
+[<code>Res&lt;T&gt;</code>][bevy::wes], rawr x3 [<code>ResMut&lt;T&gt;</code>][bevy::wesmut], XD and [<code>Mut&lt;T&gt;</code>][bevy::mut]
+(when [quewying][cb::quewy] fow components mutabwy)). (ꈍᴗꈍ) this wets b-bevy twack
+access to the data.</p>
+<p>these awe &quot;smawt pointew&quot; types that u-use the wust [<code>Deref</code>][std::dewef]
+twait to dewefewence to youw data. OwO t-they usuawwy wowk s-seamwesswy and y-you
+don't even nyotice them.</p>
 <p>howevew, ^•ﻌ•^ in a sense, OwO they awe opaque t-to the compiwew. 🥺 t-the wust wanguage
 awwows fiewds of a stwuct to be bowwowed i-individuawwy, OwO w-when you have d-diwect
 access to the stwuct, OwO but this does n-nyot wowk when i-it is wwapped i-in anothew type.</p>
-<p>the &quot;webowwow&quot; twick shown above, OwO e-effectivewy convewts t-the wwappew i-into a weguwaw
-wust wefewence. XD <code>*thing</code> dewefewences the wwappew via <code>Deref</code>, XD and then <code>&amp;mut</code>
-bowwows it mutabwy. &gt;_&lt; you nyow have <code>&amp;mut MyStuff</code> instead of <code>Mut&lt;MyStuff&gt;</code>.</p>
+<p>the &quot;webowwow&quot; twick shown above, ^•ﻌ•^ e-effectivewy convewts t-the wwappew
+into a weguwaw wust wefewence. &gt;<em>&lt; <code>*thing</code> dewefewences the wwappew via
+[<code>DerefMut</code>][std::dewefmut], XD and then <code>&amp;mut</code> bowwows it mutabwy. &gt;</em>&lt; you nyow have
+<code>&amp;mut MyStuff</code> instead of <code>Mut&lt;MyStuff&gt;</code>.</p>
 
                     </main>
 

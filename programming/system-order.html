@@ -136,6 +136,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="system-owdew-of-execution"><a class="header" href="#system-owdew-of-execution">system owdew of execution</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>bevy's scheduwing awgowithm is designed t-to dewivew m-maximum pewfowmance
 by wunning as many systems as possibwe i-in pawawwew a-acwoss the avaiwabwe
 cpu thweads.</p>
@@ -154,13 +155,12 @@ owdew. XD fow exampwe:</p>
 <ul>
 <li>maybe the wogic you wwote in one o-of youw systems n-nyeeds any modifications
 done to that data by anothew system t-to awways happen f-fiwst?</li>
-<li>one system nyeeds to weceive <a href="./events.html">events</a> sent by anothew system.</li>
-<li>you awe using <a href="./change-detection.html">change detection</a>.</li>
+<li>one system nyeeds to weceive [events][cb::event] sent by anothew system.</li>
+<li>you awe using [change detection][cb::change-detection].</li>
 </ul>
-<p>in such situations, OwO systems wunning i-in the wwong o-owdew typicawwy c-causes theiw
-behaviow <a href="../pitfalls/frame-delay.html">to be dewayed untiw the nyext fwame</a>. XD in
-wawe cases, OwO depending on youw game w-wogic, 🥺 it may e-even wesuwt in mowe s-sewious
-wogic bugs!</p>
+<p>in such situations, OwO systems wunning i-in the wwong o-owdew typicawwy c-causes
+theiw behaviow to be dewayed untiw t-the nyext fwame. OwO i-in wawe cases, 🥺 d-depending
+on youw game wogic, ^•ﻌ•^ it may even wesuwt i-in mowe sewious w-wogic bugs!</p>
 <p>it is up to you to decide if this i-is impowtant.</p>
 <p>with many things in typicaw games, OwO s-such as juicy v-visuaw effects, 🥺 i-it pwobabwy
 doesn't mattew if they get dewayed b-by a fwame. it m-might nyot be wowthwhiwe
@@ -169,7 +169,7 @@ wesuwt in bettew pewfowmance.</p>
 <p>on the othew hand, ^•ﻌ•^ fow things wike h-handwing the pwayew i-input contwows,
 this wouwd wesuwt in annoying wag, ^•ﻌ•^ s-so you shouwd p-pwobabwy fix it.</p>
 <h2 id="expwicit-system-owdewing"><a class="header" href="#expwicit-system-owdewing">expwicit system owdewing</a></h2>
-<p>the sowution is to use system <a href="./labels.html">wabews</a> to expwicitwy specify
+<p>the sowution is to use system [wabews][cb::wabew] to expwicitwy specify
 the owdew you want:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
@@ -203,7 +203,7 @@ the owdew you want:</p>
 <p>you can pwace muwtipwe wabews on o-one system.</p>
 <p>you can awso use the same wabew on m-muwtipwe systems.</p>
 <p>when you have muwtipwe systems with c-common wabews o-ow owdewing, OwO it m-may be
-convenient to use <a href="./system-sets.html">system sets</a>.</p>
+convenient to use [system sets][cb::systemset].</p>
 <h2 id="ciwcuwaw-dependencies"><a class="header" href="#ciwcuwaw-dependencies">ciwcuwaw dependencies</a></h2>
 <p>if you have muwtipwe systems mutuawwy d-depending on e-each othew, OwO then i-it is
 cweawwy impossibwe to wesowve the s-situation compwetewy w-wike that.</p>

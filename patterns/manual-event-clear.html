@@ -136,9 +136,10 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="manuaw-event-cweawing"><a class="header" href="#manuaw-event-cweawing">manuaw event cweawing</a></h1>
-<p><a href="/code/examples/manual-event-clear.rs">cwick hewe to downwoad a fuww exampwe f-fiwe with the c-code fwom this p-page.</a></p>
+<p>{{#incwude ../incwude/winks.md}}</p>
+<p>[cwick hewe to downwoad a fuww exampwe f-fiwe with the c-code fwom this p-page.][cbexampwe::manuaw-event-cweaw]</p>
 <hr />
-<p>the <a href="/programming/events.html">event</a> queue nyeeds to be cweawed pewiodicawwy,
+<p>the [event][cb::event] queue nyeeds to be cweawed pewiodicawwy,
 so that it does not gwow indefinitewy a-and waste unbounded m-memowy.</p>
 <p>bevy's defauwt cweanup stwategy is t-to cweaw events e-evewy fwame, OwO but w-with doubwe
 buffewing, OwO so that events fwom the p-pwevious fwame u-update stay avaiwabwe. 🥺 t-this
@@ -150,26 +151,26 @@ evewy time, (ꈍᴗꈍ) which is the typicaw u-usage pattewn.</p>
 miss some events. ^•ﻌ•^ some common scenawios w-whewe this o-occuws awe:</p>
 <ul>
 <li>systems with an eawwy-wetuwn, OwO that d-don't wead events e-evewy time they w-wun</li>
-<li>when using <a href="/features/fixed-timestep.html">fixed timestep</a></li>
-<li>systems that onwy wun in specific <a href="/programming/states.html">states</a>,
+<li>when using [fixed timestep][cb::fixedtimestep]</li>
+<li>systems that onwy wun in specific [states][cb::state],
 such as if youw game has a pause s-state</li>
-<li>when using custom <a href="/programming/run-criteria.html">wun cwitewia</a> to contwow
+<li>when using custom [wun cwitewia][cb::wuncwitewia] to contwow
 youw systems</li>
 </ul>
 <p>to be abwe to wewiabwy manage events i-in such ciwcumstances, OwO y-you might w-want
 to have manuaw contwow ovew how wong t-the events awe h-hewd in memowy.</p>
 <p>you can wepwace bevy's defauwt cweanup s-stwategy with y-youw own.</p>
-<p>to do this, (ꈍᴗꈍ) simpwy add youw event t-type (wwapped as <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a>)
-to the <a href="/programming/app-builder.html">app buiwdew</a> using <code>.init_resource</code>, XD instead of <code>.add_event</code>.</p>
+<p>to do this, (ꈍᴗꈍ) simpwy add youw event t-type (wwapped as [<code>Events&lt;T&gt;</code>][bevy::events])
+to the [app buiwdew][cb::app] using <code>.init_resource</code>, XD instead of <code>.add_event</code>.</p>
 <p>(<code>.add_event</code> is actuawwy just a convenience method t-that initiawizes t-the
-<a href="/programming/res.html">wesouwce</a> and adds bevy's buiwt-in system (<a href="/patterns/generic-systems.html">genewic</a>
+[wesouwce][cb::wes] and adds bevy's buiwt-in system ([genewic][cb::system-genewic]
 ovew youw event type) fow the defauwt c-cweanup stwategy)</p>
 <p>you must then cweaw the events at y-youw discwetion. OwO i-if you don't do t-this often
 enough, (ꈍᴗꈍ) youw events might piwe up a-and waste memowy.</p>
 <h2 id="exampwe"><a class="header" href="#exampwe">exampwe</a></h2>
-<p>we can cweate <a href="/patterns/generic-systems.html">genewic systems</a> fow this. XD impwement
-the custom cweanup stwategy, (ꈍᴗꈍ) and t-then add that <a href="/programming/systems.html">system</a> to youw
-<a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a> as many times as you nyeed, (ꈍᴗꈍ) fow e-each <a href="/programming/events.html">event</a> type
+<p>we can cweate [genewic systems][cb::system-genewic] fow this. XD impwement
+the custom cweanup stwategy, (ꈍᴗꈍ) and t-then add that [system][cb::system] to youw
+[<code>App</code>][bevy::app] as many times as you nyeed, (ꈍᴗꈍ) fow e-each [event][cb::event] type
 whewe you want to use youw custom b-behaviow.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::app::events;
 

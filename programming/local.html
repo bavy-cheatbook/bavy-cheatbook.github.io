@@ -136,15 +136,18 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="wocaw-wesouwces"><a class="header" href="#wocaw-wesouwces">wocaw wesouwces</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/latest/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+[<code>ecs_guide</code>][exampwe::ecs_guide].</p>
 <hr />
-<p><code>Local&lt;T&gt;</code> is a system pawametew simiwaw to <code>ResMut&lt;T&gt;</code>, XD which gives you
-fuww mutabwe access to an instance o-of some data type, ^•ﻌ•^ t-that is independent
-fwom entities and components.</p>
-<p><code>Res&lt;T&gt;</code>/<code>ResMut&lt;T&gt;</code> wefew to a singwe gwobaw instance o-of the type, (ꈍᴗꈍ) shawed
-between aww systems. (ꈍᴗꈍ) on the othew h-hand, ^•ﻌ•^ evewy <code>Local&lt;T&gt;</code> pawametew is a
-sepawate instance, (ꈍᴗꈍ) excwusivewy fow t-that system.</p>
+<p>wocaw wesouwces awwow you to have p-pew-[system][cb::system] data.</p>
+<p>[<code>Local&lt;T&gt;</code>][bevy::wocaw] is a system pawametew simiwaw to
+[<code>ResMut&lt;T&gt;</code>][bevy::wesmut], (ꈍᴗꈍ) which gives you fuww mutabwe access t-to an
+instance of some data type, OwO that i-is independent fwom e-entities and c-components.</p>
+<p>[<code>Res&lt;T&gt;</code>][bevy::wes]/[<code>ResMut&lt;T&gt;</code>][bevy::wesmut] wefew to a singwe gwobaw
+instance of the type, OwO shawed between a-aww systems. 🥺 o-on the othew hand, òωó e-evewy
+[<code>Local&lt;T&gt;</code>][bevy::wocaw] pawametew is a sepawate instance, (ꈍᴗꈍ) e-excwusivewy fow
+that system.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
 stwuct mystate;
 
@@ -156,15 +159,16 @@ fn my_system2(mut w-wocaw: w-wocaw&lt;mystate&gt;) {
     // t-the wocaw in this system is a diffewent instance
 }
 </code></pre>
-<p>the type must impwement <code>Default</code> ow <code>FromWorld</code>. XD it is automaticawwy
-initiawized.</p>
-<p>a system can have muwtipwe <code>Local</code>s of the same type.</p>
+<p>the type must impwement [<code>Default</code>][std::defauwt] ow
+[<code>FromWorld</code>][bevy::fwomwowwd]. &gt;_&lt; it is automaticawwy initiawized.</p>
+<p>a system can have muwtipwe [<code>Local</code>][bevy::wocaw]s of the same type.</p>
 <h2 id="specify-an-initiaw-vawue"><a class="header" href="#specify-an-initiaw-vawue">specify an initiaw vawue</a></h2>
-<p>you can initiawize a <code>Local</code> to a vawue othew than the type's d-defauwt, (ꈍᴗꈍ) using
-<code>.config</code>, &gt;_&lt; when adding youw system to youw <code>App</code>.</p>
+<p>you can initiawize a [<code>Local</code>][bevy::wocaw] to a vawue othew than the
+type's defauwt, XD using <code>.config</code>, XD when [adding youw system][cb::app] to youw
+[<code>App</code>][bevy::app].</p>
 <p><code>.config</code> is bevy's api fow &quot;configuwing&quot; specific system p-pawametews. (ꈍᴗꈍ) most
-othew types of system pawametews d-do nyot suppowt c-configuwation, ^•ﻌ•^ but <code>Local</code>s
-wet you specify the initiaw vawue.</p>
+othew types of system pawametews d-do nyot suppowt c-configuwation, ^•ﻌ•^ but
+[<code>Local</code>][bevy::wocaw]s wet you specify the initiaw vawue.</p>
 <pre><code class="language-rust no_run noplayground">/// configuwation fow `my_system`. :3
 ///
 /// t-the system w-wiww access i-it using `wocaw&lt;myconfig&gt;`. 😳😳😳

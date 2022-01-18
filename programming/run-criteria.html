@@ -136,15 +136,17 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="wun-cwitewia"><a class="header" href="#wun-cwitewia">wun cwitewia</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wun cwitewia awe a mechanism fow c-contwowwing if bevy s-shouwd wun specific
-systems, OwO at wuntime. 🥺 this is how y-you can make functionawity t-that o-onwy wuns
-undew cewtain conditions.</p>
+[systems][cb::system], (ꈍᴗꈍ) at wuntime. this is how you can m-make functionawity
+that onwy wuns undew cewtain conditions.</p>
 <p>wun cwitewia awe a wowew-wevew pwimitive. ^•ﻌ•^ b-bevy pwovides h-highew-wevew
-abstwactions on top, &gt;<em>&lt; such as <a href="./states.html">states</a>. &gt;</em>&lt; you can use wun cwitewia
+abstwactions on top, &gt;<em>&lt; such as [states][cb::state]. &gt;</em>&lt; you can use wun cwitewia
 without such abstwactions, ^•ﻌ•^ if you w-weawwy nyeed mowe d-diwect contwow.</p>
-<p>wun cwitewia can be appwied to individuaw <a href="./systems.html">systems</a>, rawr x3 <a href="./system-sets.html">system
-sets</a>, XD and <a href="./stages.html">stages</a>.</p>
-<p>wun cwitewia awe bevy systems that w-wetuwn a vawue o-of type <code>enum ShouldRun</code>. ^•ﻌ•^ they can accept any system pawametews, OwO w-wike a nowmaw s-system.</p>
+<p>wun cwitewia can be appwied to individuaw [systems][cb::system], rawr x3 [system
+sets][cb::systemset], XD and [stages][cb::stage].</p>
+<p>wun cwitewia awe bevy systems that w-wetuwn a vawue o-of type [<code>enum ShouldRun</code>][bevy::shouwdwun]. &gt;<em>&lt; they can accept any [system
+pawametews][buiwtins::systempawam], &gt;</em>&lt; wike a nyowmaw system.</p>
 <p>this exampwe shows how wun cwitewia m-might be used t-to impwement diffewent
 muwtipwayew modes:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::ecs::scheduwe::shouwdwun;
@@ -218,7 +220,7 @@ fn m-main() {
 </code></pre>
 <h2 id="wun-cwitewia-wabews"><a class="header" href="#wun-cwitewia-wabews">wun cwitewia wabews</a></h2>
 <p>if you have muwtipwe systems ow system s-sets that y-you want to shawe t-the same
-wun cwitewia, &gt;_&lt; you can give it a <a href="./labels.html">wabew</a>.</p>
+wun cwitewia, &gt;_&lt; you can give it a [wabew][cb::wabew].</p>
 <p>when you use a wabew, OwO bevy wiww onwy e-exekawaii~ the w-wun cwitewia o-once, 🥺 wemembew
 its output, (ꈍᴗꈍ) and appwy it to evewything w-with the wabew.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(debug, σωσ cwone, σωσ pawtiaweq, &gt;_&lt; eq, hash)]
@@ -255,14 +257,14 @@ f-fn main() {
 <p>the wun-once pwopewty is especiawwy i-impowtant if y-you have a compwex w-wun
 cwitewia system that pewfowms mutations o-ow is othewwise n-nyon-idempotent.</p>
 <h2 id="known-pitfawws"><a class="header" href="#known-pitfawws">known pitfawws</a></h2>
-<p>when weceiving <a href="./events.html">events</a> in systems that don't wun evewy f-fwame,
+<p>when weceiving [events][cb::event] in systems that don't wun evewy f-fwame,
 you wiww miss any events that awe s-sent duwing the f-fwames when the w-weceiving
 systems awe nyot wunning!</p>
-<p>to mitigate this, (ꈍᴗꈍ) you couwd impwement a-a <a href="../patterns/manual-event-clear.html">custom cweanup
-stwategy</a>, &gt;_&lt; to manuawwy manage the wifetime
-of the wewevant event types.</p>
+<p>to mitigate this, (ꈍᴗꈍ) you couwd impwement a-a [custom cweanup
+stwategy][cb::event-manuaw], (ꈍᴗꈍ) to manuawwy manage the wifetime o-of the wewevant
+event types.</p>
 <hr />
-<p>bevy's <a href="../features/fixed-timestep.html">fixed timestep</a> is awso impwemented
+<p>bevy's [fixed timestep][cb::fixedtimestep] is awso impwemented
 using wun cwitewia undew the hood.</p>
 
                     </main>

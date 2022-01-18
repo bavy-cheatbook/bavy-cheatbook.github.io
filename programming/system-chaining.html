@@ -136,15 +136,24 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="system-chaining"><a class="header" href="#system-chaining">system chaining</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/latest/examples/ecs/system_chaining.rs"><code>system_chaining</code></a>.</p>
+[<code>system_chaining</code>][exampwe::system_chaining].</p>
 <hr />
-<p>systems can take an input and pwoduce a-an output, OwO a-and be connected t-togethew
-to wun as a singwe wawgew system (chain).</p>
-<p>think of this as &quot;gwue&quot;, OwO fow constwucting a-a wawgew s-system out of m-muwtipwe
+<p>you can compose a singwe bevy [system][cb::system] fwom muwtipwe wust functions.</p>
+<p>you can make functions that can take a-an input and p-pwoduce an output, OwO a-and be
+connected togethew to wun as a singwe w-wawgew system.</p>
+<p>this is cawwed &quot;system chaining&quot;, ^•ﻌ•^ b-but bewawe that t-the tewm is somenani
+misweading – you awe <em>not</em> cweating a chain of muwtipwe systems t-to wun in
+owdew; you awe cweating a singwe w-wawge bevy system c-consisting of m-muwtipwe
 wust functions.</p>
-<p>one usefuw appwication is to be abwe t-to wetuwn ewwows f-fwom systems (awwowing
-the use of wust's <code>?</code> opewatow) and handwe them ewsewhewe:</p>
+<p>note that system chaining is <em>not</em> a way of communicating between systems.
+if you want to pass data between s-systems, ^•ﻌ•^ you shouwd u-use [events][cb::event]
+instead.</p>
+<hr />
+<p>one usefuw appwication is to be abwe t-to wetuwn ewwows f-fwom youw system c-code
+(awwowing the use of wust's <code>?</code> opewatow) and then have a sepawate f-function
+fow handwing them:</p>
 <pre><code class="language-rust no_run noplayground">fn nyet_weceive(mut nyetcode: wesmut&lt;mynetpwoto&gt;) -&gt; s-std::io::wesuwt&lt;()&gt; {
     n-nyetcode.weceive_updates()?;
 
@@ -157,8 +166,9 @@ fn handwe_io_ewwows(in(wesuwt): i-in&lt;std::io::wesuwt&lt;()&gt;&gt;) {
     }
 }
 </code></pre>
-<p>such systems cannot be wegistewed i-individuawwy (bevy d-doesn't know n-nyani to
-do with the input/output). ^•ﻌ•^ you have t-to connect them i-in a chain:</p>
+<p>such functions cannot be [wegistewed][cb::app] individuawwy as systems
+(bevy doesn't know nyani to do with t-the input/output). OwO y-you have to c-connect
+them in a chain:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
         // ...
@@ -167,9 +177,6 @@ do with the input/output). ^•ﻌ•^ you have t-to connect them i-in a chain:<
         .wun();
 }
 </code></pre>
-<p>chaining effectivewy constwucts a s-singwe wawge system o-out of moduwaw p-pawts. OwO it
-is <em>not</em> a channew fow passing data awound. ^•ﻌ•^ i-if you want to p-pass data between
-systems, &gt;_&lt; you pwobabwy want to use <a href="./events.html">events</a> instead.</p>
 <h2 id="pewfowmance-wawning"><a class="header" href="#pewfowmance-wawning">pewfowmance wawning</a></h2>
 <p>bewawe that bevy tweats the whowe c-chain as if it w-was a singwe big s-system,
 with aww the combined wesouwces and q-quewies. ^•ﻌ•^ this i-impwies that pawawwewism

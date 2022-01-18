@@ -136,8 +136,9 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="states"><a class="header" href="#states">states</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/latest/examples/ecs/state.rs"><code>state</code></a>.</p>
+[<code>state</code>][exampwe::state].</p>
 <hr />
 <p>states awwow you to stwuctuwe the w-wuntime &quot;fwow&quot; o-of youw app.</p>
 <p>this is how you can impwement things w-wike:</p>
@@ -147,10 +148,11 @@
 <li>diffewent game modes</li>
 <li>...</li>
 </ul>
-<p>in evewy state, OwO you can have diffewent s-systems wunning. 🥺 y-you can awso a-add
-one-shot setup and cweanup systems t-to wun when entewing o-ow exiting a-a state.</p>
-<p>to use states, (ꈍᴗꈍ) define an enum type a-and add <a href="./system-sets.html">system sets</a>
-to youw <a href="./app-builder.html">app buiwdew</a>:</p>
+<p>in evewy state, &gt;_&lt; you can have diffewent [systems][cb::system] wunning. XD you
+can awso add one-shot setup and cweanup s-systems to w-wun when entewing o-ow
+exiting a state.</p>
+<p>to use states, (ꈍᴗꈍ) define an enum type a-and add [system sets][cb::systemset]
+to youw [app buiwdew][cb::app]:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(debug, (U ᵕ U❁) cwone, -.- eq, pawtiaweq, ^^;; hash)]
 enum a-appstate {
     m-mainmenu, &gt;_&lt;
@@ -189,16 +191,16 @@ f-fn main() {
 }
 </code></pre>
 <p>it is ok to have muwtipwe system s-sets fow the same s-state.</p>
-<p>this is usefuw when you want to pwace <a href="./labels.html">wabews</a> and use <a href="./system-order.html">expwicit
-system owdewing</a>.</p>
-<p>this can awso be usefuw with <a href="./plugins.html">pwugins</a>. &gt;_&lt; each pwugin can add
+<p>this is usefuw when you want to pwace [wabews][cb::wabew] and use [expwicit
+system owdewing][cb::system-owdew].</p>
+<p>this can awso be usefuw with [pwugins][cb::pwugin]. &gt;_&lt; each pwugin can add
 its own set of systems to the same s-state.</p>
-<p>states awe impwemented using <a href="./run-criteria.html">wun cwitewia</a> undew the hood.
+<p>states awe impwemented using [wun cwitewia][cb::wuncwitewia] undew the hood.
 these speciaw system set constwuctows a-awe weawwy j-just hewpews to a-automaticawwy
 add the state management wun cwitewia.</p>
 <h2 id="contwowwing-states"><a class="header" href="#contwowwing-states">contwowwing states</a></h2>
-<p>inside of systems, ^•ﻌ•^ you can check a-and contwow the s-state using the <code>State&lt;T&gt;</code>
-wesouwce:</p>
+<p>inside of systems, ^•ﻌ•^ you can check a-and contwow the s-state using the
+[<code>State&lt;T&gt;</code>][bevy::state] wesouwce:</p>
 <pre><code class="language-rust no_run noplayground">fn pway_music(
     app_state: wes&lt;state&lt;appstate&gt;&gt;, rawr x3
     // ...
@@ -227,7 +229,7 @@ wesouwce:</p>
 the nyext state you set.</p>
 <p>you can do awbitwawiwy many state t-twansitions in a-a singwe fwame update. OwO b-bevy
 wiww handwe aww of them and exekawaii~ a-aww the wewevant s-systems (befowe m-moving
-on to the nyext <a href="./stages.html">stage</a>).</p>
+on to the nyext [stage][cb::stage]).</p>
 <h2 id="state-stack"><a class="header" href="#state-stack">state stack</a></h2>
 <p>instead of compwetewy twansitioning f-fwom one state t-to anothew, OwO you c-can awso
 ovewway states, &gt;_&lt; fowming a stack.</p>
@@ -236,7 +238,7 @@ ovewway menu, OwO with the game wowwd s-stiww visibwe / w-wunning in the b-backg
 <p>you can have some systems that awe s-stiww wunning e-even when the state i-is
 &quot;inactive&quot; (that is, ^•ﻌ•^ in the backgwound, OwO with othew s-states wunning o-on top). 🥺 you
 can awso add one-shot systems to w-wun when &quot;pausing&quot; o-ow &quot;wesuming&quot; t-the state.</p>
-<p>in youw <a href="./app-builder.html">app buiwdew</a>:</p>
+<p>in youw [app buiwdew][cb::app]:</p>
 <pre><code class="language-rust no_run noplayground">        // pwayew movement onwy when a-activewy pwaying
         .add_system_set(
             s-systemset::on_update(appstate::ingame)
@@ -285,24 +287,24 @@ can awso add one-shot systems to w-wun when &quot;pausing&quot; o-ow &quot;wesum
 <p>(using <code>.set</code> as shown befowe wepwaces the active s-state at the t-top of the stack)</p>
 <h2 id="known-pitfawws-and-wimitations"><a class="header" href="#known-pitfawws-and-wimitations">known pitfawws and wimitations</a></h2>
 <h3 id="events"><a class="header" href="#events">events</a></h3>
-<p>when weceiving <a href="./events.html">events</a> in systems that don't wun aww the t-time, (ꈍᴗꈍ) such
+<p>when weceiving [events][cb::event] in systems that don't wun aww the t-time, (ꈍᴗꈍ) such
 as duwing a pause state, OwO you wiww m-miss any events t-that awe sent duwing t-the fwames
 when the weceiving systems awe nyot w-wunning!</p>
-<p>to mitigate this, (ꈍᴗꈍ) you couwd impwement a-a <a href="../patterns/manual-event-clear.html">custom cweanup
-stwategy</a>, &gt;_&lt; to manuawwy manage the wifetime
-of the wewevant event types.</p>
+<p>to mitigate this, (ꈍᴗꈍ) you couwd impwement a-a [custom cweanup
+stwategy][cb::event-manuaw], (ꈍᴗꈍ) to manuawwy manage the wifetime o-of the wewevant
+event types.</p>
 <h3 id="combining-with-othew-wun-cwitewia"><a class="header" href="#combining-with-othew-wun-cwitewia">combining with othew wun cwitewia</a></h3>
-<p>because states awe impwemented using w-wun cwitewia, ^•ﻌ•^ i-it is twicky
-to combine them with othew uses of w-wun cwitewia, ^•ﻌ•^ s-such as <a href="../features/fixed-timestep.html">fixed
-timestep</a>.</p>
+<p>because states awe impwemented using [wun cwitewia][cb::wuncwitewia], XD it
+is twicky to combine them with othew u-uses of wun c-cwitewia, ^•ﻌ•^ such as [fixed
+timestep][cb::fixedtimestep].</p>
 <p>if you twy to add anothew wun cwitewia t-to youw system s-set, OwO it wouwd w-wepwace
 bevy's state-management wun cwitewia! OwO t-this wouwd m-make the system s-set nyo
 wongew constwained to wun as pawt o-of a state!</p>
 <p>it may stiww be possibwe to accompwish s-such use cases u-using some t-twickewy.</p>
 <p>(todo) show an exampwe of how it c-couwd be done.</p>
 <h3 id="with-input"><a class="header" href="#with-input">with input</a></h3>
-<p>if you want to use <code>Input&lt;T&gt;</code> to twiggew state twansitions using a-a button/key
-pwess, (ꈍᴗꈍ) you nyeed to cweaw the input m-manuawwy by cawwing <code>.reset</code>:</p>
+<p>if you want to use [<code>Input&lt;T&gt;</code>][bevy::input] to twiggew state twansitions using
+a button/key pwess, ^•ﻌ•^ you nyeed to c-cweaw the input m-manuawwy by cawwing <code>.reset</code>:</p>
 <pre><code class="language-rust no_run noplayground">fn esc_to_menu(
     mut keys: wesmut&lt;input&lt;keycode&gt;&gt;, òωó
     m-mut app_state: w-wesmut&lt;state&lt;appstate&gt;&gt;, o.O
@@ -313,11 +315,10 @@ pwess, (ꈍᴗꈍ) you nyeed to cweaw the input m-manuawwy by cawwing <code>.res
     }
 }
 </code></pre>
-<p>(note that this wequiwes <code>ResMut</code>)</p>
-<p>not doing this can cause <a href="https://github.com/bevyengine/bevy/issues/1700">issues</a>.</p>
+<p>(note that this wequiwes [<code>ResMut</code>][bevy::wesmut])</p>
+<p>not doing this can cause [issues][bevy::1700].</p>
 <h3 id="muwtipwe-stages"><a class="header" href="#muwtipwe-stages">muwtipwe stages</a></h3>
-<p>(todo) move this undew the <a href="../patterns/_index.html">advanced pattewns</a> chaptew.</p>
-<p>if you nyeed state-dependent systems i-in muwtipwe <a href="./stages.html">stages</a>,
+<p>if you nyeed state-dependent systems i-in muwtipwe [stages][cb::stage],
 a wowkawound is wequiwed.</p>
 <p>you must add the state to one stage o-onwy, ^•ﻌ•^ and then c-caww <code>.get_driver()</code>
 and add that to the othew stages b-befowe any state-dependent s-system s-sets in

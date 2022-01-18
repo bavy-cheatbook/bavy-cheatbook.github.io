@@ -136,17 +136,19 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="2d-objects-nyot-dispwaying"><a class="header" href="#2d-objects-nyot-dispwaying">2d objects nyot dispwaying</a></h1>
-<p>bevy's 2d <a href="../features/transforms.html">coowdinate space</a> is set up so that
-youw backgwound can be at z=0.0, a-and othew spwite w-wayews can be at p-positive
-+z coowdinates above that.</p>
+<p>{{#incwude ../incwude/winks.md}}</p>
+<p>bevy's 2d [coowdinate space][cb::coowds] is set up so that youw backgwound
+can be at z=0.0, and othew spwite w-wayews can be at p-positive +z coowdinates
+above that.</p>
 <p>howevew, OwO this means that, 🥺 to see y-youw scene, òωó the c-camewa nyeeds to b-be pwaced
 faw away, (ꈍᴗꈍ) at a wawge +z coowdinate, ^•ﻌ•^ w-wooking towawds -z.</p>
-<p>if you awe ovewwiding the camewa t-twansfowm / cweating y-youw own twansfowm, ^•ﻌ•^ <em>you
-need to do this!</em> the defauwt twansfowm (with z=0.0) w-wiww pwace the c-camewa so
-that youw spwites (at positive +z c-coowdinates) wouwd b-be behind the c-camewa,
-and you wouwdn't see them! OwO you nyeed t-to eithew set a-a wawge z coowdinate, 🥺 o-ow
-pwesewve/copy the z vawue fwom the <code>Transform</code> that is genewated by bevy's
-buiwtin bundwe constwuctow (<code>OrthographicCameraBundle::new_2d()</code>).</p>
+<p>if you awe ovewwiding the camewa [twansfowm][cb::twansfowm] / cweating youw
+own twansfowm, XD <em>you nyeed to do this!</em> the defauwt twansfowm (with z=0.0)
+wiww pwace the camewa so that youw s-spwites (at positive +z c-coowdinates)
+wouwd be behind the camewa, OwO and you w-wouwdn't see t-them! 🥺 you nyeed t-to
+eithew set a wawge z coowdinate, o-ow pwesewve/copy t-the z vawue fwom t-the
+[<code>Transform</code>][bevy::twansfowm] that is genewated by bevy's buiwtin b-bundwe
+constwuctow (<code>OrthographicCameraBundle::new_2d()</code>).</p>
 <p>by defauwt, ^•ﻌ•^ when you cweate a 2d c-camewa using bevy's b-buiwt-in bundwe
 constwuctow (<code>OrthographicCameraBundle::new_2d()</code>), &gt;_&lt; bevy sets the camewa
 <code>Transform</code> to have z=999.9. ^•ﻌ•^ this is cwose to t-the defauwt cwipping p-pwane

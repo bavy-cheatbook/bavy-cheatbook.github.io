@@ -136,10 +136,11 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="quewies"><a class="header" href="#quewies">quewies</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/latest/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+[<code>ecs_guide</code>][exampwe::ecs_guide].</p>
 <hr />
-<p>quewies wet you access components o-of entities.</p>
+<p>quewies wet you access [components of entities][cb::ecs-intwo].</p>
 <pre><code class="language-rust no_run noplayground">fn check_zewo_heawth(
     // access e-entities that h-have `heawth` and `twansfowm` components
     // g-get wead-onwy access t-to `heawth` a-and mutabwe access t-to `twansfowm`
@@ -162,14 +163,16 @@
     }
 }
 </code></pre>
-<p>get the components associated with a-a specific entity:</p>
+<p>get the [components][cb::component] associated with a specific
+[entity][cb::entity]:</p>
 <pre><code class="language-rust no_run noplayground">    if wet ok((heawth, ( ͡o ω ͡o ) mut twansfowm)) = q-quewy.get_mut(entity) {
         // d-do something w-with the c-components
     } e-ewse {
         // t-the entity does n-nyot have the c-components fwom the quewy
     }
 </code></pre>
-<p>get the ids of the entities you access w-with youw q-quewies:</p>
+<p>get the ids ([<code>Entity</code>][bevy::entity]) of the entities you access with
+youw quewies:</p>
 <pre><code class="language-rust no_run noplayground">// add `entity` to `quewy` to get e-entity ids
 fn quewy_entities(q: q-quewy&lt;(entity, (U ᵕ U❁) /* ... */)&gt;) {
     f-fow (e, (⑅˘꒳˘) /* ... */) i-in q.itew() {
@@ -178,21 +181,23 @@ fn quewy_entities(q: q-quewy&lt;(entity, (U ᵕ U❁) /* ... */)&gt;) {
 }
 </code></pre>
 <p>if you know that the quewy shouwd o-onwy evew match a-a singwe entity, OwO y-you can
-use <code>single</code>/<code>single_mut</code> (wetuwns a <code>Result</code>), XD instead of itewating:</p>
+use <code>single</code>/<code>single_mut</code>, XD instead of itewating:</p>
 <pre><code class="language-rust no_run noplayground">fn quewy_pwayew(mut q: quewy&lt;(&amp;pwayew, (U ᵕ U❁) &amp;mut t-twansfowm)&gt;) {
     w-wet (pwayew, (⑅˘꒳˘) m-mut twansfowm) = q-q.singwe_mut();
 
     // d-do something w-with the pwayew a-and its twansfowm
 }
 </code></pre>
+<p>(this wiww panic if the quewy matches m-mowe than one e-entity)</p>
 <h2 id="bundwes"><a class="header" href="#bundwes">bundwes</a></h2>
 <p>quewies wowk with individuaw components. OwO i-if you cweated a-an entity u-using a
-<a href="./ec.html#component-bundles">bundwe</a>, &gt;_&lt; you nyeed to quewy fow the specific
-components fwom that bundwe that y-you cawe about.</p>
+[bundwe][cb::bundwe], ^•ﻌ•^ you nyeed to quewy fow the specific c-components f-fwom
+that bundwe that you cawe about.</p>
 <p>a common beginnew mistake is to quewy f-fow the bundwe t-type!</p>
 <h2 id="quewy-fiwtews"><a class="header" href="#quewy-fiwtews">quewy fiwtews</a></h2>
 <p>add quewy fiwtews to nyawwow down t-the entities you g-get fwom the quewy.</p>
-<p>use <code>With</code>/<code>Without</code> to onwy get entities that have specific c-components.</p>
+<p>use [<code>With</code>][bevy::with]/[<code>Without</code>][bevy::without] to onwy get entities
+that have specific components.</p>
 <pre><code class="language-rust no_run noplayground">fn debug_pwayew_hp(
     // access t-the heawth, (⑅˘꒳˘) onwy f-fow fwiendwy pwayews, (U ᵕ U❁) o-optionawwy w-with nyame
     q-quewy: quewy&lt;(&amp;heawth, -.- o-option&lt;&amp;pwayewname&gt;), ^^;; (with&lt;pwayew&gt;, &gt;_&lt; w-without&lt;enemy&gt;)&gt;, mya

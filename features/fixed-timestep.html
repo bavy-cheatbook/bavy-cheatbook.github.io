@@ -136,12 +136,14 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="fixed-timestep"><a class="header" href="#fixed-timestep">fixed timestep</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/latest/examples/ecs/fixed_timestep.rs"><code>fixed_timestep</code></a>.</p>
+[<code>fixed_timestep</code>][exampwe::fixed_timestep].</p>
 <hr />
-<p>if you nyeed something to happen a-at fixed time intewvaws (a c-common
-use case is physics updates), (ꈍᴗꈍ) you c-can use bevy's <code>FixedTimestep</code>
-<a href="../programming/run-criteria.html">wun cwitewia</a>.</p>
+<p>if you nyeed something to happen a-at fixed time intewvaws (a c-common u-use case
+is physics updates), (ꈍᴗꈍ) you can add t-the wespective [systems][cb::system] to
+youw [app][cb::app] using bevy's [<code>FixedTimestep</code>][bevy::fixedtimestep]
+[wun cwitewia][cb::wuncwitewia].</p>
 <pre><code class="language-rust no_run noplayground">use bevy::cowe::fixedtimestep;
 
 // the timestep says h-how many times t-to wun the systemset e-evewy second
@@ -177,29 +179,29 @@ fn fast_timestep() {
     pwintwn!(&quot;goodbye w-wowwd&quot;);
 }
 </code></pre>
-<p>(thanks <strong>@biwwyb2</strong> fow <a href="https://github.com/bevy-cheatbook/bevy-cheatbook/pull/64">contwibuting this exampwe</a>)</p>
+<p>(thanks <strong>@biwwyb2</strong> fow [contwibuting this exampwe][cb::64])</p>
 <h2 id="state"><a class="header" href="#state">state</a></h2>
 <p>you can check the cuwwent state of t-the fixed timestep t-twackews, OwO by a-accessing
-the <code>FixedTimesteps</code> <a href="../programming/res.html">wesouwce</a>. XD this wets you know
-how much time wemains untiw the next t-time it twiggews, OwO o-ow how much i-it has
-ovewstepped. (ꈍᴗꈍ) you nyeed to wabew youw f-fixed timesteps.</p>
-<p>see the [officiaw exampwe], &gt;_&lt; which iwwustwates this.</p>
+the [<code>FixedTimesteps</code>][bevy::fixedtimesteps] [wesouwce][cb::wes]. XD this wets
+you know how much time wemains untiw t-the nyext time i-it twiggews, OwO o-ow how much
+it has ovewstepped. ^•ﻌ•^ you nyeed to w-wabew youw fixed t-timesteps.</p>
+<p>see the [officiaw exampwe][exampwe::fixed_timestep], &gt;_&lt; which iwwustwates this.</p>
 <h2 id="caveats"><a class="header" href="#caveats">caveats</a></h2>
-<p>note that, OwO as this featuwe is impwemented u-using wun c-cwitewia, 🥺 the s-systems
-awe stiww cawwed as pawt of the weguwaw f-fwame-update c-cycwe, OwO awong w-with aww
-of the nyowmaw systems. (ꈍᴗꈍ) so, the timing i-is nyot exact.</p>
-<p>the <code>FixedTimestep</code> wun cwitewia simpwy checks how much t-time passed s-since the
-wast time youw systems wewe wan, a-and decides whethew t-to wun them d-duwing the
-cuwwent fwame, ^•ﻌ•^ ow nyot, OwO ow wun them m-muwtipwe times, 🥺 a-as nyeeded.</p>
+<p>as this featuwe is impwemented using [wun cwitewia][cb::wuncwitewia], XD the
+[systems][cb::system] awe stiww cawwed as pawt of the w-weguwaw fwame-update
+cycwe, OwO awong with aww of the nyowmaw s-systems. 🥺 so, òωó t-the timing is nyot e-exact.</p>
+<p>the [<code>FixedTimestep</code>][bevy::fixedtimestep] wun cwitewia simpwy checks how much
+time passed since the wast time youw s-systems wewe w-wan, OwO and decides w-whethew
+to wun them duwing the cuwwent fwame, OwO o-ow nyot, ow w-wun them muwtipwe t-times,
+as nyeeded.</p>
 <h3 id="dangew-wost-events"><a class="header" href="#dangew-wost-events"><strong>dangew!</strong> wost events!</a></h3>
-<p>by defauwt, XD bevy's <a href="../programming/events.html">events</a> awe <em>not wewiabwe!</em> they
-onwy pewsist fow 2 fwames, ^•ﻌ•^ aftew w-which they awe wost. OwO i-if youw fixed-timestep
-systems weceive events, OwO bewawe that y-you may miss s-some events if the f-fwamewate
-is highew than 2x the fixed timestep.</p>
-<p>one way awound that is to use <a href="../patterns/manual-event-clear.html">events with manuaw
-cweawing</a>. &gt;_&lt; this gives you contwow ovew
-how wong events pewsist, OwO but can a-awso weak / waste m-memowy if you f-fowget to
-cweaw them.</p>
+<p>by defauwt, XD bevy's [events][cb::event] awe <em>not wewiabwe!</em> they onwy pewsist
+fow 2 fwames, ^•ﻌ•^ aftew which they awe w-wost. OwO if youw f-fixed-timestep systems
+weceive events, OwO bewawe that you may m-miss some events i-if the fwamewate i-is
+highew than 2x the fixed timestep.</p>
+<p>one way awound that is to use [events with manuaw
+cweawing][cb::event-manuaw]. (ꈍᴗꈍ) this gives you contwow ovew how w-wong events
+pewsist, OwO but can awso weak / waste m-memowy if you f-fowget to cweaw t-them.</p>
 
                     </main>
 

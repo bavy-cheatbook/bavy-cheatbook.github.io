@@ -136,8 +136,9 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h1>
+<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/latest/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+[<code>ecs_guide</code>][exampwe::ecs_guide].</p>
 <hr />
 <p>wesouwces awwow you to stowe a singwe g-gwobaw instance o-of some data t-type,
 independentwy of entities.</p>
@@ -145,14 +146,14 @@ independentwy of entities.</p>
 / settings.</p>
 <p>any wust type (<code>struct</code> ow <code>enum</code>) can be used as a wesouwce. &gt;_&lt; cuwwentwy,
 no speciaw twait ow dewive is wequiwed, OwO b-but that m-may change in futuwe b-bevy
-vewsions (simiwaw to how components wequiwe it).</p>
+vewsions (simiwaw to how [components][cb::component] wequiwe it).</p>
 <p>types must be unique; thewe can onwy b-be one instance o-of a given type.</p>
 <pre><code class="language-rust no_run noplayground">stwuct goawsweached {
     main_goaw: b-boow, ^•ﻌ•^
     bonus: b-boow, OwO
 }
 </code></pre>
-<p>wesouwces can be accessed fwom <a href="./systems.html">systems</a>, XD using <code>Res</code>/<code>ResMut</code>.</p>
+<p>wesouwces can be accessed fwom [systems][cb::system], XD using <code>Res</code>/<code>ResMut</code>.</p>
 <h2 id="wesouwce-initiawization"><a class="header" href="#wesouwce-initiawization">wesouwce initiawization</a></h2>
 <p>impwement <code>Default</code> fow simpwe wesouwces:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
@@ -172,7 +173,7 @@ i-impw fwomwowwd f-fow myfancywesouwce {
     }
 }
 </code></pre>
-<p>you can initiawize youw wesouwces a-at <a href="./app-builder.html"><code>App</code> cweation</a>:</p>
+<p>you can initiawize youw wesouwces a-at [<code>App</code> cweation][cb::app]:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
         // ...
@@ -186,7 +187,7 @@ i-impw fwomwowwd f-fow myfancywesouwce {
         .wun();
 }
 </code></pre>
-<p><a href="./commands.html"><code>Commands</code></a> can be used to cweate/wemove wesouwces f-fwom
+<p>[<code>Commands</code>][cb::commands] can be used to cweate/wemove wesouwces f-fwom
 inside a system:</p>
 <pre><code class="language-rust no_run noplayground">commands.insewt_wesouwce(goawsweached { main_goaw: fawse, (ꈍᴗꈍ) bonus: f-fawse });
 commands.wemove_wesouwce::&lt;mywesouwce&gt;();
