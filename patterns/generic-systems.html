@@ -136,14 +136,13 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="genewic-systems"><a class="header" href="#genewic-systems">genewic systems</a></h1>
-<p>{{#incwude ../incwude/winks.md}}</p>
-<p>bevy [systems][cb::system] awe just pwain wust functions, (ꈍᴗꈍ) which m-means they
+<p>bevy <a href="/programming/systems.html">systems</a> awe just pwain wust functions, (ꈍᴗꈍ) which m-means they
 can be genewic. OwO you can add the same s-system muwtipwe t-times, 🥺 pawametwized t-to
 wowk on diffewent wust types ow vawues.</p>
 <h2 id="genewic-ovew-component-types"><a class="header" href="#genewic-ovew-component-types">genewic ovew component types</a></h2>
 <p>you can use the genewic type pawametew t-to specify n-nyani compnent t-types (and
 hence nyani entities) youw system s-shouwd opewate o-on.</p>
-<p>this can be usefuw when combined w-with bevy [states][cb::state].
+<p>this can be usefuw when combined w-with bevy <a href="/programming/states.html">states</a>.
 you can do the same thing to diffewent s-sets of entities d-depending o-on state.</p>
 <h3 id="exampwe-cweanup"><a class="header" href="#exampwe-cweanup">exampwe: cweanup</a></h3>
 <p>one stwaightfowwawd use-case is fow c-cweanup. OwO we can m-make a genewic c-cweanup
@@ -196,15 +195,15 @@ f-fn main() {
 vawying impwementation/functionawity fow each type.</p>
 <h3 id="exampwe-bevys-camewa-pwojections"><a class="header" href="#exampwe-bevys-camewa-pwojections">exampwe: bevy's camewa pwojections</a></h3>
 <p>(this is a use-case within bevy itsewf)</p>
-<p>bevy has a [<code>CameraProjection</code>][bevy::camewapwojection] twait. XD diffewent
-pwojection types wike [<code>PerspectiveProjection</code>][bevy::pewspectivepwojection]
-and [<code>OrthographicProjection</code>][bevy::owthogwaphicpwojection] impwement that
+<p>bevy has a <a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/trait.CameraProjection.html"><code>CameraProjection</code></a> twait. XD diffewent
+pwojection types wike <a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.PerspectiveProjection.html"><code>PerspectiveProjection</code></a>
+and <a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a> impwement that
 twait, OwO pwoviding the cowwect wogic f-fow how to wespond t-to wesizing t-the window,
 cawcuwating the pwojection matwix, (ꈍᴗꈍ) e-etc.</p>
 <p>thewe is a genewic system <code>fn camera_system::&lt;T: CameraProjection + Component&gt;</code>, ^•ﻌ•^ which handwes aww the camewas with a-a given pwojection t-type. OwO it
 wiww caww the twait methods when a-appwopwiate (wike o-on window wesize e-events).</p>
-<p>the [bevy cookbook custom camewa pwojection
-exampwe][cb::camewa-custom-pwojection] shows this api in action.</p>
+<p>the <a href="/cookbook/custom-projection.html">bevy cookbook custom camewa pwojection
+exampwe</a> shows this api in action.</p>
 <h2 id="using-const-genewics"><a class="header" href="#using-const-genewics">using const genewics</a></h2>
 <p>now that wust has suppowt fow const g-genewics, OwO functions c-can awso b-be
 pawametwized by vawues, (ꈍᴗꈍ) nyot just t-types.</p>
@@ -227,7 +226,7 @@ f-fn main() {
 some cases, 🥺 when you might suspect t-that you couwd u-use const genewics, òωó y-you might weawize t-that
 you actuawwy want a wuntime vawue.</p>
 <p>if you nyeed to &quot;configuwe&quot; youw s-system by passing i-in some data, 🥺 y-you couwd, òωó instead, u-use a
-[wesouwce][cb::wes] ow [wocaw][cb::wocaw].</p>
+<a href="/programming/res.html">wesouwce</a> ow <a href="/programming/local.html">wocaw</a>.</p>
 <p>note: as of wust 1.53, (ꈍᴗꈍ) suppowt fow u-using <code>enum</code> vawues as const genewics is nyot y-yet stabwe. (ꈍᴗꈍ) to
 use <code>enum</code>s, OwO you nyeed wust nyightwy, 🥺 and to e-enabwe the expewimentaw/unstabwe f-featuwe (put t-this
 at the top of youw <code>main.rs</code> ow <code>lib.rs</code>):</p>

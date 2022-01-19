@@ -136,13 +136,12 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="hot-wewoading-assets"><a class="header" href="#hot-wewoading-assets">hot-wewoading assets</a></h1>
-<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-[<code>hot_asset_reloading</code>][exampwe::hot_asset_wewoading],
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/asset/hot_asset_reloading.rs"><code>hot_asset_reloading</code></a>,
 [<code>hot_shader_reloading</code>][exampwe::hot_shadew_wewoading].</p>
 <hr />
-<p>at wuntime, (ꈍᴗꈍ) if you modify the fiwe o-of an [asset][cb::asset] that is woaded
-into the game (via the [<code>AssetServer</code>][bevy::assetsewvew]), XD bevy wiww detect
+<p>at wuntime, (ꈍᴗꈍ) if you modify the fiwe o-of an <a href="/features/assets.html">asset</a> that is woaded
+into the game (via the <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a>), XD bevy wiww detect
 that and wewoad the asset automaticawwy. OwO t-this is v-vewy usefuw fow q-quick
 itewation. OwO you can edit youw assets w-whiwe the game i-is wunning and s-see the
 changes instantwy in-game.</p>
@@ -151,17 +150,17 @@ equawwy weww. OwO typicaw asset types w-wike textuwes / i-images shouwd wowk w-w
 issues, OwO but compwex gwtf ow scene f-fiwes, 🥺 ow assets i-invowving custom w-wogic,
 might nyot.</p>
 <p>if you nyeed to wun custom wogic a-as pawt of youw h-hot-wewoading
-wowkfwow, (ꈍᴗꈍ) you couwd impwement it i-in a [system][cb::system], XD using
-[<code>AssetEvent</code>][bevy::assetevent] ([weawn mowe][cb::assetevent]).</p>
+wowkfwow, (ꈍᴗꈍ) you couwd impwement it i-in a <a href="/programming/systems.html">system</a>, XD using
+<a href="https://docs.rs/bevy/0.6.0/bevy/asset/enum.AssetEvent.html"><code>AssetEvent</code></a> ([weawn mowe][cb::assetevent]).</p>
 <p>hot wewoading is opt-in and has to b-be enabwed in o-owdew to wowk. OwO you c-can do
-this in a [stawtup system][cb::app]:</p>
+this in a <a href="/programming/app-builder.html">stawtup system</a>:</p>
 <pre><code class="language-rust no_run noplayground">    asset_sewvew.watch_fow_changes().unwwap();
 </code></pre>
 <h2 id="shadews"><a class="header" href="#shadews">shadews</a></h2>
 <p>bevy awso suppowts hot-wewoading f-fow shadews. ^•ﻌ•^ you c-can edit youw
 custom shadew code and see the changes i-immediatewy. ^•ﻌ•^ t-this onwy wowks
 if you awe woading youw shadews thwough t-the bevy a-asset system
-(via the [<code>AssetServer</code>][bevy::assetsewvew]). XD see the [officiaw
+(via the <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a>). XD see the [officiaw
 exampwe][exampwe::hot_shadew_wewoading].</p>
 
                     </main>

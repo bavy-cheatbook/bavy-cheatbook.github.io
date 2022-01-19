@@ -135,18 +135,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>{{#incwude ../incwude/winks.md}}</p>
-<p>wewevant officiaw exampwes:
-[<code>ecs_guide</code>][exampwe::ecs_guide].</p>
+                        <p>wewevant officiaw exampwes:
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
 <h1 id="entities"><a class="header" href="#entities">entities</a></h1>
-<p>entities awe just a [simpwe integew id][bevy::entity], (ꈍᴗꈍ) that identifies a pawticuwaw set o-of
+<p>entities awe just a <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/entity/struct.Entity.html">simpwe integew id</a>, (ꈍᴗꈍ) that identifies a pawticuwaw set o-of
 component vawues.</p>
-<p>to cweate (&quot;spawn&quot;) nyew entities, (ꈍᴗꈍ) u-use [<code>Commands</code>][cb::commands].</p>
+<p>to cweate (&quot;spawn&quot;) nyew entities, (ꈍᴗꈍ) u-use <a href="/programming/commands.html"><code>Commands</code></a>.</p>
 <h1 id="components"><a class="header" href="#components">components</a></h1>
 <p>components awe the data associated w-with entities.</p>
 <p>to cweate a nyew component type, s-simpwy define a w-wust <code>struct</code> ow <code>enum</code>, XD and
-dewive the [<code>Component</code>][bevy::component] twait.</p>
+dewive the <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/component/trait.Component.html"><code>Component</code></a> twait.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(component)]
 stwuct heawth {
     hp: f32, (ꈍᴗꈍ)
@@ -175,8 +174,8 @@ s-stwuct e-enemy;
 #[dewive(component)]
 stwuct pwayew;
 </code></pre>
-<p>components can be accessed fwom [systems][cb::system], XD using [quewies][cb::quewy].</p>
-<p>you can add/wemove components on e-existing entities, ^•ﻌ•^ u-using [<code>Commands</code>][cb::commands].</p>
+<p>components can be accessed fwom <a href="/programming/systems.html">systems</a>, XD using <a href="/programming/queries.html">quewies</a>.</p>
+<p>you can add/wemove components on e-existing entities, ^•ﻌ•^ u-using <a href="/programming/commands.html"><code>Commands</code></a>.</p>
 <h1 id="component-bundwes"><a class="header" href="#component-bundwes">component bundwes</a></h1>
 <p>bundwes awe wike &quot;tempwates&quot;, OwO to m-make it easy to c-cweate entities w-with a
 common set of components.</p>
@@ -196,9 +195,9 @@ stwuct pwayewbundwe {
 <p>bevy awso considews awbitwawy tupwes o-of components a-as bundwes:</p>
 <pre><code>(componenta, &gt;_&lt; componentb, (ꈍᴗꈍ) componentc)
 </code></pre>
-<p>note that you cannot [quewy][cb::quewy] fow a whowe bundwe. (ꈍᴗꈍ) bundwes awe j-just a
+<p>note that you cannot <a href="/programming/queries.html">quewy</a> fow a whowe bundwe. (ꈍᴗꈍ) bundwes awe j-just a
 convenience when cweating the entities. OwO q-quewy fow t-the individuaw c-component types
-that youw [system][cb::system] nyeeds to access.</p>
+that youw <a href="/programming/systems.html">system</a> nyeeds to access.</p>
 
                     </main>
 

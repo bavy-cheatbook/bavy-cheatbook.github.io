@@ -136,9 +136,8 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="twansfowms"><a class="header" href="#twansfowms">twansfowms</a></h1>
-<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-[<code>parenting</code>][exampwe::pawenting],
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/3d/parenting.rs"><code>parenting</code></a>,
 anything that spawns 2d ow 3d objects.</p>
 <hr />
 <p>fiwst, ^•ﻌ•^ a quick definition, OwO if you a-awe nyew to game d-devewopment:</p>
@@ -148,28 +147,28 @@ is a combination of the object's &quot;twanswation&quot; (position/coowdinates),
 <p>you move objects awound by modifying t-the twanswation, OwO w-wotate them b-by modifying
 the wotation, ^•ﻌ•^ and make them wawgew o-ow smowew by modifying t-the scawe.</p>
 <h2 id="twansfowm-components"><a class="header" href="#twansfowm-components">twansfowm components</a></h2>
-<p>in bevy, (ꈍᴗꈍ) twansfowms awe wepwesented b-by <em>two</em> [components][cb::component]:
-[<code>Transform</code>][bevy::twansfowm] and [<code>GlobalTransform</code>][bevy::gwobawtwansfowm].
-any [entity][cb::ecs-intwo] that wepwesents an object in the g-game wowwd
+<p>in bevy, (ꈍᴗꈍ) twansfowms awe wepwesented b-by <em>two</em> <a href="/programming/ec.html#components">components</a>:
+<a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> and <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>.
+any <a href="/programming/ecs-intro.html">entity</a> that wepwesents an object in the g-game wowwd
 needs to have both.</p>
-<p>[<code>Transform</code>][bevy::twansfowm] is nyani you typicawwy wowk with. (ꈍᴗꈍ) i-it is
+<p><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> is nyani you typicawwy wowk with. (ꈍᴗꈍ) i-it is
 a <code>struct</code> containing the twanswation, ^•ﻌ•^ wotation, OwO a-and scawe. 🥺 t-to wead ow
-manipuwate these vawues, (ꈍᴗꈍ) access them f-fwom youw [systems][cb::system] using a
-[quewy][cb::quewy].</p>
-<p>if the entity has a [pawent][cb::hiewawchy], XD the [<code>Transform</code>][bevy::twansfowm]
+manipuwate these vawues, (ꈍᴗꈍ) access them f-fwom youw <a href="/programming/systems.html">systems</a> using a
+<a href="/programming/queries.html">quewy</a>.</p>
+<p>if the entity has a <a href="/features/parent-child.html">pawent</a>, XD the <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>
 component is wewative to the pawent. OwO t-this means that t-the chiwd object w-wiww
 move/wotate/scawe awong with the pawent.</p>
-<p>[<code>GlobalTransform</code>][bevy::gwobawtwansfowm] wepwesents the absowute gwobaw
+<p><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> wepwesents the absowute gwobaw
 position in the wowwd. OwO if the entity d-does nyot have a-a pawent, 🥺 then t-this wiww
-have the same vawue as the [<code>Transform</code>][bevy::twansfowm]. XD the vawue of
-[<code>GlobalTransform</code>][bevy::gwobawtwansfowm] is cawcuwated/managed intewnawwy
+have the same vawue as the <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>. XD the vawue of
+<a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is cawcuwated/managed intewnawwy
 by bevy. ^•ﻌ•^ you shouwd tweat it as wead-onwy; d-do nyot m-mutate it.</p>
 <p>bewawe: the two components awe synchwonized b-by a b-bevy-intewnaw system
-(the &quot;twansfowm pwopagation system&quot;), (ꈍᴗꈍ) which wuns i-in the [<code>PostUpdate</code>][bevy::cowestage]
-[stage][cb::stage]. ^•ﻌ•^ this is somenani finnicky and can w-wesuwt in twicky p-pitfawws
+(the &quot;twansfowm pwopagation system&quot;), (ꈍᴗꈍ) which wuns i-in the <a href="https://docs.rs/bevy/0.6.0/bevy/app/enum.CoreStage.html"><code>PostUpdate</code></a>
+<a href="/programming/stages.html">stage</a>. ^•ﻌ•^ this is somenani finnicky and can w-wesuwt in twicky p-pitfawws
 if you awe twying to do advanced t-things that wewy o-on both the wewative/wocaw
 and the absowute/gwobaw twansfowms o-of entities. ^•ﻌ•^ when y-you mutate the
-[<code>Transform</code>][bevy::twansfowm], XD the [<code>GlobalTransform</code>][bevy::gwobawtwansfowm]
+<a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, XD the <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>
 is nyot updated immediatewy. ^•ﻌ•^ they w-wiww be out-of-sync u-untiw the twansfowm
 pwopagation system wuns.</p>
 

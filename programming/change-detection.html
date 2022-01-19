@@ -136,30 +136,29 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="change-detection"><a class="header" href="#change-detection">change detection</a></h1>
-<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-[<code>component_change_detection</code>][exampwe::component_change_detection].</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/ecs/component_change_detection.rs"><code>component_change_detection</code></a>.</p>
 <hr />
 <p>bevy awwows you to easiwy detect w-when data is changed. OwO y-you can use t-this to
 pewfowm actions in wesponse to changes.</p>
 <h2 id="components"><a class="header" href="#components">components</a></h2>
-<p>use [quewy fiwtews][cb::quewy-fiwtew]:</p>
+<p>use <a href="/programming/queries.html#query-filters">quewy fiwtews</a>:</p>
 <ul>
-<li>[<code>Added&lt;T&gt;</code>][bevy::added]: detect nyew component instances
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/query/struct.Added.html"><code>Added&lt;T&gt;</code></a>: detect nyew component instances
 <ul>
 <li>if the component was added to an e-existing entity</li>
 <li>if a nyew entity with the component w-was spawned</li>
 </ul>
 </li>
-<li>[<code>Changed&lt;T&gt;</code>][bevy::changed]: detect component instances that h-have been changed
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/query/struct.Changed.html"><code>Changed&lt;T&gt;</code></a>: detect component instances that h-have been changed
 <ul>
 <li>twiggews when the component is accessed m-mutabwy</li>
-<li>awso twiggews if the component is n-nyewwy-added (as p-pew [<code>Added</code>][bevy::added])</li>
+<li>awso twiggews if the component is n-nyewwy-added (as p-pew <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/query/struct.Added.html"><code>Added</code></a>)</li>
 </ul>
 </li>
 </ul>
-<p>(if you want to weact to wemovaws, (ꈍᴗꈍ) s-see the page on [wemovaw
-detection][cb::wemovaw-detection]. &gt;_&lt; it wowks diffewentwy and is much
+<p>(if you want to weact to wemovaws, (ꈍᴗꈍ) s-see the page on <a href="/programming/removal-detection.html">wemovaw
+detection</a>. &gt;_&lt; it wowks diffewentwy and is much
 twickiew to use.)</p>
 <pre><code class="language-rust no_run noplayground">/// pwint the stats of fwiendwy pwayews w-when they c-change
 fn debug_stats_change(
@@ -187,8 +186,8 @@ f-fn debug_new_hostiwes(
     }
 }
 </code></pre>
-<p>[<code>Changed</code>][bevy::changed] detection is twiggewed by
-[<code>DerefMut</code>][std::dewefmut]. (ꈍᴗꈍ) simpwy accessing components via a-a mutabwe quewy,
+<p><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/query/struct.Changed.html"><code>Changed</code></a> detection is twiggewed by
+<a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>. (ꈍᴗꈍ) simpwy accessing components via a-a mutabwe quewy,
 without actuawwy pewfowming a <code>&amp;mut</code> access, XD wiww <em>not</em> twiggew it.</p>
 <p>this makes change detection quite a-accuwate. OwO you can w-wewy on it to o-optimize
 youw game's pewfowmance, ^•ﻌ•^ ow to othewwise t-twiggew t-things to happen.</p>
@@ -210,11 +209,11 @@ change detection. ^•ﻌ•^ if you want to a-avoid that, OwO simpwy c-check it
 </code></pre>
 <p>change detection is wewiabwe -- it w-wiww detect any c-changes that
 have occuwed since the wast time y-youw detecting system w-wan. ^•ﻌ•^ if youw
-system onwy wuns sometimes (such a-as with [states][cb::state] ow [wun
-cwitewia][cb::wuncwitewia]), XD you <em>do nyot</em> have to wowwy about missing changes.</p>
+system onwy wuns sometimes (such a-as with <a href="/programming/states.html">states</a> ow <a href="/programming/run-criteria.html">wun
+cwitewia</a>), XD you <em>do nyot</em> have to wowwy about missing changes.</p>
 <h2 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h2>
-<p>fow [wesouwces][cb::wes], (ꈍᴗꈍ) change detection is pwovided via m-methods on the
-[<code>Res</code>][bevy::wes]/[<code>ResMut</code>][bevy::wesmut] system pawametews.</p>
+<p>fow <a href="/programming/res.html">wesouwces</a>, (ꈍᴗꈍ) change detection is pwovided via m-methods on the
+<a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a> system pawametews.</p>
 <pre><code class="language-rust no_run noplayground">fn check_wes_changed(
     my_wes: w-wes&lt;mywesouwce&gt;, (U ﹏ U)
 ) {
@@ -239,17 +238,17 @@ f-fn check_wes_added(
 </code></pre>
 <p>this wowks the same way as change d-detection fow components.</p>
 <p>note that change detection cannot c-cuwwentwy be used t-to detect
-[states][cb::state] changes (via the [<code>State</code>][bevy::state]
-[wesouwce][cb::wes]) ([bug][bevy::2343]).</p>
+<a href="/programming/states.html">states</a> changes (via the <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/schedule/struct.State.html"><code>State</code></a>
+<a href="/programming/res.html">wesouwce</a>) (<a href="https://github.com/bevyengine/bevy/issues/2343">bug</a>).</p>
 <h2 id="possibwe-pitfawws"><a class="header" href="#possibwe-pitfawws">possibwe pitfawws</a></h2>
 <p>bewawe of fwame deway / 1-fwame-wag. ^•ﻌ•^ this can occuw i-if bevy wuns t-the detecting
 system befowe the changing system. OwO t-the detecting s-system wiww see t-the change
 the nyext time it wuns, ^•ﻌ•^ typicawwy o-on the nyext fwame u-update.</p>
 <p>if you nyeed to ensuwe that changes a-awe handwed immediatewy / d-duwing t-the same
-fwame, XD you can use [expwicit system owdewing][cb::system-owdew].</p>
-<p>howevew, (ꈍᴗꈍ) when detecting component a-additions with [<code>Added&lt;T&gt;</code>][bevy::added]
-(which awe typicawwy done using [<code>Commands</code>][cb::commands]), XD this is nyot
-enough; you nyeed [stages][cb::stage].</p>
+fwame, XD you can use <a href="/programming/system-order.html">expwicit system owdewing</a>.</p>
+<p>howevew, (ꈍᴗꈍ) when detecting component a-additions with <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/query/struct.Added.html"><code>Added&lt;T&gt;</code></a>
+(which awe typicawwy done using <a href="/programming/commands.html"><code>Commands</code></a>), XD this is nyot
+enough; you nyeed <a href="/programming/stages.html">stages</a>.</p>
 
                     </main>
 

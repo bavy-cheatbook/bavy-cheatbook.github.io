@@ -136,19 +136,18 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="hiewawchicaw-pawentchiwd-entities"><a class="header" href="#hiewawchicaw-pawentchiwd-entities">hiewawchicaw (pawent/chiwd) entities</a></h1>
-<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-[<code>hierarchy</code>][exampwe::hiewawchy],
-[<code>parenting</code>][exampwe::pawenting].</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/ecs/hierarchy.rs"><code>hierarchy</code></a>,
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/3d/parenting.rs"><code>parenting</code></a>.</p>
 <hr />
-<p>technicawwy, XD the [entities/components][cb::ec] themsewves cannot fowm a
-hiewawchy (the [ecs][cb::ecs-intwo] is a fwat data stwuctuwe). &gt;_&lt; howevew,
+<p>technicawwy, XD the <a href="/programming/ec.html">entities/components</a> themsewves cannot fowm a
+hiewawchy (the <a href="/programming/ecs-intro.html">ecs</a> is a fwat data stwuctuwe). &gt;_&lt; howevew,
 wogicaw hiewawchies awe a common p-pattewn in games.</p>
 <p>bevy suppowts cweating such a wogicaw w-wink between e-entities, to fowm
-a viwtuaw &quot;hiewawchy&quot;, (ꈍᴗꈍ) by simpwy a-adding [<code>Parent</code>][bevy::pawent] and
-[<code>Children</code>][bevy::chiwdwen] components on the wespective entities.</p>
-<p>when using [commands][cb::commands] to spawn entities,
-[<code>Commands</code>][bevy::commands] has methods fow adding chiwdwen t-to entities,
+a viwtuaw &quot;hiewawchy&quot;, (ꈍᴗꈍ) by simpwy a-adding <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Parent.html"><code>Parent</code></a> and
+<a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Children.html"><code>Children</code></a> components on the wespective entities.</p>
+<p>when using <a href="/programming/commands.html">commands</a> to spawn entities,
+<a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> has methods fow adding chiwdwen t-to entities,
 which automaticawwy add the cowwect c-components:</p>
 <pre><code class="language-rust no_run noplayground">// spawn the pawent and get its entity i-id
 wet pawent = c-commands.spawn_bundwe(mypawentbundwe::defauwt())
@@ -167,7 +166,7 @@ commands.spawn_bundwe(mypawentbundwe::defauwt())
         pawent.spawn_bundwe(mychiwdbundwe::defauwt());
     });
 </code></pre>
-<p>you can despawn an entiwe hiewawchy w-with a singwe [command][cb::commands]:</p>
+<p>you can despawn an entiwe hiewawchy w-with a singwe <a href="/programming/commands.html">command</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn cwose_menu(
     mut commands: c-commands, ( ͡o ω ͡o )
     quewy: q-quewy&lt;entity, UwU w-with&lt;mainmenuui&gt;&gt;, rawr x3
@@ -179,7 +178,7 @@ commands.spawn_bundwe(mypawentbundwe::defauwt())
 }
 </code></pre>
 <h2 id="accessing-the-pawent-ow-chiwdwen"><a class="header" href="#accessing-the-pawent-ow-chiwdwen">accessing the pawent ow chiwdwen</a></h2>
-<p>to make a system that wowks with t-the hiewawchy, OwO you t-typicawwy nyeed t-two [quewies][cb::quewy]:</p>
+<p>to make a system that wowks with t-the hiewawchy, OwO you t-typicawwy nyeed t-two <a href="/programming/queries.html">quewies</a>:</p>
 <ul>
 <li>one with the components you nyeed f-fwom the chiwd e-entities</li>
 <li>one with the components you nyeed f-fwom the pawent e-entities</li>
@@ -187,14 +186,14 @@ commands.spawn_bundwe(mypawentbundwe::defauwt())
 <p>one of the two quewies shouwd incwude t-the appwopwiate c-component, OwO t-to obtain the
 entity ids to use with the othew o-one:</p>
 <ul>
-<li>[<code>Parent</code>][bevy::pawent] in the chiwd quewy, (ꈍᴗꈍ) if you want t-to itewate entities
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Parent.html"><code>Parent</code></a> in the chiwd quewy, (ꈍᴗꈍ) if you want t-to itewate entities
 and wook up theiw pawents, &gt;_&lt; ow</li>
-<li>[<code>Children</code>][bevy::chiwdwen] in the pawent quewy, (ꈍᴗꈍ) if you want t-to itewate entities
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Children.html"><code>Children</code></a> in the pawent quewy, (ꈍᴗꈍ) if you want t-to itewate entities
 and wook up theiw chiwdwen</li>
 </ul>
-<p>fow exampwe, &gt;<em>&lt; if we want to get the [<code>Transform</code>][bevy::twansfowm]
-of camewas ([<code>Camera</code>][bevy::camewa]) that have a pawent, &gt;</em>&lt; and the
-[<code>GlobalTransform</code>][bevy::gwobawtwansfowm] of theiw pawent:</p>
+<p>fow exampwe, &gt;<em>&lt; if we want to get the <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>
+of camewas (<a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a>) that have a pawent, &gt;</em>&lt; and the
+<a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> of theiw pawent:</p>
 <pre><code class="language-rust no_run noplayground">fn camewa_with_pawent(
     q_chiwd: q-quewy&lt;(&amp;pawent, :3 &amp;twansfowm), (U ﹏ U) w-with&lt;camewa&gt;&gt;, -.-
     q-q_pawent: quewy&lt;&amp;gwobawtwansfowm&gt;, (ˆ ﻌ ˆ)♡
@@ -233,12 +232,12 @@ the chiwd to be positioned wewative t-to the pawent a-and move with it.</p>
 <p>aww bundwes that come with bevy pwovide t-this behaviow a-automaticawwy.</p>
 <p>if you awe nyot using such a bundwe, ^•ﻌ•^ y-you nyeed to m-make suwe
 to add these components to both the p-pawent and the c-chiwd entities:
-[<code>GlobalTransform</code>][bevy::gwobawtwansfowm] and [<code>Transform</code>][bevy::twansfowm].</p>
-<p>the [<code>Transform</code>][bevy::twansfowm] wepwesents the wewative position.
+<a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> and <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>.</p>
+<p>the <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> wepwesents the wewative position.
 you can manipuwate it diwectwy.</p>
-<p>the [<code>GlobalTransform</code>][bevy::gwobawtwansfowm] wepwesents the absowute position.
+<p>the <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> wepwesents the absowute position.
 it is managed by bevy intewnawwy; d-do nyot manipuwate i-it youwsewf.</p>
-<p>fow mowe info, &gt;_&lt; see the [dedicated page about twansfowms][cb::twansfowm].</p>
+<p>fow mowe info, &gt;_&lt; see the <a href="/features/transforms.html">dedicated page about twansfowms</a>.</p>
 
                     </main>
 

@@ -136,15 +136,14 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="pwugins"><a class="header" href="#pwugins">pwugins</a></h1>
-<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-[<code>plugin</code>][exampwe::pwugin],
-[<code>plugin_group</code>][exampwe::pwugin_gwoup].</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/app/plugin.rs"><code>plugin</code></a>,
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/app/plugin_group.rs"><code>plugin_group</code></a>.</p>
 <hr />
 <p>as youw pwoject gwows, OwO it can be u-usefuw to make it m-mowe moduwaw. 🥺 y-you can
 spwit it into &quot;pwugins&quot;.</p>
-<p>pwugins awe simpwy cowwections of t-things to be added t-to the [app
-buiwdew][cb::app].</p>
+<p>pwugins awe simpwy cowwections of t-things to be added t-to the <a href="/programming/app-builder.html">app
+buiwdew</a>.</p>
 <pre><code class="language-rust no_run noplayground">stwuct mypwugin;
 
 impw pwugin fow m-mypwugin {
@@ -167,18 +166,18 @@ f-fn main() {
 <p>fow intewnaw owganization in youw o-own pwoject, the m-main vawue of p-pwugins
 comes fwom nyot having to decwawe a-aww youw wust types a-and functions a-as
 <code>pub</code>, (ꈍᴗꈍ) just so they can be accessibwe f-fwom <code>fn main</code> to be added to the
-app buiwdew. (ꈍᴗꈍ) pwugins wet you add t-things to youw [app][cb::app] fwom muwtipwe
+app buiwdew. (ꈍᴗꈍ) pwugins wet you add t-things to youw <a href="/programming/app-builder.html">app</a> fwom muwtipwe
 diffewent pwaces, (ꈍᴗꈍ) wike sepawate wust f-fiwes / moduwes.</p>
 <p>you can decide how pwugins fit into t-the awchitectuwe o-of youw game.</p>
 <p>some suggestions:</p>
 <ul>
-<li>cweate pwugins fow diffewent [states][cb::state].</li>
+<li>cweate pwugins fow diffewent <a href="/programming/states.html">states</a>.</li>
 <li>cweate pwugins fow vawious sub-systems, ^•ﻌ•^ w-wike physics o-ow input handwing.</li>
 </ul>
 <h2 id="pwugin-gwoups"><a class="header" href="#pwugin-gwoups">pwugin gwoups</a></h2>
 <p>pwugin gwoups wegistew muwtipwe pwugins a-at once.
-bevy's [<code>DefaultPlugins</code>][bevy::defauwtpwugins] and
-[<code>MinimalPlugins</code>][bevy::minimawpwugins] awe exampwes of this.
+bevy's <a href="https://docs.rs/bevy/0.6.0/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> and
+<a href="https://docs.rs/bevy/0.6.0/bevy/struct.MinimalPlugins.html"><code>MinimalPlugins</code></a> awe exampwes of this.
 to cweate youw own pwugin gwoup:</p>
 <pre><code class="language-rust no_run noplayground">stwuct mypwugingwoup;
 
@@ -197,10 +196,10 @@ f-fn main() {
         .wun();
 }
 </code></pre>
-<p>when adding a pwugin gwoup to the [app][cb::app], &gt;_&lt; you can disabwe some
+<p>when adding a pwugin gwoup to the <a href="/programming/app-builder.html">app</a>, &gt;_&lt; you can disabwe some
 pwugins whiwe keeping the west.</p>
 <p>fow exampwe, ^•ﻌ•^ if you want to manuawwy s-set up wogging (with y-youw own <code>tracing</code>
-subscwibew), &gt;_&lt; you can disabwe bevy's [<code>LogPlugin</code>][bevy::wogpwugin]:</p>
+subscwibew), &gt;_&lt; you can disabwe bevy's <a href="https://docs.rs/bevy/0.6.0/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">app::new()
     .add_pwugins_with(defauwtpwugins, |pwugins| {
         pwugins.disabwe::&lt;wogpwugin&gt;()
@@ -211,18 +210,18 @@ subscwibew), &gt;_&lt; you can disabwe bevy's [<code>LogPlugin</code>][bevy::wog
 wemove the code to avoid binawy bwoat. OwO t-the disabwed p-pwugins stiww h-have to
 be compiwed into youw pwogwam.</p>
 <p>if you want to swim down youw buiwd, OwO y-you shouwd wook a-at disabwing b-bevy's
-defauwt [cawgo featuwes][cb::featuwes], &gt;_&lt; ow depending on the vawious bevy
+defauwt <a href="/setup/bevy-config.html">cawgo featuwes</a>, &gt;_&lt; ow depending on the vawious bevy
 sub-cwates individuawwy.</p>
 <h2 id="pubwishing-cwates"><a class="header" href="#pubwishing-cwates">pubwishing cwates</a></h2>
 <p>pwugins give you a nyice way to pubwish b-bevy-based w-wibwawies fow o-othew peopwe
 to easiwy incwude into theiw pwojects.</p>
 <p>if you intend to pubwish pwugins a-as cwates fow pubwic u-use, OwO you shouwd w-wead
-[the officiaw guidewines fow pwugin a-authows][bevy::pwugins_guidewines].</p>
-<p>don't fowget to submit an entwy to [bevy assets][bevyassets] on the officiaw
+<a href="https://github.com/bevyengine/bevy/blob/main/docs/plugins_guidelines.md">the officiaw guidewines fow pwugin a-authows</a>.</p>
+<p>don't fowget to submit an entwy to <a href="https://bevyengine.org/assets">bevy assets</a> on the officiaw
 website, OwO so that peopwe can find y-youw pwugin mowe e-easiwy. 🥺 you can d-do this
-by making a pw in [the github wepo][pwoject::bevyassets].</p>
-<p>if you awe intewested in suppowting b-bweeding-edge b-bevy (main), ^•ﻌ•^ [see hewe
-fow advice][cb::git-pwugins].</p>
+by making a pw in <a href="https://github.com/bevyengine/bevy-assets">the github wepo</a>.</p>
+<p>if you awe intewested in suppowting b-bweeding-edge b-bevy (main), ^•ﻌ•^ <a href="/setup/bevy-git.html#advice-for-plugin-authors">see hewe
+fow advice</a>.</p>
 
                     </main>
 

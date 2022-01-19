@@ -136,27 +136,26 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="wemovaw-detection"><a class="header" href="#wemovaw-detection">wemovaw detection</a></h1>
-<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-[<code>removal_detection</code>][exampwe::wemovaw_detection].</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/ecs/removal_detection.rs"><code>removal_detection</code></a>.</p>
 <hr />
-<p>wemovaw detection is speciaw. ^•ﻌ•^ this i-is because, unwike w-with [change
-detection][cb::change-detection], (ꈍᴗꈍ) the data does not exist in the e-ecs anymowe
+<p>wemovaw detection is speciaw. ^•ﻌ•^ this i-is because, unwike w-with <a href="/programming/change-detection.html">change
+detection</a>, (ꈍᴗꈍ) the data does not exist in the e-ecs anymowe
 (obviouswy), ^•ﻌ•^ so bevy cannot keep t-twacking metadata f-fow it.</p>
 <p>nevewthewess, OwO being abwe to wespond t-to wemovaws is i-impowtant fow s-some
 appwications, (ꈍᴗꈍ) so bevy offews a wimited f-fowm of it.</p>
 <h2 id="components"><a class="header" href="#components">components</a></h2>
-<p>you can check fow [components][cb::component] that have been wemoved duwing
+<p>you can check fow <a href="/programming/ec.html#components">components</a> that have been wemoved duwing
 the cuwwent fwame. OwO the data is cweawed a-at the end o-of evewy fwame u-update. 🥺 nyote
 that this makes this featuwe twicky t-to use, OwO and wequiwes y-you to use m-muwtipwe
-[stages][cb::stage].</p>
-<p>when you wemove a component (using [commands][cb::commands]
-([<code>Commands</code>][bevy::commands])), (ꈍᴗꈍ) the opewation is appwied at the e-end of the
-[stage][cb::stage]. XD the [system][cb::system] that checks fow the wemovaw
+<a href="/programming/stages.html">stages</a>.</p>
+<p>when you wemove a component (using <a href="/programming/commands.html">commands</a>
+(<a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>)), (ꈍᴗꈍ) the opewation is appwied at the e-end of the
+<a href="/programming/stages.html">stage</a>. XD the <a href="/programming/systems.html">system</a> that checks fow the wemovaw
 must wun in a watew stage duwing t-the same fwame update. OwO o-othewwise, 🥺 i-it wiww
 not detect the wemovaw.</p>
-<p>use the [<code>RemovedComponents&lt;T&gt;</code>][bevy::wemovedcomponents] speciaw system
-pawametew type, (ꈍᴗꈍ) to get an itewatow f-fow the [<code>Entity</code>][bevy::entity] ids of
+<p>use the <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.RemovedComponents.html"><code>RemovedComponents&lt;T&gt;</code></a> speciaw system
+pawametew type, (ꈍᴗꈍ) to get an itewatow f-fow the <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> ids of
 aww the entities that had a component o-of type <code>T</code> that was wemoved eawwiew
 this fwame.</p>
 <pre><code class="language-rust no_run noplayground">/// some component type fow the sake o-of this exampwe. OwO
@@ -198,11 +197,11 @@ f-fn detect_wemovaws(
 }
 </code></pre>
 <p>(to do things with these entities, ^•ﻌ•^ y-you can just use t-the <code>Entity</code> ids with
-[<code>Commands::entity()</code>][cb::commands] ow [<code>Query::get()</code>][cb::quewy].)</p>
+<a href="/programming/commands.html"><code>Commands::entity()</code></a> ow <a href="/programming/queries.html"><code>Query::get()</code></a>.)</p>
 <h2 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h2>
-<p>bevy does nyot pwovide any api fow d-detecting when [wesouwces][cb::wes] awe wemoved.</p>
-<p>you can wowk awound this using [<code>Option</code>][std::option] and a sepawate
-[<code>Local</code>][cb::wocaw] system pawametew, ^•ﻌ•^ effectivewy impwementing y-youw o-own
+<p>bevy does nyot pwovide any api fow d-detecting when <a href="/programming/res.html">wesouwces</a> awe wemoved.</p>
+<p>you can wowk awound this using <a href="https://doc.rust-lang.org/stable/std/option/enum.Option.html"><code>Option</code></a> and a sepawate
+<a href="/programming/local.html"><code>Local</code></a> system pawametew, ^•ﻌ•^ effectivewy impwementing y-youw o-own
 detection.</p>
 <pre><code class="language-rust no_run noplayground">fn detect_wemoved_wes(
     my_wes: o-option&lt;wes&lt;mywesouwce&gt;&gt;, ^^;;

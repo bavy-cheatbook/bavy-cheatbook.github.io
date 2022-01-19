@@ -136,7 +136,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="wist-of-bevy-buiwtins"><a class="header" href="#wist-of-bevy-buiwtins">wist of bevy buiwtins</a></h1>
-<p>{{#incwude ./incwude/winks.md}}</p>
 <p>this page is a quick condensed wisting o-of aww the i-impowtant things p-pwovided
 by bevy.</p>
 <ul>
@@ -153,44 +152,44 @@ by bevy.</p>
 <li><a href="#stages">stages</a></li>
 </ul>
 <h2 id="systempawams"><a class="header" href="#systempawams">systempawams</a></h2>
-<p>these awe aww the speciaw types that c-can be used a-as [system][cb::system] pawametews.</p>
-<p>[(wist in api docs)][bevy::impw::systempawam]</p>
+<p>these awe aww the speciaw types that c-can be used a-as <a href="/programming/systems.html">system</a> pawametews.</p>
+<p><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/trait.SystemParam.html#implementors">(wist in api docs)</a></p>
 <ul>
-<li>[<code>Commands</code>][bevy::commands]:
-manipuwate the ecs using [commands][cb::commands]</li>
-<li>[<code>Res&lt;T&gt;</code>][bevy::wes]:
-shawed access to a [wesouwce][cb::wes]</li>
-<li>[<code>ResMut&lt;T&gt;</code>][bevy::wesmut]:
-excwusive (mutabwe) access to a [wesouwce][cb::wes]</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>:
+manipuwate the ecs using <a href="/programming/commands.html">commands</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>:
+shawed access to a <a href="/programming/res.html">wesouwce</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>:
+excwusive (mutabwe) access to a <a href="/programming/res.html">wesouwce</a></li>
 <li><code>Option&lt;Res&lt;T&gt;&gt;</code>:
 shawed access to a wesouwce that m-may nyot exist</li>
 <li><code>Option&lt;ResMut&lt;T&gt;&gt;</code>:
 excwusive (mutabwe) access to a wesouwce that may n-nyot exist</li>
-<li>[<code>Query&lt;T, F = ()&gt;</code>][bevy::quewy] (can contain tupwes of up to 15 t-types):
-access to [entities and components][cb::ec]</li>
-<li>[<code>QuerySet</code>][bevy::quewyset] (with up to 4 quewies):
-wesowve [confwicting quewies][cb::quewyset]</li>
-<li>[<code>Local&lt;T&gt;</code>][bevy::wocaw]:
-data [wocaw][cb::wocaw] to the system</li>
-<li>[<code>EventReader&lt;T&gt;</code>][bevy::eventweadew]:
-weceive [events][cb::event]</li>
-<li>[<code>EventWriter&lt;T&gt;</code>][bevy::eventwwitew]:
-send [events][cb::event]</li>
-<li>[<code>RemovedComponents&lt;T&gt;</code>][bevy::wemovedcomponents]:
-[wemovaw detection][cb::wemovaw-detection]</li>
-<li>[<code>NonSend&lt;T&gt;</code>][bevy::nonsend]:
-shawed access to [non-<code>Send</code>][cb::nonsend] (main thwead onwy) data</li>
-<li>[<code>NonSendMut&lt;T&gt;</code>][bevy::nonsendmut]:
-mut access to [non-<code>Send</code>][cb::nonsend] (main thwead onwy) data</li>
-<li>[<code>Entities</code>][bevy::entities]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Query.html"><code>Query&lt;T, F = ()&gt;</code></a> (can contain tupwes of up to 15 t-types):
+access to <a href="/programming/ec.html">entities and components</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.QuerySet.html"><code>QuerySet</code></a> (with up to 4 quewies):
+wesowve <a href="/programming/query-sets.html">confwicting quewies</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
+data <a href="/programming/local.html">wocaw</a> to the system</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a>:
+weceive <a href="/programming/events.html">events</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a>:
+send <a href="/programming/events.html">events</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.RemovedComponents.html"><code>RemovedComponents&lt;T&gt;</code></a>:
+<a href="/programming/removal-detection.html">wemovaw detection</a></li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a>:
+shawed access to <a href="/programming/non-send.html">non-<code>Send</code></a> (main thwead onwy) data</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a>:
+mut access to <a href="/programming/non-send.html">non-<code>Send</code></a> (main thwead onwy) data</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/entity/struct.Entities.html"><code>Entities</code></a>:
 wow-wevew ecs metadata: aww entities</li>
-<li>[<code>Components</code>][bevy::components]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/component/struct.Components.html"><code>Components</code></a>:
 wow-wevew ecs metadata: aww components</li>
-<li>[<code>Bundles</code>][bevy::bundwes]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/bundle/struct.Bundles.html"><code>Bundles</code></a>:
 wow-wevew ecs metadata: aww bundwes</li>
-<li>[<code>Archetypes</code>][bevy::awchetypes]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/archetype/struct.Archetypes.html"><code>Archetypes</code></a>:
 wow-wevew ecs metadata: aww awchetypes</li>
-<li>[<code>SystemChangeTick</code>][bevy::systemchangetick]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.SystemChangeTick.html"><code>SystemChangeTick</code></a>:
 wow-wevew ecs metadata: tick used f-fow change detection</li>
 <li>tupwes containing any of these types, ^•ﻌ•^ w-with up to 16 m-membews</li>
 </ul>
@@ -200,283 +199,283 @@ gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up
 <h2 id="assets"><a class="header" href="#assets">assets</a></h2>
 <p>these awe the asset types wegistewed b-by bevy by defauwt.</p>
 <ul>
-<li>[<code>Image</code>][bevy::image]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/texture/struct.Image.html"><code>Image</code></a>:
 pixew data, (ꈍᴗꈍ) used as a textuwe fow 2d a-and 3d wendewing;
-awso contains the [<code>SamplerDescriptor</code>][bevy::sampwewdescwiptow] fow textuwe fiwtewing settings</li>
-<li>[<code>TextureAtlas</code>][bevy::textuweatwas]:
+awso contains the <a href="https://docs.rs/bevy/0.6.0/bevy/render/render_resource/struct.SamplerDescriptor.html"><code>SamplerDescriptor</code></a> fow textuwe fiwtewing settings</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.TextureAtlas.html"><code>TextureAtlas</code></a>:
 2d &quot;spwite sheet&quot; defining sub-images w-within a singwe w-wawgew image</li>
-<li>[<code>Mesh</code>][bevy::mesh]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a>:
 3d mesh (geometwy data), OwO contains v-vewtex attwibutes (wike p-position, 🥺 u-uvs, nyowmaws)</li>
-<li>[<code>Shader</code>][bevy::shadew]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/render_resource/struct.Shader.html"><code>Shader</code></a>:
 waw gpu shadew souwce code, OwO in one o-of the suppowted w-wanguages (wgsw o-ow spiw-v)</li>
-<li>[<code>ColorMaterial</code>][bevy::cowowmatewiaw]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.ColorMaterial.html"><code>ColorMaterial</code></a>:
 basic &quot;2d matewiaw&quot;: contains cowow, ^•ﻌ•^ o-optionawwy an i-image</li>
-<li>[<code>StandardMaterial</code>][bevy::standawdmatewiaw]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a>:
 &quot;3d matewiaw&quot; with suppowt fow physicawwy-based wendewing</li>
-<li>[<code>Font</code>][bevy::font]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/text/struct.Font.html"><code>Font</code></a>:
 font data used fow text wendewing</li>
-<li>[<code>Scene</code>][bevy::scene]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/scene/struct.Scene.html"><code>Scene</code></a>:
 scene composed of witewaw ecs entities t-to instantiate</li>
-<li>[<code>DynamicScene</code>][bevy::dynamicscene]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/scene/struct.DynamicScene.html"><code>DynamicScene</code></a>:
 scene composed with dynamic typing a-and wefwection</li>
-<li>[<code>Gltf</code>][bevy::gwtf]:
-[gwtf mastew asset][cb::gwtf-mastew]: index of the entiwe contents of a-a gwtf fiwe</li>
-<li>[<code>GltfNode</code>][bevy::gwtfnode]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a>:
+<a href="/features/gltf.html#gltf-master-asset">gwtf mastew asset</a>: index of the entiwe contents of a-a gwtf fiwe</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/gltf/struct.GltfNode.html"><code>GltfNode</code></a>:
 wogicaw gwtf object in a scene</li>
-<li>[<code>GltfMesh</code>][bevy::gwtfmesh]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/gltf/struct.GltfMesh.html"><code>GltfMesh</code></a>:
 wogicaw gwtf 3d modew, (ꈍᴗꈍ) consisting o-of muwtipwe <code>GltfPrimitive</code>s</li>
-<li>[<code>GltfPrimitive</code>][bevy::gwtfpwimitive]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/gltf/struct.GltfPrimitive.html"><code>GltfPrimitive</code></a>:
 singwe unit to be wendewed, ^•ﻌ•^ contains t-the mesh and m-matewiaw to use</li>
-<li>[<code>AudioSource</code>][bevy::audiosouwce]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/audio/struct.AudioSource.html"><code>AudioSource</code></a>:
 waw audio data fow <code>bevy_audio</code></li>
-<li>[<code>FontAtlasSet</code>][bevy::fontatwasset]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/text/struct.FontAtlasSet.html"><code>FontAtlasSet</code></a>:
 (intewnaw use fow text wendewing)</li>
 </ul>
 <h2 id="bundwes"><a class="header" href="#bundwes">bundwes</a></h2>
-<p>bevy's buiwt-in [bundwe][cb::bundwe] types, &gt;_&lt; fow spawning diffewent common
+<p>bevy's buiwt-in <a href="/programming/ec.html#component-bundles">bundwe</a> types, &gt;_&lt; fow spawning diffewent common
 kinds of entities.</p>
-<p>[(wist in api docs)][bevy::impw::bundwe]</p>
-<p>any tupwes of up to 15 [<code>Component</code>][bevy::component] types awe vawid bundwes.</p>
+<p><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/bundle/trait.Bundle.html#implementors">(wist in api docs)</a></p>
+<p>any tupwes of up to 15 <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/component/trait.Component.html"><code>Component</code></a> types awe vawid bundwes.</p>
 <p>bevy 3d:</p>
 <ul>
-<li>[<code>PerspectiveCameraBundle</code>][bevy::pewspectivecamewabundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.PerspectiveCameraBundle.html"><code>PerspectiveCameraBundle</code></a>:
 3d camewa with a pewspective pwojection</li>
-<li>[<code>OrthographicCameraBundle</code>][bevy::owthogwaphiccamewabundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.OrthographicCameraBundle.html"><code>OrthographicCameraBundle</code></a>:
 camewa with an owthogwaphic pwojection, (ꈍᴗꈍ) 2d o-ow 3d</li>
-<li>[<code>MaterialMeshBundle</code>][bevy::matewiawmeshbundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.MaterialMeshBundle.html"><code>MaterialMeshBundle</code></a>:
 3d object/pwimitive: a mesh and the m-matewiaw to dwaw i-it with</li>
-<li>[<code>PbrBundle</code>][bevy::pbwbundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/type.PbrBundle.html"><code>PbrBundle</code></a>:
 3d object with the standawd physicawwy-based m-matewiaw (<code>MaterialMeshBundle&lt;StandardMaterial&gt;</code>)</li>
-<li>[<code>DirectionalLightBundle</code>][bevy::diwectionawwightbundwe]: 
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.DirectionalLightBundle.html"><code>DirectionalLightBundle</code></a>: 
 3d diwectionaw wight (wike the sun)</li>
-<li>[<code>PointLightBundle</code>][bevy::pointwightbundwe]: 
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.PointLightBundle.html"><code>PointLightBundle</code></a>: 
 3d point wight (wike a wamp ow candwe)</li>
 </ul>
 <p>bevy 2d:</p>
 <ul>
-<li>[<code>OrthographicCameraBundle</code>][bevy::owthogwaphiccamewabundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.OrthographicCameraBundle.html"><code>OrthographicCameraBundle</code></a>:
 camewa with an owthogwaphic pwojection, (ꈍᴗꈍ) 2d o-ow 3d</li>
-<li>[<code>SpriteBundle</code>][bevy::spwitebundwe]: 
-2d spwite, &gt;_&lt; using a whowe image ([<code>Image</code>][bevy::image] asset)</li>
-<li>[<code>SpriteSheetBundle</code>][bevy::spwitesheetbundwe]:
-2d spwite, (ꈍᴗꈍ) using a sub-wectangwe i-in a wawgew image ([<code>TextureAtlas</code>][bevy::textuweatwas] asset)</li>
-<li>[<code>MaterialMesh2dBundle</code>][bevy::matewiawmesh2dbundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.SpriteBundle.html"><code>SpriteBundle</code></a>: 
+2d spwite, &gt;_&lt; using a whowe image (<a href="https://docs.rs/bevy/0.6.0/bevy/render/texture/struct.Image.html"><code>Image</code></a> asset)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.SpriteSheetBundle.html"><code>SpriteSheetBundle</code></a>:
+2d spwite, (ꈍᴗꈍ) using a sub-wectangwe i-in a wawgew image (<a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.TextureAtlas.html"><code>TextureAtlas</code></a> asset)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.MaterialMesh2dBundle.html"><code>MaterialMesh2dBundle</code></a>:
 2d shape, (ꈍᴗꈍ) with custom mesh and matewiaw (simiwaw t-to 3d objects)</li>
-<li>[<code>Text2dBundle</code>][bevy::text2dbundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/text/struct.Text2dBundle.html"><code>Text2dBundle</code></a>:
 text to be dwawn in the 2d wowwd (not t-the ui)</li>
 </ul>
 <p>bevy ui:</p>
 <ul>
-<li>[<code>UiCameraBundle</code>][bevy::uicamewabundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/entity/struct.UiCameraBundle.html"><code>UiCameraBundle</code></a>:
 the ui camewa</li>
-<li>[<code>NodeBundle</code>][bevy::nodebundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/entity/struct.NodeBundle.html"><code>NodeBundle</code></a>:
 empty nyode ewement (wike htmw <code>&lt;div&gt;</code>)</li>
-<li>[<code>ButtonBundle</code>][bevy::buttonbundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/entity/struct.ButtonBundle.html"><code>ButtonBundle</code></a>:
 button ewement</li>
-<li>[<code>ImageBundle</code>][bevy::imagebundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/entity/struct.ImageBundle.html"><code>ImageBundle</code></a>:
 image ewement</li>
-<li>[<code>TextBundle</code>][bevy::textbundwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/entity/struct.TextBundle.html"><code>TextBundle</code></a>:
 text ewement</li>
 </ul>
 <h2 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h2>
 <h3 id="configuwation-wesouwces"><a class="header" href="#configuwation-wesouwces">configuwation wesouwces</a></h3>
 <p>these wesouwces awwow you to change t-the settings f-fow how vawious p-pawts of bevy wowk.</p>
 <p>some of them affect the wow-wevew i-initiawization o-of the engine, 🥺 so m-must be pwesent f-fwom the
-stawt to take effect. ^•ﻌ•^ you nyeed to i-insewt these at t-the stawt of youw [app buiwdew][cb::app].</p>
+stawt to take effect. ^•ﻌ•^ you nyeed to i-insewt these at t-the stawt of youw <a href="/programming/app-builder.html">app buiwdew</a>.</p>
 <ul>
-<li>[<code>LogSettings</code>][bevy::wogsettings]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/log/struct.LogSettings.html"><code>LogSettings</code></a>:
 configuwe nyani messages get wogged t-to the consowe</li>
-<li>[<code>WindowDescriptor</code>][bevy::windowdescwiptow]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowDescriptor.html"><code>WindowDescriptor</code></a>:
 settings fow the pwimawy appwication w-window</li>
-<li>[<code>WgpuOptions</code>][bevy::wgpuoptions]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/options/struct.WgpuOptions.html"><code>WgpuOptions</code></a>:
 wow-wevew settings fow the gpu api a-and backends</li>
-<li>[<code>AssetServerSettings</code>][bevy::assetsewvewsettings]:
-advanced configuwation of the [<code>AssetServer</code>][bevy::assetsewvew]</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServerSettings.html"><code>AssetServerSettings</code></a>:
+advanced configuwation of the <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a></li>
 </ul>
 <p>these may be insewted at the stawt, 🥺 b-but shouwd awso b-be fine to change a-at wuntime (fwom a-a
-[system][cb::system]).</p>
+<a href="/programming/systems.html">system</a>).</p>
 <ul>
-<li>[<code>ClearColor</code>][bevy::cweawcowow]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/core_pipeline/struct.ClearColor.html"><code>ClearColor</code></a>:
 gwobaw wendewew backgwound cowow t-to cweaw the window a-at the stawt o-of each fwame</li>
-<li>[<code>AmbientLight</code>][bevy::ambientwight]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.AmbientLight.html"><code>AmbientLight</code></a>:
 gwobaw wendewew &quot;fake wighting&quot;, s-so that shadows d-don't wook too dawk / b-bwack</li>
-<li>[<code>Msaa</code>][bevy::msaa]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/view/struct.Msaa.html"><code>Msaa</code></a>:
 gwobaw wendewew setting fow muwti-sampwe a-anti-awiasing (some p-pwatfowms m-might onwy s-suppowt the vawues 1 a-and 4)</li>
-<li>[<code>GamepadSettings</code>][bevy::gamepadsettings]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadSettings.html"><code>GamepadSettings</code></a>:
 gamepad input device settings, OwO wike j-joystick deadzones a-and button s-sensitivities</li>
 </ul>
 <h3 id="engine-wesouwces"><a class="header" href="#engine-wesouwces">engine wesouwces</a></h3>
 <p>these wesouwces pwovide access to d-diffewent featuwes o-of the game e-engine at wuntime.</p>
-<p>access them fwom youw [systems][cb::system], (ꈍᴗꈍ) if you nyeed theiw state, ^•ﻌ•^ ow to c-contwow the wespective
+<p>access them fwom youw <a href="/programming/systems.html">systems</a>, (ꈍᴗꈍ) if you nyeed theiw state, ^•ﻌ•^ ow to c-contwow the wespective
 pawts of bevy.</p>
 <ul>
-<li>[<code>FixedTimesteps</code>][bevy::fixedtimesteps]:
-the state of aww wegistewed [<code>FixedTimestep</code>][bevy::fixedtimestep] dwivews</li>
-<li>[<code>Time</code>][bevy::time]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.FixedTimesteps.html"><code>FixedTimesteps</code></a>:
+the state of aww wegistewed <a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.FixedTimestep.html"><code>FixedTimestep</code></a> dwivews</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.Time.html"><code>Time</code></a>:
 gwobaw time-wewated infowmation (cuwwent f-fwame dewta t-time, OwO time since s-stawtup, 🥺 etc.)</li>
-<li>[<code>AssetServer</code>][bevy::assetsewvew]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a>:
 contwow the asset system: woad assets, ^•ﻌ•^ c-check woad s-status, OwO etc.</li>
-<li>[<code>Gamepads</code>][bevy::gamepads]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.Gamepads.html"><code>Gamepads</code></a>:
 wist of ids fow aww cuwwentwy-detected (connected) g-gamepad devices</li>
-<li>[<code>Windows</code>][bevy::windows]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.Windows.html"><code>Windows</code></a>:
 aww the open windows (the pwimawy w-window + any additionaw w-windows i-in a muwti-window g-gui app)</li>
-<li>[<code>WinitWindows</code>][bevy::winitwindows]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a>:
 waw state of the <code>winit</code> backend fow each window</li>
-<li>[<code>Audio</code>][bevy::audio]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/audio/struct.Audio.html"><code>Audio</code></a>:
 use this to pway sounds via <code>bevy_audio</code></li>
-<li>[<code>AsyncComputeTaskPool</code>][bevy::asynccomputetaskpoow]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a>:
 task poow fow wunning backgwound c-cpu tasks</li>
-<li>[<code>ComputeTaskPool</code>][bevy::computetaskpoow]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/tasks/struct.ComputeTaskPool.html"><code>ComputeTaskPool</code></a>:
 task poow whewe the main app scheduwe (aww t-the systems) w-wuns</li>
-<li>[<code>IoTaskPool</code>][bevy::iotaskpoow]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/tasks/struct.IoTaskPool.html"><code>IoTaskPool</code></a>:
 task poow whewe backgwound i/o tasks w-wun (wike asset w-woading)</li>
-<li>[<code>Diagnostics</code>][bevy::diagnostics]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/diagnostic/struct.Diagnostics.html"><code>Diagnostics</code></a>:
 diagnostic data cowwected by the e-engine (wike fwame t-times)</li>
-<li>[<code>SceneSpawner</code>][bevy::scenespawnew]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/scene/struct.SceneSpawner.html"><code>SceneSpawner</code></a>:
 diwect contwow ovew spawning scenes i-into the main a-app wowwd</li>
 </ul>
 <h3 id="input-handwing-wesouwces"><a class="header" href="#input-handwing-wesouwces">input handwing wesouwces</a></h3>
 <p>these wesouwces wepwesent the cuwwent s-state of diffewent i-input devices. 🥺 w-wead them f-fwom youw
-[systems][cb::system] to [handwe usew input][cb::input].</p>
+<a href="/programming/systems.html">systems</a> to [handwe usew input][cb::input].</p>
 <ul>
-<li>[<code>Input&lt;KeyCode&gt;</code>][bevy::keycode]:
-keyboawd key state, &gt;_&lt; as a binawy [input][bevy::input] vawue</li>
-<li>[<code>Input&lt;MouseButton&gt;</code>][bevy::mousebutton]:
-mouse button state, &gt;_&lt; as a binawy [input][bevy::input] vawue</li>
-<li>[<code>Input&lt;GamepadButton&gt;</code>][bevy::gamepadbutton]:
-gamepad buttons, as a binawy [input][bevy::input] vawue</li>
-<li>[<code>Axis&lt;GamepadAxis&gt;</code>][bevy::gamepadaxis]:
-anawog [axis][bevy::axis] gamepad inputs (joysticks and twiggews)</li>
-<li>[<code>Axis&lt;GamepadButton&gt;</code>][bevy::gamepadbutton]:
-gamepad buttons, wepwesented as an a-anawog [axis][bevy::axis] vawue</li>
-<li>[<code>Touches</code>][bevy::touches]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/keyboard/enum.KeyCode.html"><code>Input&lt;KeyCode&gt;</code></a>:
+keyboawd key state, &gt;_&lt; as a binawy <a href="https://docs.rs/bevy/0.6.0/bevy/input/struct.Input.html">input</a> vawue</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/mouse/enum.MouseButton.html"><code>Input&lt;MouseButton&gt;</code></a>:
+mouse button state, &gt;_&lt; as a binawy <a href="https://docs.rs/bevy/0.6.0/bevy/input/struct.Input.html">input</a> vawue</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadButton.html"><code>Input&lt;GamepadButton&gt;</code></a>:
+gamepad buttons, as a binawy <a href="https://docs.rs/bevy/0.6.0/bevy/input/struct.Input.html">input</a> vawue</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadAxis.html"><code>Axis&lt;GamepadAxis&gt;</code></a>:
+anawog <a href="https://docs.rs/bevy/0.6.0/bevy/input/struct.Axis.html">axis</a> gamepad inputs (joysticks and twiggews)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadButton.html"><code>Axis&lt;GamepadButton&gt;</code></a>:
+gamepad buttons, wepwesented as an a-anawog <a href="https://docs.rs/bevy/0.6.0/bevy/input/struct.Axis.html">axis</a> vawue</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/touch/struct.Touches.html"><code>Touches</code></a>:
 the state of aww fingews cuwwentwy t-touching the touchscween</li>
 </ul>
 <h2 id="events"><a class="header" href="#events">events</a></h2>
 <h3 id="input-events"><a class="header" href="#input-events">input events</a></h3>
-<p>these [events][cb::event] fiwe on activity with input devices. (ꈍᴗꈍ) w-wead them to [handwe usew input][cb::input].</p>
+<p>these <a href="/programming/events.html">events</a> fiwe on activity with input devices. (ꈍᴗꈍ) w-wead them to [handwe usew input][cb::input].</p>
 <ul>
-<li>[<code>MouseButtonInput</code>][bevy::mousebuttoninput]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/mouse/struct.MouseButtonInput.html"><code>MouseButtonInput</code></a>:
 changes in the state of mouse buttons</li>
-<li>[<code>MouseWheel</code>][bevy::mousewheew]:
-scwowwing by a nyumbew of pixews o-ow wines ([<code>MouseScrollUnit</code>][bevy::mousescwowwunit])</li>
-<li>[<code>MouseMotion</code>][bevy::mousemotion]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/mouse/struct.MouseWheel.html"><code>MouseWheel</code></a>:
+scwowwing by a nyumbew of pixews o-ow wines (<a href="https://docs.rs/bevy/0.6.0/bevy/input/mouse/enum.MouseScrollUnit.html"><code>MouseScrollUnit</code></a>)</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/mouse/struct.MouseMotion.html"><code>MouseMotion</code></a>:
 wewative movement of the mouse (pixews f-fwom pwevious f-fwame), wegawdwess o-of the os p-pointew/cuwsow</li>
-<li>[<code>CursorMoved</code>][bevy::cuwsowmoved]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a>:
 new position of the os mouse pointew/cuwsow</li>
-<li>[<code>KeyboardInput</code>][bevy::keyboawdinput]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/keyboard/struct.KeyboardInput.html"><code>KeyboardInput</code></a>:
 changes in the state of keyboawd k-keys (keypwesses, ^•ﻌ•^ n-nyot text)</li>
-<li>[<code>ReceivedCharacter</code>][bevy::weceivedchawactew]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.ReceivedCharacter.html"><code>ReceivedCharacter</code></a>:
 unicode text input fwom the os (cowwect h-handwing o-of the usew's wanguage a-and wayout)</li>
-<li>[<code>TouchInput</code>][bevy::touchinput]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/touch/struct.TouchInput.html"><code>TouchInput</code></a>:
 change in the state of a fingew touching t-the touchscween</li>
-<li>[<code>GamepadEvent</code>][bevy::gamepadevent]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadEvent.html"><code>GamepadEvent</code></a>:
 changes in the state of a gamepad o-ow any of its buttons o-ow axes</li>
-<li>[<code>GamepadEventRaw</code>][bevy::gamepadeventwaw]:
-gamepad events unaffected by [<code>GamepadSettings</code>][bevy::gamepadsettings]</li>
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadEventRaw.html"><code>GamepadEventRaw</code></a>:
+gamepad events unaffected by <a href="https://docs.rs/bevy/0.6.0/bevy/input/gamepad/struct.GamepadSettings.html"><code>GamepadSettings</code></a></li>
 </ul>
 <h3 id="system-and-contwow-events"><a class="header" href="#system-and-contwow-events">system and contwow events</a></h3>
 <p>events fwom the os / windowing system, ^•ﻌ•^ o-ow to contwow b-bevy.</p>
 <ul>
-<li>[<code>AppExit</code>][bevy::appexit]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.AppExit.html"><code>AppExit</code></a>:
 teww bevy to shut down</li>
-<li>[<code>CloseWindow</code>][bevy::cwosewindow]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.CloseWindow.html"><code>CloseWindow</code></a>:
 teww bevy to cwose a window</li>
-<li>[<code>CreateWindow</code>][bevy::cweatewindow]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.CreateWindow.html"><code>CreateWindow</code></a>:
 teww bevy to open a nyew window</li>
-<li>[<code>FileDragAndDrop</code>][bevy::fiwedwaganddwop]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/enum.FileDragAndDrop.html"><code>FileDragAndDrop</code></a>:
 the usew dwag-and-dwopped a fiwe i-into ouw app</li>
-<li>[<code>CursorEntered</code>][bevy::cuwsowentewed]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.CursorEntered.html"><code>CursorEntered</code></a>:
 os mouse pointew/cuwsow entewed one o-of ouw windows</li>
-<li>[<code>CursorLeft</code>][bevy::cuwsowweft]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.CursorLeft.html"><code>CursorLeft</code></a>:
 os mouse pointew/cuwsow exited one o-of ouw windows</li>
-<li>[<code>WindowCloseRequested</code>][bevy::windowcwosewequested]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowCloseRequested.html"><code>WindowCloseRequested</code></a>:
 os wants to cwose one of ouw windows</li>
-<li>[<code>WindowCreated</code>][bevy::windowcweated]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowCreated.html"><code>WindowCreated</code></a>:
 new appwication window opened</li>
-<li>[<code>WindowFocused</code>][bevy::windowfocused]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowFocused.html"><code>WindowFocused</code></a>:
 one of ouw windows is nyow focused</li>
-<li>[<code>WindowMoved</code>][bevy::windowmoved]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowMoved.html"><code>WindowMoved</code></a>:
 os/usew moved one of ouw windows</li>
-<li>[<code>WindowResized</code>][bevy::windowwesized]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowResized.html"><code>WindowResized</code></a>:
 os/usew wesized one of ouw windows</li>
-<li>[<code>WindowScaleFactorChanged</code>][bevy::windowscawefactowchanged]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowScaleFactorChanged.html"><code>WindowScaleFactorChanged</code></a>:
 one of ouw windows has changed its d-dpi scawing factow</li>
-<li>[<code>WindowBackendScaleFactorChanged</code>][bevy::windowbackendscawefactowchanged]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/window/struct.WindowBackendScaleFactorChanged.html"><code>WindowBackendScaleFactorChanged</code></a>:
 os wepowts change in dpi scawing f-factow fow a window</li>
 </ul>
 <h2 id="components"><a class="header" href="#components">components</a></h2>
 <p>the compwete wist of individuaw component t-types is t-too specific to b-be usefuw to wist h-hewe.</p>
-<p>see: [(wist in api docs)][bevy::impw::component]</p>
+<p>see: <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/component/trait.Component.html#implementors">(wist in api docs)</a></p>
 <p>cuwated/opinionated wist of the most impowtant buiwt-in c-component t-types:</p>
 <ul>
-<li>[<code>Transform</code>][bevy::twansfowm]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>:
 wocaw twansfowm (wewative to pawent, (ꈍᴗꈍ) i-if any)</li>
-<li>[<code>GlobalTransform</code>][bevy::gwobawtwansfowm]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>:
 gwobaw twansfowm (in the wowwd)</li>
-<li>[<code>Parent</code>][bevy::pawent]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Parent.html"><code>Parent</code></a>:
 entity's pawent, if in a hiewawchy</li>
-<li>[<code>Children</code>][bevy::chiwdwen]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Children.html"><code>Children</code></a>:
 entity's chiwdwen, &gt;_&lt; if in a hiewawchy</li>
-<li>[<code>Timer</code>][bevy::timew]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.Timer.html"><code>Timer</code></a>:
 twack if a time intewvaw has ewapsed</li>
-<li>[<code>Stopwatch</code>][bevy::stopwatch]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.Stopwatch.html"><code>Stopwatch</code></a>:
 twack how much time has passed</li>
-<li>[<code>Handle&lt;T&gt;</code>][bevy::handwe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.Handle.html"><code>Handle&lt;T&gt;</code></a>:
 wefewence to an asset of specific t-type</li>
-<li>[<code>Visibility</code>][bevy::visibiwity]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a>:
 manuawwy contwow visibiwity, ^•ﻌ•^ whethew t-to dispway the e-entity (hide/show)</li>
-<li>[<code>RenderLayers</code>][bevy::wendewwayews]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/view/visibility/struct.RenderLayers.html"><code>RenderLayers</code></a>:
 gwoup entities into &quot;wayews&quot; and c-contwow which &quot;wayews&quot; a-a camewa s-shouwd dispway</li>
-<li>[<code>Camera</code>][bevy::camewa]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a>:
 camewa used fow wendewing</li>
-<li>[<code>OrthographicProjection</code>][bevy::owthogwaphicpwojection]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a>:
 owthogwaphic pwojection fow a camewa</li>
-<li>[<code>PerspectiveProjection</code>][bevy::pewspectivepwojection]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/render/camera/struct.PerspectiveProjection.html"><code>PerspectiveProjection</code></a>:
 pewspective pwojection fow a camewa</li>
-<li>[<code>Sprite</code>][bevy::spwite]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.Sprite.html"><code>Sprite</code></a>:
 (2d) pwopewties of a spwite, (ꈍᴗꈍ) using a-a whowe image</li>
-<li>[<code>TextureAtlasSprite</code>][bevy::textuweatwasspwite]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/sprite/struct.TextureAtlasSprite.html"><code>TextureAtlasSprite</code></a>:
 (2d) pwopewties of a spwite, (ꈍᴗꈍ) using a-a spwite sheet</li>
-<li>[<code>PointLight</code>][bevy::pointwight]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.PointLight.html"><code>PointLight</code></a>:
 (3d) pwopewties of a point wight</li>
-<li>[<code>DirectionalLight</code>][bevy::diwectionawwight]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.DirectionalLight.html"><code>DirectionalLight</code></a>:
 (3d) pwopewties of a diwectionaw w-wight</li>
-<li>[<code>NotShadowCaster</code>][bevy::notshadowcastew]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.NotShadowCaster.html"><code>NotShadowCaster</code></a>:
 (3d) disabwe entity fwom pwoducing d-dynamic shadows</li>
-<li>[<code>NotShadowReceiver</code>][bevy::notshadowweceivew]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.NotShadowReceiver.html"><code>NotShadowReceiver</code></a>:
 (3d) disabwe entity fwom having dynamic s-shadows of o-othew entities</li>
-<li>[<code>Wireframe</code>][bevy::wiwefwame]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/pbr/wireframe/struct.Wireframe.html"><code>Wireframe</code></a>:
 (3d) dwaw object in wiwefwame mode</li>
-<li>[<code>Node</code>][bevy::node]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/struct.Node.html"><code>Node</code></a>:
 (ui) mawk entity as being contwowwed b-by the ui wayout s-system</li>
-<li>[<code>Style</code>][bevy::stywe]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/struct.Style.html"><code>Style</code></a>:
 (ui) wayout pwopewties of the nyode</li>
-<li>[<code>Button</code>][bevy::button]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/widget/struct.Button.html"><code>Button</code></a>:
 (ui) mawkew fow a pwessabwe button</li>
-<li>[<code>Interaction</code>][bevy::intewaction]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/ui/enum.Interaction.html"><code>Interaction</code></a>:
 (ui) twack intewaction/sewection state: if the nyode i-is cwicked ow h-hovewed ovew</li>
-<li>[<code>Text</code>][bevy::text]:
+<li><a href="https://docs.rs/bevy/0.6.0/bevy/text/struct.Text.html"><code>Text</code></a>:
 text to be dispwayed</li>
 </ul>
 <h2 id="gwtf-asset-wabews"><a class="header" href="#gwtf-asset-wabews">gwtf asset wabews</a></h2>
-<p>[asset path wabews to wefew to gwtf s-sub-assets.][cb::gwtf-asset-path]</p>
+<p><a href="/features/gltf.html#assetpath-with-labels">asset path wabews to wefew to gwtf s-sub-assets.</a></p>
 <p>the fowwowing asset wabews awe suppowted (<code>{}</code> is the nyumewicaw index):</p>
 <ul>
-<li><code>Scene{}</code>: gwtf scene as bevy [<code>Scene</code>][bevy::scene]</li>
-<li><code>Node{}</code>: gwtf nyode as [<code>GltfNode</code>][bevy::gwtfnode]</li>
-<li><code>Mesh{}</code>: gwtf mesh as [<code>GltfMesh</code>][bevy::gwtfmesh]</li>
-<li><code>Mesh{}/Primitive{}</code>: gwtf pwimitive as bevy [<code>Mesh</code>][bevy::mesh]</li>
-<li><code>Texture{}</code>: gwtf textuwe as bevy [<code>Image</code>][bevy::image]</li>
-<li><code>Material{}</code>: gwtf matewiaw as bevy [<code>StandardMaterial</code>][bevy::standawdmatewiaw]</li>
+<li><code>Scene{}</code>: gwtf scene as bevy <a href="https://docs.rs/bevy/0.6.0/bevy/scene/struct.Scene.html"><code>Scene</code></a></li>
+<li><code>Node{}</code>: gwtf nyode as <a href="https://docs.rs/bevy/0.6.0/bevy/gltf/struct.GltfNode.html"><code>GltfNode</code></a></li>
+<li><code>Mesh{}</code>: gwtf mesh as <a href="https://docs.rs/bevy/0.6.0/bevy/gltf/struct.GltfMesh.html"><code>GltfMesh</code></a></li>
+<li><code>Mesh{}/Primitive{}</code>: gwtf pwimitive as bevy <a href="https://docs.rs/bevy/0.6.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a></li>
+<li><code>Texture{}</code>: gwtf textuwe as bevy <a href="https://docs.rs/bevy/0.6.0/bevy/render/texture/struct.Image.html"><code>Image</code></a></li>
+<li><code>Material{}</code>: gwtf matewiaw as bevy <a href="https://docs.rs/bevy/0.6.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a></li>
 <li><code>DefaultMaterial</code>: as above, OwO if the gwtf fiwe contains a-a defauwt matewiaw w-with nyo i-index</li>
 </ul>
 <h2 id="stages"><a class="header" href="#stages">stages</a></h2>
-<p>intewnawwy, (ꈍᴗꈍ) bevy has at weast these b-buiwt-in [stages][cb::stage]:</p>
+<p>intewnawwy, (ꈍᴗꈍ) bevy has at weast these b-buiwt-in <a href="/programming/stages.html">stages</a>:</p>
 <ul>
-<li>in the [main app][cb::app] ([<code>CoreStage</code>][bevy::cowestage]):
+<li>in the <a href="/programming/app-builder.html">main app</a> (<a href="https://docs.rs/bevy/0.6.0/bevy/app/enum.CoreStage.html"><code>CoreStage</code></a>):
 <code>First</code>, rawr x3 <code>PreUpdate</code>, rawr x3 <code>Update</code>, rawr x3 <code>PostUpdate</code>, rawr x3 <code>Last</code></li>
-<li>in the wendew [sub-app][cb::subapp] ([<code>RenderStage</code>][bevy::wendewstage]):
+<li>in the wendew <a href="/programming/sub-apps.html">sub-app</a> (<a href="https://docs.rs/bevy/0.6.0/bevy/render/enum.RenderStage.html"><code>RenderStage</code></a>):
 <code>Extract</code>, rawr x3 <code>Prepare</code>, rawr x3 <code>Queue</code>, rawr x3 <code>PhaseSort</code>, rawr x3 <code>Render</code>, rawr x3 <code>Cleanup</code></li>
 </ul>
 

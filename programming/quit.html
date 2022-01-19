@@ -136,17 +136,16 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="quitting-the-app"><a class="header" href="#quitting-the-app">quitting the app</a></h1>
-<p>{{#incwude ../incwude/winks.md}}</p>
-<p>to cweanwy shut down bevy, &gt;_&lt; send an [<code>AppExit</code>][bevy::appexit]
-[event][cb::event] fwom any [system][cb::system]:</p>
+<p>to cweanwy shut down bevy, &gt;_&lt; send an <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.AppExit.html"><code>AppExit</code></a>
+<a href="/programming/events.html">event</a> fwom any <a href="/programming/systems.html">system</a>:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::app::appexit;
 
 fn exit_system(mut e-exit: e-eventwwitew&lt;appexit&gt;) {
     e-exit.send(appexit);
 }
 </code></pre>
-<p>fow pwototyping, bevy pwovides a s-system you can [add to youw
-<code>App</code>][cb::app], &gt;_&lt; to exit on pwessing the <code>Esc</code> key:</p>
+<p>fow pwototyping, bevy pwovides a s-system you can <a href="/programming/app-builder.html">add to youw
+<code>App</code></a>, &gt;_&lt; to exit on pwessing the <code>Esc</code> key:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
         .add_pwugins(defauwtpwugins)

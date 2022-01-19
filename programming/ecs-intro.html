@@ -136,12 +136,11 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="ecs-as-a-data-stwuctuwe"><a class="header" href="#ecs-as-a-data-stwuctuwe">ecs as a data stwuctuwe</a></h1>
-<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-[<code>ecs_guide</code>][exampwe::ecs_guide].</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <p>awso check out the compwete game e-exampwes:
-[<code>alien_cake_addict</code>][exampwe::awien_cake_addict],
-[<code>breakout</code>][exampwe::bweakout].</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/game/alien_cake_addict.rs"><code>alien_cake_addict</code></a>,
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/game/breakout.rs"><code>breakout</code></a>.</p>
 <hr />
 <p>bevy stowes and manages aww youw d-data fow you, using t-the bevy ecs
 (entity-component system).</p>
@@ -153,7 +152,7 @@ vawues / instances of each component.</p>
 then have many entities wepwesenting d-diffewent things i-in youw game, OwO s-such
 as the pwayew, ^•ﻌ•^ nypcs, OwO ow monstews, 🥺 a-aww of which can h-have a <code>Health</code> vawue
 (as weww as othew wewevant components).</p>
-<p>this makes it easy to wwite game w-wogic ([systems][cb::system]) that can
+<p>this makes it easy to wwite game w-wogic (<a href="/programming/systems.html">systems</a>) that can
 opewate on any entity with the nyecessawy c-components (such a-as a heawth/damage
 system fow anything that has <code>Health</code>), &gt;_&lt; wegawdwess of whethew that's the
 pwayew, OwO an nypc, ow a monstew (ow a-anything ewse). 🥺 t-this makes youw g-game wogic
@@ -186,11 +185,11 @@ be accessed independentwy.</p>
 <p>fow exampwe, ^•ﻌ•^ wepwesent the pwayew i-in youw game as a-an entity, composed
 of sepawate component types (sepawate <code>struct</code>s) fow things wike the
 heawth, ^•ﻌ•^ xp, ow nyanievew is wewevant t-to youw game. OwO y-you can awso attach
-standawd bevy components wike [<code>Transform</code>][bevy::twansfowm] ([twansfowms
-expwained][cb::twansfowm]) to it.</p>
+standawd bevy components wike <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> (<a href="/features/transforms.html">twansfowms
+expwained</a>) to it.</p>
 <p>this wiww make it easiew fow you t-to devewop youw s-systems (game wogic /
 behaviows), ^•ﻌ•^ as weww as make youw g-game's wuntime pewfowmance b-bettew.</p>
-<p>howevew, &gt;<em>&lt; something wike a [<code>Transform</code>][bevy::twansfowm], XD ow a set of
+<p>howevew, &gt;<em>&lt; something wike a <a href="https://docs.rs/bevy/0.6.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, XD ow a set of
 coowdinates, (ꈍᴗꈍ) stiww makes sense as a-a singwe <code>struct</code>, &gt;</em>&lt; because its fiewds awe
 not wikewy to be usefuw independentwy.</p>
 

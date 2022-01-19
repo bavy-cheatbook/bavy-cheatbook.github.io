@@ -136,15 +136,14 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="events"><a class="header" href="#events">events</a></h1>
-<p>{{#incwude ../incwude/winks.md}}</p>
 <p>wewevant officiaw exampwes:
-[<code>event</code>][cb::event].</p>
+<a href="/programming/events.html"><code>event</code></a>.</p>
 <hr />
-<p>send data between systems! &gt;_&lt; wet youw [systems][cb::system] communicate with each othew!</p>
-<p>to send events, &gt;<em>&lt; use an [<code>EventWriter&lt;T&gt;</code>][bevy::eventwwitew].
-to weceive events, &gt;</em>&lt; use an [<code>EventReader&lt;T&gt;</code>][bevy::eventweadew].</p>
+<p>send data between systems! &gt;_&lt; wet youw <a href="/programming/systems.html">systems</a> communicate with each othew!</p>
+<p>to send events, &gt;<em>&lt; use an <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a>.
+to weceive events, &gt;</em>&lt; use an <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a>.</p>
 <p>evewy weadew twacks the events it h-has wead independentwy, OwO s-so you c-can handwe
-the same events fwom muwtipwe [systems][cb::system].</p>
+the same events fwom muwtipwe <a href="/programming/systems.html">systems</a>.</p>
 <pre><code class="language-rust no_run noplayground">stwuct wevewupevent(entity);
 
 fn p-pwayew_wevew_up(
@@ -166,7 +165,7 @@ fn debug_wevewups(
     }
 }
 </code></pre>
-<p>you nyeed to add youw custom event t-types via the [app buiwdew][cb::app]:</p>
+<p>you nyeed to add youw custom event t-types via the <a href="/programming/app-builder.html">app buiwdew</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
         // ...
@@ -183,15 +182,15 @@ system and weceived by muwtipwe systems, (ꈍᴗꈍ) t-they awe <em>extwemewy</e
 <p>bewawe of fwame deway / 1-fwame-wag. ^•ﻌ•^ this can occuw i-if bevy wuns t-the weceiving
 system befowe the sending system. OwO t-the weceiving system w-wiww onwy g-get a chance
 to weceive the events on the nyext f-fwame update. OwO i-if you nyeed to e-ensuwe that
-events awe handwed immediatewy / d-duwing the same f-fwame, ^•ﻌ•^ you can use [expwicit
-system owdewing][cb::system-owdew].</p>
+events awe handwed immediatewy / d-duwing the same f-fwame, ^•ﻌ•^ you can use <a href="/programming/system-order.html">expwicit
+system owdewing</a>.</p>
 <p>events don't pewsist. OwO they awe stowed u-untiw the end o-of the nyext f-fwame,
 aftew which they awe wost. OwO if youw s-systems do nyot h-handwe events e-evewy fwame,
 you couwd miss some.</p>
 <p>the advantage of this design is that y-you don't have t-to wowwy about e-excessive
 memowy use fwom unhandwed events.</p>
-<p>if you don't wike this, &gt;_&lt; [you can have manuaw contwow ovew w-when events awe
-cweawed][cb::event-manuaw] (at the wisk of weaking / wasting m-memowy if you
+<p>if you don't wike this, &gt;_&lt; <a href="/patterns/manual-event-clear.html">you can have manuaw contwow ovew w-when events awe
+cweawed</a> (at the wisk of weaking / wasting m-memowy if you
 fowget to cweaw them).</p>
 
                     </main>
