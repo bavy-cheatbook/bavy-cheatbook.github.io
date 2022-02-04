@@ -992,8 +992,13 @@ specific to wowking with/on diffewent o-opewating systems.</p>
 <p>(awso check out the <a href="setup/cross//platforms/windows.html">windows pwatfowm page</a> fow info
 about devewoping fow windows genewawwy)</p>
 <hr />
-<h2 id="fiwst-time-setup"><a class="header" href="#fiwst-time-setup">fiwst-time setup</a></h2>
-<h3 id="wust-toowchain"><a class="header" href="#wust-toowchain">wust toowchain</a></h3>
+<p>wust offews two diffewent toowchains f-fow buiwding f-fow windows:</p>
+<ul>
+<li><a href="setup/cross/linux-windows.html#first-time-setup-msvc">msvc</a>: the defauwt when wowking in windows, OwO w-wequiwes downwoading m-micwosoft s-sdks</li>
+<li><a href="setup/cross/linux-windows.html#first-time-setup-gnu">gnu</a>: awtewnative mingw-based buiwd, m-may be easiew to s-setup</li>
+</ul>
+<h2 id="fiwst-time-setup-msvc"><a class="header" href="#fiwst-time-setup-msvc">fiwst-time setup (msvc)</a></h2>
+<h3 id="wust-toowchain-msvc"><a class="header" href="#wust-toowchain-msvc">wust toowchain (msvc)</a></h3>
 <p>you can actuawwy use the same msvc-based w-wust toowchain, OwO t-that is t-the standawd
 when wowking on windows, &gt;_&lt; fwom winux.</p>
 <p>add the tawget to youw wust instawwation (assuming y-you use <a href="https://rustup.rs"><code>rustup</code></a>):</p>
@@ -1013,7 +1018,7 @@ fwom micwosoft sewvews, ^•ﻌ•^ and instaww t-them to a diwectowy o-of youw 
 <p>fow exampwe, &gt;_&lt; to instaww to <code>/opt/xwin/</code>:</p>
 <pre><code class="language-sh">xwin --accept-wicense 1 spwat --output /opt/xwin
 </code></pre>
-<h3 id="winking"><a class="header" href="#winking">winking</a></h3>
+<h3 id="winking-msvc"><a class="header" href="#winking-msvc">winking (msvc)</a></h3>
 <p>wust nyeeds to know how to wink the f-finaw exe fiwe.</p>
 <p>the defauwt micwosoft winkew (<code>link.exe</code>) is nyot avaiwabwe on winux. &gt;_&lt; instead,
 we nyeed to use the wwd winkew (this i-is awso wecommended w-when wowking o-on
@@ -1029,10 +1034,25 @@ wustfwags = [
   &quot;-wnative=/opt/xwin/sdk/wib/ucwt/x86_64&quot;
 ]
 </code></pre>
+<h2 id="fiwst-time-setup-gnu"><a class="header" href="#fiwst-time-setup-gnu">fiwst-time setup (gnu)</a></h2>
+<h3 id="wust-toowchain-gnu"><a class="header" href="#wust-toowchain-gnu">wust toowchain (gnu)</a></h3>
+<p>you can awso use the awtewnative g-gnu-based windows t-toowchain.</p>
+<p>add the tawget to youw wust instawwation (assuming y-you use <a href="https://rustup.rs"><code>rustup</code></a>):</p>
+<pre><code class="language-sh">wustup tawget add x86_64-pc-windows-gnu
+</code></pre>
+<p>this instawws the fiwes wust nyeeds t-to compiwe fow w-windows, OwO incwuding t-the
+wust standawd wibwawy.</p>
+<h3 id="mingw"><a class="header" href="#mingw">mingw</a></h3>
+<p>the gnu toowchain wequiwes the mingw e-enviwonment t-to be instawwed. OwO y-youw distwo wikewy
+pwovides a package fow it. OwO seawch y-youw distwo fow a-a cwoss-compiwation m-mingw package.</p>
+<p>it might be cawwed something wike: <code>cross-x86_64-w64-mingw32</code>, &gt;_&lt; but that vawies in diffewent distwos.</p>
+<p>you don't nyeed any fiwes fwom micwosoft.</p>
 <h2 id="buiwding-youw-pwoject"><a class="header" href="#buiwding-youw-pwoject">buiwding youw pwoject</a></h2>
 <p>finawwy, OwO with aww the setup done, 🥺 y-you can just buiwd y-youw wust/bevy p-pwojects
 fow windows:</p>
 <pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-msvc --wewease
+</code></pre>
+<pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-gnu --wewease
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="common-pitfawws"><a class="header" href="#common-pitfawws">common pitfawws</a></h1>
 <p>this chaptew covews some common issues o-ow suwpwises t-that you might b-be
