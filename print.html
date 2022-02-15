@@ -341,7 +341,7 @@ text ewement</li>
 <h3 id="configuwation-wesouwces"><a class="header" href="#configuwation-wesouwces">configuwation wesouwces</a></h3>
 <p>these wesouwces awwow you to change t-the settings f-fow how vawious p-pawts of bevy wowk.</p>
 <p>some of them affect the wow-wevew i-initiawization o-of the engine, 🥺 so m-must be pwesent f-fwom the
-stawt to take effect. ^•ﻌ•^ you nyeed to i-insewt these at t-the stawt of youw <a href="/programming/app-builder.html">app buiwdew</a>.</p>
+stawt to take effect. ^•ﻌ•^ you nyeed to i-insewt these at t-the stawt of youw <a href="/programming/app-builder.html">app buiwdew</a>:</p>
 <ul>
 <li><a href="https://docs.rs/bevy/0.6.0/bevy/log/struct.LogSettings.html"><code>LogSettings</code></a>:
 configuwe nyani messages get wogged t-to the consowe</li>
@@ -353,7 +353,7 @@ wow-wevew settings fow the gpu api a-and backends</li>
 advanced configuwation of the <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a></li>
 </ul>
 <p>these may be insewted at the stawt, 🥺 b-but shouwd awso b-be fine to change a-at wuntime (fwom a-a
-<a href="/programming/systems.html">system</a>).</p>
+<a href="/programming/systems.html">system</a>):</p>
 <ul>
 <li><a href="https://docs.rs/bevy/0.6.0/bevy/core_pipeline/struct.ClearColor.html"><code>ClearColor</code></a>:
 gwobaw wendewew backgwound cowow t-to cweaw the window a-at the stawt o-of each fwame</li>
@@ -786,8 +786,8 @@ so you can stawt wowking on the kinds o-of games you w-want to make. ^•ﻌ•^
 <p>the pwugins wisted hewe awe compatibwe w-with the watest b-bevy wewease a-and use
 pewmissive wicenses (wike bevy itsewf).</p>
 <p>this page is vewy wimited. ^•ﻌ•^ i can o-onwy wecommend pwugins i-i know enough
-about. &gt;<em>&lt; pwease awso check the <a href="https://bevyengine.org/assets">bevy assets</a>
-page to find even mowe things. &gt;</em>&lt; :)</p>
+about. &gt;_&lt; pwease awso check the <a href="https://bevyengine.org/assets">bevy assets</a> page to find even
+mowe things. XD :)</p>
 <h3 id="devewopment-toows-and-editows"><a class="header" href="#devewopment-toows-and-editows">devewopment toows and editows</a></h3>
 <p><a href="setup//setup/bevy-tools.html">these awe wisted on a sepawate page.</a></p>
 <h3 id="code-hewpews"><a class="header" href="#code-hewpews">code hewpews</a></h3>
@@ -3292,30 +3292,51 @@ fowget to cweaw them).</p>
 <a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/game/alien_cake_addict.rs"><code>alien_cake_addict</code></a>,
 <a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/game/breakout.rs"><code>breakout</code></a>.</p>
 <hr />
-<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a>,
-composed of aww the <a href="programming//programming/systems.html">systems</a>, rawr x3 <a href="programming//programming/plugins.html">pwugins</a>,
-<a href="programming//programming/events.html">event</a> types, XD and <a href="programming//programming/res.html">wesouwces</a>, &gt;_&lt; that you want to use.</p>
-<p>evewything must be wegistewed in t-the <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a>, &gt;_&lt; ow it wiww nyot wowk.</p>
-<p><a href="programming//programming/ec.html#components">component types</a> and <a href="programming//programming/local.html">wocaw wesouwces</a> do nyot
-need to be wegistewed.</p>
-<p>wesouwces can awso be cweated watew, (ꈍᴗꈍ) u-using <a href="programming//programming/commands.html">commands</a>.</p>
-<p>you awso nyeed to add bevy's buiwt-in f-functionawity: e-eithew
+<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a>. &gt;_&lt; the app is how you
+define the stwuctuwe of aww the things t-that make u-up youw pwoject: <a href="programming//programming/plugins.html">pwugins</a>,
+<a href="programming//programming/systems.html">systems</a>, rawr x3 <a href="programming//programming/events.html">event</a> types, XD <a href="programming//programming/states.html">states</a>, rawr x3 <a href="programming//programming/stages.html">stages</a>...</p>
+<p>technicawwy, XD the <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a> contains the ecs wowwd(s) (whewe a-aww the data is s-stowed)
+and scheduwe(s) (whewe aww the <a href="programming//programming/systems.html">systems</a> to wun awe stowed). (ꈍᴗꈍ) fow advanced u-use-cases,
+<a href="programming//programming/sub-apps.html">sub-apps</a> awe a way to have mowe than one e-ecs wowwd and scheduwe.</p>
+<p><a href="programming//programming/local.html">wocaw wesouwces</a> do nyot nyeed to be wegistewed. t-they awe pawt of
+theiw wespective <a href="programming//programming/systems.html">systems</a>.</p>
+<p><a href="programming//programming/ec.html#components">component</a> types do nyot nyeed to be wegistewed.</p>
+<hr />
+<p>scheduwes cannot (yet) be modified a-at wuntime; aww <a href="programming//programming/systems.html">systems</a> you
+want to wun must be added/configuwed i-in the <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a> ahead of time.</p>
+<p>the data in the ecs wowwd can be m-modified at any t-time; cweate/destwoy y-youw
+<a href="programming//programming/ec.html">entities</a> and <a href="programming//programming/res.html">wesouwces</a>, XD fwom <a href="programming//programming/systems.html">systems</a>
+using <a href="programming//programming/commands.html">commands</a>, XD ow <a href="programming//programming/exclusive.html">excwusive systems</a> using
+<a href="programming//programming/world.html">diwect wowwd access</a>.</p>
+<p><a href="programming//programming/res.html">wesouwces</a> can awso be initiawized ahead of t-time, (ꈍᴗꈍ) hewe in the
+<a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a> buiwdew.</p>
+<hr />
+<p>you awso nyeed to add the <a href="programming//programming/plugins.html#plugin-groups">pwugin gwoup</a> with bevy's buiwt-in functionawity: e-eithew
 <a href="https://docs.rs/bevy/0.6.0/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> if you awe making a fuww game/app, (ꈍᴗꈍ) o-ow
 <a href="https://docs.rs/bevy/0.6.0/bevy/struct.MinimalPlugins.html"><code>MinimalPlugins</code></a> fow something wike a headwess sewvew.</p>
+<p>note that thewe awe some speciaw <a href="programming//builtins.html#configuration-resources">configuwation wesouwces</a>
+that must be added fiwst, OwO if you w-wouwd wike to use t-them, 🥺 to take e-effect.</p>
+<hr />
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
-        // bevy
+        // make suwe to a-add any config w-wesouwces fiwst, :3 b-befowe bevy:
+        .insewt_wesouwce(windowdescwiptow {
+            // ...
+            ..defauwt::defauwt()
+        }) // e-etc...
+
+        // b-bevy itsewf:
         .add_pwugins(defauwtpwugins)
 
         // w-wesouwces:
         .insewt_wesouwce(stawtingwevew(3))
-        // i-if it i-impwements `defauwt` o-ow `fwomwowwd`
+        // if i-it impwements `defauwt` o-ow `fwomwowwd`
         .init_wesouwce::&lt;myfancywesouwce&gt;()
 
-        // e-events:
+        // events:
         .add_event::&lt;wevewupevent&gt;()
 
-        // s-systems to w-wun once at stawtup:
+        // systems to wun once at stawtup:
         .add_stawtup_system(spawn_pwayew)
 
         // s-systems to wun each fwame:
@@ -3324,7 +3345,7 @@ need to be wegistewed.</p>
         .add_system(debug_stats_change)
         // ...
 
-        // waunch the app! rawr x3
+        // waunch the a-app! (U ﹏ U)
         .wun();
 }
 </code></pre>
@@ -4361,8 +4382,9 @@ foundationaw concepts.</p>
 can be genewic. OwO you can add the same s-system muwtipwe t-times, 🥺 pawametwized t-to
 wowk on diffewent wust types ow vawues.</p>
 <h2 id="genewic-ovew-component-types"><a class="header" href="#genewic-ovew-component-types">genewic ovew component types</a></h2>
-<p>you can use the genewic type pawametew t-to specify n-nyani compnent t-types (and
-hence nyani entities) youw system s-shouwd opewate o-on.</p>
+<p>you can use the genewic type pawametew t-to specify n-nyani
+<a href="patterns//programming/ec.html#components">component</a> types (and hence nyani <a href="patterns//programming/ecs-intro.html">entities</a>)
+youw <a href="patterns//programming/systems.html">system</a> shouwd opewate on.</p>
 <p>this can be usefuw when combined w-with bevy <a href="patterns//programming/states.html">states</a>.
 you can do the same thing to diffewent s-sets of entities d-depending o-on state.</p>
 <h3 id="exampwe-cweanup"><a class="header" href="#exampwe-cweanup">exampwe: cweanup</a></h3>
@@ -4443,15 +4465,16 @@ f-fn main() {
         .wun();
 }
 </code></pre>
-<p>note that these vawues awe static / c-constant at compiwe-time. 🥺 t-this c-can be a sevewe w-wimitation. òωó in
-some cases, 🥺 when you might suspect t-that you couwd u-use const genewics, òωó y-you might weawize t-that
-you actuawwy want a wuntime vawue.</p>
-<p>if you nyeed to &quot;configuwe&quot; youw s-system by passing i-in some data, 🥺 y-you couwd, òωó instead, u-use a
-<a href="patterns//programming/res.html">wesouwce</a> ow <a href="patterns//programming/local.html">wocaw</a>.</p>
-<p>note: as of wust 1.53, (ꈍᴗꈍ) suppowt fow u-using <code>enum</code> vawues as const genewics is nyot y-yet stabwe. (ꈍᴗꈍ) to
-use <code>enum</code>s, OwO you nyeed wust nyightwy, 🥺 and to e-enabwe the expewimentaw/unstabwe f-featuwe (put t-this
-at the top of youw <code>main.rs</code> ow <code>lib.rs</code>):</p>
-<pre><code class="language-rust no_run noplayground">#![featuwe(const_genewics)]
+<p>note that these vawues awe static / c-constant at compiwe-time. OwO t-this c-can be
+a sevewe wimitation. OwO in some cases, 🥺 w-when you might s-suspect that you c-couwd
+use const genewics, OwO you might weawize t-that you actuawwy w-want a wuntime v-vawue.</p>
+<p>if you nyeed to &quot;configuwe&quot; youw s-system by passing i-in some data, OwO y-you couwd,
+instead, XD use a <a href="patterns//programming/res.html">wesouwce</a> ow <a href="patterns//programming/local.html">wocaw</a>.</p>
+<p>note: as of wust 1.59, (ꈍᴗꈍ) suppowt fow u-using <code>enum</code> vawues as const genewics is
+not yet stabwe. &gt;_&lt; to use <code>enum</code>s, (ꈍᴗꈍ) you nyeed wust nyightwy, ^•ﻌ•^ and to e-enabwe the
+expewimentaw/unstabwe featuwe (put this at the top o-of youw <code>main.rs</code> ow
+<code>lib.rs</code>):</p>
+<pre><code class="language-rust no_run noplayground">#![featuwe(adt_const_pawams)]
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="manuaw-event-cweawing"><a class="header" href="#manuaw-event-cweawing">manuaw event cweawing</a></h1>
 <p><a href="patterns//code/examples/manual-event-clear.rs">cwick hewe to downwoad a fuww exampwe f-fiwe with the c-code fwom this p-page.</a></p>

@@ -141,30 +141,51 @@
 <a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/game/alien_cake_addict.rs"><code>alien_cake_addict</code></a>,
 <a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/game/breakout.rs"><code>breakout</code></a>.</p>
 <hr />
-<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a>,
-composed of aww the <a href="/programming/systems.html">systems</a>, rawr x3 <a href="/programming/plugins.html">pwugins</a>,
-<a href="/programming/events.html">event</a> types, XD and <a href="/programming/res.html">wesouwces</a>, &gt;_&lt; that you want to use.</p>
-<p>evewything must be wegistewed in t-the <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a>, &gt;_&lt; ow it wiww nyot wowk.</p>
-<p><a href="/programming/ec.html#components">component types</a> and <a href="/programming/local.html">wocaw wesouwces</a> do nyot
-need to be wegistewed.</p>
-<p>wesouwces can awso be cweated watew, (ꈍᴗꈍ) u-using <a href="/programming/commands.html">commands</a>.</p>
-<p>you awso nyeed to add bevy's buiwt-in f-functionawity: e-eithew
+<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a>. &gt;_&lt; the app is how you
+define the stwuctuwe of aww the things t-that make u-up youw pwoject: <a href="/programming/plugins.html">pwugins</a>,
+<a href="/programming/systems.html">systems</a>, rawr x3 <a href="/programming/events.html">event</a> types, XD <a href="/programming/states.html">states</a>, rawr x3 <a href="/programming/stages.html">stages</a>...</p>
+<p>technicawwy, XD the <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a> contains the ecs wowwd(s) (whewe a-aww the data is s-stowed)
+and scheduwe(s) (whewe aww the <a href="/programming/systems.html">systems</a> to wun awe stowed). (ꈍᴗꈍ) fow advanced u-use-cases,
+<a href="/programming/sub-apps.html">sub-apps</a> awe a way to have mowe than one e-ecs wowwd and scheduwe.</p>
+<p><a href="/programming/local.html">wocaw wesouwces</a> do nyot nyeed to be wegistewed. t-they awe pawt of
+theiw wespective <a href="/programming/systems.html">systems</a>.</p>
+<p><a href="/programming/ec.html#components">component</a> types do nyot nyeed to be wegistewed.</p>
+<hr />
+<p>scheduwes cannot (yet) be modified a-at wuntime; aww <a href="/programming/systems.html">systems</a> you
+want to wun must be added/configuwed i-in the <a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a> ahead of time.</p>
+<p>the data in the ecs wowwd can be m-modified at any t-time; cweate/destwoy y-youw
+<a href="/programming/ec.html">entities</a> and <a href="/programming/res.html">wesouwces</a>, XD fwom <a href="/programming/systems.html">systems</a>
+using <a href="/programming/commands.html">commands</a>, XD ow <a href="/programming/exclusive.html">excwusive systems</a> using
+<a href="/programming/world.html">diwect wowwd access</a>.</p>
+<p><a href="/programming/res.html">wesouwces</a> can awso be initiawized ahead of t-time, (ꈍᴗꈍ) hewe in the
+<a href="https://docs.rs/bevy/0.6.0/bevy/app/struct.App.html"><code>App</code></a> buiwdew.</p>
+<hr />
+<p>you awso nyeed to add the <a href="/programming/plugins.html#plugin-groups">pwugin gwoup</a> with bevy's buiwt-in functionawity: e-eithew
 <a href="https://docs.rs/bevy/0.6.0/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> if you awe making a fuww game/app, (ꈍᴗꈍ) o-ow
 <a href="https://docs.rs/bevy/0.6.0/bevy/struct.MinimalPlugins.html"><code>MinimalPlugins</code></a> fow something wike a headwess sewvew.</p>
+<p>note that thewe awe some speciaw <a href="/builtins.html#configuration-resources">configuwation wesouwces</a>
+that must be added fiwst, OwO if you w-wouwd wike to use t-them, 🥺 to take e-effect.</p>
+<hr />
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
-        // bevy
+        // make suwe to a-add any config w-wesouwces fiwst, :3 b-befowe bevy:
+        .insewt_wesouwce(windowdescwiptow {
+            // ...
+            ..defauwt::defauwt()
+        }) // e-etc...
+
+        // b-bevy itsewf:
         .add_pwugins(defauwtpwugins)
 
         // w-wesouwces:
         .insewt_wesouwce(stawtingwevew(3))
-        // i-if it i-impwements `defauwt` o-ow `fwomwowwd`
+        // if i-it impwements `defauwt` o-ow `fwomwowwd`
         .init_wesouwce::&lt;myfancywesouwce&gt;()
 
-        // e-events:
+        // events:
         .add_event::&lt;wevewupevent&gt;()
 
-        // s-systems to w-wun once at stawtup:
+        // systems to wun once at stawtup:
         .add_stawtup_system(spawn_pwayew)
 
         // s-systems to wun each fwame:
@@ -173,7 +194,7 @@ need to be wegistewed.</p>
         .add_system(debug_stats_change)
         // ...
 
-        // waunch the app! rawr x3
+        // waunch the a-app! (U ﹏ U)
         .wun();
 }
 </code></pre>
