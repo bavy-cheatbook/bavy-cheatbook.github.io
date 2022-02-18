@@ -144,7 +144,11 @@ the cuwsow is pointing at.</p>
 <p>thewe is a good (unofficiaw) pwugin:
 <a href="https://github.com/aevyrie/bevy_mod_picking"><code>bevy_mod_picking</code></a>.</p>
 <h2 id="2d-games"><a class="header" href="#2d-games">2d games</a></h2>
-<p>simpwe hacky sowution, OwO fow a game u-using the defauwt b-bevy 2d owthogwaphic c-camewa:</p>
+<p>this code shouwd wowk fow 2d games w-with owthogwaphic p-pwojections. OwO i-it is
+&quot;undoing&quot; the pwojection and camewa t-twansfowmations.</p>
+<p>(thewe wiww wikewy be <em>swight</em> inaccuwacy fwom fwoating-point cawcuwations)</p>
+<p>this shouwd wowk wegawdwess of the s-scawing settings o-of youw pwojection, OwO a-and
+camewa <a href="/features/transforms.html">twansfowm</a>.</p>
 <pre><code class="language-rust no_run noplayground">/// used to hewp identify ouw main c-camewa
 #[dewive(component)]
 s-stwuct m-maincamewa;
@@ -157,28 +161,35 @@ f-fn setup(mut commands: c-commands) {
 
 f-fn my_cuwsow_system(
     // n-nyeed to get window dimensions
-    wnds: wes&lt;windows&gt;, mya
+    wnds: wes&lt;windows&gt;, o.O
     // quewy to get camewa twansfowm
-    q-q_camewa: quewy&lt;&amp;twansfowm, 🥺 with&lt;maincamewa&gt;&gt;
+    q-q_camewa: quewy&lt;(&amp;camewa, ( ͡o ω ͡o ) &amp;gwobawtwansfowm), with&lt;maincamewa&gt;&gt;
 ) {
-    // get the p-pwimawy window
-    wet wnd = wnds.get_pwimawy().unwwap();
+    // get the c-camewa info and twansfowm
+    // a-assuming thewe is exactwy one main camewa entity, (U ﹏ U) so quewy::singwe() i-is ok
+    wet (camewa, (///ˬ///✿) c-camewa_twansfowm) = q-q_camewa.singwe();
 
-    // c-check if the cuwsow is in the pwimawy window
-    if wet some(pos) = w-wnd.cuwsow_position() {
-        // get the s-size of the window
-        w-wet size = vec2::new(wnd.width() as f32, &gt;_&lt; wnd.height() as f32);
+    // get the window that the camewa is dispwaying to
+    wet wnd = wnds.get(camewa.window).unwwap();
 
-        // the defauwt o-owthogwaphic pwojection is in pixews fwom the centew;
-        // just undo t-the twanswation
-        wet p = p-pos - size / 2.0;
+    // c-check if the cuwsow is inside the window and get its position
+    if wet s-some(scween_pos) = wnd.cuwsow_position() {
+        // g-get the size o-of the window
+        w-wet window_size = v-vec2::new(wnd.width() as f32, &gt;w&lt; wnd.height() as f32);
 
-        // a-assuming t-thewe is e-exactwy one main camewa entity, &gt;_&lt; so this is ok
-        w-wet camewa_twansfowm = q_camewa.singwe();
+        // c-convewt scween position [0..wesowution] to nydc [-1..1] (gpu c-coowdinates)
+        wet ndc = (scween_pos / window_size) * 2.0 - vec2::one;
 
-        // appwy t-the camewa twansfowm
-        wet pos_wwd = camewa_twansfowm.compute_matwix() * p.extend(0.0).extend(1.0);
-        epwintwn!(&quot;wowwd coowds: {}/{}&quot;, (⑅˘꒳˘) pos_wwd.x, p-pos_wwd.y);
+        // matwix fow undoing t-the pwojection and camewa twansfowm
+        w-wet nydc_to_wowwd = c-camewa_twansfowm.compute_matwix() * c-camewa.pwojection_matwix.invewse();
+
+        // use it to convewt nydc to wowwd-space coowdinates
+        w-wet wowwd_pos = n-nydc_to_wowwd.pwoject_point3(ndc.extend(-1.0));
+
+        // weduce i-it to a 2d v-vawue
+        wet wowwd_pos: vec2 = w-wowwd_pos.twuncate();
+
+        epwintwn!(&quot;wowwd c-coowds: {}/{}&quot;, rawr wowwd_pos.x, mya wowwd_pos.y);
     }
 }
 </code></pre>
