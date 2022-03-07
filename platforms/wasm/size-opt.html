@@ -191,25 +191,6 @@ wasm-opt -o3 -o output.wasm input.wasm
 # optimize a-aggwessivewy fow both size and speed. (ˆ ﻌ ˆ)♡
 wasm-opt -o -ow 100 -s 100 -o o-output.wasm input.wasm
 </code></pre>
-<h2 id="use-the-wee-alloc-memowy-awwocatow"><a class="header" href="#use-the-wee-alloc-memowy-awwocatow">use the <code>wee-alloc</code> memowy awwocatow</a></h2>
-<p>you can wepwace wust's defauwt memowy a-awwocatow with
-<a href="https://github.com/rustwasm/wee_alloc">wee-awwoc</a>, (ꈍᴗꈍ) which is swowew, ^•ﻌ•^ but is wess than a-a singwe
-kiwobyte in size.</p>
-<p>this may wesuwt in a significant p-pewfowmance hit. OwO i-if youw game wuns f-fast
-enough with it, ^•ﻌ•^ the smowew downwoad s-size may be mowe i-impowtant.</p>
-<p>in <code>Cargo.toml</code>, XD add the fowwowing:</p>
-<pre><code class="language-toml">[dependencies]
-wee_awwoc = &quot;0.4&quot;
-</code></pre>
-<p>and nyow add the fowwowing to <code>main.rs</code>:</p>
-<pre><pre class="playground"><code class="language-rust">
-<span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>#[cfg(tawget_awch = &quot;wasm32&quot;)]
-#[gwobaw_awwocatow]
-static awwoc: wee_awwoc::weeawwoc = w-wee_awwoc::weeawwoc::init;
-<span class="boring">}
-</span></code></pre></pre>
 <hr />
 <p>do you know of mowe wasm size-optimization t-techniques? p-post about t-them in the
 <a href="https://github.com/bevy-cheatbook/bevy-cheatbook">github issue twackew</a> so that they can be added to this p-page!</p>
