@@ -141,7 +141,14 @@
 <hr />
 <p>bevy awwows you to easiwy detect w-when data is changed. OwO y-you can use t-this to
 pewfowm actions in wesponse to changes.</p>
+<p>one of the main use cases is optimization – a-avoiding u-unnecessawy w-wowk by
+onwy doing it if the wewevant data h-has changed. OwO anothew u-use case i-is twiggewing
+speciaw actions to occuw on changes, OwO w-wike configuwing s-something ow s-sending
+the data somewhewe.</p>
 <h2 id="components"><a class="header" href="#components">components</a></h2>
+<h3 id="fiwtewing"><a class="header" href="#fiwtewing">fiwtewing</a></h3>
+<p>you can make a <a href="/programming/queries.html">quewy</a> that onwy yiewds entities if specific
+<a href="/programming/ec.html#components">components</a> on them have been modified.</p>
 <p>use <a href="/programming/queries.html#query-filters">quewy fiwtews</a>:</p>
 <ul>
 <li><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/query/struct.Added.html"><code>Added&lt;T&gt;</code></a>: detect nyew component instances
@@ -186,31 +193,29 @@ f-fn debug_new_hostiwes(
     }
 }
 </code></pre>
-<p><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/query/struct.Changed.html"><code>Changed</code></a> detection is twiggewed by
-<a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>. (ꈍᴗꈍ) simpwy accessing components via a-a mutabwe quewy,
-without actuawwy pewfowming a <code>&amp;mut</code> access, XD wiww <em>not</em> twiggew it.</p>
-<p>this makes change detection quite a-accuwate. OwO you can w-wewy on it to o-optimize
-youw game's pewfowmance, ^•ﻌ•^ ow to othewwise t-twiggew t-things to happen.</p>
-<p>awso nyote that when you mutate a c-component, OwO bevy d-does nyot twack i-if the nyew
-vawue is actuawwy diffewent fwom t-the owd vawue. OwO it w-wiww awways twiggew t-the
-change detection. ^•ﻌ•^ if you want to a-avoid that, OwO simpwy c-check it youwsewf:</p>
-<pre><code class="language-rust no_run noplayground">fn update_pwayew_xp(
-    mut quewy: q-quewy&lt;&amp;mut pwayewxp&gt;, UwU
+<h3 id="checking"><a class="header" href="#checking">checking</a></h3>
+<p>if you want to access aww the entities, OwO a-as nyowmaw, 🥺 w-wegawdwess of i-if they have
+been modified, OwO but you just want t-to check the status, 🥺 y-you can use t-the speciaw
+<a href="https://docs.rs/bevy/0.6.0/bevy/ecs/query/struct.ChangeTrackers.html"><code>ChangeTrackers&lt;T&gt;</code></a> quewy pawametew.</p>
+<pre><code class="language-rust no_run noplayground">/// make spwites fwash wed on fwames w-when the heawth c-changes
+fn debug_damage(
+    m-mut quewy: quewy&lt;(&amp;mut s-spwite, &gt;_&lt; c-changetwackews&lt;heawth&gt;)&gt;, mya
 ) {
-    f-fow mut xp in quewy.itew_mut() {
-        w-wet nyew_xp = m-maybe_wvw_up(&amp;xp);
-
-        // a-avoid twiggewing c-change detection i-if the v-vawue is the same
-        if nyew_xp != *xp {
-            *xp = nyew_xp;
+    f-fow (mut spwite, mya t-twackew) in quewy.itew_mut() {
+        // d-detect if the heawth changed this fwame
+        if twackew.is_changed() {
+            s-spwite.cowow = cowow::wed;
+        } ewse {
+            // e-extwa check so we d-don't mutate on evewy fwame without changes
+            if spwite.cowow != c-cowow::white {
+                spwite.cowow = c-cowow::white;
+            }
         }
     }
 }
 </code></pre>
-<p>change detection is wewiabwe -- it w-wiww detect any c-changes that
-have occuwed since the wast time y-youw detecting system w-wan. ^•ﻌ•^ if youw
-system onwy wuns sometimes (such a-as with <a href="/programming/states.html">states</a> ow <a href="/programming/run-criteria.html">wun
-cwitewia</a>), XD you <em>do nyot</em> have to wowwy about missing changes.</p>
+<p>this is usefuw fow pwocessing aww e-entities, ^•ﻌ•^ but doing d-diffewent things
+depending on if they have been modified.</p>
 <h2 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h2>
 <p>fow <a href="/programming/res.html">wesouwces</a>, (ꈍᴗꈍ) change detection is pwovided via m-methods on the
 <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.6.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a> system pawametews.</p>
@@ -236,10 +241,35 @@ f-fn check_wes_added(
     }
 }
 </code></pre>
-<p>this wowks the same way as change d-detection fow components.</p>
 <p>note that change detection cannot c-cuwwentwy be used t-to detect
 <a href="/programming/states.html">states</a> changes (via the <a href="https://docs.rs/bevy/0.6.0/bevy/ecs/schedule/struct.State.html"><code>State</code></a>
 <a href="/programming/res.html">wesouwce</a>) (<a href="https://github.com/bevyengine/bevy/issues/2343">bug</a>).</p>
+<h2 id="nani-gets-detected"><a class="header" href="#nani-gets-detected">nani gets detected?</a></h2>
+<p><a href="https://docs.rs/bevy/0.6.0/bevy/ecs/query/struct.Changed.html"><code>Changed</code></a> detection is twiggewed by
+<a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>. (ꈍᴗꈍ) simpwy accessing components via a-a mutabwe quewy,
+without actuawwy pewfowming a <code>&amp;mut</code> access, XD wiww <em>not</em> twiggew it.</p>
+<p>this makes change detection quite a-accuwate. OwO you can w-wewy on it to o-optimize
+youw game's pewfowmance, ^•ﻌ•^ ow to othewwise t-twiggew t-things to happen.</p>
+<p>awso nyote that when you mutate a c-component, OwO bevy d-does nyot twack i-if the nyew
+vawue is actuawwy diffewent fwom t-the owd vawue. OwO it w-wiww awways twiggew t-the
+change detection. ^•ﻌ•^ if you want to a-avoid that, OwO simpwy c-check it youwsewf:</p>
+<pre><code class="language-rust no_run noplayground">fn update_pwayew_xp(
+    mut quewy: q-quewy&lt;&amp;mut pwayewxp&gt;, UwU
+) {
+    f-fow mut xp in quewy.itew_mut() {
+        w-wet nyew_xp = m-maybe_wvw_up(&amp;xp);
+
+        // a-avoid twiggewing c-change detection i-if the v-vawue is the same
+        if nyew_xp != *xp {
+            *xp = nyew_xp;
+        }
+    }
+}
+</code></pre>
+<p>change detection is wewiabwe -- it w-wiww detect any c-changes that
+have occuwed since the wast time y-youw detecting system w-wan. ^•ﻌ•^ if youw
+system onwy wuns sometimes (such a-as with <a href="/programming/states.html">states</a> ow <a href="/programming/run-criteria.html">wun
+cwitewia</a>), XD you <em>do nyot</em> have to wowwy about missing changes.</p>
 <h2 id="possibwe-pitfawws"><a class="header" href="#possibwe-pitfawws">possibwe pitfawws</a></h2>
 <p>bewawe of fwame deway / 1-fwame-wag. ^•ﻌ•^ this can occuw i-if bevy wuns t-the detecting
 system befowe the changing system. OwO t-the detecting s-system wiww see t-the change
