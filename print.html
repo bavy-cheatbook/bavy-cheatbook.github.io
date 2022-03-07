@@ -5127,6 +5127,27 @@ the same diwectowy as the exe on t-the usew's computew.</p>
 <p>the easiest way to give youw game t-to othew peopwe t-to pway is to put t-them
 togethew in a zip fiwe. ^•ﻌ•^ if you use s-some othew method o-of instawwation,
 instaww the <code>assets</code> fowdew and the exe to the same path.</p>
+<h2 id="disabwing-the-windows-consowe"><a class="header" href="#disabwing-the-windows-consowe">disabwing the windows consowe</a></h2>
+<p>by defauwt, OwO when you wun a bevy app (ow a-any wust p-pwogwam fow that m-mattew)
+on windows, ^•ﻌ•^ a consowe window awso s-shows up. OwO to disabwe t-this,
+pwace this wust attwibute at the t-top of youw <code>main.rs</code>:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span>#![windows_subsystem = &quot;windows&quot;)]
+<span class="boring">fn main() {
+</span><span class="boring">}
+</span></code></pre></pre>
+<p>this tewws windows that youw executabwe i-is a gwaphicaw a-appwication, OwO n-nyot a
+command-wine pwogwam. ^•ﻌ•^ windows wiww k-know nyot dispway a-a consowe.</p>
+<p>howevew, ^•ﻌ•^ the consowe can be usefuw f-fow devewopment, OwO t-to see wog messages.
+you can disabwe it onwy fow wewease b-buiwds, OwO and weave i-it enabwed i-in debug
+buiwds, XD wike this:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span>#![cfg_attw(not(debug_assewtions), XD windows_subsystem = &quot;windows&quot;)]
+<span class="boring">fn main() {
+</span><span class="boring">}
+</span></code></pre></pre>
 <h2 id="cweating-an-icon-fow-youw-app"><a class="header" href="#cweating-an-icon-fow-youw-app">cweating an icon fow youw app</a></h2>
 <p>thewe awe two pwaces whewe you might w-want to put y-youw appwication i-icon:</p>
 <ul>
