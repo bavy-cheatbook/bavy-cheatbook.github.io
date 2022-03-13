@@ -135,7 +135,101 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="woad-assets-fwom-fiwes"><a class="header" href="#woad-assets-fwom-fiwes">woad assets fwom fiwes</a></h1>
+                        <h1 id="woad-assets-fwom-fiwes-with-assetsewvew"><a class="header" href="#woad-assets-fwom-fiwes-with-assetsewvew">woad assets fwom fiwes with assetsewvew</a></h1>
+<p>wewevant officiaw exampwes:
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/asset/asset_loading.rs"><code>asset_loading</code></a>.</p>
+<hr />
+<p>to woad assets fwom fiwes, &gt;_&lt; use the <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a>
+<a href="/programming/res.html">wesouwce</a>.</p>
+<pre><code class="language-rust no_run noplayground">stwuct uifont(handwe&lt;font&gt;);
+
+fn w-woad_ui_font(
+    m-mut commands: c-commands,
+    sewvew: w-wes&lt;assetsewvew&gt;
+) {
+    wet h-handwe: handwe&lt;font&gt; = s-sewvew.woad(&quot;font.ttf&quot;);
+
+    // w-we can s-stowe the handwe in a wesouwce:
+    //  - to pwevent the asset fwom being unwoaded
+    //  - if w-we want to use it to access the asset watew
+    c-commands.insewt_wesouwce(uifont(handwe));
+}
+</code></pre>
+<p>this queues the asset woading to h-happen in the backgwound, OwO a-and wetuwn a-a
+<a href="/assets/handles.html">handwe</a>. ^•ﻌ•^ the asset wiww take some time to b-become avaiwabwe. OwO y-you
+cannot access the actuaw data immediatewy i-in the s-same <a href="/programming/systems.html">system</a>,
+but you can use the handwe.</p>
+<p>you can spawn entities wike youw 2d s-spwites, OwO 3d modews, 🥺 a-and ui, òωó using t-the
+handwe, OwO even befowe the asset has w-woaded. 🥺 they wiww j-just &quot;pop in&quot; w-watew,
+when the asset becomes weady.</p>
+<p>note that it is ok to caww <code>asset_server.load(…)</code> as many times as you want,
+even if the asset is cuwwentwy woading, OwO o-ow awweady w-woaded. 🥺 it wiww j-just
+pwovide you with the same handwe. OwO e-evewy time you c-caww it, 🥺 it wiww j-just check
+the status of the asset, OwO begin woading i-it if nyeeded, 🥺 a-and give you a-a handwe.</p>
+<p>bevy suppowts woading <a href="/builtins.html#file-formats">a vawiety of asset fiwe fowmats</a>,
+and can be extended to suppowt mowe. OwO t-the asset woadew i-impwementation t-to use
+is sewected based on the fiwe extension.</p>
+<h2 id="untyped-woading"><a class="header" href="#untyped-woading">untyped woading</a></h2>
+<p>if you want an <a href="/assets/handles.html#untyped-handles">untyped handwe</a>, XD you can use
+<code>asset_server.load_untyped(…)</code> instead.</p>
+<p>you can awso woad an entiwe fowdew o-of assets, ^•ﻌ•^ wegawdwess o-of how many
+fiwes awe inside, &gt;<em>&lt; using <code>asset_server.load_folder(…)</code>. &gt;</em>&lt; this gives you a
+<code>Vec&lt;HandleUntyped&gt;</code> with aww the untyped handwes.</p>
+<pre><code class="language-rust no_run noplayground">stwuct extwaassets(vec&lt;handweuntyped&gt;);
+
+fn woad_extwa_assets(
+    m-mut commands: c-commands, o.O
+    sewvew: w-wes&lt;assetsewvew&gt;, (U ᵕ U❁)
+) {
+    i-if wet ok(handwes) = s-sewvew.woad_fowdew(&quot;extwa&quot;) {
+        c-commands.insewt_wesouwce(extwaassets(handwes));
+    }
+}
+</code></pre>
+<p>untyped woading is possibwe, OwO because b-bevy awways d-detects the fiwe t-type fwom
+the fiwe extension anyway.</p>
+<h2 id="assetpath-and-wabews"><a class="header" href="#assetpath-and-wabews">assetpath and wabews</a></h2>
+<p>the asset path you use to identify a-an asset fwom t-the fiwesystem is a-actuawwy
+a speciaw <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetPath.html"><code>AssetPath</code></a>, &gt;_&lt; which consists of the fiwe path +
+a wabew. OwO wabews awe used in situations w-whewe muwtipwe a-assets awe c-contained
+in the same fiwe. (ꈍᴗꈍ) an exampwe of this a-awe <a href="/features/gltf.html">gwtf fiwes</a>, XD which can
+contain meshes, (ꈍᴗꈍ) scenes, ^•ﻌ•^ textuwes, OwO m-matewiaws, etc.</p>
+<p>asset paths can be cweated fwom a s-stwing, OwO with the w-wabew (if any) a-attached
+aftew a <code>#</code> symbow.</p>
+<pre><code class="language-rust no_run noplayground">fn woad_gwtf_things(
+    mut commands: c-commands, rawr x3
+    s-sewvew: wes&lt;assetsewvew&gt;
+) {
+    // g-get a specific m-mesh
+    w-wet my_mesh: handwe&lt;mesh&gt; = s-sewvew.woad(&quot;my_scene.gwtf#mesh0/pwimitive0&quot;);
+
+    // s-spawn a whowe s-scene
+    wet my_scene: handwe&lt;scene&gt; = sewvew.woad(&quot;my_scene.gwtf#scene0&quot;);
+    commands.spawn_scene(my_scene);
+}
+</code></pre>
+<p>see the <a href="/features/gltf.html">gwtf page</a> fow mowe info about wowking with 3d m-modews.</p>
+<h2 id="whewe-awe-assets-woaded-fwom"><a class="header" href="#whewe-awe-assets-woaded-fwom">whewe awe assets woaded fwom?</a></h2>
+<p>the asset sewvew intewnawwy wewies o-on an impwementation o-of the
+<a href="https://docs.rs/bevy/0.6.0/bevy/asset/trait.AssetIo.html"><code>AssetIo</code></a> wust twait, (ꈍᴗꈍ) which is bevy's way o-of pwoviding
+&quot;backends&quot; fow fetching data fwom d-diffewent types o-of stowage.</p>
+<p>bevy pwovides its own defauwt buiwt-in i-i/o backend f-fow desktop pwatfowms
+and fow webassembwy.</p>
+<p>on desktop pwatfowms, OwO it tweats asset p-paths as wewative t-to a fowdew c-cawwed
+<code>assets</code>, (ꈍᴗꈍ) that must be pwaced at one of the f-fowwowing wocations:</p>
+<ul>
+<li>awongside the game's executabwe fiwe, (ꈍᴗꈍ) f-fow distwibution</li>
+<li>in youw cawgo pwoject fowdew, ^•ﻌ•^ when w-wunning youw game u-using <code>cargo</code> duwing devewopment
+<ul>
+<li>this is identified by the <code>CARGO_MANIFEST_DIR</code> enviwonment vawiabwe</li>
+</ul>
+</li>
+</ul>
+<p>on the web, ^•ﻌ•^ it fetches assets using h-http uwws pointing w-within an <code>assets</code>
+fowdew wocated awongside the game's <code>.wasm</code> fiwe.</p>
+<p>thewe awe <a href="/setup/unofficial-plugins.html">unofficiaw pwugins</a> avaiwabwe that pwovide additionaw
+i/o backend impwementations, OwO such a-as fow woading a-assets fwom inside a-awchive
+fiwes.</p>
 
                     </main>
 

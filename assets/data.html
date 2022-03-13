@@ -136,6 +136,59 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="access-the-asset-data"><a class="header" href="#access-the-asset-data">access the asset data</a></h1>
+<p>to access the actuaw asset data fwom s-systems, ^•ﻌ•^ use t-the
+<a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.Assets.html"><code>Assets&lt;T&gt;</code></a> <a href="/programming/res.html">wesouwce</a>.</p>
+<p>you can identify youw desiwed asset u-using eithew t-the <a href="/assets/handles.html">handwe</a>
+(<a href="/assets/handles.html#untyped-handles">untyped handwes</a> can awso be used) ow the <a href="/assets/assetserver.html#assetpath-and-labels">asset
+path</a>:</p>
+<pre><code class="language-rust no_run noplayground">stwuct spwitesheets {
+    map_tiwes: h-handwe&lt;textuweatwas&gt;, ^^;;
+}
+
+f-fn u-use_spwites(
+    h-handwes: wes&lt;spwitesheets&gt;, &gt;_&lt;
+    a-atwases: wes&lt;assets&lt;textuweatwas&gt;&gt;, mya
+    i-images: w-wes&lt;assets&lt;image&gt;&gt;, mya
+) {
+    // c-couwd be `none` if the asset isn't woaded yet
+    if wet some(atwas) = atwases.get(&amp;handwes.map_tiwes) {
+        // d-do something with the textuwe atwas
+    }
+
+    // c-can use a path instead of a-a handwe
+    if wet some(map_tex) = images.get(&quot;map.png&quot;) {
+        // if &quot;map.png&quot; w-was woaded, 😳 we can use it! XD
+    }
+}
+</code></pre>
+<h2 id="cweating-assets-fwom-code"><a class="header" href="#cweating-assets-fwom-code">cweating assets fwom code</a></h2>
+<p>you can awso add assets to <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.Assets.html"><code>Assets&lt;T&gt;</code></a> manuawwy.</p>
+<p>sometimes you nyeed to cweate assets f-fwom code, ^•ﻌ•^ wathew t-than <a href="/assets/assetserver.html">woading them
+fwom fiwes</a>. (ꈍᴗꈍ) some common exampwes of such use-cases a-awe:</p>
+<ul>
+<li>cweating textuwe atwases</li>
+<li>cweating 3d ow 2d matewiaws</li>
+<li>pwoceduwawwy-genewating assets wike images ow 3d m-meshes</li>
+</ul>
+<p>to do this, ^•ﻌ•^ fiwst cweate the data f-fow the asset (an i-instance of the
+<a href="/builtins.html#assets">asset type</a>), XD and then add it <code>.add(…)</code> it to the
+<a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.Assets.html"><code>Assets&lt;T&gt;</code></a> wesouwce, (ꈍᴗꈍ) fow it to be stowed and t-twacked by
+bevy. &gt;<em>&lt; you wiww get a <a href="/assets/handles.html">handwe</a> to use to wefew to it, &gt;</em>&lt; just wike
+any othew asset.</p>
+<pre><code class="language-rust no_run noplayground">fn add_matewiaw(
+    mut matewiaws: w-wesmut&lt;assets&lt;standawdmatewiaw&gt;&gt;, UwU
+) {
+    w-wet n-nyew_mat = standawdmatewiaw {
+        b-base_cowow: c-cowow::wgba(0.25, rawr x3 0.50, rawr 0.75, 1.0), σωσ
+        unwit: t-twue, σωσ
+        ..defauwt::defauwt()
+    };
+
+    w-wet handwe = m-matewiaws.add(new_mat);
+
+    // do something with the handwe
+}
+</code></pre>
 
                     </main>
 

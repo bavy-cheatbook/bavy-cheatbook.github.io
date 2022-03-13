@@ -136,6 +136,48 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="handwes"><a class="header" href="#handwes">handwes</a></h1>
+<p>handwes awe wightweight ids that w-wefew to a specific a-asset. OwO you need t-them
+to use youw assets, &gt;_&lt; fow exampwe to <a href="/programming/commands.html">spawn entities</a> wike
+<a href="/2d/sprites.html">2d spwites</a> ow <a href="/features/gltf.html">3d modews</a>, XD ow to <a href="/assets/data.html">access the data
+of the assets</a>.</p>
+<p>handwes have the wust type <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.Handle.html"><code>Handle&lt;T&gt;</code></a>, XD whewe <code>T</code> is the
+<a href="/builtins.html#assets">asset type</a>.</p>
+<p>you can stowe handwes in youw <a href="/programming/ec.html#components">entity components</a> ow
+<a href="/programming/res.html">wesouwces</a>.</p>
+<p>handwes can wefew to nyot-yet-woaded a-assets, OwO meaning y-you can just s-spawn youw
+entities anyway, using the handwes, OwO a-and the assets w-wiww just &quot;pop i-in&quot; when
+they become weady.</p>
+<h2 id="obtaining-handwes"><a class="header" href="#obtaining-handwes">obtaining handwes</a></h2>
+<p>if you awe <a href="/assets/assetserver.html">woading an asset fwom a fiwe</a>, XD the
+<code>asset_server.load(…)</code> caww wiww give you the handwe. (ꈍᴗꈍ) the w-woading of the
+data happens in the backgwound, OwO meaning t-that the h-handwe wiww initiawwy w-wefew
+to an unwoaded asset, ^•ﻌ•^ and the actuaw d-data wiww become a-avaiwabwe watew.</p>
+<p>if you awe <a href="/assets/data.html">cweating youw own asset data fwom c-code</a>,
+the <code>assets.add(…)</code> caww wiww give you the handwe.</p>
+<h2 id="wefewence-counting-stwong-and-weak-h-handwes"><a class="header" href="#wefewence-counting-stwong-and-weak-h-handwes">wefewence counting; stwong and weak h-handwes</a></h2>
+<p>bevy keeps twack of how many handwes t-to a given asset e-exist at any t-time. OwO bevy
+wiww automaticawwy unwoad unused a-assets, OwO aftew the w-wast handwe is d-dwopped.</p>
+<p>fow this weason, cweating additionaw h-handwes to the s-same asset wequiwes y-you
+to caww <code>handle.clone()</code>. ^•ﻌ•^ this makes the opewation expwicit, OwO t-to ensuwe you a-awe
+awawe of aww the pwaces in youw code w-whewe you cweate a-additionaw h-handwes. OwO the
+<code>.clone()</code> opewation is cheap, ^•ﻌ•^ so don't wowwy a-about pewfowmance (in m-most cases).</p>
+<p>thewe awe two kinds of handwes: &quot;stwong&quot; a-and &quot;weak&quot;. OwO s-stwong assets a-awe
+counted, OwO weak handwes awe nyot. 🥺 by d-defauwt, òωó handwes a-awe stwong. o.O if y-you want
+to cweate a weak handwe, &gt;_&lt; use <code>.clone_weak()</code> (instead of <code>.clone()</code>) on an
+existing handwe. bevy can unwoad t-the asset aftew a-aww stwong handwes a-awe gone,
+even if you awe stiww howding some w-weak handwes.</p>
+<h2 id="untyped-handwes"><a class="header" href="#untyped-handwes">untyped handwes</a></h2>
+<p>bevy awso has a <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.HandleUntyped.html"><code>HandleUntyped</code></a> type. XD use this type
+of handwe if you nyeed to be abwe t-to wefew to any a-asset, OwO wegawdwess o-of the
+asset type.</p>
+<p>this awwows you to stowe a cowwection (such a-as <a href="https://doc.rust-lang.org/stable/std/vec/struct.Vec.html"><code>Vec</code></a> ow
+<a href="https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html"><code>HashMap</code></a>) containing assets of mixed types.</p>
+<p>just wike weguwaw handwes, OwO untyped h-handwes can be s-stwong ow weak, 🥺 a-and can
+be used to <a href="/assets/data.html">access asset data</a>.</p>
+<p>you can cweate an untyped handwe u-using <code>.clone_untyped()</code> on an existing
+handwe.</p>
+<p>you can convewt an untyped handwe i-into a typed handwe w-with <code>.typed::&lt;T&gt;()</code>,
+specifying the type to use.</p>
 
                     </main>
 

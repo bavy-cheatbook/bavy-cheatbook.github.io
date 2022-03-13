@@ -2000,12 +2000,332 @@ featuwes = [
 </code></pre>
 <p>see <a href="features//setup/bevy-config.html">this page</a> fow mowe infowmation about bevy's c-cawgo featuwes.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bevy-asset-management"><a class="header" href="#bevy-asset-management">bevy asset management</a></h1>
+<p>assets awe the data that the game e-engine is wowking w-with: aww of y-youw images,
+3d modews, ^•ﻌ•^ sounds, OwO scenes, game-specific t-things wike i-item descwiptions,
+and mowe!</p>
+<p>bevy has a fwexibwe system fow woading a-and managing y-youw game assets
+asynchwonouswy (in the backgwound, ^•ﻌ•^ without causing w-wag spikes in y-youw game).</p>
+<p>in youw code, (ꈍᴗꈍ) you wefew to individuaw a-assets using <a href="/assets/handles.html"><em>handwes</em></a>.</p>
+<p>asset data can be <a href="/assets/assetserver.html">woaded fwom fiwes</a> and awso <a href="/assets/data.html">accessed fwom
+code</a>. rawr x3 <a href="/assets/hot-reload.html">hot-wewoading</a> is suppowted to
+hewp you duwing devewopment, OwO by wewoading a-asset fiwes i-if they change w-whiwe the
+game is wunning.</p>
+<p>if you want to wwite some code to d-do something when a-assets finish w-woading, get
+modified, (ꈍᴗꈍ) ow awe unwoaded, ^•ﻌ•^ you can u-use <a href="/assets/assetevent.html">asset events</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="handwes"><a class="header" href="#handwes">handwes</a></h1>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="woad-assets-fwom-fiwes"><a class="header" href="#woad-assets-fwom-fiwes">woad assets fwom fiwes</a></h1>
+<p>handwes awe wightweight ids that w-wefew to a specific a-asset. OwO you need t-them
+to use youw assets, &gt;_&lt; fow exampwe to <a href="assets//programming/commands.html">spawn entities</a> wike
+<a href="assets//2d/sprites.html">2d spwites</a> ow <a href="assets//features/gltf.html">3d modews</a>, XD ow to <a href="assets//assets/data.html">access the data
+of the assets</a>.</p>
+<p>handwes have the wust type <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.Handle.html"><code>Handle&lt;T&gt;</code></a>, XD whewe <code>T</code> is the
+<a href="assets//builtins.html#assets">asset type</a>.</p>
+<p>you can stowe handwes in youw <a href="assets//programming/ec.html#components">entity components</a> ow
+<a href="assets//programming/res.html">wesouwces</a>.</p>
+<p>handwes can wefew to nyot-yet-woaded a-assets, OwO meaning y-you can just s-spawn youw
+entities anyway, using the handwes, OwO a-and the assets w-wiww just &quot;pop i-in&quot; when
+they become weady.</p>
+<h2 id="obtaining-handwes"><a class="header" href="#obtaining-handwes">obtaining handwes</a></h2>
+<p>if you awe <a href="assets//assets/assetserver.html">woading an asset fwom a fiwe</a>, XD the
+<code>asset_server.load(…)</code> caww wiww give you the handwe. (ꈍᴗꈍ) the w-woading of the
+data happens in the backgwound, OwO meaning t-that the h-handwe wiww initiawwy w-wefew
+to an unwoaded asset, ^•ﻌ•^ and the actuaw d-data wiww become a-avaiwabwe watew.</p>
+<p>if you awe <a href="assets//assets/data.html">cweating youw own asset data fwom c-code</a>,
+the <code>assets.add(…)</code> caww wiww give you the handwe.</p>
+<h2 id="wefewence-counting-stwong-and-weak-h-handwes"><a class="header" href="#wefewence-counting-stwong-and-weak-h-handwes">wefewence counting; stwong and weak h-handwes</a></h2>
+<p>bevy keeps twack of how many handwes t-to a given asset e-exist at any t-time. OwO bevy
+wiww automaticawwy unwoad unused a-assets, OwO aftew the w-wast handwe is d-dwopped.</p>
+<p>fow this weason, cweating additionaw h-handwes to the s-same asset wequiwes y-you
+to caww <code>handle.clone()</code>. ^•ﻌ•^ this makes the opewation expwicit, OwO t-to ensuwe you a-awe
+awawe of aww the pwaces in youw code w-whewe you cweate a-additionaw h-handwes. OwO the
+<code>.clone()</code> opewation is cheap, ^•ﻌ•^ so don't wowwy a-about pewfowmance (in m-most cases).</p>
+<p>thewe awe two kinds of handwes: &quot;stwong&quot; a-and &quot;weak&quot;. OwO s-stwong assets a-awe
+counted, OwO weak handwes awe nyot. 🥺 by d-defauwt, òωó handwes a-awe stwong. o.O if y-you want
+to cweate a weak handwe, &gt;_&lt; use <code>.clone_weak()</code> (instead of <code>.clone()</code>) on an
+existing handwe. bevy can unwoad t-the asset aftew a-aww stwong handwes a-awe gone,
+even if you awe stiww howding some w-weak handwes.</p>
+<h2 id="untyped-handwes"><a class="header" href="#untyped-handwes">untyped handwes</a></h2>
+<p>bevy awso has a <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.HandleUntyped.html"><code>HandleUntyped</code></a> type. XD use this type
+of handwe if you nyeed to be abwe t-to wefew to any a-asset, OwO wegawdwess o-of the
+asset type.</p>
+<p>this awwows you to stowe a cowwection (such a-as <a href="https://doc.rust-lang.org/stable/std/vec/struct.Vec.html"><code>Vec</code></a> ow
+<a href="https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html"><code>HashMap</code></a>) containing assets of mixed types.</p>
+<p>just wike weguwaw handwes, OwO untyped h-handwes can be s-stwong ow weak, 🥺 a-and can
+be used to <a href="assets//assets/data.html">access asset data</a>.</p>
+<p>you can cweate an untyped handwe u-using <code>.clone_untyped()</code> on an existing
+handwe.</p>
+<p>you can convewt an untyped handwe i-into a typed handwe w-with <code>.typed::&lt;T&gt;()</code>,
+specifying the type to use.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="woad-assets-fwom-fiwes-with-assetsewvew"><a class="header" href="#woad-assets-fwom-fiwes-with-assetsewvew">woad assets fwom fiwes with assetsewvew</a></h1>
+<p>wewevant officiaw exampwes:
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/asset/asset_loading.rs"><code>asset_loading</code></a>.</p>
+<hr />
+<p>to woad assets fwom fiwes, &gt;_&lt; use the <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a>
+<a href="assets//programming/res.html">wesouwce</a>.</p>
+<pre><code class="language-rust no_run noplayground">stwuct uifont(handwe&lt;font&gt;);
+
+fn w-woad_ui_font(
+    m-mut commands: c-commands,
+    sewvew: w-wes&lt;assetsewvew&gt;
+) {
+    wet h-handwe: handwe&lt;font&gt; = s-sewvew.woad(&quot;font.ttf&quot;);
+
+    // w-we can s-stowe the handwe in a wesouwce:
+    //  - to pwevent the asset fwom being unwoaded
+    //  - if w-we want to use it to access the asset watew
+    c-commands.insewt_wesouwce(uifont(handwe));
+}
+</code></pre>
+<p>this queues the asset woading to h-happen in the backgwound, OwO a-and wetuwn a-a
+<a href="assets//assets/handles.html">handwe</a>. ^•ﻌ•^ the asset wiww take some time to b-become avaiwabwe. OwO y-you
+cannot access the actuaw data immediatewy i-in the s-same <a href="assets//programming/systems.html">system</a>,
+but you can use the handwe.</p>
+<p>you can spawn entities wike youw 2d s-spwites, OwO 3d modews, 🥺 a-and ui, òωó using t-the
+handwe, OwO even befowe the asset has w-woaded. 🥺 they wiww j-just &quot;pop in&quot; w-watew,
+when the asset becomes weady.</p>
+<p>note that it is ok to caww <code>asset_server.load(…)</code> as many times as you want,
+even if the asset is cuwwentwy woading, OwO o-ow awweady w-woaded. 🥺 it wiww j-just
+pwovide you with the same handwe. OwO e-evewy time you c-caww it, 🥺 it wiww j-just check
+the status of the asset, OwO begin woading i-it if nyeeded, 🥺 a-and give you a-a handwe.</p>
+<p>bevy suppowts woading <a href="assets//builtins.html#file-formats">a vawiety of asset fiwe fowmats</a>,
+and can be extended to suppowt mowe. OwO t-the asset woadew i-impwementation t-to use
+is sewected based on the fiwe extension.</p>
+<h2 id="untyped-woading"><a class="header" href="#untyped-woading">untyped woading</a></h2>
+<p>if you want an <a href="assets//assets/handles.html#untyped-handles">untyped handwe</a>, XD you can use
+<code>asset_server.load_untyped(…)</code> instead.</p>
+<p>you can awso woad an entiwe fowdew o-of assets, ^•ﻌ•^ wegawdwess o-of how many
+fiwes awe inside, &gt;<em>&lt; using <code>asset_server.load_folder(…)</code>. &gt;</em>&lt; this gives you a
+<code>Vec&lt;HandleUntyped&gt;</code> with aww the untyped handwes.</p>
+<pre><code class="language-rust no_run noplayground">stwuct extwaassets(vec&lt;handweuntyped&gt;);
+
+fn woad_extwa_assets(
+    m-mut commands: c-commands, o.O
+    sewvew: w-wes&lt;assetsewvew&gt;, (U ᵕ U❁)
+) {
+    i-if wet ok(handwes) = s-sewvew.woad_fowdew(&quot;extwa&quot;) {
+        c-commands.insewt_wesouwce(extwaassets(handwes));
+    }
+}
+</code></pre>
+<p>untyped woading is possibwe, OwO because b-bevy awways d-detects the fiwe t-type fwom
+the fiwe extension anyway.</p>
+<h2 id="assetpath-and-wabews"><a class="header" href="#assetpath-and-wabews">assetpath and wabews</a></h2>
+<p>the asset path you use to identify a-an asset fwom t-the fiwesystem is a-actuawwy
+a speciaw <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetPath.html"><code>AssetPath</code></a>, &gt;_&lt; which consists of the fiwe path +
+a wabew. OwO wabews awe used in situations w-whewe muwtipwe a-assets awe c-contained
+in the same fiwe. (ꈍᴗꈍ) an exampwe of this a-awe <a href="assets//features/gltf.html">gwtf fiwes</a>, XD which can
+contain meshes, (ꈍᴗꈍ) scenes, ^•ﻌ•^ textuwes, OwO m-matewiaws, etc.</p>
+<p>asset paths can be cweated fwom a s-stwing, OwO with the w-wabew (if any) a-attached
+aftew a <code>#</code> symbow.</p>
+<pre><code class="language-rust no_run noplayground">fn woad_gwtf_things(
+    mut commands: c-commands, rawr x3
+    s-sewvew: wes&lt;assetsewvew&gt;
+) {
+    // g-get a specific m-mesh
+    w-wet my_mesh: handwe&lt;mesh&gt; = s-sewvew.woad(&quot;my_scene.gwtf#mesh0/pwimitive0&quot;);
+
+    // s-spawn a whowe s-scene
+    wet my_scene: handwe&lt;scene&gt; = sewvew.woad(&quot;my_scene.gwtf#scene0&quot;);
+    commands.spawn_scene(my_scene);
+}
+</code></pre>
+<p>see the <a href="assets//features/gltf.html">gwtf page</a> fow mowe info about wowking with 3d m-modews.</p>
+<h2 id="whewe-awe-assets-woaded-fwom"><a class="header" href="#whewe-awe-assets-woaded-fwom">whewe awe assets woaded fwom?</a></h2>
+<p>the asset sewvew intewnawwy wewies o-on an impwementation o-of the
+<a href="https://docs.rs/bevy/0.6.0/bevy/asset/trait.AssetIo.html"><code>AssetIo</code></a> wust twait, (ꈍᴗꈍ) which is bevy's way o-of pwoviding
+&quot;backends&quot; fow fetching data fwom d-diffewent types o-of stowage.</p>
+<p>bevy pwovides its own defauwt buiwt-in i-i/o backend f-fow desktop pwatfowms
+and fow webassembwy.</p>
+<p>on desktop pwatfowms, OwO it tweats asset p-paths as wewative t-to a fowdew c-cawwed
+<code>assets</code>, (ꈍᴗꈍ) that must be pwaced at one of the f-fowwowing wocations:</p>
+<ul>
+<li>awongside the game's executabwe fiwe, (ꈍᴗꈍ) f-fow distwibution</li>
+<li>in youw cawgo pwoject fowdew, ^•ﻌ•^ when w-wunning youw game u-using <code>cargo</code> duwing devewopment
+<ul>
+<li>this is identified by the <code>CARGO_MANIFEST_DIR</code> enviwonment vawiabwe</li>
+</ul>
+</li>
+</ul>
+<p>on the web, ^•ﻌ•^ it fetches assets using h-http uwws pointing w-within an <code>assets</code>
+fowdew wocated awongside the game's <code>.wasm</code> fiwe.</p>
+<p>thewe awe <a href="assets//setup/unofficial-plugins.html">unofficiaw pwugins</a> avaiwabwe that pwovide additionaw
+i/o backend impwementations, OwO such a-as fow woading a-assets fwom inside a-awchive
+fiwes.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="access-the-asset-data"><a class="header" href="#access-the-asset-data">access the asset data</a></h1>
+<p>to access the actuaw asset data fwom s-systems, ^•ﻌ•^ use t-the
+<a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.Assets.html"><code>Assets&lt;T&gt;</code></a> <a href="assets//programming/res.html">wesouwce</a>.</p>
+<p>you can identify youw desiwed asset u-using eithew t-the <a href="assets//assets/handles.html">handwe</a>
+(<a href="assets//assets/handles.html#untyped-handles">untyped handwes</a> can awso be used) ow the <a href="assets//assets/assetserver.html#assetpath-and-labels">asset
+path</a>:</p>
+<pre><code class="language-rust no_run noplayground">stwuct spwitesheets {
+    map_tiwes: h-handwe&lt;textuweatwas&gt;, ^^;;
+}
+
+f-fn u-use_spwites(
+    h-handwes: wes&lt;spwitesheets&gt;, &gt;_&lt;
+    a-atwases: wes&lt;assets&lt;textuweatwas&gt;&gt;, mya
+    i-images: w-wes&lt;assets&lt;image&gt;&gt;, mya
+) {
+    // c-couwd be `none` if the asset isn't woaded yet
+    if wet some(atwas) = atwases.get(&amp;handwes.map_tiwes) {
+        // d-do something with the textuwe atwas
+    }
+
+    // c-can use a path instead of a-a handwe
+    if wet some(map_tex) = images.get(&quot;map.png&quot;) {
+        // if &quot;map.png&quot; w-was woaded, 😳 we can use it! XD
+    }
+}
+</code></pre>
+<h2 id="cweating-assets-fwom-code"><a class="header" href="#cweating-assets-fwom-code">cweating assets fwom code</a></h2>
+<p>you can awso add assets to <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.Assets.html"><code>Assets&lt;T&gt;</code></a> manuawwy.</p>
+<p>sometimes you nyeed to cweate assets f-fwom code, ^•ﻌ•^ wathew t-than <a href="assets//assets/assetserver.html">woading them
+fwom fiwes</a>. (ꈍᴗꈍ) some common exampwes of such use-cases a-awe:</p>
+<ul>
+<li>cweating textuwe atwases</li>
+<li>cweating 3d ow 2d matewiaws</li>
+<li>pwoceduwawwy-genewating assets wike images ow 3d m-meshes</li>
+</ul>
+<p>to do this, ^•ﻌ•^ fiwst cweate the data f-fow the asset (an i-instance of the
+<a href="assets//builtins.html#assets">asset type</a>), XD and then add it <code>.add(…)</code> it to the
+<a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.Assets.html"><code>Assets&lt;T&gt;</code></a> wesouwce, (ꈍᴗꈍ) fow it to be stowed and t-twacked by
+bevy. &gt;<em>&lt; you wiww get a <a href="assets//assets/handles.html">handwe</a> to use to wefew to it, &gt;</em>&lt; just wike
+any othew asset.</p>
+<pre><code class="language-rust no_run noplayground">fn add_matewiaw(
+    mut matewiaws: w-wesmut&lt;assets&lt;standawdmatewiaw&gt;&gt;, UwU
+) {
+    w-wet n-nyew_mat = standawdmatewiaw {
+        b-base_cowow: c-cowow::wgba(0.25, rawr x3 0.50, rawr 0.75, 1.0), σωσ
+        unwit: t-twue, σωσ
+        ..defauwt::defauwt()
+    };
+
+    w-wet handwe = m-matewiaws.add(new_mat);
+
+    // do something with the handwe
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="weact-to-changes-with-asset-events"><a class="header" href="#weact-to-changes-with-asset-events">weact to changes with asset events</a></h1>
+<p>if you nyeed to pewfowm specific a-actions when an a-asset is cweated,
+modified, (ꈍᴗꈍ) ow wemoved, ^•ﻌ•^ you can make a-a <a href="assets//programming/systems.html">system</a> that weacts to
+<a href="https://docs.rs/bevy/0.6.0/bevy/asset/enum.AssetEvent.html"><code>AssetEvent</code></a> <a href="assets//programming/events.html">events</a>.</p>
+<pre><code class="language-rust no_run noplayground">stwuct mymapimage {
+    handwe: handwe&lt;image&gt;, -.-
+}
+
+f-fn fixup_images(
+    m-mut ev_asset: e-eventweadew&lt;assetevent&lt;image&gt;&gt;, ( ͡o ω ͡o )
+    m-mut assets: w-wesmut&lt;assets&lt;image&gt;&gt;, rawr x3
+    map_img: w-wes&lt;mymapimage&gt;, nyaa~~
+) {
+    f-fow ev in ev_asset.itew() {
+        m-match ev {
+            assetevent::cweated { handwe } |
+            assetevent::modified { handwe } =&gt; {
+                // a-a textuwe was just woaded ow changed! /(^•ω•^)
+
+                wet textuwe = a-assets.get_mut(handwe).unwwap();
+                // ^ unwwap i-is ok, because we know it is woaded nyow
+
+                if *handwe == m-map_img.handwe {
+                    // it is ouw speciaw m-map image! rawr
+                } e-ewse {
+                    // it is some othew image
+                }
+            }
+            assetevent::wemoved { handwe } =&gt; {
+                // a-an image was unwoaded
+            }
+        }
+    }
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="twack-woading-pwogwess"><a class="header" href="#twack-woading-pwogwess">twack woading pwogwess</a></h1>
+<p>thewe awe good community pwugins t-that can hewp with t-this. ^•ﻌ•^ see <a href="assets//setup/unofficial-plugins.html#code-helpers">my
+wecommendations fow hewpew cwates</a>. XD othewwise,
+this page shows you how to do it m-manuawwy.</p>
+<hr />
+<p>if you want to check the status of v-vawious <a href="assets//assets/assetserver.html">asset fiwes</a>,
+you can poww it fwom the <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a>. XD it wiww teww you
+whethew the asset(s) awe woaded, s-stiww woading, ^•ﻌ•^ not w-woaded, ow encountewed
+an ewwow.</p>
+<p>to check an individuaw asset, (ꈍᴗꈍ) you c-can use <code>asset_server.get_load_state(…)</code> with
+a handwe ow path to wefew to the a-asset.</p>
+<p>to check a gwoup of many assets, y-you can add them t-to a singwe cowwection
+(such as a <code>Vec&lt;HandleUntyped&gt;</code>; <a href="assets//assets/handles.html#untyped-handles">untyped handwes</a> awe vewy
+usefuw fow this) and use <code>asset_server.get_group_load_state(…)</code>.</p>
+<hr />
+<p>hewe is a mowe compwete code exampwe:</p>
+<pre><code class="language-rust no_run noplayground">stwuct assetswoading(vec&lt;handweuntyped&gt;);
+
+fn setup(sewvew: w-wes&lt;assetsewvew&gt;, (⑅˘꒳˘) m-mut w-woading: wesmut&lt;assetswoading&gt;) {
+    // w-we can h-have diffewent a-asset types
+    w-wet font: handwe&lt;font&gt; = s-sewvew.woad(&quot;my_font.ttf&quot;);
+    wet menu_bg: handwe&lt;image&gt; = sewvew.woad(&quot;menu.png&quot;);
+    wet scene: handwe&lt;scene&gt; = s-sewvew.woad(&quot;wevew01.gwtf#scene0&quot;);
+
+    // add them aww to ouw cowwection f-fow twacking
+    woading.0.push(font.cwone_untyped());
+    w-woading.0.push(menu_bg.cwone_untyped());
+    woading.0.push(scene.cwone_untyped());
+}
+
+fn check_assets_weady(
+    mut commands: c-commands, /(^•ω•^)
+    sewvew: wes&lt;assetsewvew&gt;, rawr x3
+    w-woading: wes&lt;assetswoading&gt;
+) {
+    u-use bevy::asset::woadstate;
+
+    match sewvew.get_gwoup_woad_state(woading.0.itew().map(|h| h.id)) {
+        woadstate::faiwed =&gt; {
+            // one of ouw a-assets had an ewwow
+        }
+        woadstate::woaded =&gt; {
+            // aww assets awe nyow w-weady
+
+            // this might b-be a good pwace t-to twansition i-into youw in-game s-state
+
+            // wemove the wesouwce to d-dwop the twacking handwes
+            commands.wemove_wesouwce::&lt;assetswoading&gt;();
+            // (note: i-if you don't have any othew handwes to the assets
+            // ewsewhewe, (U ﹏ U) they wiww get u-unwoaded aftew this)
+        }
+        _ =&gt; {
+            // n-notwoaded/woading: n-nyot fuwwy weady y-yet
+        }
+    }
+}
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="hot-wewoading-assets"><a class="header" href="#hot-wewoading-assets">hot-wewoading assets</a></h1>
+<p>wewevant officiaw exampwes:
+<a href="https://github.com/bevyengine/bevy/blob/v0.6.0/examples/asset/hot_asset_reloading.rs"><code>hot_asset_reloading</code></a>.</p>
+<hr />
+<p>at wuntime, (ꈍᴗꈍ) if you modify the fiwe o-of an [asset][cb::assets] that is woaded
+into the game (via the <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a>), XD bevy can detect
+that and wewoad the asset automaticawwy. OwO t-this is v-vewy usefuw fow q-quick
+itewation. OwO you can edit youw assets w-whiwe the game i-is wunning and s-see the
+changes instantwy in-game.</p>
+<p>not aww <a href="assets//builtins.html#file-formats">fiwe fowmats</a> and use cases awe suppowted
+equawwy weww. OwO typicaw asset types w-wike textuwes / i-images shouwd wowk w-without
+issues, OwO but compwex gwtf ow scene f-fiwes, 🥺 ow assets i-invowving custom w-wogic,
+might nyot.</p>
+<p>if you nyeed to wun custom wogic a-as pawt of youw h-hot-wewoading
+wowkfwow, (ꈍᴗꈍ) you couwd impwement it i-in a <a href="assets//programming/systems.html">system</a>, XD using
+<a href="https://docs.rs/bevy/0.6.0/bevy/asset/enum.AssetEvent.html"><code>AssetEvent</code></a> (<a href="assets//assets/assetevent.html">weawn mowe</a>).</p>
+<p>hot wewoading is opt-in and has to b-be enabwed in o-owdew to wowk. OwO you c-can do
+this in a <a href="assets//programming/app-builder.html">stawtup system</a>:</p>
+<pre><code class="language-rust no_run noplayground">    asset_sewvew.watch_fow_changes().unwwap();
+</code></pre>
+<p>note that this wequiwes the <code>filesystem_watcher</code> <a href="assets//setup/bevy-config.html">bevy cawgo
+featuwe</a>. (ꈍᴗꈍ) it is enabwed by defauwt, ^•ﻌ•^ but if y-you have disabwed
+defauwt featuwes to customize bevy, OwO b-be suwe to incwude i-it if you n-nyeed it.</p>
+<h2 id="shadews"><a class="header" href="#shadews">shadews</a></h2>
+<p>bevy awso suppowts hot-wewoading f-fow shadews. ^•ﻌ•^ you c-can edit youw
+custom shadew code and see the changes i-immediatewy.</p>
+<p>this onwy wowks if you awe woading y-youw shadews thwough t-the bevy a-asset
+system (via the <a href="https://docs.rs/bevy/0.6.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a>).</p>
+<p>shadew code that does nyot come fwom a-asset fiwes, OwO s-such as if you i-incwude
+it as a static stwing in youw souwce c-code, ^•ﻌ•^ cannot b-be hot-wewoaded.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="input-handwing"><a class="header" href="#input-handwing">input handwing</a></h1>
 <p><a href="/code/examples/input.rs">cwick hewe to downwoad exampwe code.</a></p>
 <p>this is a compwete exampwe that you c-can wun. OwO it wiww p-pwint aww input a-activity
