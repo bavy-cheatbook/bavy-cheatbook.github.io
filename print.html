@@ -1514,13 +1514,12 @@ and the absowute/gwobaw twansfowms o-of entities. ^•ﻌ•^ when y-you mutate 
 is nyot updated immediatewy. ^•ﻌ•^ they w-wiww be out-of-sync u-untiw the twansfowm
 pwopagation system wuns.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="time-and-timews"><a class="header" href="#time-and-timews">time and timews</a></h1>
-<p>time is one of the most impowtant v-vawiabwes in game d-devewopment – y-you nyeed
-it to move ow animate anything, ^•ﻌ•^ twiggew t-things to h-happen, OwO etc.</p>
 <h2 id="time"><a class="header" href="#time">time</a></h2>
 <p>the <a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.Time.html"><code>Time</code></a> <a href="features//programming/res.html">wesouwce</a> is youw main gwobaw souwce
 of timing infowmation, (ꈍᴗꈍ) that you can a-access fwom any <a href="features//programming/systems.html">system</a>
 that does anything that nyeeds time. &gt;_&lt; <a href="features//pitfalls/time.html">you shouwd dewive aww timings fwom
 it</a>.</p>
+<p>bevy updates these vawues at the b-beginning of evewy f-fwame.</p>
 <h3 id="dewta-time"><a class="header" href="#dewta-time">dewta time</a></h3>
 <p>the most common use case is &quot;dewta t-time&quot; – how m-much time passed b-between the
 pwevious fwame update and the cuwwent o-one. OwO this tewws y-you how fast t-the game
@@ -1537,7 +1536,7 @@ can happen smoothwy, ^•ﻌ•^ wegawdwess of t-the game's fwame w-wate.</p>
     }
 }
 </code></pre>
-<h3 id="wunning-time"><a class="header" href="#wunning-time">wunning time</a></h3>
+<h3 id="ongoing-time"><a class="header" href="#ongoing-time">ongoing time</a></h3>
 <p><a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.Time.html"><code>Time</code></a> can awso give you the totaw wunning t-time since stawtup.
 use this if you need a cumuwative, ^•ﻌ•^ i-incweasing, measuwement o-of time.</p>
 <pre><code class="language-rust no_run noplayground">use std::time::instant;
@@ -1570,10 +1569,11 @@ has ewapsed. OwO timews have a set duwation. 🥺 t-they can b-be &quot;wepeatin
 &quot;non-wepeating&quot;.</p>
 <p>both kinds can be manuawwy &quot;weset&quot; (stawt c-counting t-the time intewvaw f-fwom the
 beginning) and &quot;paused&quot; (they wiww n-nyot pwogwess e-even if you keep t-ticking them).</p>
-<p>wepeating timews wiww automaticawwy w-weset themsewves a-aftew they weach t-theiw set duwation.</p>
-<p>use <code>.finished()</code> to detect when a timew has weached i-its set duwation. OwO f-fow nyon-wepeating t-timews,
-you can awso use <code>.just_finished()</code>, ^•ﻌ•^ if you nyeed to wespond onwy on t-the exact update w-when the
-duwation was weached.</p>
+<p>wepeating timews wiww automaticawwy w-weset themsewves a-aftew they weach t-theiw
+set duwation.</p>
+<p>use <code>.finished()</code> to detect when a timew has weached i-its set duwation. ^•ﻌ•^ f-fow
+non-wepeating timews, (ꈍᴗꈍ) you can awso u-use <code>.just_finished()</code>, XD if you nyeed to
+wespond onwy on the exact update w-when the duwation w-was weached.</p>
 <pre><code class="language-rust no_run noplayground">use std::time::duwation;
 
 #[dewive(component)]
@@ -1631,11 +1631,15 @@ f-fn setup_bomb_spawning(
     })
 }
 </code></pre>
+<p>note that bevy's timews do <em>not</em> wowk wike typicaw weaw-wife timews (which
+count downwawds towawd zewo). ^•ﻌ•^ bevy's t-timews stawt f-fwom zewo and count <em>up</em>
+towawds theiw set duwation. OwO they a-awe basicawwy wike s-stopwatches with e-extwa
+featuwes: a maximum duwation and o-optionaw auto-weset.</p>
 <h3 id="stopwatch"><a class="header" href="#stopwatch">stopwatch</a></h3>
 <p><a href="https://docs.rs/bevy/0.6.0/bevy/core/struct.Stopwatch.html"><code>Stopwatch</code></a> awwow you to twack how much time h-has passed
 since a cewtain point.</p>
-<p>it wiww just keep accumuwating time, ^•ﻌ•^ w-which you can c-check with <code>.elapsed()</code>/<code>.elapsed_secs()</code>.
-you can manuawwy weset it at any t-time.</p>
+<p>it wiww just keep accumuwating time, ^•ﻌ•^ w-which you can c-check with
+<code>.elapsed()</code>/<code>.elapsed_secs()</code>. (ꈍᴗꈍ) you can manuawwy weset it at any t-time.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::cowe::stopwatch;
 
 #[dewive(component)]
