@@ -194,12 +194,6 @@ mod localconfig {
 use bevy::prelude::*;
 struct MyStuff;
 // ANCHOR: local-config
-/// Configuration for `my_system`.
-///
-/// The system will access it using `Local<MyConfig>`.
-/// It will be initialized with the correct value at App build time.
-///
-/// Must still impl `Default`, because of requirement for `Local`.
 #[derive(Default)]
 struct MyConfig {
     magic: usize,
@@ -208,20 +202,24 @@ struct MyConfig {
 fn my_system(
     mut cmd: Commands,
     my_res: Res<MyStuff>,
-    config: Local<MyConfig>,
+    // note this isn't a valid system parameter
+    config: &MyConfig,
 ) {
     // TODO: do stuff
 }
 
 fn main() {
+    let config = MyConfig {
+        magic: 420,
+    };
+
     App::new()
-        .add_system(my_system.config(|params| {
-            // our config is the third parameter in the system fn,
-            // hence `.2`
-            params.2 = Some(MyConfig {
-                magic: 420,
-            });
-        }))
+        // create a "move closure", so we can use the `config`
+        // variable that we created above
+        .add_system(move |cmd: Commands, res: Res<MyStuff>| {
+            // call our function from inside the closure
+            my_system(cmd, res, &config);
+        })
         .run();
 }
 // ANCHOR_END: local-config
@@ -292,20 +290,28 @@ fn debug_player_hp(
 fn reset_health(
     // access the health of enemies and the health of players
     // (note: some entities could be both!)
-    mut q: QuerySet<(
-        QueryState<&mut Health, With<Enemy>>,
-        QueryState<&mut Health, With<Player>>
+    mut set: ParamSet<(
+        Query<&mut Health, With<Enemy>>,
+        Query<&mut Health, With<Player>>,
+        // also access the whole world ... why not
+        &World,
     )>,
 ) {
-    // set health of enemies
-    for mut health in q.q0().iter_mut() {
+    // set health of enemies (use the 1st param in the set)
+    for mut health in set.p0().iter_mut() {
         health.hp = 50.0;
     }
 
-    // set health of players
-    for mut health in q.q1().iter_mut() {
+    // set health of players (use the 2nd param in the set))
+    for mut health in set.p1().iter_mut() {
         health.hp = 100.0;
     }
+
+    // read some data from the world (use the 3rd param in the set)
+    let my_resource = set.p2().resource::<MyResource>();
+
+    // since we only used the conflicting system params one at a time,
+    // everything is safe and our code can compile; ParamSet guarantees this
 }
 // ANCHOR_END: sys-query-set
 
@@ -660,12 +666,12 @@ fn spawn_gltf(
     let my_gltf = ass.load("my.glb#Scene0");
 
     // to be able to position our 3d model:
-    // spawn a parent entity with a Transform and GlobalTransform
+    // spawn a parent entity with a TransformBundle
     // and spawn our gltf as a scene under it
-    commands.spawn_bundle((
-        Transform::from_xyz(2.0, 0.0, -5.0),
-        GlobalTransform::identity(),
-    )).with_children(|parent| {
+    commands.spawn_bundle(TransformBundle {
+        local: Transform::from_xyz(2.0, 0.0, -5.0),
+        global: GlobalTransform::identity(),
+    }).with_children(|parent| {
         parent.spawn_scene(my_gltf);
     });
 }
@@ -697,10 +703,10 @@ fn spawn_gltf_objects(
 
         // spawn the scene named "YellowCar"
         // do it under a parent entity, to position it in the world
-        commands.spawn_bundle((
-            Transform::from_xyz(1.0, 2.0, 3.0),
-            GlobalTransform::identity(),
-        )).with_children(|parent| {
+        commands.spawn_bundle(TransformBundle {
+            local: Transform::from_xyz(1.0, 2.0, 3.0),
+            global: GlobalTransform::identity(),
+        }).with_children(|parent| {
             parent.spawn_scene(gltf.named_scenes["YellowCar"].clone());
         });
 
@@ -746,10 +752,10 @@ fn use_gltf_things(
     // spawn the second scene under a parent entity
     // (to move it)
     let scene1 = ass.load("my_asset_pack.glb#Scene1");
-    commands.spawn_bundle((
-        Transform::from_xyz(1.0, 2.0, 3.0),
-        GlobalTransform::identity(),
-    )).with_children(|parent| {
+    commands.spawn_bundle(TransformBundle {
+        local: Transform::from_xyz(1.0, 2.0, 3.0),
+        global: GlobalTransform::identity(),
+    }).with_children(|parent| {
         parent.spawn_scene(scene1);
     });
 }
@@ -1361,18 +1367,16 @@ fn main() {
 }
 
 #[allow(dead_code)]
-mod app8 {
+mod app8a {
 use bevy::prelude::*;
 
     fn particle_effects() {}
     fn npc_behaviors() {}
     fn enemy_movement() {}
-    fn map_player_input() {}
-    fn update_map() {}
-    fn input_parameters() {}
     fn player_movement() {}
+    fn input_handling() {}
 
-// ANCHOR: system-labels
+// ANCHOR: system-order
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
@@ -1382,20 +1386,59 @@ fn main() {
         .add_system(npc_behaviors)
         .add_system(enemy_movement)
 
-        // create labels, because we need to order other systems around these:
-        .add_system(map_player_input.label("input"))
-        .add_system(update_map.label("map"))
+        .add_system(input_handling)
 
-        // this will always run before anything labeled "input"
-        .add_system(input_parameters.before("input"))
-
-        // this will always run after anything labeled "input" and "map"
-        // also label it just in case
         .add_system(
             player_movement
+                // `player_movement` must always run before `enemy_movement`
+                .before(enemy_movement)
+                // `player_movement` must always run after `input_handling`
+                .after(input_handling)
+        )
+        .run();
+}
+// ANCHOR_END: system-order
+}
+
+#[allow(dead_code)]
+mod app8b {
+use bevy::prelude::*;
+
+    fn input_joystick() {}
+    fn input_keyboard() {}
+    fn input_touch() {}
+    fn input_parameters() {}
+    fn player_movement() {}
+
+// ANCHOR: system-labels
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(SystemLabel)]
+enum MyLabel {
+    Input,
+    Player,
+}
+
+fn main() {
+    App::new()
+        .add_plugins(DefaultPlugins)
+
+        // create labels, because we want to have multiple affected systems
+        .add_system(input_joystick.label(MyLabel::Input))
+        .add_system(input_keyboard.label(MyLabel::Input))
+        .add_system(input_touch.label(MyLabel::Input))
+
+        // this will always run before anything labeled "input"
+        .add_system(input_parameters.before(MyLabel::Input))
+
+        // this will always run after anything labeled "input" and "map"
+        // also give it a few labels it just in case
+        .add_system(
+            player_movement
+                // can also just use strings
                 .label("player_movement")
-                .after("input")
-                .after("map")
+                .label(MyLabel::Player)
+                .after(MyLabel::Input)
         )
         .run();
 }
@@ -1772,7 +1815,7 @@ fn setup_platform_audio(world: &mut World) {
     // assuming `OSAudioMagic` is some primitive that is not thread-safe
     let instance = OSAudioMagic::init();
 
-    world.insert_non_send(instance);
+    world.insert_non_send_resource(instance);
 }
 
 fn main() {
