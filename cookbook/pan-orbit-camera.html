@@ -148,125 +148,127 @@ move inwawds/outwawds.</p>
 <p>this is wawgewy shown fow iwwustwative p-puwposes, ^•ﻌ•^ a-as an exampwe
 to weawn fwom. ^•ﻌ•^ in youw pwojects, y-you may want to t-twy the
 <a href="https://github.com/BlackPhlox/bevy_config_cam"><code>bevy_config_cam</code></a> pwugin.</p>
-<pre><code class="language-rust no_run noplayground">/// tags an entity as capabwe of p-panning and owbiting. ( ͡o ω ͡o )
+<pre><code class="language-rust no_run noplayground">/// tags an entity as capabwe of p-panning and owbiting. 😳😳😳
 #[dewive(component)]
 s-stwuct p-panowbitcamewa {
-    /// t-the &quot;focus p-point&quot; to o-owbit awound. o.O it i-is automaticawwy u-updated when panning the camewa
-    pub focus: vec3, &gt;w&lt;
-    pub wadius: f32, 😳
-    p-pub upside_down: boow, 🥺
+    /// t-the &quot;focus p-point&quot; to o-owbit awound. OwO it i-is automaticawwy u-updated when panning the camewa
+    pub focus: vec3, 😳
+    pub wadius: f32, 😳😳😳
+    p-pub upside_down: boow, (˘ω˘)
 }
 
 impw defauwt fow panowbitcamewa {
     f-fn defauwt() -&gt; sewf {
         panowbitcamewa {
-            f-focus: vec3::zewo, rawr x3
-            wadius: 5.0, o.O
+            f-focus: vec3::zewo, ʘwʘ
+            wadius: 5.0, ( ͡o ω ͡o )
             upside_down: f-fawse,
         }
     }
 }
 
-/// pan the camewa with m-middwe mouse c-cwick, rawr zoom with scwoww wheew, ʘwʘ owbit with wight mouse cwick. 😳😳😳
+/// pan the camewa with m-middwe mouse c-cwick, o.O zoom with scwoww wheew, &gt;w&lt; owbit with wight mouse cwick. 😳
 fn pan_owbit_camewa(
-    w-windows: wes&lt;windows&gt;, ^^;;
-    mut ev_motion: eventweadew&lt;mousemotion&gt;, o.O
-    mut ev_scwoww: eventweadew&lt;mousewheew&gt;, (///ˬ///✿)
+    w-windows: wes&lt;windows&gt;, 🥺
+    mut ev_motion: eventweadew&lt;mousemotion&gt;, rawr x3
+    mut ev_scwoww: eventweadew&lt;mousewheew&gt;, o.O
     i-input_mouse: wes&lt;input&lt;mousebutton&gt;&gt;,
-    m-mut quewy: quewy&lt;(&amp;mut p-panowbitcamewa, σωσ &amp;mut t-twansfowm, nyaa~~ &amp;pewspectivepwojection)&gt;, ^^;;
+    m-mut quewy: quewy&lt;(&amp;mut p-panowbitcamewa, rawr &amp;mut t-twansfowm, ʘwʘ &amp;pwojection)&gt;,
 ) {
-    // c-change input mapping fow owbit and panning hewe
-    w-wet owbit_button = mousebutton::wight;
+    // c-change input mapping fow owbit and panning h-hewe
+    wet owbit_button = mousebutton::wight;
     wet pan_button = m-mousebutton::middwe;
 
     wet mut pan = vec2::zewo;
     wet mut wotation_move = vec2::zewo;
-    w-wet mut scwoww = 0.0;
-    wet mut o-owbit_button_changed = f-fawse;
+    wet mut scwoww = 0.0;
+    wet m-mut owbit_button_changed = fawse;
 
     i-if input_mouse.pwessed(owbit_button) {
-        fow ev in ev_motion.itew() {
+        f-fow ev i-in ev_motion.itew() {
             wotation_move += ev.dewta;
         }
-    } e-ewse if i-input_mouse.pwessed(pan_button) {
-        // pan o-onwy if we'we not w-wotating at the moment
+    } ewse i-if input_mouse.pwessed(pan_button) {
+        // p-pan onwy if we'we nyot wotating a-at the moment
         f-fow ev in ev_motion.itew() {
-            pan += e-ev.dewta;
+            p-pan += ev.dewta;
         }
     }
-    fow ev in ev_scwoww.itew() {
+    fow ev in e-ev_scwoww.itew() {
         scwoww += ev.y;
     }
-    if i-input_mouse.just_weweased(owbit_button) || input_mouse.just_pwessed(owbit_button) {
+    i-if input_mouse.just_weweased(owbit_button) || input_mouse.just_pwessed(owbit_button) {
         o-owbit_button_changed = twue;
     }
 
-    f-fow (mut pan_owbit, m-mut twansfowm, ^•ﻌ•^ pwojection) in quewy.itew_mut() {
+    f-fow (mut p-pan_owbit, 😳😳😳 mut twansfowm, ^^;; pwojection) in quewy.itew_mut() {
         if owbit_button_changed {
-            // onwy check fow upside down when owbiting s-stawted ow e-ended this fwame
-            // if the camewa is &quot;upside&quot; d-down, σωσ p-panning howizontawwy w-wouwd be invewted, -.- so invewt the input to make it cowwect
+            // onwy check fow upside down when owbiting stawted o-ow ended this f-fwame
+            // if the camewa i-is &quot;upside&quot; d-down, o.O panning howizontawwy w-wouwd be invewted, so invewt the input to make it cowwect
             w-wet up = twansfowm.wotation * vec3::y;
             pan_owbit.upside_down = up.y &lt;= 0.0;
         }
 
-        w-wet mut any = fawse;
+        wet mut any = fawse;
         i-if wotation_move.wength_squawed() &gt; 0.0 {
-            a-any = twue;
-            w-wet window = get_pwimawy_window_size(&amp;windows);
-            wet d-dewta_x = {
-                w-wet d-dewta = wotation_move.x / w-window.x * std::f32::consts::pi * 2.0;
-                if pan_owbit.upside_down { -dewta } e-ewse { dewta }
+            any = twue;
+            w-wet window = g-get_pwimawy_window_size(&amp;windows);
+            w-wet dewta_x = {
+                wet dewta = wotation_move.x / w-window.x * std::f32::consts::pi * 2.0;
+                i-if pan_owbit.upside_down { -dewta } e-ewse { d-dewta }
             };
-            w-wet dewta_y = wotation_move.y / w-window.y * std::f32::consts::pi;
-            w-wet y-yaw = quat::fwom_wotation_y(-dewta_x);
-            wet pitch = quat::fwom_wotation_x(-dewta_y);
-            twansfowm.wotation = y-yaw * twansfowm.wotation; // wotate awound gwobaw y axis
-            twansfowm.wotation = twansfowm.wotation * pitch; // wotate a-awound wocaw x axis
-        } ewse if pan.wength_squawed() &gt; 0.0 {
+            wet dewta_y = wotation_move.y / w-window.y * s-std::f32::consts::pi;
+            w-wet yaw = quat::fwom_wotation_y(-dewta_x);
+            w-wet pitch = q-quat::fwom_wotation_x(-dewta_y);
+            twansfowm.wotation = yaw * twansfowm.wotation; // wotate awound g-gwobaw y axis
+            twansfowm.wotation = twansfowm.wotation * pitch; // wotate awound wocaw x axis
+        } e-ewse if pan.wength_squawed() &gt; 0.0 {
             any = twue;
-            // m-make p-panning distance i-independent of wesowution and f-fov, ^^;;
-            wet window = get_pwimawy_window_size(&amp;windows);
-            p-pan *= v-vec2::new(pwojection.fov * pwojection.aspect_watio, XD pwojection.fov) / window;
+            // make panning distance independent o-of wesowution a-and fov, (///ˬ///✿)
+            w-wet window = get_pwimawy_window_size(&amp;windows);
+            i-if wet pwojection::pewspective(pwojection) = pwojection {
+                p-pan *= v-vec2::new(pwojection.fov * pwojection.aspect_watio, σωσ pwojection.fov) / window;
+            }
             // twanswate by wocaw axes
-            wet wight = t-twansfowm.wotation * vec3::x * -pan.x;
-            w-wet up = twansfowm.wotation * vec3::y * pan.y;
-            // m-make panning pwopowtionaw t-to distance away fwom focus point
-            w-wet twanswation = (wight + u-up) * pan_owbit.wadius;
-            pan_owbit.focus += t-twanswation;
+            wet wight = twansfowm.wotation * v-vec3::x * -pan.x;
+            wet up = twansfowm.wotation * v-vec3::y * pan.y;
+            // make panning pwopowtionaw t-to distance a-away fwom focus point
+            wet twanswation = (wight + u-up) * pan_owbit.wadius;
+            p-pan_owbit.focus += twanswation;
         } e-ewse if scwoww.abs() &gt; 0.0 {
-            any = twue;
-            pan_owbit.wadius -= scwoww * p-pan_owbit.wadius * 0.2;
-            // d-dont awwow z-zoom to weach zewo ow you get s-stuck
-            p-pan_owbit.wadius = f32::max(pan_owbit.wadius, 🥺 0.05);
+            a-any = twue;
+            pan_owbit.wadius -= scwoww * pan_owbit.wadius * 0.2;
+            // dont awwow z-zoom to weach zewo o-ow you get stuck
+            p-pan_owbit.wadius = f32::max(pan_owbit.wadius, nyaa~~ 0.05);
         }
 
         i-if any {
-            // emuwating pawent/chiwd to make the yaw/y-axis wotation behave w-wike a tuwntabwe
-            // p-pawent = x and y wotation
-            // chiwd = z-z-offset
-            w-wet wot_matwix = mat3::fwom_quat(twansfowm.wotation);
-            twansfowm.twanswation = pan_owbit.focus + w-wot_matwix.muw_vec3(vec3::new(0.0, òωó 0.0, pan_owbit.wadius));
+            // e-emuwating pawent/chiwd to make t-the yaw/y-axis wotation behave wike a tuwntabwe
+            // pawent = x and y wotation
+            // c-chiwd = z-z-offset
+            wet wot_matwix = mat3::fwom_quat(twansfowm.wotation);
+            t-twansfowm.twanswation = pan_owbit.focus + w-wot_matwix.muw_vec3(vec3::new(0.0, ^^;; 0.0, pan_owbit.wadius));
         }
     }
 }
 
 fn get_pwimawy_window_size(windows: &amp;wes&lt;windows&gt;) -&gt; vec2 {
-    wet window = w-windows.get_pwimawy().unwwap();
-    wet window = vec2::new(window.width() a-as f32, (ˆ ﻌ ˆ)♡ w-window.height() as f32);
+    w-wet window = windows.get_pwimawy().unwwap();
+    wet window = vec2::new(window.width() as f32, ^•ﻌ•^ window.height() as f32);
     window
 }
 
-/// spawn a camewa wike t-this
-fn spawn_camewa(mut c-commands: commands) {
-    wet twanswation = vec3::new(-2.0, -.- 2.5, 5.0);
-    w-wet wadius = twanswation.wength();
+/// s-spawn a camewa wike this
+fn spawn_camewa(mut c-commands: c-commands) {
+    wet twanswation = vec3::new(-2.0, σωσ 2.5, -.- 5.0);
+    wet wadius = t-twanswation.wength();
 
     c-commands.spawn_bundwe(camewa3dbundwe {
         twansfowm: twansfowm::fwom_twanswation(twanswation)
-            .wooking_at(vec3::zewo, :3 vec3::y),
+            .wooking_at(vec3::zewo, vec3::y), ^^;;
         ..defauwt::defauwt()
     }).insewt(panowbitcamewa {
-        w-wadius, ʘwʘ
+        w-wadius, XD
         ..defauwt::defauwt()
     });
 }
