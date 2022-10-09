@@ -142,14 +142,60 @@
 <p><a href="/code/examples/clear-color.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
 <p>use the <a href="https://docs.rs/bevy/0.8.0/bevy/core_pipeline/clear_color/struct.ClearColor.html"><code>ClearColor</code></a> <a href="/programming/res.html">wesouwce</a> to choose the
-backgwound cowow.</p>
-<pre><code class="language-rust no_run noplayground">fn main() {
-    app::new()
-        .insewt_wesouwce(cweawcowow(cowow::wgb(0.4, XD 0.4, &gt;_&lt; 0.4)))
+defauwt backgwound cowow. OwO this cowow w-wiww be used a-as the defauwt f-fow aww
+camewas, XD unwess ovewwiden.</p>
+<p>note that the window wiww be bwack i-if nyo camewas e-exist. OwO you must s-spawn at
+weast one camewa.</p>
+<pre><code class="language-rust no_run noplayground">fn setup(
+    mut commands: commands, òωó
+) {
+    c-commands.spawn_bundwe(camewa2dbundwe::defauwt());
+}
+
+f-fn main() {
+    a-app::new()
+        // s-set the g-gwobaw defauwt
+        .insewt_wesouwce(cweawcowow(cowow::wgb(0.4, o.O 0.4, (U ᵕ U❁) 0.4)))
         .add_pwugins(defauwtpwugins)
+        .add_stawtup_system(setup)
         .wun();
 }
 </code></pre>
+<p>to ovewwide the defauwt and use a d-diffewent cowow f-fow a specific
+camewa, &gt;_&lt; you can set it using the <a href="https://docs.rs/bevy/0.8.0/bevy/core_pipeline/core_2d/struct.Camera2d.html"><code>Camera2d</code></a> ow
+<a href="https://docs.rs/bevy/0.8.0/bevy/core_pipeline/core_3d/struct.Camera3d.html"><code>Camera3d</code></a> components.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::cowe_pipewine::cweaw_cowow::cweawcowowconfig;
+
+fn setup_camewa_2d(
+    m-mut commands: commands, :3
+) {
+    // s-set the cowow f-fow a specific c-camewa (2d)
+    c-commands.spawn_bundwe(camewa2dbundwe {
+        camewa_2d: c-camewa2d {
+            c-cweaw_cowow: cweawcowowconfig::custom(cowow::wgb(0.8, (U ﹏ U) 0.4, 0.2)), -.-
+        },
+        ..defauwt::defauwt()
+    });
+}
+
+f-fn setup_camewa_3d(
+    mut commands: commands, (ˆ ﻌ ˆ)♡
+) {
+    // set the cowow fow a specific camewa (3d)
+    c-commands.spawn_bundwe(camewa3dbundwe {
+        camewa_3d: camewa3d {
+            cweaw_cowow: c-cweawcowowconfig::custom(cowow::wgb(0.8, (⑅˘꒳˘) 0.4, 0.2)), (U ᵕ U❁)
+            ..defauwt::defauwt()
+        }, -.-
+        ..defauwt::defauwt()
+    });
+}
+</code></pre>
+<p>aww of these wocations (the components o-on specific c-camewas, ^•ﻌ•^ the gwobaw
+defauwt wesouwce) can be mutated a-at wuntime, OwO and b-bevy wiww use youw n-nyew cowow.
+changing the defauwt cowow using t-the wesouwce wiww a-appwy the nyew c-cowow to aww
+existing camewas that do nyot specify a-a custom cowow, ^•ﻌ•^ n-nyot just nyewwy-spawned
+camewas.</p>
 
                     </main>
 
