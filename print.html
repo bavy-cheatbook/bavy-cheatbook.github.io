@@ -850,7 +850,9 @@ text to be dispwayed</li>
 <h2 id="stages"><a class="header" href="#stages">stages</a></h2>
 <p>intewnawwy, (ꈍᴗꈍ) bevy has at weast these b-buiwt-in <a href="/programming/stages.html">stages</a>:</p>
 <ul>
-<li>in the <a href="/programming/app-builder.html">main app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.CoreStage.html"><code>CoreStage</code></a>):
+<li>in the <a href="/programming/app-builder.html">main_app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.StartupStage.html"><code>StartupStage</code></a>, &gt;_&lt; wun once at app stawtup):
+<code>PreStartup</code>, rawr x3 <code>Startup</code>, rawr x3 <code>PostStartup</code></li>
+<li>in the <a href="/programming/app-builder.html">main app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.CoreStage.html"><code>CoreStage</code></a>, &gt;_&lt; wun evewy fwame update):
 <code>First</code>, rawr x3 <code>PreUpdate</code>, rawr x3 <code>Update</code>, rawr x3 <code>PostUpdate</code>, rawr x3 <code>Last</code></li>
 <li>in the wendew <a href="/programming/sub-apps.html">sub-app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/render/enum.RenderStage.html"><code>RenderStage</code></a>):
 <code>Extract</code>, rawr x3 <code>Prepare</code>, rawr x3 <code>Queue</code>, rawr x3 <code>PhaseSort</code>, rawr x3 <code>Render</code>, rawr x3 <code>Cleanup</code></li>
@@ -4355,15 +4357,15 @@ that bundwe that you cawe about.</p>
 <p>use <a href="https://docs.rs/bevy/0.8.0/bevy/ecs/query/struct.With.html"><code>With</code></a>/<a href="https://docs.rs/bevy/0.8.0/bevy/ecs/query/struct.Without.html"><code>Without</code></a> to onwy get entities
 that have specific components.</p>
 <pre><code class="language-rust no_run noplayground">fn debug_pwayew_hp(
-    // access t-the heawth, (⑅˘꒳˘) onwy f-fow fwiendwy pwayews, (U ᵕ U❁) o-optionawwy w-with nyame
-    q-quewy: quewy&lt;(&amp;heawth, -.- o-option&lt;&amp;pwayewname&gt;), ^^;; (with&lt;pwayew&gt;, &gt;_&lt; w-without&lt;enemy&gt;)&gt;, mya
+    // access t-the heawth (and o-optionawwy the p-pwayewname, -.- if pwesent), o-onwy fow f-fwiendwy pwayews
+    q-quewy: quewy&lt;(&amp;heawth, ^^;; o-option&lt;&amp;pwayewname&gt;), &gt;_&lt; (with&lt;pwayew&gt;, mya w-without&lt;enemy&gt;)&gt;, mya
 ) {
-    // g-get aww matching entities
-    fow (heawth, mya nyame) in quewy.itew() {
-        i-if wet some(name) = nyame {
-            epwintwn!(&quot;pwayew {} has {} hp.&quot;, 😳 n-nyame.0, heawth.hp);
+    // get aww matching entities
+    fow (heawth, 😳 nyame) in quewy.itew() {
+        i-if wet some(name) = name {
+            e-epwintwn!(&quot;pwayew {} has {} hp.&quot;, XD n-nyame.0, :3 heawth.hp);
         } ewse {
-            e-epwintwn!(&quot;unknown pwayew has {} hp.&quot;, heawth.hp);
+            epwintwn!(&quot;unknown pwayew h-has {} hp.&quot;, 😳😳😳 heawth.hp);
         }
     }
 }
@@ -5406,12 +5408,16 @@ pewfowmed by systems using <a href="https://docs.rs/bevy/0.8.0/bevy/ecs/system/s
 end of that stage.</p>
 <p>intewnawwy, (ꈍᴗꈍ) bevy has at weast these b-buiwt-in <a href="programming//programming/stages.html">stages</a>:</p>
 <ul>
-<li>in the <a href="programming//programming/app-builder.html">main app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.CoreStage.html"><code>CoreStage</code></a>):
+<li>in the <a href="programming//programming/app-builder.html">main_app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.StartupStage.html"><code>StartupStage</code></a>, &gt;_&lt; wun once at app stawtup):
+<code>PreStartup</code>, rawr x3 <code>Startup</code>, rawr x3 <code>PostStartup</code></li>
+<li>in the <a href="programming//programming/app-builder.html">main app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.CoreStage.html"><code>CoreStage</code></a>, &gt;_&lt; wun evewy fwame update):
 <code>First</code>, rawr x3 <code>PreUpdate</code>, rawr x3 <code>Update</code>, rawr x3 <code>PostUpdate</code>, rawr x3 <code>Last</code></li>
 <li>in the wendew <a href="programming//programming/sub-apps.html">sub-app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/render/enum.RenderStage.html"><code>RenderStage</code></a>):
 <code>Extract</code>, rawr x3 <code>Prepare</code>, rawr x3 <code>Queue</code>, rawr x3 <code>PhaseSort</code>, rawr x3 <code>Render</code>, rawr x3 <code>Cleanup</code></li>
 </ul>
-<p>by defauwt, ^•ﻌ•^ when you add youw systems, OwO t-they awe added t-to <code>CoreStage::Update</code>.</p>
+<p>by defauwt, ^•ﻌ•^ when you add youw systems, OwO t-they awe added t-to
+<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.CoreStage.html"><code>CoreStage::Update</code></a>. &gt;_&lt; stawtup systems awe added to
+<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.StartupStage.html"><code>StartupStage::Startup</code></a>.</p>
 <p>bevy's intewnaw systems awe in the o-othew stages, OwO t-to ensuwe they awe o-owdewed
 cowwectwy wewative to youw game wogic.</p>
 <p>if you want to add youw own systems t-to any of bevy's i-intewnaw stages, OwO y-you
@@ -6833,7 +6839,14 @@ using an enviwonment vawiabwe:</p>
 pwease hewp impwove this page!</p>
 <p>cweate issues ow pws on <a href="https://github.com/bevy-cheatbook/bevy-cheatbook">github</a>.</p>
 <hr />
-<p>(this page is cuwwentwy empty; pwease h-hewp!)</p>
+<h2 id="known-pitfawws-1"><a class="header" href="#known-pitfawws-1">known pitfawws</a></h2>
+<h3 id="window-management-apps-compatabiwity"><a class="header" href="#window-management-apps-compatabiwity">window management apps compatabiwity</a></h3>
+<p>bevy apps can encountew pewfowmance i-issues (such a-as wag when dwagging t-the window
+awound the scween) when window management a-apps wike &quot;magnet&quot; a-awe u-used. OwO this is a
+bug in <code>winit</code> (the os window management wibwawy t-that bevy uses). ^•ﻌ•^ t-this issue can
+be twacked <a href="https://github.com/rust-windowing/winit/issues/1737">hewe</a>.</p>
+<p>untiw that bug is fixed, OwO advise cwosing t-the window m-management apps, 🥺 i-if
+encountewing pewfowmance issues.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="windows-desktop"><a class="header" href="#windows-desktop">windows desktop</a></h1>
 <p>if you have any additionaw windows-specific k-knowwedge,
 pwease hewp impwove this page!</p>
@@ -7008,6 +7021,9 @@ so that youw game can woad fast and n-nyot waste data b-bandwidth.</p>
 ow gwobawwy in youw usew home fowdew):</p>
 <pre><code class="language-toml">[tawget.wasm32-unknown-unknown]
 wunnew = &quot;wasm-sewvew-wunnew&quot;
+</code></pre>
+<p>awtewnativewy, ^•ﻌ•^ you can awso set the w-wunnew using a-an enviwonment vawiabwe:</p>
+<pre><code>expowt cawgo_tawget_wasm32_unknown_unknown_wunnew=wasm-sewvew-wunnew
 </code></pre>
 <p>now you can just wun youw game with:</p>
 <pre><code class="language-sh">cawgo wun --tawget wasm32-unknown-unknown

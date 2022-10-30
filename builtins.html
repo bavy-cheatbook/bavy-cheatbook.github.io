@@ -584,7 +584,9 @@ text to be dispwayed</li>
 <h2 id="stages"><a class="header" href="#stages">stages</a></h2>
 <p>intewnawwy, (ꈍᴗꈍ) bevy has at weast these b-buiwt-in <a href="/programming/stages.html">stages</a>:</p>
 <ul>
-<li>in the <a href="/programming/app-builder.html">main app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.CoreStage.html"><code>CoreStage</code></a>):
+<li>in the <a href="/programming/app-builder.html">main_app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.StartupStage.html"><code>StartupStage</code></a>, &gt;_&lt; wun once at app stawtup):
+<code>PreStartup</code>, rawr x3 <code>Startup</code>, rawr x3 <code>PostStartup</code></li>
+<li>in the <a href="/programming/app-builder.html">main app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.CoreStage.html"><code>CoreStage</code></a>, &gt;_&lt; wun evewy fwame update):
 <code>First</code>, rawr x3 <code>PreUpdate</code>, rawr x3 <code>Update</code>, rawr x3 <code>PostUpdate</code>, rawr x3 <code>Last</code></li>
 <li>in the wendew <a href="/programming/sub-apps.html">sub-app</a> (<a href="https://docs.rs/bevy/0.8.0/bevy/render/enum.RenderStage.html"><code>RenderStage</code></a>):
 <code>Extract</code>, rawr x3 <code>Prepare</code>, rawr x3 <code>Queue</code>, rawr x3 <code>PhaseSort</code>, rawr x3 <code>Render</code>, rawr x3 <code>Cleanup</code></li>

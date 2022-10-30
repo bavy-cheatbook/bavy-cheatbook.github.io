@@ -198,15 +198,15 @@ that bundwe that you cawe about.</p>
 <p>use <a href="https://docs.rs/bevy/0.8.0/bevy/ecs/query/struct.With.html"><code>With</code></a>/<a href="https://docs.rs/bevy/0.8.0/bevy/ecs/query/struct.Without.html"><code>Without</code></a> to onwy get entities
 that have specific components.</p>
 <pre><code class="language-rust no_run noplayground">fn debug_pwayew_hp(
-    // access t-the heawth, (⑅˘꒳˘) onwy f-fow fwiendwy pwayews, (U ᵕ U❁) o-optionawwy w-with nyame
-    q-quewy: quewy&lt;(&amp;heawth, -.- o-option&lt;&amp;pwayewname&gt;), ^^;; (with&lt;pwayew&gt;, &gt;_&lt; w-without&lt;enemy&gt;)&gt;, mya
+    // access t-the heawth (and o-optionawwy the p-pwayewname, -.- if pwesent), o-onwy fow f-fwiendwy pwayews
+    q-quewy: quewy&lt;(&amp;heawth, ^^;; o-option&lt;&amp;pwayewname&gt;), &gt;_&lt; (with&lt;pwayew&gt;, mya w-without&lt;enemy&gt;)&gt;, mya
 ) {
-    // g-get aww matching entities
-    fow (heawth, mya nyame) in quewy.itew() {
-        i-if wet some(name) = nyame {
-            epwintwn!(&quot;pwayew {} has {} hp.&quot;, 😳 n-nyame.0, heawth.hp);
+    // get aww matching entities
+    fow (heawth, 😳 nyame) in quewy.itew() {
+        i-if wet some(name) = name {
+            e-epwintwn!(&quot;pwayew {} has {} hp.&quot;, XD n-nyame.0, :3 heawth.hp);
         } ewse {
-            e-epwintwn!(&quot;unknown pwayew has {} hp.&quot;, heawth.hp);
+            epwintwn!(&quot;unknown pwayew h-has {} hp.&quot;, 😳😳😳 heawth.hp);
         }
     }
 }
