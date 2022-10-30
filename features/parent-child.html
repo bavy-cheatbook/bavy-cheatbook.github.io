@@ -237,6 +237,18 @@ you manuawwy hide theiw pawent.</p>
 this behaviow automaticawwy.</p>
 <p>othewwise, &gt;_&lt; you can use <a href="https://docs.rs/bevy/0.8.0/bevy/transform/struct.TransformBundle.html"><code>SpatialBundle</code></a> to make suwe
 youw entities have aww the nyecessawy c-components.</p>
+<h2 id="known-pitfawws"><a class="header" href="#known-pitfawws">known pitfawws</a></h2>
+<h3 id="despawning-chiwd-entities"><a class="header" href="#despawning-chiwd-entities">despawning chiwd entities</a></h3>
+<p>if you despawn an entity that has a-a pawent, OwO bevy d-does nyot wemove i-it fwom the
+pawent's <a href="https://docs.rs/bevy/0.8.0/bevy/hierarchy/struct.Children.html"><code>Children</code></a>.</p>
+<p>if you then quewy fow that pawent e-entity's chiwdwen, OwO y-you wiww get a-an invaiwd
+entity, OwO and any attempt to manipuwate i-it wiww wikewy w-wead to this e-ewwow:</p>
+<pre><code>thwead 'main' panicked at 'attempting t-to cweate an e-entitycommands f-fow entity 7v0, 🥺 w-which doesn't exist.'
+</code></pre>
+<p>the wowkawound is to manuawwy caww <code>remove_children</code> awongside the <code>despawn</code>:</p>
+<pre><code class="language-rust no_run noplayground">    commands.entity(pawent_entity).wemove_chiwdwen(&amp;[chiwd_entity]);
+    commands.entity(chiwd_entity).despawn();
+</code></pre>
 
                     </main>
 
