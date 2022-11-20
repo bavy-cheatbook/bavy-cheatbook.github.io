@@ -1135,6 +1135,14 @@ find the <code>assets</code>.</p>
     }
 }
 </code></pre>
+<h2 id="intewwij"><a class="header" href="#intewwij">intewwij</a></h2>
+<p>when using <a href="setup//programming/queries.html">quewies</a>, (ꈍᴗꈍ) type infowmation gets wost due t-to bevy wewying
+on pwoceduwaw macwos. (ꈍᴗꈍ) you can fix t-this by enabwing <a href="https://github.com/intellij-rust/intellij-rust/issues/6908">pwoceduwaw macwo
+suppowt</a> in the ide.</p>
+<ol>
+<li>type <code>Experimental feature</code> in the diawog of the <code>Help | Find Action</code> action</li>
+<li>enabwe the featuwes <code>org.rust.cargo.evaluate.build.scripts</code> and <code>org.rust.macros.proc</code></li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dev-toows-and-editows-fow-bevy"><a class="header" href="#dev-toows-and-editows-fow-bevy">dev toows and editows fow bevy</a></h1>
 <p>bevy does nyot yet have an officiaw e-editow ow othew s-such toows. OwO an o-officiaw
 editow is pwanned as a wong-tewm f-futuwe goaw. OwO in t-the meantime, 🥺 hewe a-awe
@@ -1739,6 +1747,21 @@ wouwd be awmost instant in optimized b-buiwds. (ꈍᴗꈍ) <a href="pitfalls//pi
 back-face cuwwing enabwed.</p>
 <p>if you awe genewating youw <a href="https://docs.rs/bevy/0.8.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> fwom code, &gt;_&lt; make suwe youw
 vewtices awe in the cowwect owdew.</p>
+<h2 id="missing-visibiwity-component-on-pawent"><a class="header" href="#missing-visibiwity-component-on-pawent">missing visibiwity component on pawent</a></h2>
+<p>if youw entity is in a hiewawchy, ^•ﻌ•^ a-aww its pawents n-nyeed to have a
+<a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a> component. (ꈍᴗꈍ) it is wequiwed even if t-those
+pawent entities awe nyot supposed t-to wendew anything.</p>
+<p>fix it by insewting a <a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    commands.entity(pawent)
+        .insewt_bundwe(visibiwitybundwe::defauwt());
+<span class="boring">}
+</span></code></pre></pre>
+<p>ow bettew, OwO make suwe to spawn the p-pawent entities c-cowwectwy in the f-fiwst pwace.
+you can use a <a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a> ow
+<a href="https://docs.rs/bevy/0.8.0/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> (with <a href="pitfalls//features/transforms.html">twansfowms</a>) if you
+awe nyot using a bundwe that awweady i-incwudes these c-components.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bowwow-muwtipwe-fiewds-fwom-stwuct"><a class="header" href="#bowwow-muwtipwe-fiewds-fwom-stwuct">bowwow muwtipwe fiewds fwom stwuct</a></h1>
 <p>when you have a <a href="pitfalls//programming/ec.html#components">component</a> ow <a href="pitfalls//programming/res.html">wesouwce</a>, XD that is
 wawgew stwuct with muwtipwe fiewds, OwO s-sometimes you w-want to bowwow s-sevewaw of
@@ -4458,7 +4481,7 @@ fn make_aww_pwayews_hostiwe(
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="events-1"><a class="header" href="#events-1">events</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="programming//programming/events.html"><code>event</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.8.1/examples/ecs/event.rs"><code>event</code></a>.</p>
 <hr />
 <p>send data between systems! &gt;_&lt; wet youw <a href="programming//programming/systems.html">systems</a> communicate with each othew!</p>
 <ul>

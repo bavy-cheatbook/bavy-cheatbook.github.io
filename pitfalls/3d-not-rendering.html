@@ -197,6 +197,21 @@ wouwd be awmost instant in optimized b-buiwds. (ꈍᴗꈍ) <a href="/pitfalls/pe
 back-face cuwwing enabwed.</p>
 <p>if you awe genewating youw <a href="https://docs.rs/bevy/0.8.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> fwom code, &gt;_&lt; make suwe youw
 vewtices awe in the cowwect owdew.</p>
+<h2 id="missing-visibiwity-component-on-pawent"><a class="header" href="#missing-visibiwity-component-on-pawent">missing visibiwity component on pawent</a></h2>
+<p>if youw entity is in a hiewawchy, ^•ﻌ•^ a-aww its pawents n-nyeed to have a
+<a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a> component. (ꈍᴗꈍ) it is wequiwed even if t-those
+pawent entities awe nyot supposed t-to wendew anything.</p>
+<p>fix it by insewting a <a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>    commands.entity(pawent)
+        .insewt_bundwe(visibiwitybundwe::defauwt());
+<span class="boring">}
+</span></code></pre></pre>
+<p>ow bettew, OwO make suwe to spawn the p-pawent entities c-cowwectwy in the f-fiwst pwace.
+you can use a <a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a> ow
+<a href="https://docs.rs/bevy/0.8.0/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> (with <a href="/features/transforms.html">twansfowms</a>) if you
+awe nyot using a bundwe that awweady i-incwudes these c-components.</p>
 
                     </main>
 
