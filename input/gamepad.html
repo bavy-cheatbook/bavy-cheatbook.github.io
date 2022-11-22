@@ -145,14 +145,14 @@ joysticks, ^•ﻌ•^ etc. many diffewent kinds o-of hawdwawe s-shouwd wowk, Ow
 if youw device is nyot suppowted, ^•ﻌ•^ y-you shouwd fiwe a-an issue with the
 <a href="https://gitlab.com/gilrs-project/gilrs">giwws</a> pwoject.</p>
 <h2 id="gamepad-ids"><a class="header" href="#gamepad-ids">gamepad ids</a></h2>
-<p>bevy assigns a unique id (<a href="https://docs.rs/bevy/0.8.0/bevy/input/gamepad/struct.Gamepad.html"><code>Gamepad</code></a>) to each connected
+<p>bevy assigns a unique id (<a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.Gamepad.html"><code>Gamepad</code></a>) to each connected
 gamepad. OwO this wets you associate t-the device with a-a specific pwayew a-and
 distinguish which one youw inputs a-awe coming fwom.</p>
-<p>you can use the <a href="https://docs.rs/bevy/0.8.0/bevy/input/gamepad/struct.Gamepads.html"><code>Gamepads</code></a> <a href="/programming/res.html">wesouwce</a> to wist
+<p>you can use the <a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.Gamepads.html"><code>Gamepads</code></a> <a href="/programming/res.html">wesouwce</a> to wist
 the ids of aww the cuwwentwy connected g-gamepad devices, OwO o-ow to check t-the
 status of a specific one.</p>
 <p>to detect when gamepads awe connected o-ow disconnected, ^•ﻌ•^ y-you can use
-<a href="https://docs.rs/bevy/0.8.0/bevy/input/gamepad/struct.GamepadEvent.html"><code>GamepadEvent</code></a> <a href="/programming/events.html">events</a>.</p>
+<a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.GamepadEvent.html"><code>GamepadEvent</code></a> <a href="/programming/events.html">events</a>.</p>
 <p>exampwe showing how to wemembew the f-fiwst connected g-gamepad id:</p>
 <pre><code class="language-rust no_run noplayground">/// simpwe wesouwce to stowe the i-id of the connected g-gamepad. 🥺
 /// w-we nyeed to know w-which gamepad t-to use fow pwayew i-input. mya
@@ -195,11 +195,11 @@ fn gamepad_connections(
 </code></pre>
 <h2 id="handwing-gamepad-inputs"><a class="header" href="#handwing-gamepad-inputs">handwing gamepad inputs</a></h2>
 <p>you can handwe the anawog sticks a-and twiggews with <code>Axis&lt;GamepadAxis&gt;</code>
-(<a href="https://docs.rs/bevy/0.8.0/bevy/input/struct.Axis.html"><code>Axis</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.8.0/bevy/input/gamepad/struct.GamepadAxis.html"><code>GamepadAxis</code></a>). XD buttons
-can be handwed with <code>Input&lt;GamepadButton&gt;</code> (<a href="https://docs.rs/bevy/0.8.0/bevy/input/struct.Input.html"><code>Input</code></a>,
-<a href="https://docs.rs/bevy/0.8.0/bevy/input/gamepad/struct.GamepadButton.html"><code>GamepadButton</code></a>), XD simiwaw to <a href="/input/mouse.html">mouse
+(<a href="https://docs.rs/bevy/0.9.0/bevy/input/struct.Axis.html"><code>Axis</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.GamepadAxis.html"><code>GamepadAxis</code></a>). XD buttons
+can be handwed with <code>Input&lt;GamepadButton&gt;</code> (<a href="https://docs.rs/bevy/0.9.0/bevy/input/struct.Input.html"><code>Input</code></a>,
+<a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.GamepadButton.html"><code>GamepadButton</code></a>), XD simiwaw to <a href="/input/mouse.html">mouse
 buttons</a> ow <a href="/input/keyboard.html">keyboawd keys</a>.</p>
-<p>notice that the names of buttons i-in the <a href="https://docs.rs/bevy/0.8.0/bevy/input/gamepad/struct.GamepadButton.html"><code>GamepadButton</code></a>
+<p>notice that the names of buttons i-in the <a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.GamepadButton.html"><code>GamepadButton</code></a>
 awe vendow-neutwaw (wike <code>South</code> and <code>East</code> instead of x/o ow a/b).</p>
 <pre><code class="language-rust no_run noplayground">fn gamepad_input(
     axes: wes&lt;axis&lt;gamepadaxis&gt;&gt;, òωó
@@ -249,7 +249,7 @@ awe vendow-neutwaw (wike <code>South</code> and <code>East</code> instead of x/o
     }
 }
 </code></pre>
-<p>you can awso handwe gamepad inputs u-using <a href="https://docs.rs/bevy/0.8.0/bevy/input/gamepad/struct.GamepadEvent.html"><code>GamepadEvent</code></a> <a href="/programming/events.html">events</a>:</p>
+<p>you can awso handwe gamepad inputs u-using <a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.GamepadEvent.html"><code>GamepadEvent</code></a> <a href="/programming/events.html">events</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn gamepad_input_events(
     my_gamepad: o-option&lt;wes&lt;mygamepad&gt;&gt;, rawr x3
     m-mut gamepad_evw: e-eventweadew&lt;gamepadevent&gt;, mya
@@ -289,7 +289,7 @@ awe vendow-neutwaw (wike <code>South</code> and <code>East</code> instead of x/o
 }
 </code></pre>
 <h2 id="gamepad-settings"><a class="header" href="#gamepad-settings">gamepad settings</a></h2>
-<p>you can use the <a href="https://docs.rs/bevy/0.8.0/bevy/input/gamepad/struct.GamepadSettings.html"><code>GamepadSettings</code></a> <a href="/programming/res.html">wesouwce</a>
+<p>you can use the <a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.GamepadSettings.html"><code>GamepadSettings</code></a> <a href="/programming/res.html">wesouwce</a>
 to configuwe dead-zones and othew p-pawametews of the v-vawious axes a-and
 buttons. ^•ﻌ•^ you can set the gwobaw defauwts, OwO a-as weww a-as individuawwy
 pew-axis/button.</p>

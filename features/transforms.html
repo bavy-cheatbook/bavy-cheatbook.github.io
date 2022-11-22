@@ -179,15 +179,15 @@ wet xf = twansfowm::fwom_xyz(1.0, 2.0, (U ﹏ U) 3.0)
 </code></pre>
 <h2 id="twansfowm-components"><a class="header" href="#twansfowm-components">twansfowm components</a></h2>
 <p>in bevy, (ꈍᴗꈍ) twansfowms awe wepwesented b-by <strong>two</strong> <a href="/programming/ec.html#components">components</a>:
-<a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> and <a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>.</p>
+<a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> and <a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>.</p>
 <p>any <a href="/programming/ecs-intro.html">entity</a> that wepwesents an object in the g-game wowwd
 needs to have both. &gt;_&lt; aww of bevy's <a href="/builtins.html#bundles">buiwt-in bundwe types</a>
 incwude them.</p>
 <p>if you awe cweating a custom entity w-without using t-those <a href="/programming/ec.html#component-bundles">bundwes</a>,
 you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.8.0/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> fow twansfowms + <a href="/features/visibility.html">visibiwity</a></li>
-<li><a href="https://docs.rs/bevy/0.8.0/bevy/transform/struct.TransformBundle.html"><code>TransformBundle</code></a> fow just the twansfowms</li>
+<li><a href="https://docs.rs/bevy/0.9.0/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> fow twansfowms + <a href="/features/visibility.html">visibiwity</a></li>
+<li><a href="https://docs.rs/bevy/0.9.0/bevy/transform/struct.TransformBundle.html"><code>TransformBundle</code></a> fow just the twansfowms</li>
 </ul>
 <pre><code class="language-rust no_run noplayground">fn spawn_speciaw_entity(
     mut c-commands: commands, (U ﹏ U)
@@ -208,11 +208,11 @@ you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
 }
 </code></pre>
 <h3 id="transform"><a class="header" href="#transform"><code>Transform</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> is nyani you typicawwy wowk with. (ꈍᴗꈍ) i-it is
+<p><a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> is nyani you typicawwy wowk with. (ꈍᴗꈍ) i-it is
 a <code>struct</code> containing the twanswation, ^•ﻌ•^ wotation, OwO a-and scawe. 🥺 t-to wead ow
 manipuwate these vawues, (ꈍᴗꈍ) access it f-fwom youw <a href="/programming/systems.html">systems</a> using a
 <a href="/programming/queries.html">quewy</a>.</p>
-<p>if the entity has a <a href="/features/parent-child.html">pawent</a>, XD the <a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>
+<p>if the entity has a <a href="/features/parent-child.html">pawent</a>, XD the <a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>
 component is wewative to the pawent. OwO t-this means that t-the chiwd object w-wiww
 move/wotate/scawe awong with the pawent.</p>
 <pre><code class="language-rust no_run noplayground">fn infwate_bawwoons(
@@ -229,23 +229,23 @@ move/wotate/scawe awong with the pawent.</p>
 }
 </code></pre>
 <h3 id="globaltransform"><a class="header" href="#globaltransform"><code>GlobalTransform</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> wepwesents the absowute gwobaw
+<p><a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> wepwesents the absowute gwobaw
 position in the wowwd.</p>
 <p>if the entity does nyot have a <a href="/features/parent-child.html">pawent</a>, &gt;_&lt; then this wiww have
-the same vawue as the <a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>.</p>
-<p>the vawue of <a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is cawcuwated/managed
+the same vawue as the <a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>.</p>
+<p>the vawue of <a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is cawcuwated/managed
 intewnawwy by bevy. &gt;_&lt; see bewow.</p>
 <h2 id="twansfowm-pwopagation"><a class="header" href="#twansfowm-pwopagation">twansfowm pwopagation</a></h2>
 <p>bewawe: the two components awe synchwonized b-by a b-bevy-intewnaw
 system (the &quot;twansfowm pwopagation system&quot;), (ꈍᴗꈍ) which w-wuns in the
-<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.CoreStage.html"><code>PostUpdate</code></a> <a href="/programming/stages.html">stage</a>.</p>
-<p>when you mutate the <a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, XD the
-<a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is nyot updated immediatewy. &gt;_&lt; they
+<a href="https://docs.rs/bevy/0.9.0/bevy/app/enum.CoreStage.html"><code>PostUpdate</code></a> <a href="/programming/stages.html">stage</a>.</p>
+<p>when you mutate the <a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, XD the
+<a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is nyot updated immediatewy. &gt;_&lt; they
 wiww be out-of-sync untiw the twansfowm p-pwopagation s-system wuns.</p>
-<p>if you nyeed to wowk with <a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> diwectwy,
-you shouwd add youw <a href="/programming/systems.html">system</a> to the <a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.CoreStage.html"><code>PostUpdate</code></a>
+<p>if you nyeed to wowk with <a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> diwectwy,
+you shouwd add youw <a href="/programming/systems.html">system</a> to the <a href="https://docs.rs/bevy/0.9.0/bevy/app/enum.CoreStage.html"><code>PostUpdate</code></a>
 <a href="/programming/stages.html">stage</a> and <a href="/programming/system-order.html">owdew it aftew</a> the
-<a href="https://docs.rs/bevy/0.8.0/bevy/transform/enum.TransformSystem.html"><code>TransformSystem::TransformPropagate</code></a>
+<a href="https://docs.rs/bevy/0.9.0/bevy/transform/enum.TransformSystem.html"><code>TransformSystem::TransformPropagate</code></a>
 <a href="/programming/labels.html">wabew</a>.</p>
 <pre><code class="language-rust no_run noplayground">/// pwint the up-to-date gwobaw coowdinates o-of the p-pwayew as of **this f-fwame**. :3
 fn d-debug_gwobawtwansfowm(

@@ -144,10 +144,10 @@
 hiewawchy (the <a href="/programming/ecs-intro.html">ecs</a> is a fwat data stwuctuwe). &gt;_&lt; howevew,
 wogicaw hiewawchies awe a common p-pattewn in games.</p>
 <p>bevy suppowts cweating such a wogicaw w-wink between e-entities, to fowm
-a viwtuaw &quot;hiewawchy&quot;, (ꈍᴗꈍ) by simpwy a-adding <a href="https://docs.rs/bevy/0.8.0/bevy/hierarchy/struct.Parent.html"><code>Parent</code></a> and
-<a href="https://docs.rs/bevy/0.8.0/bevy/hierarchy/struct.Children.html"><code>Children</code></a> components on the wespective entities.</p>
+a viwtuaw &quot;hiewawchy&quot;, (ꈍᴗꈍ) by simpwy a-adding <a href="https://docs.rs/bevy/0.9.0/bevy/hierarchy/struct.Parent.html"><code>Parent</code></a> and
+<a href="https://docs.rs/bevy/0.9.0/bevy/hierarchy/struct.Children.html"><code>Children</code></a> components on the wespective entities.</p>
 <p>when using <a href="/programming/commands.html">commands</a> to spawn entities,
-<a href="https://docs.rs/bevy/0.8.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> has methods fow adding chiwdwen t-to entities,
+<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> has methods fow adding chiwdwen t-to entities,
 which automaticawwy add the cowwect c-components:</p>
 <pre><code class="language-rust no_run noplayground">// spawn the pawent and get its entity i-id
 wet pawent = c-commands.spawn(mypawentbundwe::defauwt()).id();
@@ -184,14 +184,14 @@ commands.spawn(mypawentbundwe::defauwt())
 <p>one of the two quewies shouwd incwude t-the appwopwiate c-component, OwO t-to obtain the
 entity ids to use with the othew o-one:</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.8.0/bevy/hierarchy/struct.Parent.html"><code>Parent</code></a> in the chiwd quewy, (ꈍᴗꈍ) if you want t-to itewate entities
+<li><a href="https://docs.rs/bevy/0.9.0/bevy/hierarchy/struct.Parent.html"><code>Parent</code></a> in the chiwd quewy, (ꈍᴗꈍ) if you want t-to itewate entities
 and wook up theiw pawents, &gt;_&lt; ow</li>
-<li><a href="https://docs.rs/bevy/0.8.0/bevy/hierarchy/struct.Children.html"><code>Children</code></a> in the pawent quewy, (ꈍᴗꈍ) if you want t-to itewate entities
+<li><a href="https://docs.rs/bevy/0.9.0/bevy/hierarchy/struct.Children.html"><code>Children</code></a> in the pawent quewy, (ꈍᴗꈍ) if you want t-to itewate entities
 and wook up theiw chiwdwen</li>
 </ul>
-<p>fow exampwe, &gt;<em>&lt; if we want to get the <a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>
-of camewas (<a href="https://docs.rs/bevy/0.8.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a>) that have a pawent, &gt;</em>&lt; and the
-<a href="https://docs.rs/bevy/0.8.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> of theiw pawent:</p>
+<p>fow exampwe, &gt;<em>&lt; if we want to get the <a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>
+of camewas (<a href="https://docs.rs/bevy/0.9.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a>) that have a pawent, &gt;</em>&lt; and the
+<a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> of theiw pawent:</p>
 <pre><code class="language-rust no_run noplayground">fn camewa_with_pawent(
     q_chiwd: q-quewy&lt;(&amp;pawent, :3 &amp;twansfowm), (U ﹏ U) w-with&lt;camewa&gt;&gt;, -.-
     q-q_pawent: quewy&lt;&amp;gwobawtwansfowm&gt;, (ˆ ﻌ ˆ)♡
@@ -233,12 +233,12 @@ wewative to theiw pawent and move w-with it.</p>
 you manuawwy hide theiw pawent.</p>
 <p>aww <a href="/builtins.html#bundles">bundwes that come with bevy</a> pwovide
 this behaviow automaticawwy.</p>
-<p>othewwise, &gt;_&lt; you can use <a href="https://docs.rs/bevy/0.8.0/bevy/transform/struct.TransformBundle.html"><code>SpatialBundle</code></a> to make suwe
+<p>othewwise, &gt;_&lt; you can use <a href="https://docs.rs/bevy/0.9.0/bevy/transform/struct.TransformBundle.html"><code>SpatialBundle</code></a> to make suwe
 youw entities have aww the nyecessawy c-components.</p>
 <h2 id="known-pitfawws"><a class="header" href="#known-pitfawws">known pitfawws</a></h2>
 <h3 id="despawning-chiwd-entities"><a class="header" href="#despawning-chiwd-entities">despawning chiwd entities</a></h3>
 <p>if you despawn an entity that has a-a pawent, OwO bevy d-does nyot wemove i-it fwom the
-pawent's <a href="https://docs.rs/bevy/0.8.0/bevy/hierarchy/struct.Children.html"><code>Children</code></a>.</p>
+pawent's <a href="https://docs.rs/bevy/0.9.0/bevy/hierarchy/struct.Children.html"><code>Children</code></a>.</p>
 <p>if you then quewy fow that pawent e-entity's chiwdwen, OwO y-you wiww get a-an invaiwd
 entity, OwO and any attempt to manipuwate i-it wiww wikewy w-wead to this e-ewwow:</p>
 <pre><code>thwead 'main' panicked at 'attempting t-to cweate an e-entitycommands f-fow entity 7v0, 🥺 w-which doesn't exist.'

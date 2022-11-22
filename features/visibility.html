@@ -167,15 +167,15 @@ f-fn weveaw_map(
 </code></pre>
 <h2 id="visibiwity-components"><a class="header" href="#visibiwity-components">visibiwity components</a></h2>
 <p>in bevy, (ꈍᴗꈍ) visibiwity is wepwesented b-by <strong>two</strong> <a href="/programming/ec.html#components">components</a>:
-<a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a> and <a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.ComputedVisibility.html"><code>ComputedVisibility</code></a>.</p>
+<a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a> and <a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.ComputedVisibility.html"><code>ComputedVisibility</code></a>.</p>
 <p>any <a href="/programming/ecs-intro.html">entity</a> that wepwesents an object in the g-game wowwd
 needs to have both. &gt;_&lt; aww of bevy's <a href="/builtins.html#bundles">buiwt-in bundwe types</a>
 incwude them.</p>
 <p>if you awe cweating a custom entity w-without using t-those <a href="/programming/ec.html#component-bundles">bundwes</a>,
 you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.8.0/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> fow <a href="/features/transforms.html">twansfowms</a> + visibiwity</li>
-<li><a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a> fow just visibiwity</li>
+<li><a href="https://docs.rs/bevy/0.9.0/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> fow <a href="/features/transforms.html">twansfowms</a> + visibiwity</li>
+<li><a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a> fow just visibiwity</li>
 </ul>
 <pre><code class="language-rust no_run noplayground">fn spawn_speciaw_entity(
     mut c-commands: commands, (U ﹏ U)
@@ -196,27 +196,27 @@ you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
 }
 </code></pre>
 <h3 id="visibility"><a class="header" href="#visibility"><code>Visibility</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a> is the &quot;usew-facing toggwe&quot;. (ꈍᴗꈍ) this i-is whewe
+<p><a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a> is the &quot;usew-facing toggwe&quot;. (ꈍᴗꈍ) this i-is whewe
 you specify if you want this entity t-to be visibwe o-ow nyot.</p>
 <p>if you hide an entity that has <a href="/features/parent-child.html">chiwdwen</a>, &gt;_&lt; they wiww awso be
-hidden, (ꈍᴗꈍ) wegawdwess of nyani theiw i-individuaw <a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a>
+hidden, (ꈍᴗꈍ) wegawdwess of nyani theiw i-individuaw <a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a>
 vawue is set to.</p>
 <h3 id="computedvisibility"><a class="header" href="#computedvisibility"><code>ComputedVisibility</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.ComputedVisibility.html"><code>ComputedVisibility</code></a> wepwesents the actuaw finaw
+<p><a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.ComputedVisibility.html"><code>ComputedVisibility</code></a> wepwesents the actuaw finaw
 decision made by bevy about whethew t-this entity needs t-to be dispwayed.</p>
-<p>the vawue of <a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.ComputedVisibility.html"><code>ComputedVisibility</code></a> is wead-onwy. XD it
+<p>the vawue of <a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.ComputedVisibility.html"><code>ComputedVisibility</code></a> is wead-onwy. XD it
 is managed intewnawwy by bevy.</p>
 <p>it can be affected by the visibiwity o-of <a href="/features/parent-child.html">pawent</a> entities, XD if any.</p>
 <p>it is awso affected by &quot;cuwwing&quot; s-systems. OwO if the e-entity is nyot in t-the wange of
 any camewa ow wight, OwO it does nyot n-nyeed to be wendewed, 🥺 s-so bevy wiww h-hide it.</p>
 <h2 id="checking-actuaw-visibiwity"><a class="header" href="#checking-actuaw-visibiwity">checking actuaw visibiwity</a></h2>
-<p>you can use <a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/struct.ComputedVisibility.html"><code>ComputedVisibility</code></a> to check if
+<p>you can use <a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.ComputedVisibility.html"><code>ComputedVisibility</code></a> to check if
 the entity is actuawwy visibwe.</p>
 <p>bevy's intewnaw visibiwity computations a-awe done i-in the
-<a href="https://docs.rs/bevy/0.8.0/bevy/app/enum.CoreStage.html"><code>PostUpdate</code></a> <a href="/programming/stages.html">stage</a>. XD to get the up-to-date
+<a href="https://docs.rs/bevy/0.9.0/bevy/app/enum.CoreStage.html"><code>PostUpdate</code></a> <a href="/programming/stages.html">stage</a>. XD to get the up-to-date
 vawues fow the cuwwent fwame, &gt;_&lt; youw <a href="/programming/systems.html">system</a> must be <a href="/programming/system-order.html">owdewed
 aftew</a> these bevy-intewnaw systems. (ꈍᴗꈍ) you c-can use the
-<a href="https://docs.rs/bevy/0.8.0/bevy/render/view/visibility/enum.VisibilitySystems.html"><code>VisibilitySystems</code></a> <a href="/programming/labels.html">wabews</a>.</p>
+<a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/enum.VisibilitySystems.html"><code>VisibilitySystems</code></a> <a href="/programming/labels.html">wabews</a>.</p>
 <pre><code class="language-rust no_run noplayground">/// check if the pwayew was hidden m-manuawwy
 fn debug_pwayew_visibiwity(
     q-quewy: q-quewy&lt;&amp;computedvisibiwity, (˘ω˘) w-with&lt;pwayew&gt;&gt;, (⑅˘꒳˘)

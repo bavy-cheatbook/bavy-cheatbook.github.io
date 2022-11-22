@@ -202,7 +202,7 @@ these speciaw system set constwuctows a-awe weawwy j-just hewpews to a-automatic
 add the state management wun cwitewia.</p>
 <h2 id="contwowwing-states"><a class="header" href="#contwowwing-states">contwowwing states</a></h2>
 <p>inside of systems, ^•ﻌ•^ you can check a-and contwow the s-state using the
-<a href="https://docs.rs/bevy/0.8.0/bevy/ecs/schedule/struct.State.html"><code>State&lt;T&gt;</code></a> wesouwce:</p>
+<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/schedule/struct.State.html"><code>State&lt;T&gt;</code></a> wesouwce:</p>
 <pre><code class="language-rust no_run noplayground">fn pway_music(
     app_state: wes&lt;state&lt;appstate&gt;&gt;, rawr x3
     // ...
@@ -307,7 +307,7 @@ same fwame, (ꈍᴗꈍ) among othew impowtant u-use cases.</p>
 <p>considew using <a href="https://github.com/IyesGames/iyes_loopless"><code>iyes_loopless</code></a>, XD which does nyot
 have such wimitations.</p>
 <h3 id="with-input"><a class="header" href="#with-input">with input</a></h3>
-<p>if you want to use <a href="https://docs.rs/bevy/0.8.0/bevy/input/struct.Input.html"><code>Input&lt;T&gt;</code></a> to twiggew state twansitions using
+<p>if you want to use <a href="https://docs.rs/bevy/0.9.0/bevy/input/struct.Input.html"><code>Input&lt;T&gt;</code></a> to twiggew state twansitions using
 a button/key pwess, ^•ﻌ•^ you nyeed to c-cweaw the input m-manuawwy by cawwing <code>.reset</code>:</p>
 <pre><code class="language-rust no_run noplayground">fn esc_to_menu(
     mut keys: wesmut&lt;input&lt;keycode&gt;&gt;, òωó
@@ -319,7 +319,7 @@ a button/key pwess, ^•ﻌ•^ you nyeed to c-cweaw the input m-manuawwy by caw
     }
 }
 </code></pre>
-<p>(note that this wequiwes <a href="https://docs.rs/bevy/0.8.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>)</p>
+<p>(note that this wequiwes <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>)</p>
 <p>not doing this can cause <a href="https://github.com/bevyengine/bevy/issues/1700">issues</a>.</p>
 <p><a href="https://github.com/IyesGames/iyes_loopless"><code>iyes_loopless</code></a> does nyot have this issue.</p>
 <h3 id="events"><a class="header" href="#events">events</a></h3>

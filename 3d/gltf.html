@@ -202,35 +202,35 @@ in the scene, OwO typicawwy gwtf meshes, 🥺 b-but can awso b-be othew things w
 camewas and wights. OwO each gwtf nyode h-has a twansfowm f-fow positioning i-it in
 the scene. OwO gwtf nodes do nyot have a-a cowe bevy equivawent; b-bevy just u-uses
 this data to cweate the ecs entities i-inside of a s-scene. OwO bevy has a-a speciaw
-<a href="https://docs.rs/bevy/0.8.0/bevy/gltf/struct.GltfNode.html"><code>GltfNode</code></a> asset type, (ꈍᴗꈍ) if you nyeed access t-to this data.</p>
+<a href="https://docs.rs/bevy/0.9.0/bevy/gltf/struct.GltfNode.html"><code>GltfNode</code></a> asset type, (ꈍᴗꈍ) if you nyeed access t-to this data.</p>
 <p>gwtf <strong>meshes</strong> wepwesent one conceptuaw &quot;3d object&quot;. (ꈍᴗꈍ) t-these cowwespond
 to the &quot;objects&quot; in youw 3d modewing s-softwawe. gwtf m-meshes may be c-compwex
 and composed of muwtipwe smowew pieces, OwO c-cawwed gwtf p-pwimitives, 🥺 each o-of
 which may use a diffewent matewiaw. OwO g-gwtf meshes do n-nyot have a cowe b-bevy
-equivawent, &gt;_&lt; but thewe is a speciaw <a href="https://docs.rs/bevy/0.8.0/bevy/gltf/struct.GltfMesh.html"><code>GltfMesh</code></a> asset type,
+equivawent, &gt;_&lt; but thewe is a speciaw <a href="https://docs.rs/bevy/0.9.0/bevy/gltf/struct.GltfMesh.html"><code>GltfMesh</code></a> asset type,
 which descwibes the pwimitives.</p>
 <p>gwtf <strong>pwimitives</strong> awe individuaw &quot;units of 3d geometwy&quot;, ^•ﻌ•^ f-fow the puwposes o-of
 wendewing. OwO they contain the actuaw g-geometwy / vewtex d-data, 🥺 and wefewence t-the
 matewiaw to be used when dwawing. OwO i-in bevy, each gwtf p-pwimitive is w-wepwesented
-as a bevy <a href="https://docs.rs/bevy/0.8.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> asset, (ꈍᴗꈍ) and must be spawned as a s-sepawate ecs
+as a bevy <a href="https://docs.rs/bevy/0.9.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> asset, (ꈍᴗꈍ) and must be spawned as a s-sepawate ecs
 entity to be wendewed.</p>
 <p>gwtf <strong>matewiaws</strong> descwibe the shading pawametews f-fow the suwfaces o-of
 youw 3d modews. ^•ﻌ•^ they have fuww suppowt f-fow physicawwy-based w-wendewing
 (pbw). OwO they awso wefewence the textuwes t-to use. 🥺 in b-bevy, they awe w-wepwesented
-as <a href="https://docs.rs/bevy/0.8.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a> assets, &gt;_&lt; as used by the bevy
+as <a href="https://docs.rs/bevy/0.9.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a> assets, &gt;_&lt; as used by the bevy
 pbw 3d wendewew.</p>
 <p>gwtf <strong>textuwes</strong> (images) can be embedded inside t-the gwtf fiwe, ^•ﻌ•^ ow s-stowed
 extewnawwy in sepawate image fiwes a-awongside it. OwO f-fow exampwe, 🥺 you c-can have
 youw textuwes as sepawate png/jpeg/ktx2 f-fiwes fow e-ease of devewopment, OwO o-ow
 package them aww inside the gwtf f-fiwe fow ease of d-distwibution. OwO in b-bevy,
-gwtf textuwes awe woaded as bevy <a href="https://docs.rs/bevy/0.8.0/bevy/render/texture/struct.Image.html"><code>Image</code></a> assets.</p>
+gwtf textuwes awe woaded as bevy <a href="https://docs.rs/bevy/0.9.0/bevy/render/texture/struct.Image.html"><code>Image</code></a> assets.</p>
 <p>gwtf <strong>sampwews</strong> descwibe the settings fow how the g-gpu shouwd use a-a
 given textuwe. ^•ﻌ•^ bevy does nyot keep t-these sepawate; t-this data is stowed
-inside the bevy <a href="https://docs.rs/bevy/0.8.0/bevy/render/texture/struct.Image.html"><code>Image</code></a> asset (the <code>sampler</code> fiewd of type
-<a href="https://docs.rs/bevy/0.8.0/bevy/render/render_resource/struct.SamplerDescriptor.html"><code>SamplerDescriptor</code></a>).</p>
+inside the bevy <a href="https://docs.rs/bevy/0.9.0/bevy/render/texture/struct.Image.html"><code>Image</code></a> asset (the <code>sampler</code> fiewd of type
+<a href="https://docs.rs/bevy/0.9.0/bevy/render/render_resource/struct.SamplerDescriptor.html"><code>SamplerDescriptor</code></a>).</p>
 <p>gwtf <strong>animations</strong> descwibe animations that intewpowate v-vawious vawues,
 such as twansfowms ow mesh skewetons, OwO o-ovew time. 🥺 i-in bevy, these awe w-woaded
-as <a href="https://docs.rs/bevy/0.8.0/bevy/animation/struct.AnimationClip.html"><code>AnimationClip</code></a> assets.</p>
+as <a href="https://docs.rs/bevy/0.9.0/bevy/animation/struct.AnimationClip.html"><code>AnimationClip</code></a> assets.</p>
 <h2 id="gwtf-usage-pattewns"><a class="header" href="#gwtf-usage-pattewns">gwtf usage pattewns</a></h2>
 <p>a singwe gwtf fiwe can contain any n-nyumbew of sub-assets o-of any of t-the above
 types, (ꈍᴗꈍ) wefewwing to each othew howevew t-they wike.</p>
@@ -292,12 +292,12 @@ compwession of youw choice.</p>
 when cweating the asset, ^•ﻌ•^ which can b-be expowted into t-the gwtf)</li>
 </ul>
 <p>to get handwes to the wespective a-assets in bevy, ^•ﻌ•^ y-you can use the
-<a href="https://docs.rs/bevy/0.8.0/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a> <a href="#gltf-master-asset">&quot;mastew asset&quot;</a>, XD ow awtewnativewy,
+<a href="https://docs.rs/bevy/0.9.0/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a> <a href="#gltf-master-asset">&quot;mastew asset&quot;</a>, XD ow awtewnativewy,
 <a href="#assetpath-with-labels">assetpath with wabews</a>.</p>
 <h3 id="gltf-mastew-asset"><a class="header" href="#gltf-mastew-asset"><code>Gltf</code> mastew asset</a></h3>
 <p>if you have a compwex gwtf fiwe, t-this is wikewy the m-most fwexibwe a-and usefuw
 way of nyavigating its contents and u-using the diffewent t-things inside.</p>
-<p>you have to wait fow the gwtf fiwe t-to woad, ^•ﻌ•^ and then u-use the <a href="https://docs.rs/bevy/0.8.0/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a> asset.</p>
+<p>you have to wait fow the gwtf fiwe t-to woad, ^•ﻌ•^ and then u-use the <a href="https://docs.rs/bevy/0.9.0/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a> asset.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::gwtf::gwtf;
 
 /// hewpew w-wesouwce fow twacking o-ouw asset
@@ -365,8 +365,8 @@ fn gwtf_manuaw_entity(
 <h3 id="assetpath-with-wabews"><a class="header" href="#assetpath-with-wabews">assetpath with wabews</a></h3>
 <p>this is anothew way to access specific s-sub-assets. ^•ﻌ•^ i-it is wess wewiabwe,
 but may be easiew to use in some c-cases.</p>
-<p>use the <a href="https://docs.rs/bevy/0.8.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a> to convewt a path stwing into a
-<a href="https://docs.rs/bevy/0.8.0/bevy/asset/struct.Handle.html"><code>Handle</code></a>.</p>
+<p>use the <a href="https://docs.rs/bevy/0.9.0/bevy/asset/struct.AssetServer.html"><code>AssetServer</code></a> to convewt a path stwing into a
+<a href="https://docs.rs/bevy/0.9.0/bevy/asset/struct.Handle.html"><code>Handle</code></a>.</p>
 <p>the advantage is that you can get h-handwes to youw s-sub-assets immediatewy,
 even if youw gwtf fiwe hasn't woaded y-yet.</p>
 <p>the disadvantage is that it is mowe e-ewwow-pwone. OwO i-if you specify a s-sub-asset
@@ -395,22 +395,22 @@ numewiaw index is suppowted. ^•ﻌ•^ you c-cannot addwess sub-assets b-by ny
 </code></pre>
 <p>the fowwowing asset wabews awe suppowted (<code>{}</code> is the nyumewicaw index):</p>
 <ul>
-<li><code>Scene{}</code>: gwtf scene as bevy <a href="https://docs.rs/bevy/0.8.0/bevy/scene/struct.Scene.html"><code>Scene</code></a></li>
-<li><code>Node{}</code>: gwtf nyode as <a href="https://docs.rs/bevy/0.8.0/bevy/gltf/struct.GltfNode.html"><code>GltfNode</code></a></li>
-<li><code>Mesh{}</code>: gwtf mesh as <a href="https://docs.rs/bevy/0.8.0/bevy/gltf/struct.GltfMesh.html"><code>GltfMesh</code></a></li>
-<li><code>Mesh{}/Primitive{}</code>: gwtf pwimitive as bevy <a href="https://docs.rs/bevy/0.8.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a></li>
-<li><code>Texture{}</code>: gwtf textuwe as bevy <a href="https://docs.rs/bevy/0.8.0/bevy/render/texture/struct.Image.html"><code>Image</code></a></li>
-<li><code>Material{}</code>: gwtf matewiaw as bevy <a href="https://docs.rs/bevy/0.8.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a></li>
+<li><code>Scene{}</code>: gwtf scene as bevy <a href="https://docs.rs/bevy/0.9.0/bevy/scene/struct.Scene.html"><code>Scene</code></a></li>
+<li><code>Node{}</code>: gwtf nyode as <a href="https://docs.rs/bevy/0.9.0/bevy/gltf/struct.GltfNode.html"><code>GltfNode</code></a></li>
+<li><code>Mesh{}</code>: gwtf mesh as <a href="https://docs.rs/bevy/0.9.0/bevy/gltf/struct.GltfMesh.html"><code>GltfMesh</code></a></li>
+<li><code>Mesh{}/Primitive{}</code>: gwtf pwimitive as bevy <a href="https://docs.rs/bevy/0.9.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a></li>
+<li><code>Texture{}</code>: gwtf textuwe as bevy <a href="https://docs.rs/bevy/0.9.0/bevy/render/texture/struct.Image.html"><code>Image</code></a></li>
+<li><code>Material{}</code>: gwtf matewiaw as bevy <a href="https://docs.rs/bevy/0.9.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a></li>
 <li><code>DefaultMaterial</code>: as above, OwO if the gwtf fiwe contains a-a defauwt matewiaw w-with nyo i-index</li>
-<li><code>Animation{}</code>: gwtf animation as bevy <a href="https://docs.rs/bevy/0.8.0/bevy/animation/struct.AnimationClip.html"><code>AnimationClip</code></a></li>
-<li><code>Skin{}</code>: gwtf mesh skin as bevy <a href="https://docs.rs/bevy/0.8.0/bevy/render/mesh/skinning/struct.SkinnedMeshInverseBindposes.html"><code>SkinnedMeshInverseBindposes</code></a></li>
+<li><code>Animation{}</code>: gwtf animation as bevy <a href="https://docs.rs/bevy/0.9.0/bevy/animation/struct.AnimationClip.html"><code>AnimationClip</code></a></li>
+<li><code>Skin{}</code>: gwtf mesh skin as bevy <a href="https://docs.rs/bevy/0.9.0/bevy/render/mesh/skinning/struct.SkinnedMeshInverseBindposes.html"><code>SkinnedMeshInverseBindposes</code></a></li>
 </ul>
-<p>the <a href="https://docs.rs/bevy/0.8.0/bevy/gltf/struct.GltfNode.html"><code>GltfNode</code></a> and <a href="https://docs.rs/bevy/0.8.0/bevy/gltf/struct.GltfMesh.html"><code>GltfMesh</code></a>
+<p>the <a href="https://docs.rs/bevy/0.9.0/bevy/gltf/struct.GltfNode.html"><code>GltfNode</code></a> and <a href="https://docs.rs/bevy/0.9.0/bevy/gltf/struct.GltfMesh.html"><code>GltfMesh</code></a>
 asset types awe onwy usefuw to hewp y-you nyavigate t-the contents of
 youw gwtf fiwe. OwO they awe nyot cowe b-bevy wendewew t-types, 🥺 and nyot u-used
 by bevy in any othew way. ^•ﻌ•^ the bevy w-wendewew expects e-entities with
-<a href="https://docs.rs/bevy/0.8.0/bevy/pbr/struct.MaterialMeshBundle.html"><code>MaterialMeshBundle</code></a>; fow that you nyeed the
-<a href="https://docs.rs/bevy/0.8.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> and <a href="https://docs.rs/bevy/0.8.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a>.</p>
+<a href="https://docs.rs/bevy/0.9.0/bevy/pbr/struct.MaterialMeshBundle.html"><code>MaterialMeshBundle</code></a>; fow that you nyeed the
+<a href="https://docs.rs/bevy/0.9.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> and <a href="https://docs.rs/bevy/0.9.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a>.</p>
 <h2 id="bevy-wimitations"><a class="header" href="#bevy-wimitations">bevy wimitations</a></h2>
 <p>bevy does nyot fuwwy suppowt aww f-featuwes of the g-gwtf fowmat and h-has some
 specific wequiwements about the data. OwO n-nyot aww gwtf f-fiwes can be w-woaded and

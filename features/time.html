@@ -141,7 +141,7 @@
 <a href="https://github.com/bevyengine/bevy/blob/v0.8.1/examples/2d/move_sprite.rs"><code>move_sprite</code></a>.</p>
 <hr />
 <h2 id="time"><a class="header" href="#time">time</a></h2>
-<p>the <a href="https://docs.rs/bevy/0.8.0/bevy/time/struct.Time.html"><code>Time</code></a> <a href="/programming/res.html">wesouwce</a> is youw main gwobaw souwce
+<p>the <a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.Time.html"><code>Time</code></a> <a href="/programming/res.html">wesouwce</a> is youw main gwobaw souwce
 of timing infowmation, (ꈍᴗꈍ) that you can a-access fwom any <a href="/programming/systems.html">system</a>
 that does anything that nyeeds time. &gt;_&lt; <a href="/pitfalls/time.html">you shouwd dewive aww timings fwom
 it</a>.</p>
@@ -164,7 +164,7 @@ the game's fwame wate.</p>
 }
 </code></pre>
 <h3 id="ongoing-time"><a class="header" href="#ongoing-time">ongoing time</a></h3>
-<p><a href="https://docs.rs/bevy/0.8.0/bevy/time/struct.Time.html"><code>Time</code></a> can awso give you the totaw wunning t-time since stawtup.
+<p><a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.Time.html"><code>Time</code></a> can awso give you the totaw wunning t-time since stawtup.
 use this if you need a cumuwative, ^•ﻌ•^ i-incweasing, measuwement o-of time.</p>
 <pre><code class="language-rust no_run noplayground">use std::time::instant;
 
@@ -186,14 +186,14 @@ fn spawn_my_stuff(
 </code></pre>
 <h2 id="timews-and-stopwatches"><a class="header" href="#timews-and-stopwatches">timews and stopwatches</a></h2>
 <p>thewe awe awso faciwities to hewp y-you twack specific i-intewvaws ow t-timings:
-<a href="https://docs.rs/bevy/0.8.0/bevy/time/struct.Timer.html"><code>Timer</code></a> and <a href="https://docs.rs/bevy/0.8.0/bevy/time/struct.Stopwatch.html"><code>Stopwatch</code></a>. XD you can cweate
+<a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.Timer.html"><code>Timer</code></a> and <a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.Stopwatch.html"><code>Stopwatch</code></a>. XD you can cweate
 many instances of these, OwO to twack n-nyanievew you want. 🥺 y-you can use t-them in
 youw own <a href="/programming/ec.html#components">component</a> ow <a href="/programming/res.html">wesouwce</a> types.</p>
 <p>timews and stopwatches nyeed to be t-ticked. OwO you nyeed t-to have some s-system
 cawwing <code>.tick(delta)</code>, (ꈍᴗꈍ) fow it to make pwogwess, ^•ﻌ•^ ow it w-wiww be inactive.
-the dewta shouwd come fwom the <a href="https://docs.rs/bevy/0.8.0/bevy/time/struct.Time.html"><code>Time</code></a> wesouwce.</p>
+the dewta shouwd come fwom the <a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.Time.html"><code>Time</code></a> wesouwce.</p>
 <h3 id="timew"><a class="header" href="#timew">timew</a></h3>
-<p><a href="https://docs.rs/bevy/0.8.0/bevy/time/struct.Timer.html"><code>Timer</code></a> awwows you to detect when a cewtain i-intewvaw of t-time
+<p><a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.Timer.html"><code>Timer</code></a> awwows you to detect when a cewtain i-intewvaw of t-time
 has ewapsed. OwO timews have a set duwation. 🥺 t-they can b-be &quot;wepeating&quot; o-ow
 &quot;non-wepeating&quot;.</p>
 <p>both kinds can be manuawwy &quot;weset&quot; (stawt c-counting t-the time intewvaw f-fwom the
@@ -268,7 +268,7 @@ count downwawds towawd zewo). ^•ﻌ•^ bevy's t-timews stawt f-fwom zewo and 
 towawds theiw set duwation. OwO they a-awe basicawwy wike s-stopwatches with e-extwa
 featuwes: a maximum duwation and o-optionaw auto-weset.</p>
 <h3 id="stopwatch"><a class="header" href="#stopwatch">stopwatch</a></h3>
-<p><a href="https://docs.rs/bevy/0.8.0/bevy/time/struct.Stopwatch.html"><code>Stopwatch</code></a> awwow you to twack how much time h-has passed
+<p><a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.Stopwatch.html"><code>Stopwatch</code></a> awwow you to twack how much time h-has passed
 since a cewtain point.</p>
 <p>it wiww just keep accumuwating time, ^•ﻌ•^ w-which you can c-check with
 <code>.elapsed()</code>/<code>.elapsed_secs()</code>. (ꈍᴗꈍ) you can manuawwy weset it at any t-time.</p>

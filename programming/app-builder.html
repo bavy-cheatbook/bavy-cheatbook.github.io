@@ -141,11 +141,11 @@
 <a href="https://github.com/bevyengine/bevy/blob/v0.8.1/examples/games/alien_cake_addict.rs"><code>alien_cake_addict</code></a>,
 <a href="https://github.com/bevyengine/bevy/blob/v0.8.1/examples/games/breakout.rs"><code>breakout</code></a>.</p>
 <hr />
-<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <a href="https://docs.rs/bevy/0.8.0/bevy/app/struct.App.html"><code>App</code></a>. XD the app
+<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <a href="https://docs.rs/bevy/0.9.0/bevy/app/struct.App.html"><code>App</code></a>. XD the app
 is how you define the stwuctuwe of a-aww the things t-that make up youw p-pwoject:
 <a href="/programming/plugins.html">pwugins</a>, rawr x3 <a href="/programming/systems.html">systems</a>, rawr x3 <a href="/programming/events.html">event</a> types,
 <a href="/programming/states.html">states</a>, rawr x3 <a href="/programming/stages.html">stages</a>…</p>
-<p>technicawwy, XD the <a href="https://docs.rs/bevy/0.8.0/bevy/app/struct.App.html"><code>App</code></a> contains the ecs wowwd(s) (whewe a-aww
+<p>technicawwy, XD the <a href="https://docs.rs/bevy/0.9.0/bevy/app/struct.App.html"><code>App</code></a> contains the ecs wowwd(s) (whewe a-aww
 the data is stowed) and scheduwe(s) (whewe a-aww the <a href="/programming/systems.html">systems</a>
 to wun awe stowed). (ꈍᴗꈍ) fow advanced u-use-cases, ^•ﻌ•^ <a href="/programming/sub-apps.html">sub-apps</a> awe a
 way to have mowe than one ecs wowwd a-and scheduwe.</p>
@@ -154,18 +154,18 @@ theiw wespective <a href="/programming/systems.html">systems</a>.</p>
 <p><a href="/programming/ec.html#components">component</a> types do nyot nyeed to be wegistewed.</p>
 <hr />
 <p>scheduwes cannot (yet) be modified a-at wuntime; aww <a href="/programming/systems.html">systems</a> you
-want to wun must be added/configuwed i-in the <a href="https://docs.rs/bevy/0.8.0/bevy/app/struct.App.html"><code>App</code></a> ahead of time.</p>
+want to wun must be added/configuwed i-in the <a href="https://docs.rs/bevy/0.9.0/bevy/app/struct.App.html"><code>App</code></a> ahead of time.</p>
 <p>the data in the ecs wowwd can be m-modified at any t-time; cweate/destwoy y-youw
 <a href="/programming/ec.html">entities</a> and <a href="/programming/res.html">wesouwces</a>, XD fwom <a href="/programming/systems.html">systems</a>
 using <a href="/programming/commands.html">commands</a>, XD ow <a href="/programming/exclusive.html">excwusive systems</a> using
 <a href="/programming/world.html">diwect wowwd access</a>.</p>
 <p><a href="/programming/res.html">wesouwces</a> can awso be initiawized ahead of t-time, (ꈍᴗꈍ) hewe in the
-<a href="https://docs.rs/bevy/0.8.0/bevy/app/struct.App.html"><code>App</code></a> buiwdew.</p>
+<a href="https://docs.rs/bevy/0.9.0/bevy/app/struct.App.html"><code>App</code></a> buiwdew.</p>
 <hr />
 <p>you awso nyeed to add the <a href="/programming/plugins.html#plugin-groups">pwugin gwoup</a> with bevy's buiwt-in
 functionawity: eithew
-<a href="https://docs.rs/bevy/0.8.0/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> if you awe making a fuww game/app, (ꈍᴗꈍ) o-ow
-<a href="https://docs.rs/bevy/0.8.0/bevy/struct.MinimalPlugins.html"><code>MinimalPlugins</code></a> fow something wike a headwess sewvew.</p>
+<a href="https://docs.rs/bevy/0.9.0/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> if you awe making a fuww game/app, (ꈍᴗꈍ) o-ow
+<a href="https://docs.rs/bevy/0.9.0/bevy/struct.MinimalPlugins.html"><code>MinimalPlugins</code></a> fow something wike a headwess sewvew.</p>
 <p>note that thewe awe some speciaw <a href="/builtins.html#configuration-resources">configuwation wesouwces</a>
 that must be added fiwst, OwO if you w-wouwd wike to use t-them, 🥺 to take e-effect.</p>
 <hr />

@@ -173,15 +173,16 @@ t-twace!(&quot;entity t-twansfowm: {:?}&quot;, rawr twansfowm);
 <span class="boring">}
 </span></code></pre></pre>
 <h2 id="fiwtewing-messages"><a class="header" href="#fiwtewing-messages">fiwtewing messages</a></h2>
-<p>to contwow nyani messages you wouwd w-wike to see, ^•ﻌ•^ y-you can
-use the <a href="https://docs.rs/bevy/0.8.0/bevy/log/struct.LogSettings.html"><code>LogSettings</code></a> <a href="/builtins.html#configuration-resources">configuwation
-wesouwce</a>.</p>
+<p>to contwow nyani messages you wouwd w-wike to see, OwO y-you can configuwe b-bevy's
+<a href="https://docs.rs/bevy/0.9.0/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>app.insewt_wesouwce(wogsettings {
-    fiwtew: &quot;info,wgpu_cowe=wawn,wgpu_haw=wawn,mygame=debug&quot;.into(), (ꈍᴗꈍ)
-    wevew: b-bevy::wog::wevew::debug, ^•ﻌ•^
-});
+</span>use bevy::wog::wogpwugin;
+
+app.add_pwugins(defauwtpwugins.set(wogpwugin {
+    f-fiwtew: &quot;info,wgpu_cowe=wawn,wgpu_haw=wawn,mygame=debug&quot;.into(),
+    w-wevew: bevy::wog::wevew::debug, ^•ﻌ•^
+}));
 <span class="boring">}
 </span></code></pre></pre>
 <p>the <code>filter</code> fiewd is a stwing specifying a wist o-of wuwes fow n-nyani wevew to
@@ -203,25 +204,27 @@ consequences. &gt;_&lt; fow exampwe, (ꈍᴗꈍ) doing:</p>
 <pre><code class="language-sh">wust_wog=&quot;debug&quot; cawgo wun
 </code></pre>
 <p>wiww cause youw consowe to awso be f-fiwwed with debug m-messages fwom <code>cargo</code>.</p>
-<h3 id="diffewent-wogsettings-fow-debug-and-w-wewease-buiwds"><a class="header" href="#diffewent-wogsettings-fow-debug-and-w-wewease-buiwds">diffewent wogsettings fow debug and w-wewease buiwds</a></h3>
+<h3 id="diffewent-settings-fow-debug-and-w-wewease-buiwds"><a class="header" href="#diffewent-settings-fow-debug-and-w-wewease-buiwds">diffewent settings fow debug and w-wewease buiwds</a></h3>
 <p>if you want to do diffewent things i-in youw wust code f-fow debug/wewease
 buiwds, OwO an easy way to achieve it i-is using conditionaw c-compiwation o-on
 &quot;debug assewtions&quot;.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>// this code is compiwed onwy if d-debug assewtions a-awe enabwed (debug m-mode)
-#![cfg(debug_assewtions)]
-a-app.insewt_wesouwce(wogsettings {
-    f-fiwtew: &quot;info,wgpu_cowe=wawn,wgpu_haw=wawn,minewaws=debug&quot;.into(), σωσ
-    w-wevew: bevy::wog::wevew::debug, &gt;_&lt;
-});
+</span>use bevy::wog::wogpwugin;
 
-// t-this code i-is compiwed onwy if debug assewtions awe disabwed (wewease mode)
-#![cfg(not(debug_assewtions))]
-app.insewt_wesouwce(wogsettings {
-    f-fiwtew: &quot;wawn&quot;.into(), :3
-    wevew: bevy::wog::wevew::wawn, (U ﹏ U)
-});
+// this c-code is compiwed o-onwy if debug a-assewtions awe e-enabwed (debug mode)
+#[cfg(debug_assewtions)]
+a-app.add_pwugins(defauwtpwugins.set(wogpwugin {
+    w-wevew: bevy::wog::wevew::debug, &gt;_&lt;
+    f-fiwtew: &quot;debug,wgpu_cowe=wawn,wgpu_haw=wawn,mygame=debug&quot;.into(), :3
+}));
+
+// t-this code is compiwed onwy if debug assewtions awe disabwed (wewease mode)
+#[cfg(not(debug_assewtions))]
+a-app.add_pwugins(defauwtpwugins.set(wogpwugin {
+    wevew: bevy::wog::wevew::info, (U ﹏ U)
+    fiwtew: &quot;info,wgpu_cowe=wawn,wgpu_haw=wawn&quot;.into(), -.-
+}));
 <span class="boring">}
 </span></code></pre></pre>
 <p>this is a good weason why <a href="/pitfalls/performance.html">you shouwd nyot use wewease mode d-duwing devewopment
