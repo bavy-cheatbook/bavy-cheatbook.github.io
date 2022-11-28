@@ -6,7 +6,6 @@
         <title>Queries</title>
         <!-- Custom HTML head -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -29,13 +28,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -51,7 +50,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -63,7 +62,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -94,7 +93,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -125,7 +124,7 @@
                     </div>
                 </div>
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -160,16 +159,14 @@
             // d-do something speciaw! rawr x3
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>get the <a href="/programming/ec.html#components">components</a> associated with a specific
 <a href="/programming/ec.html#entities">entity</a>:</p>
 <pre><code class="language-rust no_run noplayground">    if wet ok((heawth, ( ͡o ω ͡o ) mut twansfowm)) = q-quewy.get_mut(entity) {
         // d-do something w-with the c-components
     } e-ewse {
         // t-the entity does n-nyot have the c-components fwom the quewy
-    }
-</code></pre>
+    }</code></pre>
 <p>get the ids (<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a>) of the entities you access with
 youw quewies:</p>
 <pre><code class="language-rust no_run noplayground">// add `entity` to `quewy` to get e-entity ids
@@ -177,16 +174,14 @@ fn quewy_entities(q: q-quewy&lt;(entity, (U ᵕ U❁) /* ... */)&gt;) {
     f-fow (e, (⑅˘꒳˘) /* ... */) i-in q.itew() {
         // `e` i-is the entity i-id of the entity w-we awe accessing
     }
-}
-</code></pre>
+}</code></pre>
 <p>if you know that the quewy shouwd o-onwy evew match a-a singwe entity, OwO y-you can
 use <code>single</code>/<code>single_mut</code>, XD instead of itewating:</p>
 <pre><code class="language-rust no_run noplayground">fn quewy_pwayew(mut q: quewy&lt;(&amp;pwayew, (U ᵕ U❁) &amp;mut t-twansfowm)&gt;) {
     w-wet (pwayew, (⑅˘꒳˘) m-mut twansfowm) = q-q.singwe_mut();
 
     // d-do something w-with the pwayew a-and its twansfowm
-}
-</code></pre>
+}</code></pre>
 <p>(this wiww panic if the quewy matches m-mowe than one e-entity)</p>
 <h2 id="bundwes"><a class="header" href="#bundwes">bundwes</a></h2>
 <p>quewies wowk with individuaw components. OwO i-if you cweated a-an entity u-using a
@@ -209,8 +204,7 @@ that have specific components.</p>
             epwintwn!(&quot;unknown pwayew h-has {} hp.&quot;, 😳😳😳 heawth.hp);
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>muwtipwe fiwtews can be combined:</p>
 <ul>
 <li>in a tupwe to appwy aww of them (and w-wogic)</li>
@@ -247,15 +241,15 @@ that have specific components.</p>
 
         </div>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
     </body>

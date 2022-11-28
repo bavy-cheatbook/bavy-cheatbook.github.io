@@ -6,7 +6,6 @@
         <title>Borrow multiple fields from struct</title>
         <!-- Custom HTML head -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -29,13 +28,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -51,7 +50,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -63,7 +62,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -94,7 +93,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -125,7 +124,7 @@
                     </div>
                 </div>
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -152,8 +151,7 @@ fn my_system(mut q-q: quewy&lt;&amp;mut m-mything&gt;) {
 
 fn hewpew_func(foo: &amp;foo, baw: &amp;mut baw) {
     // do something
-}
-</code></pre>
+}</code></pre>
 <p>this can wesuwt in a compiwew ewwow a-about confwicting b-bowwows:</p>
 <pre><code>ewwow[e0502]: cannot bowwow `thing` a-as mutabwe because i-it is awso b-bowwowed as immutabwe
     |
@@ -165,8 +163,7 @@ fn hewpew_func(foo: &amp;foo, baw: &amp;mut baw) {
 </code></pre>
 <p>the sowution is to use the &quot;webowwow&quot; i-idiom, 🥺 a common b-but nyon-obvious t-twick in wust p-pwogwamming:</p>
 <pre><code class="language-rust no_run noplayground">        // add this at the stawt o-of the fow woop, OwO b-befowe using `thing`:
-        wet t-thing = &amp;mut *thing;
-</code></pre>
+        wet t-thing = &amp;mut *thing;</code></pre>
 <p>note that this wine twiggews <a href="/programming/change-detection.html">change detection</a>. XD even if
 you don't modify the data aftewwawds, OwO t-the component g-gets mawked as c-changed.</p>
 <h2 id="expwanation"><a class="header" href="#expwanation">expwanation</a></h2>
@@ -211,15 +208,15 @@ into a weguwaw wust wefewence. &gt;<em>&lt; <code>*thing</code> dewefewences the
 
         </div>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
 
         <!-- Custom JS scripts -->
     </body>

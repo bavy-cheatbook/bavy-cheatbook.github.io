@@ -7,7 +7,6 @@
         <meta name="robots" content="noindex" />
         <!-- Custom HTML head -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -30,13 +29,13 @@
     </head>
     <body>
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -52,7 +51,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -64,7 +63,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -95,7 +94,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -126,7 +125,7 @@
                     </div>
                 </div>
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -914,8 +913,7 @@ fn main() {
     a-app::new()
         .add_pwugins(defauwtpwugins)
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>you can nyow compiwe and wun youw p-pwoject. OwO the fiwst t-time, 🥺 this wiww t-take a
 whiwe, OwO as it nyeeds to buiwd the w-whowe bevy engine a-and dependencies. 🥺 s-subsequent
 wuns shouwd be fast. OwO you can do this f-fwom youw ide/editow, 🥺 o-ow the c-commandwine:</p>
@@ -1703,8 +1701,7 @@ diffewent bevy types. ^•ﻌ•^ make suwe you a-awe using the c-cowwect thing.
 <a href="https://docs.rs/bevy/0.9.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> and <a href="https://docs.rs/bevy/0.9.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a>
 associated with the cowwect gwtf p-pwimitive.</p>
 <p>if you awe using an asset path, 🥺 be s-suwe to incwude a-a wabew fow the s-sub-asset you w-want:</p>
-<pre><code class="language-rust no_run noplayground">asset_sewvew.woad(&quot;my.gwtf#scene0&quot;);
-</code></pre>
+<pre><code class="language-rust no_run noplayground">asset_sewvew.woad(&quot;my.gwtf#scene0&quot;);</code></pre>
 <p>if you awe spawning the top-wevew <a href="https://docs.rs/bevy/0.9.0/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a> <a href="pitfalls//features/gltf.html#gltf-master-asset">mastew asset</a>, XD it won't wowk.</p>
 <p>if you awe spawning a gwtf mesh, i-it won't wowk.</p>
 <h2 id="unsuppowted-gwtf"><a class="header" href="#unsuppowted-gwtf">unsuppowted gwtf</a></h2>
@@ -1741,8 +1738,7 @@ pawent entities awe nyot supposed t-to wendew anything.</p>
 </span><span class="boring">fn main() {
 </span>    commands.entity(pawent)
         .insewt(visibiwitybundwe::defauwt());
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>ow bettew, OwO make suwe to spawn the p-pawent entities c-cowwectwy in the f-fiwst pwace.
 you can use a <a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a> ow
 <a href="https://docs.rs/bevy/0.9.0/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> (with <a href="pitfalls//features/transforms.html">twansfowms</a>) if you
@@ -1764,8 +1760,7 @@ fn my_system(mut q-q: quewy&lt;&amp;mut m-mything&gt;) {
 
 fn hewpew_func(foo: &amp;foo, baw: &amp;mut baw) {
     // do something
-}
-</code></pre>
+}</code></pre>
 <p>this can wesuwt in a compiwew ewwow a-about confwicting b-bowwows:</p>
 <pre><code>ewwow[e0502]: cannot bowwow `thing` a-as mutabwe because i-it is awso b-bowwowed as immutabwe
     |
@@ -1777,8 +1772,7 @@ fn hewpew_func(foo: &amp;foo, baw: &amp;mut baw) {
 </code></pre>
 <p>the sowution is to use the &quot;webowwow&quot; i-idiom, 🥺 a common b-but nyon-obvious t-twick in wust p-pwogwamming:</p>
 <pre><code class="language-rust no_run noplayground">        // add this at the stawt o-of the fow woop, OwO b-befowe using `thing`:
-        wet t-thing = &amp;mut *thing;
-</code></pre>
+        wet t-thing = &amp;mut *thing;</code></pre>
 <p>note that this wine twiggews <a href="pitfalls//programming/change-detection.html">change detection</a>. XD even if
 you don't modify the data aftewwawds, OwO t-the component g-gets mawked as c-changed.</p>
 <h2 id="expwanation"><a class="header" href="#expwanation">expwanation</a></h2>
@@ -1835,8 +1829,7 @@ cowwect that using bevy's spwite-fwipping f-featuwe:</p>
         ..defauwt::defauwt()
     }, 🥺
     ..defauwt::defauwt()
-});
-</code></pre>
+});</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="genewaw-game-engine-featuwes"><a class="header" href="#genewaw-game-engine-featuwes">genewaw game engine featuwes</a></h1>
 <p>this chaptew covews vawious genewaw f-featuwes of bevy, OwO i-impowtant to u-using it
 as a game engine.</p>
@@ -1929,8 +1922,7 @@ wet xf_wot2d = twansfowm::fwom_wotation(quat::fwom_euwew(
 // evewything:
 wet xf = twansfowm::fwom_xyz(1.0, 2.0, (U ﹏ U) 3.0)
     .with_scawe(vec3::new(0.5, &gt;_&lt; 0.5, 1.0))
-    .with_wotation(quat::fwom_wotation_y(0.125 * s-std::f32::consts::pi));
-</code></pre>
+    .with_wotation(quat::fwom_wotation_y(0.125 * s-std::f32::consts::pi));</code></pre>
 <h2 id="twansfowm-components"><a class="header" href="#twansfowm-components">twansfowm components</a></h2>
 <p>in bevy, (ꈍᴗꈍ) twansfowms awe wepwesented b-by <strong>two</strong> <a href="features//programming/ec.html#components">components</a>:
 <a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> and <a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>.</p>
@@ -1959,8 +1951,7 @@ you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
             ..defauwt::defauwt()
         }, &gt;_&lt;
     ));
-}
-</code></pre>
+}</code></pre>
 <h3 id="transform"><a class="header" href="#transform"><code>Transform</code></a></h3>
 <p><a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> is nyani you typicawwy wowk with. (ꈍᴗꈍ) i-it is
 a <code>struct</code> containing the twanswation, ^•ﻌ•^ wotation, OwO a-and scawe. 🥺 t-to wead ow
@@ -1980,8 +1971,7 @@ move/wotate/scawe awong with the pawent.</p>
             twansfowm.scawe *= 1.25;
         }
     }
-}
-</code></pre>
+}</code></pre>
 <h3 id="globaltransform"><a class="header" href="#globaltransform"><code>GlobalTransform</code></a></h3>
 <p><a href="https://docs.rs/bevy/0.9.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> wepwesents the absowute gwobaw
 position in the wowwd.</p>
@@ -2021,8 +2011,7 @@ fn main() {
                 .aftew(twansfowmsystem::twansfowmpwopagate)
         )
         .wun();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="visibiwity"><a class="header" href="#visibiwity">visibiwity</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/3d/parenting.rs"><code>parenting</code></a>.</p>
@@ -2051,8 +2040,7 @@ f-fn weveaw_map(
 ) {
     wet mut vis_map = quewy.singwe_mut();
     v-vis_map.is_visibwe = twue;
-}
-</code></pre>
+}</code></pre>
 <h2 id="visibiwity-components"><a class="header" href="#visibiwity-components">visibiwity components</a></h2>
 <p>in bevy, (ꈍᴗꈍ) visibiwity is wepwesented b-by <strong>two</strong> <a href="features//programming/ec.html#components">components</a>:
 <a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a> and <a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.ComputedVisibility.html"><code>ComputedVisibility</code></a>.</p>
@@ -2081,8 +2069,7 @@ you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
             ..defauwt::defauwt()
         }, &gt;_&lt;
     ));
-}
-</code></pre>
+}</code></pre>
 <h3 id="visibility"><a class="header" href="#visibility"><code>Visibility</code></a></h3>
 <p><a href="https://docs.rs/bevy/0.9.0/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a> is the &quot;usew-facing toggwe&quot;. (ꈍᴗꈍ) this i-is whewe
 you specify if you want this entity t-to be visibwe o-ow nyot.</p>
@@ -2148,8 +2135,7 @@ fn main() {
                 .aftew(visibiwitysystems::visibiwitypwopagate)
         )
         .wun();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="time-and-timews"><a class="header" href="#time-and-timews">time and timews</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/ecs/timers.rs"><code>timers</code></a>,
@@ -2176,8 +2162,7 @@ the game's fwame wate.</p>
         // a-at a speed of 10.0 units pew second
         twansfowm.twanswation.x += 10.0 * time.dewta_seconds();
     }
-}
-</code></pre>
+}</code></pre>
 <h3 id="ongoing-time"><a class="header" href="#ongoing-time">ongoing time</a></h3>
 <p><a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.Time.html"><code>Time</code></a> can awso give you the totaw wunning t-time since stawtup.
 use this if you need a cumuwative, ^•ﻌ•^ i-incweasing, measuwement o-of time.</p>
@@ -2197,8 +2182,7 @@ fn spawn_my_stuff(
         .insewt(spawnedtime(time.stawtup() + t-time.ewapsed()))
         // ow just the time of wast update
         .insewt(spawnedtime(time.wast_update().unwwap()));
-}
-</code></pre>
+}</code></pre>
 <h2 id="timews-and-stopwatches"><a class="header" href="#timews-and-stopwatches">timews and stopwatches</a></h2>
 <p>thewe awe awso faciwities to hewp y-you twack specific i-intewvaws ow t-timings:
 <a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.Timer.html"><code>Timer</code></a> and <a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.Stopwatch.html"><code>Stopwatch</code></a>. XD you can cweate
@@ -2276,8 +2260,7 @@ fn setup_bomb_spawning(
         // cweate t-the wepeating timew
         timew: timew::new(duwation::fwom_secs(10), (///ˬ///✿) timewmode::wepeating), &gt;w&lt;
     })
-}
-</code></pre>
+}</code></pre>
 <p>note that bevy's timews do <em>not</em> wowk wike typicaw weaw-wife timews (which
 count downwawds towawd zewo). ^•ﻌ•^ bevy's t-timews stawt f-fwom zewo and count <em>up</em>
 towawds theiw set duwation. OwO they a-awe basicawwy wike s-stopwatches with e-extwa
@@ -2311,8 +2294,7 @@ fn j-jump_duwation(
         // stopwatch has to b-be ticked to pwogwess
         j-jump.time.tick(time.dewta());
     }
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="wogging-_-consowe-messages"><a class="header" href="#wogging-_-consowe-messages">wogging, &gt;_&lt; consowe messages</a></h1>
 <p>you may have nyoticed how, OwO when you w-wun youw bevy p-pwoject, 🥺 you get m-messages
 in youw consowe window. &gt;_&lt; fow exampwe:</p>
@@ -2348,8 +2330,7 @@ wawn!(&quot;something unusuaw h-happened!&quot;);
 i-info!(&quot;entewed g-game wevew: {}&quot;, ( ͡o ω ͡o ) w-wevew_id);
 debug!(&quot;x: {}, UwU s-state: {:?}&quot;, rawr x3 x-x, state);
 t-twace!(&quot;entity t-twansfowm: {:?}&quot;, rawr twansfowm);
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <h2 id="fiwtewing-messages"><a class="header" href="#fiwtewing-messages">fiwtewing messages</a></h2>
 <p>to contwow nyani messages you wouwd w-wike to see, OwO y-you can configuwe b-bevy's
 <a href="https://docs.rs/bevy/0.9.0/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>:</p>
@@ -2361,8 +2342,7 @@ app.add_pwugins(defauwtpwugins.set(wogpwugin {
     f-fiwtew: &quot;info,wgpu_cowe=wawn,wgpu_haw=wawn,mygame=debug&quot;.into(),
     w-wevew: bevy::wog::wevew::debug, ^•ﻌ•^
 }));
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>the <code>filter</code> fiewd is a stwing specifying a wist o-of wuwes fow n-nyani wevew to
 enabwe fow diffewent wust moduwes/cwates. OwO i-in the e-exampwe above, 🥺 the s-stwing
 means: show up to <code>info</code> by defauwt, XD wimit <code>wgpu_core</code> and <code>wgpu_hal</code>
@@ -2403,8 +2383,7 @@ a-app.add_pwugins(defauwtpwugins.set(wogpwugin {
     wevew: bevy::wog::wevew::info, (U ﹏ U)
     fiwtew: &quot;info,wgpu_cowe=wawn,wgpu_haw=wawn&quot;.into(), -.-
 }));
-<span class="boring">}
-</span></code></pre></pre>
+<span class="boring">}</span></code></pre></pre>
 <p>this is a good weason why <a href="features//pitfalls/performance.html">you shouwd nyot use wewease mode d-duwing devewopment
 just fow pewfowmance weasons</a>.</p>
 <p>on micwosoft windows, OwO youw game exe w-wiww awso waunch w-with a consowe w-window fow
@@ -2443,8 +2422,7 @@ commands.entity(pawent).push_chiwdwen(&amp;[chiwd]);
 commands.spawn(mypawentbundwe::defauwt())
     .with_chiwdwen(|pawent| {
         pawent.spawn(mychiwdbundwe::defauwt());
-    });
-</code></pre>
+    });</code></pre>
 <p>you can despawn an entiwe hiewawchy w-with a singwe <a href="features//programming/commands.html">command</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn cwose_menu(
     mut commands: c-commands, ( ͡o ω ͡o )
@@ -2454,8 +2432,7 @@ commands.spawn(mypawentbundwe::defauwt())
         // d-despawn the e-entity and its c-chiwdwen
         commands.entity(entity).despawn_wecuwsive();
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="accessing-the-pawent-ow-chiwdwen"><a class="header" href="#accessing-the-pawent-ow-chiwdwen">accessing the pawent ow chiwdwen</a></h2>
 <p>to make a system that wowks with t-the hiewawchy, OwO you t-typicawwy nyeed t-two <a href="features//programming/queries.html">quewies</a>:</p>
 <ul>
@@ -2484,8 +2461,7 @@ of camewas (<a href="https://docs.rs/bevy/0.9.0/bevy/render/camera/struct.Camera
 
         // do something w-with the components
     }
-}
-</code></pre>
+}</code></pre>
 <p>as anothew exampwe, OwO say we awe making a-a stwategy g-game, 🥺 and we have u-units
 that awe chiwdwen of a squad. OwO say w-we nyeed to make a-a system that w-wowks on
 each squad, ^•ﻌ•^ and it nyeeds some infowmation a-about t-the chiwdwen:</p>
@@ -2503,8 +2479,7 @@ each squad, ^•ﻌ•^ and it nyeeds some infowmation a-about t-the chiwdwen:</
             // d-do something
         }
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="twansfowm-and-visibiwity-pwopagation"><a class="header" href="#twansfowm-and-visibiwity-pwopagation">twansfowm and visibiwity pwopagation</a></h2>
 <p>if youw entities wepwesent &quot;objects i-in the game wowwd&quot;, OwO y-you pwobabwy e-expect
 the chiwdwen to be affected by the p-pawent.</p>
@@ -2526,8 +2501,7 @@ entity, OwO and any attempt to manipuwate i-it wiww wikewy w-wead to this e-ewwo
 </code></pre>
 <p>the wowkawound is to manuawwy caww <code>remove_children</code> awongside the <code>despawn</code>:</p>
 <pre><code class="language-rust no_run noplayground">    commands.entity(pawent_entity).wemove_chiwdwen(&amp;[chiwd_entity]);
-    commands.entity(chiwd_entity).despawn();
-</code></pre>
+    commands.entity(chiwd_entity).despawn();</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="fixed-timestep"><a class="header" href="#fixed-timestep">fixed timestep</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/ecs/fixed_timestep.rs"><code>fixed_timestep</code></a>.</p>
@@ -2572,8 +2546,7 @@ f-fn s-swow_timestep() {
 
 fn fast_timestep() {
     pwintwn!(&quot;goodbye w-wowwd&quot;);
-}
-</code></pre>
+}</code></pre>
 <h2 id="state"><a class="header" href="#state">state</a></h2>
 <p>you can check the cuwwent state of t-the fixed timestep t-twackews, OwO by a-accessing
 the <a href="https://docs.rs/bevy/0.9.0/bevy/time/struct.FixedTimesteps.html"><code>FixedTimesteps</code></a> <a href="features//programming/res.html">wesouwce</a>. XD this wets
@@ -2725,8 +2698,7 @@ fn woad_ui_font(
     //  - t-to pwevent the asset fwom being unwoaded
     //  - if we want to use it to access t-the asset watew
     commands.insewt_wesouwce(uifont(handwe));
-}
-</code></pre>
+}</code></pre>
 <p>this queues the asset woading to h-happen in the backgwound, OwO a-and wetuwn a-a
 <a href="assets//assets/handles.html">handwe</a>. ^•ﻌ•^ the asset wiww take some time to b-become avaiwabwe. OwO y-you
 cannot access the actuaw data immediatewy i-in the s-same <a href="assets//programming/systems.html">system</a>,
@@ -2760,8 +2732,7 @@ fn woad_extwa_assets(
     i-if wet ok(handwes) = s-sewvew.woad_fowdew(&quot;extwa&quot;) {
         commands.insewt_wesouwce(extwaassets(handwes));
     }
-}
-</code></pre>
+}</code></pre>
 <p>woading fowdews is nyot suppowted b-by aww i/o backends. OwO n-nyotabwy, 🥺 i-it does nyot
 wowk on wasm/web.</p>
 <h2 id="assetpath-and-wabews"><a class="header" href="#assetpath-and-wabews">assetpath and wabews</a></h2>
@@ -2785,8 +2756,7 @@ aftew a <code>#</code> symbow.</p>
         scene: my_scene, σωσ
         ..defauwt::defauwt()
     });
-}
-</code></pre>
+}</code></pre>
 <p>see the <a href="assets//features/gltf.html">gwtf page</a> fow mowe info about wowking with 3d m-modews.</p>
 <h2 id="whewe-awe-assets-woaded-fwom"><a class="header" href="#whewe-awe-assets-woaded-fwom">whewe awe assets woaded fwom?</a></h2>
 <p>the asset sewvew intewnawwy wewies o-on an impwementation o-of the
@@ -2829,8 +2799,7 @@ f-fn use_spwites(
     if wet some(atwas) = atwases.get(&amp;handwes.map_tiwes) {
         // do something w-with the textuwe atwas
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="cweating-assets-fwom-code"><a class="header" href="#cweating-assets-fwom-code">cweating assets fwom code</a></h2>
 <p>you can awso add assets to <a href="https://docs.rs/bevy/0.9.0/bevy/asset/struct.Assets.html"><code>Assets&lt;T&gt;</code></a> manuawwy.</p>
 <p>sometimes you nyeed to cweate assets f-fwom code, ^•ﻌ•^ wathew t-than <a href="assets//assets/assetserver.html">woading them
@@ -2857,8 +2826,7 @@ any othew asset.</p>
     w-wet handwe = m-matewiaws.add(new_mat);
 
     // do something with the handwe
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="weact-to-changes-with-asset-events"><a class="header" href="#weact-to-changes-with-asset-events">weact to changes with asset events</a></h1>
 <p>if you nyeed to pewfowm specific a-actions when an a-asset is cweated,
 modified, (ꈍᴗꈍ) ow wemoved, ^•ﻌ•^ you can make a-a <a href="assets//programming/systems.html">system</a> that weacts to
@@ -2897,8 +2865,7 @@ f-fn fixup_images(
             }
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p><strong>note:</strong> if you awe handwing <code>Modified</code> events and doing a mutabwe access t-to
 the data, XD the <code>.get_mut</code> wiww twiggew anothew <code>Modified</code> event fow the same
 asset. OwO if you awe nyot cawefuw, 🥺 this c-couwd wesuwt i-in an infinite w-woop! òωó (fwom
@@ -2959,8 +2926,7 @@ fn check_assets_weady(
             // nyotwoaded/woading: n-nyot fuwwy w-weady yet
         }
     }
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="hot-wewoading-assets"><a class="header" href="#hot-wewoading-assets">hot-wewoading assets</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/asset/hot_asset_reloading.rs"><code>hot_asset_reloading</code></a>.</p>
@@ -2979,8 +2945,7 @@ wowkfwow, (ꈍᴗꈍ) you couwd impwement it i-in a <a href="assets//programming
 <a href="https://docs.rs/bevy/0.9.0/bevy/asset/enum.AssetEvent.html"><code>AssetEvent</code></a> (<a href="assets//assets/assetevent.html">weawn mowe</a>).</p>
 <p>hot wewoading is opt-in and has to b-be enabwed in o-owdew to wowk. OwO you c-can do
 this in a <a href="assets//programming/app-builder.html">stawtup system</a>:</p>
-<pre><code class="language-rust no_run noplayground">
-</code></pre>
+<pre><code class="language-rust no_run noplayground"></code></pre>
 <p>note that this wequiwes the <code>filesystem_watcher</code> <a href="assets//setup/bevy-config.html">bevy cawgo
 featuwe</a>. (ꈍᴗꈍ) it is enabwed by defauwt, ^•ﻌ•^ but if y-you have disabwed
 defauwt featuwes to customize bevy, OwO b-be suwe to incwude i-it if you n-nyeed it.</p>
@@ -3076,8 +3041,7 @@ using the <code>Input&lt;KeyCode&gt;</code> (<a href="https://docs.rs/bevy/0.9.0
     if keys.any_just_pwessed([keycode::dewete, mya keycode::back]) {
         // eithew dewete o-ow backspace was just pwessed
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="keyboawd-events"><a class="header" href="#keyboawd-events">keyboawd events</a></h2>
 <p>to get aww keyboawd activity, (ꈍᴗꈍ) you c-can use
 <a href="https://docs.rs/bevy/0.9.0/bevy/input/keyboard/struct.KeyboardInput.html"><code>KeyboardInput</code></a> <a href="input//programming/events.html">events</a>:</p>
@@ -3096,8 +3060,7 @@ using the <code>Input&lt;KeyCode&gt;</code> (<a href="https://docs.rs/bevy/0.9.0
             }
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>these events give you both the key c-code and scan c-code.
 the scan code is wepwesented as an a-awbitwawy <code>u32</code> integew id.</p>
 <h2 id="key-codes-and-scan-codes"><a class="header" href="#key-codes-and-scan-codes">key codes and scan codes</a></h2>
@@ -3153,8 +3116,7 @@ as an <a href="https://docs.rs/bevy/0.9.0/bevy/input/struct.Input.html"><code>In
     i-if buttons.any_just_pwessed([mousebutton::weft, -.- mousebutton::wight]) {
         // e-eithew the weft ow the wight button was just pwessed
     }
-}
-</code></pre>
+}</code></pre>
 <p>to get aww pwess/wewease activity, (ꈍᴗꈍ) u-use
 <a href="https://docs.rs/bevy/0.9.0/bevy/input/mouse/struct.MouseButtonInput.html"><code>MouseButtonInput</code></a> <a href="input//programming/events.html">events</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn mouse_button_events(
@@ -3172,8 +3134,7 @@ as an <a href="https://docs.rs/bevy/0.9.0/bevy/input/struct.Input.html"><code>In
             }
         }
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="mouse-scwowwing--wheew"><a class="header" href="#mouse-scwowwing--wheew">mouse scwowwing / wheew</a></h2>
 <p>to detect scwowwing input, &gt;_&lt; use <a href="https://docs.rs/bevy/0.9.0/bevy/input/mouse/struct.MouseWheel.html"><code>MouseWheel</code></a> <a href="input//programming/events.html">events</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn scwoww_events(
@@ -3190,8 +3151,7 @@ as an <a href="https://docs.rs/bevy/0.9.0/bevy/input/struct.Input.html"><code>In
             }
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>the <a href="https://docs.rs/bevy/0.9.0/bevy/input/mouse/enum.MouseScrollUnit.html"><code>MouseScrollUnit</code></a> enum is impowtant: it tewws
 you the type of scwoww input. &gt;<em>&lt; <code>Line</code> is fow hawdwawe with fixed steps, (ꈍᴗꈍ) w-wike
 the wheew on desktop mice. &gt;</em>&lt; <code>Pixel</code> is fow hawdwawe with smooth (fine-gwained)
@@ -3210,8 +3170,7 @@ mouse is moved, (ꈍᴗꈍ) you wiww get an event w-with the dewta.</p>
     f-fow ev in m-motion_evw.itew() {
         p-pwintwn!(&quot;mouse m-moved: x-x: {} px, (⑅˘꒳˘) y: {} p-px&quot;, ( ͡o ω ͡o ) ev.dewta.x, UwU e-ev.dewta.y);
     }
-}
-</code></pre>
+}</code></pre>
 <p>you might want to <a href="input//window/mouse-grab.html">gwab/wock the mouse inside the game
 window</a>.</p>
 <h2 id="mouse-cuwsow-position"><a class="header" href="#mouse-cuwsow-position">mouse cuwsow position</a></h2>
@@ -3231,8 +3190,7 @@ usefuw fow things wike cwicking and h-hovewing ovew o-objects in youw g-game ow 
     } ewse {
         // cuwsow is nyot inside the window
     }
-}
-</code></pre>
+}</code></pre>
 <p>to detect when the pointew is moved, (ꈍᴗꈍ) u-use <a href="https://docs.rs/bevy/0.9.0/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a>
 <a href="input//programming/events.html">events</a> to get the updated coowdinates:</p>
 <pre><code class="language-rust no_run noplayground">fn cuwsow_events(
@@ -3244,8 +3202,7 @@ usefuw fow things wike cwicking and h-hovewing ovew o-objects in youw g-game ow 
             ev.position.x, &gt;_&lt; ev.position.y, :3 ev.id
         );
     }
-}
-</code></pre>
+}</code></pre>
 <p>note that you can onwy get the position o-of the mouse i-inside a window;
 you cannot get the gwobaw position o-of the mouse in t-the whowe os desktop /
 on the scween as a whowe.</p>
@@ -3283,8 +3240,7 @@ f-fn text_input(
         p-pwintwn!(&quot;text input: {}&quot;, (U ᵕ U❁) *stwing);
         s-stwing.cweaw();
     }
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="gamepad-contwowwew-xd-joystick"><a class="header" href="#gamepad-contwowwew-xd-joystick">gamepad (contwowwew, XD joystick)</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/input/gamepad_input.rs"><code>gamepad_input</code></a>,
@@ -3341,8 +3297,7 @@ fn gamepad_connections(
             _ =&gt; {}
         }
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="handwing-gamepad-inputs"><a class="header" href="#handwing-gamepad-inputs">handwing gamepad inputs</a></h2>
 <p>you can handwe the anawog sticks a-and twiggews with <code>Axis&lt;GamepadAxis&gt;</code>
 (<a href="https://docs.rs/bevy/0.9.0/bevy/input/struct.Axis.html"><code>Axis</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.GamepadAxis.html"><code>GamepadAxis</code></a>). XD buttons
@@ -3397,8 +3352,7 @@ awe vendow-neutwaw (wike <code>South</code> and <code>East</code> instead of x/o
     if buttons.pwessed(heaw_button) {
         // b-button being hewd d-down: heaw the pwayew
     }
-}
-</code></pre>
+}</code></pre>
 <p>you can awso handwe gamepad inputs u-using <a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.GamepadEvent.html"><code>GamepadEvent</code></a> <a href="input//programming/events.html">events</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn gamepad_input_events(
     my_gamepad: o-option&lt;wes&lt;mygamepad&gt;&gt;, rawr x3
@@ -3436,8 +3390,7 @@ awe vendow-neutwaw (wike <code>South</code> and <code>East</code> instead of x/o
             _ =&gt; {} // d-don't c-cawe about othew i-inputs
         }
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="gamepad-settings"><a class="header" href="#gamepad-settings">gamepad settings</a></h2>
 <p>you can use the <a href="https://docs.rs/bevy/0.9.0/bevy/input/gamepad/struct.GamepadSettings.html"><code>GamepadSettings</code></a> <a href="input//programming/res.html">wesouwce</a>
 to configuwe dead-zones and othew p-pawametews of the v-vawious axes a-and
@@ -3504,8 +3457,7 @@ f-fn configuwe_gamepads(
     button_settings.set_wewease_thweshowd(0.1);
 
     settings.defauwt_button_settings = button_settings;
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="touchscween"><a class="header" href="#touchscween">touchscween</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/input/touch_input.rs"><code>touch_input</code></a>,
@@ -3535,8 +3487,7 @@ fingews cuwwentwy on the scween:</p>
             fingew.stawt_position().y, nyaa~~
         );
     }
-}
-</code></pre>
+}</code></pre>
 <p>awtewnativewy, &gt;_&lt; you can use <a href="https://docs.rs/bevy/0.9.0/bevy/input/touch/struct.TouchInput.html"><code>TouchInput</code></a> <a href="input//programming/events.html">events</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn touch_events(
     mut touch_evw: e-eventweadew&lt;touchinput&gt;, mya
@@ -3559,8 +3510,7 @@ fingews cuwwentwy on the scween:</p>
             }
         }
     }
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="dwag-and-dwop-fiwes"><a class="header" href="#dwag-and-dwop-fiwes">dwag-and-dwop (fiwes)</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/app/drag_and_drop.rs"><code>drag_and_drop</code></a>.</p>
@@ -3600,8 +3550,7 @@ fn fiwe_dwop(
             }
         }
     }
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="midi-musicaw-instwument"><a class="header" href="#midi-musicaw-instwument">midi (musicaw instwument)</a></h1>
 <p>bevy does nyot yet have this buiwt-in, ^•ﻌ•^ b-but thewe i-is a <a href="input//setup/unofficial-plugins.html">3wd-pawty
 pwugin</a> avaiwabwe: <a href="https://github.com/BlackPhlox/bevy_midi"><code>bevy_midi</code></a>.</p>
@@ -3635,8 +3584,7 @@ f-fn main() {
         .add_pwugins(defauwtpwugins)
         .add_stawtup_system(setup)
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>to ovewwide the defauwt and use a d-diffewent cowow f-fow a specific
 camewa, &gt;_&lt; you can set it using the <a href="https://docs.rs/bevy/0.9.0/bevy/core_pipeline/core_2d/struct.Camera2d.html"><code>Camera2d</code></a> ow
 <a href="https://docs.rs/bevy/0.9.0/bevy/core_pipeline/core_3d/struct.Camera3d.html"><code>Camera3d</code></a> components.</p>
@@ -3665,8 +3613,7 @@ fn setup_camewa_3d(
         }, &gt;_&lt;
         ..defauwt::defauwt()
     });
-}
-</code></pre>
+}</code></pre>
 <p>aww of these wocations (the components o-on specific c-camewas, ^•ﻌ•^ the gwobaw
 defauwt wesouwce) can be mutated a-at wuntime, OwO and b-bevy wiww use youw n-nyew cowow.
 changing the defauwt cowow using t-the wesouwce wiww a-appwy the nyew c-cowow to aww
@@ -3707,8 +3654,7 @@ fn cuwsow_gwab_system(
         window.set_cuwsow_gwab_mode(cuwsowgwabmode::none);
         w-window.set_cuwsow_visibiwity(twue);
     }
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="setting-the-window-icon"><a class="header" href="#setting-the-window-icon">setting the window icon</a></h1>
 <p><a href="window//code/examples/window-icon.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
@@ -3754,8 +3700,7 @@ f-fn main() {
         .add_pwugins(defauwtpwugins)
         .add_stawtup_system(set_window_icon)
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>note: that <a href="https://docs.rs/bevy/0.9.0/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a> is a <a href="window//programming/non-send.html">non-send
 wesouwce</a>.</p>
 <p>note: you nyeed to add <code>winit</code> to youw pwoject's dependencies, a-and it must
@@ -3805,8 +3750,7 @@ aww the wewevant <a href="3d//features/parent-child.html">chiwd entities</a> and
         twansfowm: twansfowm::fwom_xyz(2.0, -.- 0.0, -5.0), (ˆ ﻌ ˆ)♡
         ..defauwt::defauwt()
     });
-}
-</code></pre>
+}</code></pre>
 <p>you couwd awso use gwtf fiwes to w-woad an entiwe map/wevew. OwO i-it wowks t-the same way.</p>
 <p>the above exampwe assumes that you h-have a simpwe g-gwtf fiwe containing o-onwy
 one &quot;defauwt scene&quot;. OwO gwtf is a vewy f-fwexibwe fiwe f-fowmat. 🥺 a singwe f-fiwe can
@@ -3974,8 +3918,7 @@ fn spawn_gwtf_objects(
 
         // pewf: the `.cwone()`s awe just fow asset handwes, (✿oωo) d-don't wowwy :)
     }
-}
-</code></pre>
+}</code></pre>
 <p>fow a mowe convowuted exampwe, OwO say w-we want to diwectwy c-cweate a 3d p-pbw
 entity, OwO fow nyanievew weason. 🥺 (this i-is nyot wecommended; y-you shouwd p-pwobabwy
 just use scenes)</p>
@@ -4000,8 +3943,7 @@ fn gwtf_manuaw_entity(
             ..defauwt::defauwt()
         });
     }
-}
-</code></pre>
+}</code></pre>
 <h3 id="assetpath-with-wabews"><a class="header" href="#assetpath-with-wabews">assetpath with wabews</a></h3>
 <p>this is anothew way to access specific s-sub-assets. ^•ﻌ•^ i-it is wess wewiabwe,
 but may be easiew to use in some c-cases.</p>
@@ -4031,8 +3973,7 @@ numewiaw index is suppowted. ^•ﻌ•^ you c-cannot addwess sub-assets b-by ny
         twansfowm: twansfowm::fwom_xyz(1.0, (ˆ ﻌ ˆ)♡ 2.0, 3.0), (⑅˘꒳˘)
         ..defauwt::defauwt()
     });
-}
-</code></pre>
+}</code></pre>
 <p>the fowwowing asset wabews awe suppowted (<code>{}</code> is the nyumewicaw index):</p>
 <ul>
 <li><code>Scene{}</code>: gwtf scene as bevy <a href="https://docs.rs/bevy/0.9.0/bevy/scene/struct.Scene.html"><code>Scene</code></a></li>
@@ -4152,16 +4093,14 @@ dewive the <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/component/trait.Componen
 stwuct heawth {
     hp: f32, (ꈍᴗꈍ)
     e-extwa: f32, ^•ﻌ•^
-}
-</code></pre>
+}</code></pre>
 <p>types must be unique -- an entity c-can onwy have one c-component pew w-wust type.</p>
 <p>use wwappew (newtype) stwucts to m-make unique components o-out of simpwew t-types:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(component)]
 stwuct pwayewxp(u32);
 
 #[dewive(component)]
-stwuct pwayewname(stwing);
-</code></pre>
+stwuct pwayewname(stwing);</code></pre>
 <p>you can use empty stwucts to hewp y-you identify specific e-entities. OwO t-these awe
 known as &quot;mawkew components&quot;. (ꈍᴗꈍ) usefuw w-with <a href="programming//programming/queries.html#query-filters">quewy fiwtews</a>.</p>
 <pre><code class="language-rust no_run noplayground">/// add this to aww menu ui entities t-to hewp identify t-them
@@ -4178,8 +4117,7 @@ stwuct pwayew;
 
 /// tag aww c-cweatuwes that awe cuwwentwy fwiendwy towawds t-the pwayew
 #[dewive(component)]
-stwuct fwiendwy;
-</code></pre>
+stwuct fwiendwy;</code></pre>
 <p>components can be accessed fwom <a href="programming//programming/systems.html">systems</a>, XD using <a href="programming//programming/queries.html">quewies</a>.</p>
 <p>you can add/wemove components on e-existing entities, ^•ﻌ•^ u-using <a href="programming//programming/commands.html"><code>Commands</code></a>.</p>
 <h1 id="component-bundwes"><a class="header" href="#component-bundwes">component bundwes</a></h1>
@@ -4196,8 +4134,7 @@ stwuct pwayewbundwe {
     // a-add the components fow a standawd bevy spwite:
     #[bundwe]
     spwite: spwitesheetbundwe, (U ﹏ U)
-}
-</code></pre>
+}</code></pre>
 <p>bevy awso considews awbitwawy tupwes o-of components a-as bundwes:</p>
 <pre><code>(componenta, &gt;_&lt; componentb, (ꈍᴗꈍ) componentc)
 </code></pre>
@@ -4220,14 +4157,12 @@ vewsions (simiwaw to how <a href="programming//programming/ec.html#components">c
 stwuct goawsweached {
     main_goaw: b-boow,
     b-bonus: boow, ^•ﻌ•^
-}
-</code></pre>
+}</code></pre>
 <p>wesouwces can be accessed fwom <a href="programming//programming/systems.html">systems</a>, XD using <code>Res</code>/<code>ResMut</code>.</p>
 <h2 id="wesouwce-initiawization"><a class="header" href="#wesouwce-initiawization">wesouwce initiawization</a></h2>
 <p>impwement <code>Default</code> fow simpwe wesouwces:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(wesouwce, &gt;_&lt; defauwt, debug)]
-stwuct stawtingwevew(usize);
-</code></pre>
+stwuct stawtingwevew(usize);</code></pre>
 <p>fow wesouwces that nyeed compwex i-initiawization, ^•ﻌ•^ i-impwement <code>FromWorld</code>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(wesouwce)]
 stwuct myfancywesouwce { /* stuff */ }
@@ -4241,8 +4176,7 @@ impw f-fwomwowwd fow myfancywesouwce {
 
         myfancywesouwce { /* stuff */ }
     }
-}
-</code></pre>
+}</code></pre>
 <p>you can initiawize youw wesouwces a-at <a href="programming//programming/app-builder.html"><code>App</code> cweation</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
@@ -4255,13 +4189,11 @@ impw f-fwomwowwd fow myfancywesouwce {
 
         // ...
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p><a href="programming//programming/commands.html"><code>Commands</code></a> can be used to cweate/wemove wesouwces f-fwom
 inside a system:</p>
 <pre><code class="language-rust no_run noplayground">commands.insewt_wesouwce(goawsweached { main_goaw: fawse, (ꈍᴗꈍ) bonus: f-fawse });
-commands.wemove_wesouwce::&lt;mywesouwce&gt;();
-</code></pre>
+commands.wemove_wesouwce::&lt;mywesouwce&gt;();</code></pre>
 <p>if you insewt a wesouwce of a type t-that awweady exists, OwO i-it wiww be o-ovewwwitten.</p>
 <h2 id="usage-advice"><a class="header" href="#usage-advice">usage advice</a></h2>
 <p>the choice of when to use entities/components v-vs. ^•ﻌ•^ w-wesouwces is typicawwy
@@ -4296,8 +4228,7 @@ in youw function, ^•ﻌ•^ you wiww get confusing c-compiwew e-ewwows!</a></p
     s-stawt: w-wes&lt;stawtingwevew&gt;
 ) {
     e-epwintwn!(&quot;stawting o-on wevew {:?}&quot;, 🥺 *stawt);
-}
-</code></pre>
+}</code></pre>
 <p>system pawametews can be gwouped i-into tupwes (which c-can be nyested). OwO t-this is
 usefuw fow owganization.</p>
 <pre><code class="language-rust no_run noplayground">fn compwex_system(
@@ -4308,8 +4239,7 @@ usefuw fow owganization.</p>
     i-if wet some(mut c) = c {
         // do something
     }
-}
-</code></pre>
+}</code></pre>
 <p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe,
 gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up to
 16 membews, &gt;_&lt; but can be nyested indefinitewy.</p>
@@ -4329,8 +4259,7 @@ gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up
 
         // ...
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>the above is enough fow simpwe pwojects.</p>
 <p>as youw pwoject gwows mowe compwex, OwO y-you might want t-to enhance youw a-app buiwdew
 with some of the powewfuw toows that b-bevy offews f-fow managing when/how
@@ -4362,16 +4291,14 @@ youw systems wun, &gt;_&lt; such as: <a href="programming//programming/system-or
             // d-do something speciaw! rawr x3
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>get the <a href="programming//programming/ec.html#components">components</a> associated with a specific
 <a href="programming//programming/ec.html#entities">entity</a>:</p>
 <pre><code class="language-rust no_run noplayground">    if wet ok((heawth, ( ͡o ω ͡o ) mut twansfowm)) = q-quewy.get_mut(entity) {
         // d-do something w-with the c-components
     } e-ewse {
         // t-the entity does n-nyot have the c-components fwom the quewy
-    }
-</code></pre>
+    }</code></pre>
 <p>get the ids (<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a>) of the entities you access with
 youw quewies:</p>
 <pre><code class="language-rust no_run noplayground">// add `entity` to `quewy` to get e-entity ids
@@ -4379,16 +4306,14 @@ fn quewy_entities(q: q-quewy&lt;(entity, (U ᵕ U❁) /* ... */)&gt;) {
     f-fow (e, (⑅˘꒳˘) /* ... */) i-in q.itew() {
         // `e` i-is the entity i-id of the entity w-we awe accessing
     }
-}
-</code></pre>
+}</code></pre>
 <p>if you know that the quewy shouwd o-onwy evew match a-a singwe entity, OwO y-you can
 use <code>single</code>/<code>single_mut</code>, XD instead of itewating:</p>
 <pre><code class="language-rust no_run noplayground">fn quewy_pwayew(mut q: quewy&lt;(&amp;pwayew, (U ᵕ U❁) &amp;mut t-twansfowm)&gt;) {
     w-wet (pwayew, (⑅˘꒳˘) m-mut twansfowm) = q-q.singwe_mut();
 
     // d-do something w-with the pwayew a-and its twansfowm
-}
-</code></pre>
+}</code></pre>
 <p>(this wiww panic if the quewy matches m-mowe than one e-entity)</p>
 <h2 id="bundwes-1"><a class="header" href="#bundwes-1">bundwes</a></h2>
 <p>quewies wowk with individuaw components. OwO i-if you cweated a-an entity u-using a
@@ -4411,8 +4336,7 @@ that have specific components.</p>
             epwintwn!(&quot;unknown pwayew h-has {} hp.&quot;, 😳😳😳 heawth.hp);
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>muwtipwe fiwtews can be combined:</p>
 <ul>
 <li>in a tupwe to appwy aww of them (and w-wogic)</li>
@@ -4493,7 +4417,6 @@ fn despawn_aww_enemies(
         commands.entity(entity).despawn();
     }
 }
-
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="events-1"><a class="header" href="#events-1">events</a></h1>
 <p>wewevant officiaw exampwes:
@@ -4525,8 +4448,7 @@ fn debug_wevewups(
     fow ev i-in ev_wevewup.itew() {
         epwintwn!(&quot;entity {:?} wevewed u-up!&quot;, (⑅˘꒳˘) ev.0);
     }
-}
-</code></pre>
+}</code></pre>
 <p>you nyeed to add youw custom event t-types via the <a href="programming//programming/app-builder.html">app buiwdew</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
@@ -4536,8 +4458,7 @@ fn debug_wevewups(
         .add_system(debug_wevewups)
         // ...
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>events shouwd be youw go-to data f-fwow toow. OwO as events c-can be sent f-fwom any
 system and weceived by muwtipwe systems, (ꈍᴗꈍ) t-they awe <em>extwemewy</em> vewsatiwe.</p>
 <h2 id="possibwe-pitfawws"><a class="header" href="#possibwe-pitfawws">possibwe pitfawws</a></h2>
@@ -4612,8 +4533,7 @@ that must be added fiwst, OwO if you w-wouwd wike to use t-them, 🥺 to take e-
 
         // w-waunch the app! ( ͡o ω ͡o )
         .wun();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quitting-the-app"><a class="header" href="#quitting-the-app">quitting the app</a></h1>
 <p>to cweanwy shut down bevy, &gt;_&lt; send an <a href="https://docs.rs/bevy/0.9.0/bevy/app/struct.AppExit.html"><code>AppExit</code></a>
 <a href="programming//programming/events.html">event</a> fwom any <a href="programming//programming/systems.html">system</a>:</p>
@@ -4621,8 +4541,7 @@ that must be added fiwst, OwO if you w-wouwd wike to use t-them, 🥺 to take e-
 
 fn exit_system(mut e-exit: e-eventwwitew&lt;appexit&gt;) {
     e-exit.send(appexit);
-}
-</code></pre>
+}</code></pre>
 <p>fow pwototyping, bevy pwovides a s-system you can <a href="programming//programming/app-builder.html">add to youw <code>App</code></a>,
 to cwose the focused window on pwessing t-the <code>Esc</code> key. &gt;<em>&lt; when aww windows awe
 cwosed, &gt;</em>&lt; bevy wiww quit automaticawwy.</p>
@@ -4631,8 +4550,7 @@ cwosed, &gt;</em>&lt; bevy wiww quit automaticawwy.</p>
         .add_pwugins(defauwtpwugins)
         .add_system(bevy::window::cwose_on_esc)
         .wun();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="wocaw-wesouwces"><a class="header" href="#wocaw-wesouwces">wocaw wesouwces</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
@@ -4654,8 +4572,7 @@ fn my_system1(mut w-wocaw: wocaw&lt;mystate&gt;) {
 
 fn my_system2(mut w-wocaw: w-wocaw&lt;mystate&gt;) {
     // t-the wocaw in this system is a diffewent instance
-}
-</code></pre>
+}</code></pre>
 <p>the type must impwement <a href="https://doc.rust-lang.org/stable/std/default/trait.Default.html"><code>Default</code></a> ow
 <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>. &gt;_&lt; it is automaticawwy initiawized.</p>
 <p>a system can have muwtipwe <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.Local.html"><code>Local</code></a>s of the same type.</p>
@@ -4694,8 +4611,7 @@ fn main() {
             my_system(cmd, rawr x3 wes, &amp;config);
         })
         .wun();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pwugins"><a class="header" href="#pwugins">pwugins</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/app/plugin.rs"><code>plugin</code></a>,
@@ -4722,8 +4638,7 @@ f-fn main() {
         .add_pwugins(defauwtpwugins)
         .add_pwugin(mypwugin)
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>fow intewnaw owganization in youw o-own pwoject, the m-main vawue of p-pwugins
 comes fwom nyot having to decwawe a-aww youw wust types a-and functions a-as
 <code>pub</code>, (ꈍᴗꈍ) just so they can be accessibwe f-fwom <code>fn main</code> to be added to the
@@ -4755,8 +4670,7 @@ f-fn main() {
         .add_pwugins(defauwtpwugins)
         .add_pwugins(mypwugingwoup)
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>when adding a pwugin gwoup to the <a href="programming//programming/app-builder.html">app</a>, &gt;_&lt; you can disabwe some
 pwugins whiwe keeping the west.</p>
 <p>fow exampwe, ^•ﻌ•^ if you want to manuawwy s-set up wogging (with y-youw own <code>tracing</code>
@@ -4766,8 +4680,7 @@ subscwibew), &gt;_&lt; you can disabwe bevy's <a href="https://docs.rs/bevy/0.9.
         defauwtpwugins.buiwd()
             .disabwe::&lt;wogpwugin&gt;()
     )
-    .wun();
-</code></pre>
+    .wun();</code></pre>
 <p>note that this simpwy disabwes the f-functionawity, ^•ﻌ•^ b-but it cannot actuawwy
 wemove the code to avoid binawy bwoat. OwO t-the disabwed p-pwugins stiww h-have to
 be compiwed into youw pwogwam.</p>
@@ -4838,8 +4751,7 @@ you can add owdewing constwaints:</p>
                 .aftew(input_handwing)
         )
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p><code>.before</code>/<code>.after</code> may be used as many times as you n-nyeed on one system.</p>
 <h2 id="wabews"><a class="header" href="#wabews">wabews</a></h2>
 <p>fow mowe advanced use cases, (ꈍᴗꈍ) you c-can use <a href="programming//programming/labels.html">wabews</a>. XD wabews can
@@ -4887,8 +4799,7 @@ f-fn main() {
         // … and so on …
 
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>when you have muwtipwe systems with c-common wabews o-ow owdewing, OwO it m-may be
 convenient to use <a href="programming//programming/system-sets.html">system sets</a>.</p>
 <h2 id="ciwcuwaw-dependencies"><a class="header" href="#ciwcuwaw-dependencies">ciwcuwaw dependencies</a></h2>
@@ -4930,8 +4841,7 @@ fow puwposes such as <a href="programming//programming/labels.html">wabewing</a>
         .add_system(smoke_pawticwes)
 
         .wun();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="change-detection"><a class="header" href="#change-detection">change detection</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/ecs/component_change_detection.rs"><code>component_change_detection</code></a>.</p>
@@ -4988,8 +4898,7 @@ f-fn debug_new_hostiwes(
     f-fow (entity, &gt;_&lt; heawth) in quewy.itew() {
         e-epwintwn!(&quot;entity {:?} i-is nyow an enemy! rawr x3 hp: {}&quot;, entity, mya heawth.hp);
     }
-}
-</code></pre>
+}</code></pre>
 <h3 id="checking"><a class="header" href="#checking">checking</a></h3>
 <p>if you want to access aww the entities, OwO a-as nyowmaw, 🥺 w-wegawdwess of i-if they have
 been modified, OwO but you just want t-to check the status, 🥺 y-you can use t-the speciaw
@@ -5009,8 +4918,7 @@ fn debug_damage(
             }
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>this is usefuw fow pwocessing aww e-entities, ^•ﻌ•^ but doing d-diffewent things
 depending on if they have been modified.</p>
 <h2 id="wesouwces-2"><a class="header" href="#wesouwces-2">wesouwces</a></h2>
@@ -5036,8 +4944,7 @@ f-fn check_wes_added(
             // do something
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>note that change detection cannot c-cuwwentwy be used t-to detect
 <a href="programming//programming/states.html">states</a> changes (via the <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/schedule/struct.State.html"><code>State</code></a>
 <a href="programming//programming/res.html">wesouwce</a>) (<a href="https://github.com/bevyengine/bevy/issues/2343">bug</a>).</p>
@@ -5061,8 +4968,7 @@ change detection. ^•ﻌ•^ if you want to a-avoid that, OwO simpwy c-check it
             *xp = nyew_xp;
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>change detection wowks on a pew-<a href="programming//programming/systems.html">system</a> gwanuwawity, &gt;_&lt; and is
 wewiabwe. OwO a system wiww nyot detect c-changes that i-it made itsewf, 🥺 o-onwy those
 done by othew systems, OwO and onwy if i-it has nyot seen t-them befowe (the c-changes
@@ -5133,8 +5039,7 @@ f-fn main() {
                 .with_system(cwose_menu)
         )
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>it is ok to have muwtipwe system s-sets fow the same s-state.</p>
 <p>this is usefuw when you want to pwace <a href="programming//programming/labels.html">wabews</a> and use <a href="programming//programming/system-order.html">expwicit
 system owdewing</a>.</p>
@@ -5161,15 +5066,13 @@ add the state management wun cwitewia.</p>
             // todo: pway pause scween music
         }
     }
-}
-</code></pre>
+}</code></pre>
 <p>to change to anothew state:</p>
 <pre><code class="language-rust no_run noplayground">fn entew_game(mut app_state: wesmut&lt;state&lt;appstate&gt;&gt;) {
     a-app_state.set(appstate::ingame).unwwap();
     // ^ t-this c-can faiw if we a-awe awweady in t-the tawget state
     // o-ow if anothew s-state change i-is awweady queued
-}
-</code></pre>
+}</code></pre>
 <p>aftew the systems of the cuwwent s-state compwete, OwO b-bevy wiww twansition t-to
 the nyext state you set.</p>
 <p>you can do awbitwawiwy many state t-twansitions in a-a singwe fwame update. OwO b-bevy
@@ -5221,14 +5124,12 @@ can awso add one-shot systems to w-wun when &quot;pausing&quot; o-ow &quot;wesum
             systemset::on_exit(appstate::ingame)
                 .with_system(despawn_pwayew)
                 .with_system(despawn_map)
-        )
-</code></pre>
+        )</code></pre>
 <p>to manage states wike this, &gt;_&lt; use <code>push</code>/<code>pop</code>:</p>
 <pre><code class="language-rust no_run noplayground">    // to go into the pause scween
     a-app_state.push(appstate::paused).unwwap();
     // t-to go back i-into the game
-    a-app_state.pop().unwwap();
-</code></pre>
+    a-app_state.pop().unwwap();</code></pre>
 <p>(using <code>.set</code> as shown befowe wepwaces the active s-state at the t-top of the stack)</p>
 <h2 id="known-pitfawws-and-wimitations"><a class="header" href="#known-pitfawws-and-wimitations">known pitfawws and wimitations</a></h2>
 <h3 id="combining-with-othew-wun-cwitewia"><a class="header" href="#combining-with-othew-wun-cwitewia">combining with othew wun cwitewia</a></h3>
@@ -5260,8 +5161,7 @@ a button/key pwess, ^•ﻌ•^ you nyeed to c-cweaw the input m-manuawwy by caw
         a-app_state.set(appstate::mainmenu).unwwap();
         k-keys.weset(keycode::escape);
     }
-}
-</code></pre>
+}</code></pre>
 <p>(note that this wequiwes <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>)</p>
 <p>not doing this can cause <a href="https://github.com/bevyengine/bevy/issues/1700">issues</a>.</p>
 <p><a href="https://github.com/IyesGames/iyes_loopless"><code>iyes_loopless</code></a> does nyot have this issue.</p>
@@ -5354,8 +5254,7 @@ f-fn main() {
                 .with_system(gamepad_input)
         )
         .wun();
-}
-</code></pre>
+}</code></pre>
 <h2 id="known-pitfawws-1"><a class="header" href="#known-pitfawws-1">known pitfawws</a></h2>
 <h3 id="combining-muwtipwe-wun-cwitewia"><a class="header" href="#combining-muwtipwe-wun-cwitewia">combining muwtipwe wun cwitewia</a></h3>
 <p>it is nyot possibwe to make a system t-that is conditionaw o-on muwtipwe w-wun
@@ -5436,8 +5335,7 @@ fn main() {
         .add_stage_befowe(cowestage::postupdate, 🥺 &quot;temp-debug-hack&quot;, &gt;_&lt; systemstage::pawawwew())
 
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>howevew, OwO by defining youw wabews a-as custom types, 🥺 t-the wust compiwew c-can check
 them fow you, OwO and youw ide can auto-compwete t-them. 🥺 i-it is the wecommended w-way,
 as it pwevents mistakes, ^•ﻌ•^ and hewps y-you stay owganized i-in wawgew pwojects.</p>
@@ -5494,8 +5392,7 @@ systems to wun aftew ouw game wogic:</p>
         .add_system_to_stage(debug, (⑅˘꒳˘) debug_new_hostiwes)
 
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>if you nyeed to manage when youw s-systems wun, OwO wewative t-to one anothew, 🥺 i-it
 is genewawwy pwefewabwe to avoid u-using stages, and t-to use <a href="programming//programming/system-order.html">expwicit system
 owdewing</a> instead. (ꈍᴗꈍ) stages wimit pawawwew execution a-and
@@ -5566,8 +5463,7 @@ f-fn detect_wemovaws(
     fow entity i-in wemovaws.itew() {
         // do something w-with the entity
     }
-}
-</code></pre>
+}</code></pre>
 <p>(to do things with these entities, ^•ﻌ•^ y-you can just use t-the <code>Entity</code> ids with
 <a href="programming//programming/commands.html"><code>Commands::entity()</code></a> ow <a href="programming//programming/queries.html"><code>Query::get()</code></a>.)</p>
 <h2 id="wesouwces-3"><a class="header" href="#wesouwces-3">wesouwces</a></h2>
@@ -5595,8 +5491,7 @@ detection.</p>
 
         // ... do s-something nyow that it is gone ...
     }
-}
-</code></pre>
+}</code></pre>
 <p>note that, OwO since this detection is w-wocaw to youw s-system, 🥺 it does n-nyot have
 to happen duwing the same fwame update.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pawam-sets"><a class="header" href="#pawam-sets">pawam sets</a></h1>
@@ -5635,8 +5530,7 @@ same data.</p>
 
     // since w-we onwy used the confwicting s-system pawams one a-at a time, (///ˬ///✿)
     // e-evewything i-is safe and ouw code can compiwe; pawamset guawantees t-this
-}
-</code></pre>
+}</code></pre>
 <p>this ensuwes onwy one of the confwicting p-pawametews c-can be used at t-the same time.</p>
 <p>the maximum nyumbew of pawametews i-in a pawam set i-is 8.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="system-piping"><a class="header" href="#system-piping">system piping</a></h1>
@@ -5665,8 +5559,7 @@ fn handwe_io_ewwows(in(wesuwt): i-in&lt;std::io::wesuwt&lt;()&gt;&gt;) {
     i-if wet e-eww(e) = wesuwt {
         e-epwintwn!(&quot;i/o e-ewwow occuwwed: {}&quot;, ( ͡o ω ͡o ) e);
     }
-}
-</code></pre>
+}</code></pre>
 <p>such functions cannot be <a href="programming//programming/app-builder.html">wegistewed</a> individuawwy as systems (bevy
 doesn't know nyani to do with the i-input/output). OwO b-by &quot;piping&quot; them t-togethew, 🥺 we
 cweate a vawid system that we can a-add:</p>
@@ -5676,8 +5569,7 @@ cweate a vawid system that we can a-add:</p>
         .add_system(net_weceive.pipe(handwe_io_ewwows))
         // ...
         .wun();
-}
-</code></pre>
+}</code></pre>
 <h2 id="pewfowmance-wawning"><a class="header" href="#pewfowmance-wawning">pewfowmance wawning</a></h2>
 <p>bewawe that bevy tweats the whowe c-chain as if it w-was a singwe big s-system, OwO with
 aww the combined system pawametews a-and theiw wespective d-data access
@@ -5739,21 +5631,18 @@ of a system.</p>
 <p>if you awe using <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, &gt;_&lt; you can choose when you
 want to appwy them to the wowwd. y-you nyeed to manuawwy c-caww <code>.apply(world)</code>
 on the <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>, XD to appwy them.</p>
-<pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe
-</code></pre>
+<pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
 <h3 id="wunning-a-stage"><a class="header" href="#wunning-a-stage">wunning a stage</a></h3>
 <p>if you want to wun some systems (a c-common use-case i-is
 <a href="programming//programming/system-tests.html">testing</a>), (ꈍᴗꈍ) the easiest way is to constwuct a-an impwomptu
 <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/schedule/struct.SystemStage.html"><code>SystemStage</code></a> (<a href="programming//programming/stages.html">stages</a>). XD this way you weuse
 aww the scheduwing wogic that bevy n-nyowmawwy does w-when wunning systems.</p>
-<pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe
-</code></pre>
+<pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
 <h3 id="navigating-by-metadata"><a class="header" href="#navigating-by-metadata">navigating by metadata</a></h3>
 <p>the wowwd contains a wot of metadata t-that awwows n-nyavigating aww t-the data
 efficientwy, OwO such as infowmation a-about aww the stowed c-components, 🥺 e-entities,
 awcheypes.</p>
-<pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe
-</code></pre>
+<pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="excwusive-systems"><a class="header" href="#excwusive-systems">excwusive systems</a></h1>
 <p>excwusive systems awe <a href="programming//programming/systems.html">systems</a> that bevy wiww not wun in pawawwew
 with any othew system. &gt;_&lt; they can have <a href="programming//programming/world.html">fuww unwestwicted access</a>
@@ -5776,8 +5665,7 @@ fwom a weguwaw system)</li>
 such things.</p>
 <pre><code class="language-rust no_run noplayground">fn do_cwazy_things(wowwd: &amp;mut wowwd) {
     // w-we c-can do anything w-with any data in t-the bevy ecs hewe! 🥺
-}
-</code></pre>
+}</code></pre>
 <p>you nyeed to add excwusive systems t-to the <a href="programming//programming/app-builder.html">app</a>, XD just wike
 weguwaw systems, but you must caww <code>.exclusive_system()</code> on them.</p>
 <p>they cannot be owdewed in-between w-weguwaw pawawwew s-systems. OwO excwusive s-systems
@@ -5805,8 +5693,7 @@ but befowe <a href="programming//programming/commands.html">commands</a> awe app
         )
 
         .wun();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="sub-apps"><a class="header" href="#sub-apps">sub-apps</a></h1>
 <p>this page has nyot been wwitten yet…</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="non-send-wesouwces"><a class="header" href="#non-send-wesouwces">non-send wesouwces</a></h1>
@@ -5846,8 +5733,7 @@ f-fn main() {
         // and ensuwe it wuns o-on the main thwead
         .add_stawtup_system(setup_waw_window)
         .wun();
-}
-</code></pre>
+}</code></pre>
 <h2 id="custom-nyon-send-wesouwces"><a class="header" href="#custom-nyon-send-wesouwces">custom nyon-send wesouwces</a></h2>
 <p>nowmawwy, XD to insewt <a href="programming//programming/res.html">wesouwces</a>, &gt;_&lt; theiw types must be
 <a href="https://doc.rust-lang.org/stable/std/marker/trait.Send.html"><code>Send</code></a>.</p>
@@ -5871,8 +5757,7 @@ f-fn main() {
         .add_pwugins(defauwtpwugins)
         .add_stawtup_system(setup_pwatfowm_audio)
         .wun();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="wwiting-tests-fow-systems"><a class="header" href="#wwiting-tests-fow-systems">wwiting tests fow systems</a></h1>
 <p>you might want to wwite and wun automated t-tests fow y-youw <a href="programming//programming/systems.html">systems</a>.</p>
 <p>you can use the weguwaw wust testing f-featuwes (<code>cargo test</code>) with bevy.</p>
@@ -5912,8 +5797,7 @@ fn cweanup_system&lt;t: c-component&gt;(
     f-fow e in q-q.itew() {
         c-commands.entity(e).despawn_wecuwsive();
     }
-}
-</code></pre>
+}</code></pre>
 <p>menu entities can be tagged with <code>cleanup::MenuExit</code>, &gt;_&lt; entities fwom the game
 map can be tagged with <code>cleanup::LevelUnload</code>.</p>
 <p>we can add the genewic cweanup system t-to ouw state t-twansitions, OwO to t-take cawe
@@ -5943,8 +5827,7 @@ f-fn main() {
         .add_system_set(systemset::on_exit(appstate::ingame)
             .with_system(cweanup_system::&lt;cweanup::wevewunwoad&gt;))
         .wun();
-}
-</code></pre>
+}</code></pre>
 <h2 id="using-twaits"><a class="header" href="#using-twaits">using twaits</a></h2>
 <p>you can use this in combination with t-twaits, OwO fow w-when you nyeed some s-sowt of
 vawying impwementation/functionawity fow each type.</p>
@@ -5975,8 +5858,7 @@ f-fn main() {
         .add_system(pwocess_wayew::&lt;2&gt;)
         .add_system(pwocess_wayew::&lt;3&gt;)
         .wun();
-}
-</code></pre>
+}</code></pre>
 <p>note that these vawues awe static / c-constant at compiwe-time. OwO t-this c-can be
 a sevewe wimitation. OwO in some cases, 🥺 w-when you might s-suspect that you c-couwd
 use const genewics, OwO you might weawize t-that you actuawwy w-want a wuntime v-vawue.</p>
@@ -5986,8 +5868,7 @@ instead, XD use a <a href="patterns//programming/res.html">wesouwce</a> ow <a hr
 not yet stabwe. &gt;_&lt; to use <code>enum</code>s, (ꈍᴗꈍ) you nyeed wust nyightwy, ^•ﻌ•^ and to e-enabwe the
 expewimentaw/unstabwe featuwe (put this at the top o-of youw <code>main.rs</code> ow
 <code>lib.rs</code>):</p>
-<pre><code class="language-rust no_run noplayground">#![featuwe(adt_const_pawams)]
-</code></pre>
+<pre><code class="language-rust no_run noplayground">#![featuwe(adt_const_pawams)]</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="component-stowage-tabwespawse-set"><a class="header" href="#component-stowage-tabwespawse-set">component stowage (tabwe/spawse-set)</a></h1>
 <p>bevy ecs pwovides two diffewent ways o-of stowing data: t-tabwes and s-spawse sets.
 the two stowage kinds offew diffewent p-pewfowmance c-chawactewistics.</p>
@@ -6018,8 +5899,7 @@ stwuct canseepwayew;
 #[component(stowage = &quot;spawseset&quot;)]
 stwuct bweeding {
     damage_wate: f32, (U ﹏ U)
-}
-</code></pre>
+}</code></pre>
 <h2 id="tabwe-stowage"><a class="header" href="#tabwe-stowage">tabwe stowage</a></h2>
 <p>tabwe stowage is optimized fow fast <a href="patterns//programming/queries.html">quewy</a> itewation. XD if the
 way you usuawwy use a specific component t-type is t-to itewate ovew i-its data
@@ -6149,8 +6029,7 @@ fn my_event_managew&lt;t: 'static + send + sync&gt;(
     fow event in events.dwain() {
         // t-todo: do something with each event
     }
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bevy-wendew-gpu-fwamewowk"><a class="header" href="#bevy-wendew-gpu-fwamewowk">bevy wendew (gpu) fwamewowk</a></h1>
 <p><strong>note:</strong> this chaptew of the book is an eawwy <em>wowk in pwogwess</em>!
 many winks awe stiww bwoken!</p>
@@ -6445,8 +6324,7 @@ f-fn main() {
         .add_pwugin(wogdiagnosticspwugin::defauwt())
         .add_pwugin(fwametimediagnosticspwugin::defauwt())
         .wun();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="convewt-cuwsow-to-wowwd-coowdinates"><a class="header" href="#convewt-cuwsow-to-wowwd-coowdinates">convewt cuwsow to wowwd coowdinates</a></h1>
 <p><a href="cookbook//code/examples/cursor2world.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
@@ -6508,8 +6386,7 @@ fn my_cuwsow_system(
 
         e-epwintwn!(&quot;wowwd coowds: {}/{}&quot;, :3 wowwd_pos.x, 😳😳😳 wowwd_pos.y);
     }
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="custom-camewa-pwojection"><a class="header" href="#custom-camewa-pwojection">custom camewa pwojection</a></h1>
 <p><a href="cookbook//code/examples/custom-projection.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
@@ -6609,8 +6486,7 @@ fn main() {
         .add_stawtup_system(setup)
         .add_pwugin(camewapwojectionpwugin::&lt;simpweowthopwojection&gt;::defauwt())
         .wun();
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="pan--owbit-camewa"><a class="header" href="#pan--owbit-camewa">pan + owbit camewa</a></h1>
 <p><a href="cookbook//code/examples/pan-orbit-camera.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
@@ -6750,8 +6626,7 @@ fn spawn_camewa(mut c-commands: c-commands) {
             ..defauwt::defauwt()
         }, (ˆ ﻌ ˆ)♡
     ));
-}
-</code></pre>
+}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="wist-aww-wesouwce-types"><a class="header" href="#wist-aww-wesouwce-types">wist aww wesouwce types</a></h1>
 <p><a href="cookbook//code/examples/print-resources.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
@@ -6770,8 +6645,7 @@ fn spawn_camewa(mut c-commands: c-commands) {
     // // s-sowt wist awphebeticawwy
     // w.sowt();
     // w.itew().fow_each(|name| pwintwn!(&quot;{}&quot;, σωσ n-nyame));
-}
-</code></pre>
+}</code></pre>
 <p>note that this does <em>not</em> give you a compwehensive wist of e-evewy bevy-pwovided
 type that is usefuw as a wesouwce. OwO i-it wists the types o-of aww the w-wesouwces
 <em>cuwwentwy added</em> to the app (by aww wegistewed pwugins, ^•ﻌ•^ y-youw own, OwO e-etc.).</p>
@@ -6912,15 +6786,13 @@ wuntime wedistwibutabwes instawwed.</p>
 <p>by defauwt, OwO when you wun a bevy app (ow a-any wust p-pwogwam fow that m-mattew)
 on windows, ^•ﻌ•^ a consowe window awso s-shows up. OwO to disabwe t-this,
 pwace this wust attwibute at the t-top of youw <code>main.rs</code>:</p>
-<pre><code class="language-rust no_run noplayground">#![windows_subsystem = &quot;windows&quot;]
-</code></pre>
+<pre><code class="language-rust no_run noplayground">#![windows_subsystem = &quot;windows&quot;]</code></pre>
 <p>this tewws windows that youw executabwe i-is a gwaphicaw a-appwication, OwO n-nyot a
 command-wine pwogwam. ^•ﻌ•^ windows wiww k-know nyot dispway a-a consowe.</p>
 <p>howevew, ^•ﻌ•^ the consowe can be usefuw f-fow devewopment, OwO t-to see wog messages.
 you can disabwe it onwy fow wewease b-buiwds, OwO and weave i-it enabwed i-in debug
 buiwds, XD wike this:</p>
-<pre><code class="language-rust no_run noplayground">#![cfg_attw(not(debug_assewtions), XD windows_subsystem = &quot;windows&quot;)]
-</code></pre>
+<pre><code class="language-rust no_run noplayground">#![cfg_attw(not(debug_assewtions), XD windows_subsystem = &quot;windows&quot;)]</code></pre>
 <h2 id="cweating-an-icon-fow-youw-app"><a class="header" href="#cweating-an-icon-fow-youw-app">cweating an icon fow youw app</a></h2>
 <p>thewe awe two pwaces whewe you might w-want to put y-youw appwication i-icon:</p>
 <ul>
@@ -6942,8 +6814,7 @@ fn m-main() {
     i-if tawget.contains(&quot;windows&quot;) {
         e-embed_wesouwce::compiwe(&quot;icon.wc&quot;);
     }
-}
-</code></pre>
+}</code></pre>
 <p>cweate a <code>icon.rc</code> fiwe in youw pwoject fowdew:</p>
 <pre><code>app_icon icon &quot;icon.ico&quot;
 </code></pre>
@@ -7102,8 +6973,7 @@ consowe_ewwow_panic_hook = &quot;0.1&quot;
 <p>at the stawt of youw main function, OwO b-befowe doing a-anything ewse, 🥺 add t-this:</p>
 <pre><code class="language-rust no_run noplayground">    // when buiwding fow wasm, OwO pwint p-panics to the b-bwowsew consowe
     #[cfg(tawget_awch = &quot;wasm32&quot;)]
-    c-consowe_ewwow_panic_hook::set_once();
-</code></pre>
+    c-consowe_ewwow_panic_hook::set_once();</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="optimize-fow-size"><a class="header" href="#optimize-fow-size">optimize fow size</a></h1>
 <p>when sewving a wasm binawy, OwO the smowew i-it is, 🥺 the f-fastew the bwowsew c-can
 downwoad it. OwO fastew downwoads means f-fastew page woad t-times and wess d-data
@@ -7316,18 +7186,18 @@ so is pwefewabwe.</p>
 
         </div>
 
-        <script type="text/javascript">
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
