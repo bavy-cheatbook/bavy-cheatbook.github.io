@@ -136,7 +136,7 @@
                     <main>
                         <h1 id="change-detection"><a class="header" href="#change-detection">change detection</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.0/examples/ecs/component_change_detection.rs"><code>component_change_detection</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/component_change_detection.rs"><code>component_change_detection</code></a>.</p>
 <hr />
 <p>bevy awwows you to easiwy detect w-when data is changed. OwO y-you can use t-this to
 pewfowm actions in wesponse to changes.</p>
@@ -150,16 +150,16 @@ the data somewhewe.</p>
 <a href="/programming/ec.html#components">components</a> on them have been modified.</p>
 <p>use <a href="/programming/queries.html#query-filters">quewy fiwtews</a>:</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.9.0/bevy/ecs/query/struct.Added.html"><code>Added&lt;T&gt;</code></a>: detect nyew component instances
+<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Added.html"><code>Added&lt;T&gt;</code></a>: detect nyew component instances
 <ul>
 <li>if the component was added to an e-existing entity</li>
 <li>if a nyew entity with the component w-was spawned</li>
 </ul>
 </li>
-<li><a href="https://docs.rs/bevy/0.9.0/bevy/ecs/query/struct.Changed.html"><code>Changed&lt;T&gt;</code></a>: detect component instances that h-have been changed
+<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Changed.html"><code>Changed&lt;T&gt;</code></a>: detect component instances that h-have been changed
 <ul>
 <li>twiggews when the component is accessed m-mutabwy</li>
-<li>awso twiggews if the component is n-nyewwy-added (as p-pew <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/query/struct.Added.html"><code>Added</code></a>)</li>
+<li>awso twiggews if the component is n-nyewwy-added (as p-pew <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Added.html"><code>Added</code></a>)</li>
 </ul>
 </li>
 </ul>
@@ -194,7 +194,7 @@ f-fn debug_new_hostiwes(
 <h3 id="checking"><a class="header" href="#checking">checking</a></h3>
 <p>if you want to access aww the entities, OwO a-as nyowmaw, 🥺 w-wegawdwess of i-if they have
 been modified, OwO but you just want t-to check the status, 🥺 y-you can use t-the speciaw
-<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/query/struct.ChangeTrackers.html"><code>ChangeTrackers&lt;T&gt;</code></a> quewy pawametew.</p>
+<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.ChangeTrackers.html"><code>ChangeTrackers&lt;T&gt;</code></a> quewy pawametew.</p>
 <pre><code class="language-rust no_run noplayground">/// make spwites fwash wed on fwames w-when the heawth c-changes
 fn debug_damage(
     m-mut quewy: quewy&lt;(&amp;mut s-spwite, &gt;_&lt; c-changetwackews&lt;heawth&gt;)&gt;, mya
@@ -215,7 +215,7 @@ fn debug_damage(
 depending on if they have been modified.</p>
 <h2 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h2>
 <p>fow <a href="/programming/res.html">wesouwces</a>, (ꈍᴗꈍ) change detection is pwovided via m-methods on the
-<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a> system pawametews.</p>
+<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a> system pawametews.</p>
 <pre><code class="language-rust no_run noplayground">fn check_wes_changed(
     my_wes: w-wes&lt;mywesouwce&gt;, (U ﹏ U)
 ) {
@@ -238,10 +238,10 @@ f-fn check_wes_added(
     }
 }</code></pre>
 <p>note that change detection cannot c-cuwwentwy be used t-to detect
-<a href="/programming/states.html">states</a> changes (via the <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/schedule/struct.State.html"><code>State</code></a>
+<a href="/programming/states.html">states</a> changes (via the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/schedule/struct.State.html"><code>State</code></a>
 <a href="/programming/res.html">wesouwce</a>) (<a href="https://github.com/bevyengine/bevy/issues/2343">bug</a>).</p>
 <h2 id="nani-gets-detected"><a class="header" href="#nani-gets-detected">nani gets detected?</a></h2>
-<p><a href="https://docs.rs/bevy/0.9.0/bevy/ecs/query/struct.Changed.html"><code>Changed</code></a> detection is twiggewed by
+<p><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Changed.html"><code>Changed</code></a> detection is twiggewed by
 <a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>. (ꈍᴗꈍ) simpwy accessing components via a-a mutabwe quewy,
 without actuawwy pewfowming a <code>&amp;mut</code> access, XD wiww <em>not</em> twiggew it.</p>
 <p>this makes change detection quite a-accuwate. OwO you can w-wewy on it to o-optimize
@@ -273,7 +273,7 @@ system befowe the changing system. OwO t-the detecting s-system wiww see t-the c
 the nyext time it wuns, ^•ﻌ•^ typicawwy o-on the nyext fwame u-update.</p>
 <p>if you nyeed to ensuwe that changes a-awe handwed immediatewy / d-duwing t-the same
 fwame, XD you can use <a href="/programming/system-order.html">expwicit system owdewing</a>.</p>
-<p>howevew, (ꈍᴗꈍ) when detecting component a-additions with <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/query/struct.Added.html"><code>Added&lt;T&gt;</code></a>
+<p>howevew, (ꈍᴗꈍ) when detecting component a-additions with <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Added.html"><code>Added&lt;T&gt;</code></a>
 (which awe typicawwy done using <a href="/programming/commands.html"><code>Commands</code></a>), XD this is nyot
 enough; you nyeed <a href="/programming/stages.html">stages</a>.</p>
 

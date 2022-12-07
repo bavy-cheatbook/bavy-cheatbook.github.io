@@ -135,10 +135,10 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="diwect-wowwd-access"><a class="header" href="#diwect-wowwd-access">diwect wowwd access</a></h1>
-<p>the <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/world/struct.World.html"><code>World</code></a> is whewe bevy ecs stowes aww data a-and
+<p>the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>World</code></a> is whewe bevy ecs stowes aww data a-and
 associated metadata. (ꈍᴗꈍ) it keeps twack o-of <a href="/programming/res.html">wesouwces</a>, rawr x3 <a href="/programming/ec.html">entities and
 components</a>.</p>
-<p>typicawwy, XD the <a href="https://docs.rs/bevy/0.9.0/bevy/app/struct.App.html"><code>App</code></a>'s scheduwe wunnew wiww wun aww
+<p>typicawwy, XD the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a>'s scheduwe wunnew wiww wun aww
 <a href="/programming/stages.html">stages</a> (which, &gt;<em>&lt; in tuwn, (ꈍᴗꈍ) wun theiw <a href="/programming/systems.html">systems</a>)
 on the main wowwd. &gt;</em>&lt; weguwaw <a href="/programming/systems.html">systems</a> awe wimited in
 nani data they can access fwom the w-wowwd, (ꈍᴗꈍ) by theiw <a href="/builtins.html#systemparams">system pawametew
@@ -150,11 +150,11 @@ which gives you fuww contwow and f-fweedom to do anything w-with any d-data stow
 in the bevy ecs:</p>
 <ul>
 <li><a href="/programming/exclusive.html">excwusive systems</a></li>
-<li><a href="https://docs.rs/bevy/0.9.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> impws</li>
-<li>via the <a href="https://docs.rs/bevy/0.9.0/bevy/app/struct.App.html"><code>App</code></a> <a href="/programming/app-builder.html">buiwdew</a></li>
-<li>manuawwy cweated <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/world/struct.World.html"><code>World</code></a>s fow puwposes wike <a href="/programming/system-tests.html">tests</a> ow scenes</li>
+<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> impws</li>
+<li>via the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a> <a href="/programming/app-builder.html">buiwdew</a></li>
+<li>manuawwy cweated <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>World</code></a>s fow puwposes wike <a href="/programming/system-tests.html">tests</a> ow scenes</li>
 <li>custom commands</li>
-<li>custom <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/schedule/trait.Stage.html"><code>Stage</code></a> impws (not wecommended, (ꈍᴗꈍ) pwefew excwusive s-systems)</li>
+<li>custom <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/schedule/trait.Stage.html"><code>Stage</code></a> impws (not wecommended, (ꈍᴗꈍ) pwefew excwusive s-systems)</li>
 </ul>
 <p>diwect wowwd access wets you do things w-wike:</p>
 <ul>
@@ -173,7 +173,7 @@ game saves, XD …</p>
 <h2 id="wowking-with-the-world"><a class="header" href="#wowking-with-the-world">wowking with the <code>World</code></a></h2>
 <p>hewe awe some ways that you can make u-use of the diwect w-wowwd access a-apis.</p>
 <h3 id="systemstate"><a class="header" href="#systemstate"><code>SystemState</code></a></h3>
-<p>the easiest way to do things is using a-a <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>.</p>
+<p>the easiest way to do things is using a-a <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>.</p>
 <p>this is a type that &quot;imitates a system&quot;, OwO b-behaving t-the same way as a-a
 <a href="/programming/systems.html">system</a> with vawious pawametews wouwd. (ꈍᴗꈍ) aww t-the same behaviows
 wike <a href="/programming/queries.html">quewies</a>, rawr x3 <a href="/programming/change-detection.html">change detection</a>, XD and
@@ -181,18 +181,18 @@ even <a href="/programming/commands.html"><code>Commands</code></a> awe avaiwabw
 pawams</a>.</p>
 <p>it awso twacks any pewsistent state, ^•ﻌ•^ u-used fow things w-wike <a href="/programming/change-detection.html">change
 detection</a> ow caching to impwove pewfowmance. (ꈍᴗꈍ) t-thewefowe,
-if you pwan on weusing the same <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> muwtipwe
+if you pwan on weusing the same <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> muwtipwe
 times, OwO you shouwd stowe it somewhewe, 🥺 w-wathew than c-cweating a nyew o-one evewy
 time. &gt;<em>&lt; evewy time you caww <code>.get(world)</code>, &gt;</em>&lt; it behaves wike anothew &quot;wun&quot;
 of a system.</p>
-<p>if you awe using <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, &gt;_&lt; you can choose when you
+<p>if you awe using <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, &gt;_&lt; you can choose when you
 want to appwy them to the wowwd. y-you nyeed to manuawwy c-caww <code>.apply(world)</code>
-on the <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>, XD to appwy them.</p>
+on the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>, XD to appwy them.</p>
 <pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
 <h3 id="wunning-a-stage"><a class="header" href="#wunning-a-stage">wunning a stage</a></h3>
 <p>if you want to wun some systems (a c-common use-case i-is
 <a href="/programming/system-tests.html">testing</a>), (ꈍᴗꈍ) the easiest way is to constwuct a-an impwomptu
-<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/schedule/struct.SystemStage.html"><code>SystemStage</code></a> (<a href="/programming/stages.html">stages</a>). XD this way you weuse
+<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/schedule/struct.SystemStage.html"><code>SystemStage</code></a> (<a href="/programming/stages.html">stages</a>). XD this way you weuse
 aww the scheduwing wogic that bevy n-nyowmawwy does w-when wunning systems.</p>
 <pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
 <h3 id="navigating-by-metadata"><a class="header" href="#navigating-by-metadata">navigating by metadata</a></h3>

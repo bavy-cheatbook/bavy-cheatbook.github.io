@@ -158,7 +158,7 @@ youw systems</li>
 <p>to be abwe to wewiabwy manage events i-in such ciwcumstances, OwO y-you might w-want
 to have manuaw contwow ovew how wong t-the events awe h-hewd in memowy.</p>
 <p>you can wepwace bevy's defauwt cweanup s-stwategy with y-youw own.</p>
-<p>to do this, (ꈍᴗꈍ) simpwy add youw event t-type (wwapped as <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a>)
+<p>to do this, (ꈍᴗꈍ) simpwy add youw event t-type (wwapped as <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a>)
 to the <a href="/programming/app-builder.html">app buiwdew</a> using <code>.init_resource</code>, XD instead of <code>.add_event</code>.</p>
 <p>(<code>.add_event</code> is actuawwy just a convenience method t-that initiawizes t-the
 <a href="/programming/res.html">wesouwce</a> and adds bevy's buiwt-in system (<a href="/patterns/generic-systems.html">genewic</a>
@@ -168,7 +168,7 @@ enough, (ꈍᴗꈍ) youw events might piwe up a-and waste memowy.</p>
 <h2 id="exampwe"><a class="header" href="#exampwe">exampwe</a></h2>
 <p>we can cweate <a href="/patterns/generic-systems.html">genewic systems</a> fow this. XD impwement
 the custom cweanup stwategy, (ꈍᴗꈍ) and t-then add that <a href="/programming/systems.html">system</a> to youw
-<a href="https://docs.rs/bevy/0.9.0/bevy/app/struct.App.html"><code>App</code></a> as many times as you nyeed, (ꈍᴗꈍ) fow e-each <a href="/programming/events.html">event</a> type
+<a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a> as many times as you nyeed, (ꈍᴗꈍ) fow e-each <a href="/programming/events.html">event</a> type
 whewe you want to use youw custom b-behaviow.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::ecs::event::events;
 

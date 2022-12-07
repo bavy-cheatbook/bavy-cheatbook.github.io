@@ -148,15 +148,15 @@ thwead-poow, OwO making use of many cpu c-cowes. 🥺  howevew, òωó y-you mig
 that some code awways wuns on the &quot;main t-thwead&quot;, OwO o-ow access data that i-is nyot
 safe to access in a muwtithweaded w-way.</p>
 <h2 id="non-send-systems-and-data-access"><a class="header" href="#non-send-systems-and-data-access">non-send systems and data access</a></h2>
-<p>to do this, &gt;<em>&lt; you can use a <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a> /
-<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a> system pawametew. (ꈍᴗꈍ) this behaves just w-wike
-<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a> / <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, &gt;</em>&lt; wetting you access an
+<p>to do this, &gt;<em>&lt; you can use a <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a> /
+<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a> system pawametew. (ꈍᴗꈍ) this behaves just w-wike
+<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a> / <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, &gt;</em>&lt; wetting you access an
 ecs <a href="/programming/res.html">wesouwce</a> (singwe gwobaw instance of some d-data), (ꈍᴗꈍ) except that
 the pwesence of such a pawametew f-fowces the bevy s-scheduwew to awways w-wun the
 <a href="/programming/systems.html">system</a> on the main thwead. ^•ﻌ•^ this ensuwes t-that data nyevew h-has
 to be sent between thweads ow accessed f-fwom diffewent t-thweads.</p>
-<p>one exampwe of such a wesouwce is <a href="https://docs.rs/bevy/0.9.0/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a>
-in bevy. (ꈍᴗꈍ) this is the wow-wevew vewsion o-of <a href="https://docs.rs/bevy/0.9.0/bevy/window/struct.Windows.html"><code>Windows</code></a> that
+<p>one exampwe of such a wesouwce is <a href="https://docs.rs/bevy/0.9.1/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a>
+in bevy. (ꈍᴗꈍ) this is the wow-wevew vewsion o-of <a href="https://docs.rs/bevy/0.9.1/bevy/window/struct.Windows.html"><code>Windows</code></a> that
 gives you mowe diwect access to os w-window management f-functionawity.</p>
 <pre><code class="language-rust no_run noplayground">fn setup_waw_window(mut windows: n-nyonsend&lt;winitwindows&gt;) {
     w-wet w-waw_window = windows.get_window(windowid::pwimawy()).unwwap();
@@ -176,12 +176,12 @@ f-fn main() {
 <p>nowmawwy, XD to insewt <a href="/programming/res.html">wesouwces</a>, &gt;_&lt; theiw types must be
 <a href="https://doc.rust-lang.org/stable/std/marker/trait.Send.html"><code>Send</code></a>.</p>
 <p>bevy twacks nyon-send wesouwces sepawatewy, ^•ﻌ•^ t-to ensuwe t-that they
-can onwy be accessed using <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a> /
-<a href="https://docs.rs/bevy/0.9.0/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a>.</p>
+can onwy be accessed using <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a> /
+<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a>.</p>
 <p>it is nyot possibwe to insewt nyon-send w-wesouwces u-using
 <a href="/programming/commands.html"><code>Commands</code></a>, XD onwy using <a href="/programming/world.html">diwect wowwd access</a>.
 this means that you have to initiawize t-them in an <a href="/programming/exclusive.html">excwusive
-system</a>, rawr x3 <a href="https://docs.rs/bevy/0.9.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> impw,
+system</a>, rawr x3 <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> impw,
 ow custom stage.</p>
 <pre><code class="language-rust no_run noplayground">fn setup_pwatfowm_audio(wowwd: &amp;mut wowwd) {
     // a-assuming `osaudiomagic` i-is some p-pwimitive that i-is nyot thwead-safe
