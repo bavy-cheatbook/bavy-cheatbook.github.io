@@ -3647,37 +3647,37 @@ systems, ^•ﻌ•^ but onwy fow fiwes, OwO nyot a-awbitwawy data / o-objects.<
 <p>if you dwag a fiwe (say, OwO fwom the f-fiwe managew app) i-into a bevy app, 🥺 b-bevy
 wiww pwoduce a <a href="https://docs.rs/bevy/0.9.1/bevy/window/enum.FileDragAndDrop.html"><code>FileDragAndDrop</code></a> <a href="input//programming/events.html">event</a>,
 containing the path of the fiwe that w-was dwopped i-in.</p>
-<p>usuawwy, OwO in a gwaphicaw app, 🥺 you m-may want to do diffewent t-things d-depending
-on whewe it was dwopped. (ꈍᴗꈍ) fow this, ^•ﻌ•^ y-you can <a href="input//input/mouse.html">check the mouse cuwsow
-position</a>, XD ow use a bevy ui <a href="https://docs.rs/bevy/0.9.1/bevy/ui/enum.Interaction.html"><code>Interaction</code></a>.</p>
-<p>fow exampwe, ^•ﻌ•^ hewe is how to detect i-if a fiwe was d-dwopped onto a
-speciaw ui widget/ewement (which we identify with a-a custom mawkew
-<a href="input//programming/ec.html#components">component</a>):</p>
-<pre><code class="language-rust no_run noplayground">#[dewive(component)]
-stwuct mydwoptawget;
-
-fn fiwe_dwop(
-    m-mut d-dnd_evw: eventweadew&lt;fiwedwaganddwop&gt;, 😳
-    q-quewy_ui_dwoptawget: q-quewy&lt;&amp;intewaction, XD w-with&lt;mydwoptawget&gt;&gt;, :3
+<pre><code class="language-rust no_run noplayground">fn fiwe_dwop(
+    mut dnd_evw: eventweadew&lt;fiwedwaganddwop&gt;, rawr x3
 ) {
     f-fow ev in dnd_evw.itew() {
-        p-pwintwn!(&quot;{:?}&quot;, 😳😳😳 e-ev);
-        if wet fiwedwaganddwop::dwoppedfiwe { id, -.- path_buf } = ev {
-            pwintwn!(&quot;dwopped f-fiwe with path: {:?}&quot;, ( ͡o ω ͡o ) path_buf);
-
-            i-if id.is_pwimawy() {
-                // it was dwopped o-ovew the main window
-            }
-
-            fow intewaction in quewy_ui_dwoptawget.itew() {
-                i-if *intewaction == intewaction::hovewed {
-                    // i-it was dwopped o-ovew ouw ui ewement
-                    // (ouw ui ewement is being hovewed ovew)
-                }
-            }
+        p-pwintwn!(&quot;{:?}&quot;, rawr e-ev);
+        i-if wet fiwedwaganddwop::dwoppedfiwe { i-id, σωσ path_buf } = e-ev {
+            p-pwintwn!(&quot;dwopped fiwe w-with path: {:?}, σωσ in window id: {:?}&quot;, &gt;_&lt; path_buf, :3 id);
         }
     }
 }</code></pre>
+<h2 id="detecting-the-position-of-the-dwop"><a class="header" href="#detecting-the-position-of-the-dwop">detecting the position of the dwop</a></h2>
+<p>you may want to do diffewent things d-depending on w-whewe the cuwsow w-was when the
+dwop gestuwe ended. OwO fow exampwe, a-add the fiwe to s-some cowwection, 🥺 i-if it was
+dwopped ovew a specific ui ewement/panew.</p>
+<p>unfowtunatewy, OwO this is cuwwentwy s-somenani twicky t-to impwement, 🥺 due t-to <a href="https://github.com/rust-windowing/winit/issues/1550"><code>winit</code>
+bug #1550</a>. &gt;_&lt; bevy does nyot get <a href="https://docs.rs/bevy/0.9.1/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a>
+<a href="input//programming/events.html">events</a> whiwe the dwag gestuwe is ongoing, ^•ﻌ•^ a-and thewefowe d-does nyot
+wespond to the mouse cuwsow. OwO bevy c-compwetewy woses t-twack of the cuwsow p-position.</p>
+<p>checking the cuwsow position fwom t-the <a href="https://docs.rs/bevy/0.9.1/bevy/window/struct.Window.html"><code>Window</code></a> wiww awso nyot wowk.</p>
+<p>systems that use cuwsow events to w-wespond to cuwsow m-movements wiww n-nyot wowk
+duwing a dwag gestuwe. (ꈍᴗꈍ) this incwudes b-bevy ui's <a href="https://docs.rs/bevy/0.9.1/bevy/ui/enum.Interaction.html"><code>Interaction</code></a>
+detection, OwO which is the usuaw way o-of detecting when a-a ui ewement i-is hovewed ovew.</p>
+<h3 id="wowkawound"><a class="header" href="#wowkawound">wowkawound</a></h3>
+<p>the onwy way to wowkawound this issue i-is to stowe t-the fiwe path somewhewe
+tempowawiwy aftew weceiving the dwop e-event. OwO then, 🥺 w-wait untiw the n-nyext
+<a href="https://docs.rs/bevy/0.9.1/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a> event, &gt;_&lt; and then pwocess the fiwe.</p>
+<p>note that this might nyot even be o-on the nyext fwame u-update. the n-nyext cuwsow
+update wiww happen whenevew the usew m-moves the cuwsow. OwO i-if the usew d-does nyot
+immediatewy move the mouse aftew d-dwopping the fiwe a-and weaves the c-cuwsow in the
+same pwace fow a whiwe, OwO thewe wiww b-be nyo events a-and youw app wiww h-have nyo way of
+knowing the cuwsow position.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="midi-musicaw-instwument"><a class="header" href="#midi-musicaw-instwument">midi (musicaw instwument)</a></h1>
 <p>bevy does nyot yet have this buiwt-in, ^•ﻌ•^ b-but thewe i-is a <a href="input//setup/unofficial-plugins.html">3wd-pawty
 pwugin</a> avaiwabwe: <a href="https://github.com/BlackPhlox/bevy_midi"><code>bevy_midi</code></a>.</p>
