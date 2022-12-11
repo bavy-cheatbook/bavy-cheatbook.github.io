@@ -150,9 +150,15 @@ might nyot.</p>
 <p>if you nyeed to wun custom wogic a-as pawt of youw h-hot-wewoading
 wowkfwow, (ꈍᴗꈍ) you couwd impwement it i-in a <a href="/programming/systems.html">system</a>, XD using
 <a href="https://docs.rs/bevy/0.9.1/bevy/asset/enum.AssetEvent.html"><code>AssetEvent</code></a> (<a href="/assets/assetevent.html">weawn mowe</a>).</p>
-<p>hot wewoading is opt-in and has to b-be enabwed in o-owdew to wowk. OwO you c-can do
-this in a <a href="/programming/app-builder.html">stawtup system</a>:</p>
-<pre><code class="language-rust no_run noplayground"></code></pre>
+<p>hot wewoading is opt-in and has to b-be enabwed in o-owdew to wowk:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    app::new()
+        .add_pwugins(defauwtpwugins.set(assetpwugin {
+            watch_fow_changes: twue, &gt;_&lt;
+            ..defauwt::defauwt()
+        }))
+        .wun();
+}</code></pre>
 <p>note that this wequiwes the <code>filesystem_watcher</code> <a href="/setup/bevy-config.html">bevy cawgo
 featuwe</a>. (ꈍᴗꈍ) it is enabwed by defauwt, ^•ﻌ•^ but if y-you have disabwed
 defauwt featuwes to customize bevy, OwO b-be suwe to incwude i-it if you n-nyeed it.</p>

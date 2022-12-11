@@ -310,6 +310,7 @@ basic featuwes of bevy, (ꈍᴗꈍ) nyeeded fow m-making any game
 <li><a href="/features/coords.html">coowdinate system</a></li>
 <li><a href="/features/transforms.html">twansfowms</a></li>
 <li><a href="/features/time.html">time and timews</a></li>
+<li><a href="/features/parent-child.html">pawent/chiwd hiewawchies</a></li>
 </ul>
 </li>
 <li><a href="/assets.html">bevy asset management</a>:
@@ -491,7 +492,7 @@ in weguwaw systems.</li>
 <p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe,
 gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up to
 16 membews, &gt;_&lt; but can be nyested indefinitewy.</p>
-<p>systems wunning duwing the [extwact stage][cb::wendew-stages] can awso use
+<p>systems wunning duwing the <a href="/gpu/stages.html">extwact stage</a> can awso use
 <a href="https://docs.rs/bevy/0.9.1/bevy/render/struct.Extract.html"><code>Extract&lt;T&gt;</code></a>, (ꈍᴗꈍ) to access data fwom the main wowwd i-instead of the
 wendew wowwd. XD <code>T</code> can be any othew system pawametew t-type.</p>
 <h2 id="assets"><a class="header" href="#assets">assets</a></h2>
@@ -1763,7 +1764,7 @@ in weguwaw systems.</li>
 <p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe,
 gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up to
 16 membews, &gt;_&lt; but can be nyested indefinitewy.</p>
-<p>systems wunning duwing the [extwact stage][cb::wendew-stages] can awso use
+<p>systems wunning duwing the <a href="pitfalls//gpu/stages.html">extwact stage</a> can awso use
 <a href="https://docs.rs/bevy/0.9.1/bevy/render/struct.Extract.html"><code>Extract&lt;T&gt;</code></a>, (ꈍᴗꈍ) to access data fwom the main wowwd i-instead of the
 wendew wowwd. XD <code>T</code> can be any othew system pawametew t-type.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="2d-objects-nyot-dispwaying"><a class="header" href="#2d-objects-nyot-dispwaying">2d objects nyot dispwaying</a></h1>
@@ -2410,6 +2411,9 @@ fn j-jump_duwation(
     }
 }</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="wogging-_-consowe-messages"><a class="header" href="#wogging-_-consowe-messages">wogging, &gt;_&lt; consowe messages</a></h1>
+<p>wewevant officiaw exampwes:
+<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/app/logs.rs"><code>logs</code></a>.</p>
+<hr />
 <p>you may have nyoticed how, OwO when you w-wun youw bevy p-pwoject, 🥺 you get m-messages
 in youw consowe window. &gt;_&lt; fow exampwe:</p>
 <pre><code>2022-06-12t13:28:25.445644z  wawn wgpu_haw::vuwkan::instance: u-unabwe t-to find wayew: v-vk_wayew_khwonos_vawidation
@@ -3057,9 +3061,15 @@ might nyot.</p>
 <p>if you nyeed to wun custom wogic a-as pawt of youw h-hot-wewoading
 wowkfwow, (ꈍᴗꈍ) you couwd impwement it i-in a <a href="assets//programming/systems.html">system</a>, XD using
 <a href="https://docs.rs/bevy/0.9.1/bevy/asset/enum.AssetEvent.html"><code>AssetEvent</code></a> (<a href="assets//assets/assetevent.html">weawn mowe</a>).</p>
-<p>hot wewoading is opt-in and has to b-be enabwed in o-owdew to wowk. OwO you c-can do
-this in a <a href="assets//programming/app-builder.html">stawtup system</a>:</p>
-<pre><code class="language-rust no_run noplayground"></code></pre>
+<p>hot wewoading is opt-in and has to b-be enabwed in o-owdew to wowk:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    app::new()
+        .add_pwugins(defauwtpwugins.set(assetpwugin {
+            watch_fow_changes: twue, &gt;_&lt;
+            ..defauwt::defauwt()
+        }))
+        .wun();
+}</code></pre>
 <p>note that this wequiwes the <code>filesystem_watcher</code> <a href="assets//setup/bevy-config.html">bevy cawgo
 featuwe</a>. (ꈍᴗꈍ) it is enabwed by defauwt, ^•ﻌ•^ but if y-you have disabwed
 defauwt featuwes to customize bevy, OwO b-be suwe to incwude i-it if you n-nyeed it.</p>
@@ -3133,9 +3143,10 @@ system owdewing</a> to avoid wag / fwame deways.</p>
 <p>if you awe intewested in text input, (ꈍᴗꈍ) s-see the <a href="input//input/char.html">chawactew input</a> page instead.</p>
 <p>note: command key on mac cowwesponds t-to the supew/windows k-key on p-pc.</p>
 <h2 id="checking-key-state"><a class="header" href="#checking-key-state">checking key state</a></h2>
-<p>checking the state of specific keys c-can cuwwentwy o-onwy be done by k-key code,
-using the <code>Input&lt;KeyCode&gt;</code> (<a href="https://docs.rs/bevy/0.9.1/bevy/input/struct.Input.html"><code>Input</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.9.1/bevy/input/keyboard/enum.KeyCode.html"><code>KeyCode</code></a>)
-<a href="input//programming/res.html">wesouwce</a>:</p>
+<p>most commonwy, OwO you might be intewested i-in specific k-known keys and d-detecting when
+they awe pwessed ow weweased. (ꈍᴗꈍ) you c-can check specific <a href="input/keyboard.html#key-codes-and-scan-codes">key codes ow scan
+codes</a> using the
+<a href="https://docs.rs/bevy/0.9.1/bevy/input/struct.Input.html"><code>Input&lt;KeyCode&gt;</code> / <code>Input&lt;ScanCode&gt;</code></a> <a href="input//programming/res.html">wesouwces</a>.</p>
 <pre><code class="language-rust no_run noplayground">fn keyboawd_input(
     keys: wes&lt;input&lt;keycode&gt;&gt;, ^^;;
 ) {
@@ -3175,34 +3186,32 @@ using the <code>Input&lt;KeyCode&gt;</code> (<a href="https://docs.rs/bevy/0.9.1
         }
     }
 }</code></pre>
-<p>these events give you both the key c-code and scan c-code.
-the scan code is wepwesented as an a-awbitwawy <code>u32</code> integew id.</p>
+<p>these events give you both the key c-code and scan c-code.</p>
 <h2 id="key-codes-and-scan-codes"><a class="header" href="#key-codes-and-scan-codes">key codes and scan codes</a></h2>
 <p>keyboawd keys can be identified by k-key code ow scan c-code.</p>
-<p>key codes wepwesent the symbow/wettew o-on each key a-and awe dependent o-on the
-keyboawd wayout cuwwentwy active i-in the usew's os. OwO b-bevy wepwesents t-them with
-the <a href="https://docs.rs/bevy/0.9.1/bevy/input/keyboard/enum.KeyCode.html"><code>KeyCode</code></a> enum.</p>
-<p>scan codes wepwesent the physicaw k-key on the keyboawd, OwO w-wegawdwess o-of the
-system wayout. OwO unfowtunatewy, 🥺 they a-awe just awbitwawy i-integew ids a-and
-pwatfowm-dependent. ^•ﻌ•^ thewe is nyo easy way to know n-nyani to dispway i-in the
-game's ui fow the usew, (ꈍᴗꈍ) fwom the s-scan code.</p>
-<p>additionawwy, OwO suppowt fow using scan c-codes in bevy i-is wimited. 🥺 this c-can be
-annoying fow peopwe with muwtipwe o-ow nyon-qwewty k-keyboawd wayouts.</p>
-<p>see <a href="https://github.com/bevyengine/bevy/issues/2052">bevy issue #2052</a> fow effowts to impwove this situation.</p>
-<h3 id="wayout-agnostic-key-bindings"><a class="header" href="#wayout-agnostic-key-bindings">wayout-agnostic key bindings</a></h3>
-<p>you couwd twy to pwovide a bettew e-expewience fow p-pwayews, OwO wegawdwess o-of these
-wimitations, XD by:</p>
-<ul>
-<li>intewnawwy wecowding and stowing k-key bindings as s-scan codes</li>
-<li>handwing input using <a href="input/keyboard.html#keyboard-events">events</a> and using scan codes to identify t-the key</li>
-<li>stowing key codes onwy fow dispwaying t-the nyame of a-a key in the ui</li>
-</ul>
-<p>doing things this way means that u-usews with muwtipwe k-keyboawd wayouts i-in the
-os wiww nyot have theiw keybindings b-bweak if they a-accidentawwy switch t-theiw
-wayout mid-game, ow stawt the game w-with the wwong w-wayout.</p>
-<p>unfowtunatewy, OwO this awso means youw g-game ui wiww d-dispway the symbow f-fwom the
-wayout that was used when wegistewing t-the key bindings. OwO t-this may b-be wwong
-ow confusing if the usew has changed t-the cuwwentwy a-active wayout.</p>
+<p>key codes wepwesent the wogicaw meaning o-of each key (usuawwy t-the s-symbow/wettew,
+ow function it pewfowms). OwO they awe d-dependent on the k-keyboawd wayout c-cuwwentwy
+active in the usew's os. ^•ﻌ•^ bevy wepwesents t-them with t-the <a href="https://docs.rs/bevy/0.9.1/bevy/input/keyboard/enum.KeyCode.html"><code>KeyCode</code></a> enum.</p>
+<p>scan codes wepwesent the physicaw k-key on the keyboawd, OwO w-wegawdwess o-of the system
+wayout. &gt;_&lt; bevy wepwesents them using <a href="https://docs.rs/bevy/0.9.1/bevy/input/keyboard/struct.ScanCode.html"><code>ScanCode</code></a>, XD which contains
+an integew id. OwO the exact vawue of t-the integew is m-meaningwess and o-os-dependent,
+but a given physicaw key on the keyboawd w-wiww awways p-pwoduce the s-same vawue,
+wegawdwess of the usew's wanguage a-and keyboawd wayout s-settings.</p>
+<h2 id="best-pwactices-fow-key-bindings"><a class="header" href="#best-pwactices-fow-key-bindings">best pwactices fow key bindings</a></h2>
+<p>hewe is some advice fow how to impwement u-usew-fwiendwy w-wemappabwe k-key-bindings
+fow youw game, OwO that can wowk weww f-fow intewnationaw u-usews ow those w-with
+non-qwewty keyboawd wayouts.</p>
+<p>this section assumes that you have i-impwemented some s-sowt of system t-to awwow the
+usew to weconfiguwe theiw keybindings. OwO y-you want to p-pwompt the usew t-to pwess
+theiw pwefewwed key fow a given in-game a-action, OwO so y-you can stowe/wemembew i-it
+and watew use it fow gamepway.</p>
+<p>the pwobwem is that, OwO if you simpwy u-use key codes, 🥺 t-then usews might a-accidentawwy
+switch theiw os keyboawd wayout mid-game a-and suddenwy h-have theiw k-keyboawd nyot
+wowk as expected.</p>
+<p>you shouwd detect and stowe the usew's c-chosen keys u-using scan codes, OwO a-and use
+scan codes fow detecting keyboawd i-input duwing gamepway.</p>
+<p>key codes can stiww be used fow ui p-puwposes, OwO wike t-to dispway the c-chosen key
+to the usew.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="mouse"><a class="header" href="#mouse">mouse</a></h1>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/input/mouse_input.rs"><code>mouse_input</code></a>,
@@ -3272,6 +3281,10 @@ the wheew on desktop mice. &gt;</em>&lt; <code>Pixel</code> is fow hawdwawe with
 scwowwing, &gt;_&lt; wike waptop touchpads.</p>
 <p>you shouwd pwobabwy handwe each of t-these diffewentwy (with d-diffewent
 sensitivity settings), OwO to pwovide a-a good expewience o-on both types o-of hawdwawe.</p>
+<p><strong>note:</strong> the <code>Line</code> unit is nyot guawanteed to have w-whowe nyumbew vawues/steps!
+at weast macos does nyon-wineaw scawing / a-accewewation o-of scwowwing a-at the os
+wevew, OwO meaning youw app wiww get a-a fwactionaw nyumbew o-of wines even w-when using a
+weguwaw pc mouse with a scwoww wheew.</p>
 <h2 id="mouse-motion"><a class="header" href="#mouse-motion">mouse motion</a></h2>
 <p>use this if you don't cawe about t-the exact position o-of the mouse c-cuwsow,
 but wathew you just want to see how m-much it moved f-fwom fwame to fwame. OwO t-this
