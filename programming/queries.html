@@ -139,6 +139,18 @@
 <a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
 <p>quewies wet you access <a href="/programming/ecs-intro.html">components of entities</a>.</p>
+<p>use the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a> <a href="/programming/systems.html">system pawametew</a>, XD whewe you can
+specify the data you want to access, ^•ﻌ•^ a-and optionawwy a-additionaw
+<a href="/programming/queries.html#query-filters">fiwtews</a> fow sewecting entities.</p>
+<p>think of the types you put in youw <code>Query</code> as a &quot;specification&quot; fow sewecting
+nani entities you want to access. OwO q-quewies wiww match o-onwy those entities i-in the
+ecs wowwd that fit youw specification. OwO y-you awe then a-abwe to access t-the wewevant
+data fwom individuaw such entities (using a-an <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> id), XD ow
+itewate to access aww entities that q-quawify.</p>
+<p>the fiwst type pawametew fow a quewy i-is the data y-you want to access. OwO u-use <code>&amp;</code> fow
+shawed/weadonwy access and <code>&amp;mut</code> fow excwusive/mutabwe access. &gt;_&lt; use <code>Option</code> if
+the component is nyot wequiwed (you w-want to find e-entities with ow w-without that
+component. ^•ﻌ•^ if you want muwtipwe components, OwO p-put them i-in a tupwe.</p>
 <pre><code class="language-rust no_run noplayground">fn check_zewo_heawth(
     // access e-entities that h-have `heawth` and `twansfowm` components
     // g-get wead-onwy access t-to `heawth` a-and mutabwe access t-to `twansfowm`
@@ -160,29 +172,33 @@
         }
     }
 }</code></pre>
-<p>get the <a href="/programming/ec.html#components">components</a> associated with a specific
-<a href="/programming/ec.html#entities">entity</a>:</p>
+<p>the above exampwe used itewation t-to access aww entities t-that the q-quewy couwd find.</p>
+<p>to access the <a href="/programming/ec.html#components">components</a> fwom specific <a href="/programming/ec.html#entities">entity</a>
+onwy:</p>
 <pre><code class="language-rust no_run noplayground">    if wet ok((heawth, ( ͡o ω ͡o ) mut twansfowm)) = q-quewy.get_mut(entity) {
         // d-do something w-with the c-components
     } e-ewse {
         // t-the entity does n-nyot have the c-components fwom the quewy
     }</code></pre>
-<p>get the ids (<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a>) of the entities you access with
-youw quewies:</p>
+<p>if you want to know the entity ids o-of the entities y-you awe accessing, OwO y-you can
+put the speciaw <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> type in youw quewy. &gt;_&lt; this is usefuw
+togethew with itewation, OwO so you can i-identify the e-entities that the q-quewy found:</p>
 <pre><code class="language-rust no_run noplayground">// add `entity` to `quewy` to get e-entity ids
 fn quewy_entities(q: q-quewy&lt;(entity, (U ᵕ U❁) /* ... */)&gt;) {
     f-fow (e, (⑅˘꒳˘) /* ... */) i-in q.itew() {
         // `e` i-is the entity i-id of the entity w-we awe accessing
     }
 }</code></pre>
-<p>if you know that the quewy shouwd o-onwy evew match a-a singwe entity, OwO y-you can
-use <code>single</code>/<code>single_mut</code>, XD instead of itewating:</p>
+<p>if you know that the quewy is expected t-to onwy evew m-match a singwe e-entity, you
+can use <code>single</code>/<code>single_mut</code> (panic on ewwow) ow <code>get_single</code>/<code>get_single_mut</code>
+(wetuwn <a href="https://doc.rust-lang.org/stable/std/result/enum.Result.html"><code>Result</code></a>). (ꈍᴗꈍ) these methods ensuwe that thewe e-exists exactwy
+one candidate entity that can match y-youw quewy, OwO and w-wiww pwoduce a-an ewwow
+othewwise.</p>
 <pre><code class="language-rust no_run noplayground">fn quewy_pwayew(mut q: quewy&lt;(&amp;pwayew, (U ᵕ U❁) &amp;mut t-twansfowm)&gt;) {
     w-wet (pwayew, (⑅˘꒳˘) m-mut twansfowm) = q-q.singwe_mut();
 
     // d-do something w-with the pwayew a-and its twansfowm
 }</code></pre>
-<p>(this wiww panic if the quewy matches m-mowe than one e-entity)</p>
 <h2 id="bundwes"><a class="header" href="#bundwes">bundwes</a></h2>
 <p>quewies wowk with individuaw components. OwO i-if you cweated a-an entity u-using a
 <a href="/programming/ec.html#component-bundles">bundwe</a>, ^•ﻌ•^ you nyeed to quewy fow the specific c-components f-fwom
@@ -190,6 +206,11 @@ that bundwe that you cawe about.</p>
 <p>a common beginnew mistake is to quewy f-fow the bundwe t-type!</p>
 <h2 id="quewy-fiwtews"><a class="header" href="#quewy-fiwtews">quewy fiwtews</a></h2>
 <p>add quewy fiwtews to nyawwow down t-the entities you g-get fwom the quewy.</p>
+<p>this is done using the second (optionaw) g-genewic t-type pawametew of t-the
+<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a> type.</p>
+<p>note the syntax of the quewy: fiwst y-you specify the d-data you want t-to access
+(using a tupwe to access muwtipwe t-things), ^•ﻌ•^ and then y-you add any additionaw
+fiwtews (can awso be a tupwe, (ꈍᴗꈍ) to a-add muwtipwe).</p>
 <p>use <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.With.html"><code>With</code></a>/<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Without.html"><code>Without</code></a> to onwy get entities
 that have specific components.</p>
 <pre><code class="language-rust no_run noplayground">fn debug_pwayew_hp(
@@ -205,6 +226,10 @@ that have specific components.</p>
         }
     }
 }</code></pre>
+<p>this is usefuw if you don't actuawwy c-cawe about the d-data stowed inside t-these
+components, OwO but you want to make s-suwe that youw quewy o-onwy wooks f-fow entities
+that have (ow nyot have) them. OwO if y-you want the data, 🥺 t-then put the c-component in
+the fiwst pawt of the quewy (as shown p-pweviouswy), OwO i-instead of using a-a fiwtew.</p>
 <p>muwtipwe fiwtews can be combined:</p>
 <ul>
 <li>in a tupwe to appwy aww of them (and w-wogic)</li>

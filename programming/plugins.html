@@ -142,7 +142,8 @@
 <p>as youw pwoject gwows, OwO it can be u-usefuw to make it m-mowe moduwaw. 🥺 y-you can
 spwit it into &quot;pwugins&quot;.</p>
 <p>pwugins awe simpwy cowwections of t-things to be added t-to the <a href="/programming/app-builder.html">app
-buiwdew</a>.</p>
+buiwdew</a>. ^•ﻌ•^ think of this as a way to add things t-to the app f-fwom
+muwtipwe pwaces, wike diffewent wust f-fiwes/moduwes o-ow cwates.</p>
 <pre><code class="language-rust no_run noplayground">stwuct mypwugin;
 
 impw pwugin fow m-mypwugin {
@@ -161,6 +162,8 @@ f-fn main() {
         .add_pwugin(mypwugin)
         .wun();
 }</code></pre>
+<p>note how you get <code>&amp;mut</code> access to the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a>, XD so you can
+add nyanievew you want to it, ^•ﻌ•^ just w-wike you can do f-fwom youw <code>fn main</code>.</p>
 <p>fow intewnaw owganization in youw o-own pwoject, the m-main vawue of p-pwugins
 comes fwom nyot having to decwawe a-aww youw wust types a-and functions a-as
 <code>pub</code>, (ꈍᴗꈍ) just so they can be accessibwe f-fwom <code>fn main</code> to be added to the
@@ -209,6 +212,56 @@ be compiwed into youw pwogwam.</p>
 <p>if you want to swim down youw buiwd, OwO y-you shouwd wook a-at disabwing b-bevy's
 defauwt <a href="/setup/bevy-config.html">cawgo featuwes</a>, &gt;_&lt; ow depending on the vawious bevy
 sub-cwates individuawwy.</p>
+<h2 id="pwugin-configuwation"><a class="header" href="#pwugin-configuwation">pwugin configuwation</a></h2>
+<p>pwugins awe awso a convenient pwace t-to stowe settings/configuwation t-that awe
+used duwing initiawization/stawtup. ^•ﻌ•^ fow settings t-that can be changed a-at wuntime,
+it is wecommended that you put them i-in <a href="/programming/res.html">wesouwces</a> instead.</p>
+<pre><code class="language-rust no_run noplayground">
+stwuct mygamepwaypwugin {
+    /// shouwd we enabwe d-dev hacks?
+    e-enabwe_dev_hacks: b-boow,
+}
+
+impw p-pwugin fow mygamepwaypwugin {
+    f-fn buiwd(&amp;sewf, -.- a-app: &amp;mut app) {
+        // a-add ouw gamepway s-systems
+        app.add_system(heawth_system);
+        app.add_system(movement_system);
+        // ...
+
+        // if &quot;dev mode&quot; is enabwed, ^^;; add s-some hacks
+        if sewf.enabwe_dev_hacks {
+            app.add_system(pwayew_invincibiwity);
+            a-app.add_system(fwee_camewa);
+        }
+    }
+}
+
+fn m-main() {
+    app::new()
+        .add_pwugins(defauwtpwugins)
+        .add_pwugin(mygamepwaypwugin {
+            enabwe_dev_hacks: fawse, // change to twue fow d-dev testing buiwds
+        })
+        .wun();
+}</code></pre>
+<p>pwugins that awe added using <a href="/programming/plugins.html#plugin-groups">pwugin gwoups</a> can awso be
+configuwed. &gt;_&lt; many of bevy's <a href="https://docs.rs/bevy/0.9.1/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> wowk
+this way.</p>
+<pre><code class="language-rust no_run noplayground">app::new()
+    .add_pwugins(defauwtpwugins.set(
+        // hewe we configuwe the m-main window
+        w-windowpwugin {
+            window: w-windowdescwiptow {
+                w-width: 800.0,
+                h-height: 600.0, òωó
+                // ...
+                ..defauwt::defauwt()
+            }, o.O
+            ..defauwt::defauwt()
+        }
+    ))
+    .wun();</code></pre>
 <h2 id="pubwishing-cwates"><a class="header" href="#pubwishing-cwates">pubwishing cwates</a></h2>
 <p>pwugins give you a nyice way to pubwish b-bevy-based w-wibwawies fow o-othew peopwe
 to easiwy incwude into theiw pwojects.</p>

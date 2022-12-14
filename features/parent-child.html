@@ -162,6 +162,11 @@ commands.spawn(mypawentbundwe::defauwt())
     .with_chiwdwen(|pawent| {
         pawent.spawn(mychiwdbundwe::defauwt());
     });</code></pre>
+<p>note that this onwy sets up the <a href="https://docs.rs/bevy/0.9.1/bevy/hierarchy/struct.Parent.html"><code>Parent</code></a> and
+<a href="https://docs.rs/bevy/0.9.1/bevy/hierarchy/struct.Children.html"><code>Children</code></a> components, ^•ﻌ•^ and nyothing ewse. OwO nyotabwy, 🥺 i-it does n-not
+add <a href="/features/transforms.html">twansfowms</a> ow <a href="/features/visibility.html">visibiwity</a> fow you. XD  if you
+need that functionawity, OwO you nyeed t-to add those components y-youwsewf, 🥺 u-using
+something wike <a href="https://docs.rs/bevy/0.9.1/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a>.</p>
 <p>you can despawn an entiwe hiewawchy w-with a singwe <a href="/programming/commands.html">command</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn cwose_menu(
     mut commands: c-commands, ( ͡o ω ͡o )
@@ -226,9 +231,10 @@ the chiwdwen to be affected by the p-pawent.</p>
 wewative to theiw pawent and move w-with it.</p>
 <p><a href="/features/visibility.html">visibiwity</a> pwopagation awwows chiwdwen to be h-hidden if
 you manuawwy hide theiw pawent.</p>
-<p>aww <a href="/builtins.html#bundles">bundwes that come with bevy</a> pwovide
-this behaviow automaticawwy.</p>
-<p>othewwise, &gt;_&lt; you can use <a href="https://docs.rs/bevy/0.9.1/bevy/transform/struct.TransformBundle.html"><code>SpatialBundle</code></a> to make suwe
+<p>most <a href="/builtins.html#bundles">bundwes that come with bevy</a> pwovide these behaviows
+automaticawwy. OwO check the docs fow t-the bundwes you a-awe using.  camewa b-bundwes,
+fow exampwe, (ꈍᴗꈍ) have twansfowms, ^•ﻌ•^ but n-nyot visibiwity.</p>
+<p>othewwise, &gt;_&lt; you can use <a href="https://docs.rs/bevy/0.9.1/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> to make suwe
 youw entities have aww the nyecessawy c-components.</p>
 <h2 id="known-pitfawws"><a class="header" href="#known-pitfawws">known pitfawws</a></h2>
 <h3 id="despawning-chiwd-entities"><a class="header" href="#despawning-chiwd-entities">despawning chiwd entities</a></h3>
