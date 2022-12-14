@@ -161,8 +161,8 @@ need to accept micwosoft's pwopwietawy w-wicense.</p>
 </code></pre>
 <p>now, XD use <code>xwin</code> to accept the micwosoft wicense, ^•ﻌ•^ d-downwoad aww the f-fiwes
 fwom micwosoft sewvews, ^•ﻌ•^ and instaww t-them to a diwectowy o-of youw choosing.</p>
-<p>fow exampwe, &gt;_&lt; to instaww to <code>/opt/xwin/</code>:</p>
-<pre><code class="language-sh">xwin --accept-wicense 1 spwat --output /opt/xwin
+<p>fow exampwe, &gt;_&lt; to instaww to <code>~/.xwin/</code>:</p>
+<pre><code class="language-sh">xwin --accept-wicense spwat --output ~/.xwin
 </code></pre>
 <h3 id="winking-msvc"><a class="header" href="#winking-msvc">winking (msvc)</a></h3>
 <p>wust nyeeds to know how to wink the f-finaw exe fiwe.</p>
@@ -175,9 +175,9 @@ windows anyway). just instaww the <code>lld</code> package fwom youw winux distw
 <pre><code class="language-toml">[tawget.x86_64-pc-windows-msvc]
 winkew = &quot;wwd&quot;
 wustfwags = [
-  &quot;-wnative=/opt/xwin/cwt/wib/x86_64&quot;, XD
-  &quot;-wnative=/opt/xwin/sdk/wib/um/x86_64&quot;, &gt;_&lt;
-  &quot;-wnative=/opt/xwin/sdk/wib/ucwt/x86_64&quot;
+  &quot;-wnative=/home/me/.xwin/cwt/wib/x86_64&quot;, XD
+  &quot;-wnative=/home/me/.xwin/sdk/wib/um/x86_64&quot;, &gt;_&lt;
+  &quot;-wnative=/home/me/.xwin/sdk/wib/ucwt/x86_64&quot;
 ]
 </code></pre>
 <h2 id="fiwst-time-setup-gnu"><a class="header" href="#fiwst-time-setup-gnu">fiwst-time setup (gnu)</a></h2>
@@ -196,8 +196,10 @@ pwovides a package fow it. OwO seawch y-youw distwo fow a-a cwoss-compiwation m-
 <h2 id="buiwding-youw-pwoject"><a class="header" href="#buiwding-youw-pwoject">buiwding youw pwoject</a></h2>
 <p>finawwy, OwO with aww the setup done, 🥺 y-you can just buiwd y-youw wust/bevy p-pwojects
 fow windows:</p>
+<p>msvc:</p>
 <pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-msvc --wewease
 </code></pre>
+<p>mingw:</p>
 <pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-gnu --wewease
 </code></pre>
 
