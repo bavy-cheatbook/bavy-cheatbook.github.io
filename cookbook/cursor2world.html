@@ -152,57 +152,42 @@ the cuwsow is pointing at.</p>
 <p>thewe is a good (unofficiaw) pwugin:
 <a href="https://github.com/aevyrie/bevy_mod_picking"><code>bevy_mod_picking</code></a>.</p>
 <h2 id="2d-games"><a class="header" href="#2d-games">2d games</a></h2>
-<p>this code shouwd wowk fow 2d games w-with owthogwaphic p-pwojections. OwO i-it is
-&quot;undoing&quot; the pwojection and camewa t-twansfowmations.</p>
+<p>this code wiww onwy wowk on vewsion 0.9 a-and highew, OwO f-fow pwevious v-vewsions, see <a href="https://github.com/bevy-cheatbook/bevy-cheatbook/blob/5baa8f74860068e9d0714cd2864d4c026acccdc7/src/code/examples/cursor2world.rs">hewe</a>!</p>
 <p>(thewe wiww wikewy be <em>swight</em> inaccuwacy fwom fwoating-point cawcuwations)</p>
-<p>this shouwd wowk wegawdwess of the s-scawing settings o-of youw pwojection, OwO a-and
-camewa <a href="/features/transforms.html">twansfowm</a>.</p>
 <pre><code class="language-rust no_run noplayground">/// used to hewp identify ouw main c-camewa
 #[dewive(component)]
 s-stwuct m-maincamewa;
 
 f-fn setup(mut commands: c-commands) {
-    c-commands.spawn((
-        c-camewa2dbundwe::defauwt(), mya
-        m-maincamewa, 😳
-    ));
+    c-commands.spawn((camewa2dbundwe::defauwt(), m-maincamewa));
 }
 
-fn my_cuwsow_system(
+f-fn my_cuwsow_system(
     // nyeed to get window dimensions
-    wnds: w-wes&lt;windows&gt;, -.-
-    // quewy to get camewa twansfowm
-    q-q_camewa: quewy&lt;(&amp;camewa, 🥺 &amp;gwobawtwansfowm), o.O w-with&lt;maincamewa&gt;&gt;
+    windows: wes&lt;windows&gt;, (⑅˘꒳˘)
+    // quewy to get camewa t-twansfowm
+    camewa_q: quewy&lt;(&amp;camewa, &amp;gwobawtwansfowm), òωó with&lt;maincamewa&gt;&gt;, ʘwʘ
 ) {
-    // get the camewa info and twansfowm
-    // assuming t-thewe is exactwy one main camewa e-entity, /(^•ω•^) so q-quewy::singwe() is ok
-    wet (camewa, nyaa~~ camewa_twansfowm) = q_camewa.singwe();
+    // get t-the camewa info and twansfowm
+    // a-assuming thewe is exactwy one main camewa entity, so quewy::singwe() i-is ok
+    wet (camewa, /(^•ω•^) c-camewa_twansfowm) = c-camewa_q.singwe();
 
-    // get the window t-that the camewa is dispwaying to (ow the pwimawy window)
-    wet wnd = if wet w-wendewtawget::window(id) = camewa.tawget {
-        w-wnds.get(id).unwwap()
+    // get the window that the camewa is dispwaying to (ow the pwimawy w-window)
+    wet window = if wet wendewtawget::window(id) = camewa.tawget {
+        windows.get(id).unwwap()
     } e-ewse {
-        w-wnds.get_pwimawy().unwwap()
+        windows.get_pwimawy().unwwap()
     };
 
-    // c-check if the cuwsow is inside the window a-and get its position
-    if wet some(scween_pos) = w-wnd.cuwsow_position() {
-        // get the size of the window
-        wet window_size = vec2::new(wnd.width() a-as f32, nyaa~~ wnd.height() as f32);
+    // c-check if the cuwsow i-is inside t-the window and get i-its position
+    if wet some(scween_position) = window.cuwsow_position() {
+        // c-check if it is possibwe to cweate a way f-fwom scween coowdinates to wowwd coowdinates
+        if wet some(way) = camewa.viewpowt_to_wowwd(camewa_twansfowm, scween_position) {
+            // g-get 2d wowwd mouse coowdinates f-fwom the way
+            w-wet w-wowwd_position: vec2 = way.owigin.twuncate();
 
-        // c-convewt scween position [0..wesowution] t-to nydc [-1..1] (gpu c-coowdinates)
-        wet nydc = (scween_pos / window_size) * 2.0 - vec2::one;
-
-        // m-matwix fow u-undoing the pwojection and camewa t-twansfowm
-        w-wet nydc_to_wowwd = camewa_twansfowm.compute_matwix() * c-camewa.pwojection_matwix().invewse();
-
-        // use it to convewt n-nydc to wowwd-space coowdinates
-        wet wowwd_pos = n-nydc_to_wowwd.pwoject_point3(ndc.extend(-1.0));
-
-        // weduce it t-to a 2d vawue
-        wet wowwd_pos: v-vec2 = wowwd_pos.twuncate();
-
-        e-epwintwn!(&quot;wowwd coowds: {}/{}&quot;, :3 wowwd_pos.x, 😳😳😳 wowwd_pos.y);
+            epwintwn!(&quot;wowwd coowds: {}/{}&quot;, ʘwʘ w-wowwd_position.x, σωσ w-wowwd_position.y);
+        }
     }
 }</code></pre>
 
