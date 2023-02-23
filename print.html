@@ -6580,13 +6580,15 @@ f-fn main() {
 <div style="break-before: page; page-break-before: always;"></div><h1 id="convewt-cuwsow-to-wowwd-coowdinates"><a class="header" href="#convewt-cuwsow-to-wowwd-coowdinates">convewt cuwsow to wowwd coowdinates</a></h1>
 <p><a href="cookbook//code/examples/cursor2world.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
-<p>bevy does nyot yet pwovide buiwt-in f-functions to h-hewp with finding o-out nyani
-the cuwsow is pointing at.</p>
 <h2 id="3d-games"><a class="header" href="#3d-games">3d games</a></h2>
 <p>thewe is a good (unofficiaw) pwugin:
 <a href="https://github.com/aevyrie/bevy_mod_picking"><code>bevy_mod_picking</code></a>.</p>
 <h2 id="2d-games"><a class="header" href="#2d-games">2d games</a></h2>
-<p>this code wiww onwy wowk on vewsion 0.9 a-and highew, OwO f-fow pwevious v-vewsions, see <a href="https://github.com/bevy-cheatbook/bevy-cheatbook/blob/5baa8f74860068e9d0714cd2864d4c026acccdc7/src/code/examples/cursor2world.rs">hewe</a>!</p>
+<p>stawting fwom bevy 0.9, OwO thewe awe c-camewa methods t-to hewp you convewt b-between
+scween-space (viewpowt) and wowwd-space coowdinates. ^•ﻌ•^ w-we can use this t-to easiwy
+find the position of the mouse cuwsow.</p>
+<p>this code wiww wowk wegawdwess of t-the [camewa's pwojection][cb::camewa-pwojection]
+settings and <a href="cookbook//features/transforms.html">twansfowm</a>.</p>
 <p>(thewe wiww wikewy be <em>swight</em> inaccuwacy fwom fwoating-point cawcuwations)</p>
 <pre><code class="language-rust no_run noplayground">/// used to hewp identify ouw main c-camewa
 #[dewive(component)]
@@ -6598,9 +6600,9 @@ f-fn setup(mut commands: c-commands) {
 
 f-fn my_cuwsow_system(
     // nyeed to get window dimensions
-    windows: wes&lt;windows&gt;, (⑅˘꒳˘)
+    windows: wes&lt;windows&gt;, &gt;_&lt;
     // quewy to get camewa t-twansfowm
-    camewa_q: quewy&lt;(&amp;camewa, &amp;gwobawtwansfowm), òωó with&lt;maincamewa&gt;&gt;, ʘwʘ
+    camewa_q: quewy&lt;(&amp;camewa, &amp;gwobawtwansfowm), &gt;_&lt; with&lt;maincamewa&gt;&gt;, (⑅˘꒳˘)
 ) {
     // get t-the camewa info and twansfowm
     // a-assuming thewe is exactwy one main camewa entity, so quewy::singwe() i-is ok
@@ -6614,16 +6616,18 @@ f-fn my_cuwsow_system(
     };
 
     // c-check if the cuwsow i-is inside t-the window and get i-its position
-    if wet some(scween_position) = window.cuwsow_position() {
-        // c-check if it is possibwe to cweate a way f-fwom scween coowdinates to wowwd coowdinates
-        if wet some(way) = camewa.viewpowt_to_wowwd(camewa_twansfowm, scween_position) {
-            // g-get 2d wowwd mouse coowdinates f-fwom the way
-            w-wet w-wowwd_position: vec2 = way.owigin.twuncate();
-
-            epwintwn!(&quot;wowwd coowds: {}/{}&quot;, ʘwʘ w-wowwd_position.x, σωσ w-wowwd_position.y);
-        }
+    // then, rawr x3 ask bevy to convewt i-into wowwd coowdinates, (U ﹏ U) and twuncate to discawd z-z
+    if wet some(wowwd_position) = window.cuwsow_position()
+        .and_then(|cuwsow| camewa.viewpowt_to_wowwd(camewa_twansfowm, cuwsow))
+        .map(|way| way.owigin.twuncate())
+    {
+        epwintwn!(&quot;wowwd c-coowds: {}/{}&quot;, (U ﹏ U) wowwd_position.x, (⑅˘꒳˘) w-wowwd_position.y);
     }
 }</code></pre>
+<p>in owdew vewsions of bevy, OwO thewe w-wewe nyo such coowdinate c-convewsion m-methods, 🥺 and
+the math had to be done manuawwy. OwO i-if you awe intewested i-in how that w-wowks, see
+the exampwe fwom an owd vewsion of t-the book,
+<a href="https://github.com/bevy-cheatbook/bevy-cheatbook/blob/5baa8f74860068e9d0714cd2864d4c026acccdc7/src/code/examples/cursor2world.rs">hewe</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="custom-camewa-pwojection"><a class="header" href="#custom-camewa-pwojection">custom camewa pwojection</a></h1>
 <p><a href="cookbook//code/examples/custom-projection.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
