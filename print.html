@@ -2421,6 +2421,50 @@ befowe a camewa wendews anything.</p>
 <p>you can awso disabwe cweawing on a-a camewa, OwO if you w-want to pwesewve a-aww the
 pixews as they wewe befowe.</p>
 <p><a href="features//window/clear-color.html">see this page fow mowe info.</a></p>
+<h2 id="wendew-wayews"><a class="header" href="#wendew-wayews">wendew wayews</a></h2>
+<p><a href="https://docs.rs/bevy/0.9.1/bevy/render/view/visibility/struct.RenderLayers.html"><code>RenderLayers</code></a> is a way to fiwtew nyani entities s-shouwd be
+dwawn by nyani camewas. &gt;_&lt; insewt this <a href="features//programming/ec.html#components">component</a> onto youw entities
+to pwace them in specific &quot;wayews&quot;. OwO t-the wayews awe i-integews fwom 0 t-to 31 (32
+totaw avaiwabwe).</p>
+<p>insewting this component onto a camewa e-entity sewects n-nyani wayews t-that camewa
+shouwd wendew. OwO insewting this component o-onto wendewabwe e-entities s-sewects nyani
+camewas shouwd wendew those entities. OwO a-an entity wiww b-be wendewed i-if thewe is any
+ovewwap between the camewa's wayews a-and the entity's w-wayews (they h-have at weast
+one wayew in common).</p>
+<p>if an entity does nyot have the <a href="https://docs.rs/bevy/0.9.1/bevy/render/view/visibility/struct.RenderLayers.html"><code>RenderLayers</code></a> component,
+it is assumed to bewong to wayew 0 (onwy).</p>
+<pre><code class="language-rust no_run noplayground">use bevy::wendew::view::visibiwity::wendewwayews;
+// this camewa w-wendews evewything i-in wayews 0, rawr x3 1
+c-commands.spawn((
+    c-camewa2dbundwe::defauwt(), nyaa~~
+    w-wendewwayews::fwom_wayews(&amp;[0, /(^•ω•^) 1])
+));
+// t-this camewa wendews e-evewything in w-wayews 1, rawr 2
+commands.spawn((
+    camewa2dbundwe::defauwt(), OwO
+    wendewwayews::fwom_wayews(&amp;[1, (U ﹏ U) 2])
+));
+// this spwite wiww onwy b-be seen by the fiwst camewa
+commands.spawn((
+    spwitebundwe::defauwt(), &gt;_&lt;
+    w-wendewwayews::wayew(0), rawr x3
+));
+// this spwite wiww b-be seen by both camewas
+commands.spawn((
+    spwitebundwe::defauwt(), mya
+    wendewwayews::wayew(1), nyaa~~
+));
+// t-this spwite wiww onwy be s-seen by the second c-camewa
+commands.spawn((
+    spwitebundwe::defauwt(), (⑅˘꒳˘)
+    wendewwayews::wayew(2), rawr x3
+));
+// this spwite wiww awso b-be seen by both camewas
+commands.spawn((
+    spwitebundwe::defauwt(), (✿oωo)
+    wendewwayews::fwom_wayews(&amp;[0, (ˆ ﻌ ˆ)♡ 2]),
+));</code></pre>
+<p>you can awso modify the wendew wayews o-of entities a-aftew they awe s-spawned.</p>
 <h2 id="camewa-owdewing"><a class="header" href="#camewa-owdewing">camewa owdewing</a></h2>
 <p>a camewa's pwiowity is a simpwe integew v-vawue that c-contwows the owdew w-wewative
 to any othew camewas with the same w-wendew tawget.</p>
