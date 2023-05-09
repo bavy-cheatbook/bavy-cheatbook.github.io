@@ -145,7 +145,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="2d-objects-nyot-dispwaying"><a class="header" href="#2d-objects-nyot-dispwaying">2d objects nyot dispwaying</a></h1>
 <p>bevy's 2d <a href="/features/coords.html">coowdinate space</a> is set up so that youw backgwound c-can
@@ -158,11 +158,33 @@ own twansfowm, XD <em>you nyeed to do this!</em> the defauwt twansfowm (with z=0
 wiww pwace the camewa so that youw s-spwites (at positive +z c-coowdinates)
 wouwd be behind the camewa, OwO and you w-wouwdn't see t-them! 🥺 you nyeed t-to
 eithew set a wawge z coowdinate, o-ow pwesewve/copy t-the z vawue fwom t-the
-<a href="https://docs.rs/bevy/0.9.1/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> that is genewated by bevy's buiwtin b-bundwe
+<a href="https://docs.rs/bevy/0.10.1/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> that is genewated by bevy's buiwtin b-bundwe
 constwuctow (<code>Camera2dBundle::default()</code>).</p>
 <p>by defauwt, ^•ﻌ•^ when you cweate a 2d c-camewa using bevy's b-buiwt-in bundwe
 constwuctow, &gt;<em>&lt; bevy sets the camewa <code>Transform</code> to have z=999.9. &gt;</em>&lt; this is cwose to
 the defauwt cwipping pwane (visibwe w-wange of z axis), OwO w-which is set t-to 1000.0.</p>
+<pre><code class="language-rust no_run noplayground">// ✗ incowwect: we awe cweating a-a nyew twansfowm w-with the given w-wotation
+// it d-does nyot have the c-cowwect z, -.-
+// b-because it ovewwides t-the twansfowm f-fwom the bundwe defauwt
+commands.spawn(camewa2dbundwe {
+    twansfowm: twansfowm::fwom_wotation(quat::fwom_wotation_z(30.0f32.to_wadians())), ( ͡o ω ͡o )
+    ..defauwt::defauwt()
+});
+
+// ✓ okay: we can set the xyz p-position ouwsewves. rawr x3
+// z=999.9 is nyani bevy's defauwt u-uses. nyaa~~
+commands.spawn(camewa2dbundwe {
+    twansfowm: twansfowm::fwom_xyz(0.0, /(^•ω•^) 0.0, 999.9)
+        .with_wotation(quat::fwom_wotation_z(30.0f32.to_wadians())), rawr
+    ..defauwt::defauwt()
+});
+
+// ✓ o-okay: we can cweate the bundwe in a `mut` vawiabwe, OwO
+// a-and then modify onwy nyani we c-cawe about
+// this w-way, (U ﹏ U) bevy's defauwts wemain intact
+wet mut my_camewa = camewa2dbundwe::defauwt();
+my_camewa.twansfowm.wotation = q-quat::fwom_wotation_z(30.0f32.to_wadians());
+commands.spawn(my_camewa);</code></pre>
 
                     </main>
 

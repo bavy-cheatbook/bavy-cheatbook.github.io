@@ -145,105 +145,82 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
-<h1 id="ewwow-adding-function-as-system"><a class="header" href="#ewwow-adding-function-as-system">ewwow adding function as system</a></h1>
-<p>you can sometimes get confusing awcane c-compiwew ewwows w-when you twy t-to add
-systems to youw bevy app.</p>
-<p>the ewwows can wook wike this:</p>
-<pre><code>the twait bound `fow&lt;'w, OwO 's, 't0&gt; fn(bevy::pwewude::quewy&lt;'w, 🥺 's, òωó (&amp;'t0 p-pawam)) {my_system}: i-intosystem&lt;(), o.O (), (U ᵕ U❁) _&gt;` i-is nyot satisfied
-</code></pre>
-<p>this is caused by youw function having i-incompatibwe p-pawametews. OwO bevy c-can
-onwy accept speciaw types as system p-pawametews.</p>
-<p>you might awso ewwows that wook wike t-this:</p>
-<pre><code>the twait bound `component: wowwdquewy` i-is nyot satisfied
-t-the twait `wowwdquewy` i-is nyot impwemented f-fow `component`
-</code></pre>
-<pre><code>this stwuct takes at most 2 type a-awguments but 3 t-type awguments wewe s-suppwied
-</code></pre>
-<p>these ewwows awe caused by a mawfowmed q-quewy.</p>
+<h1 id="obscuwe-wust-compiwew-ewwows"><a class="header" href="#obscuwe-wust-compiwew-ewwows">obscuwe wust compiwew ewwows</a></h1>
+<p>you can get confusing compiwew ewwows w-when you twy t-to add <a href="/programming/systems.html">systems</a>
+to youw bevy <a href="/programming/app-builder.html">app</a>.</p>
 <h2 id="common-beginnew-mistakes"><a class="header" href="#common-beginnew-mistakes">common beginnew mistakes</a></h2>
 <ul>
-<li>using <code>&amp;mut Commands</code> (bevy 0.4 syntax) instead of <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>.</li>
+<li>using <code>commands: &amp;mut Commands</code> instead of <code>mut commands: Commands</code>.</li>
 <li>using <code>Query&lt;MyStuff&gt;</code> instead of <code>Query&lt;&amp;MyStuff&gt;</code> ow <code>Query&lt;&amp;mut MyStuff&gt;</code>.</li>
 <li>using <code>Query&lt;&amp;ComponentA, &amp;ComponentB&gt;</code> instead of <code>Query&lt;(&amp;ComponentA, &amp;ComponentB)&gt;</code>
 (fowgetting the tupwe)</li>
-<li>using youw wesouwce types diwectwy w-without <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Res.html"><code>Res</code></a> ow <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>.</li>
-<li>using youw component types diwectwy w-without putting t-them in a <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a>.</li>
+<li>using youw wesouwce types diwectwy w-without <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.Res.html"><code>Res</code></a> ow <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>.</li>
+<li>using youw component types diwectwy w-without putting t-them in a <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a>.</li>
 <li>using othew awbitwawy types in youw f-function.</li>
 </ul>
 <p>note that <code>Query&lt;Entity&gt;</code> is cowwect, (ꈍᴗꈍ) because the entity id i-is speciaw;
 it is nyot a component.</p>
-<h2 id="suppowted-types"><a class="header" href="#suppowted-types">suppowted types</a></h2>
-<p>onwy the fowwowing types awe suppowted a-as system p-pawametews:</p>
-<p><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/trait.SystemParam.html#implementors">(wist in api docs)</a></p>
-<p>in weguwaw <a href="/programming/systems.html">systems</a>:</p>
-<ul>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>:
-manipuwate the ecs using <a href="/programming/commands.html">commands</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>:
-shawed access to a <a href="/programming/res.html">wesouwce</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>:
-excwusive (mutabwe) access to a <a href="/programming/res.html">wesouwce</a></li>
-<li><code>Option&lt;Res&lt;T&gt;&gt;</code>:
-shawed access to a wesouwce that m-may nyot exist</li>
-<li><code>Option&lt;ResMut&lt;T&gt;&gt;</code>:
-excwusive (mutabwe) access to a wesouwce that may n-nyot exist</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query&lt;T, F = ()&gt;</code></a> (can contain tupwes of up to 15 t-types):
-access to <a href="/programming/intro-data.html#entities--components">entities and components</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ParamSet.html"><code>ParamSet</code></a> (with up to 8 pawams):
-wesowve <a href="/programming/paramset.html">confwicts between incompatibwe system p-pawametews</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
-data <a href="/programming/local.html">wocaw</a> to the system</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a>:
-weceive <a href="/programming/events.html">events</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a>:
-send <a href="/programming/events.html">events</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.RemovedComponents.html"><code>RemovedComponents&lt;T&gt;</code></a>:
-<a href="/programming/change-detection.html#removal-detection">wemovaw detection</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a>:
-shawed access to <a href="/programming/non-send.html">non-<code>Send</code></a> (main thwead onwy) data</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a>:
-mut access to <a href="/programming/non-send.html">non-<code>Send</code></a> (main thwead onwy) data</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ParallelCommands.html"><code>ParallelCommands</code></a>:
-abstwaction to hewp use <code>Commands</code> when you wiww do youw own pawawwewism</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemName.html"><code>SystemName</code></a>:
-the nyame (stwing) of the system, ^•ﻌ•^ m-may be usefuw fow d-debugging</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>&amp;World</code></a>:
-wead-onwy <a href="/programming/world.html">diwect access to the ecs wowwd</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/entity/struct.Entities.html"><code>Entities</code></a>:
-wow-wevew ecs metadata: aww entities</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/component/struct.Components.html"><code>Components</code></a>:
-wow-wevew ecs metadata: aww components</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/bundle/struct.Bundles.html"><code>Bundles</code></a>:
-wow-wevew ecs metadata: aww bundwes</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/archetype/struct.Archetypes.html"><code>Archetypes</code></a>:
-wow-wevew ecs metadata: aww awchetypes</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemChangeTick.html"><code>SystemChangeTick</code></a>:
-wow-wevew ecs metadata: tick used f-fow change detection</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.StaticSystemParam.html"><code>StaticSystemParam</code></a>:
-hewpew fow genewic system abstwactions, ^•ﻌ•^ t-to avoid w-wifetime annotations</li>
-<li>tupwes containing any of these types, ^•ﻌ•^ w-with up to 16 m-membews</li>
-</ul>
-<p>in <a href="/programming/exclusive.html">excwusive systems</a>:</p>
-<ul>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>:
-fuww <a href="/programming/world.html">diwect access to the ecs wowwd</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
-data <a href="/programming/local.html">wocaw</a> to the system</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemState.html"><code>SystemState&lt;P&gt;</code></a>:
-emuwates a weguwaw system, OwO awwowing y-you to easiwy a-access data fwom t-the wowwd.
-<code>P</code> awe the system pawametews.</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.QueryState.html"><code>QueryState&lt;Q, F = ()&gt;</code></a>:
-awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a>
-in weguwaw systems.</li>
-</ul>
-<p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe,
-gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up to
-16 membews, &gt;_&lt; but can be nyested indefinitewy.</p>
-<p>systems wunning duwing the <a href="/gpu/stages.html">extwact stage</a> can awso use
-<a href="https://docs.rs/bevy/0.9.1/bevy/render/struct.Extract.html"><code>Extract&lt;T&gt;</code></a>, (ꈍᴗꈍ) to access data fwom the main wowwd i-instead of the
-wendew wowwd. XD <code>T</code> can be any othew system pawametew t-type.</p>
+<h2 id="ewwow-adding-function-as-system"><a class="header" href="#ewwow-adding-function-as-system">ewwow adding function as system</a></h2>
+<p>the ewwows can wook wike this:</p>
+<pre><code>ewwow[e0277]: the twait bound `fow&lt;'a, ^^;; 'b, 'c&gt; f-fn(...) {system}: i-intosystem&lt;(), &gt;_&lt; (), _&gt;` i-is nyot satisfied
+   --&gt; s-swc/main.ws:5:21
+    |
+5   |         .add_system(my_system)
+    |          ---------- ^^^^^^^^^ t-the twait `intosystem&lt;(), mya (), _&gt;` i-is nyot impwemented f-fow fn item `fow&lt;'a, mya 'b, 'c&gt; f-fn(...) {system}`
+    |          |
+    |          wequiwed by a bound intwoduced by this caww
+    |
+    = hewp: t-the twait `intosystemappconfig&lt;()&gt;` is impwemented fow `systemappconfig`
+    = n-nyote: wequiwed fow `fow&lt;'a, 😳 'b, 'c&gt; f-fn(...) {system}` to impwement `intosystemconfig&lt;_&gt;`
+    = note: wequiwed fow `fow&lt;'a, XD 'b, 'c&gt; f-fn(...) {system}` to impwement `intosystemappconfig&lt;_&gt;`
+</code></pre>
+<p>the ewwow (confusingwy) points to t-the pwace in youw c-code whewe you t-twy to add the s-system,
+but in weawity, (ꈍᴗꈍ) the pwobwem is actuawwy i-in the <code>fn</code> function definition!</p>
+<p>this is caused by youw function having i-invawid pawametews. (ꈍᴗꈍ) <a href="/builtins.html#systemparams">bevy can
+onwy accept speciaw types as system p-pawametews!</a></p>
+<h2 id="ewwow-on-mawfowmed-quewies"><a class="header" href="#ewwow-on-mawfowmed-quewies">ewwow on mawfowmed quewies</a></h2>
+<p>you might awso ewwows that wook wike t-this:</p>
+<pre><code>ewwow[e0277]: the twait bound `twansfowm: w-wowwdquewy` i-is nyot satisfied
+   --&gt; s-swc/main.ws:10:12
+    |
+10  |     q-quewy: quewy&lt;twansfowm&gt;, 😳
+    |            ^^^^^^^^^^^^^^^ t-the twait `wowwdquewy` i-is nyot impwemented f-fow `twansfowm`
+    |
+    = h-hewp: the fowwowing othew types impwement twait `wowwdquewy`:
+              &amp;'__w mut t
+              &amp;t
+              ()
+              (f0, XD f1)
+              (f0, :3 f-f1, f2)
+              (f0, 😳😳😳 f1, f2, f3)
+              (f0, -.- f1, f2, f3, f4)
+              (f0, ( ͡o ω ͡o ) f-f1, f2, f3, rawr x3 f4, f5)
+            a-and 54 othews
+nyote: wequiwed by a bound in `bevy::pwewude::quewy`
+   --&gt; ~/.cawgo/wegistwy/swc/index.cwates.io-6f17d22bba15001f/bevy_ecs-0.10.0/swc/system/quewy.ws:276:37
+    |
+276 | pub stwuct q-quewy&lt;'wowwd, nyaa~~ 'state, /(^•ω•^) q: wowwdquewy, rawr f-f: weadonwywowwdquewy = ()&gt; {
+    |                                     ^^^^^^^^^^ w-wequiwed by this bound in `quewy`
+</code></pre>
+<p>to access youw components, ^•ﻌ•^ you nyeed t-to use wefewence s-syntax (<code>&amp;</code> ow <code>&amp;mut</code>).</p>
+<pre><code>ewwow[e0107]: stwuct takes at most 2 g-genewic awguments b-but 3 genewic a-awguments wewe s-suppwied
+   --&gt; s-swc/main.ws:10:12
+    |
+10  |     q-quewy: quewy&lt;&amp;twansfowm, (⑅˘꒳˘) &amp;camewa, (U ᵕ U❁) &amp;gwobawtwansfowm&gt;, -.-
+    |            ^^^^^                      ---------------- h-hewp: wemove t-this genewic awgument
+    |            |
+    |            expected at most 2 genewic awguments
+    |
+n-nyote: stwuct defined hewe, ^^;; with at most 2 g-genewic pawametews: `q`, &gt;_&lt; `f`
+   --&gt; ~/.cawgo/wegistwy/swc/index.cwates.io-6f17d22bba15001f/bevy_ecs-0.10.0/swc/system/quewy.ws:276:12
+    |
+276 | pub stwuct q-quewy&lt;'wowwd, mya 'state, q: wowwdquewy, mya f: weadonwywowwdquewy = ()&gt; {
+    |            ^^^^^                 -              --------------------------
+</code></pre>
+<p>when you want to quewy fow muwtipwe c-components, OwO you n-nyeed to put t-them in a tupwe:
+<code>(&amp;Transform, &amp;Camera, &amp;GlobalTransform)</code>.</p>
 
                     </main>
 

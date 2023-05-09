@@ -1457,7 +1457,7 @@ visuawize the twaces.</p>
 <p>this chaptew covews some common issues o-ow suwpwises t-that you might b-be
 wikewy to encountew when wowking w-with bevy, OwO with s-specific advice a-about how
 to addwess them.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="stwange-buiwd-ewwows"><a class="header" href="#stwange-buiwd-ewwows">stwange buiwd ewwows</a></h1>
 <p>sometimes, OwO you can get stwange and c-confusing buiwd e-ewwows when twying t-to
@@ -1510,41 +1510,7 @@ whowe wowkspace. it wiww <em>not</em> be enabwed by defauwt.</p>
 <pre><code class="language-toml">[wowkspace]
 wesowvew = &quot;2&quot;
 </code></pre>
-<hr />
-<h2 id="nani-ewwows"><a class="header" href="#nani-ewwows">nani ewwows?</a></h2>
-<p>one common exampwe is the &quot;faiwed t-to sewect a vewsion&quot; e-ewwow, OwO which c-can
-wook something wike this:</p>
-<pre><code>ewwow: faiwed to sewect a vewsion f-fow `web-sys`. 😳😳😳
-    ... w-wequiwed b-by package `wgpu v-v0.9.0`
-    ... w-which is depended o-on by `bevy_wgpu v-v0.5.0 (https://github.com/bevyengine/bevy#6a8a8c9d)`
-    ... 🥺 w-which is depended on by `bevy_intewnaw v0.5.0 (https://github.com/bevyengine/bevy#6a8a8c9d)`
-    ... which is depended on by `bevy v-v0.5.0 (https://github.com/bevyengine/bevy#6a8a8c9d)`
-    ... which is depended on by `bevy-scwatchpad v-v0.1.0 (c:\usews\awice\documentsevy-scwatchpad)`
-vewsions that meet t-the wequiwements `=0.3.50` awe: 0.3.50
-
-aww possibwe vewsions c-confwict with pweviouswy sewected p-packages. mya
-
-  pweviouswy s-sewected package `web-sys v0.3.46`
-    ... 🥺 which is depended on by `bevy_app v-v0.5.0 (https://github.com/bevyengine/bevy#6a8a8c9d)`
-    ... which is depended on by `bevy_asset v0.5.0 (https://github.com/bevyengine/bevy#6a8a8c9d)`
-    ... which is d-depended on by `bevy_audio v0.5.0 (https://github.com/bevyengine/bevy#6a8a8c9d)`
-    ... w-which is d-depended on by `bevy_intewnaw v-v0.5.0 (https://github.com/bevyengine/bevy#6a8a8c9d)`
-    ... w-which is depended on by `bevy v0.5.0 (https://github.com/bevyengine/bevy#6a8a8c9d)`
-    ... w-which is depended on by `bevy-scwatchpad v0.1.0 (c:\usews\awice\documentsevy-scwatchpad)`
-
-f-faiwed to sewect a vewsion fow `web-sys` which couwd wesowve this confwict
-</code></pre>
-<p>(thewe awe many vawiations, OwO youws m-might nyot be identicaw t-to the e-exampwe above)</p>
-<p>anothew wewated ewwow awe seemingwy-nonsensicaw compiwew m-messages a-about
-confwicts with bevy's intewnaw types (wike &quot;expected t-type <code>Transform</code>,
-found type <code>Transform</code>&quot;).</p>
-<h2 id="why-does-this-happen"><a class="header" href="#why-does-this-happen">why does this happen?</a></h2>
-<p>such ewwows awe often caused by <code>cargo</code>'s intewnaw state being bwoken. &gt;_&lt; usuawwy,
-it is because of dependencies nyot b-being wesowved p-pwopewwy, OwO causing c-cawgo to
-twy to wink muwtipwe vewsions of b-bevy into youw pwoject. OwO t-this often o-occuws when
-twansitioning youw pwoject between t-the wewease and t-the git vewsion o-of bevy. OwO cawgo
-wemembews the vewsions it was pweviouswy u-using, ^•ﻌ•^ and g-gets confused.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="pewfowmance"><a class="header" href="#pewfowmance">pewfowmance</a></h1>
 <h2 id="unoptimized-debug-buiwds"><a class="header" href="#unoptimized-debug-buiwds">unoptimized debug buiwds</a></h2>
@@ -1598,106 +1564,83 @@ swow compiwe times:</p>
 <pre><code class="language-toml">[pwofiwe.wewease]
 wto = &quot;thin&quot;
 </code></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
-<h1 id="ewwow-adding-function-as-system"><a class="header" href="#ewwow-adding-function-as-system">ewwow adding function as system</a></h1>
-<p>you can sometimes get confusing awcane c-compiwew ewwows w-when you twy t-to add
-systems to youw bevy app.</p>
-<p>the ewwows can wook wike this:</p>
-<pre><code>the twait bound `fow&lt;'w, OwO 's, 't0&gt; fn(bevy::pwewude::quewy&lt;'w, 🥺 's, òωó (&amp;'t0 p-pawam)) {my_system}: i-intosystem&lt;(), o.O (), (U ᵕ U❁) _&gt;` i-is nyot satisfied
-</code></pre>
-<p>this is caused by youw function having i-incompatibwe p-pawametews. OwO bevy c-can
-onwy accept speciaw types as system p-pawametews.</p>
-<p>you might awso ewwows that wook wike t-this:</p>
-<pre><code>the twait bound `component: wowwdquewy` i-is nyot satisfied
-t-the twait `wowwdquewy` i-is nyot impwemented f-fow `component`
-</code></pre>
-<pre><code>this stwuct takes at most 2 type a-awguments but 3 t-type awguments wewe s-suppwied
-</code></pre>
-<p>these ewwows awe caused by a mawfowmed q-quewy.</p>
+<h1 id="obscuwe-wust-compiwew-ewwows"><a class="header" href="#obscuwe-wust-compiwew-ewwows">obscuwe wust compiwew ewwows</a></h1>
+<p>you can get confusing compiwew ewwows w-when you twy t-to add <a href="pitfalls//programming/systems.html">systems</a>
+to youw bevy <a href="pitfalls//programming/app-builder.html">app</a>.</p>
 <h2 id="common-beginnew-mistakes"><a class="header" href="#common-beginnew-mistakes">common beginnew mistakes</a></h2>
 <ul>
-<li>using <code>&amp;mut Commands</code> (bevy 0.4 syntax) instead of <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>.</li>
+<li>using <code>commands: &amp;mut Commands</code> instead of <code>mut commands: Commands</code>.</li>
 <li>using <code>Query&lt;MyStuff&gt;</code> instead of <code>Query&lt;&amp;MyStuff&gt;</code> ow <code>Query&lt;&amp;mut MyStuff&gt;</code>.</li>
 <li>using <code>Query&lt;&amp;ComponentA, &amp;ComponentB&gt;</code> instead of <code>Query&lt;(&amp;ComponentA, &amp;ComponentB)&gt;</code>
 (fowgetting the tupwe)</li>
-<li>using youw wesouwce types diwectwy w-without <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Res.html"><code>Res</code></a> ow <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>.</li>
-<li>using youw component types diwectwy w-without putting t-them in a <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a>.</li>
+<li>using youw wesouwce types diwectwy w-without <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.Res.html"><code>Res</code></a> ow <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>.</li>
+<li>using youw component types diwectwy w-without putting t-them in a <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a>.</li>
 <li>using othew awbitwawy types in youw f-function.</li>
 </ul>
 <p>note that <code>Query&lt;Entity&gt;</code> is cowwect, (ꈍᴗꈍ) because the entity id i-is speciaw;
 it is nyot a component.</p>
-<h2 id="suppowted-types"><a class="header" href="#suppowted-types">suppowted types</a></h2>
-<p>onwy the fowwowing types awe suppowted a-as system p-pawametews:</p>
-<p><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/trait.SystemParam.html#implementors">(wist in api docs)</a></p>
-<p>in weguwaw <a href="pitfalls//programming/systems.html">systems</a>:</p>
-<ul>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>:
-manipuwate the ecs using <a href="pitfalls//programming/commands.html">commands</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>:
-shawed access to a <a href="pitfalls//programming/res.html">wesouwce</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>:
-excwusive (mutabwe) access to a <a href="pitfalls//programming/res.html">wesouwce</a></li>
-<li><code>Option&lt;Res&lt;T&gt;&gt;</code>:
-shawed access to a wesouwce that m-may nyot exist</li>
-<li><code>Option&lt;ResMut&lt;T&gt;&gt;</code>:
-excwusive (mutabwe) access to a wesouwce that may n-nyot exist</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query&lt;T, F = ()&gt;</code></a> (can contain tupwes of up to 15 t-types):
-access to <a href="pitfalls//programming/intro-data.html#entities--components">entities and components</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ParamSet.html"><code>ParamSet</code></a> (with up to 8 pawams):
-wesowve <a href="pitfalls//programming/paramset.html">confwicts between incompatibwe system p-pawametews</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
-data <a href="pitfalls//programming/local.html">wocaw</a> to the system</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a>:
-weceive <a href="pitfalls//programming/events.html">events</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a>:
-send <a href="pitfalls//programming/events.html">events</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.RemovedComponents.html"><code>RemovedComponents&lt;T&gt;</code></a>:
-<a href="pitfalls//programming/change-detection.html#removal-detection">wemovaw detection</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a>:
-shawed access to <a href="pitfalls//programming/non-send.html">non-<code>Send</code></a> (main thwead onwy) data</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a>:
-mut access to <a href="pitfalls//programming/non-send.html">non-<code>Send</code></a> (main thwead onwy) data</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ParallelCommands.html"><code>ParallelCommands</code></a>:
-abstwaction to hewp use <code>Commands</code> when you wiww do youw own pawawwewism</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemName.html"><code>SystemName</code></a>:
-the nyame (stwing) of the system, ^•ﻌ•^ m-may be usefuw fow d-debugging</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>&amp;World</code></a>:
-wead-onwy <a href="pitfalls//programming/world.html">diwect access to the ecs wowwd</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/entity/struct.Entities.html"><code>Entities</code></a>:
-wow-wevew ecs metadata: aww entities</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/component/struct.Components.html"><code>Components</code></a>:
-wow-wevew ecs metadata: aww components</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/bundle/struct.Bundles.html"><code>Bundles</code></a>:
-wow-wevew ecs metadata: aww bundwes</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/archetype/struct.Archetypes.html"><code>Archetypes</code></a>:
-wow-wevew ecs metadata: aww awchetypes</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemChangeTick.html"><code>SystemChangeTick</code></a>:
-wow-wevew ecs metadata: tick used f-fow change detection</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.StaticSystemParam.html"><code>StaticSystemParam</code></a>:
-hewpew fow genewic system abstwactions, ^•ﻌ•^ t-to avoid w-wifetime annotations</li>
-<li>tupwes containing any of these types, ^•ﻌ•^ w-with up to 16 m-membews</li>
-</ul>
-<p>in <a href="pitfalls//programming/exclusive.html">excwusive systems</a>:</p>
-<ul>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>:
-fuww <a href="pitfalls//programming/world.html">diwect access to the ecs wowwd</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
-data <a href="pitfalls//programming/local.html">wocaw</a> to the system</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemState.html"><code>SystemState&lt;P&gt;</code></a>:
-emuwates a weguwaw system, OwO awwowing y-you to easiwy a-access data fwom t-the wowwd.
-<code>P</code> awe the system pawametews.</li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.QueryState.html"><code>QueryState&lt;Q, F = ()&gt;</code></a>:
-awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a>
-in weguwaw systems.</li>
-</ul>
-<p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe,
-gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up to
-16 membews, &gt;_&lt; but can be nyested indefinitewy.</p>
-<p>systems wunning duwing the <a href="pitfalls//gpu/stages.html">extwact stage</a> can awso use
-<a href="https://docs.rs/bevy/0.9.1/bevy/render/struct.Extract.html"><code>Extract&lt;T&gt;</code></a>, (ꈍᴗꈍ) to access data fwom the main wowwd i-instead of the
-wendew wowwd. XD <code>T</code> can be any othew system pawametew t-type.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<h2 id="ewwow-adding-function-as-system"><a class="header" href="#ewwow-adding-function-as-system">ewwow adding function as system</a></h2>
+<p>the ewwows can wook wike this:</p>
+<pre><code>ewwow[e0277]: the twait bound `fow&lt;'a, ^^;; 'b, 'c&gt; f-fn(...) {system}: i-intosystem&lt;(), &gt;_&lt; (), _&gt;` i-is nyot satisfied
+   --&gt; s-swc/main.ws:5:21
+    |
+5   |         .add_system(my_system)
+    |          ---------- ^^^^^^^^^ t-the twait `intosystem&lt;(), mya (), _&gt;` i-is nyot impwemented f-fow fn item `fow&lt;'a, mya 'b, 'c&gt; f-fn(...) {system}`
+    |          |
+    |          wequiwed by a bound intwoduced by this caww
+    |
+    = hewp: t-the twait `intosystemappconfig&lt;()&gt;` is impwemented fow `systemappconfig`
+    = n-nyote: wequiwed fow `fow&lt;'a, 😳 'b, 'c&gt; f-fn(...) {system}` to impwement `intosystemconfig&lt;_&gt;`
+    = note: wequiwed fow `fow&lt;'a, XD 'b, 'c&gt; f-fn(...) {system}` to impwement `intosystemappconfig&lt;_&gt;`
+</code></pre>
+<p>the ewwow (confusingwy) points to t-the pwace in youw c-code whewe you t-twy to add the s-system,
+but in weawity, (ꈍᴗꈍ) the pwobwem is actuawwy i-in the <code>fn</code> function definition!</p>
+<p>this is caused by youw function having i-invawid pawametews. (ꈍᴗꈍ) <a href="pitfalls//builtins.html#systemparams">bevy can
+onwy accept speciaw types as system p-pawametews!</a></p>
+<h2 id="ewwow-on-mawfowmed-quewies"><a class="header" href="#ewwow-on-mawfowmed-quewies">ewwow on mawfowmed quewies</a></h2>
+<p>you might awso ewwows that wook wike t-this:</p>
+<pre><code>ewwow[e0277]: the twait bound `twansfowm: w-wowwdquewy` i-is nyot satisfied
+   --&gt; s-swc/main.ws:10:12
+    |
+10  |     q-quewy: quewy&lt;twansfowm&gt;, 😳
+    |            ^^^^^^^^^^^^^^^ t-the twait `wowwdquewy` i-is nyot impwemented f-fow `twansfowm`
+    |
+    = h-hewp: the fowwowing othew types impwement twait `wowwdquewy`:
+              &amp;'__w mut t
+              &amp;t
+              ()
+              (f0, XD f1)
+              (f0, :3 f-f1, f2)
+              (f0, 😳😳😳 f1, f2, f3)
+              (f0, -.- f1, f2, f3, f4)
+              (f0, ( ͡o ω ͡o ) f-f1, f2, f3, rawr x3 f4, f5)
+            a-and 54 othews
+nyote: wequiwed by a bound in `bevy::pwewude::quewy`
+   --&gt; ~/.cawgo/wegistwy/swc/index.cwates.io-6f17d22bba15001f/bevy_ecs-0.10.0/swc/system/quewy.ws:276:37
+    |
+276 | pub stwuct q-quewy&lt;'wowwd, nyaa~~ 'state, /(^•ω•^) q: wowwdquewy, rawr f-f: weadonwywowwdquewy = ()&gt; {
+    |                                     ^^^^^^^^^^ w-wequiwed by this bound in `quewy`
+</code></pre>
+<p>to access youw components, ^•ﻌ•^ you nyeed t-to use wefewence s-syntax (<code>&amp;</code> ow <code>&amp;mut</code>).</p>
+<pre><code>ewwow[e0107]: stwuct takes at most 2 g-genewic awguments b-but 3 genewic a-awguments wewe s-suppwied
+   --&gt; s-swc/main.ws:10:12
+    |
+10  |     q-quewy: quewy&lt;&amp;twansfowm, (⑅˘꒳˘) &amp;camewa, (U ᵕ U❁) &amp;gwobawtwansfowm&gt;, -.-
+    |            ^^^^^                      ---------------- h-hewp: wemove t-this genewic awgument
+    |            |
+    |            expected at most 2 genewic awguments
+    |
+n-nyote: stwuct defined hewe, ^^;; with at most 2 g-genewic pawametews: `q`, &gt;_&lt; `f`
+   --&gt; ~/.cawgo/wegistwy/swc/index.cwates.io-6f17d22bba15001f/bevy_ecs-0.10.0/swc/system/quewy.ws:276:12
+    |
+276 | pub stwuct q-quewy&lt;'wowwd, mya 'state, q: wowwdquewy, mya f: weadonwywowwdquewy = ()&gt; {
+    |            ^^^^^                 -              --------------------------
+</code></pre>
+<p>when you want to quewy fow muwtipwe c-components, OwO you n-nyeed to put t-them in a tupwe:
+<code>(&amp;Transform, &amp;Camera, &amp;GlobalTransform)</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="2d-objects-nyot-dispwaying"><a class="header" href="#2d-objects-nyot-dispwaying">2d objects nyot dispwaying</a></h1>
 <p>bevy's 2d <a href="pitfalls//features/coords.html">coowdinate space</a> is set up so that youw backgwound c-can
@@ -1710,11 +1653,33 @@ own twansfowm, XD <em>you nyeed to do this!</em> the defauwt twansfowm (with z=0
 wiww pwace the camewa so that youw s-spwites (at positive +z c-coowdinates)
 wouwd be behind the camewa, OwO and you w-wouwdn't see t-them! 🥺 you nyeed t-to
 eithew set a wawge z coowdinate, o-ow pwesewve/copy t-the z vawue fwom t-the
-<a href="https://docs.rs/bevy/0.9.1/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> that is genewated by bevy's buiwtin b-bundwe
+<a href="https://docs.rs/bevy/0.10.1/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> that is genewated by bevy's buiwtin b-bundwe
 constwuctow (<code>Camera2dBundle::default()</code>).</p>
 <p>by defauwt, ^•ﻌ•^ when you cweate a 2d c-camewa using bevy's b-buiwt-in bundwe
 constwuctow, &gt;<em>&lt; bevy sets the camewa <code>Transform</code> to have z=999.9. &gt;</em>&lt; this is cwose to
 the defauwt cwipping pwane (visibwe w-wange of z axis), OwO w-which is set t-to 1000.0.</p>
+<pre><code class="language-rust no_run noplayground">// ✗ incowwect: we awe cweating a-a nyew twansfowm w-with the given w-wotation
+// it d-does nyot have the c-cowwect z, -.-
+// b-because it ovewwides t-the twansfowm f-fwom the bundwe defauwt
+commands.spawn(camewa2dbundwe {
+    twansfowm: twansfowm::fwom_wotation(quat::fwom_wotation_z(30.0f32.to_wadians())), ( ͡o ω ͡o )
+    ..defauwt::defauwt()
+});
+
+// ✓ okay: we can set the xyz p-position ouwsewves. rawr x3
+// z=999.9 is nyani bevy's defauwt u-uses. nyaa~~
+commands.spawn(camewa2dbundwe {
+    twansfowm: twansfowm::fwom_xyz(0.0, /(^•ω•^) 0.0, 999.9)
+        .with_wotation(quat::fwom_wotation_z(30.0f32.to_wadians())), rawr
+    ..defauwt::defauwt()
+});
+
+// ✓ o-okay: we can cweate the bundwe in a `mut` vawiabwe, OwO
+// a-and then modify onwy nyani we c-cawe about
+// this w-way, (U ﹏ U) bevy's defauwts wemain intact
+wet mut my_camewa = camewa2dbundwe::defauwt();
+my_camewa.twansfowm.wotation = q-quat::fwom_wotation_z(30.0f32.to_wadians());
+commands.spawn(my_camewa);</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
 |---|---|---|</p>
 <h1 id="3d-objects-nyot-dispwaying"><a class="header" href="#3d-objects-nyot-dispwaying">3d objects nyot dispwaying</a></h1>
@@ -1792,7 +1757,7 @@ pawent entities awe nyot supposed t-to wendew anything.</p>
 you can use a <a href="https://docs.rs/bevy/0.9.1/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a> ow
 <a href="https://docs.rs/bevy/0.9.1/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> (with <a href="pitfalls//features/transforms.html">twansfowms</a>) if you
 awe nyot using a bundwe that awweady i-incwudes these c-components.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="bowwow-muwtipwe-fiewds-fwom-stwuct"><a class="header" href="#bowwow-muwtipwe-fiewds-fwom-stwuct">bowwow muwtipwe fiewds fwom stwuct</a></h1>
 <p>when you have a <a href="pitfalls//programming/ec.html#components">component</a> ow <a href="pitfalls//programming/res.html">wesouwce</a>, XD that is
@@ -1828,7 +1793,7 @@ fn hewpew_func(foo: &amp;foo, baw: &amp;mut baw) {
 you don't modify the data aftewwawds, OwO t-the component g-gets mawked as c-changed.</p>
 <h2 id="expwanation"><a class="header" href="#expwanation">expwanation</a></h2>
 <p>bevy typicawwy gives you access to y-youw data via s-speciaw wwappew t-types (wike
-<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, XD and <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.Mut.html"><code>Mut&lt;T&gt;</code></a>
+<a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, XD and <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/world/struct.Mut.html"><code>Mut&lt;T&gt;</code></a>
 (when <a href="pitfalls//programming/queries.html">quewying</a> fow components mutabwy)). (ꈍᴗꈍ) this wets b-bevy twack
 access to the data.</p>
 <p>these awe &quot;smawt pointew&quot; types that u-use the wust <a href="https://doc.rust-lang.org/stable/std/ops/trait.Deref.html"><code>Deref</code></a>
@@ -1857,7 +1822,7 @@ thwoughout the fwame update cycwe. OwO i-it is intended t-to be used fow g-game 
 <p>this is nyot bevy-specific, OwO but appwies t-to game devewopment i-in genewaw. 🥺 a-awways
 get youw time fwom youw game engine, OwO n-nyot fwom youw p-pwogwamming wanguage o-ow
 opewating system.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="uv-coowdinates-in-bevy"><a class="header" href="#uv-coowdinates-in-bevy">uv coowdinates in bevy</a></h1>
 <p>in bevy, OwO the vewticaw axis fow the p-pixews of textuwes / i-images, 🥺 and w-when
