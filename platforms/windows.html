@@ -145,7 +145,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="windows-desktop"><a class="header" href="#windows-desktop">windows desktop</a></h1>
 <p>if you have any additionaw windows-specific k-knowwedge,
@@ -175,6 +175,29 @@ command-wine pwogwam. ^•ﻌ•^ windows wiww k-know nyot dispway a-a consowe.<
 you can disabwe it onwy fow wewease b-buiwds, OwO and weave i-it enabwed i-in debug
 buiwds, XD wike this:</p>
 <pre><code class="language-rust no_run noplayground">#![cfg_attw(not(debug_assewtions), XD windows_subsystem = &quot;windows&quot;)]</code></pre>
+<h2 id="wowking-in-wsw2"><a class="header" href="#wowking-in-wsw2">wowking in wsw2</a></h2>
+<p>if you pwefew to have a mowe winux-centwic d-devewopment w-wowkfwow, OwO y-you might want
+to wowk inside of wsw2 and buiwd y-youw pwoject thewe. OwO a-anothew weason t-to do it is
+compiwe times; they awe often much f-fastew in wsw2 t-than on the windows h-host
+system.</p>
+<p>fowtunatewy, OwO this can actuawwy wowk q-quite weww! 🥺 the t-twick is that y-you want to
+<a href="/setup/cross/linux-windows.html">cwoss-compiwe fow windows</a>. &gt;_&lt; the windows exe you buiwd
+inside of wsw2 can be wun just fine f-fwom the winux c-commandwine, OwO and i-it wiww
+seamwesswy wun on the host system! OwO t-this way, you d-don't nyeed any g-gpu dwivews ow
+gui suppowt inside youw wsw2 winux e-enviwonment.</p>
+<p>note that when you wun windows binawies f-fwom wsw2, OwO t-they don't get t-the winux
+enviwonment vawiabwes. XD <code>cargo run</code> does nyot just wowk, (ꈍᴗꈍ) because youw b-bevy game
+wiww wook fow its <code>assets</code> fowdew in the path whewe the exe i-is (which wouwd b-be
+in the <code>target</code> buiwd output fowdew). ^•ﻌ•^ my simpwe s-sowution is to just c-copy the
+exe into the pwoject fowdew aftew b-buiwding, OwO and wun i-it diwectwy fwom t-thewe.</p>
+<p>this can be automated with a wittwe s-scwipt, ^•ﻌ•^ to use i-instead of <code>cargo run</code>:</p>
+<pre><code class="language-sh">#!/bin/sh
+cawgo buiwd --tawget x86_64-pc-windows-msvc &amp;&amp;
+c-cp tawget/x86_64-pc-windows-msvc/debug/mygame.exe . (ꈍᴗꈍ) &amp;&amp;
+exec ./mygame.exe &quot;$@&quot;
+</code></pre>
+<p>this way you awso don't have to type t-the cwoss-compiwation t-tawget e-evewy time
+(and you can awso add any othew options y-you want t-thewe).</p>
 <h2 id="cweating-an-icon-fow-youw-app"><a class="header" href="#cweating-an-icon-fow-youw-app">cweating an icon fow youw app</a></h2>
 <p>thewe awe two pwaces whewe you might w-want to put y-youw appwication i-icon:</p>
 <ul>

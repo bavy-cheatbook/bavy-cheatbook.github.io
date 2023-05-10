@@ -7539,7 +7539,7 @@ wowk togethew.</p>
 but that wowk is in its eawwy days a-and has nyot pwogwessed e-enough t-to be usefuw
 fow bevy yet. OwO it shouwd be possibwe t-to wowk on nyintendo s-switch suppowt i-in
 the open, &gt;_&lt; without nydas, (ꈍᴗꈍ) using emuwatows.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="winux-desktop"><a class="header" href="#winux-desktop">winux desktop</a></h1>
 <p>if you have any additionaw winux-specific k-knowwedge,
@@ -7551,9 +7551,11 @@ pwease hewp impwove this page!</p>
 distwibution. rawr x3 <a href="https://github.com/bevyengine/bevy/blob/main/docs/linux_dependencies.md">see instwuctions in officiaw bevy w-wepo.</a></p>
 <p><a href="platforms//setup/cross/linux-windows.html">see hewe if you awso want to buiwd w-windows exes fwom w-winux</a>.</p>
 <h2 id="gpu-dwivews-1"><a class="header" href="#gpu-dwivews-1">gpu dwivews</a></h2>
-<p>suppowt fow the vuwkan gwaphics api i-is wequiwed to w-wun bevy apps. OwO y-you (and youw
-usews) must ensuwe that you have c-compatibwe hawdwawe a-and dwivews i-instawwed.</p>
-<p>on most modewn distwibutions and c-computews, ^•ﻌ•^ this s-shouwd be nyo pwobwem.</p>
+<p>bevy apps nyeed suppowt fow the vuwkan g-gwaphics api t-to wun best. OwO t-thewe is a
+fawwback on opengw es 3 fow systems w-whewe vuwkan i-is unsuppowted, OwO b-but it might nyot
+wowk and wiww have wimited featuwes a-and pewfowmance.</p>
+<p>you (and youw usews) must ensuwe t-that you have compatibwe h-hawdwawe a-and dwivews
+instawwed. OwO on most modewn distwibutions a-and computews, 🥺 t-this shouwd b-be nyo pwobwem.</p>
 <p>if bevy apps wefuse to wun and pwint a-an ewwow to t-the consowe about n-nyot being
 abwe to find a compatibwe gpu, OwO the p-pwobwem is most w-wikewy with the v-vuwkan
 components of youw gwaphics dwivew n-nyot being instawwed c-cowwectwy. OwO y-you may
@@ -7572,11 +7574,12 @@ wunning a waywand-based desktop, t-this means youw b-bevy app wiww wun i-in the
 xwaywand compatibiwity wayew.</p>
 <p>to enabwe nyative waywand suppowt f-fow bevy, ^•ﻌ•^ enabwe t-the <code>wayland</code> cawgo featuwe:</p>
 <pre><code class="language-toml">[dependencies]
-bevy = { vewsion = &quot;0.9&quot;, (ꈍᴗꈍ) f-featuwes = [&quot;waywand&quot;] }
+bevy = { vewsion = &quot;0.10&quot;, (ꈍᴗꈍ) f-featuwes = [&quot;waywand&quot;] }
 </code></pre>
 <p>now youw app wiww be buiwt with suppowt f-fow both x-x11 and waywand.</p>
-<p>if you want to wemove x11 suppowt f-fow nyanievew weason, ^•ﻌ•^ d-disabwe the <code>x11</code>
-cawgo defauwt featuwe.</p>
+<p>if you want to wemove x11 suppowt f-fow nyanievew weason, OwO y-you wiww h-have to disabwe
+the defauwt featuwes and we-enabwe e-evewything you n-nyeed, OwO without t-the <code>x11</code>
+featuwe. rawr x3 <a href="platforms//setup/bevy-config.html">see hewe to weawn how to configuwe b-bevy featuwes.</a></p>
 <p>if both awe enabwed, OwO you can ovewwide w-which dispway p-pwotocow to use a-at wuntime,
 using an enviwonment vawiabwe:</p>
 <pre><code class="language-shell">expowt winit_unix_backend=x11
@@ -7586,7 +7589,7 @@ using an enviwonment vawiabwe:</p>
 <pre><code class="language-shell">expowt winit_unix_backend=waywand
 </code></pre>
 <p>(to wequiwe the use of waywand)</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="macos-desktop"><a class="header" href="#macos-desktop">macos desktop</a></h1>
 <p>if you have any additionaw macos-specific k-knowwedge,
@@ -7601,7 +7604,7 @@ bug in <code>winit</code> (the os window management wibwawy t-that bevy uses). ^
 be twacked <a href="https://github.com/rust-windowing/winit/issues/1737">hewe</a>.</p>
 <p>untiw that bug is fixed, OwO advise cwosing t-the window m-management apps, 🥺 i-if
 encountewing pewfowmance issues.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="windows-desktop"><a class="header" href="#windows-desktop">windows desktop</a></h1>
 <p>if you have any additionaw windows-specific k-knowwedge,
@@ -7631,6 +7634,29 @@ command-wine pwogwam. ^•ﻌ•^ windows wiww k-know nyot dispway a-a consowe.<
 you can disabwe it onwy fow wewease b-buiwds, OwO and weave i-it enabwed i-in debug
 buiwds, XD wike this:</p>
 <pre><code class="language-rust no_run noplayground">#![cfg_attw(not(debug_assewtions), XD windows_subsystem = &quot;windows&quot;)]</code></pre>
+<h2 id="wowking-in-wsw2"><a class="header" href="#wowking-in-wsw2">wowking in wsw2</a></h2>
+<p>if you pwefew to have a mowe winux-centwic d-devewopment w-wowkfwow, OwO y-you might want
+to wowk inside of wsw2 and buiwd y-youw pwoject thewe. OwO a-anothew weason t-to do it is
+compiwe times; they awe often much f-fastew in wsw2 t-than on the windows h-host
+system.</p>
+<p>fowtunatewy, OwO this can actuawwy wowk q-quite weww! 🥺 the t-twick is that y-you want to
+<a href="platforms//setup/cross/linux-windows.html">cwoss-compiwe fow windows</a>. &gt;_&lt; the windows exe you buiwd
+inside of wsw2 can be wun just fine f-fwom the winux c-commandwine, OwO and i-it wiww
+seamwesswy wun on the host system! OwO t-this way, you d-don't nyeed any g-gpu dwivews ow
+gui suppowt inside youw wsw2 winux e-enviwonment.</p>
+<p>note that when you wun windows binawies f-fwom wsw2, OwO t-they don't get t-the winux
+enviwonment vawiabwes. XD <code>cargo run</code> does nyot just wowk, (ꈍᴗꈍ) because youw b-bevy game
+wiww wook fow its <code>assets</code> fowdew in the path whewe the exe i-is (which wouwd b-be
+in the <code>target</code> buiwd output fowdew). ^•ﻌ•^ my simpwe s-sowution is to just c-copy the
+exe into the pwoject fowdew aftew b-buiwding, OwO and wun i-it diwectwy fwom t-thewe.</p>
+<p>this can be automated with a wittwe s-scwipt, ^•ﻌ•^ to use i-instead of <code>cargo run</code>:</p>
+<pre><code class="language-sh">#!/bin/sh
+cawgo buiwd --tawget x86_64-pc-windows-msvc &amp;&amp;
+c-cp tawget/x86_64-pc-windows-msvc/debug/mygame.exe . (ꈍᴗꈍ) &amp;&amp;
+exec ./mygame.exe &quot;$@&quot;
+</code></pre>
+<p>this way you awso don't have to type t-the cwoss-compiwation t-tawget e-evewy time
+(and you can awso add any othew options y-you want t-thewe).</p>
 <h2 id="cweating-an-icon-fow-youw-app"><a class="header" href="#cweating-an-icon-fow-youw-app">cweating an icon fow youw app</a></h2>
 <p>thewe awe two pwaces whewe you might w-want to put y-youw appwication i-icon:</p>
 <ul>

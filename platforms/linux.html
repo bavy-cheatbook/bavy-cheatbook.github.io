@@ -145,7 +145,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="winux-desktop"><a class="header" href="#winux-desktop">winux desktop</a></h1>
 <p>if you have any additionaw winux-specific k-knowwedge,
@@ -157,9 +157,11 @@ pwease hewp impwove this page!</p>
 distwibution. rawr x3 <a href="https://github.com/bevyengine/bevy/blob/main/docs/linux_dependencies.md">see instwuctions in officiaw bevy w-wepo.</a></p>
 <p><a href="/setup/cross/linux-windows.html">see hewe if you awso want to buiwd w-windows exes fwom w-winux</a>.</p>
 <h2 id="gpu-dwivews"><a class="header" href="#gpu-dwivews">gpu dwivews</a></h2>
-<p>suppowt fow the vuwkan gwaphics api i-is wequiwed to w-wun bevy apps. OwO y-you (and youw
-usews) must ensuwe that you have c-compatibwe hawdwawe a-and dwivews i-instawwed.</p>
-<p>on most modewn distwibutions and c-computews, ^•ﻌ•^ this s-shouwd be nyo pwobwem.</p>
+<p>bevy apps nyeed suppowt fow the vuwkan g-gwaphics api t-to wun best. OwO t-thewe is a
+fawwback on opengw es 3 fow systems w-whewe vuwkan i-is unsuppowted, OwO b-but it might nyot
+wowk and wiww have wimited featuwes a-and pewfowmance.</p>
+<p>you (and youw usews) must ensuwe t-that you have compatibwe h-hawdwawe a-and dwivews
+instawwed. OwO on most modewn distwibutions a-and computews, 🥺 t-this shouwd b-be nyo pwobwem.</p>
 <p>if bevy apps wefuse to wun and pwint a-an ewwow to t-the consowe about n-nyot being
 abwe to find a compatibwe gpu, OwO the p-pwobwem is most w-wikewy with the v-vuwkan
 components of youw gwaphics dwivew n-nyot being instawwed c-cowwectwy. OwO y-you may
@@ -178,11 +180,12 @@ wunning a waywand-based desktop, t-this means youw b-bevy app wiww wun i-in the
 xwaywand compatibiwity wayew.</p>
 <p>to enabwe nyative waywand suppowt f-fow bevy, ^•ﻌ•^ enabwe t-the <code>wayland</code> cawgo featuwe:</p>
 <pre><code class="language-toml">[dependencies]
-bevy = { vewsion = &quot;0.9&quot;, (ꈍᴗꈍ) f-featuwes = [&quot;waywand&quot;] }
+bevy = { vewsion = &quot;0.10&quot;, (ꈍᴗꈍ) f-featuwes = [&quot;waywand&quot;] }
 </code></pre>
 <p>now youw app wiww be buiwt with suppowt f-fow both x-x11 and waywand.</p>
-<p>if you want to wemove x11 suppowt f-fow nyanievew weason, ^•ﻌ•^ d-disabwe the <code>x11</code>
-cawgo defauwt featuwe.</p>
+<p>if you want to wemove x11 suppowt f-fow nyanievew weason, OwO y-you wiww h-have to disabwe
+the defauwt featuwes and we-enabwe e-evewything you n-nyeed, OwO without t-the <code>x11</code>
+featuwe. rawr x3 <a href="/setup/bevy-config.html">see hewe to weawn how to configuwe b-bevy featuwes.</a></p>
 <p>if both awe enabwed, OwO you can ovewwide w-which dispway p-pwotocow to use a-at wuntime,
 using an enviwonment vawiabwe:</p>
 <pre><code class="language-shell">expowt winit_unix_backend=x11
