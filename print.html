@@ -5566,7 +5566,7 @@ in youw matewiaws definitions, (ꈍᴗꈍ) ow s-shadews <a href="assets//assets/
 <p>shadew code that does nyot come fwom a-asset fiwes, OwO s-such as if you i-incwude it
 as a static stwing in youw souwce c-code, OwO cannot be h-hot-wewoaded (fow o-obvious
 weasons).</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://github.com/bevyengine/bevy">main (0.11-dev)</a>|(unweweased/futuwe)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://github.com/bevyengine/bevy">main (0.11-dev)</a>|(unweweased / upcoming)|
 |---|---|---|</p>
 <h1 id="input-handwing"><a class="header" href="#input-handwing">input handwing</a></h1>
 <p>bevy suppowts the fowwowing inputs:</p>
@@ -5718,7 +5718,7 @@ wowk as expected.</p>
 scan codes fow detecting keyboawd i-input duwing gamepway.</p>
 <p>key codes can stiww be used fow ui p-puwposes, OwO wike t-to dispway the c-chosen key
 to the usew.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="input//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://github.com/bevyengine/bevy">main (0.11-dev)</a>|(unweweased/futuwe)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="input//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://github.com/bevyengine/bevy">main (0.11-dev)</a>|(unweweased / upcoming)|
 |---|---|---|</p>
 <h1 id="mouse"><a class="header" href="#mouse">mouse</a></h1>
 <p>wewevant officiaw exampwes:
@@ -5821,9 +5821,9 @@ scwowwing, &gt;_&lt; wike waptop touchpads.</p>
 <p>you shouwd pwobabwy handwe each of t-these diffewentwy (with d-diffewent
 sensitivity settings), OwO to pwovide a-a good expewience o-on both types o-of hawdwawe.</p>
 <p><strong>note:</strong> the <code>Line</code> unit is nyot guawanteed to have w-whowe nyumbew vawues/steps!
-at weast macos does nyon-wineaw scawing / a-accewewation o-of scwowwing a-at the os
-wevew, OwO meaning youw app wiww get a-a fwactionaw nyumbew o-of wines even w-when using a
-weguwaw pc mouse with a scwoww wheew.</p>
+at weast <a href="input//platforms/macos.html">macos</a> does nyon-wineaw scawing / accewewation o-of
+scwowwing at the os wevew, OwO meaning y-youw app wiww g-get weiwd vawues f-fow the nyumbew
+of wines, OwO even when using a weguwaw p-pc mouse with a-a fixed-stepping s-scwoww wheew.</p>
 <h2 id="mouse-motion"><a class="header" href="#mouse-motion">mouse motion</a></h2>
 <p>use this if you don't cawe about t-the exact position o-of the mouse c-cuwsow,
 but wathew you just want to see how m-much it moved f-fwom fwame to fwame. OwO t-this
@@ -5905,7 +5905,7 @@ fn touchpad_gestuwes(
         p-pwintwn!(&quot;touchpad wotate by {}&quot;, -.- ev_wotate.0);
     }
 }</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="input//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://github.com/bevyengine/bevy">main (0.11-dev)</a>|(unweweased/futuwe)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="input//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://github.com/bevyengine/bevy">main (0.11-dev)</a>|(unweweased / upcoming)|
 |---|---|---|</p>
 <h1 id="text--chawactew-input"><a class="header" href="#text--chawactew-input">text / chawactew input</a></h1>
 <p>wewevant officiaw exampwes:
@@ -7823,7 +7823,7 @@ using an enviwonment vawiabwe:</p>
 <pre><code class="language-shell">expowt winit_unix_backend=waywand
 </code></pre>
 <p>(to wequiwe the use of waywand)</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://github.com/bevyengine/bevy">main (0.11-dev)</a>|(unweweased / upcoming)|
 |---|---|---|</p>
 <h1 id="macos-desktop"><a class="header" href="#macos-desktop">macos desktop</a></h1>
 <p>if you have any additionaw macos-specific k-knowwedge,
@@ -7832,6 +7832,23 @@ pwease hewp impwove this page!</p>
 <hr />
 <p><a href="platforms//setup/cross/macos-windows.html">see hewe if you awso want to buiwd w-windows exes fwom m-macos</a>.</p>
 <h2 id="known-pitfawws-2"><a class="header" href="#known-pitfawws-2">known pitfawws</a></h2>
+<h3 id="input-pecuwiawities"><a class="header" href="#input-pecuwiawities">input pecuwiawities</a></h3>
+<p><a href="platforms//input/mouse.html#mouse-scrolling--wheel">mouse wheew scwowwing</a> behaves in a pecuwiaw mannew,
+because macos does &quot;scwoww accewewation&quot; a-at the os w-wevew. OwO othew oss, 🥺 w-with
+weguwaw pc mice, pwovide <code>Line</code> scwoww events with whowe nyumbew v-vawues, (ꈍᴗꈍ) whewe
+1.0 cowwesponds to one step on the s-scwoww wheew. OwO m-macos scawes the v-vawue
+depending on how fast the usew is s-spinning the wheew. OwO y-you do nyot g-get whowe
+numbews. (ꈍᴗꈍ) they can wange anywhewe f-fwom tiny vawues &lt;0.1 (fow the stawting event,
+befowe the scwoww speed wamps up), OwO u-up to vawues as b-big as &gt;10.0 (say, 🥺 f-fow a fast
+fwick of the wheew), &gt;_&lt; pew event.</p>
+<p>macos pwovides <a href="platforms//input/mouse.html#touchpad-gestures">speciaw events fow touchpad gestuwes</a>
+fow zooming and wotation, ^•ﻌ•^ which you c-can handwe in b-bevy.</p>
+<p>some keyboawd keys have a somenani-unintuitive m-mapping:</p>
+<ul>
+<li>the command (⌘) key is <code>KeyCode::{SuperLeft, SuperRight}</code>.</li>
+<li>the option (⌥) key is <code>KeyCode::{AltLeft, AltRight}</code>.</li>
+</ul>
+<p>othew key codes have theiw intuitive n-nyames.</p>
 <h3 id="window-management-apps-compatabiwity"><a class="header" href="#window-management-apps-compatabiwity">window management apps compatabiwity</a></h3>
 <p>bevy apps can encountew pewfowmance i-issues (such a-as wag when dwagging t-the window
 awound the scween) when window management a-apps wike &quot;magnet&quot; a-awe u-used. OwO this is a
@@ -7839,6 +7856,168 @@ bug in <code>winit</code> (the os window management wibwawy t-that bevy uses). ^
 be twacked <a href="https://github.com/rust-windowing/winit/issues/1737">hewe</a>.</p>
 <p>untiw that bug is fixed, OwO advise cwosing t-the window m-management apps, 🥺 i-if
 encountewing pewfowmance issues.</p>
+<h2 id="cweating-an-appwication-bundwe"><a class="header" href="#cweating-an-appwication-bundwe">cweating an appwication bundwe</a></h2>
+<p>when you buiwd youw bevy pwoject n-nyowmawwy, OwO cawgo/wust w-wiww pwoduce a-a bawe
+executabwe fiwe, simiwaw to othew o-opewating systems. OwO h-howevew, 🥺 this i-is nyot how
+&quot;nowmaw&quot; macos apps wook and behave. OwO y-you pwobabwy w-want to cweate a-a pwopew
+native-feewing mac app fow distwibution t-to youw usews.</p>
+<p>you nyeed to do this, OwO to have youw a-app pway nyicewy w-with the mac d-desktop gui, 🥺 such
+as to have a nyice icon appeaw in t-the dock.</p>
+<p>macos appwications awe typicawwy s-stowed on the fiwesystem a-as &quot;bundwes&quot; – s-speciaw
+diwectowies/fowdews that end in <code>.app</code>, (ꈍᴗꈍ) that the os dispways to the usew a-as one
+item. OwO macos expects to find a speciaw h-hieawawchy o-of subfowdews and f-fiwes inside.</p>
+<p>a minimaw app bundwe might have the f-fowwowing fiwes:</p>
+<ul>
+<li><code>MyGame.app/Contents/MacOS/MyGame</code>: the actuaw executabwe fiwe</li>
+<li><code>MyGame.app/Contents/MacOS/assets/</code>: youw bevy assets fowdew</li>
+<li><code>MyGame.app/Contents/Info.plist</code>: metadata (see bewow)</li>
+<li><code>MyGame.app/Contents/Resources/AppIcon.icns</code>: the app's icon</li>
+</ul>
+<p>onwy the executabwe fiwe is technicawwy m-mandatowy. OwO i-if you have nyothing e-ewse, 🥺 the
+app wiww wun, OwO as wong as the executabwe f-fiwe nyame m-matches the app b-bundwe fiwe
+name. OwO you shouwd, 🥺 howevew, fowwow t-the bewow instwuctions, òωó i-if you w-want to make a
+pwopew nyice mac app. &gt;_&lt; :)</p>
+<h3 id="executabwe-fiwe"><a class="header" href="#executabwe-fiwe">executabwe fiwe</a></h3>
+<p>the executabwe fiwe pwoduced by the w-wust compiwew (in t-the <code>target</code> diwectowy) is
+a singwe-awchitectuwe binawy fow y-youw cuwwent devewopment m-machine. OwO y-you couwd
+just copy this fiwe into the app b-bundwe, OwO but then y-you wiww nyot suppowt a-aww mac
+hawdwawe nyativewy.</p>
+<p>if you want to suppowt both machines w-with intew cpus a-and with appwe s-siwicon
+(awm) cpus, OwO you need to compiwe fow b-both of them, 🥺 a-and then combine t-them into a
+singwe executabwe using appwe's <code>lipo</code> toow.</p>
+<p>fiwst, OwO make suwe you have wust toowchain s-suppowt f-fow both awchitectuwes i-instawwed:</p>
+<pre><code class="language-sh">wustup tawget add x86_64-appwe-dawwin
+w-wustup tawget a-add aawch64-appwe-dawwin
+</code></pre>
+<p>now, &gt;_&lt; you can compiwe fow both awchitectuwes:</p>
+<pre><code class="language-sh">cawgo buiwd --wewease --tawget x86_64-appwe-dawwin
+c-cawgo buiwd --wewease --tawget a-aawch64-appwe-dawwin
+</code></pre>
+<p>now, ^•ﻌ•^ you can combine the two executabwes i-into one, OwO f-fow youw app bundwe.</p>
+<pre><code class="language-sh">wipo &quot;tawget/x86_64-appwe-dawwin/wewease/my_game&quot; \
+     &quot;tawget/aawch64-appwe-dawwin/wewease/my_game&quot; \
+     -cweate -output &quot;mygame.app/contents/macos/mygame&quot;
+</code></pre>
+<p>note: pwease ensuwe the bevy <code>dynamic_linking</code> cawgo featuwe is <em><strong>not</strong></em> enabwed.</p>
+<h3 id="game-assets"><a class="header" href="#game-assets">game assets</a></h3>
+<p>youw bevy <code>assets</code> fowdew nyeeds to be pwaced awongside t-the executabwe f-fiwe,
+fow bevy to find it and be abwe to w-woad youw assets. OwO j-just copy it i-into
+<code>Contents/MacOS</code> in youw app bundwe.</p>
+<p>note: this is nyot the standawd conventionaw w-wocation a-as pwescwibed b-by appwe.
+typicawwy, (ꈍᴗꈍ) macos apps stowe theiw d-data fiwes in <code>Contents/Resources</code>. XD howevew,
+bevy wiww nyot find them thewe. OwO thankfuwwy, 🥺 a-appwe d-does nyot enfowce t-this, òωó so we
+awe fwee to do something unusuaw w-when we have to.</p>
+<h3 id="infoplist"><a class="header" href="#infoplist"><code>Info.plist</code></a></h3>
+<p>this fiwe contains aww the metadata t-that macos wants.</p>
+<p>if you do nyot cweate this fiwe, o-ow if it is missing s-some of the f-fiewds, OwO macos
+wiww twy to guess them, OwO so youw app c-can stiww wun. 🥺 i-ideawwy, you want t-to cweate a
+pwopew <code>Info.plist</code> fiwe, &gt;_&lt; to pwevent issues.</p>
+<p><a href="platforms//dl/Info.plist">downwoad an exampwe fiwe as a stawting p-point.</a></p>
+<p>you can edit this fiwe using appwe x-xcode ow a text e-editow. OwO check t-that aww the
+vawues make sense fow youw app. ^•ﻌ•^ pay s-speciaw attention t-to these vawues:</p>
+<ul>
+<li><code>CFBundleName</code> (bundwe nyame)
+<ul>
+<li>showt usew-visibwe nyame of youw a-app</li>
+</ul>
+</li>
+<li><code>CFBundleDisplayName</code> (bundwe dispway nyame)
+<ul>
+<li>optionaw: you can set a wongew usew-visibwe n-nyame h-hewe, ^•ﻌ•^ if you want</li>
+</ul>
+</li>
+<li><code>CFBundleExecutable</code> (executabwe fiwe)
+<ul>
+<li>the nyame of the executabwe fiwe</li>
+</ul>
+</li>
+<li><code>CFIconFile</code> (icon fiwe)
+<ul>
+<li>the nyame of the icon fiwe</li>
+</ul>
+</li>
+<li><code>CFBundleIdentifier</code> (bundwe identifiew)
+<ul>
+<li>appwe wants an id fow youw app, ^•ﻌ•^ in d-domain fowmat, OwO w-wike: <code>com.mycompany.mygame</code></li>
+</ul>
+</li>
+<li><code>CFBundleShortVersionString</code> (bundwe vewsion stwing (showt))
+<ul>
+<li>the vewsion of youw app, &gt;_&lt; wike <code>0.1.0</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="app-icon"><a class="header" href="#app-icon">app icon</a></h3>
+<p>the icon fiwe nyeeds to be in a speciaw a-appwe fowmat.</p>
+<p>such a fiwe can be cweated fwom a c-cowwection of pngs o-of diffewent s-standawd sizes
+(powews of two). if you want youw a-app to wook nyice a-at aww sizes, OwO y-you can
+hand-cwaft an image fow each size, (ꈍᴗꈍ) f-fowwowing <a href="https://developer.apple.com/design/human-interface-guidelines/app-icons">appwe design
+guidewines</a>. (ꈍᴗꈍ) if you don't cawe, ^•ﻌ•^ you can just t-take one image
+(ideawwy 1024x1024, ^•ﻌ•^ the biggest size used by macos) a-and scawe it t-to diffewent sizes.</p>
+<p>hewe is a scwipt that does that:</p>
+<pre><code class="language-sh">souwce_image=&quot;myicon1024.png&quot;
+mkdiw -p appicon.iconset
+s-sips -z 16 16     &quot;${souwce_image}&quot; --out a-appicon.iconset/icon_16x16.png
+sips -z 32 32     &quot;${souwce_image}&quot; --out a-appicon.iconset/icon_16x16@2x.png
+s-sips -z 32 32     &quot;${souwce_image}&quot; --out a-appicon.iconset/icon_32x32.png
+s-sips -z 64 64     &quot;${souwce_image}&quot; --out a-appicon.iconset/icon_32x32@2x.png
+s-sips -z 128 128   &quot;${souwce_image}&quot; --out appicon.iconset/icon_128x128.png
+sips -z 256 256   &quot;${souwce_image}&quot; --out appicon.iconset/icon_128x128@2x.png
+sips -z 256 256   &quot;${souwce_image}&quot; --out a-appicon.iconset/icon_256x256.png
+sips -z 512 512   &quot;${souwce_image}&quot; --out appicon.iconset/icon_256x256@2x.png
+s-sips -z 512 512   &quot;${souwce_image}&quot; --out appicon.iconset/icon_512x512.png
+c-cp &quot;${souwce_image}&quot; appicon.iconset/icon_512x512@2x.png
+iconutiw -c icns appicon.iconset
+## m-move it into the app bundwe
+m-mv appicon.icns m-mygame.app/contents/wesouwces
+</code></pre>
+<p>it wowks by cweating a speciaw <code>iconset</code> fowdew, (ꈍᴗꈍ) with aww the png fiwes at d-diffewent
+sizes, ^•ﻌ•^ cweated by wesizing youw souwce i-image. OwO then, 🥺 i-it uses <code>iconutil</code> to pwoduce
+the finaw appwe icns fiwe fow youw a-app bundwe.</p>
+<p>if you want hand-cwafted icons fow e-each size, OwO you c-couwd use a simiwaw p-pwocess.
+cweate an <code>iconset</code> fowdew with youw pngs, &gt;_&lt; and wun <code>iconutil -c icns</code> on it.</p>
+<p>awtewnativewy, OwO appwe xcode has gui t-toows fow cweating a-and editing a-app icons.</p>
+<h3 id="putting-evewything-togethew"><a class="header" href="#putting-evewything-togethew">putting evewything togethew</a></h3>
+<p>hewe is a simpwe sheww scwipt to b-buiwd a mac app. OwO i-it fowwows the w-wecommendations
+on this page. ^•ﻌ•^ adjust evewything as n-nyecessawy fow y-youw pwoject.</p>
+<pre><code class="language-sh"># set the nyame of the mac app
+app_name=&quot;mygame&quot;
+# s-set the nyame o-of youw wust cwate
+w-wust_cwate_name=&quot;my_game&quot;
+# cweate t-the fowdew s-stwuctuwe
+mkdiw -p &quot;${app_name}.app/contents/macos&quot;
+m-mkdiw -p &quot;${app_name}.app/contents/wesouwces&quot;
+# c-copy info.pwist
+c-cp info.pwist &quot;${app_name}.app/contents/info.pwist&quot;
+# copy the icon (assuming you awweady have it in appwe i-icns fowmat)
+cp appicon.icns &quot;${app_name}.app/contents/wesouwces/appicon.icns&quot;
+# copy youw bevy g-game assets
+cp -a assets &quot;${app_name}.app/contents/macos/&quot;
+# c-compiwe the executabwes fow each awchitectuwe
+cawgo b-buiwd --wewease --tawget x86_64-appwe-dawwin # b-buiwd fow intew
+c-cawgo buiwd --wewease --tawget aawch64-appwe-dawwin # buiwd fow appwe siwicon
+# combine the executabwes into a singwe f-fiwe and put it in the bundwe
+wipo &quot;tawget/x86_64-appwe-dawwin/wewease/${wust_cwate_name}&quot; \
+     &quot;tawget/aawch64-appwe-dawwin/wewease/${wust_cwate_name}&quot; \
+     -cweate -output &quot;${app_name}.app/contents/macos/${app_name}&quot;
+</code></pre>
+<p>note: pwease ensuwe the bevy <code>dynamic_linking</code> cawgo featuwe is <em><strong>not</strong></em> enabwed.</p>
+<h2 id="cweating-a-dmg-fiwe"><a class="header" href="#cweating-a-dmg-fiwe">cweating a dmg fiwe</a></h2>
+<p>it is common fow mac apps downwoadabwe f-fwom the intewnet t-to be distwibuted a-as
+dmg fiwes – appwe's &quot;disk image&quot; f-fowmat. OwO usews c-can dwag-and-dwop t-the app bundwe
+inside into theiw <code>Applications</code> fowdew on theiw system.</p>
+<p>you can cweate a vewy simpwe one f-fwom the command-wine, ^•ﻌ•^ u-using <code>hdiutil</code>:</p>
+<pre><code class="language-sh">hdiutiw cweate -fs hfs+ \
+  -vowname &quot;my b-bevy game&quot; \
+  -swcfowdew &quot;mygame.app&quot; \
+  &quot;mybevygame_wewease_mac.dmg&quot;
+</code></pre>
+<p>specify the vowume nyame (how it a-appeaws when opened), OwO t-the nyame o-of youw app
+bundwe, OwO and the name of the output d-dmg fiwe, 🥺 wespectivewy. òωó y-you can u-use
+<code>-srcfolder</code> muwtipwe times, if you want to add m-mowe fiwes and f-fowdews to the
+dmg image.</p>
+<p>if you want to cweate a dmg fiwe u-using a gui, OwO you c-can use appwe's &quot;disk u-utiwity&quot;
+app that comes pweinstawwed with m-macos.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="windows-desktop"><a class="header" href="#windows-desktop">windows desktop</a></h1>
