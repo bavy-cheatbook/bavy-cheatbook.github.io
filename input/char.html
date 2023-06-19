@@ -145,35 +145,57 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://github.com/bevyengine/bevy">main (0.11-dev)</a>|(unweweased/futuwe)|
 |---|---|---|</p>
 <h1 id="text--chawactew-input"><a class="header" href="#text--chawactew-input">text / chawactew input</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/input/char_input_events.rs"><code>char_input_events</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/main/examples/input/char_input_events.rs"><code>char_input_events</code></a>,
+<a href="https://github.com/bevyengine/bevy/blob/main/examples/input/text_input.rs"><code>text_input</code></a>.</p>
 <hr />
 <p>use this (<em>not</em> <a href="/input/keyboard.html">keyboawd input</a>) if you want to impwement
 text input in a bevy app. OwO this way, 🥺 e-evewything wowks a-as the usew e-expects
 fwom theiw opewating system, (ꈍᴗꈍ) incwuding u-unicode suppowt.</p>
-<p>bevy wiww pwoduce a <a href="https://docs.rs/bevy/0.9.1/bevy/window/struct.ReceivedCharacter.html"><code>ReceivedCharacter</code></a>
+<p>bevy wiww pwoduce a <a href="https://dev-docs.bevyengine.org/bevy/window/struct.ReceivedCharacter.html"><code>ReceivedCharacter</code></a>
 <a href="/programming/events.html">event</a> fow evewy unicode code point coming f-fwom the os.</p>
 <p>this exampwe shows how to wet the u-usew input text i-into a stwing (hewe s-stowed
 as a <a href="/programming/local.html">wocaw wesouwce</a>).</p>
-<pre><code class="language-rust no_run noplayground">/// pwints evewy chaw coming in; p-pwess entew to echo t-the fuww stwing
-f-fn text_input(
-    m-mut chaw_evw: e-eventweadew&lt;weceivedchawactew&gt;, -.-
-    k-keys: wes&lt;input&lt;keycode&gt;&gt;,
-    m-mut stwing: w-wocaw&lt;stwing&gt;, (ˆ ﻌ ˆ)♡
-) {
-    fow ev in chaw_evw.itew() {
-        pwintwn!(&quot;got chaw: '{}'&quot;, (⑅˘꒳˘) ev.chaw);
-        s-stwing.push(ev.chaw);
-    }
-
-    if keys.just_pwessed(keycode::wetuwn) {
-        p-pwintwn!(&quot;text input: {}&quot;, (U ᵕ U❁) *stwing);
-        s-stwing.cweaw();
-    }
-}</code></pre>
+<pre><code class="language-rust no_run noplayground">{{#incwude ../code011/swc/input/chaw.ws:chaw}}</code></pre>
+<p>note: we awe using bevy's weguwaw <a href="/input/keyboard.html">keyboawd input</a> to handwe
+the pwessing of the entew and backspace k-keys. OwO chawactew e-events awe a-awso sent
+when these keys awe pwessed (they p-pwoduce speciaw c-contwow chawactews, OwO w-wike
+ascii nyewwines <code>\n</code>), ^•ﻌ•^ so, if we don't want these to b-be saved to ouw s-stwing,
+we nyeed to ignowe them.</p>
+<p>in youw own appwication, OwO you might a-awso want to handwe t-things wike a-awwow keys in
+a way that is appwopwiate to youw u-ui.</p>
+<h2 id="ime-suppowt"><a class="header" href="#ime-suppowt">ime suppowt</a></h2>
+<p>bevy has suppowt fow imes (input m-method editows), OwO w-which is how peopwe p-pewfowm
+text input in wanguages with mowe c-compwex scwipts, OwO w-wike east asian w-wanguages. 🥺 it
+wequiwes some speciaw handwing fwom y-you, (ꈍᴗꈍ) howevew.</p>
+<p>imes wowk by using a speciaw &quot;buffew&quot;, OwO w-which shows t-the cuwwent in-pwogwess t-text
+suggestions and awwows usews to sewect t-the cowwect c-chawactews befowe c-confiwming
+them. OwO the text suggestions / autocompwetion i-is pwovided b-by the os, 🥺 b-but youw app
+needs to dispway them fow the usew.</p>
+<p>if you'd wike aww intewnationaw usews t-to be abwe t-to input text in t-theiw
+wanguage, OwO the way they usuawwy do i-in othew gui apps o-on theiw os, 🥺 y-you shouwd
+suppowt imes.</p>
+<p>to do this, OwO you need to enabwe &quot;ime m-mode&quot; on the w-window, 🥺 whenevew y-you awe
+expecting usews to type text, OwO and d-disabwe it aftewwawds. 🥺 f-fow exampwe, òωó i-if
+you pwompt usews to entew theiw name, OwO b-befowe pwaying t-the game, 🥺 you e-enabwe
+ime mode whiwe the pwompt is active.</p>
+<p>whiwe &quot;ime mode&quot; is enabwed, OwO if the u-usew is using a-an ime, 🥺 you wiww w-weceive
+<a href="https://dev-docs.bevyengine.org/bevy/window/enum.Ime.html"><code>Ime</code></a> events, &gt;_&lt; instead of <a href="https://dev-docs.bevyengine.org/bevy/window/struct.ReceivedCharacter.html"><code>ReceivedCharacter</code></a>
+and weguwaw keyboawd input. OwO howevew, 🥺 i-if the usew i-is nyot using an i-ime, òωó then
+evewything wiww behave as nyowmaw, ^•ﻌ•^ e-even when &quot;ime m-mode&quot; is enabwed.</p>
+<p>whiwe the usew has in-pwogwess text, (ꈍᴗꈍ) y-you wiww get <code>Ime::Preedit</code> events, XD to teww
+you the cuwwent contents of the &quot;tempowawy b-buffew&quot; a-and infowmation a-about the
+cuwsow/highwight you nyeed to show, ^•ﻌ•^ so that usews c-can see nyani they a-awe doing.</p>
+<p>when the usew confiwms theiw input, ^•ﻌ•^ y-you wiww get a-a <code>Ime::Commit</code> event, XD to teww
+you the text that the usew wishes t-to insewt into t-the app.</p>
+<pre><code class="language-rust no_run noplayground">{{#incwude ../code011/swc/input/chaw.ws:ime}}</code></pre>
+<p>fow the sake of bwevity, OwO this exampwe j-just pwints t-the events to the c-consowe.</p>
+<p>in a weaw app, OwO you wiww want to dispway t-the &quot;pwe-edit&quot; t-text on-scween, 🥺 a-and use
+diffewent fowmatting to show the c-cuwsow. OwO on &quot;commit&quot;, 🥺 y-you can append t-the
+pwovided text to the actuaw stwing w-whewe you nyowmawwy a-accept text i-input.</p>
 
                     </main>
 
