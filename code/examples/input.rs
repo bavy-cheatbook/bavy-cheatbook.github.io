@@ -420,7 +420,6 @@ fn main() {
         .add_plugins(DefaultPlugins)
         .add_startup_system(configure_gamepads)
         .add_system(file_drop)
-        .add_system(text_input)
         .add_system(keyboard_input)
         .add_system(keyboard_events)
         .add_system(mouse_button_input)
