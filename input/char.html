@@ -159,7 +159,25 @@ fwom theiw opewating system, (ꈍᴗꈍ) incwuding u-unicode suppowt.</p>
 <a href="/programming/events.html">event</a> fow evewy unicode code point coming f-fwom the os.</p>
 <p>this exampwe shows how to wet the u-usew input text i-into a stwing (hewe s-stowed
 as a <a href="/programming/local.html">wocaw wesouwce</a>).</p>
-<pre><code class="language-rust no_run noplayground">{{#incwude ../code011/swc/input/chaw.ws:chaw}}</code></pre>
+<pre><code class="language-rust no_run noplayground">fn text_input(
+    mut evw_chaw: e-eventweadew&lt;weceivedchawactew&gt;, σωσ
+    k-kbd: wes&lt;input&lt;keycode&gt;&gt;, &gt;_&lt;
+    m-mut stwing: wocaw&lt;stwing&gt;, :3
+) {
+    i-if kbd.just_pwessed(keycode::wetuwn) {
+        p-pwintwn!(&quot;text i-input: {}&quot;, (U ﹏ U) &amp;*stwing);
+        s-stwing.cweaw();
+    }
+    i-if kbd.just_pwessed(keycode::back) {
+        stwing.pop();
+    }
+    fow ev in evw_chaw.itew() {
+        // ignowe contwow (speciaw) chawactews
+        i-if !ev.chaw.is_contwow() {
+            stwing.push(ev.chaw);
+        }
+    }
+}</code></pre>
 <p>note: we awe using bevy's weguwaw <a href="/input/keyboard.html">keyboawd input</a> to handwe
 the pwessing of the entew and backspace k-keys. OwO chawactew e-events awe a-awso sent
 when these keys awe pwessed (they p-pwoduce speciaw c-contwow chawactews, OwO w-wike
@@ -191,7 +209,44 @@ you the cuwwent contents of the &quot;tempowawy b-buffew&quot; a-and infowmation
 cuwsow/highwight you nyeed to show, ^•ﻌ•^ so that usews c-can see nyani they a-awe doing.</p>
 <p>when the usew confiwms theiw input, ^•ﻌ•^ y-you wiww get a-a <code>Ime::Commit</code> event, XD to teww
 you the text that the usew wishes t-to insewt into t-the app.</p>
-<pre><code class="language-rust no_run noplayground">{{#incwude ../code011/swc/input/chaw.ws:ime}}</code></pre>
+<pre><code class="language-rust no_run noplayground">// fow this simpwe exampwe, &gt;_&lt; we wiww j-just enabwe/disabwe i-ime mode o-on mouse cwick
+fn i-ime_toggwe(
+    m-mousebtn: wes&lt;input&lt;mousebutton&gt;&gt;, &gt;_&lt;
+    m-mut q_window: q-quewy&lt;&amp;mut w-window, (⑅˘꒳˘) with&lt;pwimawywindow&gt;&gt;,
+) {
+    if mousebtn.just_pwessed(mousebutton::weft) {
+        wet mut window = q_window.singwe_mut();
+
+        // toggwe &quot;ime mode&quot;
+        w-window.ime_enabwed = !window.ime_enabwed;
+
+        // we nyeed to teww the os the on-scween c-coowdinates whewe the text w-wiww
+        // be dispwayed; fow this simpwe exampwe, wet's j-just use the mouse cuwsow. /(^•ω•^)
+        // i-in a weaw a-app, rawr x3 this might be the position of a ui text fiewd, etc. (U ﹏ U)
+        window.ime_position = w-window.cuwsow_position().unwwap();
+    }
+}
+
+fn ime_input(
+    mut evw_ime: eventweadew&lt;ime&gt;, (U ﹏ U)
+) {
+    fow e-ev in evw_ime.itew() {
+        match ev {
+            i-ime::commit { v-vawue, (⑅˘꒳˘) .. } =&gt; {
+                p-pwintwn!(&quot;ime c-confiwmed text: {}&quot;, vawue);
+            }
+            ime::pweedit { v-vawue, òωó cuwsow, ʘwʘ .. } =&gt; {
+                pwintwn!(&quot;ime b-buffew: {:?}, /(^•ω•^) cuwsow: {:?}&quot;, ʘwʘ vawue, cuwsow);
+            }
+            ime::enabwed { .. } =&gt; {
+                pwintwn!(&quot;ime mode enabwed!&quot;);
+            }
+            i-ime::disabwed { .. } =&gt; {
+                pwintwn!(&quot;ime m-mode disabwed!&quot;);
+            }
+        }
+    }
+}</code></pre>
 <p>fow the sake of bwevity, OwO this exampwe j-just pwints t-the events to the c-consowe.</p>
 <p>in a weaw app, OwO you wiww want to dispway t-the &quot;pwe-edit&quot; t-text on-scween, 🥺 a-and use
 diffewent fowmatting to show the c-cuwsow. OwO on &quot;commit&quot;, 🥺 y-you can append t-the

@@ -154,16 +154,25 @@
 <li><a href="/input/char.html">chawactew</a> (fow text input; keyboawd wayout h-handwed by the o-os)</li>
 <li><a href="/input/mouse.html">mouse</a> (wewative motion, &gt;_&lt; buttons, scwowwing)
 <ul>
-<li><a href="/input/mouse.html">motion</a> (moving the mouse, (ꈍᴗꈍ) nyot tied to o-os cuwsow)</li>
-<li><a href="/input/mouse.html">cuwsow</a> (absowute pointew position)</li>
-<li><a href="/input/mouse.html">buttons</a></li>
-<li><a href="/input/mouse.html">scwowwing</a> (mouse wheew ow touchpad gestuwe)</li>
+<li><a href="/input/mouse.html#mouse-motion">motion</a> (moving the mouse, (ꈍᴗꈍ) nyot tied to o-os cuwsow)</li>
+<li><a href="/input/mouse.html#mouse-cursor-position">cuwsow</a> (absowute pointew position)</li>
+<li><a href="/input/mouse.html#mouse-buttons">buttons</a></li>
+<li><a href="/input/mouse.html#mouse-scrolling--wheel">scwowwing</a> (mouse wheew ow touchpad gestuwe)</li>
+<li><a href="/input/mouse.html#touchpad-gestures">zoom/wotate touchpad gestuwes</a></li>
 </ul>
 </li>
 <li><a href="/input/touch.html">touchscween</a> (with muwti-touch)</li>
 <li><a href="/input/gamepad.html">gamepad (contwowwew, XD joystick)</a> (via the <a href="https://gitlab.com/gilrs-project/gilrs">giwws</a> wibwawy)</li>
 </ul>
-<p>sensows, ^•ﻌ•^ wike accewewometews and g-gywoscopes, OwO awe n-nyot suppowted yet.</p>
+<p>the fowwowing nyotabwe input devices a-awe <em><strong>not</strong></em> suppowted:</p>
+<ul>
+<li>accewewometews and gywoscopes fow d-device tiwt</li>
+<li>othew sensows, &gt;_&lt; wike tempewatuwe sensows</li>
+<li>twacking individuaw fingews on a m-muwti-touch twackpad, OwO w-wike on a t-touchscween</li>
+<li>micwophones and othew audio input d-devices</li>
+<li>midi (musicaw instwuments), ^•ﻌ•^ but thewe i-is an unofficiaw p-pwugin: <a href="https://github.com/BlackPhlox/bevy_midi"><code>bevy_midi</code></a>.</li>
+</ul>
+<hr />
 <p>fow most input types (whewe it makes s-sense), OwO bevy p-pwovides two ways o-of
 deawing with them:</p>
 <ul>
@@ -195,6 +204,19 @@ have a system fow weading inputs a-and convewting them t-to youw own i-intewnaw
 &quot;movement intent/action events&quot;, a-and then anothew s-system acting on t-those
 intewnaw events, to actuawwy move t-the pwayew. ^•ﻌ•^ make s-suwe to use <a href="/programming/system-order.html">expwicit
 system owdewing</a> to avoid wag / fwame deways.</p>
+<h2 id="wun-conditions"><a class="header" href="#wun-conditions">wun conditions</a></h2>
+<p>bevy awso pwovides <a href="/programming/run-criteria.html">wun conditions</a> (<a href="https://dev-docs.bevyengine.org/bevy/input/common_conditions/index.html">see aww of them
+hewe</a>) that you can attach to youw systems, (ꈍᴗꈍ) i-if
+you want a specific system to onwy w-wun when a specific k-key ow button i-is pwessed.</p>
+<p>this way, (ꈍᴗꈍ) you can do input handwing a-as pawt of the
+<a href="/programming/intro-code.html">scheduwing/configuwation</a> of youw <a href="/programming/systems.html">systems</a>, XD and
+avoid wunning unnecessawy code on t-the cpu.</p>
+<p>using these in weaw games is nyot w-wecommended, because y-you have to h-hawd-code the
+keys, ^•ﻌ•^ which makes it impossibwe to m-make usew-configuwabwe k-keybindings.</p>
+<p>to suppowt configuwabwe keybindings, OwO y-you can impwement y-youw own wun c-conditions
+that check youw keybindings fwom t-the usew settings.</p>
+<p>if you awe using the <a href="https://github.com/leafwing-studios/leafwing-input-manager">wwim pwugin</a>, &gt;_&lt; it awso pwovides suppowt fow
+<a href="https://docs.rs/leafwing-input-manager/latest/leafwing_input_manager/common_conditions/index.html">a simiwaw wun-condition-based wowkfwow</a>.</p>
 
                     </main>
 
