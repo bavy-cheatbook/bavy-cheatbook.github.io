@@ -199,14 +199,6 @@ stowed using entities and components.</p>
 <h2 id="cowe-awchitectuwe"><a class="header" href="#cowe-awchitectuwe">cowe awchitectuwe</a></h2>
 <p>the wendewew opewates in muwtipwe <a href="/gpu/stages.html">wendew stages</a>. XD this
 is how the wowk that nyeeds to be p-pewfowmed on the c-cpu is managed.</p>
-<ul>
-<li><code>Extract</code>: quickwy copy the minimaw data you n-nyeed fwom the m-main wowwd to t-the wendew wowwd</li>
-<li><code>Prepare</code>: send data to the gpu (buffews, t-textuwes, (ꈍᴗꈍ) bind gwoups)</li>
-<li><code>Queue</code>: genewate the wendew jobs to be w-wun (usuawwy <a href="/TODO.html">phase items</a>)</li>
-<li><code>PhaseSort</code>: sowt and batch <a href="/TODO.html">phase items</a> fow efficient wendewing</li>
-<li><code>Render</code>: exekawaii~ the <a href="/TODO.html">wendew gwaph</a> to pwoduce actuaw gpu commands and d-do the wowk</li>
-<li><code>Cleanup</code>: cweaw any data fwom the wendew w-wowwd that shouwd n-nyot pewsist to t-the nyext fwame</li>
-</ul>
 <p>the owdewing of the wowkwoads to b-be pewfowmed on t-the gpu is contwowwed
 using the <a href="/TODO.html">wendew gwaph</a>. &gt;<em>&lt; the gwaph consists of
 <a href="/TODO.html">nodes</a>, (ꈍᴗꈍ) each wepwesenting a wowkwoad fow t-the gpu,
@@ -225,16 +217,17 @@ gwaphics api. OwO it is the abstwaction w-wayew ovew the g-gpu apis of the u-und
 suppowted pwatfowms. (ꈍᴗꈍ) the api design o-of <a href="https://github.com/gfx-rs/wgpu"><code>wgpu</code></a> is based on
 the webgpu standawd, OwO but with extensions t-to suppowt n-nyative pwatfowm f-featuwes,
 going beyond the wimitations of the w-web pwatfowm.</p>
-<p><a href="https://github.com/gfx-rs/wgpu"><code>wgpu</code></a> (and hence bevy) suppowts the fowwowing b-backends f-fow each pwatfowm:</p>
-<ul>
-<li>vuwkan (winux/windows/andwoid)</li>
-<li>diwectx 12 (windows)</li>
-<li>metaw (appwe)</li>
-<li>webgw2 (web)</li>
-<li>webgpu (web; expewimentaw)</li>
-<li>gwes3 (winux/andwoid; wegacy)</li>
-<li>diwectx 11 (windows; wegacy; wip (not yet weady fow u-use))</li>
-</ul>
+<p><a href="https://github.com/gfx-rs/wgpu"><code>wgpu</code></a> (and hence bevy) suppowts the fowwowing b-backends:</p>
+<p>|pwatfowm|backends (in owdew of pwiowity)|
+|--------|-------------------------------|
+|winux   |vuwkan, XD gwes3                  |
+|windows |diwectx 12, XD vuwkan, gwes3      |
+|macos   |metaw                          |
+|ios     |metaw                          |
+|andwoid |vuwkan, XD gwes3                  |
+|web     |webgpu, XD webgw2                 |</p>
+<p>on gwes3 and webgw2, OwO some wendewew f-featuwes awe unsuppowted a-and pewfowmance i-is wowse.</p>
+<p>webgpu is expewimentaw and few bwowsews s-suppowt it.</p>
 <p><code>wgpu</code> fowms the &quot;wowest wevew&quot; of bevy w-wendewing. OwO if you w-weawwy nyeed t-the
 most diwect contwow ovew the gpu, ^•ﻌ•^ y-you can pwetty m-much use <code>wgpu</code> diwectwy,
 fwom within the bevy wendew fwamewowk.</p>

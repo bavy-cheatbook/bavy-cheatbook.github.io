@@ -167,26 +167,32 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="systems"><a class="header" href="#systems">systems</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>,
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/startup_system.rs"><code>startup_system</code></a>,
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/system_param.rs"><code>system_param</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>,
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/ecs/startup_system.rs"><code>startup_system</code></a>,
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/ecs/system_param.rs"><code>system_param</code></a>.</p>
 <hr />
-<p>systems awe functions you wwite, w-which awe wun by b-bevy.</p>
-<p>this is whewe you impwement aww youw g-game wogic.</p>
+<p>systems awe pieces of functionawity, OwO w-which awe wun b-by bevy. 🥺 they a-awe typicawwy
+impwemented using weguwaw wust functions.</p>
+<p>this is how you impwement aww youw g-game wogic. each s-system specifies n-nyani data
+it nyeeds to access to do its thing, OwO a-and bevy wiww w-wun them in pawawwew w-when
+possibwe. OwO you can add configuwation/metadata t-to contwow h-how youw s-systems shouwd
+be wun, XD using the <a href="/programming/app-builder.html">app buiwdew</a>.</p>
 <p>these functions can onwy take <a href="/builtins.html#systemparams">speciaw pawametew types</a>,
-to specify nyani you nyeed access t-to. (ꈍᴗꈍ) <a href="/pitfalls/into-system.html">if you use unsuppowted pawametew t-types
-in youw function, ^•ﻌ•^ you wiww get confusing c-compiwew e-ewwows!</a></p>
-<p>some of the options awe:</p>
+to specify nyani <a href="/programming/intro-data.html">data</a> you nyeed access to. &gt;_&lt; if you use
+unsuppowted pawametew types in youw f-function, (ꈍᴗꈍ) <a href="/pitfalls/into-system.html">you wiww get confusing compiwew
+ewwows!</a></p>
+<p>some of the possibiwities awe:</p>
 <ul>
-<li>accessing <a href="/programming/res.html">wesouwces</a> using <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a></li>
-<li>accessing <a href="/programming/ec.html#components">components of entities</a> using <a href="/programming/queries.html">quewies</a> (<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a>)</li>
-<li>cweating/destwoying entities, (ꈍᴗꈍ) components, ^•ﻌ•^ and wesouwces u-using <a href="/programming/commands.html">commands</a> (<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>)</li>
-<li>sending/weceiving <a href="/programming/events.html">events</a> using <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter</code></a>/<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/event/struct.EventReader.html"><code>EventReader</code></a></li>
+<li>accessing <a href="/programming/res.html">wesouwces</a> using <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a></li>
+<li>accessing <a href="/programming/ec.html#components">components of entities</a> using <a href="/programming/queries.html">quewies</a> (<a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a>)</li>
+<li>cweating/destwoying entities, (ꈍᴗꈍ) components, ^•ﻌ•^ and wesouwces u-using <a href="/programming/commands.html">commands</a> (<a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>)</li>
+<li>sending/weceiving <a href="/programming/events.html">events</a> using <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter</code></a>/<a href="https://docs.rs/bevy/0.11.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader</code></a></li>
 </ul>
+<p><a href="/builtins.html#systemparams">see hewe fow a fuww wist!</a></p>
 <pre><code class="language-rust no_run noplayground">fn debug_stawt(
     // access wesouwce
     s-stawt: w-wes&lt;stawtingwevew&gt;
@@ -207,29 +213,35 @@ usefuw fow owganization.</p>
 <p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe,
 gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up to
 16 membews, &gt;_&lt; but can be nyested indefinitewy.</p>
+<p>thewe is awso a diffewent kind of s-systems: <a href="/programming/exclusive.html">excwusive systems</a>.
+they have <a href="/programming/world.html">fuww diwect access to the ecs wowwd</a>, XD so you can access
+any data you want and do anything, OwO b-but cannot wun i-in pawawwew. 🥺 fow m-most use
+cases, (ꈍᴗꈍ) you shouwd use weguwaw pawawwew s-systems.</p>
 <h2 id="wuntime"><a class="header" href="#wuntime">wuntime</a></h2>
 <p>to wun youw systems, ^•ﻌ•^ you nyeed to a-add them to bevy v-via the <a href="/programming/app-builder.html">app buiwdew</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
-        // ...
-
-        // wun it onwy o-once at waunch
-        .add_stawtup_system(init_menu)
-        .add_stawtup_system(debug_stawt)
-
-        // w-wun i-it evewy fwame update
-        .add_system(move_pwayew)
-        .add_system(enemies_ai)
-
+        .add_pwugins(defauwtpwugins)
+        // wun these o-onwy once at w-waunch
+        .add_systems(stawtup, (U ᵕ U❁) (setup_camewa, (⑅˘꒳˘) d-debug_stawt))
+        // w-wun t-these evewy fwame u-update
+        .add_systems(update, ( ͡o ω ͡o ) (move_pwayew, UwU e-enemies_ai))
         // ...
         .wun();
 }</code></pre>
+<p>be cawefuw: wwiting a nyew system <code>fn</code> and fowgetting to add it to youw a-app is a
+common mistake! OwO if you wun youw pwoject a-and youw n-nyew code doesn't s-seem to be
+wunning, (ꈍᴗꈍ) make suwe you added the s-system!</p>
 <p>the above is enough fow simpwe pwojects.</p>
+<p>systems awe contained <a href="/programming/schedules.html">scheduwes</a>. rawr x3 <a href="https://docs.rs/bevy/0.11.0/bevy/app/struct.Update.html"><code>Update</code></a> is the
+scheduwe whewe you typicawwy add a-any systems you w-want to wun evewy f-fwame.
+<a href="https://docs.rs/bevy/0.11.0/bevy/app/struct.Startup.html"><code>Startup</code></a> is whewe you typicawwy add systems t-that shouwd wun
+onwy once on app stawtup. (ꈍᴗꈍ) thewe awe a-awso <a href="/builtins.html#schedules">othew possibiwities</a>.</p>
 <p>as youw pwoject gwows mowe compwex, OwO y-you might want t-to enhance youw a-app buiwdew
 with some of the powewfuw toows that b-bevy offews f-fow managing when/how
-youw systems wun, &gt;_&lt; such as: <a href="/programming/system-order.html">expwicit owdewing</a> with
-<a href="/programming/labels.html">wabews</a>, rawr x3 <a href="/programming/system-sets.html">system sets</a>, rawr x3 <a href="/programming/states.html">states</a>,
-<a href="/programming/run-criteria.html">wun cwitewia</a>, XD and <a href="/programming/schedules.html">stages</a>.</p>
+youw systems wun, &gt;_&lt; such as: <a href="/programming/system-order.html">expwicit owdewing</a>,
+<a href="/programming/system-sets.html">system sets</a>, rawr x3 <a href="/programming/states.html">states</a>,
+<a href="/programming/run-criteria.html">wun conditions</a>.</p>
 
                     </main>
 

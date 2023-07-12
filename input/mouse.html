@@ -167,20 +167,20 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://github.com/bevyengine/bevy">main (0.11-dev)</a>|(unweweased / upcoming)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="mouse"><a class="header" href="#mouse">mouse</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/main/examples/input/mouse_input.rs"><code>mouse_input</code></a>,
-<a href="https://github.com/bevyengine/bevy/blob/main/examples/input/mouse_input_events.rs"><code>mouse_input_events</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/input/mouse_input.rs"><code>mouse_input</code></a>,
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/input/mouse_input_events.rs"><code>mouse_input_events</code></a>.</p>
 <hr />
 <h2 id="mouse-buttons"><a class="header" href="#mouse-buttons">mouse buttons</a></h2>
 <p>simiwaw to <a href="/input/keyboard.html">keyboawd input</a>, (ꈍᴗꈍ) mouse buttons awe avaiwabwe as a-an
-<a href="https://dev-docs.bevyengine.org/bevy/input/struct.Input.html"><code>Input</code></a> state <a href="/programming/res.html">wesouwce</a>, rawr x3 <a href="/programming/events.html">events</a>, XD and <a href="/programming/run-criteria.html">wun
-conditions</a> (<a href="https://dev-docs.bevyengine.org/bevy/input/common_conditions/index.html">see wist</a>). XD use whichevew
+<a href="https://docs.rs/bevy/0.11.0/bevy/input/struct.Input.html"><code>Input</code></a> state <a href="/programming/res.html">wesouwce</a>, rawr x3 <a href="/programming/events.html">events</a>, XD and <a href="/programming/run-criteria.html">wun
+conditions</a> (<a href="https://docs.rs/bevy/0.11.0/bevy/input/common_conditions/index.html">see wist</a>). XD use whichevew
 pattewn feews most appwopwiate to y-youw use case.</p>
 <p>you can check the state of specific m-mouse buttons u-using
-<a href="https://dev-docs.bevyengine.org/bevy/input/mouse/enum.MouseButton.html"><code>Input&lt;MouseButton&gt;</code></a>:</p>
+<a href="https://docs.rs/bevy/0.11.0/bevy/input/mouse/enum.MouseButton.html"><code>Input&lt;MouseButton&gt;</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">fn mouse_button_input(
     buttons: w-wes&lt;input&lt;mousebutton&gt;&gt;, (U ᵕ U❁)
 ) {
@@ -212,7 +212,7 @@ pattewn feews most appwopwiate to y-youw use case.</p>
         pwintwn!(&quot;{:?} w-was weweased&quot;, (U ﹏ U) button);
     }
 }</code></pre>
-<p>awtewnativewy, &gt;_&lt; you can use <a href="https://dev-docs.bevyengine.org/bevy/input/mouse/struct.MouseButtonInput.html"><code>MouseButtonInput</code></a>
+<p>awtewnativewy, &gt;_&lt; you can use <a href="https://docs.rs/bevy/0.11.0/bevy/input/mouse/struct.MouseButtonInput.html"><code>MouseButtonInput</code></a>
 <a href="/programming/events.html">events</a> to get aww activity:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::input::mouse::mousebuttoninput;
 
@@ -245,7 +245,7 @@ app.add_systems(update, ^•ﻌ•^ (
         .wun_if(input_pwessed(mousebutton::weft)), 🥺
 ));</code></pre>
 <h2 id="mouse-scwowwing--wheew"><a class="header" href="#mouse-scwowwing--wheew">mouse scwowwing / wheew</a></h2>
-<p>to detect scwowwing input, &gt;_&lt; use <a href="https://dev-docs.bevyengine.org/bevy/input/mouse/struct.MouseWheel.html"><code>MouseWheel</code></a> <a href="/programming/events.html">events</a>:</p>
+<p>to detect scwowwing input, &gt;_&lt; use <a href="https://docs.rs/bevy/0.11.0/bevy/input/mouse/struct.MouseWheel.html"><code>MouseWheel</code></a> <a href="/programming/events.html">events</a>:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::input::mouse::mousewheew;
 
 fn scwoww_events(
@@ -263,7 +263,7 @@ fn scwoww_events(
         }
     }
 }</code></pre>
-<p>the <a href="https://dev-docs.bevyengine.org/bevy/input/mouse/enum.MouseScrollUnit.html"><code>MouseScrollUnit</code></a> enum is impowtant: it tewws
+<p>the <a href="https://docs.rs/bevy/0.11.0/bevy/input/mouse/enum.MouseScrollUnit.html"><code>MouseScrollUnit</code></a> enum is impowtant: it tewws
 you the type of scwoww input. &gt;<em>&lt; <code>Line</code> is fow hawdwawe with fixed steps, (ꈍᴗꈍ) w-wike
 the wheew on desktop mice. &gt;</em>&lt; <code>Pixel</code> is fow hawdwawe with smooth (fine-gwained)
 scwowwing, &gt;_&lt; wike waptop touchpads.</p>
@@ -277,7 +277,7 @@ of wines, OwO even when using a weguwaw p-pc mouse with a-a fixed-stepping s-scw
 <p>use this if you don't cawe about t-the exact position o-of the mouse c-cuwsow,
 but wathew you just want to see how m-much it moved f-fwom fwame to fwame. OwO t-this
 is usefuw fow things wike contwowwing a-a 3d camewa.</p>
-<p>use <a href="https://dev-docs.bevyengine.org/bevy/input/mouse/struct.MouseMotion.html"><code>MouseMotion</code></a> <a href="/programming/events.html">events</a>. XD whenevew the
+<p>use <a href="https://docs.rs/bevy/0.11.0/bevy/input/mouse/struct.MouseMotion.html"><code>MouseMotion</code></a> <a href="/programming/events.html">events</a>. XD whenevew the
 mouse is moved, (ꈍᴗꈍ) you wiww get an event w-with the dewta.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::input::mouse::mousemotion;
 
@@ -294,7 +294,7 @@ window</a>.</p>
 <p>use this if you want to accuwatewy t-twack the position p-pointew / cuwsow. OwO t-this is
 usefuw fow things wike cwicking and h-hovewing ovew o-objects in youw g-game ow ui.</p>
 <p>you can get the cuwwent coowdinates o-of the mouse p-pointew, OwO fwom the w-wespective
-<a href="https://dev-docs.bevyengine.org/bevy/window/struct.Window.html"><code>Window</code></a> (if the mouse is cuwwentwy inside t-that window):</p>
+<a href="https://docs.rs/bevy/0.11.0/bevy/window/struct.Window.html"><code>Window</code></a> (if the mouse is cuwwentwy inside t-that window):</p>
 <pre><code class="language-rust no_run noplayground">use bevy::window::pwimawywindow;
 
 fn cuwsow_position(
@@ -307,7 +307,7 @@ fn cuwsow_position(
         p-pwintwn!(&quot;cuwsow is nyot in the g-game window.&quot;);
     }
 }</code></pre>
-<p>to detect when the pointew is moved, (ꈍᴗꈍ) u-use <a href="https://dev-docs.bevyengine.org/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a>
+<p>to detect when the pointew is moved, (ꈍᴗꈍ) u-use <a href="https://docs.rs/bevy/0.11.0/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a>
 <a href="/programming/events.html">events</a> to get the updated coowdinates:</p>
 <pre><code class="language-rust no_run noplayground">fn cuwsow_events(
     mut cuwsow_evw: e-eventweadew&lt;cuwsowmoved&gt;, rawr x3
@@ -328,14 +328,14 @@ wewate to youw camewa ow in-game c-coowdinates in any w-way. ^•ﻌ•^ <a href
 exampwe</a> fow convewting these window cuwsow c-coowdinates
 into wowwd-space coowdinates.</p>
 <p>to twack when the mouse cuwsow entews a-and weaves y-youw window(s), OwO u-use
-<a href="https://dev-docs.bevyengine.org/bevy/window/struct.CursorEntered.html"><code>CursorEntered</code></a> and <a href="https://dev-docs.bevyengine.org/bevy/window/struct.CursorLeft.html"><code>CursorLeft</code></a>
+<a href="https://docs.rs/bevy/0.11.0/bevy/window/struct.CursorEntered.html"><code>CursorEntered</code></a> and <a href="https://docs.rs/bevy/0.11.0/bevy/window/struct.CursorLeft.html"><code>CursorLeft</code></a>
 <a href="/programming/events.html">events</a>.</p>
 <h2 id="touchpad-gestuwes"><a class="header" href="#touchpad-gestuwes">touchpad gestuwes</a></h2>
 <p>bevy suppowts the two-fingew wotate a-and pinch-to-zoom g-gestuwes, OwO but t-they
 cuwwentwy onwy wowk on macos, OwO whewe t-the os pwovides s-speciaw events f-fow them.</p>
 <p>if you awe intewested in suppowting t-these gestuwes i-in youw app, OwO you c-can do so
-using <a href="https://dev-docs.bevyengine.org/bevy/input/touchpad/struct.TouchpadRotate.html"><code>TouchpadRotate</code></a> and
-<a href="https://dev-docs.bevyengine.org/bevy/input/touchpad/struct.TouchpadMagnify.html"><code>TouchpadMagnify</code></a> <a href="/programming/events.html">events</a>:</p>
+using <a href="https://docs.rs/bevy/0.11.0/bevy/input/touchpad/struct.TouchpadRotate.html"><code>TouchpadRotate</code></a> and
+<a href="https://docs.rs/bevy/0.11.0/bevy/input/touchpad/struct.TouchpadMagnify.html"><code>TouchpadMagnify</code></a> <a href="/programming/events.html">events</a>:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::input::touchpad::{touchpadmagnify, 😳 touchpadwotate};
 
 // t-these onwy wowk o-on macos

@@ -167,55 +167,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="audio"><a class="header" href="#audio">audio</a></h1>
-<p>bevy's own buiwt-in audio suppowt i-is extwemewy bawebones a-and wimited. OwO i-it
-can pway sounds and give some contwow o-ovew its vowume a-and pwayback.</p>
-<p><strong>todo:</strong> show how to use bevy audio, ^•ﻌ•^ nyow t-that it its usabiwity h-has impwoved.</p>
-<h2 id="kiwa-audio"><a class="header" href="#kiwa-audio">kiwa audio</a></h2>
-<p>instead, &gt;<em>&lt; you couwd twy the <a href="https://github.com/NiklasEi/bevy_kira_audio"><code>bevy_kira_audio</code></a>
-community pwugin, OwO which integwates t-the kiwa sound w-wibwawy with bevy. 🥺 k-kiwa
-is much mowe featuwe-wich, OwO incwuding s-suppowt fow m-managing many audio t-twacks
-(wike backgwound music and sound e-effects), OwO with vowume c-contwow, 🥺 steweo p-panning,
-pwayback wate, &gt;</em>&lt; and stweaming.</p>
-<p>using <code>bevy_kira_audio</code> in youw pwoject wequiwes some extwa c-configuwation,
-because you nyeed to disabwe bevy's o-own audio. bevy's a-audio is a c-cawgo featuwe
-that is enabwed by defauwt, OwO but must b-be disabwed. 🥺 c-cawgo does nyot w-wet you
-disabwe individuaw defauwt featuwes, OwO s-so you nyeed t-to disabwe aww d-defauwt bevy
-featuwes and we-enabwe the ones you n-nyeed. (ꈍᴗꈍ) <a href="/setup/bevy-config.html">see hewe</a> fow mowe info.</p>
-<p>you must nyot incwude the <code>bevy_audio</code> featuwe, &gt;<em>&lt; ow any of the audio fiwe
-fowmats (such as the defauwt <code>vorbis</code>). &gt;</em>&lt; enabwe the fiwe fowmats you cawe
-about on <code>bevy_kira_audio</code> instead of bevy.</p>
-<pre><code class="language-toml">[dependencies.bevy]
-vewsion = &quot;0.9&quot;
-defauwt-featuwes = f-fawse
-# these a-awe the wemaining d-defauwt featuwes o-othew than `bevy_audio` and `vowbis`
-f-featuwes = [
-  &quot;wendew&quot;, &gt;_&lt;
-  &quot;animation&quot;, :3
-  &quot;bevy_asset&quot;, (U ﹏ U)
-  &quot;bevy_scene&quot;, -.-
-  &quot;bevy_winit&quot;, (ˆ ﻌ ˆ)♡
-  &quot;bevy_giwws&quot;, (⑅˘꒳˘)
-  &quot;png&quot;, (U ᵕ U❁)
-  &quot;hdw&quot;,
-  &quot;fiwesystem_watchew&quot;, -.-
-  &quot;x11&quot;
-]
-
-[dependencies.bevy_kiwa_audio]
-v-vewsion = &quot;0.11&quot;
-# `ogg` f-fowmat suppowt i-is enabwed by defauwt, ^^;; disabwe if you don't want it
-defauwt-featuwes = fawse
-# enabwe t-the featuwes you cawe about
-featuwes = [
-  &quot;wav&quot;, &gt;_&lt;
-  &quot;fwac&quot;, mya
-  &quot;mp3&quot;,
-  &quot;ogg&quot;, mya
-]
-</code></pre>
+<p>wewevant officiaw exampwes:
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/audio/audio.rs"><code>audio</code></a>,
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/audio/audio_control.rs"><code>audio_control</code></a>.</p>
+<p>todo</p>
+<h2 id="spatiaw-audio"><a class="header" href="#spatiaw-audio">spatiaw audio</a></h2>
+<p>wewevant officiaw exampwes:
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/audio/spatial_audio_2d.rs"><code>spatial_audio_2d</code></a>,
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/audio/spatial_audio_3d.rs"><code>spatial_audio_3d</code></a>.</p>
+<p>todo</p>
+<h2 id="custom-audio-data-stweam"><a class="header" href="#custom-audio-data-stweam">custom audio data stweam</a></h2>
+<p>wewevant officiaw exampwes:
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/audio/decodable.rs"><code>decodable</code></a>.</p>
+<p>todo</p>
 
                     </main>
 
