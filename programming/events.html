@@ -180,36 +180,9 @@
 </ul>
 <p>evewy weadew twacks the events it h-has wead independentwy, OwO s-so you c-can handwe
 the same events fwom muwtipwe <a href="/programming/systems.html">systems</a>.</p>
-<pre><code class="language-rust no_run noplayground">stwuct wevewupevent(entity);
-
-fn p-pwayew_wevew_up(
-    m-mut ev_wevewup: e-eventwwitew&lt;wevewupevent&gt;, :3
-    q-quewy: quewy&lt;(entity, (U ﹏ U) &amp;pwayewxp)&gt;,
-) {
-    fow (entity, -.- x-xp) i-in quewy.itew() {
-        i-if xp.0 &gt; 1000 {
-            e-ev_wevewup.send(wevewupevent(entity));
-        }
-    }
-}
-
-fn debug_wevewups(
-    mut ev_wevewup: eventweadew&lt;wevewupevent&gt;, (ˆ ﻌ ˆ)♡
-) {
-    fow ev i-in ev_wevewup.itew() {
-        epwintwn!(&quot;entity {:?} wevewed u-up!&quot;, (⑅˘꒳˘) ev.0);
-    }
-}</code></pre>
+<pre><code class="language-rust no_run noplayground"></code></pre>
 <p>you nyeed to add youw custom event t-types via the <a href="/programming/app-builder.html">app buiwdew</a>:</p>
-<pre><code class="language-rust no_run noplayground">fn main() {
-    app::new()
-        // ...
-        .add_event::&lt;wevewupevent&gt;()
-        .add_system(pwayew_wevew_up)
-        .add_system(debug_wevewups)
-        // ...
-        .wun();
-}</code></pre>
+<pre><code class="language-rust no_run noplayground"></code></pre>
 <p>events shouwd be youw go-to data f-fwow toow. OwO as events c-can be sent f-fwom any
 system and weceived by muwtipwe systems, (ꈍᴗꈍ) t-they awe <em>extwemewy</em> vewsatiwe.</p>
 <h2 id="possibwe-pitfawws"><a class="header" href="#possibwe-pitfawws">possibwe pitfawws</a></h2>

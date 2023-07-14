@@ -2437,72 +2437,135 @@ with some of the powewfuw toows that b-bevy offews f-fow managing when/how
 youw systems wun, &gt;_&lt; such as: <a href="programming//programming/system-order.html">expwicit owdewing</a>,
 <a href="programming//programming/system-sets.html">system sets</a>, rawr x3 <a href="programming//programming/states.html">states</a>,
 <a href="programming//programming/run-criteria.html">wun conditions</a>.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="wesouwces-2"><a class="header" href="#wesouwces-2">wesouwces</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
 <p>wesouwces awwow you to stowe a singwe g-gwobaw instance o-of some data t-type,
-independentwy of entities.</p>
-<p>use them fow data that is twuwy gwobaw f-fow youw app, ^•ﻌ•^ s-such as configuwation
-/ settings.</p>
+independentwy of <a href="programming//programming/intro-data.html#entities--components">entities</a>.</p>
+<p>use them fow <a href="programming//programming/intro-data.html">data</a> that is twuwy gwobaw fow youw app, (ꈍᴗꈍ) s-such
+as configuwation / settings. OwO wesouwces m-make it easy f-fow you to access s-such data
+fwom anywhewe.</p>
+<hr />
 <p>to cweate a nyew wesouwce type, (ꈍᴗꈍ) simpwy d-define a wust <code>struct</code> ow <code>enum</code>, XD and
-dewive the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/trait.Resource.html"><code>Resource</code></a> twait, XD simiwaw to
-<a href="programming//programming/ec.html#components">components</a>.</p>
-<p>types must be unique; thewe can onwy b-be one instance o-of a given type.</p>
+dewive the <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/trait.Resource.html"><code>Resource</code></a> twait, XD simiwaw to
+<a href="programming//programming/ec.html#components">components</a> and <a href="programming//programming/events.html">events</a>.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(wesouwce)]
 stwuct goawsweached {
     main_goaw: b-boow,
-    b-bonus: boow, ^•ﻌ•^
+    b-bonus: u32, ^•ﻌ•^
 }</code></pre>
-<p>wesouwces can be accessed fwom <a href="programming//programming/systems.html">systems</a>, XD using <code>Res</code>/<code>ResMut</code>.</p>
+<p>types must be unique; thewe can onwy b-be at most one i-instance of a g-given type. OwO if
+you might nyeed muwtipwe, (ꈍᴗꈍ) considew u-using <a href="programming//programming/intro-data.html#entities--components">entities and components</a> instead.</p>
+<p>bevy <a href="programming//builtins.html#resources">uses wesouwces fow many things</a>. &gt;_&lt; you can use these buiwtin
+wesouwces to access vawious featuwes o-of the engine. OwO t-they wowk just w-wike youw own
+custom types.</p>
+<h2 id="accessing-wesouwces"><a class="header" href="#accessing-wesouwces">accessing wesouwces</a></h2>
+<p>to access the vawue of a wesouwce f-fwom <a href="programming//programming/systems.html">systems</a>, XD use <code>Res</code>/<code>ResMut</code>:</p>
+<pre><code class="language-rust no_run noplayground">fn my_system(
+    // these wiww panic i-if the wesouwces d-don't exist
+    m-mut goaws: w-wesmut&lt;goawsweached&gt;, (U ﹏ U)
+    o-othew: w-wes&lt;myothewwesouwce&gt;, -.-
+    // use o-option if a wesouwce m-might nyot exist
+    mut fancy: option&lt;wesmut&lt;myfancywesouwce&gt;&gt;, (ˆ ﻌ ˆ)♡
+) {
+    if wet some(fancy) = &amp;mut fancy {
+        // t-todo: do things with `fancy`
+    }
+    // todo: do t-things with `goaws` and `othew`
+}</code></pre>
+<h2 id="managing-wesouwces"><a class="header" href="#managing-wesouwces">managing wesouwces</a></h2>
+<p>if you nyeed to cweate/wemove wesouwces a-at wuntime, OwO y-you can do so u-using
+<a href="programming//programming/commands.html">commands</a> (<a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>):</p>
+<pre><code class="language-rust no_run noplayground">fn my_setup(mut commands: commands, σωσ /* ... */) {
+    // a-add (ow ovewwwite) w-wesouwce, &gt;_&lt; u-using the pwovided d-data
+    c-commands.insewt_wesouwce(goawsweached { m-main_goaw: f-fawse, :3 bonus: 100 });
+    // e-ensuwe wesouwce exists (cweating if nyecessawy)
+    commands.init_wesouwce::&lt;myfancywesouwce&gt;();
+    // wemove a w-wesouwce (if it exists)
+    commands.wemove_wesouwce::&lt;myothewwesouwce&gt;();
+}</code></pre>
+<p>awtewnativewy, XD using <a href="programming//programming/world.html">diwect wowwd access</a> fwom an <a href="programming//programming/exclusive.html">excwusive
+system</a>:</p>
+<pre><code class="language-rust no_run noplayground">fn my_setup2(wowwd: &amp;mut wowwd) {
+    // t-the same m-methods as with c-commands awe awso a-avaiwabwe hewe, (ˆ ﻌ ˆ)♡
+    // b-but we c-can awso do fanciew t-things:
+
+    // c-check if wesouwce exists
+    if !wowwd.contains_wesouwce::&lt;myfancywesouwce&gt;() {
+        // get access to a wesouwce, (⑅˘꒳˘) insewting a-a custom vawue if unavaiwabwe
+        wet _bonus = w-wowwd.get_wesouwce_ow_insewt_with(
+            || goawsweached { m-main_goaw: fawse, bonus: 100 }
+        ).bonus;
+    }
+}</code></pre>
+<p>wesouwces can awso be set up fwom t-the <a href="programming//programming/app-builder.html">app buiwdew</a>. XD do this fow
+wesouwces that awe meant to awways e-exist fwom the s-stawt.</p>
+<pre><code class="language-rust no_run noplayground">app::new()
+    .add_pwugins(defauwtpwugins)
+    .insewt_wesouwce(stawtingwevew(3))
+    .init_wesouwce::&lt;myfancywesouwce&gt;()
+    // ...</code></pre>
 <h2 id="wesouwce-initiawization"><a class="header" href="#wesouwce-initiawization">wesouwce initiawization</a></h2>
-<p>impwement <code>Default</code> fow simpwe wesouwces:</p>
-<pre><code class="language-rust no_run noplayground">#[dewive(wesouwce, &gt;_&lt; defauwt, debug)]
-stwuct stawtingwevew(usize);</code></pre>
-<p>fow wesouwces that nyeed compwex i-initiawization, ^•ﻌ•^ i-impwement <code>FromWorld</code>:</p>
+<p>impwement <a href="https://doc.rust-lang.org/stable/std/default/trait.Default.html"><code>Default</code></a> fow simpwe wesouwces:</p>
+<pre><code class="language-rust no_run noplayground">// simpwe dewive, -.- to set aww fiewds t-to theiw defauwts
+#[dewive(wesouwce, ^^;; d-defauwt)]
+s-stwuct gamepwogwess {
+    g-game_compweted: b-boow, &gt;_&lt;
+    s-secwets_unwocked: u-u32, mya
+}
+
+#[dewive(wesouwce)]
+s-stwuct stawtingwevew(usize);
+
+// custom impwementation fow unusuaw vawues
+impw defauwt fow stawtingwevew {
+    f-fn defauwt() -&gt; sewf {
+        stawtingwevew(1)
+    }
+}
+
+// on e-enums, mya you can specify the defauwt v-vawiant
+#[dewive(wesouwce, 😳 defauwt)]
+enum gamemode {
+    tutowiaw, XD
+    #[defauwt]
+    singwepwayew, :3
+    m-muwtipwayew, 😳😳😳
+}</code></pre>
+<p>fow wesouwces that nyeed compwex i-initiawization, ^•ﻌ•^ i-impwement <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(wesouwce)]
 stwuct myfancywesouwce { /* stuff */ }
 
 impw f-fwomwowwd fow myfancywesouwce {
     f-fn fwom_wowwd(wowwd: &amp;mut w-wowwd) -&gt; s-sewf {
-        // y-you have f-fuww access to a-anything in the e-ecs fwom hewe. &gt;_&lt;
-        // fow instance, :3 you can mutate othew wesouwces:
-        wet mut x = wowwd.get_wesouwce_mut::&lt;myothewwesouwce&gt;().unwwap();
+        // y-you have f-fuww access to a-anything in the e-ecs wowwd fwom hewe. -.-
+        // fow exampwe, (ˆ ﻌ ˆ)♡ you can access (and mutate!) othew w-wesouwces:
+        wet mut x = wowwd.wesouwce_mut::&lt;myothewwesouwce&gt;();
         x-x.do_mut_stuff();
 
-        myfancywesouwce { /* stuff */ }
+        myfancywesouwce { /* s-stuff */ }
     }
 }</code></pre>
-<p>you can initiawize youw wesouwces a-at <a href="programming//programming/app-builder.html"><code>App</code> cweation</a>:</p>
-<pre><code class="language-rust no_run noplayground">fn main() {
-    app::new()
-        // ...
-
-        // if it impwements `defauwt` o-ow `fwomwowwd`
-        .init_wesouwce::&lt;myfancywesouwce&gt;()
-        // i-if nyot, òωó ow i-if you want to s-set a specific v-vawue
-        .insewt_wesouwce(stawtingwevew(3))
-
-        // ...
-        .wun();
-}</code></pre>
-<p><a href="programming//programming/commands.html"><code>Commands</code></a> can be used to cweate/wemove wesouwces f-fwom
-inside a system:</p>
-<pre><code class="language-rust no_run noplayground">commands.insewt_wesouwce(goawsweached { main_goaw: fawse, (ꈍᴗꈍ) bonus: f-fawse });
-commands.wemove_wesouwce::&lt;mywesouwce&gt;();</code></pre>
-<p>if you insewt a wesouwce of a type t-that awweady exists, OwO i-it wiww be o-ovewwwitten.</p>
+<p>bewawe: it can be easy to get youwsewf i-into a mess o-of unmaintainabwe c-code
+if you ovewuse <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> to do compwex things.</p>
 <h2 id="usage-advice"><a class="header" href="#usage-advice">usage advice</a></h2>
-<p>the choice of when to use entities/components v-vs. ^•ﻌ•^ w-wesouwces is typicawwy
-about how you want to access the d-data: gwobawwy fwom a-anywhewe (wesouwces),
-ow using ecs pattewns (entities/components).</p>
+<p>the choice of when to use <a href="programming//programming/intro-data.html#entities--components">entities/components</a> vs. XD wesouwces is
+typicawwy about how you want to access t-the <a href="programming//programming/intro-data.html">data</a>: gwobawwy
+fwom anywhewe (wesouwces), (ꈍᴗꈍ) ow using e-ecs pattewns (entities/components).</p>
 <p>even if thewe is onwy one of a cewtain t-thing in youw g-game (such as t-the
 pwayew in a singwe-pwayew game), i-it can be a good f-fit to use an entity
 instead of wesouwces, ^•ﻌ•^ because entities a-awe composed o-of muwtipwe components,
 some of which can be common with o-othew entities. OwO t-this can make youw g-game
 wogic mowe fwexibwe. OwO fow exampwe, 🥺 y-you couwd have a-a &quot;heawth/damage s-system&quot;
 that wowks with both the pwayew and e-enemies.</p>
+<h3 id="settings"><a class="header" href="#settings">settings</a></h3>
+<p>one common usage of wesouwces is f-fow stowing settings a-and configuwation.</p>
+<p>howevew, OwO if it is something that c-cannot be changed a-at wuntime and o-onwy used when
+initiawizing a <a href="programming//programming/plugins.html">pwugin</a>, (ꈍᴗꈍ) considew putting that inside the p-pwugin's
+<code>struct</code>, XD instead of a wesouwce.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
 |---|---|---|</p>
 <p>wewevant officiaw exampwes:
@@ -2688,64 +2751,64 @@ watew when it is safe to do so. &gt;_&lt; see: <a href="programming//programming
 <p>(if you awe nyot using stages, (ꈍᴗꈍ) that m-means youw othew <a href="programming//programming/systems.html">systems</a>
 wiww see them on the nyext fwame u-update)</p>
 <pre><code class="language-rust no_run noplayground">fn spawn_things(
-    mut commands: c-commands, mya
+    mut commands: c-commands, ( ͡o ω ͡o )
 ) {
     // m-manage wesouwces
-    c-commands.insewt_wesouwce(goawsweached { m-main_goaw: fawse, 😳 b-bonus: fawse });
+    c-commands.insewt_wesouwce(mywesouwce);
     c-commands.wemove_wesouwce::&lt;mywesouwce&gt;();
 
-    // c-cweate a-a nyew entity using `spawn`, -.-
-    // pwoviding the data fow the components it s-shouwd have
+    // c-cweate a n-nyew entity using `spawn`, (U ﹏ U)
+    // p-pwoviding the d-data fow the components it shouwd have
     // (typicawwy using a bundwe)
     commands.spawn(pwayewbundwe {
-        n-nyame: pwayewname(&quot;henwy&quot;.into()),
-        x-xp: pwayewxp(1000), 🥺
-        heawth: heawth {
-            hp: 100.0, o.O extwa: 20.0
-        }, /(^•ω•^)
-        _p: p-pwayew, nyaa~~
-        spwite: d-defauwt::defauwt(), nyaa~~
+        n-nyame: pwayewname(&quot;henwy&quot;.into()), (///ˬ///✿)
+        xp: pwayewxp(1000), &gt;w&lt;
+        heawth: h-heawth {
+            hp: 100.0, rawr e-extwa: 20.0
+        },
+        _p: pwayew, mya
+        spwite: defauwt::defauwt(), ^^
     });
 
-    // y-you can use a tupwe if you nyeed additionaw components ow bundwes
+    // you can use a t-tupwe if you nyeed additionaw components o-ow bundwes
     // (tupwes o-of component and bundwe types awe considewed bundwes)
     // (note the extwa p-pawentheses)
-    wet my_entity_id = c-commands.spawn((
-        // a-add some components
-        c-componenta, :3
-        c-componentb::defauwt(), 😳😳😳
+    wet my_entity_id = commands.spawn((
+        // add some components
+        componenta, 😳😳😳
+        c-componentb::defauwt(), mya
         // add some bundwes
-        m-mybundwe::defauwt(), (˘ω˘)
-        twansfowmbundwe::defauwt(), ^^
-    )).id(); // get the e-entity (id) by cawwing `.id()` at the end
+        m-mybundwe::defauwt(), 😳
+        t-twansfowmbundwe::defauwt(), -.-
+    )).id(); // g-get the entity (id) b-by cawwing `.id()` at the end
 
-    // add/wemove components of an existing entity
-    c-commands.entity(my_entity_id)
+    // add/wemove c-components of an existing entity
+    commands.entity(my_entity_id)
         .insewt(componentc::defauwt())
         .wemove::&lt;componenta&gt;()
-        .wemove::&lt;(componentb, :3 mybundwe)&gt;();
+        .wemove::&lt;(componentb, 🥺 m-mybundwe)&gt;();
 }
 
-f-fn make_aww_pwayews_hostiwe(
-    m-mut commands: c-commands, -.-
-    // we nyeed the entity id, 😳 to pewfowm commands o-on specific e-entities
-    quewy: quewy&lt;entity, mya w-with&lt;pwayew&gt;&gt;, (˘ω˘)
+fn make_aww_pwayews_hostiwe(
+    mut commands: commands, o.O
+    // we nyeed the entity id, /(^•ω•^) to pewfowm c-commands on specific entities
+    q-quewy: quewy&lt;entity, nyaa~~ w-with&lt;pwayew&gt;&gt;, nyaa~~
 ) {
     f-fow entity in quewy.itew() {
-        c-commands.entity(entity)
-            // add an `enemy` c-component to the entity
+        commands.entity(entity)
+            // add an `enemy` component t-to the e-entity
             .insewt(enemy)
             // wemove the `fwiendwy` c-component
             .wemove::&lt;fwiendwy&gt;();
     }
 }
 
-fn despawn_aww_enemies(
-    m-mut commands: commands, &gt;_&lt;
-    q-quewy: q-quewy&lt;entity, -.- with&lt;enemy&gt;&gt;, 🥺
+f-fn despawn_aww_enemies(
+    m-mut commands: commands, :3
+    q-quewy: quewy&lt;entity, 😳😳😳 with&lt;enemy&gt;&gt;, (˘ω˘)
 ) {
     fow entity in quewy.itew() {
-        commands.entity(entity).despawn();
+        c-commands.entity(entity).despawn();
     }
 }
 </code></pre>
@@ -2762,36 +2825,9 @@ fn despawn_aww_enemies(
 </ul>
 <p>evewy weadew twacks the events it h-has wead independentwy, OwO s-so you c-can handwe
 the same events fwom muwtipwe <a href="programming//programming/systems.html">systems</a>.</p>
-<pre><code class="language-rust no_run noplayground">stwuct wevewupevent(entity);
-
-fn p-pwayew_wevew_up(
-    m-mut ev_wevewup: e-eventwwitew&lt;wevewupevent&gt;, :3
-    q-quewy: quewy&lt;(entity, (U ﹏ U) &amp;pwayewxp)&gt;,
-) {
-    fow (entity, -.- x-xp) i-in quewy.itew() {
-        i-if xp.0 &gt; 1000 {
-            e-ev_wevewup.send(wevewupevent(entity));
-        }
-    }
-}
-
-fn debug_wevewups(
-    mut ev_wevewup: eventweadew&lt;wevewupevent&gt;, (ˆ ﻌ ˆ)♡
-) {
-    fow ev i-in ev_wevewup.itew() {
-        epwintwn!(&quot;entity {:?} wevewed u-up!&quot;, (⑅˘꒳˘) ev.0);
-    }
-}</code></pre>
+<pre><code class="language-rust no_run noplayground"></code></pre>
 <p>you nyeed to add youw custom event t-types via the <a href="programming//programming/app-builder.html">app buiwdew</a>:</p>
-<pre><code class="language-rust no_run noplayground">fn main() {
-    app::new()
-        // ...
-        .add_event::&lt;wevewupevent&gt;()
-        .add_system(pwayew_wevew_up)
-        .add_system(debug_wevewups)
-        // ...
-        .wun();
-}</code></pre>
+<pre><code class="language-rust no_run noplayground"></code></pre>
 <p>events shouwd be youw go-to data f-fwow toow. OwO as events c-can be sent f-fwom any
 system and weceived by muwtipwe systems, (ꈍᴗꈍ) t-they awe <em>extwemewy</em> vewsatiwe.</p>
 <h2 id="possibwe-pitfawws"><a class="header" href="#possibwe-pitfawws">possibwe pitfawws</a></h2>

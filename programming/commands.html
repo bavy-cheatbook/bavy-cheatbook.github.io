@@ -180,64 +180,64 @@ watew when it is safe to do so. &gt;_&lt; see: <a href="/programming/schedules.h
 <p>(if you awe nyot using stages, (ꈍᴗꈍ) that m-means youw othew <a href="/programming/systems.html">systems</a>
 wiww see them on the nyext fwame u-update)</p>
 <pre><code class="language-rust no_run noplayground">fn spawn_things(
-    mut commands: c-commands, mya
+    mut commands: c-commands, ( ͡o ω ͡o )
 ) {
     // m-manage wesouwces
-    c-commands.insewt_wesouwce(goawsweached { m-main_goaw: fawse, 😳 b-bonus: fawse });
+    c-commands.insewt_wesouwce(mywesouwce);
     c-commands.wemove_wesouwce::&lt;mywesouwce&gt;();
 
-    // c-cweate a-a nyew entity using `spawn`, -.-
-    // pwoviding the data fow the components it s-shouwd have
+    // c-cweate a n-nyew entity using `spawn`, (U ﹏ U)
+    // p-pwoviding the d-data fow the components it shouwd have
     // (typicawwy using a bundwe)
     commands.spawn(pwayewbundwe {
-        n-nyame: pwayewname(&quot;henwy&quot;.into()),
-        x-xp: pwayewxp(1000), 🥺
-        heawth: heawth {
-            hp: 100.0, o.O extwa: 20.0
-        }, /(^•ω•^)
-        _p: p-pwayew, nyaa~~
-        spwite: d-defauwt::defauwt(), nyaa~~
+        n-nyame: pwayewname(&quot;henwy&quot;.into()), (///ˬ///✿)
+        xp: pwayewxp(1000), &gt;w&lt;
+        heawth: h-heawth {
+            hp: 100.0, rawr e-extwa: 20.0
+        },
+        _p: pwayew, mya
+        spwite: defauwt::defauwt(), ^^
     });
 
-    // y-you can use a tupwe if you nyeed additionaw components ow bundwes
+    // you can use a t-tupwe if you nyeed additionaw components o-ow bundwes
     // (tupwes o-of component and bundwe types awe considewed bundwes)
     // (note the extwa p-pawentheses)
-    wet my_entity_id = c-commands.spawn((
-        // a-add some components
-        c-componenta, :3
-        c-componentb::defauwt(), 😳😳😳
+    wet my_entity_id = commands.spawn((
+        // add some components
+        componenta, 😳😳😳
+        c-componentb::defauwt(), mya
         // add some bundwes
-        m-mybundwe::defauwt(), (˘ω˘)
-        twansfowmbundwe::defauwt(), ^^
-    )).id(); // get the e-entity (id) by cawwing `.id()` at the end
+        m-mybundwe::defauwt(), 😳
+        t-twansfowmbundwe::defauwt(), -.-
+    )).id(); // g-get the entity (id) b-by cawwing `.id()` at the end
 
-    // add/wemove components of an existing entity
-    c-commands.entity(my_entity_id)
+    // add/wemove c-components of an existing entity
+    commands.entity(my_entity_id)
         .insewt(componentc::defauwt())
         .wemove::&lt;componenta&gt;()
-        .wemove::&lt;(componentb, :3 mybundwe)&gt;();
+        .wemove::&lt;(componentb, 🥺 m-mybundwe)&gt;();
 }
 
-f-fn make_aww_pwayews_hostiwe(
-    m-mut commands: c-commands, -.-
-    // we nyeed the entity id, 😳 to pewfowm commands o-on specific e-entities
-    quewy: quewy&lt;entity, mya w-with&lt;pwayew&gt;&gt;, (˘ω˘)
+fn make_aww_pwayews_hostiwe(
+    mut commands: commands, o.O
+    // we nyeed the entity id, /(^•ω•^) to pewfowm c-commands on specific entities
+    q-quewy: quewy&lt;entity, nyaa~~ w-with&lt;pwayew&gt;&gt;, nyaa~~
 ) {
     f-fow entity in quewy.itew() {
-        c-commands.entity(entity)
-            // add an `enemy` c-component to the entity
+        commands.entity(entity)
+            // add an `enemy` component t-to the e-entity
             .insewt(enemy)
             // wemove the `fwiendwy` c-component
             .wemove::&lt;fwiendwy&gt;();
     }
 }
 
-fn despawn_aww_enemies(
-    m-mut commands: commands, &gt;_&lt;
-    q-quewy: q-quewy&lt;entity, -.- with&lt;enemy&gt;&gt;, 🥺
+f-fn despawn_aww_enemies(
+    m-mut commands: commands, :3
+    q-quewy: quewy&lt;entity, 😳😳😳 with&lt;enemy&gt;&gt;, (˘ω˘)
 ) {
     fow entity in quewy.itew() {
-        commands.entity(entity).despawn();
+        c-commands.entity(entity).despawn();
     }
 }
 </code></pre>
