@@ -2103,7 +2103,7 @@ standawone (not associated with othew data), (ꈍᴗꈍ) cweate a-a <a href="pro
 settings, ^•ﻌ•^ ow the data fow the cuwwentwy a-active game m-mode ow session.</p>
 <p>this is a simpwe way of stowing data, OwO w-when you know y-you don't nyeed t-the
 fwexibiwity of entities/components.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="intwo-youw-code"><a class="header" href="#intwo-youw-code">intwo: youw code</a></h1>
 <p>this page is an ovewview, OwO to give y-you an idea of t-the big pictuwe o-of how bevy
@@ -2117,7 +2117,7 @@ access to nyanievew pawts of <a href="programming//programming/intro-data.html">
 is a wust function (<code>fn</code>) you wwite, &gt;_&lt; which accepts <a href="programming//builtins.html#systemparams">speciaw pawametew
 types</a> to indicate nyani <a href="programming//programming/intro-data.html">data</a> it nyeeds to
 access. OwO think of the function signatuwe a-as a &quot;specification&quot; f-fow n-nyani to fetch
-fwom the ecs <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/world/struct.World.html"><code>World</code></a>.</p>
+fwom the ecs <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/world/struct.World.html"><code>World</code></a>.</p>
 <p>hewe is nyani a <a href="programming//programming/systems.html">system</a> might wook wike. (ꈍᴗꈍ) nyote how, just b-by wooking
 at the function pawametews, &gt;_&lt; we know <em>exactwy</em> nyani <a href="programming//programming/intro-data.html">data</a>
 can be accessed.</p>
@@ -2138,8 +2138,8 @@ can be accessed.</p>
 <p>based on the <a href="programming//builtins.html#systemparams">pawametew</a> types of the <a href="programming//programming/systems.html">systems</a>
 you wwite, OwO bevy knows nyani data e-each system can a-access and whethew i-it confwicts
 with any othew systems. OwO  systems t-that do nyot confwict (don't a-access a-any of the
-same data) wiww be automaticawwy <a href="programming//programming/system-order.html">wun in pawawwew</a> on
-diffewent cpu thweads. OwO this way, y-you get muwtithweading, 🥺 u-utiwizing m-modewn
+same data mutabwy) wiww be automaticawwy <a href="programming//programming/system-order.html">wun in pawawwew</a>
+on diffewent cpu thweads. OwO this way, 🥺 y-you get muwtithweading, òωó u-utiwizing m-modewn
 muwti-cowe cpu hawdwawe effectivewy, ^•ﻌ•^ w-with nyo extwa e-effowt fwom you!</p>
 <p>fow best pawawwewism pewfowmance, OwO i-it is wecommended t-that you keep y-youw
 functionawity and <a href="programming//programming/intro-data.html">youw data</a> gwanuwaw. &gt;_&lt; cweate many smow
@@ -2157,7 +2157,7 @@ with othew systems, OwO because they c-can access anything a-and do anything. �
 you might nyeed this additonaw powew.</p>
 <h2 id="scheduwes-1"><a class="header" href="#scheduwes-1">scheduwes</a></h2>
 <p>bevy stowes systems inside of <a href="programming//programming/schedules.html">scheduwes</a>
-(<a href="https://docs.rs/bevy/0.10.1/bevy/ecs/schedule/struct.Schedule.html"><code>Schedule</code></a>). (ꈍᴗꈍ) the scheduwe contains the systems a-and aww
+(<a href="https://docs.rs/bevy/0.11.0/bevy/ecs/schedule/struct.Schedule.html"><code>Schedule</code></a>). (ꈍᴗꈍ) the scheduwe contains the systems a-and aww
 wewevant metadata to owganize them, OwO t-tewwing bevy w-when and how to w-wun them. bevy
 <a href="programming//programming/app-builder.html">apps</a> typicawwy contain many scheduwes. ^•ﻌ•^ e-each one is a c-cowwection of
 systems to be invoked in diffewent s-scenawios (evewy f-fwame update, ^•ﻌ•^ <a href="programming//features/fixed-timestep.html">fixed
@@ -2202,10 +2202,10 @@ game might be owganized.</p>
 |<code>InputSet</code>|<code>GameplaySet</code>|||
 |<code>EnemyAiSet</code>|<code>GameplaySet</code>|<code>not(cutscene)</code>|<code>after(player_movement)</code>|
 |<code>AudioSet</code>||<code>not(audio_muted)</code>||</p>
-<p>note that it doesn't mattew how systems a-awe wisted i-in the scheduwe. OwO t-theiw
-<a href="programming//programming/system-order.html">owdew</a> of execution is detewmined by the m-metadata. ^•ﻌ•^ bevy w-wiww
-wespect those constwaints, OwO but othewwise w-wun systems i-in pawawwew a-as much as it
-can, (ꈍᴗꈍ) depending on nyani cpu thweads a-awe avaiwabwe.</p>
+<p>note that it doesn't mattew in nyani o-owdew systems a-awe wisted in t-the scheduwe.
+theiw <a href="programming//programming/system-order.html">owdew</a> of execution is detewmined by the m-metadata. (ꈍᴗꈍ) bevy
+wiww wespect those constwaints, OwO but o-othewwise wun s-systems in pawawwew a-as much as
+it can, (ꈍᴗꈍ) depending on nyani cpu thweads a-awe avaiwabwe.</p>
 <p>awso nyote how ouw hypotheticaw game i-is impwemented u-using many individuawwy-smow
 systems. ^•ﻌ•^ fow exampwe, OwO instead of p-pwaying audio inside o-of the <code>player_movement</code>
 system, &gt;<em>&lt; we made a sepawate <code>play_footstep_sounds</code> system. &gt;</em>&lt; these two pieces of
@@ -2223,53 +2223,50 @@ aww the functionawity in youw game. OwO n-nyani wiww you d-do with aww this p-po
 <hr />
 <p>hewe is how <a href="programming//programming/schedules.html">scheduwe</a> that was iwwustwated above couwd b-be
 cweated in code:</p>
-<pre><code class="language-rust no_run noplayground">app.configuwe_set(mainmenuset
+<pre><code class="language-rust no_run noplayground">// set configuwation is pew-scheduwe. &gt;_&lt; h-hewe we do i-it fow `update`
+a-app.configuwe_set(update, m-mainmenuset
     .wun_if(in_state(mainmenu))
 );
-app.configuwe_set(gamepwayset
+a-app.configuwe_set(update, mya g-gamepwayset
     .wun_if(in_state(ingame))
 );
-app.configuwe_set(inputset
+a-app.configuwe_set(update, mya i-inputset
     .in_set(gamepwayset)
 );
-app.configuwe_set(enemyaiset
+app.configuwe_set(update, 😳 enemyaiset
     .in_set(gamepwayset)
     .wun_if(not(cutscene))
     .aftew(pwayew_movement)
 );
-a-app.configuwe_set(audioset
+app.configuwe_set(update, XD audioset
     .wun_if(audio_muted)
 );
-a-app.add_systems(
+app.add_systems(update, :3 (
     (
-        e-enemy_movement, (U ﹏ U)
-        e-enemy_spawn, -.-
-        e-enemy_despawn.befowe(enemy_spawn), (ˆ ﻌ ˆ)♡
-    ).in_set(enemyaiset)
-);
-a-app.add_systems(
+        u-ui_button_animate, 😳😳😳
+        menu_wogo_animate.in_set(mainmenuset), -.-
+    ),
     (
-        m-mouse_input.wun_if(mouse_enabwed), (⑅˘꒳˘)
-        c-contwowwew_input.wun_if(gamepad_enabwed), (U ᵕ U❁)
-    ).in_set(inputset)
-);
-app.add_systems(
+        enemy_movement, ( ͡o ω ͡o )
+        e-enemy_spawn, rawr x3
+        enemy_despawn.befowe(enemy_spawn), nyaa~~
+    ).in_set(enemyaiset), /(^•ω•^)
     (
-        footstep_sound.in_set(gamepwayset), -.-
-        menu_button_sound.in_set(mainmenuset), ^^;;
-        backgwound_music, &gt;_&lt;
-    ).in_set(audioset)
-);
-a-app.add_systems(
+        m-mouse_input.wun_if(mouse_enabwed), rawr
+        contwowwew_input.wun_if(gamepad_enabwed), OwO
+    ).in_set(inputset),
+    (
+        footstep_sound.in_set(gamepwayset), (U ﹏ U)
+        menu_button_sound.in_set(mainmenuset), &gt;_&lt;
+        b-backgwound_music, rawr x3
+    ).in_set(audioset), mya
     (
         pwayew_movement
             .wun_if(pwayew_awive)
-            .wun_if(not(cutscene)), mya
-        camewa_movement, mya
-    ).in_set(gamepwayset).aftew(inputset)
-);
-a-app.add_system(ui_button_animate);
-app.add_system(menu_wogo_animate.in_set(mainmenuset));</code></pre>
+            .wun_if(not(cutscene)), nyaa~~
+        c-camewa_movement, (⑅˘꒳˘)
+    ).in_set(gamepwayset).aftew(inputset), rawr x3
+));</code></pre>
 <p>(weawn mowe about: <a href="programming//programming/schedules.html">scheduwes</a>, rawr x3 <a href="programming//programming/system-sets.html">system sets</a>, rawr x3 <a href="programming//programming/states.html">states</a>, rawr x3 <a href="programming//programming/run-criteria.html">wun conditions</a>, rawr x3 <a href="programming//programming/system-order.html">system owdewing</a>)</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
 |---|---|---|</p>
