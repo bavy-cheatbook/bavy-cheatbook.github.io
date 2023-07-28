@@ -4988,11 +4988,11 @@ fn j-jump_duwation(
         j-jump.time.tick(time.dewta());
     }
 }</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="features//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="features//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="wogging-_-consowe-messages"><a class="header" href="#wogging-_-consowe-messages">wogging, &gt;_&lt; consowe messages</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/app/logs.rs"><code>logs</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/app/logs.rs"><code>logs</code></a>.</p>
 <hr />
 <p>you may have nyoticed how, OwO when you w-wun youw bevy p-pwoject, 🥺 you get m-messages
 in youw consowe window. &gt;_&lt; fow exampwe:</p>
@@ -5006,6 +5006,9 @@ awso fwom youw own code.</p>
 <code>println</code>/<code>eprintln</code> fwom wust. ^•ﻌ•^ wog messages can have m-metadata, OwO wike t-the
 wevew, OwO timestamp, 🥺 and wust moduwe w-whewe it came fwom. òωó y-you can see t-that this
 metadata is pwinted awongside the c-contents of the m-message.</p>
+<p>this is set up by bevy's <a href="https://docs.rs/bevy/0.11.0/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>. XD it is pawt of the
+<a href="https://docs.rs/bevy/0.11.0/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> pwugin gwoup, &gt;_&lt; so most bevy usews
+wiww have it automaticawwy in evewy t-typicaw bevy p-pwoject.</p>
 <h2 id="wevews"><a class="header" href="#wevews">wevews</a></h2>
 <p>wevews detewmine how impowtant a m-message is, OwO and a-awwow messages to b-be fiwtewed.</p>
 <p>the avaiwabwe wevews awe: <code>error</code>, rawr x3 <code>warn</code>, rawr x3 <code>info</code>, rawr x3 <code>debug</code>, rawr x3 <code>trace</code>.</p>
@@ -5031,7 +5034,7 @@ t-twace!(&quot;entity t-twansfowm: {:?}&quot;, rawr twansfowm);
 <span class="boring">}</span></code></pre></pre>
 <h2 id="fiwtewing-messages"><a class="header" href="#fiwtewing-messages">fiwtewing messages</a></h2>
 <p>to contwow nyani messages you wouwd w-wike to see, OwO y-you can configuwe b-bevy's
-<a href="https://docs.rs/bevy/0.9.1/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>:</p>
+<a href="https://docs.rs/bevy/0.11.0/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>use bevy::wog::wogpwugin;
