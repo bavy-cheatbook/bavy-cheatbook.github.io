@@ -167,7 +167,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="pewfowmance"><a class="header" href="#pewfowmance">pewfowmance</a></h1>
 <h2 id="unoptimized-debug-buiwds"><a class="header" href="#unoptimized-debug-buiwds">unoptimized debug buiwds</a></h2>
@@ -188,6 +188,11 @@ pwojects (simiwaw to a fuww wewease buiwd), ^•ﻌ•^ so it i-is nyot genewaww
 [pwofiwe.dev]
 o-opt-wevew = 1
 </code></pre>
+<p><strong>wawning!</strong> if you awe using a debuggew (wike <code>gdb</code> ow <code>lldb</code>) to step thwough
+youw code, OwO any amount of compiwew o-optimization can m-mess with the e-expewience.
+youw bweakpoints might be skipped, OwO a-and the code fwow m-might jump awound i-in
+unexpected ways. if you want to debug / s-step thwough y-youw code, OwO you m-might want
+<code>opt-level = 0</code>.</p>
 <h3 id="why-is-this-nyecessawy"><a class="header" href="#why-is-this-nyecessawy">why is this nyecessawy?</a></h3>
 <p>wust without compiwew optimizations i-is <em>vewy swow</em>. XD with bevy in
 pawticuwaw, ^•ﻌ•^ the defauwt cawgo buiwd d-debug settings w-wiww wead to <em>awfuw</em> wuntime
