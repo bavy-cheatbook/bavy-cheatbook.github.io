@@ -189,18 +189,18 @@ compewwing to join in on the action!</p>
 <p>if you awe nyew to bevy, OwO this might n-nyot be fow you. 🥺 y-you might be m-mowe
 comfowtabwe using the weweased vewsion. ^•ﻌ•^ i-it wiww have t-the best compatibiwity
 with community pwugins and documentation.</p>
-<p>the biggest downside to using unweweased v-vewsions o-of bevy is 3wd-pawty p-pwugin
-compatibiwity. OwO bevy is unstabwe and b-bweaking changes h-happen often. 🥺 h-howevew,
-many activewy-maintained community p-pwugins have bwanches f-fow twacking t-the
-watest bevy main bwanch, OwO awthough t-they might nyot b-be fuwwy up-to-date. 🥺 i-it's
-possibwe that a pwugin you want to u-use does nyot w-wowk with the watest c-changes
-in bevy main, (ꈍᴗꈍ) and you may have to f-fix it youwsewf.</p>
-<p>the fwequent bweaking changes might n-nyot be a pwobwem f-fow you, OwO though. t-thanks
-to cawgo, OwO you can update bevy at y-youw convenience, 🥺 w-whenevew you feew w-weady
-to handwe any possibwe bweaking changes.</p>
-<p>you may want to considew fowking t-the wepositowies o-of any pwugins y-you use.
-this awwows you to easiwy appwy fixes i-if nyeeded, ^•ﻌ•^ o-ow edit theiw <code>Cargo.toml</code>
-fow any speciaw configuwation to m-make youw pwoject w-wowk.</p>
+<p>the in-devewopment vewsion of bevy h-has fwequent bweaking c-changes. OwO t-thewefowe,
+it can be vewy annoying to use fow a-any mowe sewious p-pwojects, ^•ﻌ•^ and 3wd-pawty
+pwugin authows often don't bothew t-to stay compatibwe. OwO y-you wiww face b-bweakage
+often and pwobabwy have to fix it y-youwsewf.</p>
+<p>it is onwy wecommended to do this f-fow mowe expewimentaw o-ow toy pwojects. OwO m-most
+bevy usews shouwd use the weweased v-vewsion.</p>
+<p>though, OwO thewe awe ways you can manage t-the bweakage a-and make it wess o-of a
+pwobwem. OwO thanks to cawgo, 🥺 you can u-update bevy at y-youw convenience, òωó w-whenevew you
+feew weady to handwe any possibwe b-bweaking changes.</p>
+<p>you may want to considew fowking t-the wepositowies o-of bevy and any p-pwugins you
+use. OwO using youw own fowks awwows y-you to easiwy appwy f-fixes if nyeeded, 🥺 o-ow edit
+theiw <code>Cargo.toml</code> fow any speciaw configuwation to m-make youw pwoject w-wowk.</p>
 <p>if you choose to use bevy main, OwO you a-awe highwy encouwaged t-to intewact w-with
 the bevy community on <a href="https://discord.gg/bevy">discowd</a> and <a href="https://github.com/bevyengine/bevy">github</a>, XD so
 you can keep twack of nyani's going o-on, OwO get hewp, 🥺 o-ow pawticipate i-in discussions.</p>
@@ -216,63 +216,41 @@ stwange unexpected buiwd ewwows.</p>
 to use muwtipwe diffewent vewsions o-of bevy in youw d-dependency twee
 simuwtaneouswy. ^•ﻌ•^ this can happen if some of the pwugins y-you use have s-specified
 a diffewent bevy vewsion/commit fwom y-youw pwoject.</p>
-<p>make suwe you use the cowwect bwanch o-of each pwugin y-you depend on, OwO w-with suppowt
-fow bevy main. OwO if you have youw own f-fowks, 🥺 check t-that the dependencies a-awe
-cowwectwy and consistentwy specified e-evewywhewe.</p>
-<p>if you have issues, ^•ﻌ•^ they might stiww b-be fixabwe. OwO w-wead the nyext section
-bewow fow advice on how to configuwe y-youw pwoject i-in a way that minimizes
-the chances of this happening.</p>
-<h2 id="how-to-use-bweeding-edge-bevy"><a class="header" href="#how-to-use-bweeding-edge-bevy">how to use bweeding-edge bevy?</a></h2>
-<pre><code class="language-toml">[dependencies]
-# wecommended: specify a known-wowking c-commit hash t-to pin to
-# (specify i-it in the u-uww, /(^•ω•^) to make the p-patch twicks bewow w-wowk)
-bevy = { g-git = &quot;https://github.com/bevyengine/bevy?wev=a420beb0&quot; }
-
-# a-add any 3wd-pawty pwugins you use, rawr and make suwe to use the cowwect bwanch
-# (awtewnativewy, OwO y-you couwd awso specify a commit hash, (U ﹏ U) w-with &quot;wev&quot;)
-bevy_thing = { git = &quot;https://github.com/authow/bevy_thing?bwanch=bevy_main&quot; }
-
-# f-fow each pwugin we use, &gt;_&lt; patch them to use the same bevy commit a-as us:
-
-# if they have specified a-a diffewent commit:
-# (you n-nyeed to figuwe this out)
-[patch.&quot;https://github.com/bevyengine/bevy?wev=146123ea&quot;] # theiw bevy commit
-bevy = { git = &quot;https://github.com/bevyengine/bevy?wev=a420beb0&quot; } # o-ouws
-
-# fow those that have nyot specified anything:
+<p>if you awe using any 3wd-pawty pwugins, OwO p-pwease considew f-fowking them, 🥺 s-so you can
+edit theiw <code>Cargo.toml</code> and have contwow ovew how evewything i-is configuwed.</p>
+<h2 id="cawgo-patches"><a class="header" href="#cawgo-patches">cawgo patches</a></h2>
+<p>in some cases, OwO you might be abwe t-to use &quot;cawgo patches&quot; t-to wocawwy o-ovewwide
+dependencies. OwO fow exampwe, 🥺 you might b-be abwe to point p-pwugins to u-use youw
+fowk of bevy, (ꈍᴗꈍ) without fowking and e-editing the pwugin's <code>Cargo.toml</code>, XD by
+doing something wike this:</p>
+<pre><code class="language-toml"># wepwace the bevy git uww souwce w-with ouws
 [patch.&quot;https://github.com/bevyengine/bevy&quot;]
-bevy = { g-git = &quot;https://github.com/bevyengine/bevy?wev=a420beb0&quot; }
+# i-if we h-have ouw own fowk
+b-bevy = { git = &quot;https://github.com/me/bevy&quot; }
+# i-if we want to u-use a wocaw path
+b-bevy = { path = &quot;../bevy&quot; }
+# some p-pwugins might depend on individuaw bevy cwates, &gt;_&lt;
+# instead of aww of bevy, mya which m-means we nyeed to patch
+# evewy individuaw bevy c-cwate specificawwy:
+bevy_ecs = { p-path = &quot;../bevy/cwates/bevy_ecs&quot; }
+bevy_app = { path = &quot;../bevy/cwates/bevy_app&quot; }
+# ...
+
+# wepwace weweased v-vewsions of cwates (cwates.io souwce) with ouws
+[patch.cwates-io]
+t-thing = { git = &quot;https://github.com/me/thing&quot; }
 </code></pre>
-<p>some 3wd-pawty pwugins depend on s-specific bevy sub-cwates, OwO w-wathew t-than the
-fuww bevy. ^•ﻌ•^ you may additionawwy have t-to patch those i-individuawwy:</p>
-<pre><code class="language-toml">[patch.&quot;https://github.com/bevyengine/bevy&quot;]
-# specific cwates as n-nyeeded by the p-pwugins you use (check t-theiw `cawgo.tomw`)
-b-bevy_ecs = { g-git = &quot;https://github.com/bevyengine/bevy?wev=a420beb0&quot; }
-b-bevy_math = { g-git = &quot;https://github.com/bevyengine/bevy?wev=a420beb0&quot; }
-# ... a-and so on
-</code></pre>
-<p>to cowwect aww the infowmation you n-nyeed, OwO in owdew t-to fuwwy patch a-aww youw
-dependencies, (ꈍᴗꈍ) you can eithew wook a-at theiw <code>Cargo.toml</code>, XD ow figuwe it out
-by wunning <code>cargo tree</code> ow seawching inside youw <code>Cargo.lock</code> fiwe fow
-dupwicate entwies (muwtipwe copies o-of bevy cwates).</p>
-<p>make suwe to dewete <code>Cargo.lock</code> evewy time you make a change to y-youw
-dependencies configuwation, OwO to fowce c-cawgo to wesowve e-evewything a-again.</p>
 <h2 id="updating-bevy"><a class="header" href="#updating-bevy">updating bevy</a></h2>
 <p>it is wecommended that you specify a-a known-good bevy c-commit in youw
 <code>Cargo.toml</code>, ^•ﻌ•^ so that you can be suwe that you o-onwy update it w-when you
 actuawwy want to do so, (ꈍᴗꈍ) avoiding u-unwanted bweakage.</p>
-<pre><code class="language-toml">bevy = { git = &quot;https://github.com/bevyengine/bevy?wev=7a1bd34e&quot; }
+<pre><code class="language-toml">bevy = { git = &quot;https://github.com/bevyengine/bevy&quot;, &gt;_&lt; wev = &quot;7a1bd34e&quot; }
 </code></pre>
-<p>even if you do nyot, &gt;_&lt; the <code>Cargo.lock</code> fiwe awways keeps twack of the exact
-vewsion (incwuding the git commit) you awe wowking w-with. ^•ﻌ•^ you wiww n-nyot be
-affected by nyew changes in upstweam b-bevy ow pwugins, OwO u-untiw you update i-it.</p>
-<p>to update, XD wun:</p>
+<p>when you change anything, (ꈍᴗꈍ) be suwe t-to wun:</p>
 <pre><code class="language-sh">cawgo update
 </code></pre>
-<p>ow dewete <code>Cargo.lock</code>.</p>
-<p>make suwe you do this evewy time y-you change the configuwation i-in y-youw
-<code>Cargo.toml</code>. ^•ﻌ•^ othewwise you wisk ewwows fwom c-cawgo nyot wesowving d-dependencies
-cowwectwy.</p>
+<p>(ow dewete <code>Cargo.lock</code>)</p>
+<p>othewwise you wisk ewwows fwom cawgo n-nyot wesowving d-dependencies c-cowwectwy.</p>
 <h2 id="advice-fow-pwugin-authows"><a class="header" href="#advice-fow-pwugin-authows">advice fow pwugin authows</a></h2>
 <p>if you awe pubwishing a pwugin cwate, ^•ﻌ•^ h-hewe awe some w-wecommendations:</p>
 <ul>
