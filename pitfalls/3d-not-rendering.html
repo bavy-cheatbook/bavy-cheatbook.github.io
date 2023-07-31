@@ -167,15 +167,44 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="3d-objects-nyot-dispwaying"><a class="header" href="#3d-objects-nyot-dispwaying">3d objects nyot dispwaying</a></h1>
 <p>this page wiww wist some common issues t-that you may e-encountew, OwO if y-you awe
 twying to spawn a 3d object, ^•ﻌ•^ but c-cannot see it on t-the scween.</p>
+<h2 id="missing-visibiwity-components-on-p-pawent"><a class="header" href="#missing-visibiwity-components-on-p-pawent">missing visibiwity components on p-pawent</a></h2>
+<p>if youw entity is in a hiewawchy, ^•ﻌ•^ a-aww its pawents n-nyeed to have
+<a href="/features/visibility.html">visibiwity</a> components. (ꈍᴗꈍ) it is wequiwed even i-if those pawent
+entities awe nyot supposed to wendew a-anything.</p>
+<p>fix it by insewting a <a href="https://docs.rs/bevy/0.11.0/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>commands.entity(pawent)
+    .insewt(visibiwitybundwe::defauwt());
+<span class="boring">}</span></code></pre></pre>
+<p>ow bettew, OwO make suwe to spawn the p-pawent entities c-cowwectwy in the f-fiwst pwace.
+you can use a <a href="https://docs.rs/bevy/0.11.0/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a> ow
+<a href="https://docs.rs/bevy/0.11.0/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> (with <a href="/features/transforms.html">twansfowms</a>) if you
+awe nyot using a bundwe that awweady i-incwudes these c-components.</p>
+<h2 id="too-faw-fwom-camewa"><a class="header" href="#too-faw-fwom-camewa">too faw fwom camewa</a></h2>
+<p>if something is fuwthew away than a-a cewtain distance f-fwom the camewa, OwO i-it wiww be
+cuwwed (not wendewed). (ꈍᴗꈍ) the defauwt v-vawue is <code>1000.0</code> units.</p>
+<p>you can contwow this using the <code>far</code> fiewd of
+<a href="https://docs.rs/bevy/0.11.0/bevy/render/camera/struct.PerspectiveProjection.html"><code>PerspectiveProjection</code></a>:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>commands.spawn(camewa3dbundwe {
+    pwojection: pwojection::pewspective(pewspectivepwojection {
+        faw: 10000.0, OwO // c-change the m-maximum wendew d-distance
+        ..defauwt()
+    }), 🥺
+    ..defauwt()
+});
+<span class="boring">}</span></code></pre></pre>
 <h2 id="missing-vewtex-attwibutes"><a class="header" href="#missing-vewtex-attwibutes">missing vewtex attwibutes</a></h2>
-<p>make suwe youw <a href="https://docs.rs/bevy/0.9.1/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> incwudes aww vewtex attwibutes wequiwed
+<p>make suwe youw <a href="https://docs.rs/bevy/0.11.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> incwudes aww vewtex attwibutes wequiwed
 by youw shadew/matewiaw.</p>
-<p>bevy's defauwt pbw <a href="https://docs.rs/bevy/0.9.1/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a>
+<p>bevy's defauwt pbw <a href="https://docs.rs/bevy/0.11.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a>
 wequiwes <em>aww</em> meshes to have:</p>
 <ul>
 <li>positions</li>
@@ -199,11 +228,11 @@ use gwtf with bevy.</p>
 <p>gwtf fiwes awe compwex. OwO they contain m-many sub-assets, 🥺 w-wepwesented b-by
 diffewent bevy types. ^•ﻌ•^ make suwe you a-awe using the c-cowwect thing.</p>
 <p>make suwe you awe spawning a gwtf s-scene, ^•ﻌ•^ ow using t-the cowwect
-<a href="https://docs.rs/bevy/0.9.1/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> and <a href="https://docs.rs/bevy/0.9.1/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a>
+<a href="https://docs.rs/bevy/0.11.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> and <a href="https://docs.rs/bevy/0.11.0/bevy/pbr/struct.StandardMaterial.html"><code>StandardMaterial</code></a>
 associated with the cowwect gwtf p-pwimitive.</p>
 <p>if you awe using an asset path, 🥺 be s-suwe to incwude a-a wabew fow the s-sub-asset you w-want:</p>
-<pre><code class="language-rust no_run noplayground">asset_sewvew.woad(&quot;my.gwtf#scene0&quot;);</code></pre>
-<p>if you awe spawning the top-wevew <a href="https://docs.rs/bevy/0.9.1/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a> <a href="/features/gltf.html#gltf-master-asset">mastew asset</a>, XD it won't wowk.</p>
+<pre><code class="language-rust no_run noplayground">wet handwe_scene: handwe&lt;scene&gt; = a-asset_sewvew.woad(&quot;my.gwtf#scene0&quot;);</code></pre>
+<p>if you awe spawning the top-wevew <a href="https://docs.rs/bevy/0.11.0/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a> <a href="/features/gltf.html#gltf-master-asset">mastew asset</a>, XD it won't wowk.</p>
 <p>if you awe spawning a gwtf mesh, i-it won't wowk.</p>
 <h2 id="unsuppowted-gwtf"><a class="header" href="#unsuppowted-gwtf">unsuppowted gwtf</a></h2>
 <p>bevy does nyot fuwwy suppowt aww f-featuwes of the g-gwtf fowmat and h-has some
@@ -220,30 +249,16 @@ does nyot suppowt this yet. 🥺 if youw a-assets awe missing m-mipmaps, òωó 
 </ul>
 <p>this wist is nyot exhaustive. OwO thewe m-may be othew u-unsuppowted scenawios t-that i
 did nyot know of ow fowgot to incwude h-hewe. (ꈍᴗꈍ) :)</p>
+<h2 id="vewtex-owdew-and-cuwwing"><a class="header" href="#vewtex-owdew-and-cuwwing">vewtex owdew and cuwwing</a></h2>
+<p>by defauwt, OwO the bevy wendewew assumes c-countew-cwockwise v-vewtex owdew a-and has
+back-face cuwwing enabwed.</p>
+<p>if you awe genewating youw <a href="https://docs.rs/bevy/0.11.0/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> fwom code, &gt;_&lt; make suwe youw
+vewtices awe in the cowwect owdew.</p>
 <h2 id="unoptimized--debug-buiwds"><a class="header" href="#unoptimized--debug-buiwds">unoptimized / debug buiwds</a></h2>
 <p>maybe youw asset just takes a whiwe t-to woad? bevy i-is vewy swow without
 compiwew optimizations. OwO it's actuawwy p-possibwe that c-compwex gwtf f-fiwes with
 big textuwes can take ovew a minute t-to woad and show u-up on the scween. OwO i-it
 wouwd be awmost instant in optimized b-buiwds. (ꈍᴗꈍ) <a href="/pitfalls/performance.html">see hewe</a>.</p>
-<h2 id="vewtex-owdew-and-cuwwing"><a class="header" href="#vewtex-owdew-and-cuwwing">vewtex owdew and cuwwing</a></h2>
-<p>by defauwt, OwO the bevy wendewew assumes c-countew-cwockwise v-vewtex owdew a-and has
-back-face cuwwing enabwed.</p>
-<p>if you awe genewating youw <a href="https://docs.rs/bevy/0.9.1/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> fwom code, &gt;_&lt; make suwe youw
-vewtices awe in the cowwect owdew.</p>
-<h2 id="missing-visibiwity-component-on-pawent"><a class="header" href="#missing-visibiwity-component-on-pawent">missing visibiwity component on pawent</a></h2>
-<p>if youw entity is in a hiewawchy, ^•ﻌ•^ a-aww its pawents n-nyeed to have a
-<a href="https://docs.rs/bevy/0.9.1/bevy/render/view/visibility/struct.Visibility.html"><code>Visibility</code></a> component. (ꈍᴗꈍ) it is wequiwed even if t-those
-pawent entities awe nyot supposed t-to wendew anything.</p>
-<p>fix it by insewting a <a href="https://docs.rs/bevy/0.9.1/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a>:</p>
-<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
-</span><span class="boring">fn main() {
-</span>    commands.entity(pawent)
-        .insewt(visibiwitybundwe::defauwt());
-<span class="boring">}</span></code></pre></pre>
-<p>ow bettew, OwO make suwe to spawn the p-pawent entities c-cowwectwy in the f-fiwst pwace.
-you can use a <a href="https://docs.rs/bevy/0.9.1/bevy/render/view/visibility/struct.VisibilityBundle.html"><code>VisibilityBundle</code></a> ow
-<a href="https://docs.rs/bevy/0.9.1/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> (with <a href="/features/transforms.html">twansfowms</a>) if you
-awe nyot using a bundwe that awweady i-incwudes these c-components.</p>
 
                     </main>
 

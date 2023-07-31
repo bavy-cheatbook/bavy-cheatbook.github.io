@@ -167,7 +167,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="obscuwe-wust-compiwew-ewwows"><a class="header" href="#obscuwe-wust-compiwew-ewwows">obscuwe wust compiwew ewwows</a></h1>
 <p>you can get confusing compiwew ewwows w-when you twy t-to add <a href="/programming/systems.html">systems</a>
@@ -178,25 +178,25 @@ to youw bevy <a href="/programming/app-builder.html">app</a>.</p>
 <li>using <code>Query&lt;MyStuff&gt;</code> instead of <code>Query&lt;&amp;MyStuff&gt;</code> ow <code>Query&lt;&amp;mut MyStuff&gt;</code>.</li>
 <li>using <code>Query&lt;&amp;ComponentA, &amp;ComponentB&gt;</code> instead of <code>Query&lt;(&amp;ComponentA, &amp;ComponentB)&gt;</code>
 (fowgetting the tupwe)</li>
-<li>using youw wesouwce types diwectwy w-without <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.Res.html"><code>Res</code></a> ow <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>.</li>
-<li>using youw component types diwectwy w-without putting t-them in a <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a>.</li>
+<li>using youw wesouwce types diwectwy w-without <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.Res.html"><code>Res</code></a> ow <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>.</li>
+<li>using youw component types diwectwy w-without putting t-them in a <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a>.</li>
+<li>using a <a href="/programming/ec.html#component-bundles">bundwe</a> type in a <a href="/programming/queries.html">quewy</a>. &gt;_&lt; you want individuaw components.</li>
 <li>using othew awbitwawy types in youw f-function.</li>
 </ul>
 <p>note that <code>Query&lt;Entity&gt;</code> is cowwect, (ꈍᴗꈍ) because the entity id i-is speciaw;
 it is nyot a component.</p>
 <h2 id="ewwow-adding-function-as-system"><a class="header" href="#ewwow-adding-function-as-system">ewwow adding function as system</a></h2>
 <p>the ewwows can wook wike this:</p>
-<pre><code>ewwow[e0277]: the twait bound `fow&lt;'a, ^^;; 'b, 'c&gt; f-fn(...) {system}: i-intosystem&lt;(), &gt;_&lt; (), _&gt;` i-is nyot satisfied
+<pre><code>ewwow[e0277]: the twait bound `fow&lt;'a, &gt;_&lt; 'b, 'c&gt; f-fn(...) {system}: i-intosystem&lt;(), :3 (), _&gt;` i-is nyot satisfied
    --&gt; s-swc/main.ws:5:21
     |
 5   |         .add_system(my_system)
-    |          ---------- ^^^^^^^^^ t-the twait `intosystem&lt;(), mya (), _&gt;` i-is nyot impwemented f-fow fn item `fow&lt;'a, mya 'b, 'c&gt; f-fn(...) {system}`
+    |          ---------- ^^^^^^^^^ t-the twait `intosystem&lt;(), (U ﹏ U) (), _&gt;` i-is nyot impwemented f-fow fn item `fow&lt;'a, -.- 'b, 'c&gt; f-fn(...) {system}`
     |          |
     |          wequiwed by a bound intwoduced by this caww
     |
-    = hewp: t-the twait `intosystemappconfig&lt;()&gt;` is impwemented fow `systemappconfig`
-    = n-nyote: wequiwed fow `fow&lt;'a, 😳 'b, 'c&gt; f-fn(...) {system}` to impwement `intosystemconfig&lt;_&gt;`
-    = note: wequiwed fow `fow&lt;'a, XD 'b, 'c&gt; f-fn(...) {system}` to impwement `intosystemappconfig&lt;_&gt;`
+    = hewp: t-the fowwowing othew types impwement twait `intosystemconfigs&lt;mawkew&gt;`:
+    = ...
 </code></pre>
 <p>the ewwow (confusingwy) points to t-the pwace in youw c-code whewe you t-twy to add the s-system,
 but in weawity, (ꈍᴗꈍ) the pwobwem is actuawwy i-in the <code>fn</code> function definition!</p>

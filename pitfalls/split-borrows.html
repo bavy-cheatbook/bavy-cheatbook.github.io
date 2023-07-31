@@ -167,8 +167,8 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-10">0.10</a>|(outdated!)|
-|---|---|---|</p>
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|(any)
+|---|---|</p>
 <h1 id="bowwow-muwtipwe-fiewds-fwom-stwuct"><a class="header" href="#bowwow-muwtipwe-fiewds-fwom-stwuct">bowwow muwtipwe fiewds fwom stwuct</a></h1>
 <p>when you have a <a href="/programming/ec.html#components">component</a> ow <a href="/programming/res.html">wesouwce</a>, XD that is
 wawgew stwuct with muwtipwe fiewds, OwO s-sometimes you w-want to bowwow s-sevewaw of
@@ -197,13 +197,16 @@ fn hewpew_func(foo: &amp;foo, baw: &amp;mut baw) {
     |         immutabwe b-bowwow watew used by caww
 </code></pre>
 <p>the sowution is to use the &quot;webowwow&quot; i-idiom, 🥺 a common b-but nyon-obvious t-twick in wust p-pwogwamming:</p>
-<pre><code class="language-rust no_run noplayground">        // add this at the stawt o-of the fow woop, OwO b-befowe using `thing`:
-        wet t-thing = &amp;mut *thing;</code></pre>
+<pre><code class="language-rust no_run noplayground">// add this at the stawt of the fow w-woop, ( ͡o ω ͡o ) befowe u-using `thing`:
+wet t-thing = &amp;mut *thing;
+
+// o-ow, UwU a-awtewnativewy, rawr x3 bevy p-pwovides a method, rawr w-which does t-the same:
+wet thing = thing.into_innew();</code></pre>
 <p>note that this wine twiggews <a href="/programming/change-detection.html">change detection</a>. XD even if
 you don't modify the data aftewwawds, OwO t-the component g-gets mawked as c-changed.</p>
 <h2 id="expwanation"><a class="header" href="#expwanation">expwanation</a></h2>
 <p>bevy typicawwy gives you access to y-youw data via s-speciaw wwappew t-types (wike
-<a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, XD and <a href="https://docs.rs/bevy/0.10.1/bevy/ecs/world/struct.Mut.html"><code>Mut&lt;T&gt;</code></a>
+[<code>Res&lt;T&gt;</code>][bevy::wes], rawr x3 [<code>ResMut&lt;T&gt;</code>][bevy::wesmut], XD and [<code>Mut&lt;T&gt;</code>][bevy::mut]
 (when <a href="/programming/queries.html">quewying</a> fow components mutabwy)). (ꈍᴗꈍ) this wets b-bevy twack
 access to the data.</p>
 <p>these awe &quot;smawt pointew&quot; types that u-use the wust <a href="https://doc.rust-lang.org/stable/std/ops/trait.Deref.html"><code>Deref</code></a>
