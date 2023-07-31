@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JetBrains (IntelliJ, CLion)</title>
+
+
+        <!-- Custom HTML head -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../../overview.html">Chapter Overview</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../builtins.html">List of Bevy Builtins</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../../tutorial.html"><strong aria-hidden="true">1.</strong> Bevy Tutorials</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../tutorial/guide.html"><strong aria-hidden="true">1.1.</strong> Guided Tour</a></li></ol></li><li class="chapter-item expanded "><a href="../../setup.html"><strong aria-hidden="true">2.</strong> Bevy Setup Tips</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../setup/getting-started.html"><strong aria-hidden="true">2.1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../../setup/bevy-git.html"><strong aria-hidden="true">2.2.</strong> Using bleeding-edge Bevy (main)</a></li><li class="chapter-item expanded "><a href="../../setup/editor.html"><strong aria-hidden="true">2.3.</strong> Text Editor / IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../setup/editor/vscode.html"><strong aria-hidden="true">2.3.1.</strong> Visual Studio Code</a></li><li class="chapter-item expanded "><a href="../../setup/editor/jetbrains.html" class="active"><strong aria-hidden="true">2.3.2.</strong> JetBrains (IntelliJ, CLion)</a></li><li class="chapter-item expanded "><a href="../../setup/editor/kak.html"><strong aria-hidden="true">2.3.3.</strong> Kakoune</a></li><li class="chapter-item expanded "><a href="../../setup/editor/vim.html"><strong aria-hidden="true">2.3.4.</strong> Vim</a></li><li class="chapter-item expanded "><a href="../../setup/editor/emacs.html"><strong aria-hidden="true">2.3.5.</strong> Emacs</a></li></ol></li><li class="chapter-item expanded "><a href="../../setup/bevy-config.html"><strong aria-hidden="true">2.4.</strong> Customizing Bevy (features, modularity)</a></li><li class="chapter-item expanded "><a href="../../setup/unofficial-plugins.html"><strong aria-hidden="true">2.5.</strong> Community Plugin Ecosystem</a></li><li class="chapter-item expanded "><a href="../../setup/bevy-tools.html"><strong aria-hidden="true">2.6.</strong> Dev Tools and Editors for Bevy</a></li></ol></li><li class="chapter-item expanded "><a href="../../pitfalls.html"><strong aria-hidden="true">3.</strong> Common Pitfalls</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../pitfalls/build-errors.html"><strong aria-hidden="true">3.1.</strong> Strange compile errors from Bevy or dependencies</a></li><li class="chapter-item expanded "><a href="../../pitfalls/performance.html"><strong aria-hidden="true">3.2.</strong> Slow Performance</a></li><li class="chapter-item expanded "><a href="../../pitfalls/into-system.html"><strong aria-hidden="true">3.3.</strong> Error adding function as system</a></li><li class="chapter-item expanded "><a href="../../pitfalls/2d-camera-z.html"><strong aria-hidden="true">3.4.</strong> 2D objects not displaying</a></li><li class="chapter-item expanded "><a href="../../pitfalls/3d-not-rendering.html"><strong aria-hidden="true">3.5.</strong> 3D objects not displaying</a></li><li class="chapter-item expanded "><a href="../../pitfalls/split-borrows.html"><strong aria-hidden="true">3.6.</strong> Borrow multiple fields from struct</a></li><li class="chapter-item expanded "><a href="../../pitfalls/time.html"><strong aria-hidden="true">3.7.</strong> Jittering Time (choppy movement/animation)</a></li><li class="chapter-item expanded "><a href="../../pitfalls/uv-coordinates.html"><strong aria-hidden="true">3.8.</strong> Textures/Images are flipped</a></li></ol></li><li class="chapter-item expanded "><a href="../../programming.html"><strong aria-hidden="true">4.</strong> Bevy Programming Framework</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../programming/ecs-intro.html"><strong aria-hidden="true">4.1.</strong> Intro to ECS</a></li><li class="chapter-item expanded "><a href="../../programming/intro-data.html"><strong aria-hidden="true">4.2.</strong> Intro: Your Data</a></li><li class="chapter-item expanded "><a href="../../programming/intro-code.html"><strong aria-hidden="true">4.3.</strong> Intro: Your Code</a></li><li class="chapter-item expanded "><a href="../../programming/app-builder.html"><strong aria-hidden="true">4.4.</strong> The App</a></li><li class="chapter-item expanded "><a href="../../programming/systems.html"><strong aria-hidden="true">4.5.</strong> Systems</a></li><li class="chapter-item expanded "><a href="../../programming/res.html"><strong aria-hidden="true">4.6.</strong> Resources</a></li><li class="chapter-item expanded "><a href="../../programming/ec.html"><strong aria-hidden="true">4.7.</strong> Entities, Components, Bundles</a></li><li class="chapter-item expanded "><a href="../../programming/queries.html"><strong aria-hidden="true">4.8.</strong> Queries</a></li><li class="chapter-item expanded "><a href="../../programming/commands.html"><strong aria-hidden="true">4.9.</strong> Commands</a></li><li class="chapter-item expanded "><a href="../../programming/events.html"><strong aria-hidden="true">4.10.</strong> Events</a></li><li class="chapter-item expanded "><a href="../../programming/local.html"><strong aria-hidden="true">4.11.</strong> Local Resources</a></li><li class="chapter-item expanded "><a href="../../programming/exclusive.html"><strong aria-hidden="true">4.12.</strong> Exclusive Systems</a></li><li class="chapter-item expanded "><a href="../../programming/world.html"><strong aria-hidden="true">4.13.</strong> Direct ECS World Access</a></li><li class="chapter-item expanded "><a href="../../programming/schedules.html"><strong aria-hidden="true">4.14.</strong> Schedules</a></li><li class="chapter-item expanded "><a href="../../programming/system-order.html"><strong aria-hidden="true">4.15.</strong> System Order of Execution</a></li><li class="chapter-item expanded "><a href="../../programming/run-criteria.html"><strong aria-hidden="true">4.16.</strong> Run Criteria</a></li><li class="chapter-item expanded "><a href="../../programming/system-sets.html"><strong aria-hidden="true">4.17.</strong> System Sets</a></li><li class="chapter-item expanded "><a href="../../programming/states.html"><strong aria-hidden="true">4.18.</strong> States</a></li><li class="chapter-item expanded "><a href="../../programming/plugins.html"><strong aria-hidden="true">4.19.</strong> Plugins</a></li><li class="chapter-item expanded "><a href="../../programming/change-detection.html"><strong aria-hidden="true">4.20.</strong> Change Detection</a></li><li class="chapter-item expanded "><a href="../../programming/system-piping.html"><strong aria-hidden="true">4.21.</strong> System Piping</a></li><li class="chapter-item expanded "><a href="../../programming/paramset.html"><strong aria-hidden="true">4.22.</strong> ParamSet</a></li><li class="chapter-item expanded "><a href="../../programming/non-send.html"><strong aria-hidden="true">4.23.</strong> Non-Send</a></li></ol></li><li class="chapter-item expanded "><a href="../../features.html"><strong aria-hidden="true">5.</strong> General Game Engine Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../features/coords.html"><strong aria-hidden="true">5.1.</strong> Coordinate System</a></li><li class="chapter-item expanded "><a href="../../features/transforms.html"><strong aria-hidden="true">5.2.</strong> Transforms</a></li><li class="chapter-item expanded "><a href="../../features/visibility.html"><strong aria-hidden="true">5.3.</strong> Visibility</a></li><li class="chapter-item expanded "><a href="../../features/camera.html"><strong aria-hidden="true">5.4.</strong> Cameras</a></li><li class="chapter-item expanded "><a href="../../features/hdr-tonemap.html"><strong aria-hidden="true">5.5.</strong> HDR, Tonemapping, Bloom</a></li><li class="chapter-item expanded "><a href="../../features/time.html"><strong aria-hidden="true">5.6.</strong> Time and Timers</a></li><li class="chapter-item expanded "><a href="../../features/log.html"><strong aria-hidden="true">5.7.</strong> Logging, Console Messages</a></li><li class="chapter-item expanded "><a href="../../features/parent-child.html"><strong aria-hidden="true">5.8.</strong> Parent/Child Hierarchies</a></li><li class="chapter-item expanded "><a href="../../features/fixed-timestep.html"><strong aria-hidden="true">5.9.</strong> Fixed Timestep</a></li><li class="chapter-item expanded "><a href="../../features/audio.html"><strong aria-hidden="true">5.10.</strong> Audio</a></li></ol></li><li class="chapter-item expanded "><a href="../../assets.html"><strong aria-hidden="true">6.</strong> Asset Management</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../assets/handles.html"><strong aria-hidden="true">6.1.</strong> Handles</a></li><li class="chapter-item expanded "><a href="../../assets/assetserver.html"><strong aria-hidden="true">6.2.</strong> Load Assets from Files</a></li><li class="chapter-item expanded "><a href="../../assets/data.html"><strong aria-hidden="true">6.3.</strong> Access the Asset Data</a></li><li class="chapter-item expanded "><a href="../../assets/assetevent.html"><strong aria-hidden="true">6.4.</strong> React to Changes with Asset Events</a></li><li class="chapter-item expanded "><a href="../../assets/ready.html"><strong aria-hidden="true">6.5.</strong> Track Loading Progress</a></li><li class="chapter-item expanded "><a href="../../assets/hot-reload.html"><strong aria-hidden="true">6.6.</strong> Hot-Reloading Assets</a></li></ol></li><li class="chapter-item expanded "><a href="../../input.html"><strong aria-hidden="true">7.</strong> Input Handling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../input/keyboard.html"><strong aria-hidden="true">7.1.</strong> Keyboard</a></li><li class="chapter-item expanded "><a href="../../input/mouse.html"><strong aria-hidden="true">7.2.</strong> Mouse</a></li><li class="chapter-item expanded "><a href="../../input/char.html"><strong aria-hidden="true">7.3.</strong> Text / Character</a></li><li class="chapter-item expanded "><a href="../../input/gamepad.html"><strong aria-hidden="true">7.4.</strong> Gamepad (Controller, Joystick)</a></li><li class="chapter-item expanded "><a href="../../input/touch.html"><strong aria-hidden="true">7.5.</strong> Touchscreen</a></li><li class="chapter-item expanded "><a href="../../input/dnd.html"><strong aria-hidden="true">7.6.</strong> Drag-and-Drop (Files)</a></li></ol></li><li class="chapter-item expanded "><a href="../../window.html"><strong aria-hidden="true">8.</strong> Window Management</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../window/props.html"><strong aria-hidden="true">8.1.</strong> Window Properties</a></li><li class="chapter-item expanded "><a href="../../window/clear-color.html"><strong aria-hidden="true">8.2.</strong> Change the Background Color</a></li><li class="chapter-item expanded "><a href="../../window/mouse-grab.html"><strong aria-hidden="true">8.3.</strong> Grab/Capture the Mouse Cursor</a></li><li class="chapter-item expanded "><a href="../../window/icon.html"><strong aria-hidden="true">8.4.</strong> Set the Window Icon</a></li></ol></li><li class="chapter-item expanded "><a href="../../2d.html"><strong aria-hidden="true">9.</strong> Working with 2D</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../2d/camera.html"><strong aria-hidden="true">9.1.</strong> 2D Camera Setup</a></li><li class="chapter-item expanded "><a href="../../2d/sprites.html"><strong aria-hidden="true">9.2.</strong> Sprites and Atlases</a></li></ol></li><li class="chapter-item expanded "><a href="../../3d.html"><strong aria-hidden="true">10.</strong> Working with 3D</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../3d/camera.html"><strong aria-hidden="true">10.1.</strong> 3D Camera Setup</a></li><li class="chapter-item expanded "><a href="../../3d/gltf.html"><strong aria-hidden="true">10.2.</strong> 3D Models and Scenes (GLTF)</a></li></ol></li><li class="chapter-item expanded "><a href="../../gpu.html"><strong aria-hidden="true">11.</strong> [WIP] Bevy Render (GPU) Framework</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../gpu/intro.html"><strong aria-hidden="true">11.1.</strong> Render Architecture Overview</a></li><li class="chapter-item expanded "><a href="../../gpu/stages.html"><strong aria-hidden="true">11.2.</strong> Render Stages</a></li></ol></li><li class="chapter-item expanded "><a href="../../patterns.html"><strong aria-hidden="true">12.</strong> Programming Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../patterns/generic-systems.html"><strong aria-hidden="true">12.1.</strong> Generic Systems</a></li><li class="chapter-item expanded "><a href="../../patterns/component-storage.html"><strong aria-hidden="true">12.2.</strong> Component Storage (Table/Sparse-Set)</a></li><li class="chapter-item expanded "><a href="../../patterns/manual-event-clear.html"><strong aria-hidden="true">12.3.</strong> Manual Event Clearing</a></li><li class="chapter-item expanded "><a href="../../patterns/system-tests.html"><strong aria-hidden="true">12.4.</strong> Writing Tests for Systems</a></li></ol></li><li class="chapter-item expanded "><a href="../../cookbook.html"><strong aria-hidden="true">13.</strong> Bevy Cookbook</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../cookbook/print-framerate.html"><strong aria-hidden="true">13.1.</strong> Show Framerate in Console</a></li><li class="chapter-item expanded "><a href="../../cookbook/cursor2world.html"><strong aria-hidden="true">13.2.</strong> Convert cursor to world coordinates</a></li><li class="chapter-item expanded "><a href="../../cookbook/custom-projection.html"><strong aria-hidden="true">13.3.</strong> Custom Camera Projection</a></li><li class="chapter-item expanded "><a href="../../cookbook/pan-orbit-camera.html"><strong aria-hidden="true">13.4.</strong> Pan+Orbit Camera</a></li><li class="chapter-item expanded "><a href="../../cookbook/print-resources.html"><strong aria-hidden="true">13.5.</strong> List All Resource Types</a></li></ol></li><li class="chapter-item expanded "><a href="../../platforms.html"><strong aria-hidden="true">14.</strong> Bevy on Different Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../platforms/linux.html"><strong aria-hidden="true">14.1.</strong> Linux Desktop</a></li><li class="chapter-item expanded "><a href="../../platforms/macos.html"><strong aria-hidden="true">14.2.</strong> macOS Desktop</a></li><li class="chapter-item expanded "><a href="../../platforms/windows.html"><strong aria-hidden="true">14.3.</strong> Windows Desktop</a></li><li class="chapter-item expanded "><a href="../../platforms/wasm.html"><strong aria-hidden="true">14.4.</strong> Browser (WebAssembly)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../platforms/wasm/panic-console.html"><strong aria-hidden="true">14.4.1.</strong> Panic Messages</a></li><li class="chapter-item expanded "><a href="../../platforms/wasm/size-opt.html"><strong aria-hidden="true">14.4.2.</strong> Optimize for Size</a></li><li class="chapter-item expanded "><a href="../../platforms/wasm/gh-pages.html"><strong aria-hidden="true">14.4.3.</strong> Hosting on GitHub Pages</a></li></ol></li><li class="chapter-item expanded "><a href="../../setup/cross.html"><strong aria-hidden="true">14.5.</strong> Cross-Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../setup/cross/linux-windows.html"><strong aria-hidden="true">14.5.1.</strong> From Linux to Windows</a></li><li class="chapter-item expanded "><a href="../../setup/cross/macos-windows.html"><strong aria-hidden="true">14.5.2.</strong> From macOS to Windows</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../concepts.html"><strong aria-hidden="true">15.</strong> Appendix: General Concepts</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../credits.html">Credits</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../contact.html">Contact Me</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../../contributing-bevy.html">Contribute to Bevy</a></li><li class="chapter-item expanded affix "><a href="../../contributing.html">Contribute to this Book</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
+|---|---|---|</p>
+<h1 id="jetbwains-intewwij-xd-cwion"><a class="header" href="#jetbwains-intewwij-xd-cwion">jetbwains (intewwij, XD cwion)</a></h1>
+<p>if you awe a jetbwains usew and you'd w-wike something t-to be added t-to this page,
+pwease fiwe a <a href="https://github.com/bevy-cheatbook/bevy-cheatbook/issues">github issue</a>.</p>
+<h2 id="wust-wanguage-suppowt"><a class="header" href="#wust-wanguage-suppowt">wust wanguage suppowt</a></h2>
+<p>when using <a href="/programming/queries.html">quewies</a>, (ꈍᴗꈍ) type infowmation gets wost due t-to bevy wewying
+on pwoceduwaw macwos. (ꈍᴗꈍ) you can fix t-this by enabwing <a href="https://github.com/intellij-rust/intellij-rust/issues/6908">pwoceduwaw macwo
+suppowt</a> in the ide.</p>
+<ol>
+<li>type <code>Experimental feature</code> in the diawog of the <code>Help | Find Action</code> action</li>
+<li>enabwe the featuwes <code>org.rust.cargo.evaluate.build.scripts</code> and <code>org.rust.macros.proc</code></li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../setup/editor/vscode.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../setup/editor/kak.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../setup/editor/vscode.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../setup/editor/kak.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
