@@ -1,0 +1,473 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Performance Tunables</title>
+
+
+        <!-- Custom HTML head -->
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../introduction.html">Introduction</a></li><li class="chapter-item expanded affix "><a href="../overview.html">Chapter Overview</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../builtins.html">List of Bevy Builtins</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="../tutorial.html"><strong aria-hidden="true">1.</strong> Bevy Tutorials</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tutorial/guide.html"><strong aria-hidden="true">1.1.</strong> Guided Tour</a></li></ol></li><li class="chapter-item expanded "><a href="../setup.html"><strong aria-hidden="true">2.</strong> Bevy Setup Tips</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../setup/getting-started.html"><strong aria-hidden="true">2.1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../setup/bevy-git.html"><strong aria-hidden="true">2.2.</strong> Using bleeding-edge Bevy (main)</a></li><li class="chapter-item expanded "><a href="../setup/editor.html"><strong aria-hidden="true">2.3.</strong> Text Editor / IDE</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../setup/editor/vscode.html"><strong aria-hidden="true">2.3.1.</strong> Visual Studio Code</a></li><li class="chapter-item expanded "><a href="../setup/editor/jetbrains.html"><strong aria-hidden="true">2.3.2.</strong> JetBrains (IntelliJ, CLion)</a></li><li class="chapter-item expanded "><a href="../setup/editor/kak.html"><strong aria-hidden="true">2.3.3.</strong> Kakoune</a></li><li class="chapter-item expanded "><a href="../setup/editor/vim.html"><strong aria-hidden="true">2.3.4.</strong> Vim</a></li><li class="chapter-item expanded "><a href="../setup/editor/emacs.html"><strong aria-hidden="true">2.3.5.</strong> Emacs</a></li></ol></li><li class="chapter-item expanded "><a href="../setup/bevy-config.html"><strong aria-hidden="true">2.4.</strong> Customizing Bevy (features, modularity)</a></li><li class="chapter-item expanded "><a href="../setup/unofficial-plugins.html"><strong aria-hidden="true">2.5.</strong> Community Plugin Ecosystem</a></li><li class="chapter-item expanded "><a href="../setup/bevy-tools.html"><strong aria-hidden="true">2.6.</strong> Dev Tools and Editors for Bevy</a></li><li class="chapter-item expanded "><a href="../setup/perf.html" class="active"><strong aria-hidden="true">2.7.</strong> Performance Tunables</a></li></ol></li><li class="chapter-item expanded "><a href="../pitfalls.html"><strong aria-hidden="true">3.</strong> Common Pitfalls</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../pitfalls/build-errors.html"><strong aria-hidden="true">3.1.</strong> Strange compile errors from Bevy or dependencies</a></li><li class="chapter-item expanded "><a href="../pitfalls/performance.html"><strong aria-hidden="true">3.2.</strong> Slow Performance</a></li><li class="chapter-item expanded "><a href="../pitfalls/into-system.html"><strong aria-hidden="true">3.3.</strong> Error adding function as system</a></li><li class="chapter-item expanded "><a href="../pitfalls/3d-not-rendering.html"><strong aria-hidden="true">3.4.</strong> 3D objects not displaying</a></li><li class="chapter-item expanded "><a href="../pitfalls/split-borrows.html"><strong aria-hidden="true">3.5.</strong> Borrow multiple fields from struct</a></li><li class="chapter-item expanded "><a href="../pitfalls/time.html"><strong aria-hidden="true">3.6.</strong> Jittering Time (choppy movement/animation)</a></li><li class="chapter-item expanded "><a href="../pitfalls/uv-coordinates.html"><strong aria-hidden="true">3.7.</strong> Textures/Images are flipped</a></li></ol></li><li class="chapter-item expanded "><a href="../programming.html"><strong aria-hidden="true">4.</strong> Bevy Programming Framework</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../programming/ecs-intro.html"><strong aria-hidden="true">4.1.</strong> Intro to ECS</a></li><li class="chapter-item expanded "><a href="../programming/intro-data.html"><strong aria-hidden="true">4.2.</strong> Intro: Your Data</a></li><li class="chapter-item expanded "><a href="../programming/intro-code.html"><strong aria-hidden="true">4.3.</strong> Intro: Your Code</a></li><li class="chapter-item expanded "><a href="../programming/app-builder.html"><strong aria-hidden="true">4.4.</strong> The App</a></li><li class="chapter-item expanded "><a href="../programming/systems.html"><strong aria-hidden="true">4.5.</strong> Systems</a></li><li class="chapter-item expanded "><a href="../programming/res.html"><strong aria-hidden="true">4.6.</strong> Resources</a></li><li class="chapter-item expanded "><a href="../programming/ec.html"><strong aria-hidden="true">4.7.</strong> Entities, Components, Bundles</a></li><li class="chapter-item expanded "><a href="../programming/bundle.html"><strong aria-hidden="true">4.8.</strong> Bundles</a></li><li class="chapter-item expanded "><a href="../programming/queries.html"><strong aria-hidden="true">4.9.</strong> Queries</a></li><li class="chapter-item expanded "><a href="../programming/commands.html"><strong aria-hidden="true">4.10.</strong> Commands</a></li><li class="chapter-item expanded "><a href="../programming/events.html"><strong aria-hidden="true">4.11.</strong> Events</a></li><li class="chapter-item expanded "><a href="../programming/local.html"><strong aria-hidden="true">4.12.</strong> Local Resources</a></li><li class="chapter-item expanded "><a href="../programming/exclusive.html"><strong aria-hidden="true">4.13.</strong> Exclusive Systems</a></li><li class="chapter-item expanded "><a href="../programming/world.html"><strong aria-hidden="true">4.14.</strong> Direct ECS World Access</a></li><li class="chapter-item expanded "><a href="../programming/schedules.html"><strong aria-hidden="true">4.15.</strong> Schedules</a></li><li class="chapter-item expanded "><a href="../programming/system-order.html"><strong aria-hidden="true">4.16.</strong> System Order of Execution</a></li><li class="chapter-item expanded "><a href="../programming/run-criteria.html"><strong aria-hidden="true">4.17.</strong> Run Criteria</a></li><li class="chapter-item expanded "><a href="../programming/system-sets.html"><strong aria-hidden="true">4.18.</strong> System Sets</a></li><li class="chapter-item expanded "><a href="../programming/states.html"><strong aria-hidden="true">4.19.</strong> States</a></li><li class="chapter-item expanded "><a href="../programming/plugins.html"><strong aria-hidden="true">4.20.</strong> Plugins</a></li><li class="chapter-item expanded "><a href="../programming/change-detection.html"><strong aria-hidden="true">4.21.</strong> Change Detection</a></li><li class="chapter-item expanded "><a href="../programming/system-piping.html"><strong aria-hidden="true">4.22.</strong> System Piping</a></li><li class="chapter-item expanded "><a href="../programming/paramset.html"><strong aria-hidden="true">4.23.</strong> ParamSet</a></li><li class="chapter-item expanded "><a href="../programming/non-send.html"><strong aria-hidden="true">4.24.</strong> Non-Send</a></li></ol></li><li class="chapter-item expanded "><a href="../features.html"><strong aria-hidden="true">5.</strong> General Game Engine Features</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../features/coords.html"><strong aria-hidden="true">5.1.</strong> Coordinate System</a></li><li class="chapter-item expanded "><a href="../features/transforms.html"><strong aria-hidden="true">5.2.</strong> Transforms</a></li><li class="chapter-item expanded "><a href="../features/visibility.html"><strong aria-hidden="true">5.3.</strong> Visibility</a></li><li class="chapter-item expanded "><a href="../features/camera.html"><strong aria-hidden="true">5.4.</strong> Cameras</a></li><li class="chapter-item expanded "><a href="../features/hdr-tonemap.html"><strong aria-hidden="true">5.5.</strong> HDR, Tonemapping, Bloom</a></li><li class="chapter-item expanded "><a href="../features/time.html"><strong aria-hidden="true">5.6.</strong> Time and Timers</a></li><li class="chapter-item expanded "><a href="../features/log.html"><strong aria-hidden="true">5.7.</strong> Logging, Console Messages</a></li><li class="chapter-item expanded "><a href="../features/parent-child.html"><strong aria-hidden="true">5.8.</strong> Parent/Child Hierarchies</a></li><li class="chapter-item expanded "><a href="../features/fixed-timestep.html"><strong aria-hidden="true">5.9.</strong> Fixed Timestep</a></li><li class="chapter-item expanded "><a href="../features/audio.html"><strong aria-hidden="true">5.10.</strong> Audio</a></li></ol></li><li class="chapter-item expanded "><a href="../assets.html"><strong aria-hidden="true">6.</strong> Asset Management</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../assets/handles.html"><strong aria-hidden="true">6.1.</strong> Handles</a></li><li class="chapter-item expanded "><a href="../assets/assetserver.html"><strong aria-hidden="true">6.2.</strong> Load Assets from Files</a></li><li class="chapter-item expanded "><a href="../assets/data.html"><strong aria-hidden="true">6.3.</strong> Access the Asset Data</a></li><li class="chapter-item expanded "><a href="../assets/assetevent.html"><strong aria-hidden="true">6.4.</strong> React to Changes with Asset Events</a></li><li class="chapter-item expanded "><a href="../assets/ready.html"><strong aria-hidden="true">6.5.</strong> Track Loading Progress</a></li><li class="chapter-item expanded "><a href="../assets/hot-reload.html"><strong aria-hidden="true">6.6.</strong> Hot-Reloading Assets</a></li></ol></li><li class="chapter-item expanded "><a href="../input.html"><strong aria-hidden="true">7.</strong> Input Handling</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../input/keyboard.html"><strong aria-hidden="true">7.1.</strong> Keyboard</a></li><li class="chapter-item expanded "><a href="../input/mouse.html"><strong aria-hidden="true">7.2.</strong> Mouse</a></li><li class="chapter-item expanded "><a href="../input/char.html"><strong aria-hidden="true">7.3.</strong> Text / Character</a></li><li class="chapter-item expanded "><a href="../input/gamepad.html"><strong aria-hidden="true">7.4.</strong> Gamepad (Controller, Joystick)</a></li><li class="chapter-item expanded "><a href="../input/touch.html"><strong aria-hidden="true">7.5.</strong> Touchscreen</a></li><li class="chapter-item expanded "><a href="../input/dnd.html"><strong aria-hidden="true">7.6.</strong> Drag-and-Drop (Files)</a></li></ol></li><li class="chapter-item expanded "><a href="../window.html"><strong aria-hidden="true">8.</strong> Window Management</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../window/props.html"><strong aria-hidden="true">8.1.</strong> Window Properties</a></li><li class="chapter-item expanded "><a href="../window/clear-color.html"><strong aria-hidden="true">8.2.</strong> Change the Background Color</a></li><li class="chapter-item expanded "><a href="../window/mouse-grab.html"><strong aria-hidden="true">8.3.</strong> Grab/Capture the Mouse Cursor</a></li><li class="chapter-item expanded "><a href="../window/icon.html"><strong aria-hidden="true">8.4.</strong> Set the Window Icon</a></li></ol></li><li class="chapter-item expanded "><a href="../2d.html"><strong aria-hidden="true">9.</strong> Working with 2D</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../2d/camera.html"><strong aria-hidden="true">9.1.</strong> 2D Camera Setup</a></li><li class="chapter-item expanded "><a href="../2d/sprites.html"><strong aria-hidden="true">9.2.</strong> Sprites and Atlases</a></li></ol></li><li class="chapter-item expanded "><a href="../3d.html"><strong aria-hidden="true">10.</strong> Working with 3D</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../3d/camera.html"><strong aria-hidden="true">10.1.</strong> 3D Camera Setup</a></li><li class="chapter-item expanded "><a href="../3d/gltf.html"><strong aria-hidden="true">10.2.</strong> 3D Models and Scenes (GLTF)</a></li></ol></li><li class="chapter-item expanded "><a href="../gpu.html"><strong aria-hidden="true">11.</strong> [WIP] Bevy Render (GPU) Framework</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../gpu/intro.html"><strong aria-hidden="true">11.1.</strong> Render Architecture Overview</a></li><li class="chapter-item expanded "><a href="../gpu/stages.html"><strong aria-hidden="true">11.2.</strong> Render Stages</a></li></ol></li><li class="chapter-item expanded "><a href="../patterns.html"><strong aria-hidden="true">12.</strong> Programming Patterns</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../patterns/generic-systems.html"><strong aria-hidden="true">12.1.</strong> Generic Systems</a></li><li class="chapter-item expanded "><a href="../patterns/component-storage.html"><strong aria-hidden="true">12.2.</strong> Component Storage (Table/Sparse-Set)</a></li><li class="chapter-item expanded "><a href="../patterns/manual-event-clear.html"><strong aria-hidden="true">12.3.</strong> Manual Event Clearing</a></li><li class="chapter-item expanded "><a href="../patterns/system-tests.html"><strong aria-hidden="true">12.4.</strong> Writing Tests for Systems</a></li></ol></li><li class="chapter-item expanded "><a href="../cookbook.html"><strong aria-hidden="true">13.</strong> Bevy Cookbook</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../cookbook/print-framerate.html"><strong aria-hidden="true">13.1.</strong> Show Framerate in Console</a></li><li class="chapter-item expanded "><a href="../cookbook/cursor2world.html"><strong aria-hidden="true">13.2.</strong> Convert cursor to world coordinates</a></li><li class="chapter-item expanded "><a href="../cookbook/custom-projection.html"><strong aria-hidden="true">13.3.</strong> Custom Camera Projection</a></li><li class="chapter-item expanded "><a href="../cookbook/pan-orbit-camera.html"><strong aria-hidden="true">13.4.</strong> Pan+Orbit Camera</a></li><li class="chapter-item expanded "><a href="../cookbook/print-resources.html"><strong aria-hidden="true">13.5.</strong> List All Resource Types</a></li></ol></li><li class="chapter-item expanded "><a href="../platforms.html"><strong aria-hidden="true">14.</strong> Bevy on Different Platforms</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/linux.html"><strong aria-hidden="true">14.1.</strong> Linux Desktop</a></li><li class="chapter-item expanded "><a href="../platforms/macos.html"><strong aria-hidden="true">14.2.</strong> macOS Desktop</a></li><li class="chapter-item expanded "><a href="../platforms/windows.html"><strong aria-hidden="true">14.3.</strong> Windows Desktop</a></li><li class="chapter-item expanded "><a href="../platforms/wasm.html"><strong aria-hidden="true">14.4.</strong> Browser (WebAssembly)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../platforms/wasm/panic-console.html"><strong aria-hidden="true">14.4.1.</strong> Panic Messages</a></li><li class="chapter-item expanded "><a href="../platforms/wasm/size-opt.html"><strong aria-hidden="true">14.4.2.</strong> Optimize for Size</a></li><li class="chapter-item expanded "><a href="../platforms/wasm/gh-pages.html"><strong aria-hidden="true">14.4.3.</strong> Hosting on GitHub Pages</a></li></ol></li><li class="chapter-item expanded "><a href="../setup/cross.html"><strong aria-hidden="true">14.5.</strong> Cross-Compilation</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../setup/cross/linux-windows.html"><strong aria-hidden="true">14.5.1.</strong> From Linux to Windows</a></li><li class="chapter-item expanded "><a href="../setup/cross/macos-windows.html"><strong aria-hidden="true">14.5.2.</strong> From macOS to Windows</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../concepts.html"><strong aria-hidden="true">15.</strong> Appendix: General Concepts</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../credits.html">Credits</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../contact.html">Contact Me</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><a href="../contributing-bevy.html">Contribute to Bevy</a></li><li class="chapter-item expanded affix "><a href="../contributing.html">Contribute to this Book</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
+|---|---|---|</p>
+<h1 id="pewfowmance-tunabwes"><a class="header" href="#pewfowmance-tunabwes">pewfowmance tunabwes</a></h1>
+<p>bevy offews a wot of featuwes that s-shouwd impwove p-pewfowmance in m-most cases, OwO and
+most of them awe enabwed by defauwt. OwO h-howevew, they m-might be detwimentaw t-to some
+pwojects.</p>
+<p>wuckiwy, OwO most of them awe configuwabwe. 🥺 m-most usews s-shouwd pwobabwy n-nyot touch
+these settings, OwO but if youw game d-does nyot pewfowm w-weww with bevy's d-defauwt
+configuwation, OwO this page wiww show y-you some things y-you can twy to c-change, 🥺 to see
+if they hewp youw pwoject.</p>
+<p>bevy's defauwt configwuation is designed w-with <em>scawabiwity</em> in mind. &gt;_&lt; that is, (ꈍᴗꈍ) so
+that you don't have to wowwy too m-much about pewfowmance, OwO a-as you add m-mowe
+featuwes and compwexity to youw pwoject. OwO b-bevy wiww a-automaticawwy t-take cawe to
+distwibute the wowkwoad as to make g-good use of the a-avaiwabwe hawdwawe (gpu, OwO c-cpu
+muwtithweading).</p>
+<p>howevew, OwO it might huwt simpwew pwojects o-ow have undesiwabwe i-impwications i-in some
+cases.</p>
+<p>this twade-off is good, OwO because smow a-and simpwe games w-wiww pwobabwy b-be fast
+enough anyway, OwO even with the additionaw o-ovewhead, 🥺 b-but wawge and compwex g-games
+wiww benefit fwom the advanced scheduwing t-to avoid b-bottwenecks. OwO you c-can
+devewop youw game without pewfowmance d-degwading much a-as you add mowe s-stuff.</p>
+<h2 id="muwtithweading-ovewhead"><a class="header" href="#muwtithweading-ovewhead">muwtithweading ovewhead</a></h2>
+<p>bevy has a smawt muwtithweaded executow, ^•ﻌ•^ s-so that y-youw <a href="/programming/systems.html">systems</a> can
+automaticawwy <a href="/programming/intro-code.html">wun in pawawwew</a> acwoss muwtipwe cpu cowes,
+when they don't need confwicting a-access to the same d-data, ^•ﻌ•^ whiwe <a href="/programming/system-order.html">honowing owdewing
+constwaints</a>. (ꈍᴗꈍ) this is gweat, because you can j-just keep adding
+mowe systems to do diffewent things a-and impwement m-mowe featuwes in y-youw game,
+and bevy wiww make good use of modewn m-muwti-cowe c-cpus with nyo effowt f-fwom you!</p>
+<p>howevew, ^•ﻌ•^ the smawt scheduwing adds s-some ovewhead t-to aww common opewations (such
+as evewy time a <a href="/programming/systems.html">system</a> wuns). (ꈍᴗꈍ) in pwojects that have wittwe w-wowk to
+do evewy fwame, OwO especiawwy if aww o-of youw systems c-compwete vewy quickwy, 🥺 t-the
+ovewhead can add up to ovewshadow t-the actuaw usefuw w-wowk you awe d-doing!</p>
+<p>you might want to twy disabwing muwtithweading, ^•ﻌ•^ to s-see if youw game m-might
+pewfowm bettew without it.</p>
+<h3 id="disabwing-muwtithweading-fow-update-s-scheduwe-onwy"><a class="header" href="#disabwing-muwtithweading-fow-update-s-scheduwe-onwy">disabwing muwtithweading fow update s-scheduwe onwy</a></h3>
+<p>muwtithweading can be disabwed pew-<a href="/programming/schedules.html">scheduwe</a>. XD this means it
+is easy to disabwe it onwy fow youw c-code / game wogic (in t-the <code>Update</code> scheduwe),
+whiwe stiww weaving it enabwed fow a-aww the bevy engine i-intewnaw systems.</p>
+<p>this couwd speed up simpwe games t-that don't have m-much gamepway wogic, OwO w-whiwe stiww
+wetting the engine wun with muwtithweading.</p>
+<p>you can edit the settings of a specific <a href="/programming/schedules.html">scheduwe</a> via the <a href="/programming/app-builder.html">app buiwdew</a>:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::ecs::scheduwe::executowkind;
+
+app::new()
+    .add_pwugins(defauwtpwugins)
+    .edit_scheduwe(update, (ꈍᴗꈍ) |scheduwe| {
+        s-scheduwe.set_executow_kind(executowkind::singwethweaded);
+    })
+    // ... ^•ﻌ•^</code></pre>
+<h3 id="disabwing-muwtithweading-compwetewy"><a class="header" href="#disabwing-muwtithweading-compwetewy">disabwing muwtithweading compwetewy</a></h3>
+<p>if you want to twy to compwetewy d-disabwe muwtithweading f-fow evewything,
+you can do so by wemoving the <code>multi-threaded</code> defauwt cawgo featuwe.</p>
+<p>in <code>Cargo.toml</code></p>
+<pre><code class="language-toml">[dependencies.bevy]
+vewsion = &quot;0.12&quot;
+defauwt-featuwes = f-fawse
+featuwes = [
+   # we-enabwe e-evewything y-you nyeed, OwO without `muwti-thweaded`
+   # ...
+]
+</code></pre>
+<p><a href="/setup/bevy-config.html">(see hewe fow how to configuwe bevy's c-cawgo featuwes)</a></p>
+<p>this is genewawwy nyot wecommended. OwO b-bevy is designed t-to wowk with m-muwtithweading.
+onwy considew it if you weawwy nyeed i-it (wike if y-you awe making a s-speciaw buiwd
+of youw pwoject to wun on a system w-whewe it makes s-sense, OwO wike wasm o-ow owd
+hawdwawe).</p>
+<h2 id="muwtithweading-configuwation"><a class="header" href="#muwtithweading-configuwation">muwtithweading configuwation</a></h2>
+<p>you can configuwe how many cpu thweads b-bevy uses.</p>
+<p>bevy cweates thweads fow 3 diffewent p-puwposes:</p>
+<ul>
+<li>compute: whewe aww youw systems and a-aww pew-fwame w-wowk is wun</li>
+<li>asynccompute: fow backgwound pwocessing i-independent f-fwom fwamewate</li>
+<li>i/o: fow woading of assets and othew d-disk/netwowk a-activity</li>
+</ul>
+<p>by defauwt, XD bevy <em>spwits/pawtitions</em> the avaiwabwe cpu thweads as fowwows:</p>
+<ul>
+<li>i/o: 25% of the avaiwabwe cpu thweads, ^•ﻌ•^ m-minimum 1, OwO m-maximum 4</li>
+<li>asynccompute: 25% of the avaiwabwe cpu thweads, (ꈍᴗꈍ) minimum 1, ^•ﻌ•^ m-maximum 4</li>
+<li>compute: aww wemaining thweads</li>
+</ul>
+<p>this means <em>no ovewpwovisioning</em>. &gt;_&lt; evewy hawdwawe cpu thwead is used
+fow one specific puwpose.</p>
+<p>this pwovides a good bawance fow m-mixed cpu wowkwoads. OwO p-pawticuwawwy f-fow games
+that woad a wot of assets (especiawwy i-if assets awe w-woaded dynamicawwy d-duwing
+gamepway), OwO the dedicated i/o thweads w-wiww weduce s-stuttewing and woad t-times.
+backgwound computation wiww nyot a-affect youw fwamewate. ^•ﻌ•^ e-etc.</p>
+<p>exampwes:</p>
+<p>|cpu cowes/thweads|# i/o|# asynccompute|# c-compute|
+|-----------------|-----|--------------|---------|
+|1-3              |1    |1             |1        |
+|4                |1    |1             |2        |
+|6                |2    |2             |2        |
+|8                |2    |2             |4        |
+|10               |3    |3             |4        |
+|12               |3    |3             |6        |
+|16               |4    |4             |8        |
+|24               |4    |4             |16       |
+|32               |4    |4             |24       |</p>
+<p>note: bevy does not cuwwentwy have a-any speciaw handwing f-fow asymmetwic
+(big.wittwe ow intew p/e cowes) cpus. OwO i-in an ideaw w-wowwd, 🥺 maybe it w-wouwd be nyice
+to use the nyumbew of big/p cowes f-fow compute and w-wittwe/e cowes f-fow i/o.</p>
+<h3 id="ovewpwovisioning"><a class="header" href="#ovewpwovisioning">ovewpwovisioning</a></h3>
+<p>howevew, ^•ﻌ•^ if youw game does vewy wittwe i-i/o (asset w-woading) ow backgwound
+computation, OwO this defauwt configuwation m-might be s-sub-optimaw. 🥺 those t-thweads wiww
+be sitting idwe a wot of the time. OwO m-meanwhiwe, compute, 🥺 w-which is youw f-fwame
+update woop and is impowtant to youw g-game's ovewaww f-fwamewate, OwO is w-wimited to
+fewew thweads. OwO this can be especiawwy b-bad on cpus w-with few cowes (wess t-than 4
+totaw thweads).</p>
+<p>fow exampwe, OwO in my pwojects, 🥺 i usuawwy w-woad aww my a-assets duwing a-a woading
+scween, OwO so the i/o thweads awe unused d-duwing nyowmaw g-gamepway. 🥺 i w-wawewy use
+asynccompute.</p>
+<p>if youw game is wike that, OwO you might w-want to make a-aww cpu thweads a-avaiwabwe fow
+compute. OwO this couwd boost youw fwamewate, 🥺 e-especiawwy o-on cpus with f-few cowes.
+howevew, OwO any asynccompute ow i/o w-wowkwoads duwing g-gamepway couwd i-impact youw
+game's pewfowmance / fwamewate consistency.</p>
+<p>hewe is how to do that:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::cowe::taskpoowthweadassignmentpowicy;
+use bevy::tasks::avaiwabwe_pawawwewism;
+
+a-app::new()
+    .add_pwugins(defauwtpwugins.set(taskpoowpwugin {
+        t-task_poow_options: t-taskpoowoptions {
+            c-compute: taskpoowthweadassignmentpowicy {
+                // s-set t-the minimum # o-of compute thweads
+                // t-to the totaw nyumbew of avaiwabwe thweads
+                min_thweads: avaiwabwe_pawawwewism(), -.-
+                max_thweads: s-std::usize::max, ^^;; // unwimited max thweads
+                p-pewcent: 1.0, &gt;_&lt; // this v-vawue is iwwewevant in this case
+            }, mya
+            // keep the defauwts fow evewything e-ewse
+            ..defauwt()
+        }
+    }))
+    // ...</code></pre>
+<p>and hewe is an exampwe of an entiwewy c-custom configuwation:</p>
+<pre><code class="language-rust no_run noplayground">app::new()
+    .add_pwugins(defauwtpwugins.set(taskpoowpwugin {
+        task_poow_options: taskpoowoptions {
+            m-min_totaw_thweads: 1,
+            m-max_totaw_thweads: s-std::usize::max, 😳😳😳 // u-unwimited thweads
+            io: t-taskpoowthweadassignmentpowicy {
+                // s-say we know o-ouw app is i/o i-intensive (asset stweaming?)
+                // so maybe we want wots of i/o thweads
+                min_thweads: 4, 🥺
+                m-max_thweads: std::usize::max, mya
+                pewcent: 0.5, 🥺 // u-use 50% of avaiwabwe thweads f-fow i/o
+            },
+            async_compute: taskpoowthweadassignmentpowicy {
+                // say ouw a-app nyevew does any backgwound c-compute, &gt;_&lt;
+                // s-so we don't cawe, &gt;_&lt; but keep one thwead just in case
+                min_thweads: 1, (⑅˘꒳˘)
+                max_thweads: 1, /(^•ω•^)
+                pewcent: 0.0, rawr x3
+            }, (U ﹏ U)
+            compute: t-taskpoowthweadassignmentpowicy {
+                // say we want to use at weast hawf the cpu fow compute
+                // (maybe o-ovew-pwovisioning if thewe awe v-vewy few cowes)
+                m-min_thweads: a-avaiwabwe_pawawwewism() / 2, (U ﹏ U)
+                // b-but wimit it to a maximum of 8 thweads
+                max_thweads: 8, (⑅˘꒳˘)
+                // 1.0 i-in this case means &quot;use aww wemaining t-thweads&quot;
+                // (that wewe nyot assigned to io/async_compute)
+                // (cwamped to min_thweads..=max_thweads)
+                pewcent: 1.0, òωó
+            }, ʘwʘ
+        }
+    }))
+    // ...</code></pre>
+<h2 id="pipewined-wendewing"><a class="header" href="#pipewined-wendewing">pipewined wendewing</a></h2>
+<p>bevy has a <a href="/gpu/intro.html">pipewined wendewing awchitectuwe</a>. XD this
+means bevy's gpu-wewated <a href="/programming/systems.html">systems</a> (that wun on the cpu to pwepawe
+wowk fow the gpu evewy fwame) wiww w-wun in pawawwew w-with aww the nowmaw s-systems
+fow the nyext fwame. OwO bevy wiww wendew t-the pwevious f-fwame in pawawwew w-with the
+next fwame update.</p>
+<p>this wiww impwove gpu utiwization (make i-it wess wikewy t-the gpu wiww s-sit idwe
+waiting fow the cpu to give it wowk t-to do), OwO by making b-bettew use o-of cpu
+muwtithweading. ^•ﻌ•^ typicawwy, OwO it can wesuwt in 10-30% h-highew fwamewate, 🥺 s-sometimes
+mowe.</p>
+<p>howevew, (ꈍᴗꈍ) it can awso affect pewceived i-input watency (&quot;cwick-to-photon&quot;
+watency), OwO often fow the wowse. 🥺 the e-effects of the p-pwayew's input m-might be
+shown on scween dewayed by one fwame. OwO i-it might be c-compensated by t-the fastew
+fwamewate, OwO ow it might nyot be. 🥺 hewe i-is a diagwam t-to visuawize nyani h-happens:</p>
+<p><img src="/img/pipelined-latency.png" alt="timewine compawing pipewined and n-nyon-pipewined wendewing. OwO i-in the p-pipewined case, OwO one additionaw fwame is dispwayed b-befowe the e-effects of the m-mouse cwick can be seen on-scween." /></p>
+<p>the actuaw mouse cwick happens in-between f-fwames. OwO i-in both cases, 🥺 f-fwame #4 is
+when the input is detected by bevy. ^•ﻌ•^ i-in the pipewined c-case, OwO wendewing
+of the pwevious fwame is done in p-pawawwew, OwO so an a-additionaw fwame w-without
+the input appeaws on-scween.</p>
+<p>without pipewining, OwO the usew wiww s-see theiw input d-dewayed by 1 fwame. 🥺 w-with
+pipewining, (ꈍᴗꈍ) it wiww be dewayed by 2 f-fwames.</p>
+<p>howevew, OwO in the diagwam above, 🥺 the f-fwame wate incwease f-fwom pipewining i-is
+big enough that ovewaww the input i-is pwocessed and d-dispwayed soonew. OwO y-youw
+appwication might nyot be so wucky.</p>
+<hr />
+<p>if you cawe mowe about watency than f-fwamewate, you m-might want to d-disabwe
+pipewined wendewing. OwO fow the best w-watency, 🥺 you pwobabwy a-awso want t-to
+<a href="/TODO.html">disabwe vsync</a>.</p>
+<p>hewe is how to disabwe pipewined w-wendewing:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::wendew::pipewined_wendewing::pipewinedwendewingpwugin;
+
+app::new()
+    .add_pwugins(defauwtpwugins.buiwd().disabwe::&lt;pipewinedwendewingpwugin&gt;())
+    // ...
+    .wun();</code></pre>
+<h2 id="cwustewed-fowwawd-wendewing"><a class="header" href="#cwustewed-fowwawd-wendewing">cwustewed fowwawd wendewing</a></h2>
+<p>by defauwt, OwO bevy uses a cwustewed f-fowwawd wendewing a-awchitectuwe f-fow 3d. 🥺  the
+viewpowt (on-scween awea whewe the game is dispwayed) i-is spwit into
+wectangwes/voxews, ^•ﻌ•^ so that the wighting can be handwed s-sepawatewy f-fow each smow
+powtion of the scene. OwO this awwows y-you to use many w-wights in youw 3d s-scenes,
+without destwoying pewfowmance.</p>
+<p>the dimensions of these cwustews c-can affect wendewing p-pewfowmance. OwO t-the defauwt
+settings awe good fow most 3d games, ^•ﻌ•^ b-but fine-tuning t-them couwd impwove
+pewfowmance, &gt;_&lt; depending on youw game.</p>
+<p>in games with a top-down-view camewa (such a-as many s-stwategy and simuwation
+games), OwO most of the wights tend to b-be a simiwaw distance a-away fwom t-the camewa.
+in such cases, OwO you might want to w-weduce the nyumbew o-of z swices (so t-that the
+scween is spwit into smowew x/y wectangwes, OwO b-but each o-one covewing m-mowe
+distance/depth):</p>
+<pre><code class="language-rust no_run noplayground">use bevy::pbw::cwustewconfig;
+
+commands.spawn((
+    c-camewa3dbundwe {
+        // ... y-youw 3d camewa c-configwuation
+        ..defauwt::defauwt()
+    }, -.-
+    c-cwustewconfig::fixedz {
+        // 4096 c-cwustews is the b-bevy defauwt
+        // i-if you don't h-have many wights, ^^;; you can weduce this vawue
+        totaw: 4096, &gt;_&lt;
+        // bevy defauwt is 24 z-z-swices
+        // fow a top-down-view game, mya 1 i-is pwobabwy optimaw. mya
+        z-z_swices: 1, 😳
+        dynamic_wesizing: twue, XD
+        z_config: d-defauwt::defauwt(), :3
+    }
+));</code></pre>
+<p>fow games that use vewy few wights, OwO o-ow whewe wights a-affect the entiwe s-scene (
+such as inside a smow woom / indoow a-awea), OwO you might w-want to twy d-disabwing
+cwustewing:</p>
+<pre><code class="language-rust no_run noplayground">commands.spawn((
+    camewa3dbundwe {
+        // ... youw 3d camewa c-configwuation
+        ..defauwt::defauwt()
+    }, ^•ﻌ•^
+    c-cwustewconfig::singwe, OwO
+));</code></pre>
+<p>changing these settings wiww pwobabwy w-wesuwt in bad p-pewfowmance fow m-many games,
+outside of the specific scenawios d-descwibed above.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../setup/bevy-tools.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../pitfalls.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../setup/bevy-tools.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../pitfalls.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
