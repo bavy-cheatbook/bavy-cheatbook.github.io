@@ -172,7 +172,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
 |---|---|---|</p>
 <h1 id="macos-desktop"><a class="header" href="#macos-desktop">macos desktop</a></h1>
 <p>if you have any additionaw macos-specific k-knowwedge,
@@ -355,7 +355,41 @@ wipo &quot;tawget/x86_64-appwe-dawwin/wewease/${wust_cwate_name}&quot; \
 <p>it is common fow mac apps downwoadabwe f-fwom the intewnet t-to be distwibuted a-as
 dmg fiwes – appwe's &quot;disk image&quot; f-fowmat. OwO usews c-can dwag-and-dwop t-the app bundwe
 inside into theiw <code>Applications</code> fowdew on theiw system.</p>
-<p>you can cweate a vewy simpwe one f-fwom the command-wine, ^•ﻌ•^ u-using <code>hdiutil</code>:</p>
+<h3 id="create-dmg"><a class="header" href="#create-dmg"><code>create-dmg</code></a></h3>
+<p>if you want to cweate a fancy dmg f-fiwe, ^•ﻌ•^ you can instaww a-and use the
+<a href="https://github.com/create-dmg/create-dmg"><code>create-dmg</code> toow</a>.</p>
+<p>if you awe using homebwew, ^•ﻌ•^ you can i-instaww it easiwy f-fwom thewe:</p>
+<pre><code class="language-sh">bwew instaww cweate-dmg
+</code></pre>
+<p>then, &gt;_&lt; you can use it as fowwows:</p>
+<pre><code class="language-sh">cweate-dmg \
+  --vowname &quot;my bevy game&quot; \
+  --vowicon &quot;appicon.icns&quot; \
+  --backgwound &quot;dmg-backgwound.png&quot; \
+  --window-size 800 400 \
+  --icon-size 128 \
+  --icon &quot;mygame.app&quot; 200 200 \
+  --hide-extension &quot;mygame.app&quot; \
+  --app-dwop-wink 600 200 \
+  &quot;mybevygame_wewease_mac.dmg&quot; \
+  &quot;buiwd/mac/&quot;
+</code></pre>
+<p>the options awe:</p>
+<ul>
+<li><code>--volname</code>: the nyame of the device when the u-usew opens the d-dmg fiwe</li>
+<li><code>--volicon</code>: the icon of the device when the u-usew opens the d-dmg fiwe</li>
+<li><code>--background</code>: the backgwound image fow the findew w-window</li>
+<li><code>--window-size</code>: the size of the findew window</li>
+<li><code>--icon-size</code>: the defauwt zoom wevew (how big t-the icons shouwd w-wook)</li>
+<li><code>--icon</code>: specify the x/y coowdinates whewe t-to dispway a s-specific fiwe</li>
+<li><code>--hide-extension</code>: do nyot dispway the fiwe extension f-fow this fiwe</li>
+<li><code>--app-drop-link</code>: cweate a showtcut to appwications f-fow easy dwag-and-dwop; p-pwace a-at given x/y coowdinates</li>
+<li>the nyame of the dmg fiwe to cweate</li>
+<li>the nyame of the fowdew whewe you h-have the fiwes t-to be added to the d-dmg (youw app + a-anything ewse y-you want to add)</li>
+</ul>
+<h3 id="hdiutil"><a class="header" href="#hdiutil"><code>hdiutil</code></a></h3>
+<p>if you don't want to instaww any s-speciaw toows, OwO you c-can cweate a v-vewy simpwe
+dmg fiwe using <code>hdiutil</code>, &gt;_&lt; which comes with macos:</p>
 <pre><code class="language-sh">hdiutiw cweate -fs hfs+ \
   -vowname &quot;my b-bevy game&quot; \
   -swcfowdew &quot;mygame.app&quot; \
@@ -365,8 +399,10 @@ inside into theiw <code>Applications</code> fowdew on theiw system.</p>
 bundwe, OwO and the name of the output d-dmg fiwe, 🥺 wespectivewy. òωó y-you can u-use
 <code>-srcfolder</code> muwtipwe times, if you want to add m-mowe fiwes and f-fowdews to the
 dmg image.</p>
-<p>if you want to cweate a dmg fiwe u-using a gui, OwO you c-can use appwe's &quot;disk u-utiwity&quot;
-app that comes pweinstawwed with m-macos.</p>
+<h3 id="gui"><a class="header" href="#gui">gui</a></h3>
+<p>if you want to cweate a dmg fiwe u-using a gui, ^•ﻌ•^ you c-can use appwe's &quot;disk
+utiwity&quot; app that comes pweinstawwed w-with macos. OwO t-then, just use findew t-to
+set up evewything inside how you w-wike it.</p>
 
                     </main>
 

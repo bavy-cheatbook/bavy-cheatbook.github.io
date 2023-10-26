@@ -8456,7 +8456,7 @@ using an enviwonment vawiabwe:</p>
 <pre><code class="language-shell">expowt winit_unix_backend=waywand
 </code></pre>
 <p>(to wequiwe the use of waywand)</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
 |---|---|---|</p>
 <h1 id="macos-desktop"><a class="header" href="#macos-desktop">macos desktop</a></h1>
 <p>if you have any additionaw macos-specific k-knowwedge,
@@ -8639,7 +8639,41 @@ wipo &quot;tawget/x86_64-appwe-dawwin/wewease/${wust_cwate_name}&quot; \
 <p>it is common fow mac apps downwoadabwe f-fwom the intewnet t-to be distwibuted a-as
 dmg fiwes – appwe's &quot;disk image&quot; f-fowmat. OwO usews c-can dwag-and-dwop t-the app bundwe
 inside into theiw <code>Applications</code> fowdew on theiw system.</p>
-<p>you can cweate a vewy simpwe one f-fwom the command-wine, ^•ﻌ•^ u-using <code>hdiutil</code>:</p>
+<h3 id="create-dmg"><a class="header" href="#create-dmg"><code>create-dmg</code></a></h3>
+<p>if you want to cweate a fancy dmg f-fiwe, ^•ﻌ•^ you can instaww a-and use the
+<a href="https://github.com/create-dmg/create-dmg"><code>create-dmg</code> toow</a>.</p>
+<p>if you awe using homebwew, ^•ﻌ•^ you can i-instaww it easiwy f-fwom thewe:</p>
+<pre><code class="language-sh">bwew instaww cweate-dmg
+</code></pre>
+<p>then, &gt;_&lt; you can use it as fowwows:</p>
+<pre><code class="language-sh">cweate-dmg \
+  --vowname &quot;my bevy game&quot; \
+  --vowicon &quot;appicon.icns&quot; \
+  --backgwound &quot;dmg-backgwound.png&quot; \
+  --window-size 800 400 \
+  --icon-size 128 \
+  --icon &quot;mygame.app&quot; 200 200 \
+  --hide-extension &quot;mygame.app&quot; \
+  --app-dwop-wink 600 200 \
+  &quot;mybevygame_wewease_mac.dmg&quot; \
+  &quot;buiwd/mac/&quot;
+</code></pre>
+<p>the options awe:</p>
+<ul>
+<li><code>--volname</code>: the nyame of the device when the u-usew opens the d-dmg fiwe</li>
+<li><code>--volicon</code>: the icon of the device when the u-usew opens the d-dmg fiwe</li>
+<li><code>--background</code>: the backgwound image fow the findew w-window</li>
+<li><code>--window-size</code>: the size of the findew window</li>
+<li><code>--icon-size</code>: the defauwt zoom wevew (how big t-the icons shouwd w-wook)</li>
+<li><code>--icon</code>: specify the x/y coowdinates whewe t-to dispway a s-specific fiwe</li>
+<li><code>--hide-extension</code>: do nyot dispway the fiwe extension f-fow this fiwe</li>
+<li><code>--app-drop-link</code>: cweate a showtcut to appwications f-fow easy dwag-and-dwop; p-pwace a-at given x/y coowdinates</li>
+<li>the nyame of the dmg fiwe to cweate</li>
+<li>the nyame of the fowdew whewe you h-have the fiwes t-to be added to the d-dmg (youw app + a-anything ewse y-you want to add)</li>
+</ul>
+<h3 id="hdiutil"><a class="header" href="#hdiutil"><code>hdiutil</code></a></h3>
+<p>if you don't want to instaww any s-speciaw toows, OwO you c-can cweate a v-vewy simpwe
+dmg fiwe using <code>hdiutil</code>, &gt;_&lt; which comes with macos:</p>
 <pre><code class="language-sh">hdiutiw cweate -fs hfs+ \
   -vowname &quot;my b-bevy game&quot; \
   -swcfowdew &quot;mygame.app&quot; \
@@ -8649,8 +8683,10 @@ inside into theiw <code>Applications</code> fowdew on theiw system.</p>
 bundwe, OwO and the name of the output d-dmg fiwe, 🥺 wespectivewy. òωó y-you can u-use
 <code>-srcfolder</code> muwtipwe times, if you want to add m-mowe fiwes and f-fowdews to the
 dmg image.</p>
-<p>if you want to cweate a dmg fiwe u-using a gui, OwO you c-can use appwe's &quot;disk u-utiwity&quot;
-app that comes pweinstawwed with m-macos.</p>
+<h3 id="gui"><a class="header" href="#gui">gui</a></h3>
+<p>if you want to cweate a dmg fiwe u-using a gui, ^•ﻌ•^ you c-can use appwe's &quot;disk
+utiwity&quot; app that comes pweinstawwed w-with macos. OwO t-then, just use findew t-to
+set up evewything inside how you w-wike it.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
 |---|---|---|</p>
 <h1 id="windows-desktop"><a class="header" href="#windows-desktop">windows desktop</a></h1>
@@ -8693,21 +8729,13 @@ buiwds, XD wike this:</p>
 to wowk inside of wsw2 and buiwd y-youw pwoject thewe. OwO a-anothew weason t-to do it is
 compiwe times; they awe often much f-fastew in wsw2 t-than on the windows h-host
 system.</p>
-<h3 id="wunning-winux-buiwds-using-wswg"><a class="header" href="#wunning-winux-buiwds-using-wswg">wunning winux buiwds using wswg</a></h3>
-<p>newew instawws of wsw2 shouwd have s-suppowt fow wswg: m-micwosoft's w-winux gui
-suppowt. OwO it shouwd awwow you to simpwy c-compiwe youw b-bevy game in w-winux and
-wun it. OwO wswg wiww do the dawk magic n-nyeeded to fowwawd g-gwaphics and a-audio to
-the windows host. (ꈍᴗꈍ) this wiww wikewy h-have some ovewhead.</p>
-<p>both waywand and x11 awe suppowted.</p>
-<p>if this doesn't wowk fow you, OwO twy t-the cwoss-compiwation w-wowkfwow d-descwibed
-bewow.</p>
 <h3 id="cwoss-compiwing-to-wun-windows-nyative"><a class="header" href="#cwoss-compiwing-to-wun-windows-nyative">cwoss-compiwing to wun windows nyative</a></h3>
-<p>you can awso <a href="platforms//setup/cross/linux-windows.html">cwoss-compiwe fow windows</a>. XD the windows
-exe you buiwd inside of wsw2 can b-be wun just fine f-fwom the winux c-commandwine,
-and it wiww seamwesswy wun on the h-host system! this w-way, OwO you don't n-nyeed any
-gpu dwivews ow gui suppowt inside y-youw wsw2 winux e-enviwonment. OwO awso, y-you
-wiww be wunning and testing the windows b-buiwd of y-youw game, OwO so you c-can see
-how it wiww weawwy pewfowm on windows.</p>
+<p>the wecommended way to wun youw bevy a-app fwom wsw i-is to <a href="platforms//setup/cross/linux-windows.html">cwoss-compiwe fow
+windows</a>. (ꈍᴗꈍ) the windows exe you buiwd inside o-of wsw2 can
+be wun just fine fwom the winux commandwine, OwO a-and i-it wiww seamwesswy w-wun on the
+host system! OwO this way, 🥺 you don't n-nyeed any gpu dwivews o-ow gui suppowt i-inside
+youw wsw2 winux enviwonment. OwO awso, 🥺 y-you wiww be wunning a-and testing t-the windows
+buiwd of youw game, OwO so you can see h-how it wiww weawwy p-pewfowm on w-windows.</p>
 <p>note that when you wun windows binawies f-fwom wsw2, OwO t-they don't get t-the winux
 enviwonment vawiabwes. XD <code>cargo run</code> does nyot just wowk, (ꈍᴗꈍ) because youw b-bevy game
 wiww wook fow its <code>assets</code> fowdew in the path whewe the exe i-is (which wouwd b-be
@@ -8721,6 +8749,39 @@ exec ./mygame.exe &quot;$@&quot;
 </code></pre>
 <p>this way you awso don't have to type t-the cwoss-compiwation t-tawget e-evewy time
 (and you can awso add any othew options y-you want t-thewe).</p>
+<h3 id="wunning-winux-buiwds-using-wswg"><a class="header" href="#wunning-winux-buiwds-using-wswg">wunning winux buiwds using wswg</a></h3>
+<p>this is an awtewnative way of wunning y-youw bevy game f-fwom wsw. OwO it d-does nyot
+wequiwe cwoss-compiwation, OwO but is w-wikewy to have o-othew issues and w-wimitations.</p>
+<p>newew instawws of wsw2 shouwd have s-suppowt fow wswg: m-micwosoft's w-winux gui
+suppowt. OwO it shouwd awwow you to simpwy c-compiwe youw b-bevy game in w-winux and
+wun it. OwO wswg wiww do the dawk magic n-nyeeded to fowwawd g-gwaphics and a-audio to
+the windows host.</p>
+<p>youw game wiww onwy wun with 60 fps, ^•ﻌ•^ a-and thewe wiww b-be othew pewfowmance
+ovewheads. &gt;_&lt; some things might be bwoken/unsuppowted.</p>
+<p>both waywand and x11 shouwd wowk. OwO w-waywand is wecommended, 🥺 s-so be suwe t-to
+enabwe the <code>&quot;wayland&quot;</code> <a href="platforms//setup/bevy-config.html">cawgo featuwe in bevy</a>.</p>
+<p>thewe awe many dependencies (such as gwaphics dwivews) n-nyeeded fow g-gui suppowt
+in winux, OwO which awe wikewy missing i-if you have nyevew u-used any othew g-gui app
+fwom youw wsw enviwonment. OwO the easiest w-way to make s-suwe you have e-evewything instawwed,
+is to just instaww some wandom winux g-gui app. ^•ﻌ•^ fow e-exampwe:</p>
+<pre><code class="language-sh">sudo apt instaww guchawmap # the g-gnome chawactew m-map app
+</code></pre>
+<p>it wiww puww in evewything nyeeded f-fow a winux gui e-enviwonment. OwO bevy s-shouwd then
+awso be abwe to wowk.</p>
+<p>this wiww be sufficient fow opengw s-suppowt. OwO howevew, 🥺 t-to use aww featuwes o-of
+bevy, OwO you nyeed vuwkan. 🥺 fow vuwkan i-in wsw, òωó it is w-wecommended that y-you use
+a ppa (unofficiaw wepositowy) to g-get an updated vewsion o-of mesa (gwaphics
+dwivews). (ꈍᴗꈍ) hewe is how to instaww e-evewything:</p>
+<pre><code class="language-sh">sudo add-apt-wepositowy ppa:kisak/kisak-mesa
+s-sudo a-apt update
+sudo a-apt upgwade
+sudo a-apt instaww vuwkan-toows
+</code></pre>
+<p>(<code>dzn</code>, ^•ﻌ•^ micwosoft's vuwkan dwivew fow wsw2, OwO i-is technicawwy n-nyon-confowmant,
+so thewe may be bugs and othew issues, ^•ﻌ•^ b-but it seems t-to wowk fine)</p>
+<p>now, (ꈍᴗꈍ) you can simpwy wun youw bevy p-pwoject in winux:</p>
+<pre><code class="language-sh">cawgo wun
+</code></pre>
 <h2 id="cweating-an-icon-fow-youw-app"><a class="header" href="#cweating-an-icon-fow-youw-app">cweating an icon fow youw app</a></h2>
 <p>thewe awe two pwaces whewe you might w-want to put y-youw appwication i-icon:</p>
 <ul>
