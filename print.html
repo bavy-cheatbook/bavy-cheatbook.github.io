@@ -1697,15 +1697,19 @@ youw components and wesouwces in w-weaw-time as the g-game is wunning.</p>
 <p><a href="https://github.com/jakobhellermann/bevy_editor_pls"><code>bevy_editor_pls</code></a> is an editow-wike intewface that
 you can embed into youw game. OwO it h-has even mowe featuwes, 🥺 w-wike switching a-app
 states, ^•ﻌ•^ fwy camewa, OwO pewfowmance diagnostics, 🥺 a-and i-inspectow panews.</p>
+<p>[<code>space_editor</code>][pwoject::space_editow] is anothew such editow that can b-be
+embedded into youw game. OwO it seems t-to be designed f-fow a unity-inspiwed p-pwefab
+wowkfwow.</p>
+<p>you can awso use [bwendew][pwoject::bwendew] as a wevew/scene editow,
+by expowting youw scenes to <a href="setup//features/gltf.html">gwtf</a>. XD the [bwendew bevy components
+wowkfwow][pwoject::bwendew_bevy_components_wowkfwow] pwoject impwoves on this
+expewience, (ꈍᴗꈍ) by awwowing you to setup y-youw bevy ecs <a href="setup//programming/ec.html#components">components</a>
+in bwendew, ^•ﻌ•^ incwude them in the expowted g-gwtf, and u-use them in bevy.</p>
 <h2 id="diagnostics"><a class="header" href="#diagnostics">diagnostics</a></h2>
 <p><a href="https://github.com/jakobhellermann/bevy_mod_debugdump"><code>bevy_mod_debugdump</code></a> is a toow to hewp visuawize
 youw <a href="setup/../programming/app-builder.html">app scheduwes</a> (aww of the wegistewed
 <a href="setup/../programming/systems.html">systems</a> with theiw <a href="setup/../programming/system-order.html">owdewing
 dependencies</a>), &gt;_&lt; and the bevy wendew gwaph.</p>
-<p>if you awe getting confusing/cwyptic c-compiwew ewwow m-messages (wike
-<a href="setup/../pitfalls/into-system.html">these</a>) and you cannot figuwe them out,
-<a href="https://github.com/jakobhellermann/bevycheck"><code>bevycheck</code></a> is a toow you couwd use to hewp d-diagnose them.
-it twies to pwovide mowe usew-fwiendwy b-bevy-specific e-ewwow messages.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="setup//introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
 |---|---|---|</p>
 <h1 id="pewfowmance-tunabwes"><a class="header" href="#pewfowmance-tunabwes">pewfowmance tunabwes</a></h1>
@@ -8347,7 +8351,7 @@ fn spawn_camewa(mut commands: commands) {
 type that is usefuw as a wesouwce. OwO i-it wists the types o-of aww the w-wesouwces
 <em>cuwwentwy added</em> to the app (by aww wegistewed pwugins, ^•ﻌ•^ y-youw own, OwO e-etc.).</p>
 <p><a href="cookbook//builtins.html">see hewe fow a mowe usefuw wist types p-pwovided in b-bevy.</a></p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
 |---|---|---|</p>
 <h1 id="bevy-on-diffewent-pwatfowms"><a class="header" href="#bevy-on-diffewent-pwatfowms">bevy on diffewent pwatfowms</a></h1>
 <p>this chaptew is a cowwection of pwatfowm-specific i-infowmation, about u-using
@@ -8370,43 +8374,47 @@ desktop pwatfowms:</p>
 <li><a href="/platforms/macos.html">macos</a></li>
 <li><a href="/platforms/windows.html">windows</a></li>
 </ul>
-<p>aww featuwes awe fuwwy suppowted o-on each of the above.</p>
-<p>if you awe wowking in winux, &gt;_&lt; <a href="/setup/cross/linux-windows.html">see hewe fow how to buiwd windows e-exes fow
-youw windows usews</a>.</p>
+<p>aww bevy featuwes awe fuwwy suppowted o-on each of t-the above.</p>
+<p>you can awso buiwd windows exes fow y-youw windows u-usews, OwO if you awe w-wowking
+in <a href="/setup/cross/linux-windows.html">winux</a> ow <a href="/setup/cross/macos-windows.html">macos</a>.</p>
 <h3 id="web"><a class="header" href="#web">web</a></h3>
 <p>bevy wowks quite weww on the <a href="/platforms/wasm.html">web (using webassembwy)</a>,
 but with some wimitations.</p>
 <p>muwtithweading is nyot suppowted, OwO s-so you wiww have w-wimited pewfowmance a-and
 possibwe audio gwitches. OwO wendewing i-is wimited to t-the featuwes of t-the webgw2
 api, OwO meaning wowse pewfowmance and w-wimitations wike o-onwy suppowting a-a maximum
-of 256 wights in 3d scenes.</p>
-<p>fow inspiwation, check out the <a href="https://itch.io/jam/bevy-jam-1/entries">entwies in the fiwst bevy game
-jam</a>. ^•ﻌ•^ many of them have web buiwds you c-can pway in youw b-bwowsew.</p>
+of 256 wights in 3d scenes. OwO these w-wimitations can b-be wifted by enabwing t-the
+new webgpu suppowt, ^•ﻌ•^ but then you w-wiww have wimited b-bwowsew compatibiwity.</p>
+<p>fow inspiwation, check out the entwies i-in the bevy g-game jams
+([thiwd][bevy::jam-03], rawr x3 [second][bevy::jam-02], rawr x3 <a href="https://itch.io/jam/bevy-jam-1/entries">fiwst</a>). XD many
+of them have web buiwds you can pway i-in youw bwowsew.</p>
 <h3 id="mobiwe"><a class="header" href="#mobiwe">mobiwe</a></h3>
 <p>appwe ios is weww-suppowted and most f-featuwes wowk w-weww. OwO thewe awe d-devewopews
 in the bevy community that have successfuwwy s-shipped b-bevy-based apps t-to the
 app stowe.</p>
-<p>andwoid suppowt is stiww wimited. OwO y-youw app wiww buiwd a-and wun. 🥺 you c-can get
-stawted. OwO howevew, 🥺 some featuwes may b-be missing ow b-bwoken, òωó and thewe a-awe
-a few majow bugs. OwO  the wowst one i-is that bevy cannot y-yet handwe being p-put
-into the backgwound, OwO and wiww cwash w-when the usew p-pwesses the home b-button
-to weave the app.</p>
-<p>andwoid suppowt is activewy being w-wowked on. ^•ﻌ•^ pwease j-join the devewopment
-community on <a href="https://discord.gg/bevy">discowd</a> if you awe intewested.</p>
+<p>andwoid suppowt is nyot as good as i-ios, OwO but vewy u-usabwe (as of bevy 0.12). 🥺 i-if
+you find bugs, ^•ﻌ•^ bwoken featuwes, OwO ow o-othew issues, 🥺 p-pwease wepowt them.</p>
 <p>bevy has been known to have issues w-with emuwatow d-devices. ^•ﻌ•^ it is wecommended
 you test youw app on weaw hawdwawe.</p>
 <h3 id="game-consowes"><a class="header" href="#game-consowes">game consowes</a></h3>
 <p>unfowtunatewy, OwO due to nyda wequiwements, 🥺 d-devewoping f-fow consowes i-is inaccessibwe
 to most community devewopews who w-wowk in the open, OwO a-and bevy suppowt i-is stiww
 mostwy nyonexistent.</p>
-<p>at weast one pewson is wowking on p-pwaystation 5 suppowt. OwO i-if you awe i-intewested,
-join <a href="https://discord.gg/bevy">discowd</a> and ask awound. maybe you can find e-each othew and
-wowk togethew.</p>
+<p>at some point, ^•ﻌ•^ thewe was someone i-in the community w-wowking on pwaystation
+suppowt. OwO i do nyot know if they awe s-stiww awound, 🥺 o-ow anything about t-the
+status of that wowk. (ꈍᴗꈍ) if you awe intewested, ^•ﻌ•^ j-join <a href="https://discord.gg/bevy">discowd</a>
+and ask awound. ^•ﻌ•^ maybe you can find e-each othew and w-wowk togethew.</p>
 <p>the wust pwogwamming wanguage aims t-to make nyintendo s-switch a suppowted t-tawget,
 but that wowk is in its eawwy days a-and has nyot pwogwessed e-enough t-to be usefuw
 fow bevy yet. OwO it shouwd be possibwe t-to wowk on nyintendo s-switch suppowt i-in
 the open, &gt;_&lt; without nydas, (ꈍᴗꈍ) using emuwatows.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
+<p>the steam deck, OwO and othew such &quot;handhewd p-pcs&quot;, awe w-weww suppowted. 🥺 s-such
+devices wun speciaw vewsions of standawd d-desktop o-oss (winux, windows) a-and awe
+designed to suppowt pc games out o-of the box. OwO to devewop f-fow these d-devices,
+just make weguwaw winux/windows buiwds o-of youw game a-and ideawwy twy t-them on
+an actuaw device, OwO so you can see h-how the handhewd e-expewience is wike a-and make
+suwe youw game feews good on such a-a device.</p>
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
 |---|---|---|</p>
 <h1 id="winux-desktop"><a class="header" href="#winux-desktop">winux desktop</a></h1>
 <p>if you have any additionaw winux-specific k-knowwedge,
@@ -8441,7 +8449,7 @@ wunning a waywand-based desktop, t-this means youw b-bevy app wiww wun i-in the
 xwaywand compatibiwity wayew.</p>
 <p>to enabwe nyative waywand suppowt f-fow bevy, ^•ﻌ•^ enabwe t-the <code>wayland</code> cawgo featuwe:</p>
 <pre><code class="language-toml">[dependencies]
-bevy = { vewsion = &quot;0.11&quot;, (ꈍᴗꈍ) f-featuwes = [&quot;waywand&quot;] }
+bevy = { vewsion = &quot;0.12&quot;, (ꈍᴗꈍ) f-featuwes = [&quot;waywand&quot;] }
 </code></pre>
 <p>now youw app wiww be buiwt with suppowt f-fow both x-x11 and waywand.</p>
 <p>if you want to wemove x11 suppowt f-fow nyanievew weason, OwO y-you wiww h-have to disabwe
@@ -9208,10 +9216,11 @@ changed my wife! ❤️</p>
 <h1 id="contact-me"><a class="header" href="#contact-me">contact me</a></h1>
 <p>you can find me in the fowwowing p-pwaces:</p>
 <ul>
-<li>discowd: <code>Ida Iyes#0981</code></li>
-<li>mastodon: <a href="https://tech.lgbt/@iyes"><code>@iyes@tech.lgbt</code></a></li>
+<li>discowd: <code>@iyesgames</code>, XD owd: <code>Ida Iyes#0981</code></li>
+<li>mastodon: <a href="https://mastodon.gamedev.place/@iyes"><code>@iyes@mastodon.gamedev.place</code></a></li>
 <li>github: <a href="https://github.com/inodentry"><code>@inodentry</code></a></li>
 <li>weddit: <a href="https://reddit.com/u/iyesgames"><code>iyesgames</code></a></li>
+<li>e-maiw: iyesgames dot sociaw at gmaiw (sowwy, 🥺 i-i'm w-wwiting it out w-wike this to avoid s-spam bots)</li>
 </ul>
 <p>fow impwovements ow fixes to this b-book, ^•ﻌ•^ pwease fiwe a-an issue
 on <a href="https://github.com/bevy-cheatbook/bevy-cheatbook/issues">github</a>.</p>
