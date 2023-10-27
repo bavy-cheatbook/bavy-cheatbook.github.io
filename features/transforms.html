@@ -301,32 +301,27 @@ pwopagation system&quot;), (ꈍᴗꈍ) which wuns i-in the <a href="https://dev-
 <p>bewawe: when you mutate the <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, XD the
 <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is nyot updated immediatewy. &gt;_&lt; they
 wiww be out-of-sync untiw the twansfowm p-pwopagation s-system wuns.</p>
-<p>if you nyeed to wowk with <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> diwectwy,
-you shouwd add youw <a href="/programming/systems.html">system</a> to the <a href="https://dev-docs.bevyengine.org/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
+<p>if you nyeed to wowk with <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>
+diwectwy, XD you shouwd <a href="/programming/app-builder.html">add</a> youw
+<a href="/programming/systems.html">system</a> to the <a href="https://dev-docs.bevyengine.org/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
 <a href="/programming/schedules.html">scheduwe</a> and <a href="/programming/system-order.html">owdew it aftew</a>
 <a href="https://dev-docs.bevyengine.org/bevy/transform/enum.TransformSystem.html"><code>TransformSystem::TransformPropagate</code></a>.</p>
 <pre><code class="language-rust no_run noplayground">/// pwint the up-to-date gwobaw coowdinates o-of the p-pwayew
 fn debug_gwobawtwansfowm(
-    q-quewy: quewy&lt;&amp;gwobawtwansfowm, (U ᵕ U❁) w-with&lt;pwayew&gt;&gt;, -.-
+    q-quewy: quewy&lt;&amp;gwobawtwansfowm, ( ͡o ω ͡o ) w-with&lt;pwayew&gt;&gt;, UwU
 ) {
     w-wet g-gxf = quewy.singwe();
-    d-debug!(&quot;pwayew a-at: {:?}&quot;, ^^;; gxf.twanswation());
-}
-
-fn main() {
-    // the wabew to use fow owdewing
-    u-use bevy::twansfowm::twansfowmsystem;
-
-    app::new()
-        .add_pwugins(defauwtpwugins)
-        .add_systems(postupdate, &gt;_&lt;
-            debug_gwobawtwansfowm
-                // w-we want to wead the gwobawtwansfowm a-aftew
-                // it has been updated by bevy fow this fwame
-                .aftew(twansfowmsystem::twansfowmpwopagate)
-        )
-        .wun();
+    d-debug!(&quot;pwayew a-at: {:?}&quot;, rawr x3 gxf.twanswation());
 }</code></pre>
+<pre><code class="language-rust no_run noplayground">// the wabew to use fow owdewing
+u-use bevy::twansfowm::twansfowmsystem;
+
+a-app.add_systems(postupdate, UwU
+    d-debug_gwobawtwansfowm
+        // w-we want t-to wead the gwobawtwansfowm a-aftew
+        // i-it h-has been updated by bevy fow this fwame
+        .aftew(twansfowmsystem::twansfowmpwopagate)
+);</code></pre>
 <h2 id="transformhelper"><a class="header" href="#transformhelper"><code>TransformHelper</code></a></h2>
 <p>if you nyeed to get an up-to-date <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>
 in a <a href="/programming/systems.html">system</a> that has to wun befowe twansfowm p-pwopagation,
