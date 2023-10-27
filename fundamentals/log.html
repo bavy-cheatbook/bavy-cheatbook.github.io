@@ -172,11 +172,11 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
 |---|---|---|</p>
 <h1 id="wogging-_-consowe-messages"><a class="header" href="#wogging-_-consowe-messages">wogging, &gt;_&lt; consowe messages</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/app/logs.rs"><code>logs</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/main/examples/app/logs.rs"><code>logs</code></a>.</p>
 <hr />
 <p>you may have nyoticed how, OwO when you w-wun youw bevy p-pwoject, 🥺 you get m-messages
 in youw consowe window. &gt;_&lt; fow exampwe:</p>
@@ -190,8 +190,8 @@ awso fwom youw own code.</p>
 <code>println</code>/<code>eprintln</code> fwom wust. ^•ﻌ•^ wog messages can have m-metadata, OwO wike t-the
 wevew, OwO timestamp, 🥺 and wust moduwe w-whewe it came fwom. òωó y-you can see t-that this
 metadata is pwinted awongside the c-contents of the m-message.</p>
-<p>this is set up by bevy's <a href="https://docs.rs/bevy/0.11.0/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>. XD it is pawt of the
-<a href="https://docs.rs/bevy/0.11.0/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> pwugin gwoup, &gt;_&lt; so most bevy usews
+<p>this is set up by bevy's <a href="https://dev-docs.bevyengine.org/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>. XD it is pawt of the
+<a href="https://dev-docs.bevyengine.org/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> pwugin gwoup, &gt;_&lt; so most bevy usews
 wiww have it automaticawwy in evewy t-typicaw bevy p-pwoject.</p>
 <h2 id="wevews"><a class="header" href="#wevews">wevews</a></h2>
 <p>wevews detewmine how impowtant a m-message is, OwO and a-awwow messages to b-be fiwtewed.</p>
@@ -219,15 +219,10 @@ t-twace!(&quot;entity t-twansfowm: {:?}&quot;, rawr twansfowm);
 <span class="boring">}</span></code></pre></pre>
 <h2 id="fiwtewing-messages"><a class="header" href="#fiwtewing-messages">fiwtewing messages</a></h2>
 <p>to contwow nyani messages you wouwd w-wike to see, OwO y-you can configuwe b-bevy's
-<a href="https://docs.rs/bevy/0.11.0/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>:</p>
+<a href="https://dev-docs.bevyengine.org/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>:</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>use bevy::wog::wogpwugin;
-
-app.add_pwugins(defauwtpwugins.set(wogpwugin {
-    f-fiwtew: &quot;info,wgpu_cowe=wawn,wgpu_haw=wawn,mygame=debug&quot;.into(),
-    w-wevew: bevy::wog::wevew::debug, ^•ﻌ•^
-}));
+</span>{{#incwude ../code011/swc/featuwes/wog.ws:wog-settings}}
 <span class="boring">}</span></code></pre></pre>
 <p>the <code>filter</code> fiewd is a stwing specifying a wist o-of wuwes fow n-nyani wevew to
 enabwe fow diffewent wust moduwes/cwates. OwO i-in the e-exampwe above, 🥺 the s-stwing
@@ -254,21 +249,7 @@ buiwds, OwO an easy way to achieve it i-is using conditionaw c-compiwation o-on
 &quot;debug assewtions&quot;.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>use bevy::wog::wogpwugin;
-
-// this c-code is compiwed o-onwy if debug a-assewtions awe e-enabwed (debug mode)
-#[cfg(debug_assewtions)]
-a-app.add_pwugins(defauwtpwugins.set(wogpwugin {
-    w-wevew: bevy::wog::wevew::debug, &gt;_&lt;
-    f-fiwtew: &quot;debug,wgpu_cowe=wawn,wgpu_haw=wawn,mygame=debug&quot;.into(), :3
-}));
-
-// t-this code is compiwed onwy if debug assewtions awe disabwed (wewease mode)
-#[cfg(not(debug_assewtions))]
-a-app.add_pwugins(defauwtpwugins.set(wogpwugin {
-    wevew: bevy::wog::wevew::info, (U ﹏ U)
-    fiwtew: &quot;info,wgpu_cowe=wawn,wgpu_haw=wawn&quot;.into(), -.-
-}));
+</span>{{#incwude ../code011/swc/featuwes/wog.ws:wog-settings-debugwewease}}
 <span class="boring">}</span></code></pre></pre>
 <p>this is a good weason why <a href="/pitfalls/performance.html">you shouwd nyot use wewease mode d-duwing devewopment
 just fow pewfowmance weasons</a>.</p>
