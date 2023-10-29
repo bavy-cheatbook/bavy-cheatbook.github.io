@@ -172,7 +172,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
 |---|---|---|</p>
 <h1 id="intwo-youw-code"><a class="header" href="#intwo-youw-code">intwo: youw code</a></h1>
 <p>this page is an ovewview, OwO to give y-you an idea of t-the big pictuwe o-of how bevy
@@ -186,7 +186,7 @@ access to nyanievew pawts of <a href="/programming/intro-data.html">youw data</a
 is a wust function (<code>fn</code>) you wwite, &gt;_&lt; which accepts <a href="/builtins.html#systemparams">speciaw pawametew
 types</a> to indicate nyani <a href="/programming/intro-data.html">data</a> it nyeeds to
 access. OwO think of the function signatuwe a-as a &quot;specification&quot; f-fow n-nyani to fetch
-fwom the ecs <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/world/struct.World.html"><code>World</code></a>.</p>
+fwom the ecs <a href="https://dev-docs.bevyengine.org/bevy/ecs/world/struct.World.html"><code>World</code></a>.</p>
 <p>hewe is nyani a <a href="/programming/systems.html">system</a> might wook wike. (ꈍᴗꈍ) nyote how, just b-by wooking
 at the function pawametews, &gt;_&lt; we know <em>exactwy</em> nyani <a href="/programming/intro-data.html">data</a>
 can be accessed.</p>
@@ -224,9 +224,15 @@ diffewent and unpwedictabwe owdew w-wewative to one a-anothew, OwO unwess y-you 
 access</a> to the ecs <a href="/programming/world.html"><code>World</code></a>. &gt;_&lt; they cannot wun in pawawwew
 with othew systems, OwO because they c-can access anything a-and do anything. 🥺 s-sometimes,
 you might nyeed this additonaw powew.</p>
+<pre><code class="language-rust no_run noplayground">fn save_game(
+    // get fuww access t-to the wowwd, (U ᵕ U❁) s-so we can access a-aww data and d-do anything
+    w-wowwd: &amp;mut wowwd, (⑅˘꒳˘)
+) {
+    // ... s-save game data t-to disk, ( ͡o ω ͡o ) ow something ...
+}</code></pre>
 <h2 id="scheduwes"><a class="header" href="#scheduwes">scheduwes</a></h2>
 <p>bevy stowes systems inside of <a href="/programming/schedules.html">scheduwes</a>
-(<a href="https://docs.rs/bevy/0.11.0/bevy/ecs/schedule/struct.Schedule.html"><code>Schedule</code></a>). (ꈍᴗꈍ) the scheduwe contains the systems a-and aww
+(<a href="https://dev-docs.bevyengine.org/bevy/ecs/schedule/struct.Schedule.html"><code>Schedule</code></a>). (ꈍᴗꈍ) the scheduwe contains the systems a-and aww
 wewevant metadata to owganize them, OwO t-tewwing bevy w-when and how to w-wun them. bevy
 <a href="/programming/app-builder.html">apps</a> typicawwy contain many scheduwes. ^•ﻌ•^ e-each one is a c-cowwection of
 systems to be invoked in diffewent s-scenawios (evewy f-fwame update, ^•ﻌ•^ <a href="/fundamentals/fixed-timestep.html">fixed
@@ -292,40 +298,37 @@ aww the functionawity in youw game. OwO n-nyani wiww you d-do with aww this p-po
 <hr />
 <p>hewe is how <a href="/programming/schedules.html">scheduwe</a> that was iwwustwated above couwd b-be
 cweated in code:</p>
-<pre><code class="language-rust no_run noplayground">// set configuwation is pew-scheduwe. &gt;_&lt; h-hewe we do i-it fow `update`
-a-app.configuwe_set(update, m-mainmenuset
-    .wun_if(in_state(mainmenu))
-);
-a-app.configuwe_set(update, mya g-gamepwayset
-    .wun_if(in_state(ingame))
-);
-a-app.configuwe_set(update, mya i-inputset
-    .in_set(gamepwayset)
-);
-app.configuwe_set(update, 😳 enemyaiset
-    .in_set(gamepwayset)
-    .wun_if(not(cutscene))
-    .aftew(pwayew_movement)
-);
-app.configuwe_set(update, XD audioset
-    .wun_if(audio_muted)
-);
-app.add_systems(update, :3 (
+<pre><code class="language-rust no_run noplayground">// set configuwation is pew-scheduwe. (⑅˘꒳˘) h-hewe we do i-it fow `update`
+a-app.configuwe_sets(update, (U ᵕ U❁) (
+    m-mainmenuset
+        .wun_if(in_state(mainmenu)), -.-
+    g-gamepwayset
+        .wun_if(in_state(ingame)), ^^;;
+    i-inputset
+        .in_set(gamepwayset), &gt;_&lt;
+    e-enemyaiset
+        .in_set(gamepwayset)
+        .wun_if(not(cutscene))
+        .aftew(pwayew_movement), mya
+    a-audioset
+        .wun_if(not(audio_muted)), mya
+));
+app.add_systems(update, 😳 (
     (
-        u-ui_button_animate, 😳😳😳
-        menu_wogo_animate.in_set(mainmenuset), -.-
-    ),
+        ui_button_animate, XD
+        menu_wogo_animate.in_set(mainmenuset), :3
+    ), 😳😳😳
     (
-        enemy_movement, ( ͡o ω ͡o )
-        e-enemy_spawn, rawr x3
-        enemy_despawn.befowe(enemy_spawn), nyaa~~
-    ).in_set(enemyaiset), /(^•ω•^)
+        enemy_movement, -.-
+        enemy_spawn, ( ͡o ω ͡o )
+        e-enemy_despawn.befowe(enemy_spawn), rawr x3
+    ).in_set(enemyaiset), nyaa~~
     (
-        m-mouse_input.wun_if(mouse_enabwed), rawr
-        contwowwew_input.wun_if(gamepad_enabwed), OwO
-    ).in_set(inputset),
+        mouse_input.wun_if(mouse_enabwed), /(^•ω•^)
+        contwowwew_input.wun_if(gamepad_enabwed), rawr
+    ).in_set(inputset), OwO
     (
-        footstep_sound.in_set(gamepwayset), (U ﹏ U)
+        f-footstep_sound.in_set(gamepwayset), (U ﹏ U)
         menu_button_sound.in_set(mainmenuset), &gt;_&lt;
         b-backgwound_music, rawr x3
     ).in_set(audioset), mya
@@ -333,7 +336,7 @@ app.add_systems(update, :3 (
         pwayew_movement
             .wun_if(pwayew_awive)
             .wun_if(not(cutscene)), nyaa~~
-        c-camewa_movement, (⑅˘꒳˘)
+        camewa_movement, (⑅˘꒳˘)
     ).in_set(gamepwayset).aftew(inputset), rawr x3
 ));</code></pre>
 <p>(weawn mowe about: <a href="/programming/schedules.html">scheduwes</a>, rawr x3 <a href="/programming/system-sets.html">system sets</a>, rawr x3 <a href="/programming/states.html">states</a>, rawr x3 <a href="/programming/run-criteria.html">wun conditions</a>, rawr x3 <a href="/programming/system-order.html">system owdewing</a>)</p>
