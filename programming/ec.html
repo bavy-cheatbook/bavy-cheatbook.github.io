@@ -172,21 +172,49 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(cuwwent)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
 |---|---|---|</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.11.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/main/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
 <h1 id="entities"><a class="header" href="#entities">entities</a></h1>
-<p>entities awe just a <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/entity/struct.Entity.html">simpwe integew id</a>, (ꈍᴗꈍ) that identifies a pawticuwaw set o-of
-component vawues.</p>
-<p><a href="/programming/intro-data.html">see hewe if you need hewp undewstanding h-how stowing d-data in the ecs w-wowks.</a></p>
-<p>you can cweate (&quot;spawn&quot;) nyew entities u-using <a href="/programming/commands.html"><code>Commands</code></a> ow
-<a href="/programming/world.html">excwusive <code>World</code> access</a>.</p>
+<p><a href="/programming/intro-data.html">see hewe fow mowe expwanation on h-how stowing data i-in the ecs wowks.</a></p>
+<p>conceptuawwy, OwO an entity wepwesents a-a set of vawues f-fow diffewent c-components.
+each component is a wust type (<code>struct</code> ow <code>enum</code>) and an entity can be used to
+stowe a vawue of that type.</p>
+<p>technicawwy, OwO an entity is just a s-simpwe integew id (imagine t-the &quot;wow n-nyumbew&quot; in
+a tabwe/spweadsheet) that can be u-used to find wewated d-data vawues (in d-diffewent
+&quot;cowumns&quot; of that tabwe).</p>
+<p>in bevy, XD <a href="https://dev-docs.bevyengine.org/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> is this vawue. (ꈍᴗꈍ) it consists of two i-integews:
+the id and the &quot;genewation&quot; (awwowing ids to be weused, ^•ﻌ•^ a-aftew you d-despawn owd
+entities).</p>
+<p>you can cweate (&quot;spawn&quot;) nyew entities a-and destwoy (&quot;despawn&quot;) e-entities u-using
+<a href="/programming/commands.html"><code>Commands</code></a> ow <a href="/programming/world.html">excwusive <code>World</code> access</a>.</p>
+<pre><code class="language-rust no_run noplayground">fn setup(mut commands: commands) {
+    // c-cweate a-a nyew entity
+    c-commands.spawn((
+        // i-initiawize a-aww youw c-components and b-bundwes hewe
+        e-enemy, -.-
+        heawth {
+            hp: 100.0, ^^;;
+            extwa: 25.0, &gt;_&lt;
+        }, mya
+        aimode::passive, mya
+        // ... 😳
+    ));
+
+    // i-if you want to get the entity id, XD just caww `.id()` a-aftew spawn
+    wet my_entity = c-commands.spawn((/* ... */)).id();
+
+    // destwoy an entity, :3 wemoving aww data associated with i-it
+    commands.entity(my_entity).despawn();
+}</code></pre>
+<p>many of youw entities might nyeed t-to have the same c-common components. OwO y-you can use
+<a href="/programming/bundle.html">bundwes</a> to make it easiew to spawn youw e-entities.</p>
 <h1 id="components"><a class="header" href="#components">components</a></h1>
 <p>components awe the data associated w-with entities.</p>
 <p>to cweate a nyew component type, s-simpwy define a w-wust <code>struct</code> ow <code>enum</code>, XD and
-dewive the <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/component/trait.Component.html"><code>Component</code></a> twait.</p>
+dewive the <a href="https://dev-docs.bevyengine.org/bevy/ecs/component/trait.Component.html"><code>Component</code></a> twait.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(component)]
 stwuct heawth {
     hp: f32, 🥺
@@ -198,7 +226,7 @@ e-enum aimode {
     p-passive, o.O
     c-chasingpwayew, (U ᵕ U❁)
 }</code></pre>
-<p>types must be unique -- an entity c-can onwy have one c-component pew w-wust type.</p>
+<p>types must be unique – an entity c-can onwy have o-one component pew w-wust type.</p>
 <h2 id="newtype-components"><a class="header" href="#newtype-components">newtype components</a></h2>
 <p>use wwappew (newtype) stwucts to m-make unique components o-out of simpwew t-types:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(component)]
@@ -226,9 +254,49 @@ stwuct pwayew;
 stwuct fwiendwy;</code></pre>
 <h2 id="accessing-components"><a class="header" href="#accessing-components">accessing components</a></h2>
 <p>components can be accessed fwom <a href="/programming/systems.html">systems</a>, XD using <a href="/programming/queries.html">quewies</a>.</p>
+<p>you can think of the quewy as the &quot;specification&quot; f-fow the data you w-want to access.
+it wiww seawch fow entities that m-match and give you a-access to the d-data.</p>
+<pre><code class="language-rust no_run noplayground">fn wevew_up_pwayew(
+    // get the w-wewevant data. (ˆ ﻌ ˆ)♡ s-some components w-wead-onwy, (˘ω˘) some m-mutabwe
+    mut q-quewy_pwayew: quewy&lt;(&amp;pwayewname, (⑅˘꒳˘) &amp;mut p-pwayewxp, (///ˬ///✿) &amp;mut h-heawth), 😳😳😳 w-with&lt;pwayew&gt;&gt;, 🥺
+) {
+    // `singwe` assumes onwy one entity exists that matches the quewy
+    wet (name, mya m-mut xp, 🥺 mut heawth) = quewy_pwayew.singwe_mut();
+    if x-xp.0 &gt; 1000 {
+        xp.0 = 0;
+        h-heawth.hp = 100.0;
+        heawth.extwa += 25.0;
+        info!(&quot;pwayew {} wevewed up!&quot;, &gt;_&lt; n-nyame.0);
+    }
+}
+
+fn die(
+    // `entity` c-can be u-used to get the id of things that match the quewy
+    quewy_heawth: quewy&lt;(entity, &gt;_&lt; &amp;heawth)&gt;,
+    // w-we awso nyeed commands, (⑅˘꒳˘) so we can despawn entities if we have to
+    mut c-commands: commands, /(^•ω•^)
+) {
+    // we can have many s-such entities (enemies, rawr x3 p-pwayew, (U ﹏ U) n-nyanievew)
+    // s-so we woop to check aww of them
+    fow (entity_id, (U ﹏ U) h-heawth) in quewy_heawth.itew() {
+        if heawth.hp &lt;= 0.0 {
+            c-commands.entity(entity_id).despawn();
+        }
+    }
+}</code></pre>
 <h2 id="addingwemoving-components"><a class="header" href="#addingwemoving-components">adding/wemoving components</a></h2>
 <p>you can add/wemove components on e-existing entities, ^•ﻌ•^ u-using <a href="/programming/commands.html"><code>Commands</code></a> ow
 <a href="/programming/world.html">excwusive <code>World</code> access</a>.</p>
+<pre><code class="language-rust no_run noplayground">fn make_enemies_fwiendwy(
+    quewy_enemy: q-quewy&lt;entity, (U ᵕ U❁) w-with&lt;enemy&gt;&gt;, (⑅˘꒳˘)
+    m-mut commands: c-commands, ( ͡o ω ͡o )
+) {
+    f-fow entity_id i-in quewy_enemy.itew() {
+        c-commands.entity(entity_id)
+            .wemove::&lt;enemy&gt;()
+            .insewt(fwiendwy);
+    }
+}</code></pre>
 
                     </main>
 
