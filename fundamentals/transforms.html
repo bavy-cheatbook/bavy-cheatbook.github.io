@@ -172,7 +172,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.12|(upcoming)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="twansfowms"><a class="header" href="#twansfowms">twansfowms</a></h1>
 <p>wewevant officiaw exampwes:
@@ -217,15 +217,15 @@ wet xf = twansfowm::fwom_xyz(1.0, 2.0, (U ﹏ U) 3.0)
     .with_wotation(quat::fwom_wotation_y(0.125 * s-std::f32::consts::pi));</code></pre>
 <h2 id="twansfowm-components"><a class="header" href="#twansfowm-components">twansfowm components</a></h2>
 <p>in bevy, (ꈍᴗꈍ) twansfowms awe wepwesented b-by <strong>two</strong> <a href="/programming/ec.html#components">components</a>:
-<a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> and <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>.</p>
+<a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> and <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>.</p>
 <p>any <a href="/programming/ecs-intro.html">entity</a> that wepwesents an object in the g-game wowwd
 needs to have both. &gt;_&lt; aww of bevy's <a href="/builtins.html#bundles">buiwt-in bundwe types</a>
 incwude them.</p>
 <p>if you awe cweating a custom entity w-without using t-those <a href="/programming/bundle.html">bundwes</a>,
 you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
 <ul>
-<li><a href="https://dev-docs.bevyengine.org/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> fow twansfowms + <a href="/fundamentals/visibility.html">visibiwity</a></li>
-<li><a href="https://dev-docs.bevyengine.org/bevy/transform/struct.TransformBundle.html"><code>TransformBundle</code></a> fow just the twansfowms</li>
+<li><a href="https://docs.rs/bevy/0.12.0/bevy/render/prelude/struct.SpatialBundle.html"><code>SpatialBundle</code></a> fow twansfowms + <a href="/fundamentals/visibility.html">visibiwity</a></li>
+<li><a href="https://docs.rs/bevy/0.12.0/bevy/transform/struct.TransformBundle.html"><code>TransformBundle</code></a> fow just the twansfowms</li>
 </ul>
 <pre><code class="language-rust no_run noplayground">fn spawn_speciaw_entity(
     mut c-commands: commands, :3
@@ -243,11 +243,11 @@ you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
     ));
 }</code></pre>
 <h3 id="transform"><a class="header" href="#transform"><code>Transform</code></a></h3>
-<p><a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> is nyani you typicawwy wowk with. (ꈍᴗꈍ) i-it is
+<p><a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> is nyani you typicawwy wowk with. (ꈍᴗꈍ) i-it is
 a <code>struct</code> containing the twanswation, ^•ﻌ•^ wotation, OwO a-and scawe. 🥺 t-to wead ow
 manipuwate these vawues, (ꈍᴗꈍ) access it f-fwom youw <a href="/programming/systems.html">systems</a> using a
 <a href="/programming/queries.html">quewy</a>.</p>
-<p>if the entity has a <a href="/fundamentals/hierarchy.html">pawent</a>, XD the <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>
+<p>if the entity has a <a href="/fundamentals/hierarchy.html">pawent</a>, XD the <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>
 component is wewative to the pawent. OwO t-this means that t-the chiwd object w-wiww
 move/wotate/scawe awong with the pawent.</p>
 <pre><code class="language-rust no_run noplayground">fn infwate_bawwoons(
@@ -276,18 +276,18 @@ f-fn thwowabwe_fwy(
     }
 }</code></pre>
 <h3 id="globaltransform"><a class="header" href="#globaltransform"><code>GlobalTransform</code></a></h3>
-<p><a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> wepwesents the absowute gwobaw
+<p><a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> wepwesents the absowute gwobaw
 position in the wowwd.</p>
 <p>if the entity does nyot have a <a href="/fundamentals/hierarchy.html">pawent</a>, &gt;_&lt; then this wiww match
-the <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>.</p>
-<p>the vawue of <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is cawcuwated/managed
+the <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>.</p>
+<p>the vawue of <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is cawcuwated/managed
 intewnawwy by bevy (<a href="#transform-propagation">&quot;twansfowm pwopagation&quot;</a>).</p>
-<p>unwike <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, &gt;_&lt; the twanswation/wotation/scawe awe nyot
+<p>unwike <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, &gt;_&lt; the twanswation/wotation/scawe awe nyot
 accessibwe diwectwy. ^•ﻌ•^ the data is s-stowed in an optimized w-way (using <code>Affine3A</code>)
 and it is possibwe to have compwex t-twansfowmations i-in a hiewawchy t-that cannot
 be wepwesented as a simpwe twansfowm. OwO f-fow exampwe, 🥺 a-a combination o-of wotation
 and scawe acwoss muwtipwe pawents, (ꈍᴗꈍ) w-wesuwting in sheawing.</p>
-<p>if you want to twy to convewt a <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> back
+<p>if you want to twy to convewt a <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> back
 into a wowkabwe twanswation/wotation/scawe wepwesentation, ^•ﻌ•^ y-you can t-twy the methods:</p>
 <ul>
 <li><code>.translation()</code></li>
@@ -296,16 +296,16 @@ into a wowkabwe twanswation/wotation/scawe wepwesentation, ^•ﻌ•^ y-you can
 </ul>
 <h2 id="twansfowm-pwopagation"><a class="header" href="#twansfowm-pwopagation">twansfowm pwopagation</a></h2>
 <p>the two components awe synchwonized b-by a bevy-intewnaw s-system (the &quot;twansfowm
-pwopagation system&quot;), (ꈍᴗꈍ) which wuns i-in the <a href="https://dev-docs.bevyengine.org/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
+pwopagation system&quot;), (ꈍᴗꈍ) which wuns i-in the <a href="https://docs.rs/bevy/0.12.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
 <a href="/programming/schedules.html">scheduwe</a>.</p>
-<p>bewawe: when you mutate the <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, XD the
-<a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is nyot updated immediatewy. &gt;_&lt; they
+<p>bewawe: when you mutate the <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, XD the
+<a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is nyot updated immediatewy. &gt;_&lt; they
 wiww be out-of-sync untiw the twansfowm p-pwopagation s-system wuns.</p>
-<p>if you nyeed to wowk with <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>
+<p>if you nyeed to wowk with <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>
 diwectwy, XD you shouwd <a href="/programming/app-builder.html">add</a> youw
-<a href="/programming/systems.html">system</a> to the <a href="https://dev-docs.bevyengine.org/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
+<a href="/programming/systems.html">system</a> to the <a href="https://docs.rs/bevy/0.12.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
 <a href="/programming/schedules.html">scheduwe</a> and <a href="/programming/system-order.html">owdew it aftew</a>
-<a href="https://dev-docs.bevyengine.org/bevy/transform/enum.TransformSystem.html"><code>TransformSystem::TransformPropagate</code></a>.</p>
+<a href="https://docs.rs/bevy/0.12.0/bevy/transform/enum.TransformSystem.html"><code>TransformSystem::TransformPropagate</code></a>.</p>
 <pre><code class="language-rust no_run noplayground">/// pwint the up-to-date gwobaw coowdinates o-of the p-pwayew
 fn debug_gwobawtwansfowm(
     q-quewy: quewy&lt;&amp;gwobawtwansfowm, ( ͡o ω ͡o ) w-with&lt;pwayew&gt;&gt;, UwU
@@ -323,14 +323,14 @@ a-app.add_systems(postupdate, UwU
         .aftew(twansfowmsystem::twansfowmpwopagate)
 );</code></pre>
 <h2 id="transformhelper"><a class="header" href="#transformhelper"><code>TransformHelper</code></a></h2>
-<p>if you nyeed to get an up-to-date <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>
+<p>if you nyeed to get an up-to-date <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>
 in a <a href="/programming/systems.html">system</a> that has to wun befowe twansfowm p-pwopagation,
-you can use the speciaw <a href="https://dev-docs.bevyengine.org/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a> system pawametew.</p>
+you can use the speciaw <a href="https://docs.rs/bevy/0.12.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a> system pawametew.</p>
 <p>it awwows you to compute a specific e-entity's
-<a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> immediatewy, &gt;_&lt; on demand.</p>
+<a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> immediatewy, &gt;_&lt; on demand.</p>
 <p>an exampwe of whewe this couwd be u-usefuw might be a-a system to make
 a camewa fowwow an entity on-scween. ^•ﻌ•^ y-you nyeed to u-update the camewa's
-<a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> (which means you have to do it befowe b-bevy's
+<a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> (which means you have to do it befowe b-bevy's
 twansfowm pwopagation, ^•ﻌ•^ so it can a-account fow the c-camewa's nyew twansfowm),
 but you awso nyeed to know the cuwwent u-up-to-date p-position of the e-entity you
 awe fowwowing.</p>
@@ -351,19 +351,19 @@ awe fowwowing.</p>
     // g-get camewa twansfowm and make i-it wook at the g-gwobaw twanswation
     twansfowm_pawams.p1().singwe_mut().wook_at(gwobaw.twanswation(), rawr x3 vec3::y);
 }</code></pre>
-<p>intewnawwy, rawr x3 <a href="https://dev-docs.bevyengine.org/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a> behaves wike two
-wead-onwy <a href="/programming/queries.html">quewies</a>. &gt;<em>&lt; it nyeeds access to the <a href="https://dev-docs.bevyengine.org/bevy/hierarchy/struct.Parent.html"><code>Parent</code></a>
-and <a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> components to do its job. &gt;</em>&lt; it wouwd
+<p>intewnawwy, rawr x3 <a href="https://docs.rs/bevy/0.12.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a> behaves wike two
+wead-onwy <a href="/programming/queries.html">quewies</a>. &gt;<em>&lt; it nyeeds access to the <a href="https://docs.rs/bevy/0.12.0/bevy/hierarchy/struct.Parent.html"><code>Parent</code></a>
+and <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> components to do its job. &gt;</em>&lt; it wouwd
 confwict with ouw othew <code>&amp;mut Transform</code> quewy. (ꈍᴗꈍ) that's why we have to use a-a
 <a href="/programming/paramset.html">pawam set</a> in the exampwe above.</p>
-<p>note: if you ovew-use <a href="https://dev-docs.bevyengine.org/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a>, XD it
+<p>note: if you ovew-use <a href="https://docs.rs/bevy/0.12.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a>, XD it
 couwd become a pewfowmance issue. ^•ﻌ•^ i-it cawcuwates the g-gwobaw twansfowm
 fow you, ^•ﻌ•^ but it does nyot update t-the data stowed i-in the entity's
-<a href="https://dev-docs.bevyengine.org/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>. &gt;_&lt; bevy wiww stiww do the same
+<a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>. &gt;_&lt; bevy wiww stiww do the same
 computation again watew, OwO duwing twansfowm p-pwopagation. 🥺 i-it weads to w-wepetitive
 wowk. OwO if youw system can wun aftew t-twansfowm pwopagation, 🥺 s-so it can j-just
 wead the vawue aftew bevy updates i-it, OwO you shouwd p-pwefew to do that i-instead
-of using <a href="https://dev-docs.bevyengine.org/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a>.</p>
+of using <a href="https://docs.rs/bevy/0.12.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a>.</p>
 
                     </main>
 

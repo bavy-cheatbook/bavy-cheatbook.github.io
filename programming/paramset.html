@@ -172,7 +172,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="pawam-sets"><a class="header" href="#pawam-sets">pawam sets</a></h1>
 <p>fow safety weasons, &gt;_&lt; a <a href="/programming/systems.html">system</a> cannot have muwtipwe pawametews
@@ -181,19 +181,39 @@ same data.</p>
 <p>some exampwes:</p>
 <ul>
 <li>muwtipwe incompatibwe <a href="/programming/queries.html">quewies</a>.</li>
-<li>using <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>&amp;World</code></a> whiwe awso having othew system pawametews t-to access s-specific data.</li>
+<li>using <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/world/struct.World.html"><code>&amp;World</code></a> whiwe awso having othew system pawametews t-to access s-specific data.</li>
 <li>…</li>
 </ul>
-<p>bevy pwovides a sowution: wwap them i-in a <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ParamSet.html"><code>ParamSet</code></a>:</p>
+<p>considew this exampwe <a href="/programming/systems.html">system</a>:</p>
+<pre><code class="language-rust no_run noplayground">fn weset_heawth(
+    mut q_pwayew: q-quewy&lt;&amp;mut heawth, òωó w-with&lt;pwayew&gt;&gt;, o.O
+    m-mut q_enemy: q-quewy&lt;&amp;mut h-heawth, (U ᵕ U❁) with&lt;enemy&gt;&gt;,
+) {
+    // ...
+}</code></pre>
+<p>the two <a href="/programming/queries.html">quewies</a> awe both twying to mutabwy access <code>Health</code>. XD they
+have diffewent <a href="/programming/queries.html#query-filters">fiwtews</a>, (ꈍᴗꈍ) but nyani if thewe awe entities t-that
+have both <code>Player</code> and <code>Enemy</code> components? if we know that shouwdn't h-happen, we
+can add <code>Without</code> fiwtews, ^•ﻌ•^ but nyani if it is actuawwy v-vawid fow ouw g-game?</p>
+<p>such code wiww compiwe (wust cannot k-know about bevy e-ecs semantics), OwO b-but wiww
+wesuwt in a wuntime panic. OwO when bevy t-twies to wun t-the system, 🥺 it w-wiww panic with
+a message about confwicting system p-pawametews:</p>
+<pre><code>thwead 'main' panicked at bevy_ecs/swc/system/system_pawam.ws:225:5:
+e-ewwow[b0001]: q-quewy&lt;&amp;mut game::heawth, (U ﹏ U) b-bevy_ecs::quewy::fiwtew::with&lt;game::enemy&gt;&gt; i-in
+system g-game::weset_heawth a-accesses component(s) g-game::heawth i-in a way that confwicts
+with a pwevious system pawametew. -.- considew using `without&lt;t&gt;` t-to cweate disjoint quewies
+ow mewging c-confwicting quewies into a `pawamset`. (ˆ ﻌ ˆ)♡
+</code></pre>
+<p>bevy pwovides a sowution: wwap any i-incompatibwe pawametews i-in a <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/system/struct.ParamSet.html"><code>ParamSet</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">fn weset_heawth(
     // access the h-heawth of enemies a-and the heawth o-of pwayews
     // (note: s-some e-entities couwd b-be both!)
     mut s-set: pawamset&lt;(
-        q-quewy&lt;&amp;mut heawth, (⑅˘꒳˘) with&lt;enemy&gt;&gt;, rawr x3
-        quewy&lt;&amp;mut heawth, (✿oωo) with&lt;pwayew&gt;&gt;, (ˆ ﻌ ˆ)♡
+        q-quewy&lt;&amp;mut heawth, rawr x3 with&lt;enemy&gt;&gt;, nyaa~~
+        quewy&lt;&amp;mut heawth, /(^•ω•^) with&lt;pwayew&gt;&gt;, rawr
         // awso access the w-whowe wowwd ... why nyot
-        &amp;wowwd, (˘ω˘)
-    )&gt;, (⑅˘꒳˘)
+        &amp;wowwd, OwO
+    )&gt;, (U ﹏ U)
 ) {
     // set h-heawth of enemies (use the 1st pawam i-in the set)
     fow mut heawth in set.p0().itew_mut() {
@@ -207,11 +227,9 @@ same data.</p>
 
     // wead some data fwom the wowwd (use t-the 3wd pawam in the set)
     wet my_wesouwce = set.p2().wesouwce::&lt;mywesouwce&gt;();
-
-    // since w-we onwy used the confwicting s-system pawams one a-at a time, (///ˬ///✿)
-    // e-evewything i-is safe and ouw code can compiwe; pawamset guawantees t-this
 }</code></pre>
-<p>this ensuwes onwy one of the confwicting p-pawametews c-can be used at t-the same time.</p>
+<p>this ensuwes onwy one of the confwicting p-pawametews c-can be used at t-the same time.
+bevy wiww nyow happiwy wun ouw system.</p>
 <p>the maximum nyumbew of pawametews i-in a pawam set i-is 8.</p>
 
                     </main>
