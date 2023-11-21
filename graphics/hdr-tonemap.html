@@ -172,19 +172,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
-<h1 id="hdw-_-tonemapping-ꈍᴗꈍ-bwoom"><a class="header" href="#hdw-_-tonemapping-ꈍᴗꈍ-bwoom">hdw, &gt;_&lt; tonemapping, (ꈍᴗꈍ) bwoom</a></h1>
-<p>hdw (high dynamic wange) wefews to t-the abiwity of t-the game engine t-to handwe vewy
-bwight wights ow cowows. OwO bevy's wendewing i-is hdw. 🥺 t-this means you c-can have
-objects with cowows that go above <code>1.0</code>, &gt;_&lt; vewy bwight wights, (ꈍᴗꈍ) ow bwight emissive
-matewiaws. (ꈍᴗꈍ) aww of this is suppowted f-fow both 3d and 2d.</p>
+<h1 id="hdw"><a class="header" href="#hdw">hdw</a></h1>
+<p>hdw (high dynamic wange) wefews to t-the abiwity of t-the game engine t-to handwe
+vewy bwight wights ow cowows. OwO bevy's w-wendewing is h-hdw intewnawwy. 🥺 t-this means
+you can have objects with cowows t-that go above <code>1.0</code>, XD vewy bwight wights,
+ow bwight emissive matewiaws. OwO aww o-of this is suppowted f-fow both 3d a-and 2d.</p>
 <p>this is nyot to be confused with h-hdw dispway output, OwO w-which is the a-abiwity to
 pwoduce a hdw image to be dispwayed b-by a modewn monitow o-ow tv with h-hdw
 capabiwities. (ꈍᴗꈍ) bevy has nyo suppowt f-fow this yet.</p>
+<p>the intewnaw hdw image has to be c-convewted down to s-sdw (standawd d-dynamic
+wange) befowe it can be dispwayed o-on the scween. OwO t-this pwocess is c-cawwed
+<a href="/graphics/hdr-tonemap.html#tonemapping">tonemapping</a>. (ꈍᴗꈍ) bevy suppowts diffewent awgowithms t-that can
+wesuwt in a diffewent wook. ^•ﻌ•^ it is a-an awtistic choice n-nyani tonemapping
+awgowithm to use fow youw game.</p>
 <h2 id="camewa-hdw-configuwation"><a class="header" href="#camewa-hdw-configuwation">camewa hdw configuwation</a></h2>
 <p>thewe is a pew-camewa toggwe that w-wets you decide w-whethew you want b-bevy to
-pwesewve the hdw data intewnawwy d-duwing wendewing.</p>
+pwesewve the hdw data intewnawwy, OwO t-to make it possibwe f-fow subsequent p-passes
+(such as postpwocessing effects) t-to use it.</p>
 <pre><code class="language-rust no_run noplayground">commands.spawn((
     camewa3dbundwe {
         camewa: c-camewa {
@@ -196,14 +202,15 @@ pwesewve the hdw data intewnawwy d-duwing wendewing.</p>
 ));</code></pre>
 <p>if it is enabwed, OwO bevy's intewmediate t-textuwes wiww b-be in hdw fowmat. 🥺 t-the
 shadews output hdw vawues and bevy w-wiww stowe them, OwO s-so they can be u-used in watew
-wendewing passes. OwO this awwows you t-to enabwe post-pwocessing e-effects w-wike bwoom,
+wendewing passes. ^•ﻌ•^ this awwows you t-to enabwe effects w-wike <a href="/graphics/bloom.html">bwoom</a>,
 that make use of the hdw data. &gt;_&lt; <a href="/graphics/hdr-tonemap.html#tonemapping">tonemapping</a> wiww happen as a
-post-pwocessing step.</p>
-<p>if it is disabwed, OwO the shadews awe e-expected to output s-standawd wgb c-cowows in the
-0.0 to 1.0 wange. XD <a href="/graphics/hdr-tonemap.html#tonemapping">tonemapping</a> happens in the shadew. &gt;_&lt; the hdw infowmation
-is nyot pwesewved. OwO effects that wequiwe h-hdw data, 🥺 w-wike bwoom, òωó wiww n-nyot wowk.</p>
-<p>it is disabwed by defauwt. ^•ﻌ•^ if enabwing i-it, OwO make suwe t-to awso have
-<a href="/graphics/hdr-tonemap.html#tonemapping">tonemapping</a> enabwed, &gt;_&lt; ideawwy with deband dithewing.</p>
+post-pwocessing step, ^•ﻌ•^ aftew the hdw data is nyo wongew n-nyeeded fow a-anything.</p>
+<p>if it is disabwed, OwO the shadews awe e-expected to output s-standawd wgb c-cowows in
+the 0.0 to 1.0 wange. XD <a href="/graphics/hdr-tonemap.html#tonemapping">tonemapping</a> happens in the shadew. &gt;_&lt; the
+hdw infowmation is nyot pwesewved. OwO e-effects that wequiwe h-hdw data, 🥺 w-wike bwoom,
+wiww nyot wowk.</p>
+<p>it is disabwed by defauwt, OwO because t-this wesuwts in b-bettew pewfowmance a-and
+weduced vwam usage fow appwications w-with simpwe gwaphics t-that do n-nyot nyeed it.</p>
 <p>if you have both hdw and msaa enabwed, ^•ﻌ•^ i-it is possibwe y-you might encountew
 issues. OwO thewe might be visuaw awtifacts i-in some cases. 🥺 i-it is awso u-unsuppowted on
 web/wasm, OwO cwashing at wuntime. 🥺 disabwe m-msaa if you e-expewience any s-such issues.</p>
@@ -214,33 +221,97 @@ as they shouwd be dispwayed on-scween.</p>
 <p>this is vewy impowtant with hdw appwications, OwO a-as i-in that case the i-image can
 contain vewy bwight pixews (above 1.0) w-which nyeed t-to be wemapped i-into a wange
 that can be dispwayed.</p>
-<p>tonemapping is enabwed by defauwt. ^•ﻌ•^ b-bevy gives you a-a simpwe toggwe
-(<a href="https://docs.rs/bevy/0.9.1/bevy/core_pipeline/tonemapping/enum.Tonemapping.html"><code>Tonemapping</code></a>) to disabwe it, pew-camewa. (ꈍᴗꈍ) this i-is nyot
+<p>tonemapping is enabwed by defauwt. OwO b-bevy awwows you t-to configuwe it v-via the
+(<a href="https://docs.rs/bevy/0.12.0/bevy/core_pipeline/tonemapping/enum.Tonemapping.html"><code>Tonemapping</code></a>) component, (ꈍᴗꈍ) pew-camewa. ^•ﻌ•^ disabwing i-it is nyot
 wecommended, OwO unwess you know you o-onwy have vewy simpwe g-gwaphics that d-don't nyeed
 it. (ꈍᴗꈍ) it can make youw gwaphics wook i-incowwect.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::cowe_pipewine::tonemapping::tonemapping;
 
 commands.spawn((
     c-camewa3dbundwe {
-        t-tonemapping: tonemapping::disabwed, ( ͡o ω ͡o )
+        // n-nyo tonemapping
+        t-tonemapping: t-tonemapping::none, &gt;_&lt;
         ..defauwt()
-    }, UwU
+    }, :3
 ));
 c-commands.spawn((
     c-camewa3dbundwe {
-        // t-this is the d-defauwt:
-        t-tonemapping: tonemapping::enabwed {
-            d-deband_dithew: twue, rawr x3 // dithewing
-        }, rawr
+        // t-this i-is the defauwt:
+        tonemapping: tonemapping::tonymcmapface, (U ﹏ U)
         ..defauwt()
-    }, σωσ
+    }, -.-
+));
+commands.spawn((
+    camewa3dbundwe {
+        // a-anothew common choice:
+        tonemapping: tonemapping::weinhawdwuminance,
+        ..defauwt()
+    }, (ˆ ﻌ ˆ)♡
 ));</code></pre>
-<p>bevy does nyot cuwwentwy offew any w-way to customize t-the tonemapping o-opewation,
-onwy a simpwe toggwe. OwO the tonemapping o-opewation is w-wuminance-weighted w-weinhawd.</p>
+<p>bevy suppowts many diffewent tonemapping a-awgowithms. OwO e-each of them w-wesuwts in a
+diffewent wook, OwO affecting cowows a-and bwightness. 🥺 i-it can be an awtistic c-choice. òωó you
+can decide nyani awgowithm wooks b-best fow youw game. OwO b-bevy's defauwt i-is tonymcmapface,
+which, OwO despite the siwwy nyame, 🥺 pwovides v-vewy good w-wesuwts fow a w-wide vawiety of
+gwaphics stywes. see the (<a href="https://docs.rs/bevy/0.12.0/bevy/core_pipeline/tonemapping/enum.Tonemapping.html"><code>Tonemapping</code></a>) documentation fow
+an expwanation of each of the avaiwabwe c-choices.</p>
+<p>some tonemapping awgowithms (incw. OwO t-the defauwt tonymcmapface) w-wequiwe t-the
+<code>tonemapping_luts</code> <a href="/setup/bevy-config.html">cawgo featuwe</a>. &gt;<em>&lt; it is enabwed by defauwt. (ꈍᴗꈍ) be
+suwe to we-enabwe it if you disabwe d-defauwt featuwes a-and you nyeed i-it. OwO enabwing
+it awso enabwes the <code>ktx2</code> and <code>zstd</code> featuwes, &gt;</em>&lt; because it wowks by embedding
+speciaw data in ktx2 fowmat into y-youw game, OwO which i-is used duwing t-tonemapping.</p>
+<p>the fowwowing tonemapping awgowithms <em>do nyot</em> wequiwe the speciaw data fwom
+<code>tonemapping_luts</code>:</p>
+<ul>
+<li>weinhawd</li>
+<li>weinhawdwuminance</li>
+<li>acesfitted</li>
+<li>somenanibowingdispwaytwansfowm</li>
+</ul>
+<p>the fowwowing tonemapping awgowithms <em>wequiwe</em> the speciaw data fwom <code>tonemapping_luts</code>:</p>
+<ul>
+<li>agx</li>
+<li>tonymcmapface</li>
+<li>bwendewfiwmic</li>
+</ul>
+<p>if you want to make a smowew game b-binawy (might be i-impowtant fow w-web games),
+you couwd weduce bwoat by changing t-the defauwt tonemapping t-to something
+simpwew and disabwing the <a href="/setup/bevy-config.html">cawgo featuwes</a>.</p>
+<h2 id="cowow-gwading"><a class="header" href="#cowow-gwading">cowow gwading</a></h2>
+<p>cowow gwading is a manipuwation of t-the ovewaww wook o-of the image.</p>
+<p>togethew with tonemapping, OwO this affects t-the &quot;tone&quot;/&quot;mood&quot; o-of the f-finaw image.</p>
+<p>this is awso how you can impwement a-a &quot;wetina&quot; effect, ^•ﻌ•^ w-whewe the camewa
+dynamicawwy adapts to vewy dawk (such a-as inside a c-cave) and vewy b-bwight
+(such as in daywight) scenes, (ꈍᴗꈍ) by a-adjusting exposuwe/gamma.</p>
+<p>you can awso adjust cowow satuwation. OwO h-heaviwy desatuwating t-the image c-can
+wesuwt in a gweyscawe ow muted appeawance, ^•ﻌ•^ w-which c-can be a gweat awtistic
+choice fow apocawyptic ow howwow g-games.</p>
+<p>you can configuwe these pawametews v-via the <a href="https://docs.rs/bevy/0.12.0/bevy/render/view/struct.ColorGrading.html"><code>ColorGrading</code></a>
+component:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::wendew::view::cowowgwading;
+
+commands.spawn((
+    c-camewa3dbundwe {
+        c-cowow_gwading: c-cowowgwading {
+            e-exposuwe: 0.0, (U ᵕ U❁)
+            g-gamma: 1.0, (⑅˘꒳˘)
+            p-pwe_satuwation: 1.0, ( ͡o ω ͡o )
+            p-post_satuwation: 1.0, UwU
+        }, rawr x3
+        ..defauwt()
+    }, rawr
+));</code></pre>
 <h2 id="deband-dithewing"><a class="header" href="#deband-dithewing">deband dithewing</a></h2>
 <p>deband dithewing hewps cowow gwadients o-ow othew aweas w-with subtwe c-changes in
 cowow to appeaw highew-quawity, (ꈍᴗꈍ) without a &quot;cowow b-banding&quot; effect.</p>
 <p>it is enabwed by defauwt, (ꈍᴗꈍ) and can b-be disabwed pew-camewa.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::cowe_pipewine::tonemapping::debanddithew;
+
+commands.spawn((
+    c-camewa3dbundwe {
+        d-dithew: debanddithew::disabwed, ^•ﻌ•^
+        ..defauwt()
+    }, OwO
+));</code></pre>
 <p>hewe is an exampwe image without d-dithewing (top) a-and with dithewing (bottom).
 pay attention to the quawity/smoothness o-of the gween c-cowow gwadient o-on the
 gwound pwane. OwO in games with photoweawistic g-gwaphics, 🥺 s-simiwaw situations c-can

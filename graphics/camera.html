@@ -172,7 +172,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="camewas"><a class="header" href="#camewas">camewas</a></h1>
 <p>camewas dwive aww wendewing in bevy. OwO t-they awe wesponsibwe f-fow configuwing n-nyani
@@ -180,8 +180,8 @@ to dwaw, (ꈍᴗꈍ) how to dwaw it, ^•ﻌ•^ and whewe t-to dwaw it.</p>
 <p>you must have at weast one camewa e-entity, OwO in owdew f-fow anything to b-be dispwayed
 at aww! OwO if you fowget to spawn a c-camewa, 🥺 you wiww g-get an empty bwack s-scween.</p>
 <p>in the simpwest case, OwO you can cweate a-a camewa with t-the defauwt settings. 🥺 j-just
-spawn an entity using <a href="https://docs.rs/bevy/0.9.1/bevy/core_pipeline/core_2d/struct.Camera2dBundle.html"><code>Camera2dBundle</code></a> ow
-<a href="https://docs.rs/bevy/0.9.1/bevy/core_pipeline/core_3d/struct.Camera3dBundle.html"><code>Camera3dBundle</code></a>. &gt;_&lt; it wiww simpwy dwaw aww wendewabwe
+spawn an entity using <a href="https://docs.rs/bevy/0.12.0/bevy/core_pipeline/core_2d/struct.Camera2dBundle.html"><code>Camera2dBundle</code></a> ow
+<a href="https://docs.rs/bevy/0.12.0/bevy/core_pipeline/core_3d/struct.Camera3dBundle.html"><code>Camera3dBundle</code></a>. &gt;_&lt; it wiww simpwy dwaw aww wendewabwe
 entities that awe <a href="/fundamentals/visibility.html">visibwe</a>.</p>
 <p>this page gives a genewaw ovewview o-of camewas in b-bevy. OwO awso see the d-dedicated
 pages fow <a href="/2d/camera.html">2d camewas</a> and <a href="/3d/camera.html">3d camewas</a>.</p>
@@ -251,8 +251,8 @@ cwosew ow fawthew away, (ꈍᴗꈍ) instead of c-changing the fov.</p>
 <p>the camewa pwojection is wesponsibwe f-fow mapping t-the coowdinate system t-to the
 viewpowt. OwO this effectivewy detewmines t-the &quot;coowdinate s-space&quot; you a-awe wowking in.</p>
 <p>bevy pwovides two kinds of pwojections:
-<a href="https://docs.rs/bevy/0.9.1/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a> and
-<a href="https://docs.rs/bevy/0.9.1/bevy/render/camera/struct.PerspectiveProjection.html"><code>PerspectiveProjection</code></a>. XD they awe configuwabwe,
+<a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a> and
+<a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.PerspectiveProjection.html"><code>PerspectiveProjection</code></a>. XD they awe configuwabwe,
 to be abwe to sewve a vawiety of d-diffewent use cases. OwO s-see the dedicated p-pages
 fow <a href="/2d/camera.html">2d camewas</a> and <a href="/3d/camera.html">3d camewas</a> to weawn mowe
 about nyani you can do with them.</p>
@@ -267,20 +267,23 @@ z</a> configuwation fow 3d.</p>
 <h2 id="wendew-tawget"><a class="header" href="#wendew-tawget">wendew tawget</a></h2>
 <p>the wendew tawget of a camewa detewmines w-whewe the g-gpu wiww dwaw t-things to. OwO it
 couwd be a window (fow outputting d-diwectwy to the s-scween) ow an
-<a href="https://docs.rs/bevy/0.9.1/bevy/render/texture/struct.Image.html"><code>Image</code></a> <a href="/assets.html">asset</a> (wendew-to-textuwe).</p>
+<a href="https://docs.rs/bevy/0.12.0/bevy/render/texture/struct.Image.html"><code>Image</code></a> <a href="/assets.html">asset</a> (wendew-to-textuwe).</p>
 <p>by defauwt, (ꈍᴗꈍ) camewas output to the p-pwimawy window.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::wendew::camewa::wendewtawget;
 
 fn debug_wendew_tawgets(
-    q-q: quewy&lt;&amp;camewa&gt;, σωσ
+    q-q: quewy&lt;&amp;camewa&gt;, (ˆ ﻌ ˆ)♡
 ) {
     f-fow camewa in &amp;q {
         m-match &amp;camewa.tawget {
             w-wendewtawget::window(wid) =&gt; {
-                e-epwintwn!(&quot;camewa wendews t-to window w-with id: {:?}&quot;, σωσ w-wid);
+                e-epwintwn!(&quot;camewa wendews t-to window w-with id: {:?}&quot;, (⑅˘꒳˘) w-wid);
             }
             wendewtawget::image(handwe) =&gt; {
-                epwintwn!(&quot;camewa wendews to image asset with i-id: {:?}&quot;, &gt;_&lt; handwe);
+                epwintwn!(&quot;camewa wendews to image asset with i-id: {:?}&quot;, (U ᵕ U❁) handwe);
+            }
+            wendewtawget::textuweview(_) =&gt; {
+                epwintwn!(&quot;this i-is a speciaw camewa that outputs t-to something outside of bevy.&quot;);
             }
         }
     }
@@ -298,11 +301,11 @@ fn setup_minimap(mut c-commands: c-commands) {
         c-camewa2dbundwe {
             c-camewa: c-camewa {
                 // w-wendews a-aftew / on top of othew camewas
-                pwiowity: 2, (ˆ ﻌ ˆ)♡
+                owdew: 2, (⑅˘꒳˘)
                 // set the viewpowt to a 256x256 s-squawe in the top weft cownew
-                viewpowt: some(viewpowt {
-                    physicaw_position: u-uvec2::new(0, (⑅˘꒳˘) 0),
-                    physicaw_size: u-uvec2::new(256, (U ᵕ U❁) 256), -.-
+                viewpowt: s-some(viewpowt {
+                    physicaw_position: uvec2::new(0, (U ᵕ U❁) 0),
+                    p-physicaw_size: uvec2::new(256, -.- 256),
                     ..defauwt()
                 }), ^^;;
                 ..defauwt()
@@ -322,11 +325,11 @@ configuwed, (ꈍᴗꈍ) ow the entiwe window, ^•ﻌ•^ i-if nyot):</p>
     // t-the size o-of the awea being w-wendewed to
     w-wet view_dimensions = c-camewa.wogicaw_viewpowt_size().unwwap();
 
-    // the top-weft and bottom-wight coowdinates
-    wet (cownew1, :3 c-cownew2) = camewa.wogicaw_viewpowt_wect().unwwap();
+    // the coowdinates of the wectangwe covewed by the viewpowt
+    w-wet wect = camewa.wogicaw_viewpowt_wect().unwwap();
 }</code></pre>
 <h2 id="coowdinate-convewsion"><a class="header" href="#coowdinate-convewsion">coowdinate convewsion</a></h2>
-<p><a href="https://docs.rs/bevy/0.9.1/bevy/render/camera/struct.Camera.html"><code>Camera</code></a> pwovides methods to hewp with coowdinate c-convewsion
+<p><a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a> pwovides methods to hewp with coowdinate c-convewsion
 between on-scween coowdinates and w-wowwd-space coowdinates. OwO f-fow an e-exampwe, see
 the <a href="/cookbook/cursor2world.html">&quot;cuwsow to wowwd&quot;</a> cookbook page.</p>
 <h2 id="cweaw-cowow"><a class="header" href="#cweaw-cowow">cweaw cowow</a></h2>
@@ -336,7 +339,7 @@ befowe a camewa wendews anything.</p>
 pixews as they wewe befowe.</p>
 <p><a href="/window/clear-color.html">see this page fow mowe info.</a></p>
 <h2 id="wendew-wayews"><a class="header" href="#wendew-wayews">wendew wayews</a></h2>
-<p><a href="https://docs.rs/bevy/0.9.1/bevy/render/view/visibility/struct.RenderLayers.html"><code>RenderLayers</code></a> is a way to fiwtew nyani entities s-shouwd be
+<p><a href="https://docs.rs/bevy/0.12.0/bevy/render/view/visibility/struct.RenderLayers.html"><code>RenderLayers</code></a> is a way to fiwtew nyani entities s-shouwd be
 dwawn by nyani camewas. &gt;_&lt; insewt this <a href="/programming/ec.html#components">component</a> onto youw entities
 to pwace them in specific &quot;wayews&quot;. OwO t-the wayews awe i-integews fwom 0 t-to 31 (32
 totaw avaiwabwe).</p>
@@ -345,7 +348,7 @@ shouwd wendew. OwO insewting this component o-onto wendewabwe e-entities s-sewec
 camewas shouwd wendew those entities. OwO a-an entity wiww b-be wendewed i-if thewe is any
 ovewwap between the camewa's wayews a-and the entity's w-wayews (they h-have at weast
 one wayew in common).</p>
-<p>if an entity does nyot have the <a href="https://docs.rs/bevy/0.9.1/bevy/render/view/visibility/struct.RenderLayers.html"><code>RenderLayers</code></a> component,
+<p>if an entity does nyot have the <a href="https://docs.rs/bevy/0.12.0/bevy/render/view/visibility/struct.RenderLayers.html"><code>RenderLayers</code></a> component,
 it is assumed to bewong to wayew 0 (onwy).</p>
 <pre><code class="language-rust no_run noplayground">use bevy::wendew::view::visibiwity::wendewwayews;
 // this camewa w-wendews evewything i-in wayews 0, rawr x3 1
@@ -380,11 +383,11 @@ commands.spawn((
 ));</code></pre>
 <p>you can awso modify the wendew wayews o-of entities a-aftew they awe s-spawned.</p>
 <h2 id="camewa-owdewing"><a class="header" href="#camewa-owdewing">camewa owdewing</a></h2>
-<p>a camewa's pwiowity is a simpwe integew v-vawue that c-contwows the owdew w-wewative
+<p>a camewa's <code>order</code> is a simpwe integew vawue that contwows t-the owdew w-wewative
 to any othew camewas with the same w-wendew tawget.</p>
 <p>fow exampwe, OwO if you have muwtipwe c-camewas that aww w-wendew to the p-pwimawy window,
-they wiww behave as muwtipwe &quot;wayews&quot;. OwO c-camewas with h-highew pwiowity w-wiww wendew
-&quot;on top of&quot; camewas with wowew pwiowity.</p>
+they wiww behave as muwtipwe &quot;wayews&quot;. OwO c-camewas with a-a highew owdew v-vawue wiww wendew
+&quot;on top of&quot; camewas with a wowew v-vawue. (ꈍᴗꈍ) <code>0</code> is the defauwt.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::cowe_pipewine::cweaw_cowow::cweawcowowconfig;
 
 commands.spawn((
@@ -396,7 +399,7 @@ commands.spawn((
         },
         camewa: camewa {
             // w-wendews aftew / on top of the main camewa
-            p-pwiowity: 1, (ˆ ﻌ ˆ)♡
+            o-owdew: 1, (ˆ ﻌ ˆ)♡
             ..defauwt()
         }, (⑅˘꒳˘)
         ..defauwt()
@@ -435,21 +438,21 @@ easiwy we-enabwe it watew.</p>
 <p>this is an ovewview of diffewent s-scenawios whewe y-you wouwd nyeed m-mowe than one
 camewa entity.</p>
 <h3 id="muwtipwe-windows"><a class="header" href="#muwtipwe-windows">muwtipwe windows</a></h3>
-<p>officiaw exampwe: <a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/window/multiple_windows.rs"><code>multiple_windows</code></a>.</p>
+<p>officiaw exampwe: <a href="https://github.com/bevyengine/bevy/blob/main/examples/window/multiple_windows.rs"><code>multiple_windows</code></a>.</p>
 <p>if you want to cweate a bevy app w-with muwtipwe windows, OwO y-you nyeed t-to spawn
 muwtipwe camewas, ^•ﻌ•^ one fow each window, OwO a-and set theiw w-wendew tawgets
 wespectivewy. OwO then, 🥺 you can use youw c-camewas to contwow n-nyani to d-dispway in each
 window.</p>
 <h3 id="spwit-scween"><a class="header" href="#spwit-scween">spwit-scween</a></h3>
-<p>officiaw exampwe: <a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/3d/split_screen.rs"><code>split_screen</code></a>.</p>
+<p>officiaw exampwe: <a href="https://github.com/bevyengine/bevy/blob/main/examples/3d/split_screen.rs"><code>split_screen</code></a>.</p>
 <p>you can set the camewa <a href="#viewport">viewpowt</a> to onwy wendew to a pawt of the
 wendew tawget. OwO this way, 🥺 a camewa c-can be made to w-wendew one hawf o-of the scween
 (ow any othew awea). OwO use a sepawate c-camewa fow each v-view in a spwit-scween g-game.</p>
 <h3 id="ovewways"><a class="header" href="#ovewways">ovewways</a></h3>
-<p>officiaw exampwe: <a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/3d/two_passes.rs"><code>two_passes</code></a>.</p>
+<p>officiaw exampwe: <a href="https://github.com/bevyengine/bevy/blob/main/examples/3d/two_passes.rs"><code>two_passes</code></a>.</p>
 <p>you might want to wendew muwtipwe &quot;wayews&quot; (passes) t-to the same wendew t-tawget.
-an exampwe of this might be an ovewway/hud t-to be d-dispwayed as an o-ovewway on top
-of the main game.</p>
+an exampwe of this might be an ovewway/hud t-to be d-dispwayed on top o-of the
+main game.</p>
 <p>the ovewway camewa couwd be compwetewy d-diffewent f-fwom the main camewa. OwO f-fow
 exampwe, OwO the main camewa might dwaw a-a 3d scene, 🥺 and t-the ovewway camewa m-might
 dwaw 2d shapes. (ꈍᴗꈍ) such use cases awe p-possibwe!</p>
@@ -464,7 +467,7 @@ it on the othew camewa.</p>
 by each camewa.</p>
 <h3 id="wendew-to-image"><a class="header" href="#wendew-to-image">wendew to image</a></h3>
 <p>(aka wendew to textuwe)</p>
-<p>officiaw exampwe: <a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/3d/render_to_texture.rs"><code>render_to_texture</code></a>.</p>
+<p>officiaw exampwe: <a href="https://github.com/bevyengine/bevy/blob/main/examples/3d/render_to_texture.rs"><code>render_to_texture</code></a>.</p>
 <p>if you want to genewate an image i-in memowy, ^•ﻌ•^ you can o-output to an <code>Image</code> asset.</p>
 <p>this is usefuw fow intewmediate steps i-in games, OwO such a-as wendewing a-a minimap ow
 the gun in a shootew game. OwO you can t-then use that i-image as pawt of t-the finaw
