@@ -172,11 +172,122 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="2d-camewa-setup"><a class="header" href="#2d-camewa-setup">2d camewa setup</a></h1>
-<p>page coming soon…</p>
-<p>in the meantime, you can weawn fwom b-bevy's <a href="https://github.com/bevyengine/bevy/tree/latest/examples#examples">exampwes</a>.</p>
+<p><a href="/graphics/camera.html">camewas</a> in bevy awe mandatowy to see anything: t-they configuwe t-the
+wendewing.</p>
+<p>this page wiww teach you about the s-specifics of 2d c-camewas. 🥺 if you w-want to weawn a-about
+genewaw nyon-2d specific functionawity, (ꈍᴗꈍ) s-see the <a href="/graphics/camera.html">genewaw page on camewas</a>.</p>
+<h2 id="cweating-a-2d-camewa"><a class="header" href="#cweating-a-2d-camewa">cweating a 2d camewa</a></h2>
+<p>bevy pwovides a <a href="/programming/bundle.html">bundwe</a> (<a href="https://docs.rs/bevy/0.12.0/bevy/core_pipeline/core_2d/struct.Camera2dBundle.html"><code>Camera2dBundle</code></a>)
+that you can use to <a href="/programming/commands.html">spawn</a> a camewa <a href="/programming/ec.html#entities">entity</a>. XD it
+has weasonabwe defauwts to set up e-evewything cowwectwy.</p>
+<p>you might want to set the <a href="/fundamentals/transforms.html">twansfowm</a>, &gt;_&lt; to position the camewa.</p>
+<pre><code class="language-rust no_run noplayground">commands.spawn((
+    camewa2dbundwe {
+        twansfowm: t-twansfowm::fwom_xyz(100.0, (ꈍᴗꈍ) 200.0, 0.0), ^•ﻌ•^
+        ..defauwt()
+    }, OwO
+    mycamewamawkew, 🥺
+));</code></pre>
+<h2 id="pwojection"><a class="header" href="#pwojection">pwojection</a></h2>
+<p>the <a href="/graphics/camera.html#projection">pwojection</a> is nyani detewmines how coowdinates m-map to the
+<a href="/graphics/camera.html#viewport">viewpowt</a> (commonwy, XD the scween/window).</p>
+<p>2d camewas awways use an owthogwaphic p-pwojection.</p>
+<p>when you spawn a 2d camewa using <a href="https://docs.rs/bevy/0.12.0/bevy/core_pipeline/core_2d/struct.Camera2dBundle.html"><code>Camera2dBundle</code></a>,
+it adds the <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a>
+<a href="/programming/ec.html#components">component</a> to youw <a href="/programming/ec.html#entities">entity</a>. XD when
+you awe wowking with 2d camewas and y-you want to access
+the pwojection, &gt;_&lt; you shouwd <a href="/programming/queries.html">quewy</a> fow
+<a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a>.</p>
+<pre><code class="language-rust no_run noplayground">fn debug_pwojection(
+    quewy_camewa: q-quewy&lt;&amp;owthogwaphicpwojection, o.O w-with&lt;mycamewamawkew&gt;&gt;,
+) {
+    w-wet pwojection = q-quewy_camewa.singwe();
+    // ... d-do something w-with the pwojection
+}</code></pre>
+<p>note that this is diffewent fwom <a href="/3d/camera.html#projection">3d</a>. XD if you awe
+making a wibwawy ow some othew code t-that shouwd be a-abwe to handwe b-both 2d and
+3d, &gt;<em>&lt; you cannot make a singwe <a href="/programming/queries.html">quewy</a> to access both 2d and 3d
+camewas. &gt;</em>&lt; you shouwd cweate sepawate <a href="/programming/systems.html">systems</a>, XD ow at weast two
+sepawate quewies, OwO to handwe each k-kind of camewa. 🥺 t-this makes sense, òωó a-as you wiww
+wikewy nyeed diffewent wogic fow 2d v-vs. (ꈍᴗꈍ) 3d anyway.</p>
+<h3 id="scawing-mode"><a class="header" href="#scawing-mode">scawing mode</a></h3>
+<p>you can set the <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/enum.ScalingMode.html"><code>ScalingMode</code></a> accowding to how you want to
+handwe window size / wesowution.</p>
+<p>the defauwt fow bevy 2d camewas is t-to have 1 scween p-pixew cowwespond t-to 1 wowwd
+unit, OwO thus awwowing you to think o-of evewything in &quot;pixews&quot;. 🥺 w-when t-the window is
+wesized, (ꈍᴗꈍ) that causes mowe ow wess c-content to be seen.</p>
+<p>if you want to keep this window wesizing b-behaviow, OwO b-but change the m-mapping of scween
+pixews to wowwd units, &gt;_&lt; use <code>ScalingMode::WindowSize(x)</code> with a vawue othew than <code>1.0</code>.
+the vawue wepwesents the nyumbew o-of scween pixews f-fow one wowwd unit.</p>
+<p>if, ^•ﻌ•^ instead, you want to awways fit t-the same amount o-of content
+on-scween, ^•ﻌ•^ wegawdwess of wesowution, OwO y-you shouwd use s-something wike
+<code>ScalingMode::FixedVertical</code> ow <code>ScalingMode::AutoMax</code>. XD then, you can diwectwy
+specify how many units you want to d-dispway on-scween, OwO a-and youw content w-wiww
+be upscawed/downscawed as appwopwiate t-to fit the w-window size.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::wendew::camewa::scawingmode;
+
+commands.spawn((
+    c-camewa2dbundwe {
+        p-pwojection: o-owthogwaphicpwojection {
+            // f-fow this e-exampwe, -.- wet's m-make the scween/window h-height
+            // c-cowwespond to 1600.0 wowwd units. the width wiww
+            // depend o-on the aspect watio. (ˆ ﻌ ˆ)♡
+            scawing_mode: s-scawingmode::fixedvewticaw(1600.0), (⑅˘꒳˘)
+            ..defauwt()
+        }, (U ᵕ U❁)
+        twansfowm: twansfowm::fwom_xyz(100.0, -.- 200.0, ^^;; 0.0),
+        ..defauwt()
+    }, &gt;_&lt;
+    m-mycamewamawkew, mya
+));</code></pre>
+<h3 id="zooming"><a class="header" href="#zooming">zooming</a></h3>
+<p>to &quot;zoom&quot; in 2d, you can change the o-owthogwaphic p-pwojection's <code>scale</code>. XD this
+awwows you to just scawe evewything b-by some factow, OwO w-wegawdwess of t-the
+<a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/enum.ScalingMode.html"><code>ScalingMode</code></a> behaviow.</p>
+<pre><code class="language-rust no_run noplayground">fn zoom_scawe(
+    mut quewy_camewa: q-quewy&lt;&amp;mut owthogwaphicpwojection, (⑅˘꒳˘) w-with&lt;mycamewamawkew&gt;&gt;, ( ͡o ω ͡o )
+) {
+    w-wet mut pwojection = q-quewy_camewa.singwe_mut();
+    // z-zoom i-in
+    pwojection.scawe /= 1.25;
+    // z-zoom out
+    p-pwojection.scawe *= 1.25;
+}</code></pre>
+<p>awtewnativewy, (ꈍᴗꈍ) you can weconfiguwe t-the <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/enum.ScalingMode.html"><code>ScalingMode</code></a>. XD this
+way you can be confident about how e-exactwy coowdinates/units m-map t-to the
+scween. ^•ﻌ•^ this awso hewps avoid scawing a-awtifacts with 2d a-assets, OwO especiawwy
+pixew awt.</p>
+<pre><code class="language-rust no_run noplayground">fn zoom_scawingmode(
+    mut quewy_camewa: q-quewy&lt;&amp;mut o-owthogwaphicpwojection, &gt;_&lt; w-with&lt;mycamewamawkew&gt;&gt;, :3
+) {
+    u-use b-bevy::wendew::camewa::scawingmode;
+
+    w-wet mut p-pwojection = quewy_camewa.singwe_mut();
+    // 4 s-scween pixews to wowwd/game pixew
+    pwojection.scawing_mode = scawingmode::windowsize(4.0);
+    // 6 scween pixews t-to wowwd/game pixew
+    pwojection.scawing_mode = scawingmode::windowsize(6.0);
+}</code></pre>
+<p>considew having a wist of pwedefined &quot;zoom w-wevews&quot; / s-scawe vawues, OwO s-so that you
+can make suwe youw game awways wooks g-good.</p>
+<p>if you awe making a pixew-awt game, OwO y-you want to make s-suwe the defauwt t-textuwe
+fiwtewing mode is set to nyeawest (and n-nyot wineaw), OwO i-if you want y-youw pixews
+to appeaw cwisp instead of bwuwwy:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    app::new()
+        .add_pwugins(
+            defauwtpwugins
+                .set(imagepwugin::defauwt_neawest())
+        )
+        // ...
+        .wun();
+}</code></pre>
+<p>howevew, XD when <em>downscawing</em>, (ꈍᴗꈍ) wineaw (the defauwt) fiwtewing i-is pwefewwed
+fow highew quawity. OwO so, fow games w-with high-wes assets, 🥺 y-you want t-to weave
+it unchanged.</p>
 
                     </main>
 

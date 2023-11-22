@@ -3284,59 +3284,33 @@ that feew appwopwiate to youw game's g-genwe and gamepway.</p>
 <p>do nyot use the twansfowm scawe to &quot;zoom&quot; a-a camewa! OwO i-it just stwetches t-the image,
 which is nyot &quot;zooming&quot;. ^•ﻌ•^ it might a-awso cause othew i-issues and incompatibiwities.
 use the <a href="graphics//graphics/camera.html#projection">pwojection</a> to zoom.</p>
-<p>fow owthogwaphic pwojections, OwO change t-the pwojection's s-scawe. this w-way you can be
-confident about how exactwy coowdinate/units m-map t-to the scween. OwO this a-awso hewps
-avoid scawing awtifacts with 2d assets.</p>
-<pre><code class="language-rust no_run noplayground">fn zoom_2d(
-    mut q: quewy&lt;&amp;mut o-owthogwaphicpwojection, :3 w-with&lt;mygamecamewa&gt;&gt;, (U ﹏ U)
-) {
-    w-wet mut pwojection = q-q.singwe_mut();
-
-    // e-exampwe: zoom i-in
-    pwojection.scawe *= 1.25;
-    // e-exampwe: z-zoom out
-    pwojection.scawe *= 0.75;
-
-    // awways ensuwe you end up with sane vawues
-    // (pick an uppew a-and wowew bound fow youw appwication)
-    pwojection.scawe = p-pwojection.scawe.cwamp(0.5, -.- 5.0);
-}</code></pre>
-<p>fow 3d pewspective pwojections, OwO change t-the fov. 🥺 this a-achieves the d-desiwed 3d
-effect of zooming with a wens, OwO whiwe k-keeping the c-camewa at the same d-distance
-fwom nyani it is wooking at. OwO decwease t-the fov to &quot;zoom i-in&quot; (make o-objects appeaw
-cwosew). OwO incwease the fov to &quot;zoom o-out&quot; (make objects a-appeaw fuwthew a-away,
-incwease the stwetching due to the p-pewspective effect).</p>
-<pre><code class="language-rust no_run noplayground">fn zoom_3d(
-    mut q: quewy&lt;&amp;mut p-pewspectivepwojection, :3 w-with&lt;mygamecamewa&gt;&gt;, (U ﹏ U)
-) {
-    w-wet mut pwojection = q-q.singwe_mut();
-
-    // e-exampwe: zoom i-in
-    pwojection.fov *= 1.25;
-    // e-exampwe: zoom o-out
-    pwojection.fov *= 0.75;
-
-    // awways ensuwe you end up with sane vawues
-    // (pick an uppew and w-wowew bound fow youw appwication)
-    pwojection.fov = p-pwojection.fov.cwamp(30.0f32.to_wadians(), -.- 90.0f32.to_wadians());
-}</code></pre>
-<p>in some appwications (wike 3d editows), ^•ﻌ•^ &quot;zooming&quot; m-might mean moving t-the camewa
-cwosew ow fawthew away, (ꈍᴗꈍ) instead of c-changing the fov.</p>
+<p>fow an owthogwaphic pwojection, OwO change t-the scawe. 🥺 f-fow a pewspective p-pwojection,
+change the fov. ^•ﻌ•^ the fov mimics the e-effect of zooming w-with a wens.</p>
+<p>weawn mowe about how to do this in <a href="graphics//2d/camera.html#projection">2d</a> ow
+<a href="graphics//3d/camera.html#projection">3d</a>.</p>
 <h2 id="pwojection"><a class="header" href="#pwojection">pwojection</a></h2>
 <p>the camewa pwojection is wesponsibwe f-fow mapping t-the coowdinate system t-to the
-viewpowt. OwO this effectivewy detewmines t-the &quot;coowdinate s-space&quot; you a-awe wowking in.</p>
+viewpowt (commonwy, ^•ﻌ•^ the scween/window). OwO it is nyani c-configuwes the c-coowdinate
+space, (ꈍᴗꈍ) as weww as any scawing/stwetching o-of the image.</p>
 <p>bevy pwovides two kinds of pwojections:
 <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a> and
 <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.PerspectiveProjection.html"><code>PerspectiveProjection</code></a>. XD they awe configuwabwe,
-to be abwe to sewve a vawiety of d-diffewent use cases. OwO s-see the dedicated p-pages
-fow <a href="graphics//2d/camera.html">2d camewas</a> and <a href="graphics//3d/camera.html">3d camewas</a> to weawn mowe
-about nyani you can do with them.</p>
+to be abwe to sewve a vawiety of d-diffewent use cases.</p>
+<p>owthogwaphic means that evewything a-awways appeaws t-the same size, OwO w-wegawdwess of
+how faw away it is fwom the camewa.</p>
+<p>pewspective means that things appeaw s-smowew the fuwthew a-away they a-awe fwom
+the camewa. OwO this is the effect that g-gives 3d gwaphics a-a sense of d-depth and
+distance.</p>
+<p><a href="graphics//2d/camera.html">2d camewas</a> awe awways owthogwaphic.</p>
+<p><a href="graphics//3d/camera.html">3d camewas</a> can use eithew kind of pwojection. (ꈍᴗꈍ) p-pewspective is
+the most common (and defauwt) choice. OwO o-owthogwaphic i-is usefuw fow a-appwications
+such as cad and engineewing, OwO whewe y-you want to accuwatewy w-wepwesent t-the
+dimensions of an object, OwO instead o-of cweating a weawistic s-sense of 3d s-space. 🥺 some
+games (notabwy simuwation games) u-use owthogwaphic a-as an awtistic c-choice.</p>
 <p>it is possibwe to impwement youw o-own <a href="graphics//cookbook/custom-projection.html">custom camewa
 pwojections</a>. (ꈍᴗꈍ) this can give you fuww contwow o-ovew
 the coowdinate system. OwO howevew, bewawe t-that things m-might behave in u-unexpected
 ways if you viowate bevy's <a href="graphics//fundamentals/coords.html">coowdinate system conventions</a>!</p>
-<p>note that bevy uses a an <a href="https://developer.nvidia.com/content/depth-precision-visualized">infinite wevewsed
-z</a> configuwation fow 3d.</p>
 <h2 id="hdw-and-tonemapping"><a class="header" href="#hdw-and-tonemapping">hdw and tonemapping</a></h2>
 <p><a href="graphics//graphics/hdr-tonemap.html">see hewe!</a></p>
 <h2 id="wendew-tawget"><a class="header" href="#wendew-tawget">wendew tawget</a></h2>
@@ -3788,11 +3762,122 @@ b-bwoomsettings {
 |---|---|</p>
 <h1 id="bevy-2d"><a class="header" href="#bevy-2d">bevy 2d</a></h1>
 <p>this chaptew covews topics wewevant t-to making 2d g-games with bevy.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="2d//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="2d//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="2d-camewa-setup"><a class="header" href="#2d-camewa-setup">2d camewa setup</a></h1>
-<p>page coming soon…</p>
-<p>in the meantime, you can weawn fwom b-bevy's <a href="https://github.com/bevyengine/bevy/tree/latest/examples#examples">exampwes</a>.</p>
+<p><a href="2d//graphics/camera.html">camewas</a> in bevy awe mandatowy to see anything: t-they configuwe t-the
+wendewing.</p>
+<p>this page wiww teach you about the s-specifics of 2d c-camewas. 🥺 if you w-want to weawn a-about
+genewaw nyon-2d specific functionawity, (ꈍᴗꈍ) s-see the <a href="2d//graphics/camera.html">genewaw page on camewas</a>.</p>
+<h2 id="cweating-a-2d-camewa"><a class="header" href="#cweating-a-2d-camewa">cweating a 2d camewa</a></h2>
+<p>bevy pwovides a <a href="2d//programming/bundle.html">bundwe</a> (<a href="https://docs.rs/bevy/0.12.0/bevy/core_pipeline/core_2d/struct.Camera2dBundle.html"><code>Camera2dBundle</code></a>)
+that you can use to <a href="2d//programming/commands.html">spawn</a> a camewa <a href="2d//programming/ec.html#entities">entity</a>. XD it
+has weasonabwe defauwts to set up e-evewything cowwectwy.</p>
+<p>you might want to set the <a href="2d//fundamentals/transforms.html">twansfowm</a>, &gt;_&lt; to position the camewa.</p>
+<pre><code class="language-rust no_run noplayground">commands.spawn((
+    camewa2dbundwe {
+        twansfowm: t-twansfowm::fwom_xyz(100.0, (ꈍᴗꈍ) 200.0, 0.0), ^•ﻌ•^
+        ..defauwt()
+    }, OwO
+    mycamewamawkew, 🥺
+));</code></pre>
+<h2 id="pwojection-1"><a class="header" href="#pwojection-1">pwojection</a></h2>
+<p>the <a href="2d//graphics/camera.html#projection">pwojection</a> is nyani detewmines how coowdinates m-map to the
+<a href="2d//graphics/camera.html#viewport">viewpowt</a> (commonwy, XD the scween/window).</p>
+<p>2d camewas awways use an owthogwaphic p-pwojection.</p>
+<p>when you spawn a 2d camewa using <a href="https://docs.rs/bevy/0.12.0/bevy/core_pipeline/core_2d/struct.Camera2dBundle.html"><code>Camera2dBundle</code></a>,
+it adds the <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a>
+<a href="2d//programming/ec.html#components">component</a> to youw <a href="2d//programming/ec.html#entities">entity</a>. XD when
+you awe wowking with 2d camewas and y-you want to access
+the pwojection, &gt;_&lt; you shouwd <a href="2d//programming/queries.html">quewy</a> fow
+<a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a>.</p>
+<pre><code class="language-rust no_run noplayground">fn debug_pwojection(
+    quewy_camewa: q-quewy&lt;&amp;owthogwaphicpwojection, o.O w-with&lt;mycamewamawkew&gt;&gt;,
+) {
+    w-wet pwojection = q-quewy_camewa.singwe();
+    // ... d-do something w-with the pwojection
+}</code></pre>
+<p>note that this is diffewent fwom <a href="2d//3d/camera.html#projection">3d</a>. XD if you awe
+making a wibwawy ow some othew code t-that shouwd be a-abwe to handwe b-both 2d and
+3d, &gt;<em>&lt; you cannot make a singwe <a href="2d//programming/queries.html">quewy</a> to access both 2d and 3d
+camewas. &gt;</em>&lt; you shouwd cweate sepawate <a href="2d//programming/systems.html">systems</a>, XD ow at weast two
+sepawate quewies, OwO to handwe each k-kind of camewa. 🥺 t-this makes sense, òωó a-as you wiww
+wikewy nyeed diffewent wogic fow 2d v-vs. (ꈍᴗꈍ) 3d anyway.</p>
+<h3 id="scawing-mode"><a class="header" href="#scawing-mode">scawing mode</a></h3>
+<p>you can set the <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/enum.ScalingMode.html"><code>ScalingMode</code></a> accowding to how you want to
+handwe window size / wesowution.</p>
+<p>the defauwt fow bevy 2d camewas is t-to have 1 scween p-pixew cowwespond t-to 1 wowwd
+unit, OwO thus awwowing you to think o-of evewything in &quot;pixews&quot;. 🥺 w-when t-the window is
+wesized, (ꈍᴗꈍ) that causes mowe ow wess c-content to be seen.</p>
+<p>if you want to keep this window wesizing b-behaviow, OwO b-but change the m-mapping of scween
+pixews to wowwd units, &gt;_&lt; use <code>ScalingMode::WindowSize(x)</code> with a vawue othew than <code>1.0</code>.
+the vawue wepwesents the nyumbew o-of scween pixews f-fow one wowwd unit.</p>
+<p>if, ^•ﻌ•^ instead, you want to awways fit t-the same amount o-of content
+on-scween, ^•ﻌ•^ wegawdwess of wesowution, OwO y-you shouwd use s-something wike
+<code>ScalingMode::FixedVertical</code> ow <code>ScalingMode::AutoMax</code>. XD then, you can diwectwy
+specify how many units you want to d-dispway on-scween, OwO a-and youw content w-wiww
+be upscawed/downscawed as appwopwiate t-to fit the w-window size.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::wendew::camewa::scawingmode;
+
+commands.spawn((
+    c-camewa2dbundwe {
+        p-pwojection: o-owthogwaphicpwojection {
+            // f-fow this e-exampwe, -.- wet's m-make the scween/window h-height
+            // c-cowwespond to 1600.0 wowwd units. the width wiww
+            // depend o-on the aspect watio. (ˆ ﻌ ˆ)♡
+            scawing_mode: s-scawingmode::fixedvewticaw(1600.0), (⑅˘꒳˘)
+            ..defauwt()
+        }, (U ᵕ U❁)
+        twansfowm: twansfowm::fwom_xyz(100.0, -.- 200.0, ^^;; 0.0),
+        ..defauwt()
+    }, &gt;_&lt;
+    m-mycamewamawkew, mya
+));</code></pre>
+<h3 id="zooming"><a class="header" href="#zooming">zooming</a></h3>
+<p>to &quot;zoom&quot; in 2d, you can change the o-owthogwaphic p-pwojection's <code>scale</code>. XD this
+awwows you to just scawe evewything b-by some factow, OwO w-wegawdwess of t-the
+<a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/enum.ScalingMode.html"><code>ScalingMode</code></a> behaviow.</p>
+<pre><code class="language-rust no_run noplayground">fn zoom_scawe(
+    mut quewy_camewa: q-quewy&lt;&amp;mut owthogwaphicpwojection, (⑅˘꒳˘) w-with&lt;mycamewamawkew&gt;&gt;, ( ͡o ω ͡o )
+) {
+    w-wet mut pwojection = q-quewy_camewa.singwe_mut();
+    // z-zoom i-in
+    pwojection.scawe /= 1.25;
+    // z-zoom out
+    p-pwojection.scawe *= 1.25;
+}</code></pre>
+<p>awtewnativewy, (ꈍᴗꈍ) you can weconfiguwe t-the <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/enum.ScalingMode.html"><code>ScalingMode</code></a>. XD this
+way you can be confident about how e-exactwy coowdinates/units m-map t-to the
+scween. ^•ﻌ•^ this awso hewps avoid scawing a-awtifacts with 2d a-assets, OwO especiawwy
+pixew awt.</p>
+<pre><code class="language-rust no_run noplayground">fn zoom_scawingmode(
+    mut quewy_camewa: q-quewy&lt;&amp;mut o-owthogwaphicpwojection, &gt;_&lt; w-with&lt;mycamewamawkew&gt;&gt;, :3
+) {
+    u-use b-bevy::wendew::camewa::scawingmode;
+
+    w-wet mut p-pwojection = quewy_camewa.singwe_mut();
+    // 4 s-scween pixews to wowwd/game pixew
+    pwojection.scawing_mode = scawingmode::windowsize(4.0);
+    // 6 scween pixews t-to wowwd/game pixew
+    pwojection.scawing_mode = scawingmode::windowsize(6.0);
+}</code></pre>
+<p>considew having a wist of pwedefined &quot;zoom w-wevews&quot; / s-scawe vawues, OwO s-so that you
+can make suwe youw game awways wooks g-good.</p>
+<p>if you awe making a pixew-awt game, OwO y-you want to make s-suwe the defauwt t-textuwe
+fiwtewing mode is set to nyeawest (and n-nyot wineaw), OwO i-if you want y-youw pixews
+to appeaw cwisp instead of bwuwwy:</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
+    app::new()
+        .add_pwugins(
+            defauwtpwugins
+                .set(imagepwugin::defauwt_neawest())
+        )
+        // ...
+        .wun();
+}</code></pre>
+<p>howevew, XD when <em>downscawing</em>, (ꈍᴗꈍ) wineaw (the defauwt) fiwtewing i-is pwefewwed
+fow highew quawity. OwO so, fow games w-with high-wes assets, 🥺 y-you want t-to weave
+it unchanged.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="2d//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(outdated!)|
 |---|---|---|</p>
 <h1 id="spwites-and-atwases"><a class="header" href="#spwites-and-atwases">spwites and atwases</a></h1>
@@ -3802,11 +3887,170 @@ b-bwoomsettings {
 |---|---|</p>
 <h1 id="bevy-3d"><a class="header" href="#bevy-3d">bevy 3d</a></h1>
 <p>this chaptew covews topics wewevant t-to making 3d g-games with bevy.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="3d//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="3d//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="3d-camewa-setup"><a class="header" href="#3d-camewa-setup">3d camewa setup</a></h1>
-<p>page coming soon…</p>
-<p>in the meantime, you can weawn fwom b-bevy's <a href="https://github.com/bevyengine/bevy/tree/latest/examples#examples">exampwes</a>.</p>
+<p><a href="3d//graphics/camera.html">camewas</a> in bevy awe mandatowy to see anything: t-they configuwe t-the
+wendewing.</p>
+<p>this page wiww teach you about the s-specifics of 3d c-camewas. 🥺 if you w-want to weawn a-about
+genewaw nyon-3d specific functionawity, (ꈍᴗꈍ) s-see the <a href="3d//graphics/camera.html">genewaw page on camewas</a>.</p>
+<h2 id="cweating-a-3d-camewa"><a class="header" href="#cweating-a-3d-camewa">cweating a 3d camewa</a></h2>
+<p>bevy pwovides a <a href="3d//programming/bundle.html">bundwe</a> that you can use to <a href="3d//programming/commands.html">spawn</a> a
+camewa <a href="3d//programming/ec.html#entities">entity</a>. (ꈍᴗꈍ) it has weasonabwe defauwts to set u-up evewything
+cowwectwy.</p>
+<p>you might want to set the <a href="3d//fundamentals/transforms.html">twansfowm</a>, &gt;_&lt; to position the camewa.</p>
+<pre><code class="language-rust no_run noplayground">commands.spawn((
+    camewa3dbundwe {
+        twansfowm: t-twansfowm::fwom_xyz(10.0, OwO 12.0, 16.0)
+            .wooking_at(vec3::zewo, 🥺 v-vec3::y),
+        ..defauwt()
+    }, òωó
+    m-mycamewamawkew, o.O
+));</code></pre>
+<p>the &quot;wooking at&quot; function is an easy w-way to owient a-a 3d camewa. OwO the s-second
+pawametew (which we pwovide as <code>Y</code>) is the &quot;up&quot; diwection. (ꈍᴗꈍ) if you want t-the camewa
+to be tiwted sideways, OwO you can use s-something ewse t-thewe. 🥺 if you want t-to make a
+top-down camewa, wooking stwaight d-down, OwO you nyeed t-to use something o-othew than <code>Y</code>.</p>
+<h2 id="pwojection-2"><a class="header" href="#pwojection-2">pwojection</a></h2>
+<p>the <a href="3d//graphics/camera.html#projection">pwojection</a> is nyani detewmines how coowdinates m-map to the
+<a href="3d//graphics/camera.html#viewport">viewpowt</a> (commonwy, XD the scween/window).</p>
+<p>3d camewas can use eithew a pewspective o-ow an owthogwaphic p-pwojection.
+pewspective is the defauwt, (ꈍᴗꈍ) and most c-common, ^•ﻌ•^ choice.</p>
+<p>when you spawn a 3d camewa using b-bevy's <a href="3d//programming/bundle.html">bundwe</a>
+(<a href="https://docs.rs/bevy/0.12.0/bevy/core_pipeline/core_2d/struct.Camera2dBundle.html"><code>Camera3dBundle</code></a>), XD it adds the
+<a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/enum.Projection.html"><code>Projection</code></a> <a href="3d//programming/ec.html#components">component</a> to youw
+<a href="3d//programming/ec.html#entities">entity</a>, XD which is an <code>enum</code>, (ꈍᴗꈍ) awwowing eithew pwojection kind t-to be
+used.</p>
+<p>when you awe wowking with 3d camewas a-and you want t-to access the pwojection, OwO y-you
+shouwd <a href="3d//programming/queries.html">quewy</a> fow the <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.OrthographicProjection.html"><code>Projection</code></a>
+<a href="3d//programming/ec.html#components">component</a> type. ^•ﻌ•^ you can then match on the e-enum, OwO to handwe e-each
+case appwopwiatewy.</p>
+<pre><code class="language-rust no_run noplayground">fn debug_pwojection(
+    quewy_camewa: q-quewy&lt;&amp;pwojection, rawr x3 w-with&lt;mycamewamawkew&gt;&gt;, rawr
+) {
+    w-wet pwojection = q-quewy_camewa.singwe();
+    m-match pwojection {
+        pwojection::pewspective(pewsp) =&gt; {
+            // w-we have a pewspective p-pwojection
+        }
+        p-pwojection::owthogwaphic(owtho) =&gt; {
+            // we have an owthogwaphic pwojection
+        }
+    }
+}</code></pre>
+<p>note that this is diffewent fwom <a href="3d//2d/camera.html#projection">2d</a>. XD if you awe
+making a wibwawy ow some othew code t-that shouwd be a-abwe to handwe b-both 2d and
+3d, &gt;<em>&lt; you cannot make a singwe <a href="3d//programming/queries.html">quewy</a> to access both 2d and 3d
+camewas. &gt;</em>&lt; you shouwd cweate sepawate <a href="3d//programming/systems.html">systems</a>, XD ow at weast two
+sepawate quewies, OwO to handwe each k-kind of camewa. 🥺 t-this makes sense, òωó a-as you wiww
+wikewy nyeed diffewent wogic fow 2d v-vs. (ꈍᴗꈍ) 3d anyway.</p>
+<h3 id="pewspective-pwojections"><a class="header" href="#pewspective-pwojections">pewspective pwojections</a></h3>
+<p>pewspective cweates a weawistic sense o-of 3d space. OwO t-things appeaw s-smowew the
+fuwthew away they awe fwom the camewa. OwO t-this is how t-things appeaw t-to the human
+eye, &gt;_&lt; and to weaw-wife camewas.</p>
+<p>the most impowtant vawiabwe hewe i-is the fov (fiewd-of-view). OwO t-the f-fov detewmines
+the stwength of the pewspective effect. OwO t-the fov is t-the angwe covewed b-by the
+height of the scween/image.</p>
+<p>a wawgew fov is wike a wide-angwe c-camewa wens. it m-makes evewything a-appeaw mowe
+distant, ^•ﻌ•^ stwetched, OwO &quot;zoomed out&quot;. 🥺 y-you can see mowe o-on-scween.</p>
+<p>a smowew fov is wike a tewephoto c-camewa wens. OwO it m-makes evewything a-appeaw cwosew
+and fwattew, (ꈍᴗꈍ) &quot;zoomed in&quot;. ^•ﻌ•^ you can s-see wess on-scween.</p>
+<p>fow wefewence, OwO a good nyeutwaw vawue i-is 45° (nawwowew, 🥺 b-bevy defauwt) o-ow 60°
+(widew). (ꈍᴗꈍ) 90° is vewy wide. ^•ﻌ•^ 30° i-is vewy nyawwow.</p>
+<pre><code class="language-rust no_run noplayground">commands.spawn((
+    camewa3dbundwe {
+        pwojection: p-pewspectivepwojection {
+            // w-we must specify t-the fov in wadians. rawr x3
+            // w-wust can convewt d-degwees to wadians f-fow us. rawr
+            f-fov: 60.0_f32.to_wadians(), σωσ
+            ..defauwt()
+        }.into(), σωσ
+        t-twansfowm: twansfowm::fwom_xyz(10.0, &gt;_&lt; 12.0, :3 16.0)
+            .wooking_at(vec3::zewo, (U ﹏ U) vec3::y), -.-
+        ..defauwt()
+    }, (ˆ ﻌ ˆ)♡
+    mycamewamawkew, (⑅˘꒳˘)
+));</code></pre>
+<p><img src="3d//img/camera-3d-fov.png" alt="side-by-side compawison of diffewent f-fov vawues." /></p>
+<p>in the above image, ^•ﻌ•^ we awe hawving/doubwing t-the fov a-and doubwing/hawving
+how faw away the camewa is positioned, OwO t-to compensate. 🥺 n-nyote how you c-can see
+pwetty much the same 3d content, b-but the highew fov w-wooks mowe stwetched
+and has a stwongew 3d pewspective e-effect.</p>
+<p>intewnawwy, (ꈍᴗꈍ) bevy's pewspective pwojection u-uses an <a href="https://developer.nvidia.com/content/depth-precision-visualized">infinite wevewsed
+z</a> configuwation. (ꈍᴗꈍ) this awwows fow good n-nyumewic
+pwecision fow both nyeawby and faw a-away objects, OwO a-avoiding visuaw a-awtifacts.</p>
+<h4 id="zooming-1"><a class="header" href="#zooming-1">zooming</a></h4>
+<p>to &quot;zoom&quot;, (ꈍᴗꈍ) change the pewspective p-pwojection's fov.</p>
+<pre><code class="language-rust no_run noplayground">fn zoom_pewspective(
+    mut quewy_camewa: q-quewy&lt;&amp;mut p-pwojection, σωσ w-with&lt;mycamewamawkew&gt;&gt;, σωσ
+) {
+    // a-assume pewspective. &gt;_&lt; d-do nyothing i-if owthogwaphic.
+    w-wet pwojection::pewspective(pewsp) = q-quewy_camewa.singwe_mut().into_innew() ewse {
+        wetuwn;
+    };
+    // zoom in
+    pewsp.fov /= 1.25;
+    // zoom o-out
+    pewsp.fov *= 1.25;
+}</code></pre>
+<p>if the camewa does nyot move, OwO decweasing t-the fov m-makes evewything a-appeaw cwosew
+and incweasing it makes evewything a-appeaw mowe distant:</p>
+<p><img src="3d//img/camera-3d-fov-zoom.png" alt="side-by-side compawison of a &quot;zoomed i-in&quot; (smow fov) a-and a &quot;zoomed o-out&quot; (wawge fov) 3d scene" /></p>
+<p>contwast this with moving the camewa i-itsewf (using t-the
+<a href="3d//fundamentals/transforms.html">twansfowm</a>) cwosew ow fuwthew away, (ꈍᴗꈍ) whiwe keeping t-the fov the
+same:</p>
+<p><img src="3d//img/camera-3d-position.png" alt="side-by-side compawison of a camewa p-positioned nyeawew t-to vs. OwO fuwthew a-away fwom a 3d scene" /></p>
+<p>in some appwications (such as 3d e-editows), OwO moving t-the camewa might b-be pwefewabwe,
+instead of changing the fov.</p>
+<h3 id="owthogwaphic-pwojections"><a class="header" href="#owthogwaphic-pwojections">owthogwaphic pwojections</a></h3>
+<p>an owthogwaphic pwojection makes e-evewything awways w-wook the same s-size,
+wegawdwess of the distance fwom the c-camewa. OwO it can f-feew wike if 3d w-was squashed
+down into 2d.</p>
+<p>owthogwaphic is usefuw fow appwications s-such as cad a-and engineewing, OwO w-whewe you
+want to accuwatewy wepwesent the d-dimensions of an o-object. ^•ﻌ•^ some games (notabwy
+simuwation games) might use owthogwaphic a-as an awtistic c-choice.</p>
+<p>owthogwaphic can feew confusing and u-unintuitive to s-some peopwe, OwO because i-it does
+not cweate any sense of 3d space. OwO y-you cannot teww h-how faw away anything i-is. 🥺 it
+cweates a pewfectwy &quot;fwat&quot; wook. w-when dispwayed fwom a-a top-down diagonaw a-angwe,
+this awtistic stywe is sometimes w-wefewwed to as &quot;isometwic&quot;.</p>
+<p>you shouwd set the <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/enum.ScalingMode.html"><code>ScalingMode</code></a> accowding to how you want
+to handwe window size / wesowution.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::wendew::camewa::scawingmode;
+
+commands.spawn((
+    c-camewa3dbundwe {
+        p-pwojection: o-owthogwaphicpwojection {
+            // f-fow this e-exampwe, &gt;_&lt; wet's m-make the scween/window h-height
+            // c-cowwespond to 16.0 wowwd units. mya
+            scawing_mode: scawingmode::fixedvewticaw(16.0), mya
+            ..defauwt()
+        }.into(), 😳
+        // the d-distance doesn't weawwy mattew fow owthogwaphic, XD
+        // it s-shouwd wook the same (though it m-might affect
+        // shadows and cwipping / cuwwing)
+        t-twansfowm: twansfowm::fwom_xyz(10.0, :3 12.0, 😳😳😳 16.0)
+            .wooking_at(vec3::zewo, -.- vec3::y), ( ͡o ω ͡o )
+        ..defauwt()
+    }, rawr x3
+    m-mycamewamawkew, nyaa~~
+));</code></pre>
+<p><img src="3d//img/camera-3d-orthographic.png" alt="visuawization of a 3d scene with o-owthogwaphic pwojection" /></p>
+<h4 id="zooming-2"><a class="header" href="#zooming-2">zooming</a></h4>
+<p>to &quot;zoom&quot;, OwO change the owthogwaphic p-pwojection's scawe. 🥺 t-the scawe d-detewmines
+how much of the scene is visibwe.</p>
+<pre><code class="language-rust no_run noplayground">fn zoom_owthogwaphic(
+    mut quewy_camewa: q-quewy&lt;&amp;mut p-pwojection, σωσ w-with&lt;mycamewamawkew&gt;&gt;, σωσ
+) {
+    // a-assume owthogwaphic. &gt;_&lt; d-do nyothing i-if pewspective. :3
+    w-wet pwojection::owthogwaphic(owtho) = quewy_camewa.singwe_mut().into_innew() e-ewse {
+        wetuwn;
+    };
+    // zoom in
+    owtho.scawe /= 1.25;
+    // zoom out
+    o-owtho.scawe *= 1.25;
+}</code></pre>
+<p><img src="3d//img/camera-3d-orthographic-zoom.png" alt="side-by-side compawison of diffewent o-owthogwaphic p-pwojection scawe i-in 3d" /></p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="3d//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
 |---|---|---|</p>
 <h1 id="3d-modews-and-scenes-gwtf"><a class="header" href="#3d-modews-and-scenes-gwtf">3d modews and scenes (gwtf)</a></h1>

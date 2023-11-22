@@ -209,59 +209,33 @@ that feew appwopwiate to youw game's g-genwe and gamepway.</p>
 <p>do nyot use the twansfowm scawe to &quot;zoom&quot; a-a camewa! OwO i-it just stwetches t-the image,
 which is nyot &quot;zooming&quot;. ^•ﻌ•^ it might a-awso cause othew i-issues and incompatibiwities.
 use the <a href="/graphics/camera.html#projection">pwojection</a> to zoom.</p>
-<p>fow owthogwaphic pwojections, OwO change t-the pwojection's s-scawe. this w-way you can be
-confident about how exactwy coowdinate/units m-map t-to the scween. OwO this a-awso hewps
-avoid scawing awtifacts with 2d assets.</p>
-<pre><code class="language-rust no_run noplayground">fn zoom_2d(
-    mut q: quewy&lt;&amp;mut o-owthogwaphicpwojection, :3 w-with&lt;mygamecamewa&gt;&gt;, (U ﹏ U)
-) {
-    w-wet mut pwojection = q-q.singwe_mut();
-
-    // e-exampwe: zoom i-in
-    pwojection.scawe *= 1.25;
-    // e-exampwe: z-zoom out
-    pwojection.scawe *= 0.75;
-
-    // awways ensuwe you end up with sane vawues
-    // (pick an uppew a-and wowew bound fow youw appwication)
-    pwojection.scawe = p-pwojection.scawe.cwamp(0.5, -.- 5.0);
-}</code></pre>
-<p>fow 3d pewspective pwojections, OwO change t-the fov. 🥺 this a-achieves the d-desiwed 3d
-effect of zooming with a wens, OwO whiwe k-keeping the c-camewa at the same d-distance
-fwom nyani it is wooking at. OwO decwease t-the fov to &quot;zoom i-in&quot; (make o-objects appeaw
-cwosew). OwO incwease the fov to &quot;zoom o-out&quot; (make objects a-appeaw fuwthew a-away,
-incwease the stwetching due to the p-pewspective effect).</p>
-<pre><code class="language-rust no_run noplayground">fn zoom_3d(
-    mut q: quewy&lt;&amp;mut p-pewspectivepwojection, :3 w-with&lt;mygamecamewa&gt;&gt;, (U ﹏ U)
-) {
-    w-wet mut pwojection = q-q.singwe_mut();
-
-    // e-exampwe: zoom i-in
-    pwojection.fov *= 1.25;
-    // e-exampwe: zoom o-out
-    pwojection.fov *= 0.75;
-
-    // awways ensuwe you end up with sane vawues
-    // (pick an uppew and w-wowew bound fow youw appwication)
-    pwojection.fov = p-pwojection.fov.cwamp(30.0f32.to_wadians(), -.- 90.0f32.to_wadians());
-}</code></pre>
-<p>in some appwications (wike 3d editows), ^•ﻌ•^ &quot;zooming&quot; m-might mean moving t-the camewa
-cwosew ow fawthew away, (ꈍᴗꈍ) instead of c-changing the fov.</p>
+<p>fow an owthogwaphic pwojection, OwO change t-the scawe. 🥺 f-fow a pewspective p-pwojection,
+change the fov. ^•ﻌ•^ the fov mimics the e-effect of zooming w-with a wens.</p>
+<p>weawn mowe about how to do this in <a href="/2d/camera.html#projection">2d</a> ow
+<a href="/3d/camera.html#projection">3d</a>.</p>
 <h2 id="pwojection"><a class="header" href="#pwojection">pwojection</a></h2>
 <p>the camewa pwojection is wesponsibwe f-fow mapping t-the coowdinate system t-to the
-viewpowt. OwO this effectivewy detewmines t-the &quot;coowdinate s-space&quot; you a-awe wowking in.</p>
+viewpowt (commonwy, ^•ﻌ•^ the scween/window). OwO it is nyani c-configuwes the c-coowdinate
+space, (ꈍᴗꈍ) as weww as any scawing/stwetching o-of the image.</p>
 <p>bevy pwovides two kinds of pwojections:
 <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a> and
 <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.PerspectiveProjection.html"><code>PerspectiveProjection</code></a>. XD they awe configuwabwe,
-to be abwe to sewve a vawiety of d-diffewent use cases. OwO s-see the dedicated p-pages
-fow <a href="/2d/camera.html">2d camewas</a> and <a href="/3d/camera.html">3d camewas</a> to weawn mowe
-about nyani you can do with them.</p>
+to be abwe to sewve a vawiety of d-diffewent use cases.</p>
+<p>owthogwaphic means that evewything a-awways appeaws t-the same size, OwO w-wegawdwess of
+how faw away it is fwom the camewa.</p>
+<p>pewspective means that things appeaw s-smowew the fuwthew a-away they a-awe fwom
+the camewa. OwO this is the effect that g-gives 3d gwaphics a-a sense of d-depth and
+distance.</p>
+<p><a href="/2d/camera.html">2d camewas</a> awe awways owthogwaphic.</p>
+<p><a href="/3d/camera.html">3d camewas</a> can use eithew kind of pwojection. (ꈍᴗꈍ) p-pewspective is
+the most common (and defauwt) choice. OwO o-owthogwaphic i-is usefuw fow a-appwications
+such as cad and engineewing, OwO whewe y-you want to accuwatewy w-wepwesent t-the
+dimensions of an object, OwO instead o-of cweating a weawistic s-sense of 3d s-space. 🥺 some
+games (notabwy simuwation games) u-use owthogwaphic a-as an awtistic c-choice.</p>
 <p>it is possibwe to impwement youw o-own <a href="/cookbook/custom-projection.html">custom camewa
 pwojections</a>. (ꈍᴗꈍ) this can give you fuww contwow o-ovew
 the coowdinate system. OwO howevew, bewawe t-that things m-might behave in u-unexpected
 ways if you viowate bevy's <a href="/fundamentals/coords.html">coowdinate system conventions</a>!</p>
-<p>note that bevy uses a an <a href="https://developer.nvidia.com/content/depth-precision-visualized">infinite wevewsed
-z</a> configuwation fow 3d.</p>
 <h2 id="hdw-and-tonemapping"><a class="header" href="#hdw-and-tonemapping">hdw and tonemapping</a></h2>
 <p><a href="/graphics/hdr-tonemap.html">see hewe!</a></p>
 <h2 id="wendew-tawget"><a class="header" href="#wendew-tawget">wendew tawget</a></h2>
