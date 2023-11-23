@@ -3774,13 +3774,25 @@ genewaw nyon-2d specific functionawity, (ꈍᴗꈍ) s-see the <a href="2d//graph
 that you can use to <a href="2d//programming/commands.html">spawn</a> a camewa <a href="2d//programming/ec.html#entities">entity</a>. XD it
 has weasonabwe defauwts to set up e-evewything cowwectwy.</p>
 <p>you might want to set the <a href="2d//fundamentals/transforms.html">twansfowm</a>, &gt;_&lt; to position the camewa.</p>
-<pre><code class="language-rust no_run noplayground">commands.spawn((
-    camewa2dbundwe {
-        twansfowm: t-twansfowm::fwom_xyz(100.0, (ꈍᴗꈍ) 200.0, 0.0), ^•ﻌ•^
-        ..defauwt()
-    }, OwO
-    mycamewamawkew, 🥺
-));</code></pre>
+<pre><code class="language-rust no_run noplayground">#[dewive(component)]
+stwuct mycamewamawkew;
+
+fn setup_camewa(mut c-commands: commands) {
+    c-commands.spawn((
+        c-camewa2dbundwe {
+            t-twansfowm: twansfowm::fwom_xyz(100.0, (⑅˘꒳˘) 200.0, ( ͡o ω ͡o ) 0.0),
+            ..defauwt()
+        }, UwU
+        m-mycamewamawkew, rawr x3
+    ));
+}
+
+f-fn main() {
+    a-app::new()
+        .add_pwugins(defauwtpwugins)
+        .add_systems(stawtup, rawr s-setup_camewa)
+        .wun();
+}</code></pre>
 <h2 id="pwojection-1"><a class="header" href="#pwojection-1">pwojection</a></h2>
 <p>the <a href="2d//graphics/camera.html#projection">pwojection</a> is nyani detewmines how coowdinates m-map to the
 <a href="2d//graphics/camera.html#viewport">viewpowt</a> (commonwy, XD the scween/window).</p>
@@ -3899,14 +3911,26 @@ genewaw nyon-3d specific functionawity, (ꈍᴗꈍ) s-see the <a href="3d//graph
 camewa <a href="3d//programming/ec.html#entities">entity</a>. (ꈍᴗꈍ) it has weasonabwe defauwts to set u-up evewything
 cowwectwy.</p>
 <p>you might want to set the <a href="3d//fundamentals/transforms.html">twansfowm</a>, &gt;_&lt; to position the camewa.</p>
-<pre><code class="language-rust no_run noplayground">commands.spawn((
-    camewa3dbundwe {
-        twansfowm: t-twansfowm::fwom_xyz(10.0, OwO 12.0, 16.0)
-            .wooking_at(vec3::zewo, 🥺 v-vec3::y),
-        ..defauwt()
-    }, òωó
-    m-mycamewamawkew, o.O
-));</code></pre>
+<pre><code class="language-rust no_run noplayground">#[dewive(component)]
+stwuct mycamewamawkew;
+
+fn setup_camewa(mut c-commands: commands) {
+    c-commands.spawn((
+        c-camewa3dbundwe {
+            t-twansfowm: twansfowm::fwom_xyz(10.0, ( ͡o ω ͡o ) 12.0, UwU 16.0)
+                .wooking_at(vec3::zewo, rawr x3 v-vec3::y),
+            ..defauwt()
+        },
+        m-mycamewamawkew, rawr
+    ));
+}
+
+f-fn main() {
+    a-app::new()
+        .add_pwugins(defauwtpwugins)
+        .add_systems(stawtup, σωσ setup_camewa)
+        .wun();
+}</code></pre>
 <p>the &quot;wooking at&quot; function is an easy w-way to owient a-a 3d camewa. OwO the s-second
 pawametew (which we pwovide as <code>Y</code>) is the &quot;up&quot; diwection. (ꈍᴗꈍ) if you want t-the camewa
 to be tiwted sideways, OwO you can use s-something ewse t-thewe. 🥺 if you want t-to make a
