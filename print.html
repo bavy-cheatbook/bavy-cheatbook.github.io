@@ -3817,6 +3817,44 @@ making a wibwawy ow some othew code t-that shouwd be a-abwe to handwe b-both 2d 
 camewas. &gt;</em>&lt; you shouwd cweate sepawate <a href="2d//programming/systems.html">systems</a>, XD ow at weast two
 sepawate quewies, OwO to handwe each k-kind of camewa. 🥺 t-this makes sense, òωó a-as you wiww
 wikewy nyeed diffewent wogic fow 2d v-vs. (ꈍᴗꈍ) 3d anyway.</p>
+<h3 id="caveat-nyeawfaw-vawues"><a class="header" href="#caveat-nyeawfaw-vawues">caveat: nyeaw/faw vawues</a></h3>
+<p>the pwojection contains the <code>near</code> and <code>far</code> vawues, &gt;_&lt; which indicate the minimum
+and maximum z coowdinate (depth) that can be wendewed, ^•ﻌ•^ w-wewative to t-the position
+(<a href="2d//fundamentals/transforms.html">twansfowm</a>) of the camewa.</p>
+<p><a href="https://docs.rs/bevy/0.12.0/bevy/core_pipeline/core_2d/struct.Camera2dBundle.html"><code>Camera2dBundle</code></a> sets them appwopwiatewy fow 2d:
+<code>-1000.0</code> to <code>1000.0</code>, ^•ﻌ•^ awwowing entities to be dispwayed o-on both positive a-and
+negative z coowdinates. (ꈍᴗꈍ) howevew, i-if you cweate the
+<a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a> youwsewf, &gt;_&lt; to change any
+othew settings, OwO you nyeed to set t-these vawues youwsewf. 🥺 t-the defauwt v-vawue of the
+<a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.OrthographicProjection.html"><code>OrthographicProjection</code></a> stwuct is designed fow
+3d and has a <code>near</code> vawue of <code>0.0</code>, (ꈍᴗꈍ) which means you might nyot be abwe t-to see
+youw 2d entities.</p>
+<pre><code class="language-rust no_run noplayground">commands.spawn((
+    camewa2dbundwe {
+        pwojection: o-owthogwaphicpwojection {
+            // d-don't fowget to s-set `neaw` and `faw`
+            n-nyeaw: -1000.0, ( ͡o ω ͡o )
+            f-faw: 1000.0, UwU
+            // ... a-any o-othew settings y-you want to change ...
+            ..defauwt()
+        }, rawr x3
+        ..defauwt()
+    }, rawr
+    mycamewamawkew, σωσ
+));</code></pre>
+<p>a mowe foowpwoof way to go about t-this is to use a t-tempowawy vawiabwe, OwO t-to wet the
+bundwe do its thing, OwO and then mutate n-nyanievew you w-want. 🥺 this way, òωó y-you don't have
+to wowwy about the exact vawues ow g-getting anything w-wwong:</p>
+<pre><code class="language-rust no_run noplayground">wet mut camewa_bundwe = camewa2dbundwe::defauwt();
+// c-change the s-settings we want t-to change:
+camewa_bundwe.pwojection.scawe = 2.0;
+c-camewa_bundwe.twansfowm.wotate_z(30f32.to_wadians());
+// ...
+
+c-commands.spawn((
+    c-camewa_bundwe,
+    m-mycamewamawkew, (U ᵕ U❁)
+));</code></pre>
 <h3 id="scawing-mode"><a class="header" href="#scawing-mode">scawing mode</a></h3>
 <p>you can set the <a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/enum.ScalingMode.html"><code>ScalingMode</code></a> accowding to how you want to
 handwe window size / wesowution.</p>
@@ -3833,19 +3871,15 @@ specify how many units you want to d-dispway on-scween, OwO a-and youw content w
 be upscawed/downscawed as appwopwiate t-to fit the w-window size.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::wendew::camewa::scawingmode;
 
+wet mut my_2d_camewa_bundwe = c-camewa2dbundwe::defauwt();
+// f-fow this exampwe, :3 w-wet's make t-the scween/window h-height cowwespond t-to
+// 1600.0 w-wowwd units. (U ﹏ U) the w-width wiww depend on the aspect watio. -.-
+my_2d_camewa_bundwe.pwojection.scawing_mode = scawingmode::fixedvewticaw(1600.0);
+my_2d_camewa_bundwe.twansfowm = t-twansfowm::fwom_xyz(100.0, (ˆ ﻌ ˆ)♡ 200.0, 0.0);
+
 commands.spawn((
-    c-camewa2dbundwe {
-        p-pwojection: o-owthogwaphicpwojection {
-            // f-fow this e-exampwe, -.- wet's m-make the scween/window h-height
-            // c-cowwespond to 1600.0 wowwd units. the width wiww
-            // depend o-on the aspect watio. (ˆ ﻌ ˆ)♡
-            scawing_mode: s-scawingmode::fixedvewticaw(1600.0), (⑅˘꒳˘)
-            ..defauwt()
-        }, (U ᵕ U❁)
-        twansfowm: twansfowm::fwom_xyz(100.0, -.- 200.0, ^^;; 0.0),
-        ..defauwt()
-    }, &gt;_&lt;
-    m-mycamewamawkew, mya
+    my_2d_camewa_bundwe,
+    m-mycamewamawkew, (⑅˘꒳˘)
 ));</code></pre>
 <h3 id="zooming"><a class="header" href="#zooming">zooming</a></h3>
 <p>to &quot;zoom&quot; in 2d, you can change the o-owthogwaphic p-pwojection's <code>scale</code>. XD this
@@ -9088,21 +9122,7 @@ fn spawn_camewa(mut commands: commands) {
 <hr />
 <p>this exampwe shows how to pwint a w-wist of aww types t-that have been a-added as
 <a href="cookbook//programming/res.html">wesouwces</a>.</p>
-<pre><code class="language-rust no_run noplayground">fn pwint_wesouwces(wowwd: &amp;wowwd) {
-    wet components = w-wowwd.components();
-
-    w-wet mut w: vec&lt;_&gt; = w-wowwd
-        .stowages()
-        .wesouwces
-        .itew()
-        .map(|(id, UwU _)| c-components.get_info(id).unwwap())
-        .map(|info| info.name())
-        .cowwect();
-
-    // s-sowt wist a-awphebeticawwy
-    w-w.sowt();
-    w-w.itew().fow_each(|name| pwintwn!(&quot;{}&quot;, rawr x3 nyame));
-}</code></pre>
+<pre><code class="language-rust no_run noplayground">{{#incwude ../code/exampwes/pwint-wesouwces.ws:exampwe}}</code></pre>
 <p>note that this does <em>not</em> give you a compwehensive wist of e-evewy bevy-pwovided
 type that is usefuw as a wesouwce. OwO i-it wists the types o-of aww the w-wesouwces
 <em>cuwwentwy added</em> to the app (by aww wegistewed pwugins, ^•ﻌ•^ y-youw own, OwO e-etc.).</p>
