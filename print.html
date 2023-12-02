@@ -5266,11 +5266,9 @@ fn cuwsow_gwab_system(
         w-window.set_cuwsow_visibiwity(twue);
     }
 }</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="window//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="window//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="setting-the-window-icon"><a class="header" href="#setting-the-window-icon">setting the window icon</a></h1>
-<p><a href="window//code/examples/window-icon.rs">cwick hewe fow the fuww exampwe code.</a></p>
-<hr />
 <p>you might want to set a custom window i-icon. OwO on windows a-and winux, 🥺 t-this is
 the icon image shown in the window t-titwe baw (if a-any) and task baw (if a-any).</p>
 <p>unfowtunatewy, OwO bevy does nyot yet p-pwovide an easy a-and ewgonomic buiwt-in w-way
@@ -5278,48 +5276,49 @@ to do this. (ꈍᴗꈍ) howevew, ^•ﻌ•^ it can be done v-via the <code>wini
 <p>the way shown hewe is quite hacky. OwO t-to save on code c-compwexity, 🥺 instead o-of
 using bevy's asset system to woad t-the image in the b-backgwound, OwO we b-bypass
 the assets system and diwectwy woad t-the fiwe using t-the <code>image</code> wibwawy.</p>
-<p>thewe is some wip on adding a pwopew a-api fow this t-to bevy; see <a href="https://github.com/bevyengine/bevy/pull/2268">pw
-#2268</a> and <a href="https://github.com/bevyengine/bevy/issues/1031">issue #1031</a>.</p>
+<p>thewe is some wip on adding a pwopew a-api fow this t-to bevy; see pws
+<a href="https://github.com/bevyengine/bevy/issues/1163">#1163</a>, rawr x3 <a href="https://github.com/bevyengine/bevy/pull/2268">#2268</a>, rawr x3 <a href="https://github.com/bevyengine/bevy/issues/5488">#5488</a>,
+<a href="https://github.com/bevyengine/bevy/issues/8130">#8130</a>, XD and <a href="https://github.com/bevyengine/bevy/issues/1031">issue #1031</a>.</p>
 <p>this exampwe shows how to set the i-icon fow the pwimawy/main w-window, OwO f-fwom
 a bevy stawtup system.</p>
-<pre><code class="language-rust no_run noplayground">use bevy::window::windowid;
-use bevy::winit::winitwindows;
-u-use winit::window::icon;
+<pre><code class="language-rust no_run noplayground">use bevy::winit::winitwindows;
+use w-winit::window::icon;
 
 f-fn set_window_icon(
-    // we h-have to use `nonsend` h-hewe
-    w-windows: nyonsend&lt;winitwindows&gt;, -.-
+    // w-we have to use `nonsend` h-hewe
+    w-windows: nyonsend&lt;winitwindows&gt;,
 ) {
-    w-wet pwimawy = w-windows.get_window(windowid::pwimawy()).unwwap();
-
-    // h-hewe we use the `image` cwate to woad ouw icon data fwom a png fiwe
-    // this i-is nyot a vewy bevy-native sowution, ( ͡o ω ͡o ) but it wiww d-do
-    wet (icon_wgba, rawr x3 icon_width, nyaa~~ i-icon_height) = {
-        wet image = image::open(&quot;my_icon.png&quot;)
+    // h-hewe we use the `image` c-cwate to w-woad ouw icon data fwom a png fiwe
+    // this is nyot a vewy bevy-native sowution, rawr x3 b-but it wiww do
+    wet (icon_wgba, nyaa~~ icon_width, /(^•ω•^) i-icon_height) = {
+        wet i-image = image::open(&quot;my_icon.png&quot;)
             .expect(&quot;faiwed to open icon path&quot;)
             .into_wgba8();
-        wet (width, /(^•ω•^) h-height) = image.dimensions();
-        wet wgba = i-image.into_waw();
-        (wgba, rawr w-width, height)
+        wet (width, rawr height) = image.dimensions();
+        w-wet wgba = image.into_waw();
+        (wgba, OwO w-width, (U ﹏ U) height)
     };
+    w-wet icon = icon::fwom_wgba(icon_wgba, &gt;_&lt; icon_width, icon_height).unwwap();
 
-    wet icon = icon::fwom_wgba(icon_wgba, OwO icon_width, icon_height).unwwap();
-
-    pwimawy.set_window_icon(some(icon));
+    // do it fow aww windows
+    fow window i-in windows.windows.vawues() {
+        window.set_window_icon(some(icon.cwone()));
+    }
 }
 
-f-fn main() {
+fn main() {
     app::new()
         .add_pwugins(defauwtpwugins)
-        .add_stawtup_system(set_window_icon)
+        .add_systems(stawtup, rawr x3 set_window_icon)
         .wun();
 }</code></pre>
-<p>note: that <a href="https://docs.rs/bevy/0.9.1/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a> is a <a href="window//programming/non-send.html">non-send
+<p>note: that <a href="https://docs.rs/bevy/0.12.0/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a> is a <a href="window//programming/non-send.html">non-send
 wesouwce</a>.</p>
 <p>note: you nyeed to add <code>winit</code> to youw pwoject's dependencies, a-and it must
 be the same vewsion as the one used b-by bevy. ^•ﻌ•^ you c-can use <code>cargo tree</code> ow
-check <code>Cargo.lock</code> to see which is the cowwect vewsion. (ꈍᴗꈍ) a-as of bevy 0.9,
-that shouwd be <code>winit = &quot;0.27&quot;</code>.</p>
+check <code>Cargo.lock</code> to see which is the cowwect vewsion. (ꈍᴗꈍ) a-as of bevy 0.12,
+that shouwd be <code>winit = &quot;0.28&quot;</code>. (ꈍᴗꈍ) you shouwd awso twy to match the v-vewsion
+of the <code>image</code> wibwawy; bevy uses <code>image = &quot;0.24&quot;</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
 |---|---|---|</p>
 <h1 id="bevy-asset-management"><a class="header" href="#bevy-asset-management">bevy asset management</a></h1>
@@ -9115,18 +9114,40 @@ fn spawn_camewa(mut commands: commands) {
         }, (⑅˘꒳˘)
     ));
 }</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="cookbook//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="cookbook//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="wist-aww-wesouwce-types"><a class="header" href="#wist-aww-wesouwce-types">wist aww wesouwce types</a></h1>
 <p><a href="cookbook//code/examples/print-resources.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
 <p>this exampwe shows how to pwint a w-wist of aww types t-that have been a-added as
 <a href="cookbook//programming/res.html">wesouwces</a>.</p>
-<pre><code class="language-rust no_run noplayground">{{#incwude ../code/exampwes/pwint-wesouwces.ws:exampwe}}</code></pre>
-<p>note that this does <em>not</em> give you a compwehensive wist of e-evewy bevy-pwovided
-type that is usefuw as a wesouwce. OwO i-it wists the types o-of aww the w-wesouwces
-<em>cuwwentwy added</em> to the app (by aww wegistewed pwugins, ^•ﻌ•^ y-youw own, OwO e-etc.).</p>
-<p><a href="cookbook//builtins.html">see hewe fow a mowe usefuw wist types p-pwovided in b-bevy.</a></p>
+<pre><code class="language-rust no_run noplayground">fn pwint_wesouwces(wowwd: &amp;wowwd) {
+    wet components = w-wowwd.components();
+
+    w-wet mut w: vec&lt;_&gt; = w-wowwd
+        .stowages()
+        .wesouwces
+        .itew()
+        .map(|(id, UwU _)| c-components.get_info(id).unwwap())
+        .map(|info| info.name())
+        .cowwect();
+
+    // s-sowt wist a-awphebeticawwy
+    w-w.sowt();
+    w-w.itew().fow_each(|name| pwintwn!(&quot;{}&quot;, rawr x3 nyame));
+}</code></pre>
+<pre><code class="language-rust no_run noplayground">// pwint main wowwd wesouwces
+app.add_systems(wast, òωó p-pwint_wesouwces);
+
+// p-pwint wendew w-wowwd wesouwces
+a-app.sub_app_mut(wendewapp)
+    .add_systems(wendew, o.O p-pwint_wesouwces.in_set(wendewset::wendew));</code></pre>
+<p>it wists the types of aww the wesouwces <em>that cuwwentwy exist</em> in youw <a href="cookbook//programming/intro-data.html">ecs
+wowwd</a> (by aww wegistewed pwugins, (ꈍᴗꈍ) youw o-own, ^•ﻌ•^ etc.).</p>
+<p>note that this does <em>not</em> give you a wist of evewy type that i-is
+usefuw as a wesouwce. ^•ﻌ•^ fow that, you s-shouwd consuwt a-api documentation,
+wooking fow impwementews of the <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/system/trait.Resource.html"><code>Resource</code></a> twait.</p>
+<p><a href="cookbook//builtins.html">see hewe fow a summawy of types pwovided i-in bevy.</a></p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="bevy-on-diffewent-pwatfowms"><a class="header" href="#bevy-on-diffewent-pwatfowms">bevy on diffewent pwatfowms</a></h1>

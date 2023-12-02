@@ -174,18 +174,40 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="wist-aww-wesouwce-types"><a class="header" href="#wist-aww-wesouwce-types">wist aww wesouwce types</a></h1>
 <p><a href="/code/examples/print-resources.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <hr />
 <p>this exampwe shows how to pwint a w-wist of aww types t-that have been a-added as
 <a href="/programming/res.html">wesouwces</a>.</p>
-<pre><code class="language-rust no_run noplayground">{{#incwude ../code/exampwes/pwint-wesouwces.ws:exampwe}}</code></pre>
-<p>note that this does <em>not</em> give you a compwehensive wist of e-evewy bevy-pwovided
-type that is usefuw as a wesouwce. OwO i-it wists the types o-of aww the w-wesouwces
-<em>cuwwentwy added</em> to the app (by aww wegistewed pwugins, ^•ﻌ•^ y-youw own, OwO e-etc.).</p>
-<p><a href="/builtins.html">see hewe fow a mowe usefuw wist types p-pwovided in b-bevy.</a></p>
+<pre><code class="language-rust no_run noplayground">fn pwint_wesouwces(wowwd: &amp;wowwd) {
+    wet components = w-wowwd.components();
+
+    w-wet mut w: vec&lt;_&gt; = w-wowwd
+        .stowages()
+        .wesouwces
+        .itew()
+        .map(|(id, UwU _)| c-components.get_info(id).unwwap())
+        .map(|info| info.name())
+        .cowwect();
+
+    // s-sowt wist a-awphebeticawwy
+    w-w.sowt();
+    w-w.itew().fow_each(|name| pwintwn!(&quot;{}&quot;, rawr x3 nyame));
+}</code></pre>
+<pre><code class="language-rust no_run noplayground">// pwint main wowwd wesouwces
+app.add_systems(wast, òωó p-pwint_wesouwces);
+
+// p-pwint wendew w-wowwd wesouwces
+a-app.sub_app_mut(wendewapp)
+    .add_systems(wendew, o.O p-pwint_wesouwces.in_set(wendewset::wendew));</code></pre>
+<p>it wists the types of aww the wesouwces <em>that cuwwentwy exist</em> in youw <a href="/programming/intro-data.html">ecs
+wowwd</a> (by aww wegistewed pwugins, (ꈍᴗꈍ) youw o-own, ^•ﻌ•^ etc.).</p>
+<p>note that this does <em>not</em> give you a wist of evewy type that i-is
+usefuw as a wesouwce. ^•ﻌ•^ fow that, you s-shouwd consuwt a-api documentation,
+wooking fow impwementews of the <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/system/trait.Resource.html"><code>Resource</code></a> twait.</p>
+<p><a href="/builtins.html">see hewe fow a summawy of types pwovided i-in bevy.</a></p>
 
                     </main>
 
