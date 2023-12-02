@@ -5228,44 +5228,30 @@ defauwt wesouwce) can be mutated a-at wuntime, OwO and b-bevy wiww use youw n-ny
 changing the defauwt cowow using t-the wesouwce wiww a-appwy the nyew c-cowow to aww
 existing camewas that do nyot specify a-a custom cowow, ^•ﻌ•^ n-nyot just nyewwy-spawned
 camewas.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="window//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="window//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="gwabbing-the-mouse"><a class="header" href="#gwabbing-the-mouse">gwabbing the mouse</a></h1>
-<p><a href="window//code/examples/mouse-grab.rs">cwick hewe fow the fuww exampwe code.</a></p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/input/mouse_grab.rs"><code>mouse_grab</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/main/examples/input/mouse_grab.rs"><code>mouse_grab</code></a>.</p>
 <hr />
-<p>you can wock/wewease the mouse cuwsow u-using bevy's <a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/window/window_settings.rs">window settings
-api</a>.</p>
-<p>hewe is an exampwe that wocks and h-hides the cuwsow i-in the pwimawy w-window
-on <a href="window//input/mouse.html#mouse-buttons">mouse cwick</a> and weweases it when <a href="window//input/keyboard.html">pwessing
-<code>Esc</code></a>:</p>
-<pre><code class="language-rust no_run noplayground">use bevy::window::cuwsowgwabmode;
-
-fn cuwsow_gwab_system(
-    m-mut w-windows: wesmut&lt;windows&gt;, 😳😳😳
-    btn: w-wes&lt;input&lt;mousebutton&gt;&gt;, -.-
-    k-key: wes&lt;input&lt;keycode&gt;&gt;, ( ͡o ω ͡o )
-) {
-    w-wet window = w-windows.get_pwimawy_mut().unwwap();
-
-    i-if btn.just_pwessed(mousebutton::weft) {
-        // i-if you want to use the cuwsow, rawr x3 but nyot wet it weave the window, nyaa~~
-        // u-use `confined` mode:
-        window.set_cuwsow_gwab_mode(cuwsowgwabmode::confined);
-
-        // f-fow a game that doesn't u-use the cuwsow (wike a shootew):
-        // use `wocked` mode to k-keep the cuwsow in one pwace
-        w-window.set_cuwsow_gwab_mode(cuwsowgwabmode::wocked);
-        // a-awso hide the cuwsow
-        window.set_cuwsow_visibiwity(fawse);
-    }
-
-    if key.just_pwessed(keycode::escape) {
-        window.set_cuwsow_gwab_mode(cuwsowgwabmode::none);
-        w-window.set_cuwsow_visibiwity(twue);
-    }
-}</code></pre>
+<p>fow some genwes of games, OwO you want t-to the mouse to b-be westwicted t-to the window,
+to pwevent it fwom weaving the window d-duwing gamepway.</p>
+<p>to gwab the cuwsow:</p>
+<pre><code class="language-rust no_run noplayground">{{#incwude ../code012/exampwes/mouse-gwab.ws:gwab}}</code></pre>
+<p>to wewease the cuwsow:</p>
+<pre><code class="language-rust no_run noplayground">{{#incwude ../code012/exampwes/mouse-gwab.ws:ungwab}}</code></pre>
+<p>you shouwd gwab the cuwsow duwing a-active gamepway a-and wewease it w-when
+the pwayew pauses the game / exits t-to menu / etc.</p>
+<p>fow wewative mouse movement, (ꈍᴗꈍ) you s-shouwd use <a href="window//input/mouse.html#mouse-motion">mouse motion</a>
+instead of <a href="window//input/mouse.html#mouse-cursor-position">cuwsow input</a> to impwement youw gamepway.</p>
+<h2 id="pwatfowm-diffewences"><a class="header" href="#pwatfowm-diffewences">pwatfowm diffewences</a></h2>
+<p>macos does nyot nyativewy suppowt <code>Confined</code> mode. &gt;_&lt; bevy wiww fawwback to <code>Locked</code>.
+if you want to suppowt macos and y-you want to use <a href="window//input/mouse.html#mouse-cursor-position">cuwsow input</a>,
+you might want to impwement a &quot;viwtuaw c-cuwsow&quot; instead.</p>
+<p>windows does nyot nyativewy suppowt <code>Locked</code> mode. &gt;_&lt; bevy wiww fawwback to <code>Confined</code>.
+you couwd emuwate the wocked behaviow b-by we-centewing t-the cuwsow e-evewy fwame:</p>
+<pre><code class="language-rust no_run noplayground">{{#incwude ../code012/exampwes/mouse-gwab.ws:wecentew}}</code></pre>
+<pre><code class="language-rust no_run noplayground">{{#incwude ../code012/exampwes/mouse-gwab.ws:wecentew-app}}</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="window//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="setting-the-window-icon"><a class="header" href="#setting-the-window-icon">setting the window icon</a></h1>
