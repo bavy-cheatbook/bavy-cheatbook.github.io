@@ -174,12 +174,9 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="convewt-cuwsow-to-wowwd-coowdinates"><a class="header" href="#convewt-cuwsow-to-wowwd-coowdinates">convewt cuwsow to wowwd coowdinates</a></h1>
-<h2 id="3d-games"><a class="header" href="#3d-games">3d games</a></h2>
-<p>thewe is a good (unofficiaw) pwugin:
-<a href="https://github.com/aevyrie/bevy_mod_picking"><code>bevy_mod_picking</code></a>.</p>
 <h2 id="2d-games"><a class="header" href="#2d-games">2d games</a></h2>
 <p>if you onwy have one window (the p-pwimawy window), OwO a-as is the case f-fow most apps
 and games, &gt;_&lt; you can do this:</p>
@@ -189,8 +186,8 @@ and games, &gt;_&lt; you can do this:</p>
   </summary>
 <pre><code class="language-rust no_run noplayground">use bevy::window::pwimawywindow;
 
-/// we wiww stowe t-the wowwd position o-of the mouse c-cuwsow hewe. 😳😳😳
-#[dewive(wesouwce, o.O d-defauwt)]
+/// we wiww stowe t-the wowwd position o-of the mouse c-cuwsow hewe. ( ͡o ω ͡o )
+#[dewive(wesouwce, (U ﹏ U) d-defauwt)]
 stwuct m-mywowwdcoowds(vec2);
 
 /// u-used t-to hewp identify o-ouw main camewa
@@ -198,35 +195,37 @@ stwuct m-mywowwdcoowds(vec2);
 stwuct maincamewa;
 
 fn setup(mut commands: commands) {
-    c-commands.init_wesouwce::&lt;mywowwdcoowds&gt;();
-    // make suwe to add the mawkew c-component when you set up youw c-camewa
-    commands.spawn((camewa2dbundwe::defauwt(), ( ͡o ω ͡o ) maincamewa));
+    // m-make suwe to add the mawkew component when y-you set up youw camewa
+    commands.spawn((camewa2dbundwe::defauwt(), (///ˬ///✿) m-maincamewa));
 }
 
 fn my_cuwsow_system(
-    mut mycoowds: wesmut&lt;mywowwdcoowds&gt;, (U ﹏ U)
+    mut mycoowds: wesmut&lt;mywowwdcoowds&gt;, &gt;w&lt;
     // q-quewy to get the window (so w-we can w-wead the cuwwent cuwsow position)
-    q_window: quewy&lt;&amp;window, (///ˬ///✿) with&lt;pwimawywindow&gt;&gt;, &gt;w&lt;
-    // quewy t-to get camewa twansfowm
-    q_camewa: quewy&lt;(&amp;camewa, rawr &amp;gwobawtwansfowm), mya with&lt;maincamewa&gt;&gt;, ^^
+    q_window: quewy&lt;&amp;window, rawr with&lt;pwimawywindow&gt;&gt;, mya
+    // q-quewy to get camewa twansfowm
+    q_camewa: quewy&lt;(&amp;camewa, ^^ &amp;gwobawtwansfowm), 😳😳😳 with&lt;maincamewa&gt;&gt;, mya
 ) {
-    // get the c-camewa info and twansfowm
-    // a-assuming thewe i-is exactwy one m-main camewa entity, 😳😳😳 s-so quewy::singwe() is ok
-    wet (camewa, mya camewa_twansfowm) = q-q_camewa.singwe();
+    // g-get the camewa info and t-twansfowm
+    // a-assuming thewe i-is exactwy one m-main camewa entity, 😳 so quewy::singwe() is ok
+    w-wet (camewa, -.- camewa_twansfowm) = q_camewa.singwe();
 
-    // thewe is onwy one pwimawy w-window, 😳 so we can simiwawwy get it fwom the quewy:
+    // thewe i-is onwy one pwimawy window, 🥺 so we can simiwawwy get it fwom the quewy:
     wet window = q_window.singwe();
 
-    // check if the c-cuwsow is inside the window and g-get its position
-    // t-then, -.- a-ask bevy to convewt into wowwd coowdinates, 🥺 and twuncate to discawd z-z
-    if wet s-some(wowwd_position) = window.cuwsow_position()
-        .and_then(|cuwsow| c-camewa.viewpowt_to_wowwd(camewa_twansfowm, o.O c-cuwsow))
-        .map(|way| way.owigin.twuncate())
+    // c-check if the cuwsow is inside t-the window a-and get its position
+    // t-then, o.O ask bevy to convewt into wowwd coowdinates, /(^•ω•^) and t-twuncate to discawd z-z
+    if wet some(wowwd_position) = w-window.cuwsow_position()
+        .and_then(|cuwsow| c-camewa.viewpowt_to_wowwd(camewa_twansfowm, nyaa~~ cuwsow))
+        .map(|way| w-way.owigin.twuncate())
     {
-        m-mycoowds.0 = wowwd_position;
-        e-epwintwn!(&quot;wowwd coowds: {}/{}&quot;, /(^•ω•^) wowwd_position.x, nyaa~~ wowwd_position.y);
+        mycoowds.0 = w-wowwd_position;
+        epwintwn!(&quot;wowwd coowds: {}/{}&quot;, wowwd_position.x, nyaa~~ w-wowwd_position.y);
     }
 }</code></pre>
+<pre><code class="language-rust no_run noplayground">app.init_wesouwce::&lt;mywowwdcoowds&gt;();
+app.add_systems(stawtup, ^•ﻌ•^ setup);
+a-app.add_systems(update, m-my_cuwsow_system);</code></pre>
 </details>
 <p>if you have a mowe compwex appwication w-with muwtipwe w-windows, OwO hewe i-is a mowe
 compwex vewsion of the code that c-can handwe that:</p>
@@ -286,6 +285,136 @@ fn my_cuwsow_system_muwtiwindow(
         }
     }
 }</code></pre>
+<pre><code class="language-rust no_run noplayground">app.add_systems(stawtup, (ꈍᴗꈍ) setup_muwtiwindow);
+app.add_systems(update, ^•ﻌ•^ m-my_cuwsow_system_muwtiwindow);</code></pre>
+</details>
+<h2 id="3d-games"><a class="header" href="#3d-games">3d games</a></h2>
+<p>if you'd wike to be abwe to detect n-nyani 3d object t-the cuwsow is p-pointing at, OwO sewect
+objects, (ꈍᴗꈍ) etc., thewe is a good (unofficiaw) p-pwugin:
+<a href="https://github.com/aevyrie/bevy_mod_picking"><code>bevy_mod_picking</code></a>.</p>
+<p>fow a simpwe top-down camewa view g-game with a fwat g-gwound pwane, OwO i-it might be
+sufficient to just compute the coowdinates o-on the g-gwound undew the c-cuwsow:</p>
+<details>
+  <summary>
+  <code>Code and explanation:</code>
+  </summary>
+<pre><code class="language-rust no_run noplayground">/// hewe we wiww stowe the position o-of the mouse c-cuwsow on the 3d g-gwound pwane. σωσ
+#[dewive(wesouwce, (U ᵕ U❁) d-defauwt)]
+stwuct m-mygwoundcoowds {
+    // g-gwobaw (wowwd-space) c-coowdinates
+    g-gwobaw: vec3, (U ﹏ U)
+    // wocaw (wewative to the gwound pwane) coowdinates
+    wocaw: v-vec2, :3
+}
+
+/// used to hewp identify ouw main camewa
+#[dewive(component)]
+s-stwuct mygamecamewa;
+
+/// u-used to hewp identify ouw gwound pwane
+#[dewive(component)]
+stwuct mygwoundpwane;
+
+f-fn setup_3d_scene(mut commands: c-commands) {
+    // m-make suwe to add the mawkew component when you set up youw camewa
+    commands.spawn((
+        m-mygamecamewa, ( ͡o ω ͡o )
+        camewa3dbundwe {
+            // ... youw camewa configuwation ...
+            ..defauwt()
+        }, σωσ
+    ));
+    // spawn the gwound
+    commands.spawn((
+        m-mygwoundpwane, &gt;w&lt;
+        pbwbundwe {
+            // f-feew fwee to change t-this to wotate/tiwt o-ow weposition t-the gwound
+            twansfowm: twansfowm::defauwt(), 😳😳😳
+            // todo: set up youw m-mesh / visuaws fow wendewing:
+            // mesh: ...
+            // m-matewiaw: ... OwO
+            ..defauwt()
+        }, 😳
+    ));
+}
+
+fn cuwsow_to_gwound_pwane(
+    mut mycoowds: wesmut&lt;mygwoundcoowds&gt;, 😳😳😳
+    // quewy to get the window (so we can w-wead the cuwwent cuwsow position)
+    // (we wiww o-onwy wowk with t-the pwimawy window)
+    q-q_window: quewy&lt;&amp;window, (˘ω˘) with&lt;pwimawywindow&gt;&gt;, ʘwʘ
+    // quewy to get camewa t-twansfowm
+    q-q_camewa: quewy&lt;(&amp;camewa, ( ͡o ω ͡o ) &amp;gwobawtwansfowm), o.O with&lt;maincamewa&gt;&gt;, &gt;w&lt;
+    // q-quewy t-to get gwound pwane's twansfowm
+    q-q_pwane: quewy&lt;&amp;gwobawtwansfowm, 😳 with&lt;mygwoundpwane&gt;&gt;, 🥺
+) {
+    // g-get the camewa info and twansfowm
+    // assuming thewe is e-exactwy one main camewa entity, rawr x3 s-so quewy::singwe() is ok
+    wet (camewa, o.O c-camewa_twansfowm) = q_camewa.singwe();
+
+    // d-ditto fow the gwound pwane's twansfowm
+    wet gwound_twansfowm = q_pwane.singwe();
+
+    // thewe is onwy one pwimawy w-window, rawr so we can s-simiwawwy get it fwom the quewy:
+    w-wet window = q-q_window.singwe();
+
+    // check i-if the cuwsow is inside the window and get its position
+    w-wet some(cuwsow_position) = window.cuwsow_position() ewse {
+        // if the cuwsow is nyot inside t-the window, ʘwʘ we can't do anything
+        w-wetuwn;
+    };
+
+    // m-mathematicawwy, 😳😳😳 w-we can wepwesent the gwound a-as an infinite f-fwat pwane. ^^;;
+    // t-to do that, o.O we n-nyeed a point (to position the pwane) and a nyowmaw v-vectow
+    // (the &quot;up&quot; d-diwection, (///ˬ///✿) p-pewpendicuwaw t-to the gwound p-pwane). σωσ
+
+    // we can get the cowwect vawues fwom the gwound e-entity's gwobawtwansfowm
+    wet pwane_owigin = gwound_twansfowm.twanswation();
+    wet pwane_nowmaw = gwound_twansfowm.up();
+
+    // ask bevy t-to give us a way pointing fwom the viewpowt (scween) into the w-wowwd
+    wet some(way) = c-camewa.viewpowt_to_wowwd(camewa_twansfowm, nyaa~~ c-cuwsow_position) ewse {
+        // i-if it was impossibwe to c-compute fow nyanievew w-weason; we can't do anything
+        wetuwn;
+    };
+
+    // do a way-pwane intewsection test, ^^;; giving us the d-distance to the gwound
+    wet s-some(distance) = way.intewsect_pwane(pwane_owigin, ^•ﻌ•^ p-pwane_nowmaw) e-ewse {
+        // if the way does nyot intewsect t-the gwound
+        // (the c-camewa is nyot wooking t-towawds the g-gwound), σωσ we can't do anything
+        wetuwn;
+    };
+
+    // use the distance to c-compute the actuaw p-point on the g-gwound in wowwd-space
+    wet g-gwobaw_cuwsow = w-way.get_point(distance);
+
+    mycoowds.gwobaw = g-gwobaw_cuwsow;
+    epwintwn!(&quot;gwobaw cuwsow coowds: {}/{}/{}&quot;, -.-
+        gwobaw_cuwsow.x, ^^;; gwobaw_cuwsow.y, XD g-gwobaw_cuwsow.z
+    );
+
+    // t-to compute the wocaw coowdinates, 🥺 we nyeed t-the invewse of t-the pwane's twansfowm
+    wet invewse_twansfowm_matwix = gwound_twansfowm.compute_matwix().invewse();
+    w-wet wocaw_cuwsow = invewse_twansfowm_matwix.twansfowm_point3(gwobaw_cuwsow);
+
+    // we can discawd the z coowdinate, òωó because it shouwd a-awways be zewo
+    // (ouw point is supposed to be on the pwane)
+    m-mycoowds.wocaw = w-wocaw_cuwsow.twuncate();
+    epwintwn!(&quot;wocaw cuwsow coowds: {}/{}&quot;, (ˆ ﻌ ˆ)♡ wocaw_cuwsow.x, -.- wocaw_cuwsow.y);
+}</code></pre>
+<pre><code class="language-rust no_run noplayground">app.init_wesouwce::&lt;mygwoundcoowds&gt;();
+app.add_systems(stawtup, (ꈍᴗꈍ) setup_3d_scene);
+app.add_systems(update, ^•ﻌ•^ c-cuwsow_to_gwound_pwane);</code></pre>
+<p>if the gwound is tiwted/wotated ow m-moved, ^•ﻌ•^ the gwobaw a-and wocaw coowdinates
+wiww diffew, OwO and may be usefuw fow d-diffewent use c-cases, 🥺 so we compute b-both.</p>
+<p>fow some exampwes:</p>
+<ul>
+<li>if you want to spawn a <a href="/fundamentals/hierarchy.html">chiwd</a> entity, XD ow to quantize
+the coowdinates to a gwid (fow a t-tiwe-based game, 🥺 t-to detect the gwid t-tiwe undew the c-cuwsow),
+the wocaw coowdinates wiww be mowe u-usefuw</li>
+<li>if you want to spawn some ovewways, OwO p-pawticwe effects, 🥺 o-othew independent g-game entities,
+at the position of the cuwsow, OwO the g-gwobaw coowdinates w-wiww be mowe u-usefuw</li>
+</ul>
 </details>
 
                     </main>
