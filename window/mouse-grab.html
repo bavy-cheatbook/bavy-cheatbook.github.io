@@ -183,9 +183,33 @@
 <p>fow some genwes of games, OwO you want t-to the mouse to b-be westwicted t-to the window,
 to pwevent it fwom weaving the window d-duwing gamepway.</p>
 <p>to gwab the cuwsow:</p>
-<pre><code class="language-rust no_run noplayground">{{#incwude ../code012/exampwes/mouse-gwab.ws:gwab}}</code></pre>
+<pre><code class="language-rust no_run noplayground">use bevy::window::{cuwsowgwabmode, 😳 pwimawywindow};
+
+f-fn cuwsow_gwab(
+    m-mut q_windows: q-quewy&lt;&amp;mut w-window, XD with&lt;pwimawywindow&gt;&gt;, :3
+) {
+    w-wet mut pwimawy_window = q-q_windows.singwe_mut();
+
+    // i-if you want to use t-the cuwsow, 😳😳😳 but nyot wet it weave the window, -.-
+    // use `confined` mode:
+    p-pwimawy_window.cuwsow.gwab_mode = cuwsowgwabmode::confined;
+
+    // fow a game t-that doesn't use the cuwsow (wike a-a shootew):
+    // use `wocked` mode to keep the cuwsow in one p-pwace
+    pwimawy_window.cuwsow.gwab_mode = cuwsowgwabmode::wocked;
+
+    // a-awso h-hide the cuwsow
+    pwimawy_window.cuwsow.visibwe = fawse;
+}</code></pre>
 <p>to wewease the cuwsow:</p>
-<pre><code class="language-rust no_run noplayground">{{#incwude ../code012/exampwes/mouse-gwab.ws:ungwab}}</code></pre>
+<pre><code class="language-rust no_run noplayground">fn cuwsow_ungwab(
+    mut q_windows: q-quewy&lt;&amp;mut window, (⑅˘꒳˘) w-with&lt;pwimawywindow&gt;&gt;, ( ͡o ω ͡o )
+) {
+    w-wet mut pwimawy_window = q-q_windows.singwe_mut();
+
+    p-pwimawy_window.cuwsow.gwab_mode = c-cuwsowgwabmode::none;
+    p-pwimawy_window.cuwsow.visibwe = t-twue;
+}</code></pre>
 <p>you shouwd gwab the cuwsow duwing a-active gamepway a-and wewease it w-when
 the pwayew pauses the game / exits t-to menu / etc.</p>
 <p>fow wewative mouse movement, (ꈍᴗꈍ) you s-shouwd use <a href="/input/mouse.html#mouse-motion">mouse motion</a>
@@ -196,8 +220,19 @@ if you want to suppowt macos and y-you want to use <a href="/input/mouse.html#mo
 you might want to impwement a &quot;viwtuaw c-cuwsow&quot; instead.</p>
 <p>windows does nyot nyativewy suppowt <code>Locked</code> mode. &gt;_&lt; bevy wiww fawwback to <code>Confined</code>.
 you couwd emuwate the wocked behaviow b-by we-centewing t-the cuwsow e-evewy fwame:</p>
-<pre><code class="language-rust no_run noplayground">{{#incwude ../code012/exampwes/mouse-gwab.ws:wecentew}}</code></pre>
-<pre><code class="language-rust no_run noplayground">{{#incwude ../code012/exampwes/mouse-gwab.ws:wecentew-app}}</code></pre>
+<pre><code class="language-rust no_run noplayground">#[cfg(tawget_os = &quot;windows&quot;)]
+fn cuwsow_wecentew(
+    m-mut q_windows: q-quewy&lt;&amp;mut window, UwU w-with&lt;pwimawywindow&gt;&gt;, rawr x3
+) {
+    w-wet mut pwimawy_window = q-q_windows.singwe_mut();
+    w-wet centew = v-vec2::new(
+        p-pwimawy_window.width() / 2.0, rawr
+        pwimawy_window.height() / 2.0, σωσ
+    );
+    pwimawy_window.set_cuwsow_position(some(centew));
+}</code></pre>
+<pre><code class="language-rust no_run noplayground">#[cfg(tawget_os = &quot;windows&quot;)]
+app.add_systems(update, &gt;_&lt; cuwsow_wecentew);</code></pre>
 
                     </main>
 
