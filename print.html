@@ -9879,7 +9879,8 @@ windows</a>. (ꈍᴗꈍ) the windows exe you buiwd inside o-of wsw2 can
 be wun just fine fwom the winux commandwine, OwO a-and i-it wiww seamwesswy w-wun on the
 host system! OwO this way, 🥺 you don't n-nyeed any gpu dwivews o-ow gui suppowt i-inside
 youw wsw2 winux enviwonment. OwO awso, 🥺 y-you wiww be wunning a-and testing t-the windows
-buiwd of youw game, OwO so you can see h-how it wiww weawwy p-pewfowm on w-windows.</p>
+buiwd of youw game, OwO so you can see h-how it wiww weawwy p-pewfowm on w-windows.
+it wiww wun with fuww pewfowmance a-and use youw host w-windows gpu dwivews.</p>
 <p>note that when you wun windows binawies f-fwom wsw2, OwO t-they don't get t-the winux
 enviwonment vawiabwes. XD <code>cargo run</code> does nyot just wowk, (ꈍᴗꈍ) because youw b-bevy game
 wiww wook fow its <code>assets</code> fowdew in the path whewe the exe i-is (which wouwd b-be
@@ -9888,9 +9889,9 @@ exe into the pwoject fowdew aftew b-buiwding, OwO and wun i-it diwectwy fwom t-t
 fow nyon-bevy wust pwojects, (ꈍᴗꈍ) this w-wouwd be unnecessawy.</p>
 <p>the pwocess can be automated with a-a wittwe scwipt, OwO t-to use instead o-of <code>cargo run</code>:</p>
 <pre><code class="language-sh">#!/bin/sh
-cawgo buiwd --tawget x86_64-pc-windows-msvc &amp;&amp;
-c-cp tawget/x86_64-pc-windows-msvc/debug/mygame.exe . (ꈍᴗꈍ) &amp;&amp;
-exec ./mygame.exe &quot;$@&quot;
+cawgo buiwd --tawget x86_64-pc-windows-gnu &amp;&amp;
+c-cp tawget/x86_64-pc-windows-gnu/debug/mygame.exe . ^•ﻌ•^ &amp;&amp;
+e-exec ./mygame.exe &quot;$@&quot;
 </code></pre>
 <p>this way you awso don't have to type t-the cwoss-compiwation t-tawget e-evewy time
 (and you can awso add any othew options y-you want t-thewe).</p>
@@ -9905,9 +9906,9 @@ wequiwe cwoss-compiwation, OwO but is w-wikewy to have o-othew issues and w-wimi
 suppowt. OwO it shouwd awwow you to simpwy c-compiwe youw b-bevy game in w-winux and
 wun it. OwO wswg wiww do the dawk magic n-nyeeded to fowwawd g-gwaphics and a-audio to
 the windows host.</p>
-<p>youw game wiww onwy wun with 60 fps, ^•ﻌ•^ a-and thewe wiww b-be othew pewfowmance
-ovewheads. OwO wswg is effectivewy wdp (wemote d-desktop) u-undew the hood. 🥺 i-it's
-wike stweaming video fwom the vm t-to the host. ^•ﻌ•^ some t-things might be
+<p>youw game wiww wun wocked to 60 fps, ^•ﻌ•^ a-and thewe wiww b-be othew pewfowmance
+pwobwems. OwO wswg is effectivewy wdp (wemote d-desktop) u-undew the hood. 🥺 i-it's
+wike stweaming video fwom the vm t-to the host. OwO some f-functionawity m-might be
 bwoken/unsuppowted.</p>
 <p>both waywand and x11 shouwd wowk. OwO w-waywand is wecommended, 🥺 s-so be suwe t-to
 enabwe the <code>&quot;wayland&quot;</code> <a href="platforms/windows//setup/bevy-config.html">cawgo featuwe in bevy</a>.</p>
@@ -9930,7 +9931,7 @@ sudo a-apt instaww vuwkan-toows
 </code></pre>
 <p>(<code>dzn</code>, ^•ﻌ•^ micwosoft's vuwkan dwivew fow wsw2, OwO i-is technicawwy n-nyon-confowmant,
 so thewe may be bugs and othew issues, ^•ﻌ•^ b-but it seems t-to wowk fine)</p>
-<p>now, (ꈍᴗꈍ) you can simpwy wun youw bevy p-pwoject in winux:</p>
+<p>now, ^•ﻌ•^ you can simpwy wun youw bevy p-pwoject in winux i-in the usuaw way:</p>
 <pre><code class="language-sh">cawgo wun
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="platforms//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
@@ -10212,8 +10213,8 @@ then cwick &quot;save&quot;.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="setup//introduction.html#maintenance-policy">bevy vewsion:</a>|(any)
 |---|---|</p>
 <h1 id="cwoss-compiwation"><a class="header" href="#cwoss-compiwation">cwoss-compiwation</a></h1>
-<p>this sub-chaptew covews how to make b-buiwds of youw b-bevy apps to wun o-on a
-diffewent opewating system than the o-one you awe wowking o-on.</p>
+<p>this sub-chaptew covews how to set u-up a wust toowchain t-to awwow you t-to buiwd
+fow a diffewent opewating system t-than the one you a-awe wowking on.</p>
 <ul>
 <li><a href="setup//setup/cross/linux-windows.html">cweate windows exes fwom winux</a></li>
 <li><a href="setup//setup/cross/macos-windows.html">cweate windows exes fwom macos</a></li>
@@ -10223,19 +10224,55 @@ diffewent opewating system than the o-one you awe wowking o-on.</p>
 <h1 id="buiwd-windows-exes-fwom-winux"><a class="header" href="#buiwd-windows-exes-fwom-winux">buiwd windows exes fwom winux</a></h1>
 <p>(awso check out the <a href="setup/cross//platforms/windows.html">windows pwatfowm page</a> fow info
 about devewoping fow windows genewawwy)</p>
+<p>if you awe wowking in wsw2, (ꈍᴗꈍ) pwease a-awso see <a href="setup/cross//platforms/windows/wsl2.html">this page fow additionaw instwuctions</a>.</p>
 <hr />
 <p>wust offews two diffewent toowchains f-fow buiwding f-fow windows:</p>
 <ul>
-<li><a href="setup/cross/linux-windows.html#first-time-setup-msvc">msvc</a>: the defauwt when wowking in windows, OwO w-wequiwes downwoading m-micwosoft s-sdks</li>
-<li><a href="setup/cross/linux-windows.html#first-time-setup-gnu">gnu</a>: awtewnative mingw-based buiwd</li>
+<li><a href="setup/cross/linux-windows.html#first-time-setup-msvc">msvc</a></li>
+<li><a href="setup/cross/linux-windows.html#first-time-setup-gnu">gnu</a></li>
 </ul>
 <p>the instwuctions on this page use t-the <code>x86_64</code> awchitectuwe, &gt;_&lt; but you couwd awso
 set up a toowchain to tawget <code>i686</code> (32-bit) ow <code>aarch64</code> (windows-on-awm) the
 same way.</p>
+<p>as of bevy 0.12, cwoss-compiwing w-with msvc nyo wongew w-wowks, because t-thewe
+awe some dependencies that assume y-you awe wunning w-windows and that t-they can
+wun windows exes fwom theiw buiwd s-scwipts. ^•ﻌ•^ as such, OwO i-it is nyow wecommended
+that you use the gnu toowchain fow c-cwoss-compiwing. OwO i-instwuctions f-fow setting
+up msvc awe stiww pwovided on this p-page fow compweteness (and i-it c-couwd be
+usefuw fow youw othew wust pwojects).</p>
+<h2 id="fiwst-time-setup-gnu"><a class="header" href="#fiwst-time-setup-gnu">fiwst-time setup (gnu)</a></h2>
+<p>on many winux distwos, OwO the gnu/mingw t-toowchain is t-the easiew option. 🥺 y-youw
+distwo wikewy pwovides packages that y-you can easiwy i-instaww. awso, OwO y-you do
+not nyeed to accept any micwosoft w-wicenses.</p>
+<details>
+  <summary>
+  Setup Instructions:
+  </summary>
+<h3 id="wust-toowchain-gnu"><a class="header" href="#wust-toowchain-gnu">wust toowchain (gnu)</a></h3>
+<p>add the tawget to youw wust instawwation (assuming y-you use <a href="https://rustup.rs"><code>rustup</code></a>):</p>
+<pre><code class="language-sh">wustup tawget add x86_64-pc-windows-gnu
+</code></pre>
+<p>this instawws the fiwes wust nyeeds t-to compiwe fow w-windows, OwO incwuding t-the
+wust standawd wibwawy.</p>
+<h3 id="mingw"><a class="header" href="#mingw">mingw</a></h3>
+<p>the gnu toowchain wequiwes the mingw e-enviwonment t-to be instawwed. OwO y-youw distwo wikewy
+pwovides a package fow it. OwO seawch y-youw distwo fow a-a cwoss-compiwation m-mingw package.</p>
+<p>it might be cawwed something wike: <code>mingw-w64-x86-64-dev</code>, rawr x3 <code>cross-x86_64-w64-mingw32</code>, XD etc.,
+the nyame vawies in diffewent distwos.</p>
+<p>you don't nyeed any fiwes fwom micwosoft.</p>
+</details>
 <h2 id="fiwst-time-setup-msvc"><a class="header" href="#fiwst-time-setup-msvc">fiwst-time setup (msvc)</a></h2>
-<p>the msvc toowchain is nyani the wust c-community usuawwy w-wecommends f-fow tawgetting
-the windows pwatfowm. OwO you can actuawwy s-set it up a-and use it on winux (and o-othew
-unix-wike systems), OwO using some speciaw t-toowing, 🥺 which w-wiww be expwained b-bewow.</p>
+<p>the msvc toowchain is the nyative m-micwosoft way to t-tawget windows. OwO i-it is nyani
+the wust community usuawwy wecommends f-fow tawgetting t-the windows p-pwatfowm. it
+may pwovide bettew compatibiwity w-with windows dwws / w-wibwawies and t-toowing.</p>
+<p>even though it is meant to be used o-on windows, you c-can actuawwy set i-it up
+and use it on winux (and othew unix-wike s-systems). ^•ﻌ•^ i-it wequiwes downwoading
+the windows sdks and accepting the m-micwosoft wicense. OwO t-thewe is a s-scwipt to
+automate that fow you.</p>
+<details>
+  <summary>
+  Setup Instructions:
+  </summary>
 <h3 id="wust-toowchain-msvc"><a class="header" href="#wust-toowchain-msvc">wust toowchain (msvc)</a></h3>
 <p>add the tawget to youw wust instawwation (assuming y-you use <a href="https://rustup.rs"><code>rustup</code></a>):</p>
 <pre><code class="language-sh">wustup tawget add x86_64-pc-windows-msvc
@@ -10275,40 +10312,33 @@ wustfwags = [
 </code></pre>
 <p>note: you nyeed to specify the cowwect f-fuww absowute p-paths to the s-sdk fiwes,
 whewevew you instawwed them.</p>
-<h2 id="fiwst-time-setup-gnu"><a class="header" href="#fiwst-time-setup-gnu">fiwst-time setup (gnu)</a></h2>
-<p>on many winux distwos, OwO the awtewnative g-gnu/mingw t-toowchain might b-be an easiew
-option. OwO youw distwo might pwovide p-packages that you c-can easiwy instaww. 🥺 a-awso,
-you do nyot nyeed to accept any micwosoft w-wicenses.</p>
-<h3 id="wust-toowchain-gnu"><a class="header" href="#wust-toowchain-gnu">wust toowchain (gnu)</a></h3>
-<p>add the tawget to youw wust instawwation (assuming y-you use <a href="https://rustup.rs"><code>rustup</code></a>):</p>
-<pre><code class="language-sh">wustup tawget add x86_64-pc-windows-gnu
-</code></pre>
-<p>this instawws the fiwes wust nyeeds t-to compiwe fow w-windows, OwO incwuding t-the
-wust standawd wibwawy.</p>
-<h3 id="mingw"><a class="header" href="#mingw">mingw</a></h3>
-<p>the gnu toowchain wequiwes the mingw e-enviwonment t-to be instawwed. OwO y-youw distwo wikewy
-pwovides a package fow it. OwO seawch y-youw distwo fow a-a cwoss-compiwation m-mingw package.</p>
-<p>it might be cawwed something wike: <code>cross-x86_64-w64-mingw32</code>, &gt;_&lt; but that vawies in diffewent distwos.</p>
-<p>you don't nyeed any fiwes fwom micwosoft.</p>
+</details>
 <h2 id="buiwding-youw-pwoject"><a class="header" href="#buiwding-youw-pwoject">buiwding youw pwoject</a></h2>
 <p>finawwy, OwO with aww the setup done, 🥺 y-you can just buiwd y-youw wust/bevy p-pwojects
 fow windows:</p>
+<p>gnu:</p>
+<pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-gnu --wewease
+</code></pre>
 <p>msvc:</p>
 <pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-msvc --wewease
-</code></pre>
-<p>mingw:</p>
-<pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-gnu --wewease
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="setup/cross//introduction.html#maintenance-policy">bevy vewsion:</a>|(any)
 |---|---|</p>
 <h1 id="buiwd-windows-exes-fwom-macos"><a class="header" href="#buiwd-windows-exes-fwom-macos">buiwd windows exes fwom macos</a></h1>
 <p>(awso check out the <a href="setup/cross//platforms/windows.html">windows pwatfowm page</a> fow info
 about devewoping fow windows genewawwy)</p>
+<p><strong>note: as of bevy 0.12, ^•ﻌ•^ the instwuctions o-on this page n-nyo wongew wowk!</strong></p>
+<p>thewe awe some dependencies that a-assume you awe wunning w-windows and t-they
+can wun windows exes fwom theiw buiwd s-scwipts, which i-is nyot the c-case when
+cwoss-compiwing.</p>
+<p>howevew, OwO i decided to weave this p-page in the book, 🥺 b-because it couwd b-be usefuw
+fow othew wust pwojects (that do n-nyot use bevy ow s-something ewse t-that puwws
+in bwoken dependencies).</p>
 <hr />
 <p>wust offews two diffewent toowchains f-fow buiwding f-fow windows:</p>
 <ul>
-<li><a href="setup/cross/macos-windows.html#first-time-setup-msvc">msvc</a>: the defauwt when wowking in windows, OwO w-wequiwes downwoading m-micwosoft s-sdks</li>
-<li><a href="setup/cross/macos-windows.html#first-time-setup-gnu">gnu</a>: awtewnative mingw-based buiwd</li>
+<li><a href="setup/cross/macos-windows.html#first-time-setup-msvc">msvc</a></li>
+<li><a href="setup/cross/macos-windows.html#first-time-setup-gnu">gnu</a></li>
 </ul>
 <p>on macos, OwO the gnu softwawe is nyot w-weadiwy-avaiwabwe. 🥺 i-i don't know h-how it couwd
 be instawwed. ^•ﻌ•^ even if possibwe, OwO it m-might be difficuwt t-to set up.</p>

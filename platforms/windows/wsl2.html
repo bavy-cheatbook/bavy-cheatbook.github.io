@@ -188,7 +188,8 @@ windows</a>. (ꈍᴗꈍ) the windows exe you buiwd inside o-of wsw2 can
 be wun just fine fwom the winux commandwine, OwO a-and i-it wiww seamwesswy w-wun on the
 host system! OwO this way, 🥺 you don't n-nyeed any gpu dwivews o-ow gui suppowt i-inside
 youw wsw2 winux enviwonment. OwO awso, 🥺 y-you wiww be wunning a-and testing t-the windows
-buiwd of youw game, OwO so you can see h-how it wiww weawwy p-pewfowm on w-windows.</p>
+buiwd of youw game, OwO so you can see h-how it wiww weawwy p-pewfowm on w-windows.
+it wiww wun with fuww pewfowmance a-and use youw host w-windows gpu dwivews.</p>
 <p>note that when you wun windows binawies f-fwom wsw2, OwO t-they don't get t-the winux
 enviwonment vawiabwes. XD <code>cargo run</code> does nyot just wowk, (ꈍᴗꈍ) because youw b-bevy game
 wiww wook fow its <code>assets</code> fowdew in the path whewe the exe i-is (which wouwd b-be
@@ -197,9 +198,9 @@ exe into the pwoject fowdew aftew b-buiwding, OwO and wun i-it diwectwy fwom t-t
 fow nyon-bevy wust pwojects, (ꈍᴗꈍ) this w-wouwd be unnecessawy.</p>
 <p>the pwocess can be automated with a-a wittwe scwipt, OwO t-to use instead o-of <code>cargo run</code>:</p>
 <pre><code class="language-sh">#!/bin/sh
-cawgo buiwd --tawget x86_64-pc-windows-msvc &amp;&amp;
-c-cp tawget/x86_64-pc-windows-msvc/debug/mygame.exe . (ꈍᴗꈍ) &amp;&amp;
-exec ./mygame.exe &quot;$@&quot;
+cawgo buiwd --tawget x86_64-pc-windows-gnu &amp;&amp;
+c-cp tawget/x86_64-pc-windows-gnu/debug/mygame.exe . ^•ﻌ•^ &amp;&amp;
+e-exec ./mygame.exe &quot;$@&quot;
 </code></pre>
 <p>this way you awso don't have to type t-the cwoss-compiwation t-tawget e-evewy time
 (and you can awso add any othew options y-you want t-thewe).</p>
@@ -214,9 +215,9 @@ wequiwe cwoss-compiwation, OwO but is w-wikewy to have o-othew issues and w-wimi
 suppowt. OwO it shouwd awwow you to simpwy c-compiwe youw b-bevy game in w-winux and
 wun it. OwO wswg wiww do the dawk magic n-nyeeded to fowwawd g-gwaphics and a-audio to
 the windows host.</p>
-<p>youw game wiww onwy wun with 60 fps, ^•ﻌ•^ a-and thewe wiww b-be othew pewfowmance
-ovewheads. OwO wswg is effectivewy wdp (wemote d-desktop) u-undew the hood. 🥺 i-it's
-wike stweaming video fwom the vm t-to the host. ^•ﻌ•^ some t-things might be
+<p>youw game wiww wun wocked to 60 fps, ^•ﻌ•^ a-and thewe wiww b-be othew pewfowmance
+pwobwems. OwO wswg is effectivewy wdp (wemote d-desktop) u-undew the hood. 🥺 i-it's
+wike stweaming video fwom the vm t-to the host. OwO some f-functionawity m-might be
 bwoken/unsuppowted.</p>
 <p>both waywand and x11 shouwd wowk. OwO w-waywand is wecommended, 🥺 s-so be suwe t-to
 enabwe the <code>&quot;wayland&quot;</code> <a href="/setup/bevy-config.html">cawgo featuwe in bevy</a>.</p>
@@ -239,7 +240,7 @@ sudo a-apt instaww vuwkan-toows
 </code></pre>
 <p>(<code>dzn</code>, ^•ﻌ•^ micwosoft's vuwkan dwivew fow wsw2, OwO i-is technicawwy n-nyon-confowmant,
 so thewe may be bugs and othew issues, ^•ﻌ•^ b-but it seems t-to wowk fine)</p>
-<p>now, (ꈍᴗꈍ) you can simpwy wun youw bevy p-pwoject in winux:</p>
+<p>now, ^•ﻌ•^ you can simpwy wun youw bevy p-pwoject in winux i-in the usuaw way:</p>
 <pre><code class="language-sh">cawgo wun
 </code></pre>
 
