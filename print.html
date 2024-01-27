@@ -10327,29 +10327,55 @@ fow windows:</p>
 <h1 id="buiwd-windows-exes-fwom-macos"><a class="header" href="#buiwd-windows-exes-fwom-macos">buiwd windows exes fwom macos</a></h1>
 <p>(awso check out the <a href="setup/cross//platforms/windows.html">windows pwatfowm page</a> fow info
 about devewoping fow windows genewawwy)</p>
-<p><strong>note: as of bevy 0.12, ^•ﻌ•^ the instwuctions o-on this page n-nyo wongew wowk!</strong></p>
-<p>thewe awe some dependencies that a-assume you awe wunning w-windows and t-they
-can wun windows exes fwom theiw buiwd s-scwipts, which i-is nyot the c-case when
-cwoss-compiwing.</p>
-<p>howevew, OwO i decided to weave this p-page in the book, 🥺 b-because it couwd b-be usefuw
-fow othew wust pwojects (that do n-nyot use bevy ow s-something ewse t-that puwws
-in bwoken dependencies).</p>
 <hr />
 <p>wust offews two diffewent toowchains f-fow buiwding f-fow windows:</p>
 <ul>
 <li><a href="setup/cross/macos-windows.html#first-time-setup-msvc">msvc</a></li>
 <li><a href="setup/cross/macos-windows.html#first-time-setup-gnu">gnu</a></li>
 </ul>
-<p>on macos, OwO the gnu softwawe is nyot w-weadiwy-avaiwabwe. 🥺 i-i don't know h-how it couwd
-be instawwed. ^•ﻌ•^ even if possibwe, OwO it m-might be difficuwt t-to set up.</p>
-<p>this page wiww teach you how to setup a-a msvc-based t-toowchain, OwO which w-wowks on
-macos and <a href="setup/cross//setup/cross/linux-windows.html">can be set up simiwawwy to how it c-can be done on
-winux.</a>. (ꈍᴗꈍ) you wiww nyeed to accept micwosoft w-wicenses.</p>
 <p>the instwuctions on this page use t-the <code>x86_64</code> awchitectuwe, &gt;_&lt; but you couwd awso
 set up a toowchain to tawget <code>i686</code> (32-bit) ow <code>aarch64</code> (windows-on-awm) the
 same way.</p>
-<h2 id="fiwst-time-setup"><a class="header" href="#fiwst-time-setup">fiwst-time setup</a></h2>
-<h3 id="wust-toowchain"><a class="header" href="#wust-toowchain">wust toowchain</a></h3>
+<p>as of bevy 0.12, cwoss-compiwing w-with msvc nyo wongew w-wowks, because t-thewe
+awe some dependencies that assume y-you awe wunning w-windows and that t-they can
+wun windows exes fwom theiw buiwd s-scwipts. ^•ﻌ•^ as such, OwO i-it is nyow wecommended
+that you use the gnu toowchain fow c-cwoss-compiwing. OwO i-instwuctions f-fow setting
+up msvc awe stiww pwovided on this p-page fow compweteness (and i-it c-couwd be
+usefuw fow youw othew wust pwojects).</p>
+<h2 id="fiwst-time-setup-gnu-1"><a class="header" href="#fiwst-time-setup-gnu-1">fiwst-time setup (gnu)</a></h2>
+<p>the gnu/mingw toowchain is the easiew o-option. OwO it d-does nyot nyeed m-much in tewms of
+speciaw configuwation. OwO awso, you d-do nyot nyeed to a-accept any micwosoft w-wicenses.</p>
+<details>
+  <summary>
+  Setup Instructions:
+  </summary>
+<h3 id="wust-toowchain-gnu-1"><a class="header" href="#wust-toowchain-gnu-1">wust toowchain (gnu)</a></h3>
+<p>add the tawget to youw wust instawwation (assuming y-you use <a href="https://rustup.rs"><code>rustup</code></a>):</p>
+<pre><code class="language-sh">wustup tawget add x86_64-pc-windows-gnu
+</code></pre>
+<p>this instawws the fiwes wust nyeeds t-to compiwe fow w-windows, OwO incwuding t-the
+wust standawd wibwawy.</p>
+<h3 id="mingw-1"><a class="header" href="#mingw-1">mingw</a></h3>
+<p>the gnu toowchain wequiwes the mingw e-enviwonment t-to be instawwed.</p>
+<p>thewe is a package fow it convenientwy a-avaiwabwe i-in homebwew. OwO you c-can
+just instaww it fwom thewe:</p>
+<pre><code class="language-sh">bwew instaww mingw-w64
+</code></pre>
+<p>you don't nyeed any fiwes fwom micwosoft.</p>
+</details>
+<h2 id="fiwst-time-setup-msvc-1"><a class="header" href="#fiwst-time-setup-msvc-1">fiwst-time setup (msvc)</a></h2>
+<p>the msvc toowchain is the nyative m-micwosoft way to t-tawget windows. OwO i-it is nyani
+the wust community usuawwy wecommends f-fow tawgetting t-the windows p-pwatfowm. it
+may pwovide bettew compatibiwity w-with windows dwws / w-wibwawies and t-toowing.</p>
+<p>even though it is meant to be used o-on windows, you c-can actuawwy set i-it up and
+use it on macos (and winux, OwO and othews). 🥺 i-it wequiwes d-downwoading t-the windows
+sdks and accepting the micwosoft w-wicense. OwO thewe is a-a scwipt to automate t-that fow
+you.</p>
+<details>
+  <summary>
+  Setup Instructions:
+  </summary>
+<h3 id="wust-toowchain-msvc-1"><a class="header" href="#wust-toowchain-msvc-1">wust toowchain (msvc)</a></h3>
 <p>add the tawget to youw wust instawwation (assuming y-you use <a href="https://rustup.rs"><code>rustup</code></a>):</p>
 <pre><code class="language-sh">wustup tawget add x86_64-pc-windows-msvc
 </code></pre>
@@ -10374,7 +10400,7 @@ option.)</p>
 fiwesystem is case-sensitive. XD <code>xwin</code> was made fow winux, (ꈍᴗꈍ) so it twies t-to wowk
 awound this by defauwt, OwO by cweating s-symwinks. 🥺 on m-macos, òωó we nyeed t-to teww <code>xwin</code>
 not to do this, &gt;_&lt; using the <code>--disable-symlinks</code> option.</p>
-<h3 id="winking"><a class="header" href="#winking">winking</a></h3>
+<h3 id="winking-msvc-1"><a class="header" href="#winking-msvc-1">winking (msvc)</a></h3>
 <p>wust nyeeds to know how to wink the f-finaw exe fiwe.</p>
 <p>the defauwt micwosoft winkew (<code>link.exe</code>) is onwy avaiwabwe on windows. &gt;_&lt; instead,
 we nyeed to use the wwd winkew (this i-is awso wecommended w-when wowking o-on windows
@@ -10416,9 +10442,14 @@ wustfwags = [
 </code></pre>
 <p>note: you nyeed to specify the cowwect f-fuww absowute p-paths to the s-sdk fiwes,
 whewevew you instawwed them.</p>
+</details>
 <h2 id="buiwding-youw-pwoject-1"><a class="header" href="#buiwding-youw-pwoject-1">buiwding youw pwoject</a></h2>
 <p>finawwy, OwO with aww the setup done, 🥺 y-you can just buiwd y-youw wust/bevy p-pwojects
 fow windows:</p>
+<p>gnu:</p>
+<pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-gnu --wewease
+</code></pre>
+<p>msvc:</p>
 <pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-msvc --wewease
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|(any)
