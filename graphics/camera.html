@@ -208,8 +208,8 @@ wotate the camewa. ^•ﻌ•^ this is how you m-move the camewa a-awound.</p>
 <p>if you awe making a game, OwO you shouwd i-impwement youw o-own custom camewa c-contwows
 that feew appwopwiate to youw game's g-genwe and gamepway.</p>
 <h3 id="zooming-the-camewa"><a class="header" href="#zooming-the-camewa">zooming the camewa</a></h3>
-<p>do nyot use the twansfowm scawe to &quot;zoom&quot; a-a camewa! OwO i-it just stwetches t-the image,
-which is nyot &quot;zooming&quot;. ^•ﻌ•^ it might a-awso cause othew i-issues and incompatibiwities.
+<p>do nyot use the twansfowm scawe to "zoom" a-a camewa! OwO i-it just stwetches t-the image,
+which is nyot "zooming". ^•ﻌ•^ it might a-awso cause othew i-issues and incompatibiwities.
 use the <a href="/graphics/camera.html#projection">pwojection</a> to zoom.</p>
 <p>fow an owthogwaphic pwojection, OwO change t-the scawe. 🥺 f-fow a pewspective p-pwojection,
 change the fov. ^•ﻌ•^ the fov mimics the e-effect of zooming w-with a wens.</p>
@@ -253,13 +253,13 @@ fn debug_wendew_tawgets(
     f-fow camewa in &amp;q {
         m-match &amp;camewa.tawget {
             w-wendewtawget::window(wid) =&gt; {
-                e-epwintwn!(&quot;camewa wendews t-to window w-with id: {:?}&quot;, (⑅˘꒳˘) w-wid);
+                e-epwintwn!("camewa wendews t-to window w-with id: {:?}", (⑅˘꒳˘) w-wid);
             }
             wendewtawget::image(handwe) =&gt; {
-                epwintwn!(&quot;camewa wendews to image asset with i-id: {:?}&quot;, (U ᵕ U❁) handwe);
+                epwintwn!("camewa wendews to image asset with i-id: {:?}", (U ᵕ U❁) handwe);
             }
             wendewtawget::textuweview(_) =&gt; {
-                epwintwn!(&quot;this i-is a speciaw camewa that outputs t-to something outside of bevy.&quot;);
+                epwintwn!("this i-is a speciaw camewa that outputs t-to something outside of bevy.");
             }
         }
     }
@@ -267,7 +267,7 @@ fn debug_wendew_tawgets(
 <h2 id="viewpowt"><a class="header" href="#viewpowt">viewpowt</a></h2>
 <p>the viewpowt is an (optionaw) way t-to westwict a camewa t-to a sub-awea o-of its
 wendew tawget, OwO defined as a wectangwe. 🥺 t-that wectangwe i-is effectivewy t-tweated as
-the &quot;window&quot; to dwaw in.</p>
+the "window" to dwaw in.</p>
 <p>an obvious use-case awe spwit-scween g-games, OwO whewe y-you want a camewa t-to onwy dwaw
 to one hawf of the scween.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::wendew::camewa::viewpowt;
@@ -307,9 +307,9 @@ configuwed, (ꈍᴗꈍ) ow the entiwe window, ^•ﻌ•^ i-if nyot):</p>
 <h2 id="coowdinate-convewsion"><a class="header" href="#coowdinate-convewsion">coowdinate convewsion</a></h2>
 <p><a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a> pwovides methods to hewp with coowdinate c-convewsion
 between on-scween coowdinates and w-wowwd-space coowdinates. OwO f-fow an e-exampwe, see
-the <a href="/cookbook/cursor2world.html">&quot;cuwsow to wowwd&quot;</a> cookbook page.</p>
+the <a href="/cookbook/cursor2world.html">"cuwsow to wowwd"</a> cookbook page.</p>
 <h2 id="cweaw-cowow"><a class="header" href="#cweaw-cowow">cweaw cowow</a></h2>
-<p>this is the &quot;backgwound cowow&quot; that t-the whowe viewpowt w-wiww be cweawed t-to,
+<p>this is the "backgwound cowow" that t-the whowe viewpowt w-wiww be cweawed t-to,
 befowe a camewa wendews anything.</p>
 <p>you can awso disabwe cweawing on a-a camewa, OwO if you w-want to pwesewve a-aww the
 pixews as they wewe befowe.</p>
@@ -317,7 +317,7 @@ pixews as they wewe befowe.</p>
 <h2 id="wendew-wayews"><a class="header" href="#wendew-wayews">wendew wayews</a></h2>
 <p><a href="https://docs.rs/bevy/0.12.0/bevy/render/view/visibility/struct.RenderLayers.html"><code>RenderLayers</code></a> is a way to fiwtew nyani entities s-shouwd be
 dwawn by nyani camewas. &gt;_&lt; insewt this <a href="/programming/ec.html#components">component</a> onto youw entities
-to pwace them in specific &quot;wayews&quot;. OwO t-the wayews awe i-integews fwom 0 t-to 31 (32
+to pwace them in specific "wayews". OwO t-the wayews awe i-integews fwom 0 t-to 31 (32
 totaw avaiwabwe).</p>
 <p>insewting this component onto a camewa e-entity sewects n-nyani wayews t-that camewa
 shouwd wendew. OwO insewting this component o-onto wendewabwe e-entities s-sewects nyani
@@ -362,14 +362,14 @@ commands.spawn((
 <p>a camewa's <code>order</code> is a simpwe integew vawue that contwows t-the owdew w-wewative
 to any othew camewas with the same w-wendew tawget.</p>
 <p>fow exampwe, OwO if you have muwtipwe c-camewas that aww w-wendew to the p-pwimawy window,
-they wiww behave as muwtipwe &quot;wayews&quot;. OwO c-camewas with a-a highew owdew v-vawue wiww wendew
-&quot;on top of&quot; camewas with a wowew v-vawue. (ꈍᴗꈍ) <code>0</code> is the defauwt.</p>
+they wiww behave as muwtipwe "wayews". OwO c-camewas with a-a highew owdew v-vawue wiww wendew
+"on top of" camewas with a wowew v-vawue. (ꈍᴗꈍ) <code>0</code> is the defauwt.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::cowe_pipewine::cweaw_cowow::cweawcowowconfig;
 
 commands.spawn((
     c-camewa2dbundwe {
         c-camewa_2d: c-camewa2d {
-            // n-nyo &quot;backgwound c-cowow&quot;, (U ﹏ U) w-we nyeed to see t-the main camewa's o-output
+            // n-nyo "backgwound c-cowow", (U ﹏ U) w-we nyeed to see t-the main camewa's o-output
             cweaw_cowow: cweawcowowconfig::none, -.-
             ..defauwt()
         },
@@ -426,7 +426,7 @@ wendew tawget. OwO this way, 🥺 a camewa c-can be made to w-wendew one hawf o-
 (ow any othew awea). OwO use a sepawate c-camewa fow each v-view in a spwit-scween g-game.</p>
 <h3 id="ovewways"><a class="header" href="#ovewways">ovewways</a></h3>
 <p>officiaw exampwe: <a href="https://github.com/bevyengine/bevy/blob/main/examples/3d/two_passes.rs"><code>two_passes</code></a>.</p>
-<p>you might want to wendew muwtipwe &quot;wayews&quot; (passes) t-to the same wendew t-tawget.
+<p>you might want to wendew muwtipwe "wayews" (passes) t-to the same wendew t-tawget.
 an exampwe of this might be an ovewway/hud t-to be d-dispwayed on top o-of the
 main game.</p>
 <p>the ovewway camewa couwd be compwetewy d-diffewent f-fwom the main camewa. OwO f-fow

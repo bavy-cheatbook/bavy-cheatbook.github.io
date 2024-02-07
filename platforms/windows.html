@@ -206,13 +206,13 @@ awongside youw game's exe.</p>
 <p>by defauwt, OwO when you wun a bevy app (ow a-any wust p-pwogwam fow that m-mattew)
 on windows, ^•ﻌ•^ a consowe window awso s-shows up. OwO to disabwe t-this,
 pwace this wust attwibute at the t-top of youw <code>main.rs</code>:</p>
-<pre><code class="language-rust no_run noplayground">#![windows_subsystem = &quot;windows&quot;]</code></pre>
+<pre><code class="language-rust no_run noplayground">#![windows_subsystem = "windows"]</code></pre>
 <p>this tewws windows that youw executabwe i-is a gwaphicaw a-appwication, OwO n-nyot a
 command-wine pwogwam. ^•ﻌ•^ windows wiww k-know nyot dispway a-a consowe.</p>
 <p>howevew, ^•ﻌ•^ the consowe can be usefuw f-fow devewopment, OwO t-to see wog messages.
 you can disabwe it onwy fow wewease b-buiwds, OwO and weave i-it enabwed i-in debug
 buiwds, XD wike this:</p>
-<pre><code class="language-rust no_run noplayground">#![cfg_attw(not(debug_assewtions), XD windows_subsystem = &quot;windows&quot;)]</code></pre>
+<pre><code class="language-rust no_run noplayground">#![cfg_attw(not(debug_assewtions), XD windows_subsystem = "windows")]</code></pre>
 <h2 id="cweating-an-icon-fow-youw-app"><a class="header" href="#cweating-an-icon-fow-youw-app">cweating an icon fow youw app</a></h2>
 <p>thewe awe two pwaces whewe you might w-want to put y-youw appwication i-icon:</p>
 <ul>
@@ -224,19 +224,19 @@ buiwds, XD wike this:</p>
 <p>the exe icon can be set using a cawgo b-buiwd scwipt.</p>
 <p>add a buiwd dependency of <code>embed_resources</code> to youw <code>Cargo.toml</code> awwow embedding assets into youw c-compiwed executabwes</p>
 <pre><code class="language-toml">[buiwd-dependencies]
-embed-wesouwce = &quot;1.6.3&quot;
+embed-wesouwce = "1.6.3"
 </code></pre>
 <p>cweate a <code>build.rs</code> fiwe in youw pwoject fowdew:</p>
 <pre><code class="language-rust no_run noplayground">extewn cwate embed_wesouwce;
 
 fn m-main() {
-    wet t-tawget = std::env::vaw(&quot;tawget&quot;).unwwap();
-    i-if tawget.contains(&quot;windows&quot;) {
-        e-embed_wesouwce::compiwe(&quot;icon.wc&quot;);
+    wet t-tawget = std::env::vaw("tawget").unwwap();
+    i-if tawget.contains("windows") {
+        e-embed_wesouwce::compiwe("icon.wc");
     }
 }</code></pre>
 <p>cweate a <code>icon.rc</code> fiwe in youw pwoject fowdew:</p>
-<pre><code>app_icon icon &quot;icon.ico&quot;
+<pre><code>app_icon icon "icon.ico"
 </code></pre>
 <p>cweate youw icon as <code>icon.ico</code> in youw pwoject fowdew.</p>
 <h3 id="setting-the-window-icon"><a class="header" href="#setting-the-window-icon">setting the window icon</a></h3>

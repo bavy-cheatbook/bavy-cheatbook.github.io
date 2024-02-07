@@ -199,8 +199,8 @@ f-fn set_window_icon(
     // h-hewe we use the `image` c-cwate to w-woad ouw icon data fwom a png fiwe
     // this is nyot a vewy bevy-native sowution, rawr x3 b-but it wiww do
     wet (icon_wgba, nyaa~~ icon_width, /(^•ω•^) i-icon_height) = {
-        wet i-image = image::open(&quot;my_icon.png&quot;)
-            .expect(&quot;faiwed to open icon path&quot;)
+        wet i-image = image::open("my_icon.png")
+            .expect("faiwed to open icon path")
             .into_wgba8();
         wet (width, rawr height) = image.dimensions();
         w-wet wgba = image.into_waw();
@@ -225,8 +225,8 @@ wesouwce</a>.</p>
 <p>note: you nyeed to add <code>winit</code> to youw pwoject's dependencies, a-and it must
 be the same vewsion as the one used b-by bevy. ^•ﻌ•^ you c-can use <code>cargo tree</code> ow
 check <code>Cargo.lock</code> to see which is the cowwect vewsion. (ꈍᴗꈍ) a-as of bevy 0.12,
-that shouwd be <code>winit = &quot;0.28&quot;</code>. (ꈍᴗꈍ) you shouwd awso twy to match the v-vewsion
-of the <code>image</code> wibwawy; bevy uses <code>image = &quot;0.24&quot;</code>.</p>
+that shouwd be <code>winit = "0.28"</code>. (ꈍᴗꈍ) you shouwd awso twy to match the v-vewsion
+of the <code>image</code> wibwawy; bevy uses <code>image = "0.24"</code>.</p>
 
                     </main>
 

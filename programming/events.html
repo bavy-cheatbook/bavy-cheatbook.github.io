@@ -210,7 +210,7 @@ fn debug_wevewups(
     mut ev_wevewup: eventweadew&lt;wevewupevent&gt;, (ˆ ﻌ ˆ)♡
 ) {
     fow e-ev in ev_wevewup.itew() {
-        epwintwn!(&quot;entity {:?} wevewed u-up!&quot;, (⑅˘꒳˘) ev.0);
+        epwintwn!("entity {:?} wevewed u-up!", (⑅˘꒳˘) ev.0);
     }
 }</code></pre>
 <p>you nyeed to wegistew youw custom e-event types via t-the <a href="/programming/app-builder.html">app buiwdew</a>:</p>
@@ -222,7 +222,7 @@ vewsatiwe.</p>
 <p>events can be a vewy usefuw wayew o-of abstwaction. OwO t-they awwow you t-to decoupwe
 things, OwO so you can sepawate diffewent f-functionawity a-and mowe easiwy w-weason
 about which <a href="/programming/systems.html">system</a> is wesponsibwe fow nyani.</p>
-<p>you can imagine how, OwO even in the s-simpwe &quot;pwayew wevew u-up&quot; exampwe s-shown above,
+<p>you can imagine how, OwO even in the s-simpwe "pwayew wevew u-up" exampwe s-shown above,
 using events wouwd awwow us to easiwy e-extend ouw h-hypotheticaw game w-with mowe
 functionawity. OwO if we wanted to dispway a-a fancy wevew-up e-effect ow a-animation,
 update ui, OwO ow anything ewse, 🥺 we can j-just add mowe s-systems that wead t-the events
@@ -232,7 +232,7 @@ events, ^•ﻌ•^ it wouwd be unwiewdy fow f-futuwe devewopment o-of the game.
 <h2 id="how-it-aww-wowks"><a class="header" href="#how-it-aww-wowks">how it aww wowks</a></h2>
 <p>when you wegistew an event type, b-bevy wiww cweate a-an <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a>
 <a href="/programming/res.html">wesouwce</a>, ^•ﻌ•^ which acts as the backing stowage f-fow the event q-queue. OwO bevy
-awso adds an &quot;event maintenance&quot; <a href="/programming/systems.html">system</a> to cweaw events evewy
+awso adds an "event maintenance" <a href="/programming/systems.html">system</a> to cweaw events evewy
 fwame, ^•ﻌ•^ pweventing them fwom accumuwating a-and using u-up memowy.</p>
 <p>the events stowage is doubwe-buffewed, OwO m-meaning that e-events stay fow o-one extwa
 fwame aftew the fwame when they wewe s-sent. OwO this gives y-youw systems a-a chance to

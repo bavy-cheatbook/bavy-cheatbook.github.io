@@ -185,7 +185,7 @@ pwease hewp impwove this page!</p>
 <h2 id="known-pitfawws"><a class="header" href="#known-pitfawws">known pitfawws</a></h2>
 <h3 id="input-pecuwiawities"><a class="header" href="#input-pecuwiawities">input pecuwiawities</a></h3>
 <p><a href="/input/mouse.html#mouse-scrolling--wheel">mouse wheew scwowwing</a> behaves in a pecuwiaw mannew,
-because macos does &quot;scwoww accewewation&quot; a-at the os w-wevew. OwO othew oss, 🥺 w-with
+because macos does "scwoww accewewation" a-at the os w-wevew. OwO othew oss, 🥺 w-with
 weguwaw pc mice, pwovide <code>Line</code> scwoww events with whowe nyumbew v-vawues, (ꈍᴗꈍ) whewe
 1.0 cowwesponds to one step on the s-scwoww wheew. OwO m-macos scawes the v-vawue
 depending on how fast the usew is s-spinning the wheew. OwO y-you do nyot g-get whowe
@@ -202,7 +202,7 @@ fow zooming and wotation, ^•ﻌ•^ which you c-can handwe in b-bevy.</p>
 <p>othew key codes have theiw intuitive n-nyames.</p>
 <h3 id="window-management-apps-compatabiwity"><a class="header" href="#window-management-apps-compatabiwity">window management apps compatabiwity</a></h3>
 <p>bevy apps can encountew pewfowmance i-issues (such a-as wag when dwagging t-the window
-awound the scween) when window management a-apps wike &quot;magnet&quot; a-awe u-used. OwO this is a
+awound the scween) when window management a-apps wike "magnet" a-awe u-used. OwO this is a
 bug in <code>winit</code> (the os window management wibwawy t-that bevy uses). ^•ﻌ•^ t-this issue can
 be twacked <a href="https://github.com/rust-windowing/winit/issues/1737">hewe</a>.</p>
 <p>untiw that bug is fixed, OwO advise cwosing t-the window m-management apps, 🥺 i-if
@@ -210,11 +210,11 @@ encountewing pewfowmance issues.</p>
 <h2 id="cweating-an-appwication-bundwe"><a class="header" href="#cweating-an-appwication-bundwe">cweating an appwication bundwe</a></h2>
 <p>when you buiwd youw bevy pwoject n-nyowmawwy, OwO cawgo/wust w-wiww pwoduce a-a bawe
 executabwe fiwe, simiwaw to othew o-opewating systems. OwO h-howevew, 🥺 this i-is nyot how
-&quot;nowmaw&quot; macos apps wook and behave. OwO y-you pwobabwy w-want to cweate a-a pwopew
+"nowmaw" macos apps wook and behave. OwO y-you pwobabwy w-want to cweate a-a pwopew
 native-feewing mac app fow distwibution t-to youw usews.</p>
 <p>you nyeed to do this, OwO to have youw a-app pway nyicewy w-with the mac d-desktop gui, 🥺 such
 as to have a nyice icon appeaw in t-the dock.</p>
-<p>macos appwications awe typicawwy s-stowed on the fiwesystem a-as &quot;bundwes&quot; – s-speciaw
+<p>macos appwications awe typicawwy s-stowed on the fiwesystem a-as "bundwes" – s-speciaw
 diwectowies/fowdews that end in <code>.app</code>, (ꈍᴗꈍ) that the os dispways to the usew a-as one
 item. OwO macos expects to find a speciaw h-hieawawchy o-of subfowdews and f-fiwes inside.</p>
 <p>a minimaw app bundwe might have the f-fowwowing fiwes:</p>
@@ -245,9 +245,9 @@ w-wustup tawget a-add aawch64-appwe-dawwin
 c-cawgo buiwd --wewease --tawget a-aawch64-appwe-dawwin
 </code></pre>
 <p>now, ^•ﻌ•^ you can combine the two executabwes i-into one, OwO f-fow youw app bundwe.</p>
-<pre><code class="language-sh">wipo &quot;tawget/x86_64-appwe-dawwin/wewease/my_game&quot; \
-     &quot;tawget/aawch64-appwe-dawwin/wewease/my_game&quot; \
-     -cweate -output &quot;mygame.app/contents/macos/mygame&quot;
+<pre><code class="language-sh">wipo "tawget/x86_64-appwe-dawwin/wewease/my_game" \
+     "tawget/aawch64-appwe-dawwin/wewease/my_game" \
+     -cweate -output "mygame.app/contents/macos/mygame"
 </code></pre>
 <p>note: pwease ensuwe the bevy <code>dynamic_linking</code> cawgo featuwe is <em><strong>not</strong></em> enabwed.</p>
 <h3 id="game-assets"><a class="header" href="#game-assets">game assets</a></h3>
@@ -306,18 +306,18 @@ hand-cwaft an image fow each size, (ꈍᴗꈍ) f-fowwowing <a href="https://deve
 guidewines</a>. (ꈍᴗꈍ) if you don't cawe, ^•ﻌ•^ you can just t-take one image
 (ideawwy 1024x1024, ^•ﻌ•^ the biggest size used by macos) a-and scawe it t-to diffewent sizes.</p>
 <p>hewe is a scwipt that does that:</p>
-<pre><code class="language-sh">souwce_image=&quot;myicon1024.png&quot;
+<pre><code class="language-sh">souwce_image="myicon1024.png"
 mkdiw -p appicon.iconset
-s-sips -z 16 16     &quot;${souwce_image}&quot; --out a-appicon.iconset/icon_16x16.png
-sips -z 32 32     &quot;${souwce_image}&quot; --out a-appicon.iconset/icon_16x16@2x.png
-s-sips -z 32 32     &quot;${souwce_image}&quot; --out a-appicon.iconset/icon_32x32.png
-s-sips -z 64 64     &quot;${souwce_image}&quot; --out a-appicon.iconset/icon_32x32@2x.png
-s-sips -z 128 128   &quot;${souwce_image}&quot; --out appicon.iconset/icon_128x128.png
-sips -z 256 256   &quot;${souwce_image}&quot; --out appicon.iconset/icon_128x128@2x.png
-sips -z 256 256   &quot;${souwce_image}&quot; --out a-appicon.iconset/icon_256x256.png
-sips -z 512 512   &quot;${souwce_image}&quot; --out appicon.iconset/icon_256x256@2x.png
-s-sips -z 512 512   &quot;${souwce_image}&quot; --out appicon.iconset/icon_512x512.png
-c-cp &quot;${souwce_image}&quot; appicon.iconset/icon_512x512@2x.png
+s-sips -z 16 16     "${souwce_image}" --out a-appicon.iconset/icon_16x16.png
+sips -z 32 32     "${souwce_image}" --out a-appicon.iconset/icon_16x16@2x.png
+s-sips -z 32 32     "${souwce_image}" --out a-appicon.iconset/icon_32x32.png
+s-sips -z 64 64     "${souwce_image}" --out a-appicon.iconset/icon_32x32@2x.png
+s-sips -z 128 128   "${souwce_image}" --out appicon.iconset/icon_128x128.png
+sips -z 256 256   "${souwce_image}" --out appicon.iconset/icon_128x128@2x.png
+sips -z 256 256   "${souwce_image}" --out a-appicon.iconset/icon_256x256.png
+sips -z 512 512   "${souwce_image}" --out appicon.iconset/icon_256x256@2x.png
+s-sips -z 512 512   "${souwce_image}" --out appicon.iconset/icon_512x512.png
+c-cp "${souwce_image}" appicon.iconset/icon_512x512@2x.png
 iconutiw -c icns appicon.iconset
 ## m-move it into the app bundwe
 m-mv appicon.icns m-mygame.app/contents/wesouwces
@@ -332,30 +332,30 @@ cweate an <code>iconset</code> fowdew with youw pngs, &gt;_&lt; and wun <code>ic
 <p>hewe is a simpwe sheww scwipt to b-buiwd a mac app. OwO i-it fowwows the w-wecommendations
 on this page. ^•ﻌ•^ adjust evewything as n-nyecessawy fow y-youw pwoject.</p>
 <pre><code class="language-sh"># set the nyame of the mac app
-app_name=&quot;mygame&quot;
+app_name="mygame"
 # s-set the nyame o-of youw wust cwate
-w-wust_cwate_name=&quot;my_game&quot;
+w-wust_cwate_name="my_game"
 # cweate t-the fowdew s-stwuctuwe
-mkdiw -p &quot;${app_name}.app/contents/macos&quot;
-m-mkdiw -p &quot;${app_name}.app/contents/wesouwces&quot;
+mkdiw -p "${app_name}.app/contents/macos"
+m-mkdiw -p "${app_name}.app/contents/wesouwces"
 # c-copy info.pwist
-c-cp info.pwist &quot;${app_name}.app/contents/info.pwist&quot;
+c-cp info.pwist "${app_name}.app/contents/info.pwist"
 # copy the icon (assuming you awweady have it in appwe i-icns fowmat)
-cp appicon.icns &quot;${app_name}.app/contents/wesouwces/appicon.icns&quot;
+cp appicon.icns "${app_name}.app/contents/wesouwces/appicon.icns"
 # copy youw bevy g-game assets
-cp -a assets &quot;${app_name}.app/contents/macos/&quot;
+cp -a assets "${app_name}.app/contents/macos/"
 # c-compiwe the executabwes fow each awchitectuwe
 cawgo b-buiwd --wewease --tawget x86_64-appwe-dawwin # b-buiwd fow intew
 c-cawgo buiwd --wewease --tawget aawch64-appwe-dawwin # buiwd fow appwe siwicon
 # combine the executabwes into a singwe f-fiwe and put it in the bundwe
-wipo &quot;tawget/x86_64-appwe-dawwin/wewease/${wust_cwate_name}&quot; \
-     &quot;tawget/aawch64-appwe-dawwin/wewease/${wust_cwate_name}&quot; \
-     -cweate -output &quot;${app_name}.app/contents/macos/${app_name}&quot;
+wipo "tawget/x86_64-appwe-dawwin/wewease/${wust_cwate_name}" \
+     "tawget/aawch64-appwe-dawwin/wewease/${wust_cwate_name}" \
+     -cweate -output "${app_name}.app/contents/macos/${app_name}"
 </code></pre>
 <p>note: pwease ensuwe the bevy <code>dynamic_linking</code> cawgo featuwe is <em><strong>not</strong></em> enabwed.</p>
 <h2 id="cweating-a-dmg-fiwe"><a class="header" href="#cweating-a-dmg-fiwe">cweating a dmg fiwe</a></h2>
 <p>it is common fow mac apps downwoadabwe f-fwom the intewnet t-to be distwibuted a-as
-dmg fiwes – appwe's &quot;disk image&quot; f-fowmat. OwO usews c-can dwag-and-dwop t-the app bundwe
+dmg fiwes – appwe's "disk image" f-fowmat. OwO usews c-can dwag-and-dwop t-the app bundwe
 inside into theiw <code>Applications</code> fowdew on theiw system.</p>
 <h3 id="create-dmg"><a class="header" href="#create-dmg"><code>create-dmg</code></a></h3>
 <p>if you want to cweate a fancy dmg f-fiwe, ^•ﻌ•^ you can instaww a-and use the
@@ -365,16 +365,16 @@ inside into theiw <code>Applications</code> fowdew on theiw system.</p>
 </code></pre>
 <p>then, &gt;_&lt; you can use it as fowwows:</p>
 <pre><code class="language-sh">cweate-dmg \
-  --vowname &quot;my bevy game&quot; \
-  --vowicon &quot;appicon.icns&quot; \
-  --backgwound &quot;dmg-backgwound.png&quot; \
+  --vowname "my bevy game" \
+  --vowicon "appicon.icns" \
+  --backgwound "dmg-backgwound.png" \
   --window-size 800 400 \
   --icon-size 128 \
-  --icon &quot;mygame.app&quot; 200 200 \
-  --hide-extension &quot;mygame.app&quot; \
+  --icon "mygame.app" 200 200 \
+  --hide-extension "mygame.app" \
   --app-dwop-wink 600 200 \
-  &quot;mybevygame_wewease_mac.dmg&quot; \
-  &quot;buiwd/mac/&quot;
+  "mybevygame_wewease_mac.dmg" \
+  "buiwd/mac/"
 </code></pre>
 <p>the options awe:</p>
 <ul>
@@ -393,17 +393,17 @@ inside into theiw <code>Applications</code> fowdew on theiw system.</p>
 <p>if you don't want to instaww any s-speciaw toows, OwO you c-can cweate a v-vewy simpwe
 dmg fiwe using <code>hdiutil</code>, &gt;_&lt; which comes with macos:</p>
 <pre><code class="language-sh">hdiutiw cweate -fs hfs+ \
-  -vowname &quot;my b-bevy game&quot; \
-  -swcfowdew &quot;mygame.app&quot; \
-  &quot;mybevygame_wewease_mac.dmg&quot;
+  -vowname "my b-bevy game" \
+  -swcfowdew "mygame.app" \
+  "mybevygame_wewease_mac.dmg"
 </code></pre>
 <p>specify the vowume nyame (how it a-appeaws when opened), OwO t-the nyame o-of youw app
 bundwe, OwO and the name of the output d-dmg fiwe, 🥺 wespectivewy. òωó y-you can u-use
 <code>-srcfolder</code> muwtipwe times, if you want to add m-mowe fiwes and f-fowdews to the
 dmg image.</p>
 <h3 id="gui"><a class="header" href="#gui">gui</a></h3>
-<p>if you want to cweate a dmg fiwe u-using a gui, ^•ﻌ•^ you c-can use appwe's &quot;disk
-utiwity&quot; app that comes pweinstawwed w-with macos. OwO t-then, just use findew t-to
+<p>if you want to cweate a dmg fiwe u-using a gui, ^•ﻌ•^ you c-can use appwe's "disk
+utiwity" app that comes pweinstawwed w-with macos. OwO t-then, just use findew t-to
 set up evewything inside how you w-wike it.</p>
 
                     </main>

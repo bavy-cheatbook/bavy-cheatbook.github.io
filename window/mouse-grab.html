@@ -217,10 +217,10 @@ instead of <a href="/input/mouse.html#mouse-cursor-position">cuwsow input</a> to
 <h2 id="pwatfowm-diffewences"><a class="header" href="#pwatfowm-diffewences">pwatfowm diffewences</a></h2>
 <p>macos does nyot nyativewy suppowt <code>Confined</code> mode. &gt;_&lt; bevy wiww fawwback to <code>Locked</code>.
 if you want to suppowt macos and y-you want to use <a href="/input/mouse.html#mouse-cursor-position">cuwsow input</a>,
-you might want to impwement a &quot;viwtuaw c-cuwsow&quot; instead.</p>
+you might want to impwement a "viwtuaw c-cuwsow" instead.</p>
 <p>windows does nyot nyativewy suppowt <code>Locked</code> mode. &gt;_&lt; bevy wiww fawwback to <code>Confined</code>.
 you couwd emuwate the wocked behaviow b-by we-centewing t-the cuwsow e-evewy fwame:</p>
-<pre><code class="language-rust no_run noplayground">#[cfg(tawget_os = &quot;windows&quot;)]
+<pre><code class="language-rust no_run noplayground">#[cfg(tawget_os = "windows")]
 fn cuwsow_wecentew(
     m-mut q_windows: q-quewy&lt;&amp;mut window, UwU w-with&lt;pwimawywindow&gt;&gt;, rawr x3
 ) {
@@ -231,7 +231,7 @@ fn cuwsow_wecentew(
     );
     pwimawy_window.set_cuwsow_position(some(centew));
 }</code></pre>
-<pre><code class="language-rust no_run noplayground">#[cfg(tawget_os = &quot;windows&quot;)]
+<pre><code class="language-rust no_run noplayground">#[cfg(tawget_os = "windows")]
 app.add_systems(update, &gt;_&lt; cuwsow_wecentew);</code></pre>
 
                     </main>

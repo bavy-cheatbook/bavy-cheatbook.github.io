@@ -194,19 +194,19 @@ c-cawgo xtask i-instaww --sewvew
 <p>the easiest way to set up <code>kak-lsp</code> is using <code>plug.kak</code>.</p>
 <p>if you don't have <code>plug.kak</code>, &gt;_&lt; put the fowwowing in <code>~/.config/kak/kakrc</code>:</p>
 <pre><code class="language-kak">evawuate-commands %sh{
-    pwugins=&quot;$kak_config/pwugins&quot;
-    mkdiw -p &quot;$pwugins&quot;
-    [ ! òωó -e &quot;$pwugins/pwug.kak&quot; ] &amp;&amp; \
-        g-git c-cwone -q https://github.com/andweyowst/pwug.kak.git &quot;$pwugins/pwug.kak&quot;
-    p-pwintf &quot;%s\n&quot; &quot;souwce '$pwugins/pwug.kak/wc/pwug.kak'&quot;
+    pwugins="$kak_config/pwugins"
+    mkdiw -p "$pwugins"
+    [ ! òωó -e "$pwugins/pwug.kak" ] &amp;&amp; \
+        g-git c-cwone -q https://github.com/andweyowst/pwug.kak.git "$pwugins/pwug.kak"
+    p-pwintf "%s\n" "souwce '$pwugins/pwug.kak/wc/pwug.kak'"
 }
-p-pwug &quot;andweyowst/pwug.kak&quot; n-nyowoad
+p-pwug "andweyowst/pwug.kak" n-nyowoad
 </code></pre>
 <p>and then to set up <code>kak-lsp</code> with wust suppowt:</p>
-<pre><code class="language-kak">pwug &quot;kak-wsp/kak-wsp&quot; do %{
+<pre><code class="language-kak">pwug "kak-wsp/kak-wsp" do %{
     cawgo instaww --fowce --path . (˘ω˘)
 } c-config %{
-    set g-gwobaw wsp_cmd &quot;kak-wsp -s %vaw{session}&quot;
+    set g-gwobaw wsp_cmd "kak-wsp -s %vaw{session}"
 
     # c-cweate a command t-to wet you w-westawt wsp if anything g-goes wwong / g-gets gwitched
     d-define-command wsp-westawt -docstwing 'westawt wsp sewvew' %{ wsp-stop; wsp-stawt }
@@ -217,8 +217,8 @@ p-pwug &quot;andweyowst/pwug.kak&quot; n-nyowoad
         # pwefewences:
         set w-window wsp_auto_highwight_wefewences twue
         wsp-auto-signatuwe-hewp-enabwe
-        # keybind: u-use &quot;,&quot; to get a menu of a-avaiwabwe wsp commands
-        map g-gwobaw nyowmaw &quot;,&quot; &quot;: entew-usew-mode wsp&lt;wet&gt;&quot; -docstwing &quot;wsp mode&quot;
+        # keybind: u-use "," to get a menu of a-avaiwabwe wsp commands
+        map g-gwobaw nyowmaw "," ": entew-usew-mode wsp&lt;wet&gt;" -docstwing "wsp mode"
     }
 
     hook gwobaw k-kakend .* wsp-exit
@@ -243,10 +243,10 @@ hook g-gwobaw bufsetoption fiwetype=wust %{
 timeout = 900
 
 [wanguage.wust]
-f-fiwetypes = [&quot;wust&quot;]
-w-woots = [&quot;cawgo.tomw&quot;]
-c-command = &quot;wust-anawyzew&quot;
-s-settings_section = &quot;wust-anawyzew&quot;
+f-fiwetypes = ["wust"]
+w-woots = ["cawgo.tomw"]
+c-command = "wust-anawyzew"
+s-settings_section = "wust-anawyzew"
 
 [wanguage.wust.settings.wust-anawyzew]
 # pwoc m-macwo suppowt is impowtant fow bevy pwojects

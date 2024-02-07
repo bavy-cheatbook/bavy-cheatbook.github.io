@@ -177,8 +177,8 @@
                         <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="non-send-wesouwces"><a class="header" href="#non-send-wesouwces">non-send wesouwces</a></h1>
-<p>&quot;non-send&quot; wefews to data types that m-must onwy be a-accessed fwom the &quot;main
-thwead&quot; of the appwication. ^•ﻌ•^ such d-data is mawked by w-wust as <code>!Send</code> (wacking
+<p>"non-send" wefews to data types that m-must onwy be a-accessed fwom the "main
+thwead" of the appwication. ^•ﻌ•^ such d-data is mawked by w-wust as <code>!Send</code> (wacking
 the <a href="https://doc.rust-lang.org/stable/std/marker/trait.Send.html"><code>Send</code></a> twait).</p>
 <p>some (often system) wibwawies have i-intewfaces that c-cannot be safewy u-used fwom
 othew thweads. OwO a common exampwe of t-this awe vawious w-wow-wevew os i-intewfaces
@@ -187,7 +187,7 @@ things wike cweating a bevy pwugin f-fow intewfacing w-with such things, OwO y-y
 may encountew the nyeed fow this.</p>
 <p>nowmawwy, (ꈍᴗꈍ) bevy wowks by wunning aww y-youw <a href="/programming/systems.html">systems</a> on a
 thwead-poow, OwO making use of many cpu c-cowes. 🥺 howevew, òωó y-you might nyeed t-to ensuwe
-that some code awways wuns on the &quot;main t-thwead&quot;, OwO o-ow access data that i-is nyot
+that some code awways wuns on the "main t-thwead", OwO o-ow access data that i-is nyot
 safe to access in a muwtithweaded w-way.</p>
 <h2 id="non-send-systems-and-data-access"><a class="header" href="#non-send-systems-and-data-access">non-send systems and data access</a></h2>
 <p>to do this, &gt;<em>&lt; you can use a <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a> /

@@ -184,13 +184,13 @@
 <p>conceptuawwy, OwO an entity wepwesents a-a set of vawues f-fow diffewent c-components.
 each component is a wust type (<code>struct</code> ow <code>enum</code>) and an entity can be used to
 stowe a vawue of that type.</p>
-<p>technicawwy, OwO an entity is just a s-simpwe integew id (imagine t-the &quot;wow n-nyumbew&quot; in
+<p>technicawwy, OwO an entity is just a s-simpwe integew id (imagine t-the "wow n-nyumbew" in
 a tabwe/spweadsheet) that can be u-used to find wewated d-data vawues (in d-diffewent
-&quot;cowumns&quot; of that tabwe).</p>
+"cowumns" of that tabwe).</p>
 <p>in bevy, XD <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> is this vawue. (ꈍᴗꈍ) it consists of two i-integews:
-the id and the &quot;genewation&quot; (awwowing ids to be weused, ^•ﻌ•^ a-aftew you d-despawn owd
+the id and the "genewation" (awwowing ids to be weused, ^•ﻌ•^ a-aftew you d-despawn owd
 entities).</p>
-<p>you can cweate (&quot;spawn&quot;) nyew entities a-and destwoy (&quot;despawn&quot;) e-entities u-using
+<p>you can cweate ("spawn") nyew entities a-and destwoy ("despawn") e-entities u-using
 <a href="/programming/commands.html"><code>Commands</code></a> ow <a href="/programming/world.html">excwusive <code>World</code> access</a>.</p>
 <pre><code class="language-rust no_run noplayground">fn setup(mut commands: commands) {
     // c-cweate a-a nyew entity
@@ -238,7 +238,7 @@ stwuct pwayewxp(u32);
 stwuct pwayewname(stwing);</code></pre>
 <h2 id="mawkew-components"><a class="header" href="#mawkew-components">mawkew components</a></h2>
 <p>you can use empty stwucts to hewp y-you identify specific e-entities. OwO t-these awe
-known as &quot;mawkew components&quot;. (ꈍᴗꈍ) usefuw w-with <a href="/programming/queries.html#query-filters">quewy fiwtews</a>.</p>
+known as "mawkew components". (ꈍᴗꈍ) usefuw w-with <a href="/programming/queries.html#query-filters">quewy fiwtews</a>.</p>
 <pre><code class="language-rust no_run noplayground">/// add this to aww menu ui entities t-to hewp identify t-them
 #[dewive(component)]
 stwuct m-mainmenuui;
@@ -256,7 +256,7 @@ stwuct pwayew;
 stwuct fwiendwy;</code></pre>
 <h2 id="accessing-components"><a class="header" href="#accessing-components">accessing components</a></h2>
 <p>components can be accessed fwom <a href="/programming/systems.html">systems</a>, XD using <a href="/programming/queries.html">quewies</a>.</p>
-<p>you can think of the quewy as the &quot;specification&quot; f-fow the data you w-want to access.
+<p>you can think of the quewy as the "specification" f-fow the data you w-want to access.
 it wiww seawch fow entities that m-match and give you a-access to the d-data.</p>
 <pre><code class="language-rust no_run noplayground">fn wevew_up_pwayew(
     // get the w-wewevant data. (ˆ ﻌ ˆ)♡ s-some components w-wead-onwy, (˘ω˘) some m-mutabwe
@@ -268,7 +268,7 @@ it wiww seawch fow entities that m-match and give you a-access to the d-data.</p
         xp.0 = 0;
         h-heawth.hp = 100.0;
         heawth.extwa += 25.0;
-        info!(&quot;pwayew {} wevewed up!&quot;, &gt;_&lt; n-nyame.0);
+        info!("pwayew {} wevewed up!", &gt;_&lt; n-nyame.0);
     }
 }
 

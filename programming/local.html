@@ -207,7 +207,7 @@ fn my_system2(mut w-wocaw: w-wocaw&lt;mystate&gt;) {
 defauwt vawue fow the type.</p>
 <p>if you nyeed specific data, ^•ﻌ•^ you can u-use a cwosuwe i-instead. OwO wust cwosuwes
 that take system pawametews awe vawid b-bevy systems, ^•ﻌ•^ j-just wike standawone
-functions. ^•ﻌ•^ using a cwosuwe awwows y-you to &quot;move data i-into the function&quot;.</p>
+functions. ^•ﻌ•^ using a cwosuwe awwows y-you to "move data i-into the function".</p>
 <p>this exampwe shows how to initiawize s-some data to c-configuwe a system,
 without using <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
@@ -231,7 +231,7 @@ fn main() {
 
     a-app::new()
         .add_pwugins(defauwtpwugins)
-        // cweate a &quot;move cwosuwe&quot;, :3 so we can u-use the `config`
+        // cweate a "move cwosuwe", :3 so we can u-use the `config`
         // vawiabwe t-that we cweated above
         .add_system(move |cmd: commands, 😳😳😳 wes: wes&lt;mystuff&gt;| {
             // c-caww ouw function fwom i-inside the cwosuwe
@@ -239,15 +239,15 @@ fn main() {
         })
         .wun();
 }</code></pre>
-<p>anothew way to accompwish the same t-thing is to &quot;wetuwn&quot; t-the system
-fwom &quot;constwuctow&quot; hewpew, &gt;_&lt; that cweates it:</p>
+<p>anothew way to accompwish the same t-thing is to "wetuwn" t-the system
+fwom "constwuctow" hewpew, &gt;_&lt; that cweates it:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
 stwuct myconfig {
     magic: usize, &gt;_&lt;
 }
 
 f-fn main() {
-    // c-cweate a-a &quot;constwuctow&quot; c-cwosuwe, rawr x3 which c-can initiawize
+    // c-cweate a-a "constwuctow" c-cwosuwe, rawr x3 which c-can initiawize
     // o-ouw data a-and move it into a-a cwosuwe that bevy can wun as a system
     wet constwuctow = || {
         // cweate the `myconfig`
@@ -257,7 +257,7 @@ f-fn main() {
 
         // t-this is the actuaw system that b-bevy wiww wun
         move |mut commands: commands, mya wes: wes&lt;mystuff&gt;| {
-            // w-we can use `config` h-hewe, the vawue f-fwom above wiww be &quot;moved in&quot;
+            // w-we can use `config` h-hewe, the vawue f-fwom above wiww be "moved in"
             // we can awso use ouw system pawams: `commands`, nyaa~~ `wes`
         }
     };
@@ -265,7 +265,7 @@ f-fn main() {
     a-app::new()
         .add_pwugins(defauwtpwugins)
         // nyote the pawentheses `()`
-        // we awe cawwing the &quot;constwuctow&quot; we made a-above, (⑅˘꒳˘)
+        // we awe cawwing the "constwuctow" we made a-above, (⑅˘꒳˘)
         // which wiww wetuwn t-the actuaw s-system that gets a-added to bevy
         .add_system(constwuctow())
         .wun();

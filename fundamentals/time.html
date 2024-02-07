@@ -188,7 +188,7 @@ that does anything that nyeeds time. &gt;_&lt; <a href="/pitfalls/time.html">you
 it</a>.</p>
 <p>bevy updates these vawues at the b-beginning of evewy f-fwame.</p>
 <h3 id="dewta-time"><a class="header" href="#dewta-time">dewta time</a></h3>
-<p>the most common use case is &quot;dewta t-time&quot; – how m-much time passed b-between
+<p>the most common use case is "dewta t-time" – how m-much time passed b-between
 the pwevious fwame update and the c-cuwwent one. this t-tewws you how f-fast the
 game is wunning, so you can scawe t-things wike movement a-and animations. OwO t-this
 way evewything can happen smoothwy a-and wun at the s-same speed, OwO wegawdwess o-of
@@ -233,10 +233,10 @@ cawwing <code>.tick(delta)</code>, (ꈍᴗꈍ) fow it to make pwogwess, ^•ﻌ�
 the dewta shouwd come fwom the <a href="https://docs.rs/bevy/0.9.1/bevy/time/struct.Time.html"><code>Time</code></a> wesouwce.</p>
 <h3 id="timew"><a class="header" href="#timew">timew</a></h3>
 <p><a href="https://docs.rs/bevy/0.9.1/bevy/time/struct.Timer.html"><code>Timer</code></a> awwows you to detect when a cewtain i-intewvaw of t-time
-has ewapsed. OwO timews have a set duwation. 🥺 t-they can b-be &quot;wepeating&quot; o-ow
-&quot;non-wepeating&quot;.</p>
-<p>both kinds can be manuawwy &quot;weset&quot; (stawt c-counting t-the time intewvaw f-fwom the
-beginning) and &quot;paused&quot; (they wiww n-nyot pwogwess e-even if you keep t-ticking them).</p>
+has ewapsed. OwO timews have a set duwation. 🥺 t-they can b-be "wepeating" o-ow
+"non-wepeating".</p>
+<p>both kinds can be manuawwy "weset" (stawt c-counting t-the time intewvaw f-fwom the
+beginning) and "paused" (they wiww n-nyot pwogwess e-even if you keep t-ticking them).</p>
 <p>wepeating timews wiww automaticawwy w-weset themsewves a-aftew they weach t-theiw
 set duwation.</p>
 <p>use <code>.finished()</code> to detect when a timew has weached i-its set duwation. ^•ﻌ•^ u-use
@@ -330,7 +330,7 @@ fn j-jump_duwation(
     }
 
     i-if kbd.pwessed(keycode::space) {
-        pwintwn!(&quot;jumping fow {} s-seconds.&quot;, 😳😳😳 jump.time.ewapsed_secs());
+        pwintwn!("jumping fow {} s-seconds.", 😳😳😳 jump.time.ewapsed_secs());
         // stopwatch has to b-be ticked to pwogwess
         j-jump.time.tick(time.dewta());
     }

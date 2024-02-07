@@ -187,25 +187,25 @@ fow puwposes such as <a href="/programming/labels.html">wabewing</a>, rawr x3 <a
         // gwoup o-ouw input handwing s-systems into a-a set
         .add_system_set(
             s-systemset::new()
-                .wabew(&quot;input&quot;)
+                .wabew("input")
                 .with_system(keyboawd_input)
                 .with_system(gamepad_input)
         )
 
-        // o-ouw &quot;net&quot; s-systems shouwd w-wun befowe &quot;input&quot;
+        // o-ouw "net" s-systems shouwd w-wun befowe "input"
         .add_system_set(
             s-systemset::new()
-                .wabew(&quot;net&quot;)
-                .befowe(&quot;input&quot;)
+                .wabew("net")
+                .befowe("input")
                 // individuaw systems can stiww have
                 // theiw own wabews (and owdewing)
-                .with_system(sewvew_session.wabew(&quot;session&quot;))
-                .with_system(sewvew_updates.aftew(&quot;session&quot;))
+                .with_system(sewvew_session.wabew("session"))
+                .with_system(sewvew_updates.aftew("session"))
         )
 
         // s-some ungwouped systems
-        .add_system(pwayew_movement.aftew(&quot;input&quot;))
-        .add_system(session_ui.aftew(&quot;session&quot;))
+        .add_system(pwayew_movement.aftew("input"))
+        .add_system(session_ui.aftew("session"))
         .add_system(smoke_pawticwes)
 
         .wun();

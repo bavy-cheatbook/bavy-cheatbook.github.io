@@ -238,7 +238,7 @@ you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
 component and fowget the othews, b-because you don't u-use a bundwe), OwO y-youw
 entities wiww nyot wendew!</p>
 <h3 id="visibility"><a class="header" href="#visibility"><code>Visibility</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.12.0/bevy/render/view/enum.Visibility.html"><code>Visibility</code></a> is the &quot;usew-facing toggwe&quot;. (ꈍᴗꈍ) this i-is whewe
+<p><a href="https://docs.rs/bevy/0.12.0/bevy/render/view/enum.Visibility.html"><code>Visibility</code></a> is the "usew-facing toggwe". (ꈍᴗꈍ) this i-is whewe
 you specify nyani you want fow the c-cuwwent entity:</p>
 <ul>
 <li><code>Inherited</code> (defauwt): show/hide depending on <a href="/fundamentals/hierarchy.html">pawent</a></li>
@@ -255,8 +255,8 @@ visibiwity-wewated components, ^•ﻌ•^ things wiww behave a-as if thewe was 
 cuwwent entity wouwd have based on i-its <a href="/fundamentals/hierarchy.html">pawent</a>'s visibiwity.</p>
 <p>the vawue of <a href="https://docs.rs/bevy/0.12.0/bevy/render/view/struct.InheritedVisibility.html"><code>InheritedVisibility</code></a> shouwd
 be considewed wead-onwy. ^•ﻌ•^ it is managed i-intewnawwy b-by bevy, OwO in a mannew
-simiwaw to <a href="/fundamentals/transforms.html#transform-propagation">twansfowm pwopagation</a>. XD a &quot;visibiwity
-pwopagation&quot; <a href="/programming/systems.html">system</a> wuns in the <a href="https://docs.rs/bevy/0.12.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
+simiwaw to <a href="/fundamentals/transforms.html#transform-propagation">twansfowm pwopagation</a>. XD a "visibiwity
+pwopagation" <a href="/programming/systems.html">system</a> wuns in the <a href="https://docs.rs/bevy/0.12.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
 <a href="/programming/schedules.html">scheduwe</a>.</p>
 <p>if you want to wead the up-to-date v-vawue fow the c-cuwwent fwame, OwO you s-shouwd
 <a href="/programming/app-builder.html">add</a> youw <a href="/programming/systems.html">system</a> to the <a href="https://docs.rs/bevy/0.12.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
@@ -269,7 +269,7 @@ fn d-debug_pwayew_visibiwity(
 ) {
     w-wet vis = quewy.singwe();
 
-    debug!(&quot;button visibiwity: {:?}&quot;, rawr vis.get());
+    debug!("button visibiwity: {:?}", rawr vis.get());
 }</code></pre>
 <pre><code class="language-rust no_run noplayground">use bevy::wendew::view::visibiwitysystems;
 
@@ -282,10 +282,10 @@ app.add_systems(postupdate, (ꈍᴗꈍ)
 decision made by bevy about whethew t-this entity needs t-to be wendewed.</p>
 <p>the vawue of <a href="https://docs.rs/bevy/0.12.0/bevy/render/view/struct.ViewVisibility.html"><code>ViewVisibility</code></a> is wead-onwy. XD it
 is managed intewnawwy by bevy.</p>
-<p>it is used fow &quot;cuwwing&quot;: if the e-entity is nyot in t-the wange of
+<p>it is used fow "cuwwing": if the e-entity is nyot in t-the wange of
 any camewa ow wight, OwO it does nyot n-nyeed to be wendewed, 🥺 s-so bevy wiww h-hide it
 to impwove pewfowmance.</p>
-<p>evewy fwame, OwO aftew &quot;visibiwity pwopagation&quot;, 🥺 b-bevy w-wiww check nyani e-entities
+<p>evewy fwame, OwO aftew "visibiwity pwopagation", 🥺 b-bevy w-wiww check nyani e-entities
 can be seen by nyani view (camewa o-ow wight), OwO and s-stowe the outcome i-in these
 components.</p>
 <p>if you want to wead the up-to-date v-vawue fow the c-cuwwent fwame, OwO you s-shouwd
@@ -298,7 +298,7 @@ fn debug_bawwoon_visibiwity(
 ) {
     fow v-vis in quewy.itew() {
         i-if vis.get() {
-            debug!(&quot;bawwoon wiww be wendewed.&quot;);
+            debug!("bawwoon wiww be wendewed.");
         }
     }
 }</code></pre>

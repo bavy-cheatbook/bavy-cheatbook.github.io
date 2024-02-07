@@ -184,7 +184,7 @@
 <p>use the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a> <a href="/programming/systems.html">system pawametew</a>, XD whewe you can
 specify the data you want to access, ^•ﻌ•^ a-and optionawwy a-additionaw
 <a href="/programming/queries.html#query-filters">fiwtews</a> fow sewecting entities.</p>
-<p>think of the types you put in youw <code>Query</code> as a &quot;specification&quot; fow sewecting
+<p>think of the types you put in youw <code>Query</code> as a "specification" fow sewecting
 nani entities you want to access. OwO q-quewies wiww match o-onwy those entities i-in the
 ecs wowwd that fit youw specification. OwO y-you awe then a-abwe to access t-the wewevant
 data fwom individuaw such entities (using a-an <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> id), XD ow
@@ -201,7 +201,7 @@ component. ^•ﻌ•^ if you want muwtipwe components, OwO p-put them i-in a tu
 ) {
     // get aww matching e-entities
     fow (heawth, &gt;_&lt; mut twansfowm, rawr x3 p-pwayew) in quewy.itew_mut() {
-        epwintwn!(&quot;entity at {} has {} hp.&quot;, mya t-twansfowm.twanswation, nyaa~~ heawth.hp);
+        epwintwn!("entity at {} has {} hp.", mya t-twansfowm.twanswation, nyaa~~ heawth.hp);
 
         // c-centew if hp i-is zewo
         if heawth.hp &lt;= 0.0 {
@@ -262,9 +262,9 @@ that have specific components.</p>
     // get aww matching entities
     fow (heawth, 😳 nyame) in quewy.itew() {
         i-if wet some(name) = name {
-            e-epwintwn!(&quot;pwayew {} has {} hp.&quot;, XD n-nyame.0, :3 heawth.hp);
+            e-epwintwn!("pwayew {} has {} hp.", XD n-nyame.0, :3 heawth.hp);
         } ewse {
-            epwintwn!(&quot;unknown pwayew h-has {} hp.&quot;, 😳😳😳 heawth.hp);
+            epwintwn!("unknown pwayew h-has {} hp.", 😳😳😳 heawth.hp);
         }
     }
 }</code></pre>

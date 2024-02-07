@@ -210,13 +210,13 @@ pattewn feews most appwopwiate to y-youw use case.</p>
     buttons: w-wes&lt;input&lt;mousebutton&gt;&gt;, σωσ
 ) {
     f-fow button in b-buttons.get_pwessed() {
-        p-pwintwn!(&quot;{:?} i-is cuwwentwy hewd d-down&quot;, &gt;_&lt; button);
+        p-pwintwn!("{:?} i-is cuwwentwy hewd d-down", &gt;_&lt; button);
     }
     f-fow b-button in buttons.get_just_pwessed() {
-        pwintwn!(&quot;{:?} was pwessed&quot;, :3 button);
+        pwintwn!("{:?} was pwessed", :3 button);
     }
     fow button in buttons.get_just_weweased() {
-        pwintwn!(&quot;{:?} w-was weweased&quot;, (U ﹏ U) button);
+        pwintwn!("{:?} w-was weweased", (U ﹏ U) button);
     }
 }</code></pre>
 <p>awtewnativewy, &gt;_&lt; you can use <a href="https://docs.rs/bevy/0.11.0/bevy/input/mouse/struct.MouseButtonInput.html"><code>MouseButtonInput</code></a>
@@ -231,10 +231,10 @@ fn mouse_button_events(
     f-fow ev in mousebtn_evw.itew() {
         m-match e-ev.state {
             b-buttonstate::pwessed =&gt; {
-                p-pwintwn!(&quot;mouse button pwess: {:?}&quot;, &gt;_&lt; ev.button);
+                p-pwintwn!("mouse button pwess: {:?}", &gt;_&lt; ev.button);
             }
             buttonstate::weweased =&gt; {
-                pwintwn!(&quot;mouse b-button wewease: {:?}&quot;, ev.button);
+                pwintwn!("mouse b-button wewease: {:?}", ev.button);
             }
         }
     }
@@ -262,10 +262,10 @@ fn scwoww_events(
     f-fow ev in s-scwoww_evw.itew() {
         m-match e-ev.unit {
             m-mousescwowwunit::wine =&gt; {
-                pwintwn!(&quot;scwoww (wine units): vewticaw: {}, (⑅˘꒳˘) howizontaw: {}&quot;, (U ᵕ U❁) e-ev.y, ev.x);
+                pwintwn!("scwoww (wine units): vewticaw: {}, (⑅˘꒳˘) howizontaw: {}", (U ᵕ U❁) e-ev.y, ev.x);
             }
             mousescwowwunit::pixew =&gt; {
-                pwintwn!(&quot;scwoww (pixew u-units): vewticaw: {}, -.- h-howizontaw: {}&quot;, ^^;; ev.y, &gt;_&lt; ev.x);
+                pwintwn!("scwoww (pixew u-units): vewticaw: {}, -.- h-howizontaw: {}", ^^;; ev.y, &gt;_&lt; ev.x);
             }
         }
     }
@@ -292,7 +292,7 @@ fn mouse_motion(
     m-mut motion_evw: e-eventweadew&lt;mousemotion&gt;, (⑅˘꒳˘)
 ) {
     f-fow e-ev in motion_evw.itew() {
-        p-pwintwn!(&quot;mouse m-moved: x: {} px, ( ͡o ω ͡o ) y-y: {} px&quot;, UwU ev.dewta.x, rawr x3 e-ev.dewta.y);
+        p-pwintwn!("mouse m-moved: x: {} px, ( ͡o ω ͡o ) y-y: {} px", UwU ev.dewta.x, rawr x3 e-ev.dewta.y);
     }
 }</code></pre>
 <p>you might want to <a href="/window/mouse-grab.html">gwab/wock the mouse inside the game
@@ -309,9 +309,9 @@ fn cuwsow_position(
 ) {
     // g-games typicawwy o-onwy have one w-window (the pwimawy w-window)
     i-if wet some(position) = q_windows.singwe().cuwsow_position() {
-        pwintwn!(&quot;cuwsow is inside the pwimawy w-window, (⑅˘꒳˘) at {:?}&quot;, (U ᵕ U❁) position);
+        pwintwn!("cuwsow is inside the pwimawy w-window, (⑅˘꒳˘) at {:?}", (U ᵕ U❁) position);
     } ewse {
-        p-pwintwn!(&quot;cuwsow is nyot in the g-game window.&quot;);
+        p-pwintwn!("cuwsow is nyot in the g-game window.");
     }
 }</code></pre>
 <p>to detect when the pointew is moved, (ꈍᴗꈍ) u-use <a href="https://docs.rs/bevy/0.11.0/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a>
@@ -321,7 +321,7 @@ fn cuwsow_position(
 ) {
     f-fow ev in c-cuwsow_evw.itew() {
         p-pwintwn!(
-            &quot;new c-cuwsow position: x-x: {}, rawr y-y: {}, σωσ in window i-id: {:?}&quot;, σωσ
+            "new c-cuwsow position: x-x: {}, rawr y-y: {}, σωσ in window i-id: {:?}", σωσ
             ev.position.x, &gt;_&lt; ev.position.y, :3 ev.window
         );
     }
@@ -329,7 +329,7 @@ fn cuwsow_position(
 <p>note that you can onwy get the position o-of the mouse i-inside a window;
 you cannot get the gwobaw position o-of the mouse in t-the whowe os desktop /
 on the scween as a whowe.</p>
-<p>the coowdinates you get awe in &quot;window s-space&quot;. they w-wepwesent window
+<p>the coowdinates you get awe in "window s-space". they w-wepwesent window
 pixews, OwO and the owigin is the bottom w-weft cownew o-of the window. 🥺 they d-do nyot
 wewate to youw camewa ow in-game c-coowdinates in any w-way. ^•ﻌ•^ <a href="/cookbook/cursor2world.html">see this cookbook
 exampwe</a> fow convewting these window cuwsow c-coowdinates
@@ -353,12 +353,12 @@ fn touchpad_gestuwes(
     f-fow e-ev_magnify in evw_touchpad_magnify.itew() {
         // positive nyumbews awe zooming in
         // n-nyegative nyumbews awe zooming out
-        p-pwintwn!(&quot;touchpad zoom by {}&quot;, 😳😳😳 e-ev_magnify.0);
+        p-pwintwn!("touchpad zoom by {}", 😳😳😳 e-ev_magnify.0);
     }
     fow ev_wotate in evw_touchpad_wotate.itew() {
         // positive nyumbews a-awe anticwockwise
         // nyegative nyumbews a-awe cwockwise
-        p-pwintwn!(&quot;touchpad wotate by {}&quot;, -.- ev_wotate.0);
+        p-pwintwn!("touchpad wotate by {}", -.- ev_wotate.0);
     }
 }</code></pre>
 

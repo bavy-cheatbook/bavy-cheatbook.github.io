@@ -194,10 +194,10 @@ fingews cuwwentwy on the scween:</p>
 
     f-fow fingew in touches.itew() {
         if touches.just_pwessed(fingew.id()) {
-            pwintwn!(&quot;a nyew touch with i-id {} just began.&quot;, 😳 fingew.id());
+            pwintwn!("a nyew touch with i-id {} just began.", 😳 fingew.id());
         }
         pwintwn!(
-            &quot;fingew {} i-is at position ({},{}), XD stawted f-fwom ({},{}).&quot;, :3
+            "fingew {} i-is at position ({},{}), XD stawted f-fwom ({},{}).", :3
             fingew.id(), 😳😳😳
             fingew.position().x, -.-
             fingew.position().y, ( ͡o ω ͡o )
@@ -215,16 +215,16 @@ fingews cuwwentwy on the scween:</p>
         // i-in weaw apps y-you pwobabwy want t-to stowe and t-twack touch ids somewhewe
         match ev.phase {
             touchphase::stawted =&gt; {
-                pwintwn!(&quot;touch {} stawted a-at: {:?}&quot;, ev.id, 😳 ev.position);
+                pwintwn!("touch {} stawted a-at: {:?}", ev.id, 😳 ev.position);
             }
             touchphase::moved =&gt; {
-                p-pwintwn!(&quot;touch {} moved to: {:?}&quot;, XD e-ev.id, :3 ev.position);
+                p-pwintwn!("touch {} moved to: {:?}", XD e-ev.id, :3 ev.position);
             }
             touchphase::ended =&gt; {
-                pwintwn!(&quot;touch {} ended at: {:?}&quot;, 😳😳😳 e-ev.id, -.- ev.position);
+                pwintwn!("touch {} ended at: {:?}", 😳😳😳 e-ev.id, -.- ev.position);
             }
             touchphase::cancewwed =&gt; {
-                p-pwintwn!(&quot;touch {} cancewwed a-at: {:?}&quot;, ev.id, ( ͡o ω ͡o ) ev.position);
+                p-pwintwn!("touch {} cancewwed a-at: {:?}", ev.id, ( ͡o ω ͡o ) ev.position);
             }
         }
     }

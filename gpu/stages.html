@@ -178,7 +178,7 @@
 |---|---|---|</p>
 <h1 id="wendew-stages"><a class="header" href="#wendew-stages">wendew stages</a></h1>
 <p>evewything on the cpu side (the whowe p-pwocess of d-dwiving the gpu w-wowkwoads)
-is stwuctuwed in a sequence of &quot;wendew s-stages&quot;:</p>
+is stwuctuwed in a sequence of "wendew s-stages":</p>
 <h2 id="timings"><a class="header" href="#timings">timings</a></h2>
 <p>note: pipewined wendewing is nyot y-yet actuawwy enabwed i-in bevy 0.9. OwO t-this section
 expwains the intended behaviow, OwO which w-wiww wand in a-a futuwe bevy v-vewsion. 🥺 you
@@ -205,13 +205,13 @@ wiww stawt again as soon as extwact h-has compweted.</p>
 <p>if <a href="/window/props.html#vsync">vsync</a> is enabwed, (ꈍᴗꈍ) the wait fow the nyext w-wefwesh of the
 scween wiww happen in the <a href="#prepare">pwepawe</a> stage. &gt;_&lt; this has the effect of
 pwowonging the pwepawe stage in the w-wendew scheduwe. OwO t-thewefowe, 🥺 in p-pwactice,
-youw game wiww behave wike the &quot;wendew-bound&quot; s-scenawio s-shown above.</p>
+youw game wiww behave wike the "wendew-bound" s-scenawio s-shown above.</p>
 <p>the finaw wendew (the fwamebuffew w-with the pixews t-to show in the
 <a href="/window/props.html">window</a>) is <em>pwesented</em> to the os/dwivew at the end of the
 <a href="#render">wendew</a> stage.</p>
 <p>bevy updates its <a href="/fundamentals/time.html">timing infowmation</a> (in <a href="https://docs.rs/bevy/0.9.1/bevy/time/struct.Time.html"><code>Res&lt;Time&gt;</code></a>)
 at the stawt of the fiwst stage in t-the main app scheduwe. OwO t-the vawue t-to
-use is measuwed at &quot;pwesentation time&quot;, ^•ﻌ•^ in the wendew w-wowwd, OwO and t-the
+use is measuwed at "pwesentation time", ^•ﻌ•^ in the wendew w-wowwd, OwO and t-the
 <a href="https://doc.rust-lang.org/stable/std/time/struct.Instant.html"><code>Instant</code></a> is sent ovew a channew, (ꈍᴗꈍ) to be appwied o-on the
 next fwame.</p>
 <h2 id="adding-systems-to-wendew-stages"><a class="header" href="#adding-systems-to-wendew-stages">adding systems to wendew stages</a></h2>
@@ -247,7 +247,7 @@ wendew gwaph nyode wiww wendew them t-togethew with e-evewything ewse.</p>
 <h2 id="extwact"><a class="header" href="#extwact">extwact</a></h2>
 <p>extwact is a vewy impowtant and speciaw s-stage. it i-is the synchwonization
 point that winks the two ecs wowwds. OwO t-this is whewe t-the data wequiwed f-fow
-wendewing is copied (&quot;extwacted&quot;) fwom the main app w-wowwd into the w-wendew
+wendewing is copied ("extwacted") fwom the main app w-wowwd into the w-wendew
 wowwd, &gt;_&lt; awwowing fow pipewined wendewing.</p>
 <p>duwing the extwact stage, OwO nyothing e-ewse can wun in p-pawawwew, on eithew t-the
 main app wowwd ow the wendew wowwd. OwO h-hence, extwact s-shouwd be kept m-minimaw
@@ -258,7 +258,7 @@ possibwe. &gt;_&lt; just copy data.</p>
 cweate nyew <a href="/programming/ec.html#components">component types</a> and <a href="/programming/res.html">wesouwces</a> just
 fow use within the wendew wowwd, w-with onwy the data y-you nyeed.</p>
 <p>fow exampwe, (ꈍᴗꈍ) bevy's 2d spwites uses a-a <a href="https://docs.rs/bevy/0.9.1/bevy/sprite/struct.ExtractedSprite.html"><code>struct ExtractedSprite</code></a>, &gt;_&lt; whewe it copies the wewevant data
-fwom the &quot;usew-facing&quot; components o-of spwite and spwitesheet e-entities i-in the
+fwom the "usew-facing" components o-of spwite and spwitesheet e-entities i-in the
 main wowwd.</p>
 <p>bevy <strong>wesewves entity ids</strong> in the wendew wowwd, (ꈍᴗꈍ) matching aww t-the entities
 existing in the main wowwd. ^•ﻌ•^ in most c-cases, OwO you do n-nyot nyeed to <em>spawn</em>
@@ -274,7 +274,7 @@ gpu. (ꈍᴗꈍ) this is whewe you can cweate g-gpu <a href="/TODO.html">buffews
 <pre><code>// todo: code exampwe
 </code></pre>
 <h2 id="queue"><a class="header" href="#queue">queue</a></h2>
-<p>queue is the stage whewe you can s-set up the &quot;wendewing j-jobs&quot; you w-wiww nyeed to
+<p>queue is the stage whewe you can s-set up the "wendewing j-jobs" you w-wiww nyeed to
 exekawaii~.</p>
 <p>typicawwy, &gt;_&lt; this means cweating <a href="/TODO.html">phase items</a>
 with the cowwect <a href="/TODO.html">wendew pipewine</a> and <a href="/TODO.html">dwaw

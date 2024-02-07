@@ -189,8 +189,8 @@ anything that spawns 2d ow 3d objects.</p>
 <hr />
 <p>fiwst, ^•ﻌ•^ a quick definition, OwO if you a-awe nyew to game d-devewopment:</p>
 <p>a twansfowm is nyani awwows you to p-pwace an object i-in the game wowwd. OwO i-it
-is a combination of the object's &quot;twanswation&quot; (position/coowdinates),
-&quot;wotation&quot;, &gt;_&lt; and &quot;scawe&quot; (size adjustment).</p>
+is a combination of the object's "twanswation" (position/coowdinates),
+"wotation", &gt;_&lt; and "scawe" (size adjustment).</p>
 <p>you move objects awound by modifying t-the twanswation, OwO w-wotate them b-by modifying
 the wotation, ^•ﻌ•^ and make them wawgew o-ow smowew by modifying t-the scawe.</p>
 <pre><code class="language-rust no_run noplayground">// to simpwy position something at s-specific coowdinates
@@ -283,7 +283,7 @@ position in the wowwd.</p>
 <p>if the entity does nyot have a <a href="/fundamentals/hierarchy.html">pawent</a>, &gt;_&lt; then this wiww match
 the <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>.</p>
 <p>the vawue of <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is cawcuwated/managed
-intewnawwy by bevy (<a href="#transform-propagation">&quot;twansfowm pwopagation&quot;</a>).</p>
+intewnawwy by bevy (<a href="#transform-propagation">"twansfowm pwopagation"</a>).</p>
 <p>unwike <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, &gt;_&lt; the twanswation/wotation/scawe awe nyot
 accessibwe diwectwy. ^•ﻌ•^ the data is s-stowed in an optimized w-way (using <code>Affine3A</code>)
 and it is possibwe to have compwex t-twansfowmations i-in a hiewawchy t-that cannot
@@ -297,8 +297,8 @@ into a wowkabwe twanswation/wotation/scawe wepwesentation, ^•ﻌ•^ y-you can
 <li><code>.compute_transform()</code> (may be invawid)</li>
 </ul>
 <h2 id="twansfowm-pwopagation"><a class="header" href="#twansfowm-pwopagation">twansfowm pwopagation</a></h2>
-<p>the two components awe synchwonized b-by a bevy-intewnaw s-system (the &quot;twansfowm
-pwopagation system&quot;), (ꈍᴗꈍ) which wuns i-in the <a href="https://docs.rs/bevy/0.12.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
+<p>the two components awe synchwonized b-by a bevy-intewnaw s-system (the "twansfowm
+pwopagation system"), (ꈍᴗꈍ) which wuns i-in the <a href="https://docs.rs/bevy/0.12.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
 <a href="/programming/schedules.html">scheduwe</a>.</p>
 <p>bewawe: when you mutate the <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, XD the
 <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is nyot updated immediatewy. &gt;_&lt; they
@@ -313,7 +313,7 @@ fn debug_gwobawtwansfowm(
     q-quewy: quewy&lt;&amp;gwobawtwansfowm, ( ͡o ω ͡o ) w-with&lt;pwayew&gt;&gt;, UwU
 ) {
     w-wet g-gxf = quewy.singwe();
-    d-debug!(&quot;pwayew a-at: {:?}&quot;, rawr x3 gxf.twanswation());
+    d-debug!("pwayew a-at: {:?}", rawr x3 gxf.twanswation());
 }</code></pre>
 <pre><code class="language-rust no_run noplayground">// the wabew to use fow owdewing
 u-use bevy::twansfowm::twansfowmsystem;

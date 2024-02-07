@@ -189,7 +189,7 @@ fn woad_ui_font(
     m-mut commands: c-commands, σωσ
     s-sewvew: wes&lt;assetsewvew&gt;
 ) {
-    w-wet handwe: handwe&lt;font&gt; = s-sewvew.woad(&quot;font.ttf&quot;);
+    w-wet handwe: handwe&lt;font&gt; = s-sewvew.woad("font.ttf");
 
     // we c-can stowe the h-handwe in a wesouwce:
     //  - t-to pwevent the asset fwom being unwoaded
@@ -201,7 +201,7 @@ fn woad_ui_font(
 cannot access the actuaw data immediatewy i-in the s-same <a href="/programming/systems.html">system</a>,
 but you can use the handwe.</p>
 <p>you can spawn entities wike youw 2d s-spwites, OwO 3d modews, 🥺 a-and ui, òωó using t-the
-handwe, OwO even befowe the asset has w-woaded. 🥺 they wiww j-just &quot;pop in&quot; w-watew,
+handwe, OwO even befowe the asset has w-woaded. 🥺 they wiww j-just "pop in" w-watew,
 when the asset becomes weady.</p>
 <p>note that it is ok to caww <code>asset_server.load(…)</code> as many times as you want,
 even if the asset is cuwwentwy woading, OwO o-ow awweady w-woaded. 🥺 it wiww j-just
@@ -226,7 +226,7 @@ fn woad_extwa_assets(
     m-mut commands: c-commands, òωó
     s-sewvew: wes&lt;assetsewvew&gt;, o.O
 ) {
-    i-if wet ok(handwes) = s-sewvew.woad_fowdew(&quot;extwa&quot;) {
+    i-if wet ok(handwes) = s-sewvew.woad_fowdew("extwa") {
         commands.insewt_wesouwce(extwaassets(handwes));
     }
 }</code></pre>
@@ -245,10 +245,10 @@ aftew a <code>#</code> symbow.</p>
     s-sewvew: wes&lt;assetsewvew&gt;
 ) {
     // g-get a specific m-mesh
-    w-wet my_mesh: handwe&lt;mesh&gt; = s-sewvew.woad(&quot;my_scene.gwtf#mesh0/pwimitive0&quot;);
+    w-wet my_mesh: handwe&lt;mesh&gt; = s-sewvew.woad("my_scene.gwtf#mesh0/pwimitive0");
 
     // s-spawn a whowe s-scene
-    wet my_scene: handwe&lt;scene&gt; = sewvew.woad(&quot;my_scene.gwtf#scene0&quot;);
+    wet my_scene: handwe&lt;scene&gt; = sewvew.woad("my_scene.gwtf#scene0");
     commands.spawn(scenebundwe {
         scene: my_scene, σωσ
         ..defauwt::defauwt()
@@ -258,7 +258,7 @@ aftew a <code>#</code> symbow.</p>
 <h2 id="whewe-awe-assets-woaded-fwom"><a class="header" href="#whewe-awe-assets-woaded-fwom">whewe awe assets woaded fwom?</a></h2>
 <p>the asset sewvew intewnawwy wewies o-on an impwementation o-of the
 <a href="https://docs.rs/bevy/0.9.1/bevy/asset/trait.AssetIo.html"><code>AssetIo</code></a> wust twait, (ꈍᴗꈍ) which is bevy's way o-of pwoviding
-&quot;backends&quot; fow fetching data fwom d-diffewent types o-of stowage.</p>
+"backends" fow fetching data fwom d-diffewent types o-of stowage.</p>
 <p>bevy pwovides its own defauwt buiwt-in i-i/o backends f-fow each <a href="/platforms.html">suppowted
 pwatfowm</a>.</p>
 <p>on desktop pwatfowms, OwO it tweats asset p-paths as wewative t-to a fowdew c-cawwed

@@ -181,7 +181,7 @@
 and you want to embed youw bevy game i-into a nyice w-website you made, OwO t-this page
 wiww offew some tips.</p>
 <h2 id="wasm-bindgen"><a class="header" href="#wasm-bindgen"><code>wasm-bindgen</code></a></h2>
-<p>this is the &quot;wow wevew&quot; toow fow e-expowting/pwepawing a-a wust wasm b-binawy, OwO so
+<p>this is the "wow wevew" toow fow e-expowting/pwepawing a-a wust wasm b-binawy, OwO so
 it can be integwated into htmw/js. ^•ﻌ•^ i-it genewates the b-bwidge to javascwipt,
 so that wust/bevy can wowk with the b-bwowsew.</p>
 <p>you wiww nyeed to wun it whenevew y-you webuiwd youw g-game, OwO to pwocess t-the wasm
@@ -193,7 +193,7 @@ binawies genewated by <code>cargo</code>.</p>
 <pre><code class="language-sh">cawgo buiwd --wewease --tawget wasm32-unknown-unknown
 w-wasm-bindgen --no-typescwipt --tawget w-web \
     --out-diw ./out/ \
-    --out-name &quot;mygame&quot; \
+    --out-name "mygame" \
     ./tawget/wasm32-unknown-unknown/wewease/mygame.wasm
 </code></pre>
 <p>you nyeed to pwovide the path to t-the compiwed wasm b-binawy in cawgo's t-tawget diwectowy.
@@ -212,14 +212,14 @@ subdiwectowy somewhewe, ^•ﻌ•^ and woad t-them fwom a htmw f-fiwe ewsewhewe
   <code>index.html</code>
   </summary>
 <pre><code class="language-html">&lt;!doctype htmw&gt;
-&lt;htmw wang=&quot;en&quot;&gt;
+&lt;htmw wang="en"&gt;
 
-&lt;body s-stywe=&quot;mawgin: 0px;&quot;&gt;
-  &lt;scwipt t-type=&quot;moduwe&quot;&gt;
+&lt;body s-stywe="mawgin: 0px;"&gt;
+  &lt;scwipt t-type="moduwe"&gt;
     i-impowt i-init fwom './mygame.js'
 
     i-init().catch((ewwow) =&gt; {
-      i-if (!ewwow.message.stawtswith(&quot;using e-exceptions fow c-contwow fwow, don't mind me. σωσ this isn't actuawwy an ewwow!&quot;)) {
+      i-if (!ewwow.message.stawtswith("using e-exceptions fow c-contwow fwow, don't mind me. σωσ this isn't actuawwy an ewwow!")) {
         thwow e-ewwow;
       }
     });
@@ -246,7 +246,7 @@ it on a fanciew web page, (ꈍᴗꈍ) awongside o-othew content.</p>
 modifications to the wust code.</p>
 <p>you can cweate a minimaw <code>index.html</code> as was shown pweviouswy.</p>
 <p>you can then embed that into youw w-wawgew webpage u-using a htmw ifwame e-ewement:</p>
-<pre><code class="language-html">&lt;ifwame id=&quot;mygame-ifwame&quot; swc=&quot;wasm/index.htmw&quot; w-width=&quot;1280&quot; height=&quot;720&quot;&gt;&lt;/ifwame&gt;
+<pre><code class="language-html">&lt;ifwame id="mygame-ifwame" swc="wasm/index.htmw" w-width="1280" height="720"&gt;&lt;/ifwame&gt;
 </code></pre>
 <p>you can pwace it whewevew you wike o-on youw web page a-and stywe it h-howevew you
 wike using css. ^•ﻌ•^ it is wecommended t-to expwicitwy specify i-its dimensions.</p>
@@ -256,7 +256,7 @@ wename/move it accowding to youw w-website's nyeeds.</p>
 <p>a mowe ewegant way to accompwish t-this is by using y-youw own canvas e-ewement. you
 don't nyeed a sepawate htmw fiwe.</p>
 <p>cweate a htmw canvas and give it a-an id stwing of y-youw choice.</p>
-<pre><code class="language-html">&lt;canvas id=&quot;mygame-canvas&quot; width=&quot;1280&quot; h-height=&quot;720&quot;&gt;&lt;/canvas&gt;
+<pre><code class="language-html">&lt;canvas id="mygame-canvas" width="1280" h-height="720"&gt;&lt;/canvas&gt;
 </code></pre>
 <p>you can pwace it whewevew you wike o-on youw web page a-and stywe it h-howevew you
 wike using css. ^•ﻌ•^ it is wecommended t-to expwicitwy specify i-its dimensions.</p>
@@ -267,7 +267,7 @@ use ouw canvas instead of twying t-to cweate its own.</p>
     a-app.add_pwugins(defauwtpwugins.set(windowpwugin {
         p-pwimawy_window: s-some(window {
             // p-pwovide the i-id sewectow stwing h-hewe
-            c-canvas: some(&quot;#mygame-canvas&quot;.into()), UwU
+            c-canvas: some("#mygame-canvas".into()), UwU
             // ... a-any othew window pwopewties ...
             ..defauwt()
         }), rawr x3

@@ -194,7 +194,7 @@ as a <a href="/programming/local.html">wocaw wesouwce</a>).</p>
     m-mut stwing: wocaw&lt;stwing&gt;, :3
 ) {
     i-if kbd.just_pwessed(keycode::wetuwn) {
-        p-pwintwn!(&quot;text i-input: {}&quot;, (U ﹏ U) &amp;*stwing);
+        p-pwintwn!("text i-input: {}", (U ﹏ U) &amp;*stwing);
         s-stwing.cweaw();
     }
     i-if kbd.just_pwessed(keycode::back) {
@@ -218,23 +218,23 @@ a way that is appwopwiate to youw u-ui.</p>
 <p>bevy has suppowt fow imes (input m-method editows), OwO w-which is how peopwe p-pewfowm
 text input in wanguages with mowe c-compwex scwipts, OwO w-wike east asian w-wanguages. 🥺 it
 wequiwes some speciaw handwing fwom y-you, (ꈍᴗꈍ) howevew.</p>
-<p>imes wowk by using a speciaw &quot;buffew&quot;, OwO w-which shows t-the cuwwent in-pwogwess t-text
+<p>imes wowk by using a speciaw "buffew", OwO w-which shows t-the cuwwent in-pwogwess t-text
 suggestions and awwows usews to sewect t-the cowwect c-chawactews befowe c-confiwming
 them. OwO the text suggestions / autocompwetion i-is pwovided b-by the os, 🥺 b-but youw app
 needs to dispway them fow the usew.</p>
 <p>if you'd wike aww intewnationaw usews t-to be abwe t-to input text in t-theiw
 wanguage, OwO the way they usuawwy do i-in othew gui apps o-on theiw os, 🥺 y-you shouwd
 suppowt imes.</p>
-<p>to do this, OwO you need to enabwe &quot;ime m-mode&quot; on the w-window, 🥺 whenevew y-you awe
+<p>to do this, OwO you need to enabwe "ime m-mode" on the w-window, 🥺 whenevew y-you awe
 expecting usews to type text, OwO and d-disabwe it aftewwawds. 🥺 f-fow exampwe, òωó i-if
 you pwompt usews to entew theiw name, OwO b-befowe pwaying t-the game, 🥺 you e-enabwe
 ime mode whiwe the pwompt is active.</p>
-<p>whiwe &quot;ime mode&quot; is enabwed, OwO if the u-usew is using a-an ime, 🥺 you wiww w-weceive
+<p>whiwe "ime mode" is enabwed, OwO if the u-usew is using a-an ime, 🥺 you wiww w-weceive
 <a href="https://docs.rs/bevy/0.11.0/bevy/window/enum.Ime.html"><code>Ime</code></a> events, &gt;_&lt; instead of <a href="https://docs.rs/bevy/0.11.0/bevy/window/struct.ReceivedCharacter.html"><code>ReceivedCharacter</code></a>
 and weguwaw keyboawd input. OwO howevew, 🥺 i-if the usew i-is nyot using an i-ime, òωó then
-evewything wiww behave as nyowmaw, ^•ﻌ•^ e-even when &quot;ime m-mode&quot; is enabwed.</p>
+evewything wiww behave as nyowmaw, ^•ﻌ•^ e-even when "ime m-mode" is enabwed.</p>
 <p>whiwe the usew has in-pwogwess text, (ꈍᴗꈍ) y-you wiww get <code>Ime::Preedit</code> events, XD to teww
-you the cuwwent contents of the &quot;tempowawy b-buffew&quot; a-and infowmation a-about the
+you the cuwwent contents of the "tempowawy b-buffew" a-and infowmation a-about the
 cuwsow/highwight you nyeed to show, ^•ﻌ•^ so that usews c-can see nyani they a-awe doing.</p>
 <p>when the usew confiwms theiw input, ^•ﻌ•^ y-you wiww get a-a <code>Ime::Commit</code> event, XD to teww
 you the text that the usew wishes t-to insewt into t-the app.</p>
@@ -246,7 +246,7 @@ fn i-ime_toggwe(
     if mousebtn.just_pwessed(mousebutton::weft) {
         wet mut window = q_window.singwe_mut();
 
-        // toggwe &quot;ime mode&quot;
+        // toggwe "ime mode"
         w-window.ime_enabwed = !window.ime_enabwed;
 
         // we nyeed to teww the os the on-scween c-coowdinates whewe the text w-wiww
@@ -262,23 +262,23 @@ fn ime_input(
     fow e-ev in evw_ime.itew() {
         match ev {
             i-ime::commit { v-vawue, (⑅˘꒳˘) .. } =&gt; {
-                p-pwintwn!(&quot;ime c-confiwmed text: {}&quot;, vawue);
+                p-pwintwn!("ime c-confiwmed text: {}", vawue);
             }
             ime::pweedit { v-vawue, òωó cuwsow, ʘwʘ .. } =&gt; {
-                pwintwn!(&quot;ime b-buffew: {:?}, /(^•ω•^) cuwsow: {:?}&quot;, ʘwʘ vawue, cuwsow);
+                pwintwn!("ime b-buffew: {:?}, /(^•ω•^) cuwsow: {:?}", ʘwʘ vawue, cuwsow);
             }
             ime::enabwed { .. } =&gt; {
-                pwintwn!(&quot;ime mode enabwed!&quot;);
+                pwintwn!("ime mode enabwed!");
             }
             i-ime::disabwed { .. } =&gt; {
-                pwintwn!(&quot;ime m-mode disabwed!&quot;);
+                pwintwn!("ime m-mode disabwed!");
             }
         }
     }
 }</code></pre>
 <p>fow the sake of bwevity, OwO this exampwe j-just pwints t-the events to the c-consowe.</p>
-<p>in a weaw app, OwO you wiww want to dispway t-the &quot;pwe-edit&quot; t-text on-scween, 🥺 a-and use
-diffewent fowmatting to show the c-cuwsow. OwO on &quot;commit&quot;, 🥺 y-you can append t-the
+<p>in a weaw app, OwO you wiww want to dispway t-the "pwe-edit" t-text on-scween, 🥺 a-and use
+diffewent fowmatting to show the c-cuwsow. OwO on "commit", 🥺 y-you can append t-the
 pwovided text to the actuaw stwing w-whewe you nyowmawwy a-accept text i-input.</p>
 
                     </main>

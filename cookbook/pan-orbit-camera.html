@@ -190,7 +190,7 @@ to weawn fwom. ^•ﻌ•^ in youw pwojects, y-you may want to t-twy the
 <pre><code class="language-rust no_run noplayground">/// tags an entity as capabwe of p-panning and owbiting. ʘwʘ
 #[dewive(component)]
 s-stwuct p-panowbitcamewa {
-    /// t-the &quot;focus p-point&quot; to o-owbit awound. 😳😳😳 it i-is automaticawwy u-updated when panning the camewa
+    /// t-the "focus p-point" to o-owbit awound. 😳😳😳 it i-is automaticawwy u-updated when panning the camewa
     pub focus: vec3, ^^;;
     pub wadius: f32, o.O
     p-pub upside_down: boow, (///ˬ///✿)
@@ -243,7 +243,7 @@ fn pan_owbit_camewa(
     f-fow (mut p-pan_owbit, (ˆ ﻌ ˆ)♡ mut twansfowm, -.- pwojection) in quewy.itew_mut() {
         if owbit_button_changed {
             // onwy check fow upside down when owbiting stawted o-ow ended this f-fwame
-            // if the camewa i-is &quot;upside&quot; d-down, :3 panning howizontawwy w-wouwd be invewted, so invewt the input to make it cowwect
+            // if the camewa i-is "upside" d-down, :3 panning howizontawwy w-wouwd be invewted, so invewt the input to make it cowwect
             w-wet up = twansfowm.wotation * vec3::y;
             pan_owbit.upside_down = up.y &lt;= 0.0;
         }

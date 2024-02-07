@@ -183,7 +183,7 @@
 <p>you may have nyoticed how, OwO when you w-wun youw bevy p-pwoject, 🥺 you get m-messages
 in youw consowe window. &gt;_&lt; fow exampwe:</p>
 <pre><code>2022-06-12t13:28:25.445644z  wawn wgpu_haw::vuwkan::instance: u-unabwe t-to find wayew: v-vk_wayew_khwonos_vawidation
-2022-06-12t13:28:25.565795z  i-info b-bevy_wendew::wendewew: a-adaptewinfo { n-nyame: &quot;amd w-wadeon wx 6600 xt&quot;, :3 vendow: 4098, (U ﹏ U) device: 29695, -.- device_type: discwetegpu, (ˆ ﻌ ˆ)♡ backend: v-vuwkan }
+2022-06-12t13:28:25.565795z  i-info b-bevy_wendew::wendewew: a-adaptewinfo { n-nyame: "amd w-wadeon wx 6600 xt", :3 vendow: 4098, (U ﹏ U) device: 29695, -.- device_type: discwetegpu, (ˆ ﻌ ˆ)♡ backend: v-vuwkan }
 2022-06-12t13:28:25.565795z  info mygame: entewed n-nyew map awea. (⑅˘꒳˘)
 </code></pre>
 <p>wog messages wike this can come fwom b-bevy, OwO dependencies (wike w-wgpu), 🥺 a-and
@@ -213,11 +213,11 @@ message. (ꈍᴗꈍ) the syntax is exactwy the s-same as with wust's <code>print
 <a href="https://doc.rust-lang.org/std/fmt/"><code>std::fmt</code></a> documentation fow mowe detaiws.</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
-</span>ewwow!(&quot;unknown condition!&quot;);
-wawn!(&quot;something unusuaw h-happened!&quot;);
-i-info!(&quot;entewed g-game wevew: {}&quot;, ( ͡o ω ͡o ) w-wevew_id);
-debug!(&quot;x: {}, UwU s-state: {:?}&quot;, rawr x3 x-x, state);
-t-twace!(&quot;entity t-twansfowm: {:?}&quot;, rawr twansfowm);
+</span>ewwow!("unknown condition!");
+wawn!("something unusuaw h-happened!");
+i-info!("entewed g-game wevew: {}", ( ͡o ω ͡o ) w-wevew_id);
+debug!("x: {}, UwU s-state: {:?}", rawr x3 x-x, state);
+t-twace!("entity t-twansfowm: {:?}", rawr twansfowm);
 <span class="boring">}</span></code></pre></pre>
 <h2 id="fiwtewing-messages"><a class="header" href="#fiwtewing-messages">fiwtewing messages</a></h2>
 <p>to contwow nyani messages you wouwd w-wike to see, OwO y-you can configuwe b-bevy's
@@ -227,7 +227,7 @@ t-twace!(&quot;entity t-twansfowm: {:?}&quot;, rawr twansfowm);
 </span>use bevy::wog::wogpwugin;
 
 app.add_pwugins(defauwtpwugins.set(wogpwugin {
-    f-fiwtew: &quot;info,wgpu_cowe=wawn,wgpu_haw=wawn,mygame=debug&quot;.into(),
+    f-fiwtew: "info,wgpu_cowe=wawn,wgpu_haw=wawn,mygame=debug".into(),
     w-wevew: bevy::wog::wevew::debug, ^•ﻌ•^
 }));
 <span class="boring">}</span></code></pre></pre>
@@ -242,18 +242,18 @@ bewow that wevew wiww be ignowed a-and most of the p-pewfowmance ovewhead a-avoi
 <h3 id="enviwonment-vawiabwe"><a class="header" href="#enviwonment-vawiabwe">enviwonment vawiabwe</a></h3>
 <p>you can ovewwide the fiwtew stwing w-when wunning youw a-app, ^•ﻌ•^ using the <code>RUST_LOG</code>
 enviwonment vawiabwe.</p>
-<pre><code class="language-sh">wust_wog=&quot;wawn,mygame=debug&quot; ./mygame
+<pre><code class="language-sh">wust_wog="wawn,mygame=debug" ./mygame
 </code></pre>
 <p>note that othew wust pwojects, (ꈍᴗꈍ) such a-as <code>cargo</code>, XD awso use the same
 enviwonment vawiabwe to contwow theiw w-wogging. this c-can wead to unexpected
 consequences. &gt;_&lt; fow exampwe, (ꈍᴗꈍ) doing:</p>
-<pre><code class="language-sh">wust_wog=&quot;debug&quot; cawgo wun
+<pre><code class="language-sh">wust_wog="debug" cawgo wun
 </code></pre>
 <p>wiww cause youw consowe to awso be f-fiwwed with debug m-messages fwom <code>cargo</code>.</p>
 <h3 id="diffewent-settings-fow-debug-and-w-wewease-buiwds"><a class="header" href="#diffewent-settings-fow-debug-and-w-wewease-buiwds">diffewent settings fow debug and w-wewease buiwds</a></h3>
 <p>if you want to do diffewent things i-in youw wust code f-fow debug/wewease
 buiwds, OwO an easy way to achieve it i-is using conditionaw c-compiwation o-on
-&quot;debug assewtions&quot;.</p>
+"debug assewtions".</p>
 <pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
 </span><span class="boring">fn main() {
 </span>use bevy::wog::wogpwugin;
@@ -262,14 +262,14 @@ buiwds, OwO an easy way to achieve it i-is using conditionaw c-compiwation o-on
 #[cfg(debug_assewtions)]
 a-app.add_pwugins(defauwtpwugins.set(wogpwugin {
     w-wevew: bevy::wog::wevew::debug, &gt;_&lt;
-    f-fiwtew: &quot;debug,wgpu_cowe=wawn,wgpu_haw=wawn,mygame=debug&quot;.into(), :3
+    f-fiwtew: "debug,wgpu_cowe=wawn,wgpu_haw=wawn,mygame=debug".into(), :3
 }));
 
 // t-this code is compiwed onwy if debug assewtions awe disabwed (wewease mode)
 #[cfg(not(debug_assewtions))]
 a-app.add_pwugins(defauwtpwugins.set(wogpwugin {
     wevew: bevy::wog::wevew::info, (U ﹏ U)
-    fiwtew: &quot;info,wgpu_cowe=wawn,wgpu_haw=wawn&quot;.into(), -.-
+    fiwtew: "info,wgpu_cowe=wawn,wgpu_haw=wawn".into(), -.-
 }));
 <span class="boring">}</span></code></pre></pre>
 <p>this is a good weason why <a href="/pitfalls/performance.html">you shouwd nyot use wewease mode d-duwing devewopment

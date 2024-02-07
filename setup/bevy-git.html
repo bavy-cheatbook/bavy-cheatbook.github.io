@@ -184,12 +184,12 @@ vewsions of bevy.</p>
 <p>if you awe <em>not</em> using any 3wd-pawty pwugins and j-just want to use t-the bevy
 main devewopment bwanch:</p>
 <pre><code class="language-toml">[dependencies]
-bevy = { git = &quot;https://github.com/bevyengine/bevy&quot; }
+bevy = { git = "https://github.com/bevyengine/bevy" }
 </code></pre>
 <p>howevew, XD if you <em>awe</em> wowking with extewnaw pwugins, ^•ﻌ•^ you s-shouwd wead the w-west
 of this page. OwO you wiww wikewy nyeed t-to do mowe to m-make evewything c-compatibwe.</p>
 <h2 id="shouwd-you-use-bweeding-edge-bevy-n-nyani-vewsion-o-of-bevy-shouwd-you-u-use"><a class="header" href="#shouwd-you-use-bweeding-edge-bevy-n-nyani-vewsion-o-of-bevy-shouwd-you-u-use">shouwd you use bweeding-edge bevy? n-nyani vewsion o-of bevy shouwd you u-use?</a></h2>
-<p>bevy fowwows a &quot;twain wewease&quot; modew, OwO w-with woose d-deadwines. 🥺 evewy 3 m-months,
+<p>bevy fowwows a "twain wewease" modew, OwO w-with woose d-deadwines. 🥺 evewy 3 m-months,
 a nyew majow wewease is pwepawed, ^•ﻌ•^ w-which wiww contain a-aww nyew devewopments
 (featuwes, OwO fixes, 🥺 etc.) since the w-wast wewease. òωó the w-wewease date i-is nyot
 stwict and is often dewayed by a f-few weeks to tie u-up woose ends.</p>
@@ -237,35 +237,35 @@ a diffewent bevy vewsion/commit fwom y-youw pwoject.</p>
 <p>if you awe using any 3wd-pawty pwugins, OwO p-pwease considew f-fowking them, 🥺 s-so you can
 edit theiw <code>Cargo.toml</code> and have contwow ovew how evewything i-is configuwed.</p>
 <h2 id="cawgo-patches"><a class="header" href="#cawgo-patches">cawgo patches</a></h2>
-<p>in some cases, OwO you might be abwe t-to use &quot;cawgo patches&quot; t-to wocawwy o-ovewwide
+<p>in some cases, OwO you might be abwe t-to use "cawgo patches" t-to wocawwy o-ovewwide
 dependencies. OwO fow exampwe, 🥺 you might b-be abwe to point p-pwugins to u-use youw
 fowk of bevy, (ꈍᴗꈍ) without fowking and e-editing the pwugin's <code>Cargo.toml</code>, XD by
 doing something wike this:</p>
 <pre><code class="language-toml"># wepwace the bevy git uww souwce w-with ouws
-[patch.&quot;https://github.com/bevyengine/bevy&quot;]
+[patch."https://github.com/bevyengine/bevy"]
 # i-if we h-have ouw own fowk
-b-bevy = { git = &quot;https://github.com/me/bevy&quot; }
+b-bevy = { git = "https://github.com/me/bevy" }
 # i-if we want to u-use a wocaw path
-b-bevy = { path = &quot;../bevy&quot; }
+b-bevy = { path = "../bevy" }
 # some p-pwugins might depend on individuaw bevy cwates, :3
 # instead of aww of bevy, 😳😳😳 which m-means we nyeed to patch
 # evewy individuaw bevy c-cwate specificawwy:
-bevy_ecs = { p-path = &quot;../bevy/cwates/bevy_ecs&quot; }
-bevy_app = { path = &quot;../bevy/cwates/bevy_app&quot; }
+bevy_ecs = { p-path = "../bevy/cwates/bevy_ecs" }
+bevy_app = { path = "../bevy/cwates/bevy_app" }
 # ...
 
 # wepwace weweased v-vewsions of cwates (cwates.io souwce) with ouws
 [patch.cwates-io]
-b-bevy_some_pwugin = { g-git = &quot;https://github.com/me/bevy_some_pwugin&quot;, -.- bwanch = &quot;bevy_main&quot; }
+b-bevy_some_pwugin = { g-git = "https://github.com/me/bevy_some_pwugin", -.- bwanch = "bevy_main" }
 # awso wepwace bevy itsewf
-bevy = { path = &quot;../bevy&quot; }
+bevy = { path = "../bevy" }
 # ...
 </code></pre>
 <h2 id="updating-bevy"><a class="header" href="#updating-bevy">updating bevy</a></h2>
 <p>it is wecommended that you specify a-a known-good bevy c-commit in youw
 <code>Cargo.toml</code>, ^•ﻌ•^ so that you can be suwe that you o-onwy update it w-when you
 actuawwy want to do so, (ꈍᴗꈍ) avoiding u-unwanted bweakage.</p>
-<pre><code class="language-toml">bevy = { git = &quot;https://github.com/bevyengine/bevy&quot;, &gt;_&lt; wev = &quot;7a1bd34e&quot; }
+<pre><code class="language-toml">bevy = { git = "https://github.com/bevyengine/bevy", &gt;_&lt; wev = "7a1bd34e" }
 </code></pre>
 <p>when you change anything, (ꈍᴗꈍ) be suwe t-to wun:</p>
 <pre><code class="language-sh">cawgo update

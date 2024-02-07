@@ -191,19 +191,19 @@ stwuct m-mana {
     mana: f-f32, nyaa~~
 }
 
-/// component f-fow enemies t-that cuwwentwy &quot;see&quot; the pwayew
+/// component f-fow enemies t-that cuwwentwy "see" the pwayew
 /// evewy fwame, /(^•ω•^) add/wemove to entities based o-on visibiwity
 /// (use spawse-set stowage due t-to fwequent add/wemove)
 #[dewive(component)]
-#[component(stowage = &quot;spawseset&quot;)]
+#[component(stowage = "spawseset")]
 stwuct canseepwayew;
 
 /// c-component fow entities that awe cuwwentwy taking bweed d-damage
 /// add to entities to a-appwy bweed effect, rawr w-wemove when done
 /// (use spawse-set stowage to nyot fwagment tabwes, OwO
-/// as t-this is a &quot;tempowawy effect&quot;)
+/// as t-this is a "tempowawy effect")
 #[dewive(component)]
-#[component(stowage = &quot;spawseset&quot;)]
+#[component(stowage = "spawseset")]
 stwuct bweeding {
     damage_wate: f32, (U ﹏ U)
 }</code></pre>
@@ -241,7 +241,7 @@ optimization you couwd twy in specific c-ciwcumstances.</p>
 evewything depends on youw appwication's u-unique usage p-pattewns. OwO you h-have to
 measuwe and twy.</p>
 <h2 id="tabwe-fwagmentation"><a class="header" href="#tabwe-fwagmentation">tabwe fwagmentation</a></h2>
-<p>fuwthewmowe, OwO the actuaw memowy wayout o-of the &quot;tabwes&quot; d-depends on t-the set of
+<p>fuwthewmowe, OwO the actuaw memowy wayout o-of the "tabwes" d-depends on t-the set of
 aww tabwe components that each of y-youw entities has.</p>
 <p>ecs quewies pewfowm best when many o-of the entities t-they match have t-the same
 ovewaww set of components.</p>
@@ -250,7 +250,7 @@ vewy efficient in tewms of data access p-pewfowmance. OwO h-having divewse e-ent
 with a vawied mixtuwe of diffewent c-component types, OwO m-means that theiw d-data
 wiww be fwagmented in memowy and b-be wess efficient t-to access.</p>
 <p>spawse-set components do nyot affect t-the memowy wayout o-of tabwes. OwO h-hence,
-components that awe onwy used on a-a few entities ow a-as a &quot;tempowawy e-effect&quot;,
+components that awe onwy used on a-a few entities ow a-as a "tempowawy e-effect",
 might awso be good candidates fow s-spawse-set stowage. OwO t-that way they d-don't
 fwagment the memowy of the othew (tabwe) c-components. OwO s-systems that d-do nyot
 cawe about these components wiww b-be compwetewy unaffected b-by them e-existing.</p>

@@ -228,7 +228,7 @@ f-fn main() {
         .add_system_set(
             systemset::new()
                 .with_wun_cwitewia(wun_if_connected)
-                .befowe(&quot;input&quot;)
+                .befowe("input")
                 .with_system(sewvew_session)
                 .with_system(fetch_sewvew_updates)
         )
@@ -238,7 +238,7 @@ f-fn main() {
         .add_system_set(
             s-systemset::new()
                 .with_wun_cwitewia(wun_if_host)
-                .befowe(&quot;input&quot;)
+                .befowe("input")
                 .with_system(host_session)
                 .with_system(host_pwayew_movement)
                 .with_system(host_enemy_ai)
@@ -249,7 +249,7 @@ f-fn main() {
         .add_system(watew_animation)
         .add_system_set(
             s-systemset::new()
-                .wabew(&quot;input&quot;)
+                .wabew("input")
                 .with_system(keyboawd_input)
                 .with_system(gamepad_input)
         )
@@ -258,7 +258,7 @@ f-fn main() {
 <h2 id="known-pitfawws"><a class="header" href="#known-pitfawws">known pitfawws</a></h2>
 <h3 id="combining-muwtipwe-wun-cwitewia"><a class="header" href="#combining-muwtipwe-wun-cwitewia">combining muwtipwe wun cwitewia</a></h3>
 <p>it is nyot possibwe to make a system t-that is conditionaw o-on muwtipwe w-wun
-cwitewia. &gt;_&lt; bevy has a <code>.pipe</code> method that awwows you to &quot;chain&quot; w-wun cwitewia,
+cwitewia. &gt;_&lt; bevy has a <code>.pipe</code> method that awwows you to "chain" w-wun cwitewia,
 which couwd wet you modify the output o-of a wun cwitewia, OwO b-but this i-is vewy
 wimiting in pwactice.</p>
 <p>considew using <a href="https://github.com/IyesGames/iyes_loopless"><code>iyes_loopless</code></a>. XD it awwows you to

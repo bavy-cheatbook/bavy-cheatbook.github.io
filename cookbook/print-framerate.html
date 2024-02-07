@@ -224,7 +224,7 @@ f-fn setup_fps_countew(
         n-nyodebundwe {
             // g-give it a dawk backgwound fow weadabiwity
             backgwound_cowow: backgwoundcowow(cowow::bwack.with_a(0.5)), σωσ
-            // make it &quot;awways o-on top&quot; by setting the z index to maximum
+            // make it "awways o-on top" by setting the z index to maximum
             // we want it to be dispwayed ovew a-aww othew ui
             z_index: z-zindex::gwobaw(i32::max),
             s-stywe: s-stywe {
@@ -251,7 +251,7 @@ f-fn setup_fps_countew(
             // use t-two sections, 😳😳😳 so it is easy to u-update just the numbew
             t-text: text::fwom_sections([
                 t-textsection {
-                    vawue: &quot;fps: &quot;.into(), (˘ω˘)
+                    vawue: "fps: ".into(), (˘ω˘)
                     stywe: textstywe {
                         font_size: 16.0, ʘwʘ
                         cowow: cowow::white, ( ͡o ω ͡o )
@@ -262,7 +262,7 @@ f-fn setup_fps_countew(
                     }
                 }, &gt;w&lt;
                 textsection {
-                    vawue: &quot; ny/a&quot;.into(), 😳
+                    vawue: " ny/a".into(), 😳
                     s-stywe: textstywe {
                         font_size: 16.0, 🥺
                         cowow: cowow::white, rawr x3
@@ -284,7 +284,7 @@ f-fn fps_text_update_system(
     mut quewy: quewy&lt;&amp;mut t-text, ^^;; with&lt;fpstext&gt;&gt;, o.O
 ) {
     f-fow mut text i-in &amp;mut quewy {
-        // t-twy to g-get a &quot;smoothed&quot; fps vawue fwom bevy
+        // t-twy to g-get a "smoothed" fps vawue fwom bevy
         if wet some(vawue) = d-diagnostics
             .get(fwametimediagnosticspwugin::fps)
             .and_then(|fps| fps.smoothed())
@@ -292,7 +292,7 @@ f-fn fps_text_update_system(
             // fowmat the numbew as to weave space fow 4 digits, (///ˬ///✿) just in c-case, σωσ
             // wight-awigned and wounded. nyaa~~ this hewps weadabiwity w-when the
             // n-nyumbew changes w-wapidwy. ^^;;
-            text.sections[1].vawue = f-fowmat!(&quot;{vawue:&gt;4.0}&quot;);
+            text.sections[1].vawue = f-fowmat!("{vawue:&gt;4.0}");
 
             // wet's make i-it extwa fancy b-by changing the cowow of the
             // text accowding to the fps vawue:
@@ -318,9 +318,9 @@ f-fn fps_text_update_system(
                 c-cowow::wgb(1.0, 🥺 0.0, 0.0)
             }
         } ewse {
-            // d-dispway &quot;n/a&quot; if we can't get a fps measuwement
+            // d-dispway "n/a" if we can't get a fps measuwement
             // add an extwa space to pwesewve awignment
-            t-text.sections[1].vawue = &quot; n-ny/a&quot;.into();
+            t-text.sections[1].vawue = " n-ny/a".into();
             text.sections[1].stywe.cowow = cowow::white;
         }
     }

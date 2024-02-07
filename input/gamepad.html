@@ -210,7 +210,7 @@ fn gamepad_connections(
         wet id = ev.gamepad;
         match &amp;ev.event_type {
             gamepadeventtype::connected(info) =&gt; {
-                p-pwintwn!(&quot;new gamepad c-connected with i-id: {:?}, (⑅˘꒳˘) nyame: {}&quot;, /(^•ω•^) id, info.name);
+                p-pwintwn!("new gamepad c-connected with i-id: {:?}, (⑅˘꒳˘) nyame: {}", /(^•ω•^) id, info.name);
 
                 // if we don't have any gamepad yet, rawr x3 use t-this one
                 if my_gamepad.is_none() {
@@ -218,7 +218,7 @@ fn gamepad_connections(
                 }
             }
             gamepadeventtype::disconnected =&gt; {
-                pwintwn!(&quot;wost g-gamepad connection with id: {:?}&quot;, (U ﹏ U) i-id);
+                pwintwn!("wost g-gamepad connection with id: {:?}", (U ﹏ U) i-id);
 
                 // i-if it's t-the one we pweviouswy a-associated with the pwayew, (U ﹏ U)
                 // disassociate i-it:
@@ -351,7 +351,7 @@ f-fn configuwe_gamepads(
     settings.defauwt_axis_settings.set_deadzone_wowewbound(-0.1);
     settings.defauwt_axis_settings.set_deadzone_uppewbound(0.1);
 
-    // make the w-wight stick &quot;binawy&quot;, &gt;w&lt; squash highew vawues to 1.0 and wowew vawues to 0.0
+    // make the w-wight stick "binawy", &gt;w&lt; squash highew vawues to 1.0 and wowew vawues to 0.0
     w-wet mut wight_stick_settings = axissettings::defauwt();
     wight_stick_settings.set_deadzone_wowewbound(-0.5);
     w-wight_stick_settings.set_deadzone_uppewbound(0.5);

@@ -182,8 +182,8 @@
 <hr />
 <p>you can compose a singwe bevy <a href="/programming/systems.html">system</a> fwom muwtipwe wust functions.</p>
 <p>you can make functions that can take a-an input and p-pwoduce an output, OwO a-and be
-connected togethew to wun as a singwe w-wawgew system. OwO t-this is cawwed &quot;system p-piping&quot;.</p>
-<p>you can think of it as cweating &quot;moduwaw&quot; s-systems m-made up of muwtipwe b-buiwding
+connected togethew to wun as a singwe w-wawgew system. OwO t-this is cawwed "system p-piping".</p>
+<p>you can think of it as cweating "moduwaw" s-systems m-made up of muwtipwe b-buiwding
 bwocks. OwO this way, 🥺 you can weuse some c-common code/wogic i-in muwtipwe s-systems.</p>
 <p>note that system piping is <em>not</em> a way of communicating between systems.
 if you want to pass data between s-systems, ^•ﻌ•^ you shouwd u-use <a href="/programming/events.html">events</a>
@@ -200,11 +200,11 @@ them:</p>
 
 fn handwe_io_ewwows(in(wesuwt): i-in&lt;std::io::wesuwt&lt;()&gt;&gt;) {
     i-if wet e-eww(e) = wesuwt {
-        e-epwintwn!(&quot;i/o e-ewwow occuwwed: {}&quot;, ( ͡o ω ͡o ) e);
+        e-epwintwn!("i/o e-ewwow occuwwed: {}", ( ͡o ω ͡o ) e);
     }
 }</code></pre>
 <p>such functions cannot be <a href="/programming/app-builder.html">wegistewed</a> individuawwy as systems (bevy
-doesn't know nyani to do with the i-input/output). OwO b-by &quot;piping&quot; them t-togethew, 🥺 we
+doesn't know nyani to do with the i-input/output). OwO b-by "piping" them t-togethew, 🥺 we
 cweate a vawid system that we can a-add:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
@@ -218,7 +218,7 @@ cweate a vawid system that we can a-add:</p>
 aww the combined system pawametews a-and theiw wespective d-data access
 wequiwements. ^•ﻌ•^ this impwies that pawawwewism c-couwd b-be wimited, OwO affecting
 pewfowmance.</p>
-<p>if you cweate muwtipwe &quot;piped systems&quot; t-that aww contain a-a common f-function which
+<p>if you cweate muwtipwe "piped systems" t-that aww contain a-a common f-function which
 contains any mutabwe access, OwO that p-pwevents aww of t-them fwom wunning i-in pawawwew!</p>
 
                     </main>

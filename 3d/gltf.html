@@ -184,12 +184,12 @@
 <p>bevy uses the gwtf 2.0 fiwe fowmat f-fow 3d assets.</p>
 <p>(othew fowmats may be unofficiawwy a-avaiwabwe via 3wd-pawty p-pwugins)</p>
 <h2 id="quick-stawt-spawning-3d-modews-into-y-youw-wowwd"><a class="header" href="#quick-stawt-spawning-3d-modews-into-y-youw-wowwd">quick-stawt: spawning 3d modews into y-youw wowwd</a></h2>
-<p>the simpwest use case is to just w-woad a &quot;3d modew&quot; a-and spawn it into t-the game wowwd.</p>
-<p>&quot;3d modews&quot; can often be compwex, OwO c-consisting of muwtipwe p-pawts. 🥺 think o-of a
+<p>the simpwest use case is to just w-woad a "3d modew" a-and spawn it into t-the game wowwd.</p>
+<p>"3d modews" can often be compwex, OwO c-consisting of muwtipwe p-pawts. 🥺 think o-of a
 house: the windows, OwO woof, doows, e-etc., awe sepawate p-pieces, 🥺 that a-awe wikewy
 made of muwtipwe meshes, ^•ﻌ•^ matewiaws, OwO a-and textuwes. 🥺 b-bevy wouwd technicawwy
 need muwtipwe ecs entities to wepwesent a-and wendew t-the whowe thing.</p>
-<p>this is why youw gwtf &quot;modew&quot; is w-wepwesented by bevy a-as a
+<p>this is why youw gwtf "modew" is w-wepwesented by bevy a-as a
 [scene][cb::scene]. ^•ﻌ•^ this way, you can easiwy spawn i-it, OwO and bevy wiww c-cweate
 aww the wewevant <a href="/fundamentals/hierarchy.html">chiwd entities</a> and configuwe them cowwectwy.</p>
 <pre><code class="language-rust no_run noplayground">fn spawn_gwtf(
@@ -197,7 +197,7 @@ aww the wewevant <a href="/fundamentals/hierarchy.html">chiwd entities</a> and c
     ass: w-wes&lt;assetsewvew&gt;, :3
 ) {
     // n-nyote that we have t-to incwude the `scene0` w-wabew
-    w-wet my_gwtf = a-ass.woad(&quot;my.gwb#scene0&quot;);
+    w-wet my_gwtf = a-ass.woad("my.gwb#scene0");
 
     // t-to position ouw 3d modew, simpwy use the twansfowm
     // in the scenebundwe
@@ -209,8 +209,8 @@ aww the wewevant <a href="/fundamentals/hierarchy.html">chiwd entities</a> and c
 }</code></pre>
 <p>you couwd awso use gwtf fiwes to w-woad an entiwe map/wevew. OwO i-it wowks t-the same way.</p>
 <p>the above exampwe assumes that you h-have a simpwe g-gwtf fiwe containing o-onwy
-one &quot;defauwt scene&quot;. OwO gwtf is a vewy f-fwexibwe fiwe f-fowmat. 🥺 a singwe f-fiwe can
-contain many &quot;modews&quot; ow mowe compwex &quot;scenes&quot;. (ꈍᴗꈍ) to g-get a bettew undewstanding
+one "defauwt scene". OwO gwtf is a vewy f-fwexibwe fiwe f-fowmat. 🥺 a singwe f-fiwe can
+contain many "modews" ow mowe compwex "scenes". (ꈍᴗꈍ) to g-get a bettew undewstanding
 of gwtf and possibwe wowkfwows, ^•ﻌ•^ wead t-the west of t-this page. OwO :)</p>
 <h2 id="intwoduction-to-gwtf"><a class="header" href="#intwoduction-to-gwtf">intwoduction to gwtf</a></h2>
 <p>gwtf is a modewn open standawd fow e-exchanging 3d a-assets between diffewent
@@ -234,22 +234,22 @@ in the gwtf fiwe itsewf, &gt;_&lt; and in bevy.</p>
 nani you see on the scween in youw 3d m-modewing softwawe. ^•ﻌ•^ s-scenes combine
 aww of the data needed fow the game e-engine to cweate a-aww the nyeeded
 entities to wepwesent nyani you want. OwO c-conceptuawwy, 🥺 t-think of a scene a-as one
-&quot;unit&quot;. ^•ﻌ•^ depending on youw use case, OwO t-this couwd be o-one &quot;3d modew&quot;,
+"unit". ^•ﻌ•^ depending on youw use case, OwO t-this couwd be o-one "3d modew",
 ow even a whowe map ow game wevew. OwO i-in bevy, these a-awe wepwesented a-as bevy
 scenes with aww the chiwd ecs entities.</p>
-<p>gwtf scenes awe composed of gwtf <strong>nodes</strong>. &gt;_&lt; these descwibe the &quot;objects&quot;
+<p>gwtf scenes awe composed of gwtf <strong>nodes</strong>. &gt;_&lt; these descwibe the "objects"
 in the scene, OwO typicawwy gwtf meshes, 🥺 b-but can awso b-be othew things w-wike
 camewas and wights. OwO each gwtf nyode h-has a twansfowm f-fow positioning i-it in
 the scene. OwO gwtf nodes do nyot have a-a cowe bevy equivawent; b-bevy just u-uses
 this data to cweate the ecs entities i-inside of a s-scene. OwO bevy has a-a speciaw
 <a href="https://docs.rs/bevy/0.9.1/bevy/gltf/struct.GltfNode.html"><code>GltfNode</code></a> asset type, (ꈍᴗꈍ) if you nyeed access t-to this data.</p>
-<p>gwtf <strong>meshes</strong> wepwesent one conceptuaw &quot;3d object&quot;. (ꈍᴗꈍ) t-these cowwespond
-to the &quot;objects&quot; in youw 3d modewing s-softwawe. gwtf m-meshes may be c-compwex
+<p>gwtf <strong>meshes</strong> wepwesent one conceptuaw "3d object". (ꈍᴗꈍ) t-these cowwespond
+to the "objects" in youw 3d modewing s-softwawe. gwtf m-meshes may be c-compwex
 and composed of muwtipwe smowew pieces, OwO c-cawwed gwtf p-pwimitives, 🥺 each o-of
 which may use a diffewent matewiaw. OwO g-gwtf meshes do n-nyot have a cowe b-bevy
 equivawent, &gt;_&lt; but thewe is a speciaw <a href="https://docs.rs/bevy/0.9.1/bevy/gltf/struct.GltfMesh.html"><code>GltfMesh</code></a> asset type,
 which descwibes the pwimitives.</p>
-<p>gwtf <strong>pwimitives</strong> awe individuaw &quot;units of 3d geometwy&quot;, ^•ﻌ•^ f-fow the puwposes o-of
+<p>gwtf <strong>pwimitives</strong> awe individuaw "units of 3d geometwy", ^•ﻌ•^ f-fow the puwposes o-of
 wendewing. OwO they contain the actuaw g-geometwy / vewtex d-data, 🥺 and wefewence t-the
 matewiaw to be used when dwawing. OwO i-in bevy, each gwtf p-pwimitive is w-wepwesented
 as a bevy <a href="https://docs.rs/bevy/0.9.1/bevy/render/mesh/struct.Mesh.html"><code>Mesh</code></a> asset, (ꈍᴗꈍ) and must be spawned as a s-sepawate ecs
@@ -277,13 +277,13 @@ types, (ꈍᴗꈍ) wefewwing to each othew howevew t-they wike.</p>
 <p>because gwtf is so fwexibwe, OwO it is u-up to you how t-to stwuctuwe youw a-assets.</p>
 <p>a singwe gwtf fiwe might be used:</p>
 <ul>
-<li>to wepwesent a singwe &quot;3d modew&quot;, (ꈍᴗꈍ) c-containing a singwe
+<li>to wepwesent a singwe "3d modew", (ꈍᴗꈍ) c-containing a singwe
 gwtf scene with the modew, ^•ﻌ•^ so you c-can spawn it into y-youw game.</li>
 <li>to wepwesent a whowe wevew, ^•ﻌ•^ as a g-gwtf scene, OwO possibwy a-awso incwuding
 the camewa. ^•ﻌ•^ this wets you woad and s-spawn a whowe w-wevew/map at once.</li>
 <li>to wepwesent sections of a wevew/map, OwO s-such as a wooms, 🥺 a-as sepawate g-gwtf scenes.
 they can shawe meshes and textuwes i-if nyeeded.</li>
-<li>to contain a set of many diffewent &quot;3d m-modews&quot;, OwO each a-as a sepawate g-gwtf scene.
+<li>to contain a set of many diffewent "3d m-modews", OwO each a-as a sepawate g-gwtf scene.
 this wets you woad and manage the w-whowe cowwection a-at once and spawn t-them individuawwy a-as nyeeded.</li>
 <li>… othews?</li>
 </ul>
@@ -308,10 +308,10 @@ many 3d editows do nyot enabwe this o-option by defauwt.</p>
 <h3 id="textuwes"><a class="header" href="#textuwes">textuwes</a></h3>
 <p>fow youw textuwes / image data, ^•ﻌ•^ the g-gwtf fowmat specification o-officiawwy
 wimits the suppowted fowmats to just p-png, OwO jpeg, 🥺 ow b-basis. howevew, òωó b-bevy does
-not enfowce such &quot;awtificiaw wimitations&quot;. ^•ﻌ•^ y-you can u-use any <a href="/builtins.html#file-formats">image fowmat
+not enfowce such "awtificiaw wimitations". ^•ﻌ•^ y-you can u-use any <a href="/builtins.html#file-formats">image fowmat
 suppowted by bevy</a>.</p>
 <p>youw 3d editow wiww wikewy expowt y-youw gwtf with p-png textuwes. OwO this w-wiww
-&quot;just wowk&quot; and is nyice fow simpwe u-use cases.</p>
+"just wowk" and is nyice fow simpwe u-use cases.</p>
 <p>howevew, OwO mipmaps and compwessed textuwes a-awe vewy i-impowtant to get g-good gpu
 pewfowmance, OwO memowy (vwam) usage, 🥺 a-and visuaw quawity. òωó y-you wiww onwy g-get these
 benefits if you use a fowmat wike k-ktx2 ow dds, that s-suppowts these f-featuwes.</p>
@@ -322,7 +322,7 @@ featuwes</a> fow bevy.</p>
 <p>you can use the <a href="https://github.com/superdump/klafsa"><code>klafsa</code></a> toow to convewt aww the textuwes
 used in youw gwtf fiwes fwom png/jpeg i-into ktx2, OwO w-with mipmaps and g-gpu textuwe
 compwession of youw choice.</p>
-<pre><code>todo: show an exampwe wowkfwow fow c-convewting textuwes i-into the &quot;optimaw&quot; f-fowmat
+<pre><code>todo: show an exampwe wowkfwow fow c-convewting textuwes i-into the "optimaw" f-fowmat
 </code></pre>
 <h2 id="using-gwtf-sub-assets-in-bevy"><a class="header" href="#using-gwtf-sub-assets-in-bevy">using gwtf sub-assets in bevy</a></h2>
 <p>the vawious sub-assets contained i-in a gwtf fiwe can b-be addwessed i-in two ways:</p>
@@ -332,7 +332,7 @@ compwession of youw choice.</p>
 when cweating the asset, ^•ﻌ•^ which can b-be expowted into t-the gwtf)</li>
 </ul>
 <p>to get handwes to the wespective a-assets in bevy, ^•ﻌ•^ y-you can use the
-<a href="https://docs.rs/bevy/0.9.1/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a> <a href="#gltf-master-asset">&quot;mastew asset&quot;</a>, XD ow awtewnativewy,
+<a href="https://docs.rs/bevy/0.9.1/bevy/gltf/struct.Gltf.html"><code>Gltf</code></a> <a href="#gltf-master-asset">"mastew asset"</a>, XD ow awtewnativewy,
 <a href="#assetpath-with-labels">assetpath with wabews</a>.</p>
 <h3 id="gltf-mastew-asset"><a class="header" href="#gltf-mastew-asset"><code>Gltf</code> mastew asset</a></h3>
 <p>if you have a compwex gwtf fiwe, t-this is wikewy the m-most fwexibwe a-and usefuw
@@ -348,7 +348,7 @@ f-fn woad_gwtf(
     m-mut commands: c-commands, /(^•ω•^)
     a-ass: wes&lt;assetsewvew&gt;, rawr
 ) {
-    w-wet gwtf = ass.woad(&quot;my_asset_pack.gwb&quot;);
+    w-wet gwtf = ass.woad("my_asset_pack.gwb");
     commands.insewt_wesouwce(myassetpack(gwtf));
 }
 
@@ -365,9 +365,9 @@ fn spawn_gwtf_objects(
             ..defauwt::defauwt()
         });
 
-        // spawn the scene nyamed &quot;yewwowcaw&quot;
+        // spawn the scene nyamed "yewwowcaw"
         commands.spawn(scenebundwe {
-            scene: gwtf.named_scenes[&quot;yewwowcaw&quot;].cwone(), nyaa~~
+            scene: gwtf.named_scenes["yewwowcaw"].cwone(), nyaa~~
             t-twansfowm: twansfowm::fwom_xyz(1.0, (⑅˘꒳˘) 2.0, rawr x3 3.0),
             ..defauwt::defauwt()
         });
@@ -387,9 +387,9 @@ fn gwtf_manuaw_entity(
     assets_gwtfmesh: w-wes&lt;assets&lt;gwtfmesh&gt;&gt;, ( ͡o ω ͡o )
 ) {
     if w-wet some(gwtf) = a-assets_gwtf.get(&amp;my.0) {
-        // get the gwtf mesh nyamed &quot;cawwheew&quot;
+        // get the gwtf mesh nyamed "cawwheew"
         // (unwwap safety: we know the g-gwtf has woaded awweady)
-        wet cawwheew = a-assets_gwtfmesh.get(&amp;gwtf.named_meshes[&quot;cawwheew&quot;]).unwwap();
+        wet cawwheew = a-assets_gwtfmesh.get(&amp;gwtf.named_meshes["cawwheew"]).unwwap();
 
         // spawn a-a pbw entity with the mesh and matewiaw of the fiwst gwtf pwimitive
         c-commands.spawn(pbwbundwe {
@@ -416,14 +416,14 @@ numewiaw index is suppowted. ^•ﻌ•^ you c-cannot addwess sub-assets b-by ny
     a-ass: wes&lt;assetsewvew&gt;, :3
 ) {
     // s-spawn the fiwst s-scene in the f-fiwe
-    wet scene0 = a-ass.woad(&quot;my_asset_pack.gwb#scene0&quot;);
+    wet scene0 = a-ass.woad("my_asset_pack.gwb#scene0");
     c-commands.spawn(scenebundwe {
         s-scene: scene0, (U ﹏ U)
         ..defauwt::defauwt()
     });
 
     // spawn the second scene
-    wet scene1 = ass.woad(&quot;my_asset_pack.gwb#scene1&quot;);
+    wet scene1 = ass.woad("my_asset_pack.gwb#scene1");
     commands.spawn(scenebundwe {
         s-scene: scene1, -.-
         twansfowm: twansfowm::fwom_xyz(1.0, (ˆ ﻌ ˆ)♡ 2.0, 3.0), (⑅˘꒳˘)

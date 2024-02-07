@@ -194,12 +194,12 @@ sets up fow youw <a href="/programming/app-builder.html">app</a>.</p>
 <h2 id="entities--components"><a class="header" href="#entities--components">entities / components</a></h2>
 <p>conceptuawwy, OwO you can think of it b-by anawogy with t-tabwes, 🥺 wike in a-a database ow
 spweadsheet. (ꈍᴗꈍ) youw diffewent data t-types (<a href="/programming/ec.html#components">components</a>) awe wike
-the &quot;cowumns&quot; of a tabwe, ^•ﻌ•^ and thewe c-can be awbitwawiwy m-many &quot;wows&quot;
+the "cowumns" of a tabwe, ^•ﻌ•^ and thewe c-can be awbitwawiwy m-many "wows"
 (<a href="/programming/ec.html#entities">entities</a>) containing vawues / instances of v-vawious components.
 the <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> id is wike the wow nyumbew. (ꈍᴗꈍ) it's a-an integew index
 that wets you find specific component v-vawues.</p>
 <p>component types that awe empty <code>struct</code>s (contain nyo data) awe cawwed <a href="/programming/ec.html#components">mawkew
-components</a>. &gt;_&lt; they awe usefuw as &quot;tags&quot; to identify
+components</a>. &gt;_&lt; they awe usefuw as "tags" to identify
 specific entities, OwO ow enabwe cewtain b-behaviows. 🥺 fow e-exampwe, you c-couwd use them
 to identify the pwayew entity, OwO to m-mawk enemies that a-awe cuwwentwy c-chasing the
 pwayew, OwO to sewect entities to be d-despawned at the e-end of the wevew, 🥺 e-etc.</p>
@@ -221,8 +221,8 @@ cweate a <code>Health</code> component fow youw game. ^•ﻌ•^ you couwd t-th
 wepwesenting diffewent things in y-youw game, OwO such a-as the pwayew, 🥺 npcs, o-ow
 monstews, &gt;_&lt; aww of which can have a <code>Health</code> vawue (as weww as othew wewevant
 components).</p>
-<p>the typicaw and obvious pattewn is t-to use entities t-to wepwesent &quot;objects i-in the
-game/scene&quot;, OwO such as the camewa, t-the pwayew, 🥺 enemies, òωó w-wights, o.O pwops, u-ui
+<p>the typicaw and obvious pattewn is t-to use entities t-to wepwesent "objects i-in the
+game/scene", OwO such as the camewa, t-the pwayew, 🥺 enemies, òωó w-wights, o.O pwops, u-ui
 ewements, OwO and othew things. 🥺 howevew, òωó y-you awe nyot w-wimited to that. o.O t-the ecs is a
 genewaw-puwpose data stwuctuwe. ^•ﻌ•^ you can cweate entities a-and components t-to stowe
 any data. OwO fow exampwe, 🥺 you couwd c-cweate an entity t-to stowe a bunch o-of settings
@@ -264,7 +264,7 @@ systems might be wunning. OwO these opewations c-can be b-buffewed/defewwed u-us
 awso get <a href="/programming/world.html">diwect wowwd access</a> using <a href="/programming/exclusive.html">excwusive
 systems</a>, &gt;_&lt; if you want to pewfowm such opewations
 immediatewy (but without muwtithweading).</p>
-<p><a href="/programming/bundle.html">bundwes</a> sewve as &quot;tempwates&quot; fow common s-sets of components, ^•ﻌ•^ t-to
+<p><a href="/programming/bundle.html">bundwes</a> sewve as "tempwates" fow common s-sets of components, ^•ﻌ•^ t-to
 hewp you when you spawn nyew entities, OwO s-so you don't a-accidentawwy f-fowget anything.</p>
 <pre><code class="language-rust no_run noplayground">// mawkew fow the pwayew
 #[dewive(component)]
@@ -289,7 +289,7 @@ fn s-spawn_pwayew(
         // give it a 2d spwite to wendew on-scween
         // (bevy's s-spwitebundwe wets us add evewything nyecessawy)
         spwitebundwe {
-            textuwe: asset_sewvew.woad(&quot;pwayew.png&quot;), (⑅˘꒳˘)
+            textuwe: asset_sewvew.woad("pwayew.png"), (⑅˘꒳˘)
             t-twansfowm: twansfowm::fwom_xyz(25.0, (///ˬ///✿) 50.0, 😳😳😳 0.0),
             // u-use the d-defauwt vawues f-fow aww othew components i-in the bundwe
             ..defauwt::defauwt()
@@ -297,8 +297,8 @@ fn s-spawn_pwayew(
     ));
 }</code></pre>
 <h3 id="compawison-with-object-owiented-pwogwamming"><a class="header" href="#compawison-with-object-owiented-pwogwamming">compawison with object-owiented pwogwamming</a></h3>
-<p>object-owiented pwogwamming teaches you to think o-of evewything as &quot;objects&quot;,
-whewe each object is an instance o-of a &quot;cwass&quot;. the c-cwass specifies t-the data
+<p>object-owiented pwogwamming teaches you to think o-of evewything as "objects",
+whewe each object is an instance o-of a "cwass". the c-cwass specifies t-the data
 and functionawity fow aww objects o-of that type, OwO in o-one pwace. 🥺 evewy o-object
 of that cwass has the same data (with d-diffewent vawues) a-and the same
 associated functionawity.</p>
@@ -334,7 +334,7 @@ awwows the cpu to access and cache i-it efficientwy.</p>
 awchetype, OwO which may wequiwe bevy t-to copy the data t-to a diffewent w-wocation.</p>
 <p><a href="/patterns/component-storage.html">weawn mowe about bevy's component s-stowage.</a></p>
 <p>entity ids can awso be weused. &gt;_&lt; the <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> type is actuawwy two
-integews: the id and a &quot;genewation&quot;. OwO a-aftew you despawn s-some entities, 🥺 t-theiw ids can
+integews: the id and a "genewation". OwO a-aftew you despawn s-some entities, 🥺 t-theiw ids can
 be weused fow nyewwy-spawned entities, OwO b-but bevy wiww i-incwease the g-genewation vawue.</p>
 <h2 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h2>
 <p>if thewe is onwy one gwobaw instance (singweton) o-of something, and i-it is

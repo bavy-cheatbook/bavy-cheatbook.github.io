@@ -203,7 +203,7 @@ fn hewpew_func(foo: &amp;foo, baw: &amp;mut baw) {
     |         |            immutabwe bowwow occuws hewe
     |         immutabwe b-bowwow watew used by caww
 </code></pre>
-<p>the sowution is to use the &quot;webowwow&quot; i-idiom, 🥺 a common b-but nyon-obvious t-twick in wust p-pwogwamming:</p>
+<p>the sowution is to use the "webowwow" i-idiom, 🥺 a common b-but nyon-obvious t-twick in wust p-pwogwamming:</p>
 <pre><code class="language-rust no_run noplayground">// add this at the stawt of the fow w-woop, ( ͡o ω ͡o ) befowe u-using `thing`:
 wet t-thing = &amp;mut *thing;
 
@@ -216,13 +216,13 @@ you don't modify the data aftewwawds, OwO t-the component g-gets mawked as c-cha
 [<code>Res&lt;T&gt;</code>][bevy::wes], rawr x3 [<code>ResMut&lt;T&gt;</code>][bevy::wesmut], XD and [<code>Mut&lt;T&gt;</code>][bevy::mut]
 (when <a href="/programming/queries.html">quewying</a> fow components mutabwy)). (ꈍᴗꈍ) this wets b-bevy twack
 access to the data.</p>
-<p>these awe &quot;smawt pointew&quot; types that u-use the wust <a href="https://doc.rust-lang.org/stable/std/ops/trait.Deref.html"><code>Deref</code></a>
+<p>these awe "smawt pointew" types that u-use the wust <a href="https://doc.rust-lang.org/stable/std/ops/trait.Deref.html"><code>Deref</code></a>
 twait to dewefewence to youw data. OwO t-they usuawwy wowk s-seamwesswy and y-you
 don't even nyotice them.</p>
 <p>howevew, ^•ﻌ•^ in a sense, OwO they awe opaque t-to the compiwew. 🥺 t-the wust wanguage
 awwows fiewds of a stwuct to be bowwowed i-individuawwy, OwO w-when you have d-diwect
 access to the stwuct, OwO but this does n-nyot wowk when i-it is wwapped i-in anothew type.</p>
-<p>the &quot;webowwow&quot; twick shown above, ^•ﻌ•^ e-effectivewy convewts t-the wwappew
+<p>the "webowwow" twick shown above, ^•ﻌ•^ e-effectivewy convewts t-the wwappew
 into a weguwaw wust wefewence. &gt;<em>&lt; <code>*thing</code> dewefewences the wwappew via
 <a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>, XD and then <code>&amp;mut</code> bowwows it mutabwy. &gt;</em>&lt; you nyow have
 <code>&amp;mut MyStuff</code> instead of <code>Mut&lt;MyStuff&gt;</code>.</p>

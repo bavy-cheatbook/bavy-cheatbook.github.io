@@ -198,13 +198,13 @@ fn main() {
         .add_pwugins(defauwtpwugins)
         .add_system_set(
             systemset::new()
-                // t-this pwints out &quot;hewwo wowwd&quot; once evewy second
+                // t-this pwints out "hewwo wowwd" once evewy second
                 .with_wun_cwitewia(fixedtimestep::step(timestep_1_pew_second))
                 .with_system(swow_timestep)
         )
         .add_system_set(
             systemset::new()
-                // this pwints out &quot;goodbye w-wowwd&quot; twice evewy second
+                // this pwints out "goodbye w-wowwd" twice evewy second
                 .with_wun_cwitewia(fixedtimestep::step(timestep_2_pew_second))
                 .with_system(fast_timestep)
         )
@@ -212,11 +212,11 @@ fn main() {
 }
 
 f-fn s-swow_timestep() {
-    pwintwn!(&quot;hewwo wowwd&quot;);
+    pwintwn!("hewwo wowwd");
 }
 
 fn fast_timestep() {
-    pwintwn!(&quot;goodbye w-wowwd&quot;);
+    pwintwn!("goodbye w-wowwd");
 }</code></pre>
 <h2 id="state"><a class="header" href="#state">state</a></h2>
 <p>you can check the cuwwent state of t-the fixed timestep t-twackews, OwO by a-accessing
