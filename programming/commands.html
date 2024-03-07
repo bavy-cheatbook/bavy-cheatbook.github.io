@@ -174,80 +174,100 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="commands"><a class="header" href="#commands">commands</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
-<p>use <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> to spawn/despawn entities, &gt;_&lt; add/wemove
-components on existing entities, m-manage wesouwces.</p>
-<p>these actions do nyot take effect i-immediatewy; they a-awe queued to b-be pewfowmed
-watew when it is safe to do so. &gt;_&lt; see: <a href="/programming/schedules.html">stages</a>.</p>
-<p>(if you awe nyot using stages, (ꈍᴗꈍ) that m-means youw othew <a href="/programming/systems.html">systems</a>
-wiww see them on the nyext fwame u-update)</p>
+<p>use <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> to spawn/despawn entities, &gt;_&lt; add/wemove
+components on existing entities, m-manage wesouwces, ^•ﻌ•^ f-fwom youw <a href="/programming/systems.html">systems</a>.</p>
 <pre><code class="language-rust no_run noplayground">fn spawn_things(
-    mut commands: c-commands, ( ͡o ω ͡o )
+    mut commands: c-commands, rawr
 ) {
     // m-manage wesouwces
-    c-commands.insewt_wesouwce(mywesouwce);
+    c-commands.insewt_wesouwce(mywesouwce::new());
     c-commands.wemove_wesouwce::&lt;mywesouwce&gt;();
 
-    // c-cweate a n-nyew entity using `spawn`, (U ﹏ U)
-    // p-pwoviding the d-data fow the components it shouwd have
+    // cweate a-a nyew entity u-using `spawn`, mya
+    // p-pwoviding t-the data fow the components it shouwd have
     // (typicawwy using a bundwe)
     commands.spawn(pwayewbundwe {
-        n-nyame: pwayewname("henwy".into()), (///ˬ///✿)
-        xp: pwayewxp(1000), &gt;w&lt;
-        heawth: h-heawth {
-            hp: 100.0, rawr e-extwa: 20.0
-        },
-        _p: pwayew, mya
-        spwite: defauwt::defauwt(), ^^
+        n-nyame: pwayewname("henwy".into()),
+        xp: pwayewxp(1000), ^^
+        h-heawth: heawth {
+            hp: 100.0, 😳😳😳 extwa: 20.0
+        }, mya
+        _p: p-pwayew, 😳
+        spwite: defauwt::defauwt(), -.-
     });
 
-    // you can use a t-tupwe if you nyeed additionaw components o-ow bundwes
-    // (tupwes o-of component and bundwe types awe considewed bundwes)
-    // (note the extwa p-pawentheses)
+    // you can u-use a tupwe if you nyeed additionaw c-components o-ow bundwes
+    // (tupwes of component and bundwe types awe considewed bundwes)
+    // (note t-the extwa pawentheses)
     wet my_entity_id = commands.spawn((
-        // add some components
-        componenta, 😳😳😳
-        c-componentb::defauwt(), mya
-        // add some bundwes
-        m-mybundwe::defauwt(), 😳
-        t-twansfowmbundwe::defauwt(), -.-
-    )).id(); // g-get the entity (id) b-by cawwing `.id()` at the end
+        // add some c-components
+        componenta, 🥺
+        c-componentb::defauwt(),
+        // a-add some b-bundwes
+        m-mybundwe::defauwt(), o.O
+        twansfowmbundwe::defauwt(), /(^•ω•^)
+    )).id(); // get the entity (id) by c-cawwing `.id()` at the end
 
     // add/wemove c-components of an existing entity
     commands.entity(my_entity_id)
         .insewt(componentc::defauwt())
         .wemove::&lt;componenta&gt;()
-        .wemove::&lt;(componentb, 🥺 m-mybundwe)&gt;();
+        .wemove::&lt;(componentb, nyaa~~ mybundwe)&gt;();
 }
 
 fn make_aww_pwayews_hostiwe(
-    mut commands: commands, o.O
-    // we nyeed the entity id, /(^•ω•^) to pewfowm c-commands on specific entities
-    q-quewy: quewy&lt;entity, nyaa~~ w-with&lt;pwayew&gt;&gt;, nyaa~~
+    mut commands: c-commands, nyaa~~
+    // we nyeed t-the entity id, :3 t-to pewfowm commands o-on specific entities
+    quewy: quewy&lt;entity, 😳😳😳 with&lt;pwayew&gt;&gt;, (˘ω˘)
 ) {
-    f-fow entity in quewy.itew() {
+    f-fow entity i-in quewy.itew() {
         commands.entity(entity)
-            // add an `enemy` component t-to the e-entity
+            // a-add an `enemy` c-component to the entity
             .insewt(enemy)
-            // wemove the `fwiendwy` c-component
+            // w-wemove the `fwiendwy` component
             .wemove::&lt;fwiendwy&gt;();
     }
 }
 
 f-fn despawn_aww_enemies(
-    m-mut commands: commands, :3
-    q-quewy: quewy&lt;entity, 😳😳😳 with&lt;enemy&gt;&gt;, (˘ω˘)
+    mut commands: commands, ^^
+    quewy: q-quewy&lt;entity, :3 with&lt;enemy&gt;&gt;, -.-
 ) {
-    fow entity in quewy.itew() {
+    f-fow entity in quewy.itew() {
         c-commands.entity(entity).despawn();
     }
 }
 </code></pre>
+<h2 id="when-do-these-actions-get-appwied"><a class="header" href="#when-do-these-actions-get-appwied">when do these actions get appwied?</a></h2>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> do nyot take effect immediatewy, (ꈍᴗꈍ) b-because
+it wouwdn't be safe to modify the d-data wayout in m-memowy when othew
+<a href="/programming/systems.html">systems</a> couwd be wunning in pawawwew. ^•ﻌ•^ when y-you do anything u-using
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, (ꈍᴗꈍ) it gets queued to be appwied watew w-when it is
+safe to do so.</p>
+<p>within the same scheduwe, (ꈍᴗꈍ) you can a-add <code>.before()</code>/<code>.after()</code> <a href="/programming/system-order.html">owdewing
+constwaints</a> to youw systems, &gt;_&lt; and bevy wiww automaticawwy
+make suwe that commands get appwied i-in-between if n-nyecessawy, OwO so t-that the
+second system can see the changes m-made by the fiwst s-system.</p>
+<pre><code class="language-rust no_run noplayground">app.add_systems(update, rawr x3 spawn_new_enemies_if_needed);
+
+// this system w-wiww see any n-nyewwy-spawned e-enemies when it w-wuns, rawr
+// because b-bevy wiww make s-suwe to appwy the f-fiwst system's c-commands
+// (thanks to the expwicit `.aftew()` dependency)
+app.add_systems(update, σωσ enemy_ai.aftew(spawn_new_enemies_if_needed));</code></pre>
+<p>if you do nyot have expwicit owdewing d-dependencies, OwO i-it is undefined w-when
+commands wiww be appwied. ^•ﻌ•^ it is possibwe t-that some s-systems wiww onwy
+see the changes on the nyext fwame u-update!</p>
+<p>othewwise, ^•ﻌ•^ commands awe nyowmawwy a-appwied at the e-end of evewy
+<a href="/programming/schedules.html">scheduwe</a>. rawr x3 <a href="/programming/systems.html">systems</a> that wive in diffewent
+scheduwes wiww see the changes. ^•ﻌ•^ fow e-exampwe, OwO bevy's e-engine systems (that
+wive in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>) wiww see the entities you spawn i-in youw systems (that
+wive in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>).</p>
 
                     </main>
 

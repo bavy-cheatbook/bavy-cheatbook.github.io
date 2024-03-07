@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="intwo-youw-data"><a class="header" href="#intwo-youw-data">intwo: youw data</a></h1>
 <p>this page is an ovewview, OwO to give y-you an idea of t-the big pictuwe o-of how bevy
@@ -184,11 +184,11 @@ weawn mowe about each concept.</p>
 <p>as mentioned in <a href="/programming/ecs-intro.html">the ecs intwo</a>, &gt;_&lt; bevy stowes aww youw data fow
 you and awwows you easy and fwexibwe a-access to nyanievew y-you nyeed, OwO w-whewevew you
 need it.</p>
-<p>the ecs's data stwuctuwe is cawwed t-the <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/world/struct.World.html"><code>World</code></a>. XD that is nyani
-stowes and manages aww of the data. OwO f-fow advanced s-scenawios, 🥺 is possibwe t-to have
-<a href="/programming/sub-apps.html">muwtipwe wowwds</a>, (ꈍᴗꈍ) and then each one wiww behave as i-its own
-sepawate ecs. OwO howevew, 🥺 nyowmawwy, òωó y-you just wowk with t-the main wowwd t-that bevy
-sets up fow youw <a href="/programming/app-builder.html">app</a>.</p>
+<p>the ecs's data stwuctuwe is cawwed t-the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>. XD that is nyani
+stowes and manages aww of the data. OwO f-fow advanced s-scenawios, 🥺 is possibwe t-to
+have <a href="/programming/sub-apps.html">muwtipwe wowwds</a>, &gt;_&lt; and then each one wiww behave as
+its own sepawate ecs instance. OwO howevew, 🥺 n-nyowmawwy, òωó y-you just wowk w-with the
+main wowwd that bevy sets up fow y-youw <a href="/programming/app-builder.html">app</a>.</p>
 <p>you can wepwesent youw data in two d-diffewent ways:
 <a href="#entities--components">entities/components</a>, XD and <a href="#resources">wesouwces</a>.</p>
 <h2 id="entities--components"><a class="header" href="#entities--components">entities / components</a></h2>
@@ -196,9 +196,9 @@ sets up fow youw <a href="/programming/app-builder.html">app</a>.</p>
 spweadsheet. (ꈍᴗꈍ) youw diffewent data t-types (<a href="/programming/ec.html#components">components</a>) awe wike
 the "cowumns" of a tabwe, ^•ﻌ•^ and thewe c-can be awbitwawiwy m-many "wows"
 (<a href="/programming/ec.html#entities">entities</a>) containing vawues / instances of v-vawious components.
-the <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> id is wike the wow nyumbew. (ꈍᴗꈍ) it's a-an integew index
+the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> id is wike the wow nyumbew. (ꈍᴗꈍ) it's a-an integew index
 that wets you find specific component v-vawues.</p>
-<p>component types that awe empty <code>struct</code>s (contain nyo data) awe cawwed <a href="/programming/ec.html#components">mawkew
+<p>component types that awe empty <code>struct</code>s (contain nyo data) awe cawwed <a href="/programming/ec.html#marker-components">mawkew
 components</a>. &gt;_&lt; they awe usefuw as "tags" to identify
 specific entities, OwO ow enabwe cewtain b-behaviows. 🥺 fow e-exampwe, you c-couwd use them
 to identify the pwayew entity, OwO to m-mawk enemies that a-awe cuwwentwy c-chasing the
@@ -207,7 +207,7 @@ pwayew, OwO to sewect entities to be d-despawned at the e-end of the wevew, 🥺
 checkmawks show nani component types a-awe pwesent o-on each entity. OwO e-empty cewws
 mean that the component is nyot pwesent. OwO i-in this e-exampwe, 🥺 we have a-a pwayew,
 a camewa, &gt;_&lt; and sevewaw enemies.</p>
-<p>|<a href="https://docs.rs/bevy/0.12.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> (id)|<a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>|<code>Player</code>|<code>Enemy</code>|<a href="https://docs.rs/bevy/0.12.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a>|<code>Health</code>|...|
+<p>|<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> (id)|<a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>|<code>Player</code>|<code>Enemy</code>|<a href="https://docs.rs/bevy/0.13.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a>|<code>Health</code>|...|
 |---|---|---|---|---|---|---|
 |...|||||||
 |107|✓ <code>&lt;translation&gt;</code> <code>&lt;rotation&gt;</code> <code>&lt;scale&gt;</code>|✓|||✓ <code>50.0</code>||
@@ -227,11 +227,12 @@ ewements, OwO and othew things. 🥺 howevew, òωó y-you awe nyot w-wimited to
 genewaw-puwpose data stwuctuwe. ^•ﻌ•^ you can cweate entities a-and components t-to stowe
 any data. OwO fow exampwe, 🥺 you couwd c-cweate an entity t-to stowe a bunch o-of settings
 ow configuwation pawametews, (ꈍᴗꈍ) ow othew a-abstwact things.</p>
-<p>data stowed using entities and components i-is accessed u-using <a href="/programming/queries.html">quewies</a>.
-fow exampwe, ^•ﻌ•^ if you want to impwement a-a game mechanic, OwO w-wwite a <a href="/programming/systems.html">system</a>,
-specify nyani component types you w-want to access, OwO a-and do youw thing. 🥺 y-you can eithew
-itewate thwough aww entities that m-match youw specification, OwO o-ow access s-specific
-ones (if you know theiw <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> id).</p>
+<p>data stowed using entities and components i-is accessed u-using
+<a href="/programming/queries.html">quewies</a>. (ꈍᴗꈍ) fow exampwe, if you want to impwement a-a nyew game
+mechanic, XD wwite a <a href="/programming/systems.html">system</a> (just a wust function that takes
+speciaw pawametews), OwO specify nyani c-component types y-you want to access, 🥺 a-and do
+youw thing. OwO you can eithew itewate t-thwough aww entities t-that match y-youw quewy,
+ow access the data of a specific o-one (using the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> id).</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(component)]
 stwuct xp(u32);
 
@@ -242,14 +243,15 @@ stwuct h-heawth {
 }
 
 fn w-wevew_up(
-    // o-opewate on anything t-that has xp a-and heawth
-    m-mut quewy: quewy&lt;(&amp;mut xp, :3 &amp;mut heawth)&gt;, (U ﹏ U)
+    // w-we want to access t-the xp and heawth d-data:
+    mut q-quewy: quewy&lt;(&amp;mut xp, (⑅˘꒳˘) &amp;mut heawth)&gt;, (U ᵕ U❁)
 ) {
-    fow (mut xp, -.- mut heawth) in quewy.itew_mut() {
-        i-if xp.0 &gt; 1000 {
+    // pwocess aww wewevant entities
+    fow (mut xp, -.- m-mut heawth) in quewy.itew_mut() {
+        if x-xp.0 &gt; 1000 {
             xp.0 -= 1000;
-            heawth.max += 25;
-            h-heawth.cuwwent = heawth.max;
+            h-heawth.max += 25;
+            heawth.cuwwent = heawth.max;
         }
     }
 }</code></pre>
@@ -271,30 +273,34 @@ hewp you when you spawn nyew entities, OwO s-so you don't a-accidentawwy f-fowge
 s-stwuct p-pwayew;
 
 fn s-spawn_pwayew(
-    // n-nyeeded fow c-cweating/wemoving d-data in the ecs w-wowwd
-    mut c-commands: commands, mya
-    // nyeeded fow woading assets
-    asset_sewvew: wes&lt;assetsewvew&gt;, nyaa~~
+    // n-nyeeded fow s-safewy cweating/wemoving d-data in t-the ecs wowwd
+    // (anything d-done via commands wiww be appwied watew)
+    mut commands: commands, mya
+    // nyeeded f-fow woading assets
+    asset_sewvew: wes&lt;assetsewvew&gt;, 🥺
 ) {
-    // c-cweate a nyew entity with nyanievew components w-we want
+    // c-cweate a nyew entity with n-nyanievew components we want
     commands.spawn((
-        // g-give it a mawkew
-        pwayew, (⑅˘꒳˘)
-        // give it h-heawth and xp
+        // give i-it a mawkew
+        pwayew, &gt;_&lt;
+        // g-give it h-heawth and xp
         heawth {
-            c-cuwwent: 100, rawr x3
-            m-max: 125, (✿oωo)
-        }, (ˆ ﻌ ˆ)♡
-        xp(0), (˘ω˘)
-        // give it a 2d spwite to wendew on-scween
-        // (bevy's s-spwitebundwe wets us add evewything nyecessawy)
-        spwitebundwe {
-            textuwe: asset_sewvew.woad("pwayew.png"), (⑅˘꒳˘)
-            t-twansfowm: twansfowm::fwom_xyz(25.0, (///ˬ///✿) 50.0, 😳😳😳 0.0),
-            // u-use the d-defauwt vawues f-fow aww othew components i-in the bundwe
+            cuwwent: 100, &gt;_&lt;
+            max: 125, (⑅˘꒳˘)
+        }, /(^•ω•^)
+        xp(0), rawr x3
+        // g-give it a 2d spwite to wendew on-scween
+        // (bevy's spwitebundwe adds aww nyecessawy c-components fow wendewing a spwite)
+        s-spwitebundwe {
+            t-textuwe: a-asset_sewvew.woad("pwayew.png"), (U ﹏ U)
+            t-twansfowm: twansfowm::fwom_xyz(25.0, (U ﹏ U) 50.0, (⑅˘꒳˘) 0.0),
+            // use t-the defauwt vawues fow aww othew components in t-the bundwe
             ..defauwt::defauwt()
-        }, 🥺
+        }, òωó
     ));
+
+    // caww .id() if you want to stowe the entity id of youw nyew entity
+    wet m-my_entity = commands.spawn((/* ... */)).id();
 }</code></pre>
 <h3 id="compawison-with-object-owiented-pwogwamming"><a class="header" href="#compawison-with-object-owiented-pwogwamming">compawison with object-owiented pwogwamming</a></h3>
 <p>object-owiented pwogwamming teaches you to think o-of evewything as "objects",
@@ -315,27 +321,32 @@ make things gwanuwaw, OwO when diffewent p-pieces of data m-may be accessed i-in
 <p>fow exampwe, ^•ﻌ•^ wepwesent the pwayew i-in youw game as a-an entity, composed
 of sepawate component types (sepawate <code>struct</code>s) fow things wike the
 heawth, ^•ﻌ•^ xp, ow nyanievew is wewevant t-to youw game. OwO y-you can awso attach
-standawd bevy components wike <a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> (<a href="/fundamentals/transforms.html">twansfowms
+standawd bevy components wike <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> (<a href="/fundamentals/transforms.html">twansfowms
 expwained</a>) to it.</p>
 <p>then, &gt;_&lt; each piece of functionawity (each <a href="/programming/systems.html">system</a>) can just
 <a href="/programming/queries.html">quewy</a> fow the data it nyeeds. (ꈍᴗꈍ) common functionawity (wike a-a
 heawth/damage system) can be appwied t-to any entity w-with the matching c-components,
 wegawdwess of whethew that's the p-pwayew ow something e-ewse in the g-game.</p>
+<p>if you have functionawity that shouwd o-onwy be appwied t-to the pwayew e-entity,
+you can use a <a href="/programming/ec.html#marker-components">mawkew component</a> (wike <code>struct Player;</code>)
+to nyawwow down youw quewy (using a-a <a href="/programming/queries.html#query-filters">quewy fiwtew</a> wike
+<code>With&lt;Player&gt;</code>).</p>
 <p>howevew, OwO if some data awways makes s-sense to be accessed t-togethew, 🥺 t-then you
 shouwd put it in a singwe <code>struct</code>. XD fow exampwe, bevy's
-<a href="https://docs.rs/bevy/0.12.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> ow <a href="https://docs.rs/bevy/0.12.0/bevy/render/color/enum.Color.html"><code>Color</code></a>. &gt;_&lt; with these types, (ꈍᴗꈍ) the
+<a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> ow <a href="https://docs.rs/bevy/0.13.0/bevy/render/color/enum.Color.html"><code>Color</code></a>. &gt;_&lt; with these types, (ꈍᴗꈍ) the
 fiewds awe nyot wikewy to be usefuw i-independentwy.</p>
 <h3 id="additionaw-intewnaw-detaiws"><a class="header" href="#additionaw-intewnaw-detaiws">additionaw intewnaw detaiws</a></h3>
-<p>the set / combination of components t-that a given e-entity has, is cawwed t-the
-entity's awchetype. OwO bevy keeps twack o-of that intewnawwy, 🥺 t-to owganize t-the data in
-wam. OwO entities of the same awchetype h-have theiw data s-stowed togethew, 🥺 w-which
-awwows the cpu to access and cache i-it efficientwy.</p>
+<p>the set / combination of components t-that a given e-entity has is cawwed t-the
+entity's awchetype. OwO bevy keeps twack o-of that intewnawwy, 🥺 t-to owganize t-the
+data in wam. OwO entities of the same a-awchetype have t-theiw data stowed t-togethew
+in contiguous awways, OwO which awwows t-the cpu to access a-and cache it e-efficientwy.</p>
 <p>if you add/wemove component types o-on existing entities, OwO y-you awe changing t-the
 awchetype, OwO which may wequiwe bevy t-to copy the data t-to a diffewent w-wocation.</p>
 <p><a href="/patterns/component-storage.html">weawn mowe about bevy's component s-stowage.</a></p>
-<p>entity ids can awso be weused. &gt;_&lt; the <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> type is actuawwy two
-integews: the id and a "genewation". OwO a-aftew you despawn s-some entities, 🥺 t-theiw ids can
-be weused fow nyewwy-spawned entities, OwO b-but bevy wiww i-incwease the g-genewation vawue.</p>
+<p>bevy wiww weuse entity ids. &gt;_&lt; the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> type is actuawwy
+two integews: the id and a "genewation". ^•ﻌ•^ a-aftew you d-despawn some entities,
+theiw ids can be weused fow nyewwy-spawned e-entities, OwO b-but bevy wiww i-incwease
+the genewation vawue.</p>
 <h2 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h2>
 <p>if thewe is onwy one gwobaw instance (singweton) o-of something, and i-it is
 standawone (not associated with othew data), (ꈍᴗꈍ) cweate a-a <a href="/programming/res.html">wesouwce</a>.</p>

@@ -174,10 +174,10 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.12.1/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
 <h1 id="entities"><a class="header" href="#entities">entities</a></h1>
 <p><a href="/programming/intro-data.html">see hewe fow mowe expwanation on h-how stowing data i-in the ecs wowks.</a></p>
@@ -187,7 +187,7 @@ stowe a vawue of that type.</p>
 <p>technicawwy, OwO an entity is just a s-simpwe integew id (imagine t-the "wow n-nyumbew" in
 a tabwe/spweadsheet) that can be u-used to find wewated d-data vawues (in d-diffewent
 "cowumns" of that tabwe).</p>
-<p>in bevy, XD <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> is this vawue. (ꈍᴗꈍ) it consists of two i-integews:
+<p>in bevy, XD <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> is this vawue. (ꈍᴗꈍ) it consists of two i-integews:
 the id and the "genewation" (awwowing ids to be weused, ^•ﻌ•^ a-aftew you d-despawn owd
 entities).</p>
 <p>you can cweate ("spawn") nyew entities a-and destwoy ("despawn") e-entities u-using
@@ -216,7 +216,7 @@ entities).</p>
 <h1 id="components"><a class="header" href="#components">components</a></h1>
 <p>components awe the data associated w-with entities.</p>
 <p>to cweate a nyew component type, s-simpwy define a w-wust <code>struct</code> ow <code>enum</code>, XD and
-dewive the <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/component/trait.Component.html"><code>Component</code></a> twait.</p>
+dewive the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/component/trait.Component.html"><code>Component</code></a> twait.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(component)]
 stwuct heawth {
     hp: f32, 🥺
@@ -256,8 +256,9 @@ stwuct pwayew;
 stwuct fwiendwy;</code></pre>
 <h2 id="accessing-components"><a class="header" href="#accessing-components">accessing components</a></h2>
 <p>components can be accessed fwom <a href="/programming/systems.html">systems</a>, XD using <a href="/programming/queries.html">quewies</a>.</p>
-<p>you can think of the quewy as the "specification" f-fow the data you w-want to access.
-it wiww seawch fow entities that m-match and give you a-access to the d-data.</p>
+<p>you can think of the quewy as the "specification" f-fow the data you w-want
+to access. OwO it gives you access to s-specific component v-vawues fwom e-entities
+that match the quewy's signatuwe.</p>
 <pre><code class="language-rust no_run noplayground">fn wevew_up_pwayew(
     // get the w-wewevant data. (ˆ ﻌ ˆ)♡ s-some components w-wead-onwy, (˘ω˘) some m-mutabwe
     mut q-quewy_pwayew: quewy&lt;(&amp;pwayewname, (⑅˘꒳˘) &amp;mut p-pwayewxp, (///ˬ///✿) &amp;mut h-heawth), 😳😳😳 w-with&lt;pwayew&gt;&gt;, 🥺

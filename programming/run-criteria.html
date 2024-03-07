@@ -174,100 +174,68 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
-<h1 id="wun-cwitewia"><a class="header" href="#wun-cwitewia">wun cwitewia</a></h1>
-<p>wun cwitewia awe a mechanism fow c-contwowwing if bevy s-shouwd wun specific
-<a href="/programming/systems.html">systems</a>, (ꈍᴗꈍ) at wuntime. this is how you can m-make functionawity
-that onwy wuns undew cewtain conditions.</p>
-<p>wun cwitewia can be appwied to individuaw <a href="/programming/systems.html">systems</a>, rawr x3 <a href="/programming/system-sets.html">system
-sets</a>, XD and <a href="/programming/schedules.html">stages</a>.</p>
-<p>wun cwitewia awe bevy systems that w-wetuwn a vawue o-of type <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/schedule/enum.ShouldRun.html"><code>enum ShouldRun</code></a>. &gt;<em>&lt; they can accept any <a href="/builtins.html#systemparams">system
-pawametews</a>, &gt;</em>&lt; wike a nyowmaw system.</p>
-<p>this exampwe shows how wun cwitewia m-might be used t-to impwement diffewent
-muwtipwayew modes:</p>
-<pre><code class="language-rust no_run noplayground">use bevy::ecs::scheduwe::shouwdwun;
-
-#[dewive(debug, rawr x3 pawtiaweq, eq)]
-#[dewive(wesouwce)]
-e-enum muwtipwayewkind {
-    c-cwient, mya
-    host, nyaa~~
-    w-wocaw, (⑅˘꒳˘)
+<h1 id="wun-conditions"><a class="header" href="#wun-conditions">wun conditions</a></h1>
+<p>wun conditions (wc) awe a mechanism f-fow contwowwing i-if bevy shouwd w-wun specific
+<a href="/programming/systems.html">systems</a>, (ꈍᴗꈍ) at wuntime. this awwows you to e-enabwe/disabwe systems
+on-demand, (ꈍᴗꈍ) so that they onwy wun s-sometimes.</p>
+<p>wcs awe wust functions that wetuwn a-a vawue of type <code>bool</code>. XD they can accept
+any <a href="/builtins.html#systemparams">system pawametews</a>, &gt;_&lt; wike a nyowmaw system, (ꈍᴗꈍ) but
+they must aww be wead-onwy (immutabwe).</p>
+<pre><code class="language-rust no_run noplayground">fn wun_if_pwayew_awive(
+    q_pwayew: q-quewy&lt;&amp;heawth, :3 w-with&lt;pwayew&gt;&gt;, (U ﹏ U)
+) -&gt; b-boow {
+    w-wet heawth = q-q_pwayew.singwe();
+    h-heawth.hp &gt; 0.0
 }
 
 f-fn wun_if_connected(
-    m-mode: w-wes&lt;muwtipwayewkind&gt;, rawr x3
-    s-session: w-wes&lt;mynetwowksession&gt;, (✿oωo)
-) -&gt; shouwdwun
+    m-mode: wes&lt;mymuwtipwayewmode&gt;, -.-
+    session: wes&lt;mynetwowksession&gt;, (ˆ ﻌ ˆ)♡
+) -&gt; boow
 {
-    if *mode == muwtipwayewkind::cwient &amp;&amp; session.is_connected() {
-        shouwdwun::yes
-    } e-ewse {
-        shouwdwun::no
-    }
+    *mode != mymuwtipwayewmode::wocaw &amp;&amp; session.is_connected()
 }
 
-fn wun_if_host(
-    m-mode: wes&lt;muwtipwayewkind&gt;, (ˆ ﻌ ˆ)♡
-) -&gt; shouwdwun
-{
-    i-if *mode == muwtipwayewkind::host || *mode == muwtipwayewkind::wocaw {
-        shouwdwun::yes
-    } e-ewse {
-        shouwdwun::no
-    }
-}
-
-f-fn main() {
-    a-app::new()
-        .add_pwugins(defauwtpwugins)
-
-        // if we awe cuwwentwy connected to a sewvew, (˘ω˘)
-        // activate ouw c-cwient systems
-        .add_system_set(
-            systemset::new()
-                .with_wun_cwitewia(wun_if_connected)
-                .befowe("input")
-                .with_system(sewvew_session)
-                .with_system(fetch_sewvew_updates)
-        )
-
-        // if we awe hosting the game, (⑅˘꒳˘)
-        // activate o-ouw game hosting systems
-        .add_system_set(
-            s-systemset::new()
-                .with_wun_cwitewia(wun_if_host)
-                .befowe("input")
-                .with_system(host_session)
-                .with_system(host_pwayew_movement)
-                .with_system(host_enemy_ai)
-        )
-
-        // o-othew systems i-in ouw game
-        .add_system(smoke_pawticwes)
-        .add_system(watew_animation)
-        .add_system_set(
-            s-systemset::new()
-                .wabew("input")
-                .with_system(keyboawd_input)
-                .with_system(gamepad_input)
-        )
-        .wun();
+f-fn wun_if_enemies_pwesent(
+    q_enemies: quewy&lt;(), (⑅˘꒳˘) with&lt;enemy&gt;&gt;, (U ᵕ U❁)
+) -&gt; b-boow {
+    !q_enemies.is_empty()
 }</code></pre>
+<p>wcs can be appwied to individuaw <a href="/programming/systems.html">systems</a> ow to entiwe <a href="/programming/system-sets.html">system
+sets</a>.</p>
+<pre><code class="language-rust no_run noplayground">app.configuwe_sets(update, òωó
+    mypwayewset
+        .wun_if(wun_if_pwayew_awive)
+);
+
+app.add_systems(update, o.O (
+    p-pwayew_input, (U ᵕ U❁)
+    p-pwayew_movement, (⑅˘꒳˘)
+    p-pwayew_awewt_enemies
+        .wun_if(wun_if_enemies_pwesent)
+).in_set(mypwayewset));
+
+a-app.add_systems(update, ( ͡o ω ͡o )
+    m-manage_muwtipwayew_sewvew
+        .wun_if(wun_if_connected)
+);</code></pre>
+<p>when appwied to a singwe <a href="/programming/systems.html">system</a>, &gt;_&lt; bevy wiww evawuate the wc at
+the wast moment, wight befowe the s-system wouwd othewwise b-be weady t-to wun. OwO if
+you add the same wc to muwtipwe systems, ^•ﻌ•^ b-bevy wiww e-evawuate it sepawatewy
+fow each one.</p>
+<p>when appwied to a <a href="/programming/system-sets.html">set</a>, &gt;<em>&lt; the wun condition wiww onwy be
+evawuated once, OwO befowe bevy wuns a-any system fwom t-the set, 🥺 and if i-it wetuwns
+fawse, &gt;</em>&lt; the entiwe set wiww be skipped.</p>
+<p>any given system can be govewned b-by any nyumbew of w-wcs. OwO you can add m-muwtipwe wcs
+to one system, ^•ﻌ•^ and it wiww awso inhewit t-the wcs of a-any <a href="/programming/system-sets.html">sets</a>
+it bewongs to. OwO bevy wiww evawuate a-aww the wcs, and t-the system wiww o-onwy wun
+if aww of them wetuwn <code>true</code>.</p>
 <h2 id="known-pitfawws"><a class="header" href="#known-pitfawws">known pitfawws</a></h2>
-<h3 id="combining-muwtipwe-wun-cwitewia"><a class="header" href="#combining-muwtipwe-wun-cwitewia">combining muwtipwe wun cwitewia</a></h3>
-<p>it is nyot possibwe to make a system t-that is conditionaw o-on muwtipwe w-wun
-cwitewia. &gt;_&lt; bevy has a <code>.pipe</code> method that awwows you to "chain" w-wun cwitewia,
-which couwd wet you modify the output o-of a wun cwitewia, OwO b-but this i-is vewy
-wimiting in pwactice.</p>
-<p>considew using <a href="https://github.com/IyesGames/iyes_loopless"><code>iyes_loopless</code></a>. XD it awwows you to
-use any nyumbew of wun conditions t-to contwow youw s-systems, OwO and does n-nyot pwevent
-you fwom using <a href="/programming/states.html">states</a> ow <a href="/fundamentals/fixed-timestep.html">fixed timestep</a>.</p>
-<h3 id="events"><a class="header" href="#events">events</a></h3>
-<p>when weceiving <a href="/programming/events.html">events</a> in systems that don't wun evewy f-fwame,
-you wiww miss any events that awe s-sent duwing the f-fwames when the w-weceiving
-systems awe nyot wunning!</p>
+<p>when weceiving <a href="/programming/events.html">events</a> in systems that don't wun evewy f-fwame
+update, OwO you can miss some events t-that awe sent whiwe t-the weceiving s-systems
+awe nyot wunning!</p>
 <p>to mitigate this, (ꈍᴗꈍ) you couwd impwement a-a <a href="/patterns/manual-event-clear.html">custom cweanup
 stwategy</a>, (ꈍᴗꈍ) to manuawwy manage the wifetime o-of the wewevant
 event types.</p>

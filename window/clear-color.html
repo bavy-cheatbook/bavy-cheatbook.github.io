@@ -174,53 +174,54 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="changing-the-backgwound-cowow"><a class="header" href="#changing-the-backgwound-cowow">changing the backgwound cowow</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/window/clear_color.rs"><code>clear_color</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/window/clear_color.rs"><code>clear_color</code></a>.</p>
 <hr />
-<p>use the <a href="https://docs.rs/bevy/0.9.1/bevy/core_pipeline/clear_color/struct.ClearColor.html"><code>ClearColor</code></a> <a href="/programming/res.html">wesouwce</a> to choose the
+<p>use the <a href="https://docs.rs/bevy/0.13.0/bevy/render/camera/struct.ClearColor.html"><code>ClearColor</code></a> <a href="/programming/res.html">wesouwce</a> to choose the
 defauwt backgwound cowow. OwO this cowow w-wiww be used a-as the defauwt f-fow aww
 <a href="/graphics/camera.html">camewas</a>, XD unwess ovewwiden.</p>
 <p>note that the window wiww be bwack i-if nyo camewas e-exist. OwO you must s-spawn at
 weast one camewa.</p>
 <pre><code class="language-rust no_run noplayground">fn setup(
-    mut commands: commands, òωó
+    mut commands: commands, ( ͡o ω ͡o )
 ) {
-    c-commands.spawn(camewa2dbundwe::defauwt());
+    // t-this camewa wiww u-use the defauwt c-cowow
+    commands.spawn(camewa2dbundwe::defauwt());
 }
 
 f-fn main() {
     a-app::new()
-        // s-set the gwobaw d-defauwt
-        .insewt_wesouwce(cweawcowow(cowow::wgb(0.9, o.O 0.3, 0.6)))
         .add_pwugins(defauwtpwugins)
-        .add_stawtup_system(setup)
+        // s-set the gwobaw d-defauwt cweaw c-cowow
+        .insewt_wesouwce(cweawcowow(cowow::wgb(0.9, UwU 0.3, 0.6)))
+        .add_systems(stawtup, rawr x3 setup)
         .wun();
 }</code></pre>
-<p>to ovewwide the defauwt and use a d-diffewent cowow f-fow a specific
-camewa, &gt;_&lt; you can set it using the <a href="https://docs.rs/bevy/0.9.1/bevy/core_pipeline/core_2d/struct.Camera2d.html"><code>Camera2d</code></a> ow
-<a href="https://docs.rs/bevy/0.9.1/bevy/core_pipeline/core_3d/struct.Camera3d.html"><code>Camera3d</code></a> components.</p>
-<pre><code class="language-rust no_run noplayground">use bevy::cowe_pipewine::cweaw_cowow::cweawcowowconfig;
+<p>to ovewwide the defauwt and use a d-diffewent cowow f-fow a specific c-camewa,
+you can set it using the <a href="https://docs.rs/bevy/0.13.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a> <a href="/programming/ec.html#components">component</a>.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::wendew::camewa::cweawcowowconfig;
 
-// configuwe t-the backgwound c-cowow (if any), mya f-fow a specific c-camewa (3d)
-commands.spawn(camewa3dbundwe {
-    c-camewa_3d: camewa3d {
+// configuwe the backgwound c-cowow (if a-any), mya fow a specific c-camewa (3d)
+c-commands.spawn(camewa3dbundwe {
+    c-camewa: camewa {
         // c-cweaw the whowe v-viewpowt with t-the given cowow
-        cweaw_cowow: cweawcowowconfig::custom(cowow::wgb(0.8, 0.4, 😳 0.2)),
+        cweaw_cowow: cweawcowowconfig::custom(cowow::wgb(0.8, mya 0.4, 😳 0.2)),
         ..defauwt::defauwt()
-    },
+    }, XD
     ..defauwt::defauwt()
 });
 
-// configuwe the backgwound cowow (if a-any), XD fow a specific camewa (2d)
+// configuwe the backgwound cowow (if a-any), :3 fow a specific camewa (2d)
 commands.spawn(camewa2dbundwe {
-    c-camewa_2d: camewa2d {
+    c-camewa: camewa {
         // d-disabwe cweawing compwetewy (pixews stay as they awe)
-        // (pwesewves o-output fwom pwevious fwame o-ow camewa/pass)
-        c-cweaw_cowow: cweawcowowconfig::none, :3
-    }, 😳😳😳
+        // (pwesewves o-output fwom pwevious fwame ow camewa/pass)
+        c-cweaw_cowow: c-cweawcowowconfig::none, 😳😳😳
+        ..defauwt::defauwt()
+    }, -.-
     ..defauwt::defauwt()
 });</code></pre>
 <p>aww of these wocations (the components o-on specific c-camewas, ^•ﻌ•^ the gwobaw

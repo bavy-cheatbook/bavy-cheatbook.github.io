@@ -174,24 +174,23 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="excwusive-systems"><a class="header" href="#excwusive-systems">excwusive systems</a></h1>
 <p>excwusive systems awe <a href="/programming/systems.html">systems</a> that bevy wiww not wun in pawawwew
 with any othew system. &gt;_&lt; they can have <a href="/programming/world.html">fuww unwestwicted access</a>
-to the whowe ecs <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>World</code></a>, XD by taking a <code>&amp;mut World</code> pawametew.</p>
+to the whowe ecs <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>, XD by taking a <code>&amp;mut World</code> pawametew.</p>
 <p>inside of an excwusive system, OwO you h-have fuww contwow o-ovew aww data s-stowed
 in the ecs. (ꈍᴗꈍ) you can do nyanievew y-you want.</p>
-<p>note that excwusive systems can wimit p-pewfowmance, ^•ﻌ•^ a-as they pwevent
-muwti-thweading (nothing ewse wuns at the same time).</p>
 <p>some exampwe situations whewe excwusive s-systems awe u-usefuw:</p>
 <ul>
 <li>dump vawious entities and components t-to a fiwe, OwO to i-impwement things w-wike
 saving and woading of game save fiwes, ^•ﻌ•^ o-ow scene expowt f-fwom an editow</li>
-<li>diwectwy spawn/despawn <a href="/programming/intro-data.html#entities--components">entities</a>, XD ow cweate/wemove <a href="/programming/res.html">wesouwces</a>,
+<li>diwectwy spawn/despawn <a href="/programming/intro-data.html#entities--components">entities</a>, XD ow insewt/wemove <a href="/programming/res.html">wesouwces</a>,
 immediatewy with nyo deway (unwike w-when using <a href="/programming/commands.html"><code>Commands</code></a>
 fwom a weguwaw system)</li>
-<li>wun awbitwawy systems with youw own s-scheduwing awgowithm</li>
+<li>wun awbitwawy <a href="/programming/systems.html">systems</a> and <a href="/programming/schedules.html">scheduwes</a> with youw
+own custom contwow fwow wogic</li>
 <li>…</li>
 </ul>
 <p>see the <a href="/programming/world.html">diwect wowwd access page</a> to weawn mowe about how to do
@@ -200,33 +199,124 @@ such things.</p>
     // w-we c-can do anything w-with any data in t-the bevy ecs hewe! 🥺
 }</code></pre>
 <p>you nyeed to add excwusive systems t-to the <a href="/programming/app-builder.html">app</a>, XD just wike
-weguwaw systems, but you must caww <code>.exclusive_system()</code> on them.</p>
-<p>they cannot be owdewed in-between w-weguwaw pawawwew s-systems. OwO excwusive s-systems
-awways wun at one of the fowwowing p-pwaces:</p>
+weguwaw systems. aww scheduwing apis (<a href="/programming/system-order.html">owdewing</a>, rawr x3 <a href="/programming/run-criteria.html">wun
+conditions</a>, rawr x3 <a href="/programming/system-sets.html">sets</a>) awe suppowted and wowk the same
+as with weguwaw systems.</p>
+<pre><code class="language-rust no_run noplayground">app.add_systems(update, XD
+    do_cwazy_things
+        .wun_if(needs_cwazy_things)
+        .aftew(do_weguwaw_things)
+        .befowe(othew_things)
+);</code></pre>
+<h2 id="excwusive-system-pawametews"><a class="header" href="#excwusive-system-pawametews">excwusive system pawametews</a></h2>
+<p>thewe awe a few othew things, &gt;<em>&lt; besides <code>&amp;mut World</code>, &gt;</em>&lt; that can be used as
+pawametews fow excwusive systems:</p>
 <ul>
-<li><code>.at_start()</code>: at the beginning of a <a href="/programming/schedules.html">stage</a></li>
-<li><code>.at_end()</code>: at the end of a <a href="/programming/schedules.html">stage</a>,
-aftew <a href="/programming/commands.html">commands</a> fwom weguwaw systems have been appwied</li>
-<li><code>.before_commands()</code>: aftew aww the weguwaw systems in a-a <a href="/programming/schedules.html">stage</a>,
-but befowe <a href="/programming/commands.html">commands</a> awe appwied</li>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>:
+fuww <a href="/programming/world.html">diwect access to the ecs wowwd</a></li>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
+data <a href="/programming/local.html">wocaw</a> to the system</li>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>&amp;mut SystemState&lt;P&gt;</code></a>:
+emuwates a weguwaw system, OwO awwowing y-you to easiwy a-access data fwom t-the wowwd.
+<code>P</code> awe the system pawametews.</li>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.QueryState.html"><code>&amp;mut QueryState&lt;Q, F = ()&gt;</code></a>:
+awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a>
+in weguwaw systems.</li>
 </ul>
-<p>(if you don't specify anything, (ꈍᴗꈍ) the d-defauwt is assumed <code>.at_start()</code>)</p>
-<pre><code class="language-rust no_run noplayground">fn main() {
-    app::new()
-        .add_pwugins(defauwtpwugins)
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> can be used to emuwate a nyowmaw s-system.
+you can put weguwaw system pawametews i-inside. OwO this a-awwows you to a-access the
+<code>World</code> as you wouwd fwom a nyowmaw system, ^•ﻌ•^ b-but you can c-confine it to a
+specific scope inside youw function b-body, ^•ﻌ•^ making i-it mowe fwexibwe.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.QueryState.html"><code>QueryState</code></a> is the same thing, (ꈍᴗꈍ) but fow a singwe q-quewy.
+it is a simpwew awtewnative to <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> fow when
+you just nyeed to be abwe to quewy f-fow some data.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::ecs::system::systemstate;
 
-        // this w-wiww wun at the s-stawt of cowestage::update (the d-defauwt stage)
-        .add_system(do_cwazy_things)
+fn spawn_pawticwes_fow_enemies(
+    w-wowwd: &amp;mut w-wowwd, o.O
+    // b-behaves sowt of w-wike a quewy in a-a weguwaw system
+    q-q_enemies: &amp;mut q-quewystate&lt;&amp;twansfowm, ( ͡o ω ͡o ) w-with&lt;enemy&gt;&gt;, (U ﹏ U)
+    // emuwates a weguwaw system with an awbitwawy set of pawametews
+    p-pawams: &amp;mut systemstate&lt;(
+        wesmut&lt;mygamesettings&gt;, (///ˬ///✿)
+        w-wesmut&lt;mypawticwetwackew&gt;, &gt;w&lt;
+        quewy&lt;&amp;mut t-twansfowm, rawr with&lt;pwayew&gt;&gt;, mya
+        eventweadew&lt;mydamageevent&gt;, ^^
+    )&gt;, 😳😳😳
+    // wocaw wesouwce, mya j-just wike in a weguwaw system
+    m-mut has_wun_once: w-wocaw&lt;boow&gt;,
+) {
+    // note: unwike with a weguwaw quewy, 😳 we nyeed to pwovide the wowwd a-as an awgument. -.-
+    // the wowwd wiww onwy be "wocked" fow the duwation of this w-woop
+    fow twansfowm in q_enemies.itew(wowwd) {
+        // t-todo: d-do something w-with the twansfowms
+    }
 
-        // t-this wiww wun at t-the end of cowestage::postupdate
-        .add_system_to_stage(
-            c-cowestage::postupdate, o.O
-            some_mowe_things
-                .at_end()
-        )
+    // c-cweate a scope whewe we can access ouw things w-wike a weguwaw system
+    {
+        wet (mut settings, 🥺 mut twackew, m-mut q_pwayew, o.O mut evw) =
+            pawams.get_mut(wowwd);
 
-        .wun();
+        // todo: do things with ouw wesouwces, /(^•ω•^) q-quewy, nyaa~~ events, ... nyaa~~
+    }
+
+    // we awe nyow fwee t-to diwectwy spawn e-entities
+    // b-because the wowwd is nyo wongew used by anything
+    // (the systemstate and t-the quewystate a-awe nyo wongew accessing it)
+
+    w-wowwd.spawn_batch((0..10000) // e-efficientwy spawn 10000 pawticwes
+        .map(|_| s-spwitebundwe {
+            // ...
+            ..defauwt::defauwt()
+        })
+    );
+
+    // and, :3 of couwse, w-we can use ouw wocaw
+    *has_wun_once = twue;
 }</code></pre>
+<h2 id="pewfowmance-considewations"><a class="header" href="#pewfowmance-considewations">pewfowmance considewations</a></h2>
+<p>excwusive systems, OwO by definition, 🥺 w-wimit pawawwewism a-and muwti-thweading, òωó a-as
+nothing ewse can access the same e-ecs wowwd whiwe t-they wun. OwO the whowe s-scheduwe
+needs to come to a stop, OwO to accomodate t-the excwusive s-system. this c-can easiwy
+intwoduce a pewfowmance bottweneck.</p>
+<p>genewawwy speaking, OwO you shouwd avoid u-using excwusive s-systems, 🥺 unwess y-you nyeed
+to do something that is onwy possibwe w-with them.</p>
+<p>on the othew hand, ^•ﻌ•^ they can have w-wess ovewhead (by a-avoiding
+<a href="/programming/commands.html">commands</a>), (ꈍᴗꈍ) and so can be fastew fow some u-use cases.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> has a wot of ovewhead, (ꈍᴗꈍ) as it nyeeds t-to stowe youw
+data in a queue and then pwocess / c-copy it into the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>
+watew. (ꈍᴗꈍ) diwectwy spawning entities i-into the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a> is much
+mowe efficient.</p>
+<p>some exampwes fow when excwusive s-systems can be fastew:</p>
+<ul>
+<li>you want to spawn/despawn a ton of e-entities.
+<ul>
+<li>exampwe: setup/cweanup fow youw whowe g-game map.</li>
+</ul>
+</li>
+<li>you want to do it evewy fwame.
+<ul>
+<li>exampwe: managing howdes of enemies.</li>
+</ul>
+</li>
+</ul>
+<p>you can think of it this way: in o-owdew to appwy commands, ^•ﻌ•^ b-bevy effectivewy
+needs to wun an "excwusive system" i-intewnawwy to d-do it fow you. ^•ﻌ•^ nowmawwy,
+that is hidden / automatic. ^•ﻌ•^ by just w-wwiting an excwusive s-system youwsewf,
+you awe saving on the additionaw w-weguwaw system that y-you wouwd nyowmawwy w-wun.</p>
+<p>on the othew hand, OwO if you have a s-system that wuns e-evewy fwame, 🥺 but o-onwy
+needs to manage entities evewy once i-in a whiwe, OwO then c-commands awe w-wikewy
+to be mowe pewfowmant, ^•ﻌ•^ because, by m-making youw system a-a nyowmaw system,
+you avoid making it a bottweneck f-fow pawawwewism.</p>
+<p>some exampwes fow when nyowmaw systems c-can be fastew:</p>
+<ul>
+<li>you nyeed to check some stuff evewy f-fwame, OwO and maybe s-spawn/despawn s-something sometimes.
+<ul>
+<li>exampwe: despawn enemies when they w-weach 0 hp.</li>
+<li>exampwe: add/wemove some ui ewements d-depending on n-nyani is happening i-in-game.</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 

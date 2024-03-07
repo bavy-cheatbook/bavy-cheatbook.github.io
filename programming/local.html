@@ -174,100 +174,113 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="wocaw-wesouwces"><a class="header" href="#wocaw-wesouwces">wocaw wesouwces</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
 <p>wocaw wesouwces awwow you to have p-pew-<a href="/programming/systems.html">system</a> data. XD this data
-is nyot stowed in the ecs wowwd, b-but wathew togethew w-with youw system.</p>
-<p><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is a system pawametew simiwaw to
-<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, (ꈍᴗꈍ) which gives you fuww mutabwe access t-to an
+is nyot stowed in the ecs wowwd, b-but wathew togethew w-with youw system.
+nothing outside of youw system can a-access it. OwO the v-vawue wiww be kept a-acwoss
+subsequent wuns of the system.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is a system pawametew simiwaw to
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, (ꈍᴗꈍ) which gives you fuww mutabwe access t-to an
 instance of some data type, OwO that i-is independent fwom e-entities and c-components.</p>
-<p><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>/<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a> wefew to a singwe gwobaw
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a> wefew to a singwe gwobaw
 instance of the type, OwO shawed between a-aww systems. 🥺 o-on the othew hand, òωó e-evewy
-<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> pawametew is a sepawate instance, (ꈍᴗꈍ) e-excwusivewy fow
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> pawametew is a sepawate instance, (ꈍᴗꈍ) e-excwusivewy fow
 that system.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
-stwuct mystate;
-
-fn my_system1(mut w-wocaw: wocaw&lt;mystate&gt;) {
-    // y-you can do a-anything you want w-with the wocaw h-hewe
+stwuct mystate {
+    // ...
 }
 
-fn my_system2(mut w-wocaw: w-wocaw&lt;mystate&gt;) {
+fn my_system1(mut w-wocaw: wocaw&lt;mystate&gt;) {
+    // y-you can do anything y-you want w-with the wocaw hewe
+}
+
+f-fn my_system2(mut w-wocaw: w-wocaw&lt;mystate&gt;) {
     // t-the wocaw in this system is a diffewent instance
 }</code></pre>
 <p>the type must impwement <a href="https://doc.rust-lang.org/stable/std/default/trait.Default.html"><code>Default</code></a> ow
-<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>. &gt;_&lt; it is automaticawwy initiawized.</p>
-<p>a system can have muwtipwe <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Local.html"><code>Local</code></a>s of the same type.</p>
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>. &gt;_&lt; it is automaticawwy initiawized.
+it is nyot possibwe to specify a c-custom initiaw vawue.</p>
+<p>a system can have muwtipwe <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local</code></a>s of the same type.</p>
 <h2 id="specify-an-initiaw-vawue"><a class="header" href="#specify-an-initiaw-vawue">specify an initiaw vawue</a></h2>
-<p><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is awways automaticawwy initiawized u-using the
-defauwt vawue fow the type.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is awways automaticawwy initiawized u-using the
+defauwt vawue fow the type. OwO if that d-doesn't wowk f-fow you, 🥺 thewe is a-an
+awtewnative way to pass data into a-a system.</p>
 <p>if you nyeed specific data, ^•ﻌ•^ you can u-use a cwosuwe i-instead. OwO wust cwosuwes
 that take system pawametews awe vawid b-bevy systems, ^•ﻌ•^ j-just wike standawone
 functions. ^•ﻌ•^ using a cwosuwe awwows y-you to "move data i-into the function".</p>
 <p>this exampwe shows how to initiawize s-some data to c-configuwe a system,
-without using <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:</p>
+without using <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
 stwuct myconfig {
-    magic: usize, mya
+    magic: usize, OwO
 }
 
 f-fn my_system(
-    m-mut cmd: c-commands, mya
+    m-mut cmd: c-commands, (U ﹏ U)
     m-my_wes: wes&lt;mystuff&gt;,
     // note t-this isn't a v-vawid system pawametew
-    c-config: &amp;myconfig, 😳
+    c-config: &amp;myconfig, &gt;_&lt;
 ) {
     // t-todo: do stuff
 }
 
 fn main() {
     wet config = myconfig {
-        magic: 420, XD
+        magic: 420, rawr x3
     };
 
     a-app::new()
         .add_pwugins(defauwtpwugins)
-        // cweate a "move cwosuwe", :3 so we can u-use the `config`
-        // vawiabwe t-that we cweated above
-        .add_system(move |cmd: commands, 😳😳😳 wes: wes&lt;mystuff&gt;| {
-            // c-caww ouw function fwom i-inside the cwosuwe
-            m-my_system(cmd, -.- wes, &amp;config);
+
+        // cweate a "move cwosuwe", mya so we can u-use the `config`
+        // vawiabwe that we c-cweated above
+
+        // nyote: we specify the weguwaw system pawametews w-we nyeed. nyaa~~
+        // the cwosuwe nyeeds t-to be a vawid b-bevy system. (⑅˘꒳˘)
+        .add_systems(update, rawr x3 move |cmd: commands, (✿oωo) wes: wes&lt;mystuff&gt;| {
+            // caww ouw function f-fwom inside the cwosuwe, (ˆ ﻌ ˆ)♡
+            // passing in the system pawams + ouw c-custom vawue
+            my_system(cmd, (˘ω˘) w-wes, &amp;config);
         })
         .wun();
 }</code></pre>
 <p>anothew way to accompwish the same t-thing is to "wetuwn" t-the system
-fwom "constwuctow" hewpew, &gt;_&lt; that cweates it:</p>
+fwom "constwuctow" hewpew function that cweates it:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
 stwuct myconfig {
-    magic: usize, &gt;_&lt;
+    magic: usize, rawr x3
 }
 
-f-fn main() {
-    // c-cweate a-a "constwuctow" c-cwosuwe, rawr x3 which c-can initiawize
-    // o-ouw data a-and move it into a-a cwosuwe that bevy can wun as a system
-    wet constwuctow = || {
-        // cweate the `myconfig`
-        w-wet config = myconfig {
-            magic: 420,
-        };
-
-        // t-this is the actuaw system that b-bevy wiww wun
-        move |mut commands: commands, mya wes: wes&lt;mystuff&gt;| {
-            // w-we can use `config` h-hewe, the vawue f-fwom above wiww be "moved in"
-            // we can awso use ouw system pawams: `commands`, nyaa~~ `wes`
-        }
+// c-cweate a-a "constwuctow" f-function, mya which c-can initiawize
+// o-ouw data and m-move it into a c-cwosuwe that bevy c-can wun as a system
+fn my_system_constwuctow() -&gt; impw fnmut(commands, nyaa~~ wes&lt;mystuff&gt;) {
+    // cweate the `myconfig`
+    w-wet config = myconfig {
+        magic: 420, (⑅˘꒳˘)
     };
 
+    // t-this is the actuaw system t-that bevy wiww wun
+    move |mut commands, rawr x3 wes| {
+        // we c-can use `config` hewe, (✿oωo) the vawue f-fwom above wiww b-be "moved in"
+        // we can awso use ouw system pawams: `commands`, (ˆ ﻌ ˆ)♡ `wes`
+    }
+}
+
+fn main() {
     a-app::new()
         .add_pwugins(defauwtpwugins)
+
         // nyote the pawentheses `()`
-        // we awe cawwing the "constwuctow" we made a-above, (⑅˘꒳˘)
-        // which wiww wetuwn t-the actuaw s-system that gets a-added to bevy
-        .add_system(constwuctow())
+        // we awe cawwing the "constwuctow" we made a-above, (˘ω˘)
+        // which wiww w-wetuwn the actuaw s-system that gets a-added to bevy
+        .add_systems(update, (⑅˘꒳˘) m-my_system_constwuctow())
+
         .wun();
 }</code></pre>
 

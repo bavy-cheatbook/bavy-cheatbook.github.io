@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-12">0.12</a>|(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="intwo-youw-code"><a class="header" href="#intwo-youw-code">intwo: youw code</a></h1>
 <p>this page is an ovewview, OwO to give y-you an idea of t-the big pictuwe o-of how bevy
@@ -188,7 +188,7 @@ access to nyanievew pawts of <a href="/programming/intro-data.html">youw data</a
 is a wust function (<code>fn</code>) you wwite, &gt;_&lt; which accepts <a href="/builtins.html#systemparams">speciaw pawametew
 types</a> to indicate nyani <a href="/programming/intro-data.html">data</a> it nyeeds to
 access. OwO think of the function signatuwe a-as a "specification" f-fow n-nyani to fetch
-fwom the ecs <a href="https://docs.rs/bevy/0.12.0/bevy/ecs/world/struct.World.html"><code>World</code></a>.</p>
+fwom the ecs <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>.</p>
 <p>hewe is nyani a <a href="/programming/systems.html">system</a> might wook wike. (ꈍᴗꈍ) nyote how, just b-by wooking
 at the function pawametews, &gt;_&lt; we know <em>exactwy</em> nyani <a href="/programming/intro-data.html">data</a>
 can be accessed.</p>
@@ -212,12 +212,12 @@ with any othew systems. OwO  systems t-that do nyot confwict (don't a-access a-a
 same data mutabwy) wiww be automaticawwy <a href="/programming/system-order.html">wun in pawawwew</a>
 on diffewent cpu thweads. OwO this way, 🥺 y-you get muwtithweading, òωó u-utiwizing m-modewn
 muwti-cowe cpu hawdwawe effectivewy, ^•ﻌ•^ w-with nyo extwa e-effowt fwom you!</p>
-<p>fow best pawawwewism pewfowmance, OwO i-it is wecommended t-that you keep y-youw
-functionawity and <a href="/programming/intro-data.html">youw data</a> gwanuwaw. &gt;_&lt; cweate many smow
-systems, OwO each one with a nyawwowwy-scoped p-puwpose a-and accessing onwy t-the data it
-needs. OwO this gives bevy mowe oppowtunities f-fow pawawwewism. 🥺 p-putting t-too much
-functionawity in one system, ^•ﻌ•^ ow too m-much data in a-a singwe
-<a href="/programming/ec.html#components">component</a> ow <a href="/programming/res.html">wesouwce</a> <code>struct</code>, XD wimits pawawwewism.</p>
+<p>fow best pawawwewism, OwO it is wecommended t-that you k-keep youw functionawity a-and
+<a href="/programming/intro-data.html">youw data</a> gwanuwaw. (ꈍᴗꈍ) spwit up youw systems, ^•ﻌ•^ s-so each
+one has a nyawwowwy-scoped puwpose a-and access to o-onwy the data it n-nyeeds. OwO this
+gives bevy mowe oppowtunities fow p-pawawwewism. putting t-too much functionawity
+in one system, (ꈍᴗꈍ) ow too much data in a-a singwe <a href="/programming/ec.html#components">component</a> ow
+<a href="/programming/res.html">wesouwce</a> <code>struct</code>, XD wimits pawawwewism.</p>
 <p>bevy's pawawwewism is nyon-detewministic b-by defauwt. OwO y-youw systems m-might wun in a
 diffewent and unpwedictabwe owdew w-wewative to one a-anothew, OwO unwess y-you add
 <a href="/programming/system-order.html">owdewing</a> dependencies to constwain it.</p>
@@ -234,7 +234,7 @@ you might nyeed this additonaw powew.</p>
 }</code></pre>
 <h2 id="scheduwes"><a class="header" href="#scheduwes">scheduwes</a></h2>
 <p>bevy stowes systems inside of <a href="/programming/schedules.html">scheduwes</a>
-(<a href="https://docs.rs/bevy/0.12.0/bevy/ecs/schedule/struct.Schedule.html"><code>Schedule</code></a>). (ꈍᴗꈍ) the scheduwe contains the systems a-and aww
+(<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.Schedule.html"><code>Schedule</code></a>). (ꈍᴗꈍ) the scheduwe contains the systems a-and aww
 wewevant metadata to owganize them, OwO t-tewwing bevy w-when and how to w-wun them. bevy
 <a href="/programming/app-builder.html">apps</a> typicawwy contain many scheduwes. ^•ﻌ•^ e-each one is a c-cowwection of
 systems to be invoked in diffewent s-scenawios (evewy f-fwame update, ^•ﻌ•^ <a href="/fundamentals/fixed-timestep.html">fixed

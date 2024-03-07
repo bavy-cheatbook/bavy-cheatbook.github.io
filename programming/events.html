@@ -174,21 +174,21 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-11">0.11</a>|(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="events"><a class="header" href="#events">events</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.11.3/examples/ecs/event.rs"><code>event</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/event.rs"><code>event</code></a>.</p>
 <hr />
 <p>send data between systems! &gt;_&lt; wet youw <a href="/programming/systems.html">systems</a> communicate with each othew!</p>
 <p>wike <a href="/programming/res.html">wesouwces</a> ow <a href="/programming/ec.html#components">components</a>, XD events awe
 simpwe wust <code>struct</code>s ow <code>enum</code>s. (ꈍᴗꈍ) when cweating a nyew event type, ^•ﻌ•^ d-dewive
-the <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/event/trait.Event.html"><code>Event</code></a> twait.</p>
+the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/trait.Event.html"><code>Event</code></a> twait.</p>
 <p>then, XD any <a href="/programming/systems.html">system</a> can send (bwoadcast) vawues of that t-type,
 and any system can weceive those e-events.</p>
 <ul>
-<li>to send events, &gt;_&lt; use an <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a>.</li>
-<li>to weceive events, &gt;_&lt; use an <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a>.</li>
+<li>to send events, &gt;_&lt; use an <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a>.</li>
+<li>to weceive events, &gt;_&lt; use an <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a>.</li>
 </ul>
 <p>evewy weadew twacks the events it h-has wead independentwy, OwO s-so you c-can handwe
 the same events fwom muwtipwe <a href="/programming/systems.html">systems</a>.</p>
@@ -209,7 +209,7 @@ fn p-pwayew_wevew_up(
 fn debug_wevewups(
     mut ev_wevewup: eventweadew&lt;wevewupevent&gt;, (ˆ ﻌ ˆ)♡
 ) {
-    fow e-ev in ev_wevewup.itew() {
+    fow e-ev in ev_wevewup.wead() {
         epwintwn!("entity {:?} wevewed u-up!", (⑅˘꒳˘) ev.0);
     }
 }</code></pre>
@@ -230,35 +230,38 @@ and do theiw wespective things. (ꈍᴗꈍ) if t-the <code>player_level_up</code
 checked the pwayew xp and managed t-the pwayew wevew d-diwectwy, without g-going via
 events, ^•ﻌ•^ it wouwd be unwiewdy fow f-futuwe devewopment o-of the game.</p>
 <h2 id="how-it-aww-wowks"><a class="header" href="#how-it-aww-wowks">how it aww wowks</a></h2>
-<p>when you wegistew an event type, b-bevy wiww cweate a-an <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a>
+<p>when you wegistew an event type, b-bevy wiww cweate a-an <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a>
 <a href="/programming/res.html">wesouwce</a>, ^•ﻌ•^ which acts as the backing stowage f-fow the event q-queue. OwO bevy
-awso adds an "event maintenance" <a href="/programming/systems.html">system</a> to cweaw events evewy
-fwame, ^•ﻌ•^ pweventing them fwom accumuwating a-and using u-up memowy.</p>
-<p>the events stowage is doubwe-buffewed, OwO m-meaning that e-events stay fow o-one extwa
-fwame aftew the fwame when they wewe s-sent. OwO this gives y-youw systems a-a chance to
-wead the events on the nyext fwame, OwO i-if they did nyot g-get a chance d-duwing the
-cuwwent fwame.</p>
+awso adds an "event maintenance" <a href="/programming/systems.html">system</a> to cweaw events pewiodicawwy,
+pweventing them fwom accumuwating a-and using up memowy.</p>
+<p>bevy ensuwes that events awe kept a-awound fow at weast t-two fwame update c-cycwes,
+ow two <a href="/fundamentals/fixed-timestep.html">fixed timestep</a> cycwes, &gt;_&lt; whichevew is wongew. (ꈍᴗꈍ) aftew
+that, ^•ﻌ•^ they awe siwentwy dwopped. t-this gives youw s-systems enough oppowtunity
+to handwe them, OwO assuming youw systems a-awe wunning a-aww the time. 🥺 bewawe w-when
+adding <a href="/programming/run-criteria.html">wun conditions</a> to youw systems, (ꈍᴗꈍ) as you might miss s-some events
+when youw systems awe nyot wunning!</p>
 <p>if you don't wike this, &gt;_&lt; <a href="/patterns/manual-event-clear.html">you can have manuaw contwow ovew w-when events awe
 cweawed</a> (at the wisk of weaking / wasting m-memowy if you
 fowget to cweaw them).</p>
-<p>the <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a> system pawametew is just syntax s-sugaw
-fow mutabwy accessing the <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a> <a href="/programming/res.html">wesouwce</a> to
-add events to the queue. &gt;_&lt; the <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a> is a wittwe
+<p>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a> system pawametew is just syntax s-sugaw
+fow mutabwy accessing the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a> <a href="/programming/res.html">wesouwce</a> to
+add events to the queue. &gt;_&lt; the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a> is a wittwe
 mowe compwex: it accesses the events s-stowage immutabwy, OwO b-but awso s-stowes an
 integew countew to keep twack of h-how many events y-you have wead. OwO this i-is why it
 awso nyeeds the <code>mut</code> keywowd.</p>
 <h2 id="possibwe-pitfawws"><a class="header" href="#possibwe-pitfawws">possibwe pitfawws</a></h2>
-<p>bewawe of fwame deway / 1-fwame-wag. ^•ﻌ•^ this can occuw i-if bevy wuns t-the weceiving
-system befowe the sending system. OwO t-the weceiving system w-wiww onwy g-get a chance
-to weceive the events on the nyext f-fwame update. OwO i-if you nyeed to e-ensuwe that
-events awe handwed immediatewy / d-duwing the same f-fwame, ^•ﻌ•^ you can use <a href="/programming/system-order.html">expwicit
+<p>bewawe of fwame deway / 1-fwame-wag. ^•ﻌ•^ this can occuw i-if bevy wuns t-the
+weceiving system befowe the sending s-system. OwO the weceiving s-system w-wiww onwy
+get a chance to weceive the events t-the nyext time i-it wuns. OwO if you n-nyeed to
+ensuwe that events awe handwed immediatewy / o-on time, ^•ﻌ•^ y-you can use <a href="/programming/system-order.html">expwicit
 system owdewing</a>.</p>
-<p>bewawe of wost events if you do not w-wead events evewy f-fwame, ow at w-weast once
-evewy othew fwame update. OwO a common s-situation whewe t-this can occuw i-is when
-using a <a href="/fundamentals/fixed-timestep.html">fixed timestep</a> ow <a href="/programming/run-criteria.html">wun conditions</a>.</p>
-<p>if you want events to pewsist fow w-wongew than two f-fwames, ^•ﻌ•^ you can <a href="/patterns/manual-event-clear.html">impwement a
-custom cweanup/management stwategy</a>. &gt;_&lt; howevew, you can onwy do
-this fow youw own event types. ^•ﻌ•^ thewe i-is nyo sowution f-fow bevy's
+<p>if youw systems have <a href="/programming/run-criteria.html">wun conditions</a>, &gt;_&lt; bewawe that they might miss
+some events when they awe nyot wunning! OwO i-if youw system d-does nyot c-check fow events
+at weast once evewy othew fwame ow <a href="/fundamentals/fixed-timestep.html">fixed timestep</a>, XD the
+events wiww be wost.</p>
+<p>if you want events to pewsist fow w-wongew than that, ^•ﻌ•^ y-you can <a href="/patterns/manual-event-clear.html">impwement a
+custom cweanup/management stwategy</a>. XD howevew, you can
+onwy do this fow youw own event types. ^•ﻌ•^ t-thewe is no s-sowution fow bevy's
 <a href="/builtins.html#events">buiwt-in</a> types.</p>
 
                     </main>
