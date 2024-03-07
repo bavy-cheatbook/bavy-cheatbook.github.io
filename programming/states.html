@@ -174,11 +174,11 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="states"><a class="header" href="#states">states</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/state.rs"><code>state</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/state.rs"><code>state</code></a>.</p>
 <hr />
 <p>states awwow you to stwuctuwe the w-wuntime "fwow" o-of youw app.</p>
 <p>this is how you can impwement things w-wike:</p>
@@ -189,175 +189,239 @@
 <li>…</li>
 </ul>
 <p>in evewy state, &gt;_&lt; you can have diffewent <a href="/programming/systems.html">systems</a> wunning. XD you
-can awso add one-shot setup and cweanup s-systems to w-wun when entewing o-ow
-exiting a state.</p>
-<p>to use states, (ꈍᴗꈍ) define an enum type a-and add <a href="/programming/system-sets.html">system sets</a>
-to youw <a href="/programming/app-builder.html">app buiwdew</a>:</p>
-<pre><code class="language-rust no_run noplayground">#[dewive(debug, (U ᵕ U❁) cwone, -.- eq, pawtiaweq, ^^;; hash)]
-enum a-appstate {
-    m-mainmenu, &gt;_&lt;
-    ingame, mya
-    p-paused, mya
+can awso add setup and cweanup systems t-to wun when e-entewing ow exiting a-a state.</p>
+<hr />
+<p>to use states, &gt;<em>&lt; fiwst define an <code>enum</code> type. &gt;</em>&lt; you nyeed to dewive
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/trait.States.html"><code>States</code></a> + an assowtment of wequiwed standawd w-wust twaits:</p>
+<pre><code class="language-rust no_run noplayground">#[dewive(states, debug, (U ﹏ U) cwone, pawtiaweq, -.- eq, hash)]
+e-enum myappstate {
+    w-woadingscween, (ˆ ﻌ ˆ)♡
+    m-mainmenu, (⑅˘꒳˘)
+    i-ingame, (U ᵕ U❁)
 }
 
-f-fn main() {
-    a-app::new()
-        .add_pwugins(defauwtpwugins)
+#[dewive(states, -.- d-defauwt, ^^;; d-debug, &gt;_&lt; cwone, pawtiaweq, mya e-eq, hash)]
+e-enum mygamemodestate {
+    #[defauwt]
+    nyotingame, mya
+    singwepwayew, 😳
+    muwtipwayew, XD
+}
 
-        // a-add the app state t-type
-        .add_state(appstate::mainmenu)
-
-        // a-add systems to wun wegawdwess of state, 😳 as usuaw
-        .add_system(pway_music)
-
-        // systems t-to wun onwy in the main menu
-        .add_system_set(
-            systemset::on_update(appstate::mainmenu)
-                .with_system(handwe_ui_buttons)
-        )
-
-        // s-setup when entewing the state
-        .add_system_set(
-            s-systemset::on_entew(appstate::mainmenu)
-                .with_system(setup_menu)
-        )
-
-        // cweanup when exiting the state
-        .add_system_set(
-            systemset::on_exit(appstate::mainmenu)
-                .with_system(cwose_menu)
-        )
-        .wun();
+#[dewive(states, :3 defauwt, debug, 😳😳😳 c-cwone, pawtiaweq, -.- eq, hash)]
+enum mypausedstate {
+    #[defauwt]
+    p-paused, ( ͡o ω ͡o )
+    wunning,
 }</code></pre>
-<p>it is ok to have muwtipwe system s-sets fow the same s-state.</p>
-<p>this is usefuw when you want to pwace <a href="/programming/labels.html">wabews</a> and use <a href="/programming/system-order.html">expwicit
-system owdewing</a>.</p>
-<p>this can awso be usefuw with <a href="/programming/plugins.html">pwugins</a>. &gt;_&lt; each pwugin can add
-its own set of systems to the same s-state.</p>
-<p>states awe impwemented using <a href="/programming/run-criteria.html">wun cwitewia</a> undew the hood.
-these speciaw system set constwuctows a-awe weawwy j-just hewpews to a-automaticawwy
-add the state management wun cwitewia.</p>
+<p>note: you can have muwtipwe owthogonaw s-states! cweate m-muwtipwe types
+if you want to twack muwtipwe things i-independentwy!</p>
+<p>you then nyeed to wegistew the state t-type(s) in the <a href="/programming/app-builder.html">app buiwdew</a>:</p>
+<pre><code class="language-rust no_run noplayground">// specify the initiaw vawue:
+app.insewt_state(myappstate::woadingscween);
+
+// o-ow u-use the defauwt (if t-the type impws d-defauwt):
+app.init_state::&lt;mygamemodestate&gt;();
+a-app.init_state::&lt;mypausedstate&gt;();</code></pre>
+<h2 id="wunning-diffewent-systems-fow-diffewent-s-states"><a class="header" href="#wunning-diffewent-systems-fow-diffewent-s-states">wunning diffewent systems fow diffewent s-states</a></h2>
+<p>if you want some <a href="/programming/systems.html">systems</a> to onwy wun in specific states,
+bevy offews an <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/common_conditions/fn.in_state.html"><code>in_state</code></a> <a href="/programming/run-criteria.html">wun condition</a>. XD add it
+to youw systems. you pwobabwy want t-to cweate <a href="/programming/system-sets.html">system sets</a>
+to hewp you gwoup many systems and c-contwow them at o-once.</p>
+<pre><code class="language-rust no_run noplayground">// configuwe some system sets to h-hewp us manage ouw s-systems
+// (note: i-it is pew-scheduwe, &gt;_&lt; s-so we awso n-nyeed it fow f-fixedupdate
+// i-if we pwan to use f-fixed timestep)
+app.configuwe_sets(update, &gt;_&lt; (
+    mymainmenuset
+        .wun_if(in_state(myappstate::mainmenu)), (⑅˘꒳˘)
+    mygamepwayset
+        // nyote: you can check f-fow a combination of diffewent states
+        .wun_if(in_state(myappstate::ingame))
+        .wun_if(in_state(mypausedstate::wunning)), /(^•ω•^)
+));
+app.configuwe_sets(fixedupdate, rawr x3 (
+    // c-configuwe the same set hewe, (U ﹏ U) s-so we can use it in both
+    // fixedupdate and update
+    m-mygamepwayset
+        .wun_if(in_state(myappstate::ingame))
+        .wun_if(in_state(mypausedstate::wunning)), (U ﹏ U)
+    // configuwe a-a bunch of diffewent s-sets onwy fow fixedupdate
+    mysingwepwayewset
+        // inhewit configuwation fwom mygamepwayset a-and add extwas
+        .in_set(mygamepwayset)
+        .wun_if(in_state(mygamemodestate::singwepwayew)), (⑅˘꒳˘)
+    mymuwtipwayewset
+        .in_set(mygamepwayset)
+        .wun_if(in_state(mygamemodestate::muwtipwayew)), òωó
+));
+
+// nyow we can easiwy add ouw d-diffewent systems
+app.add_systems(update, ʘwʘ (
+    u-update_woading_pwogwess_baw
+        .wun_if(in_state(myappstate::woadingscween)), /(^•ω•^)
+    (
+        h-handwe_main_menu_ui_input,
+        p-pway_main_menu_sounds, ʘwʘ
+    ).in_set(mymainmenuset), σωσ
+    (
+        c-camewa_movement, OwO
+        pway_game_music, 😳😳😳
+    ).in_set(mygamepwayset), 😳😳😳
+));
+app.add_systems(fixedupdate, o.O (
+    (
+        pwayew_movement, ( ͡o ω ͡o )
+        e-enemy_ai, (U ﹏ U)
+    ).in_set(mysingwepwayewset), (///ˬ///✿)
+    (
+        pwayew_net_sync, &gt;w&lt;
+        enemy_net_sync, rawr
+    ).in_set(mymuwtipwayewset), mya
+));
+
+// o-of couwse, ^^ if we need some gwobaw (state-independent)
+// setup to wun on app stawtup, 😳😳😳 we can stiww use stawtup a-as usuaw
+app.add_systems(stawtup, (
+    woad_settings, mya
+    s-setup_window_icon, 😳
+));</code></pre>
+<p>bevy awso cweates speciaw <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnExit.html"><code>OnExit</code></a>,
+and <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnTransition.html"><code>OnTransition</code></a> <a href="/programming/schedules.html">scheduwes</a> fow each
+possibwe vawue of youw state type. OwO u-use them to pewfowm s-setup and c-cweanup fow
+specific states. any systems you a-add to them wiww w-wun once evewy t-time the state
+is changed to/fwom the wespective v-vawues.</p>
+<pre><code class="language-rust no_run noplayground">// do the wespective setup and cweanup o-on state twansitions
+a-app.add_systems(onentew(myappstate::woadingscween), (ˆ ﻌ ˆ)♡ (
+    s-stawt_woad_assets, (⑅˘꒳˘)
+    s-spawn_pwogwess_baw, (U ᵕ U❁)
+));
+a-app.add_systems(onexit(myappstate::woadingscween), -.- (
+    d-despawn_woading_scween, ^^;;
+));
+a-app.add_systems(onentew(myappstate::mainmenu), &gt;_&lt; (
+    s-setup_main_menu_ui, mya
+    setup_main_menu_camewa, mya
+));
+app.add_systems(onexit(myappstate::mainmenu), (
+    despawn_main_menu, 😳
+));
+app.add_systems(onentew(myappstate::ingame), XD (
+    s-spawn_game_map, :3
+    setup_game_camewa, 😳😳😳
+    spawn_enemies, -.-
+));
+a-app.add_systems(onentew(mygamemodestate::singwepwayew), ( ͡o ω ͡o ) (
+    setup_singwepwayew, rawr x3
+));
+a-app.add_systems(onentew(mygamemodestate::muwtipwayew), nyaa~~ (
+    setup_muwtipwayew, /(^•ω•^)
+));
+// ...</code></pre>
+<h3 id="with-pwugins"><a class="header" href="#with-pwugins">with pwugins</a></h3>
+<p>this can awso be usefuw with <a href="/programming/plugins.html">pwugins</a>. &gt;_&lt; you can set up aww the state
+types fow youw pwoject in one pwace, OwO a-and then youw d-diffewent pwugins c-can just add
+theiw systems to the wewevant states.</p>
+<p>you can awso make pwugins that awe c-configuwabwe, OwO s-so that it is possibwe t-to specify
+nani state they shouwd add theiw s-systems to:</p>
+<pre><code class="language-rust no_run noplayground">pub stwuct mypwugin&lt;s: states&gt; {
+    p-pub state: s, ( ͡o ω ͡o )
+}
+
+i-impw&lt;s: states&gt; p-pwugin fow m-mypwugin&lt;s&gt; {
+    f-fn buiwd(&amp;sewf, UwU a-app: &amp;mut app) {
+        a-app.add_systems(update, rawr x3 (
+            m-my_pwugin_system1, rawr
+            my_pwugin_system2, σωσ
+            // ...
+        ).wun_if(in_state(sewf.state.cwone())));
+    }
+}</code></pre>
+<p>now you can configuwe the pwugin w-when adding it to t-the app:</p>
+<pre><code class="language-rust no_run noplayground">app.add_pwugins(mypwugin {
+    state: myappstate::ingame, &gt;_&lt;
+});</code></pre>
+<p>when you awe just using <a href="/programming/plugins.html">pwugins</a> to hewp with intewnaw
+owganization of youw pwoject, OwO and y-you know nyani s-systems shouwd go i-into each
+state, OwO you pwobabwy don't nyeed to b-bothew with making t-the pwugin c-configuwabwe
+as shown above. OwO just hawdcode the s-states / add things t-to the cowwect s-states
+diwectwy.</p>
 <h2 id="contwowwing-states"><a class="header" href="#contwowwing-states">contwowwing states</a></h2>
-<p>inside of systems, ^•ﻌ•^ you can check a-and contwow the s-state using the
-<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/schedule/struct.State.html"><code>State&lt;T&gt;</code></a> wesouwce:</p>
-<pre><code class="language-rust no_run noplayground">fn pway_music(
-    app_state: wes&lt;state&lt;appstate&gt;&gt;, rawr x3
-    // ...
+<p>inside of systems, ^•ﻌ•^ you can check t-the cuwwent state u-using the
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.State.html"><code>State&lt;T&gt;</code></a> <a href="/programming/res.html">wesouwce</a>:</p>
+<pre><code class="language-rust no_run noplayground">fn debug_cuwwent_gamemode_state(state: wes&lt;state&lt;mygamemodestate&gt;&gt;) {
+    e-epwintwn!("cuwwent s-state: {:?}", OwO s-state.get());
+}</code></pre>
+<p>to change to anothew state, (ꈍᴗꈍ) you can u-use the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.NextState.html"><code>NextState&lt;T&gt;</code></a>:</p>
+<pre><code class="language-rust no_run noplayground">fn toggwe_pause_game(
+    state: w-wes&lt;state&lt;mypausedstate&gt;&gt;, (U ᵕ U❁)
+    mut n-nyext_state: w-wesmut&lt;nextstate&lt;mypausedstate&gt;&gt;, -.-
 ) {
-    m-match app_state.cuwwent() {
-        a-appstate::mainmenu =&gt; {
-            // t-todo: pway menu m-music
-        }
-        a-appstate::ingame =&gt; {
-            // t-todo: p-pway game music
-        }
-        a-appstate::paused =&gt; {
-            // todo: pway pause scween music
-        }
+    m-match s-state.get() {
+        m-mypausedstate::paused =&gt; nyext_state.set(mypausedstate::wunning), ^^;;
+        m-mypausedstate::wunning =&gt; n-nyext_state.set(mypausedstate::paused), &gt;_&lt;
     }
-}</code></pre>
-<p>to change to anothew state:</p>
-<pre><code class="language-rust no_run noplayground">fn entew_game(mut app_state: wesmut&lt;state&lt;appstate&gt;&gt;) {
-    a-app_state.set(appstate::ingame).unwwap();
-    // ^ t-this c-can faiw if we a-awe awweady in t-the tawget state
-    // o-ow if anothew s-state change i-is awweady queued
-}</code></pre>
-<p>aftew the systems of the cuwwent s-state compwete, OwO b-bevy wiww twansition t-to
-the nyext state you set.</p>
-<p>you can do awbitwawiwy many state t-twansitions in a-a singwe fwame update. OwO b-bevy
-wiww handwe aww of them and exekawaii~ a-aww the wewevant s-systems (befowe m-moving
-on to the nyext <a href="/programming/schedules.html">stage</a>).</p>
-<h2 id="state-stack"><a class="header" href="#state-stack">state stack</a></h2>
-<p>instead of compwetewy twansitioning f-fwom one state t-to anothew, OwO you c-can awso
-ovewway states, &gt;_&lt; fowming a stack.</p>
-<p>this is how you can impwement things w-wike a "game p-paused" scween, OwO o-ow an
-ovewway menu, OwO with the game wowwd s-stiww visibwe / w-wunning in the b-backgwound.</p>
-<p>you can have some systems that awe s-stiww wunning e-even when the state i-is
-"inactive" (that is, ^•ﻌ•^ in the backgwound, OwO with othew s-states wunning o-on top). 🥺 you
-can awso add one-shot systems to w-wun when "pausing" o-ow "wesuming" t-the state.</p>
-<p>in youw <a href="/programming/app-builder.html">app buiwdew</a>:</p>
-<pre><code class="language-rust no_run noplayground">        // pwayew movement onwy when a-activewy pwaying
-        .add_system_set(
-            s-systemset::on_update(appstate::ingame)
-                .with_system(pwayew_movement)
-        )
-        // p-pwayew idwe a-animation whiwe p-paused
-        .add_system_set(
-            s-systemset::on_inactive_update(appstate::ingame)
-                .with_system(pwayew_idwe)
-        )
-        // a-animations b-both whiwe paused and whiwe active
-        .add_system_set(
-            systemset::on_in_stack_update(appstate::ingame)
-                .with_system(animate_twees)
-                .with_system(animate_watew)
-        )
-        // things t-to do when becoming inactive
-        .add_system_set(
-            systemset::on_pause(appstate::ingame)
-                .with_system(hide_enemies)
-        )
-        // t-things to do when becoming a-active again
-        .add_system_set(
-            systemset::on_wesume(appstate::ingame)
-                .with_system(weset_pwayew)
-        )
-        // setup when fiwst entewing t-the game
-        .add_system_set(
-            systemset::on_entew(appstate::ingame)
-                .with_system(setup_pwayew)
-                .with_system(setup_map)
-        )
-        // c-cweanup when f-finawwy exiting the game
-        .add_system_set(
-            systemset::on_exit(appstate::ingame)
-                .with_system(despawn_pwayew)
-                .with_system(despawn_map)
-        )</code></pre>
-<p>to manage states wike this, &gt;_&lt; use <code>push</code>/<code>pop</code>:</p>
-<pre><code class="language-rust no_run noplayground">    // to go into the pause scween
-    a-app_state.push(appstate::paused).unwwap();
-    // t-to go back i-into the game
-    a-app_state.pop().unwwap();</code></pre>
-<p>(using <code>.set</code> as shown befowe wepwaces the active s-state at the t-top of the stack)</p>
-<h2 id="known-pitfawws-and-wimitations"><a class="header" href="#known-pitfawws-and-wimitations">known pitfawws and wimitations</a></h2>
-<h3 id="combining-with-othew-wun-cwitewia"><a class="header" href="#combining-with-othew-wun-cwitewia">combining with othew wun cwitewia</a></h3>
-<p>because states awe impwemented using <a href="/programming/run-criteria.html">wun cwitewia</a>,
-they cannot be combined with othew u-uses of wun cwitewia, ^•ﻌ•^ s-such as <a href="/fundamentals/fixed-timestep.html">fixed
-timestep</a>.</p>
-<p>if you twy to add anothew wun cwitewia t-to youw system s-set, OwO it wouwd w-wepwace
-bevy's state-management wun cwitewia! OwO t-this wouwd m-make the system s-set nyo
-wongew constwained to wun as pawt o-of a state!</p>
-<p>considew using <a href="https://github.com/IyesGames/iyes_loopless"><code>iyes_loopless</code></a>, XD which does nyot
-have such wimitations.</p>
-<h3 id="muwtipwe-stages"><a class="header" href="#muwtipwe-stages">muwtipwe stages</a></h3>
-<p>bevy states cannot wowk acwoss muwtipwe <a href="/programming/schedules.html">stages</a>. XD wowkawounds
-awe avaiwabwe, (ꈍᴗꈍ) but they awe bwoken a-and buggy.</p>
-<p>this is a huge wimitation in pwactice, OwO a-as it gweatwy w-wimits how you c-can use
-<a href="/programming/commands.html">commands</a>. (ꈍᴗꈍ) nyot being abwe to use commands i-is a big deaw,
-as you cannot do things wike spawn e-entities and opewate o-on them duwing t-the
-same fwame, (ꈍᴗꈍ) among othew impowtant u-use cases.</p>
-<p>considew using <a href="https://github.com/IyesGames/iyes_loopless"><code>iyes_loopless</code></a>, XD which does nyot
-have such wimitations.</p>
-<h3 id="with-input"><a class="header" href="#with-input">with input</a></h3>
-<p>if you want to use <a href="https://docs.rs/bevy/0.9.1/bevy/input/struct.Input.html"><code>Input&lt;T&gt;</code></a> to twiggew state twansitions using
-a button/key pwess, ^•ﻌ•^ you nyeed to c-cweaw the input m-manuawwy by cawwing <code>.reset</code>:</p>
-<pre><code class="language-rust no_run noplayground">fn esc_to_menu(
-    mut keys: wesmut&lt;input&lt;keycode&gt;&gt;, òωó
-    m-mut app_state: w-wesmut&lt;state&lt;appstate&gt;&gt;, o.O
+}
+
+// if you have muwtipwe states that must be set cowwectwy, mya
+// d-don't fowget to manage them aww
+fn nyew_game_muwtipwayew(
+    m-mut nyext_app: wesmut&lt;nextstate&lt;myappstate&gt;&gt;, mya
+    m-mut nyext_mode: wesmut&lt;nextstate&lt;mygamemodestate&gt;&gt;, 😳
 ) {
-    i-if keys.just_pwessed(keycode::escape) {
-        a-app_state.set(appstate::mainmenu).unwwap();
-        k-keys.weset(keycode::escape);
-    }
+    next_app.set(myappstate::ingame);
+    nyext_mode.set(mygamemodestate::muwtipwayew);
 }</code></pre>
-<p>(note that this wequiwes <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>)</p>
-<p>not doing this can cause <a href="https://github.com/bevyengine/bevy/issues/1700">issues</a>.</p>
-<p><a href="https://github.com/IyesGames/iyes_loopless"><code>iyes_loopless</code></a> does nyot have this issue.</p>
+<p>this wiww queue up state twansitions t-to be pewfowmed d-duwing the next f-fwame
+update cycwe.</p>
+<h2 id="state-twansitions"><a class="header" href="#state-twansitions">state twansitions</a></h2>
+<p>evewy fwame update, &gt;<em>&lt; a <a href="/programming/schedules.html">scheduwe</a> cawwed
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.StateTransition.html"><code>StateTransition</code></a> wuns. &gt;</em>&lt; thewe, bevy wiww check if
+any nyew state is queued up in <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.NextState.html"><code>NextState&lt;T&gt;</code></a> and pewfowm
+the twansition fow you.</p>
+<p>the twansition invowves sevewaw steps:</p>
+<ul>
+<li>a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.StateTransitionEvent.html"><code>StateTransitionEvent</code></a> <a href="/programming/events.html">event</a> is sent.</li>
+<li>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnExit.html"><code>OnExit(old_state)</code></a> <a href="/programming/schedules.html">scheduwe</a> is wun.</li>
+<li>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnTransition.html"><code>OnTransition { from: old_state, to: new_state }</code></a> <a href="/programming/schedules.html">scheduwe</a> is wun.</li>
+<li>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter(new_state)</code></a> <a href="/programming/schedules.html">scheduwe</a> is wun.</li>
+</ul>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.StateTransitionEvent.html"><code>StateTransitionEvent</code></a> is usefuw in any
+<a href="/programming/systems.html">systems</a> that wun wegawdwess of state, ^•ﻌ•^ but w-want to know if a-a
+twansition has occuwwed. ^•ﻌ•^ you can u-use it to detect s-state twansitions.</p>
+<p>the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.StateTransition.html"><code>StateTransition</code></a> <a href="/programming/schedules.html">scheduwe</a> wuns
+aftew <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a> (which contains bevy engine intewnaws),
+but befowe <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> (<a href="/fundamentals/fixed-timestep.html">fixed timestep</a>)
+and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>, XD whewe youw game's <a href="/programming/systems.html">systems</a>
+usuawwy wive.</p>
+<p>thewefowe, OwO state twansitions happen b-befowe youw game w-wogic fow the c-cuwwent fwame.</p>
+<p>if doing state twansitions once pew f-fwame is nyot e-enough fow
+you, ^•ﻌ•^ you can add additionaw twansition p-points, by a-adding bevy's
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/fn.apply_state_transition.html"><code>apply_state_transition</code></a> <a href="/programming/systems.html">system</a>
+whewevew you wike.</p>
+<pre><code class="language-rust no_run noplayground">// exampwe: awso do state twansitions f-fow mypausedstate
+// b-befowe m-mygamepwayset on e-each fixed timestep w-wun
+app.add_systems(
+    fixedupdate, o.O
+    a-appwy_state_twansition::&lt;mypausedstate&gt;
+        .befowe(mygamepwayset)
+);</code></pre>
+<h2 id="known-pitfawws"><a class="header" href="#known-pitfawws">known pitfawws</a></h2>
+<h3 id="system-set-configuwation-is-pew-scheduwe"><a class="header" href="#system-set-configuwation-is-pew-scheduwe">system set configuwation is pew-scheduwe!</a></h3>
+<p>this is the same genewaw caveat that a-appwies any t-time you configuwe [system sets][cb::set].</p>
+<p>note that <code>app.configure_sets()</code> is <em>pew-<a href="/programming/schedules.html">scheduwe</a>!</em> if you configuwe some sets
+in one <a href="/programming/schedules.html">scheduwe</a>, ^•ﻌ•^ that configuwation does nyot cawwy o-ovew to othew s-scheduwes.</p>
+<p>because states awe so scheduwe-heavy, OwO y-you have to b-be especiawwy cawefuw. 🥺 d-don't assume
+that just because you configuwed a-a set, ^•ﻌ•^ you can use i-it anywhewe.</p>
+<p>fow exampwe, &gt;_&lt; youw sets fwom <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>
+and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> wiww nyot wowk in
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnExit.html"><code>OnExit</code></a> fow youw vawious state
+twansitions.</p>
 <h3 id="events"><a class="header" href="#events">events</a></h3>
+<p>this is the same genewaw caveat that a-appwies to any <a href="/programming/systems.html">systems</a> with
+<a href="/programming/run-criteria.html">wun conditions</a> that want to weceive <a href="/programming/events.html">events</a>.</p>
 <p>when weceiving <a href="/programming/events.html">events</a> in systems that don't wun aww the t-time, (ꈍᴗꈍ) such
-as duwing a pause state, OwO you wiww m-miss any events t-that awe sent duwing t-the fwames
-when the weceiving systems awe nyot w-wunning!</p>
+as duwing a pause state, OwO you wiww m-miss any events t-that awe sent whiwe w-when
+the weceiving systems awe nyot wunning!</p>
 <p>to mitigate this, (ꈍᴗꈍ) you couwd impwement a-a <a href="/patterns/manual-event-clear.html">custom cweanup
 stwategy</a>, (ꈍᴗꈍ) to manuawwy manage the wifetime o-of the wewevant
 event types.</p>
