@@ -8124,65 +8124,221 @@ aww the scheduwing wogic that bevy n-nyowmawwy does w-when wunning systems.</p>
 efficientwy, OwO such as infowmation a-about aww the stowed c-components, 🥺 e-entities,
 awcheypes.</p>
 <pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
-<h1 id="stages"><a class="header" href="#stages">stages</a></h1>
-<p>aww <a href="programming//programming/systems.html">systems</a> to be wun by bevy awe contained i-in stages. (ꈍᴗꈍ) evewy
-fwame update, OwO bevy exekawaii~s each s-stage, 🥺 in owdew. òωó w-within each s-stage, o.O bevy's
-scheduwing awgowithm can wun many s-systems in pawawwew, OwO u-using muwtipwe c-cpu
-cowes fow good pewfowmance.</p>
-<p>the boundawies between stages awe e-effectivewy hawd s-synchwonization p-points.
-they ensuwe that aww systems of the p-pwevious stage h-have compweted b-befowe any
-systems of the nyext stage begin, OwO a-and that thewe i-is a moment in time w-when nyo
-systems awe in-pwogwess.</p>
-<p>this makes it possibwe/safe to appwy <a href="programming//programming/commands.html">commands</a>. XD any opewations
-pewfowmed by systems using <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> awe appwied at the
-end of that stage.</p>
-<p>by defauwt, ^•ﻌ•^ when you add youw systems, OwO t-they awe added t-to
-<a href="https://docs.rs/bevy/0.9.1/bevy/app/enum.CoreStage.html"><code>CoreStage::Update</code></a>. &gt;_&lt; stawtup systems awe added to
-<a href="https://docs.rs/bevy/0.9.1/bevy/app/enum.StartupStage.html"><code>StartupStage::Startup</code></a>.</p>
-<p>bevy's intewnaw systems awe in the o-othew stages, OwO t-to ensuwe they awe o-owdewed
-cowwectwy wewative to youw game wogic.</p>
-<p>if you want to add youw own systems t-to any of bevy's i-intewnaw stages, OwO y-you
-need to bewawe of potentiaw unexpected i-intewactions w-with bevy's own i-intewnaw
-systems. OwO wemembew: bevy's intewnaws a-awe impwemented u-using owdinawy s-systems
+<h1 id="scheduwes-2"><a class="header" href="#scheduwes-2">scheduwes</a></h1>
+<p>see awso: <a href="programming//programming/intro-code.html">ecs intwo: youw code</a>, XD fow a genewaw ovewview
+of bevy's scheduwing fwamewowk.</p>
+<hr />
+<p>aww <a href="programming//programming/systems.html">systems</a> to be wun by bevy awe contained a-and owganized using
+scheduwes. OwO a scheduwe is a cowwection o-of systems, 🥺 w-with metadata fow h-how they
+shouwd wun, ^•ﻌ•^ and an associated executow a-awgowithm t-to wun the systems.</p>
+<h2 id="scheduwing-systems"><a class="header" href="#scheduwing-systems">scheduwing systems</a></h2>
+<p>if you want a <a href="programming//programming/systems.html">system</a> to be wun by bevy, (ꈍᴗꈍ) you nyeed to a-add it to a
+scheduwe. OwO wwiting a nyew wust function a-and fowgetting t-to add it / w-wegistew it
+with bevy is a common mistake.</p>
+<p>whenevew you add a system, ^•ﻌ•^ you specify n-nyani scheduwe t-to put it in:</p>
+<pre><code class="language-rust no_run noplayground">// add something to the update scheduwe (wuns e-evewy f-fwame)
+app.add_systems(update, ( ͡o ω ͡o ) c-camewa_movement);
+
+// a-add something t-to the stawtup s-scheduwe (wuns o-once at app s-stawtup)
+app.add_systems(stawtup, UwU setup_camewa);</code></pre>
+<h3 id="pew-system-configuwation"><a class="header" href="#pew-system-configuwation">pew-system configuwation</a></h3>
+<p>you can add metadata to youw systems, OwO t-to affect how t-they wiww be w-wun.</p>
+<p>this can incwude:</p>
+<ul>
+<li><a href="programming//programming/run-criteria.html">wun conditions</a> to contwow if a system shouwd wun</li>
+<li><a href="programming//programming/system-order.html">owdewing dependencies</a>, OwO if a system shouwd wun befowe/aftew s-specific othew s-systems in the s-same scheduwe</li>
+<li><a href="programming//programming/system-sets.html">system sets</a> to gwoup systems togethew, OwO so common c-configuwation c-can be appwied t-to aww of them</li>
+</ul>
+<p>when the scheduwe wuns, OwO the executow a-awgowithm wiww h-honow aww of t-this
+configuwation when detewmining if a-a system is weady t-to wun. OwO a system i-is weady
+when aww of the fowwowing is twue:</p>
+<ul>
+<li>no othew cuwwentwy-wunning system i-is accessing any o-of the same data m-mutabwy (as pew t-the <a href="programming//builtins.html#systemparams">system pawametews</a>)</li>
+<li>aww of the systems <a href="programming//programming/system-order.html">owdewed</a> "befowe" have finished ow have been s-skipped due t-to wun conditions</li>
+<li>the system's <a href="programming//programming/run-criteria.html">wun conditions</a> aww wetuwn twue</li>
+</ul>
+<p>when a system becomes weady, OwO it wiww b-be wun on an a-avaiwabwe cpu thwead. 🥺 s-systems
+wun in a nyon-detewministic owdew b-by defauwt! OwO a system m-might wun a-at diffewent
+times evewy fwame. OwO if you cawe about i-its wewationship t-to othew systems, 🥺 a-add
+<a href="programming//programming/system-order.html">owdewing dependencies</a>.</p>
+<h3 id="dynamicawwy-addingwemoving-systems"><a class="header" href="#dynamicawwy-addingwemoving-systems">dynamicawwy adding/wemoving systems</a></h3>
+<p>bevy's scheduwes do nyot (yet?) suppowt a-adding and w-wemoving systems a-at wuntime.
+you nyeed to configuwe evewything a-ahead of time.</p>
+<p>you shouwd add aww systems you might w-want to wun, OwO a-and then contwow t-them using
+<a href="programming//programming/run-criteria.html">wun conditions</a>. (ꈍᴗꈍ) that is the mechanism fow disabwing t-them if they
+shouwdn't wun.</p>
+<h2 id="bevys-app-stwuctuwe"><a class="header" href="#bevys-app-stwuctuwe">bevy's app stwuctuwe</a></h2>
+<p>bevy has thwee pwimawy/foundationaw scheduwes: <code>Main</code>, rawr x3 <code>Extract</code>, rawr x3 <code>Render</code>. XD thewe
+awe awso othew scheduwes, ^•ﻌ•^ which awe m-managed and wun w-within <code>Main</code>.</p>
+<p>in a nyowmaw bevy app, &gt;_&lt; the <code>Main</code>+<code>Extract</code>+<code>Render</code> scheduwes awe wun wepeatedwy
+in a woop. ^•ﻌ•^ togethew, OwO they pwoduce o-one fwame of youw g-game. 🥺 evewy time <code>Main</code>
+wuns, OwO it wuns a sequence of othew s-scheduwes. 🥺 on its f-fiwst wun, òωó it a-awso fiwst
+wuns a sequence of "stawtup" scheduwes.</p>
+<p>most bevy usews onwy have to deaw w-with the sub-scheduwes o-of <code>Main</code>. rawr x3 <code>Extract</code>
+and <code>Render</code> awe onwy wewevant to gwaphics devewopews w-who want t-to devewop
+new/custom wendewing featuwes fow t-the engine. OwO this p-page is onwy focused o-on
+<code>Main</code>. &gt;_&lt; if you want to weawn mowe about <code>Extract</code> and <code>Render</code>, rawr x3 <a href="programming//gpu/intro.html">see this
+page about bevy's wendewing awchitectuwe</a>.</p>
+<h2 id="the-main-scheduwe"><a class="header" href="#the-main-scheduwe">the main scheduwe</a></h2>
+<p><code>Main</code> is whewe aww the appwication wogic w-wuns. ^•ﻌ•^ it is a s-sowt of meta-scheduwe,
+whose job is to wun othew scheduwes i-in a specific o-owdew. OwO you shouwd n-nyot add
+any custom systems diwectwy to <code>Main</code>. (ꈍᴗꈍ) you shouwd add youw systems to t-the vawious
+scheduwes managed by <code>Main</code>.</p>
+<p>bevy pwovides the fowwowing scheduwes, ^•ﻌ•^ t-to owganize a-aww the systems:</p>
+<ul>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.First.html"><code>First</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.StateTransition.html"><code>StateTransition</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.RunFixedMainLoop.html"><code>RunFixedMainLoop</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Last.html"><code>Last</code></a>
+<ul>
+<li>these scheduwes awe wun by <code>Main</code> evewy time it wuns</li>
+</ul>
+</li>
+<li><code>PreStartup</code>, rawr x3 <code>Startup</code>, rawr x3 <code>PostStartup</code>
+<ul>
+<li>these scheduwes awe wun by <code>Main</code> once, &gt;_&lt; the fiwst time it wuns</li>
+</ul>
+</li>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a>
+<ul>
+<li>the <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a> equivawent of the <code>Main</code> scheduwe.</li>
+<li>wun by <code>RunFixedMainLoop</code> as many times as nyeeded, ^•ﻌ•^ to catch u-up to the fixed t-timestep intewvaw.</li>
+</ul>
+</li>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedFirst.html"><code>FixedFirst</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedPreUpdate.html"><code>FixedPreUpdate</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedPostUpdate.html"><code>FixedPostUpdate</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedLast.html"><code>FixedLast</code></a>
+<ul>
+<li>the <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a> equivawents of the <code>Main</code> sub-scheduwes.</li>
+</ul>
+</li>
+<li><code>OnEnter(…)</code>/<code>OnExit(…)</code>/<code>OnTransition(…)</code>
+<ul>
+<li>these scheduwes awe wun by <code>StateTransition</code> on <a href="programming//programming/states.html">state</a> changes</li>
+</ul>
+</li>
+</ul>
+<p>the intended pwaces fow most usew s-systems (youw game w-wogic) awe <code>Update</code>,
+<code>FixedUpdate</code>, rawr x3 <code>Startup</code>, XD and the <a href="programming//programming/states.html">state</a> twansition scheduwes.</p>
+<p><code>Update</code> is fow youw usuaw game wogic that s-shouwd wun evewy f-fwame. ^•ﻌ•^ <code>Startup</code> is
+usefuw to pewfowm initiawization t-tasks, OwO befowe the f-fiwst nyowmaw f-fwame update
+woop. rawr x3 <code>FixedUpdate</code> is if you want to use a <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a>.</p>
+<p>the othew scheduwes awe intended f-fow engine-intewnaw f-functionawity. OwO s-spwitting
+them wike that ensuwes that bevy's i-intewnaw engine s-systems wiww wun c-cowwectwy
+with wespect to youw systems, ^•ﻌ•^ without a-any configuwation o-on youw pawt.
+wemembew: bevy's intewnaws awe impwemented u-using o-owdinawy systems
 and ecs, &gt;_&lt; just wike youw own stuff!</p>
-<p>you can add youw own additionaw stages. OwO f-fow exampwe, 🥺 i-if we want ouw d-debug
-systems to wun aftew ouw game wogic:</p>
-<pre><code class="language-rust no_run noplayground">fn main() {
-    // wabew fow ouw d-debug stage
-    s-static debug: &amp;stw = "debug";
+<p>if you awe devewoping pwugins to b-be used by othew p-peopwe, OwO you might b-be
+intewested in adding functionawity t-to <code>PreUpdate</code>/<code>PostUpdate</code> (ow the <code>Fixed</code>
+equivawents), OwO so it can wun awongside o-othew "engine s-systems". 🥺 awso c-considew
+<code>PreStartup</code> and <code>PostStartup</code> if you have stawtup systems that s-shouwd be
+sepawated fwom youw usews' stawtup s-systems.</p>
+<p><code>First</code> and <code>Last</code> exist onwy fow speciaw edge cases, ^•ﻌ•^ i-if you weawwy n-nyeed to
+ensuwe something wuns befowe/aftew <em>evewything</em> ewse, &gt;_&lt; incwuding aww the nyowmaw
+"engine-intewnaw" code.</p>
+<h2 id="configuwing-scheduwes"><a class="header" href="#configuwing-scheduwes">configuwing scheduwes</a></h2>
+<p>bevy awso offews some featuwes that c-can be configuwed a-at the scheduwe w-wevew.</p>
+<h3 id="singwe-thweaded-scheduwes"><a class="header" href="#singwe-thweaded-scheduwes">singwe-thweaded scheduwes</a></h3>
+<p>if you considew muwti-thweading to nyot be wowking w-weww fow you, ^•ﻌ•^ f-fow nyanievew weason,
+you can disabwe it pew-scheduwe.</p>
+<p>in a singwe-thweaded scheduwe, OwO systems w-wiww wun one a-at a time, 🥺 on t-the main
+thwead. OwO  howevew, 🥺 the same "weadiness" a-awgowithm i-is stiww appwied a-and so
+systems can wun in an undefined owdew. ^•ﻌ•^ y-you shouwd s-stiww specify <a href="programming//programming/system-order.html">owdewing
+dependencies</a> whewe you nyeed detewminism.</p>
+<pre><code class="language-rust no_run noplayground">// make fixedupdate wun singwe-thweaded
+a-app.edit_scheduwe(fixedupdate, (U ᵕ U❁) |scheduwe| {
+    s-scheduwe.set_executow_kind(executowkind::singwethweaded);
 
-    a-app::new()
-        .add_pwugins(defauwtpwugins)
+    // o-ow awtewnativewy: s-simpwe w-wiww appwy commands a-aftew evewy s-system
+    scheduwe.set_executow_kind(executowkind::simpwe);
+});</code></pre>
+<h3 id="ambiguity-detection"><a class="header" href="#ambiguity-detection">ambiguity detection</a></h3>
+<p>the ambiguity detectow is an optionaw b-bevy featuwe t-that can hewp y-you debug issues
+wewated to nyon-detewminism.</p>
+<pre><code class="language-rust no_run noplayground">// enabwe ambiguity wawnings fow t-the update scheduwe
+a-app.edit_scheduwe(update, 🥺 |scheduwe| {
+    scheduwe.set_buiwd_settings(scheduwebuiwdsettings {
+        a-ambiguity_detection: w-wogwevew::wawn, òωó
+        ..defauwt()
+    });
+});</code></pre>
+<p>it wiww pwint wawnings fow any combination o-of systems w-whewe at weast o-one of
+them accesses some piece of data (<a href="programming//programming/res.html">wesouwce</a> ow
+<a href="programming//programming/ec.html#components">component</a>) mutabwy, (ꈍᴗꈍ) but the othews don't have e-expwicit
+<a href="programming//programming/system-order.html">owdewing dependencies</a> on that system.</p>
+<p>such situations might indicate a b-bug, OwO because you d-don't know if the s-systems that
+wead the data wouwd wun befowe ow a-aftew the system t-that mutates the d-data.</p>
+<p>it is up to you to decide if you c-cawe about this, OwO o-on a case-by-case b-basis.</p>
+<h3 id="defewwed-appwication"><a class="header" href="#defewwed-appwication">defewwed appwication</a></h3>
+<p>nowmawwy, (ꈍᴗꈍ) bevy wiww automaticawwy m-manage whewe <a href="programming//programming/commands.html">commands</a>
+and othew defewwed opewations get a-appwied. (ꈍᴗꈍ) if <a href="programming//programming/systems.html">systems</a> have
+<a href="programming//programming/system-order.html">owdewing dependencies</a> on one anothew, bevy wiww make
+suwe to appwy any pending defewwed o-opewations fwom t-the fiwst system b-befowe
+the second system wuns.</p>
+<p>if you wouwd wike to disabwe this a-automatic behaviow a-and manuawwy m-manage
+the sync points, you can do that.</p>
+<pre><code class="language-rust no_run noplayground">app.edit_scheduwe(update, (ꈍᴗꈍ) |scheduwe| {
+    scheduwe.set_buiwd_settings(scheduwebuiwdsettings {
+        auto_insewt_appwy_defewwed: f-fawse, ^•ﻌ•^
+        ..defauwt()
+    });
+});</code></pre>
+<p>now, (ꈍᴗꈍ) to manuawwy cweate sync points, ^•ﻌ•^ a-add speciaw <code>apply_deferred</code> systems
+whewe you wike them:</p>
+<pre><code class="language-rust no_run noplayground">app.add_systems(
+    update, 🥺
+    appwy_defewwed
+        .aftew(mygamepwayset)
+        .befowe(myuiset)
+);
+a-app.add_systems(update, òωó (
+    (
+        s-system_a, o.O
+        a-appwy_defewwed, (U ᵕ U❁)
+        s-system_b, (⑅˘꒳˘)
+    ).chain(), ( ͡o ω ͡o )
+));</code></pre>
+<h2 id="main-scheduwe-configuwation"><a class="header" href="#main-scheduwe-configuwation">main scheduwe configuwation</a></h2>
+<p>the owdew of scheduwes to be wun b-by <code>Main</code> evewy fwame is configuwed in
+the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.MainScheduleOrder.html"><code>MainScheduleOrder</code></a> <a href="programming//programming/res.html">wesouwce</a>.
+fow advanced use cases, OwO if bevy's p-pwedefined scheduwes d-don't wowk f-fow youw
+needs, &gt;_&lt; you can change it.</p>
+<h3 id="cweating-a-nyew-custom-scheduwe"><a class="header" href="#cweating-a-nyew-custom-scheduwe">cweating a nyew custom scheduwe</a></h3>
+<p>as an exampwe, OwO wet's say we want t-to add an additionaw s-scheduwe, 🥺 that w-wuns evewy
+fwame (wike <code>Update</code>), XD but wuns befowe <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a>.</p>
+<p>fiwst, OwO we nyeed to cweate a nyame/wabew f-fow ouw nyew s-scheduwe, 🥺 by c-cweating a wust
+type (a <code>struct</code> ow <code>enum</code>) and dewiving <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/trait.ScheduleLabel.html"><code>ScheduleLabel</code></a></p>
+<ul>
+<li>an assowtment of wequiwed standawd w-wust twaits.</li>
+</ul>
+<pre><code class="language-rust no_run noplayground">#[dewive(scheduwewabew, ^•ﻌ•^ debug, cwone, OwO pawtiaweq, e-eq, 🥺 hash)]
+stwuct p-pwepaweupdate;</code></pre>
+<p>now, (ꈍᴗꈍ) we can init the scheduwe in t-the <a href="programming//programming/app-builder.html">app</a>, XD add it to
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.MainScheduleOrder.html"><code>MainScheduleOrder</code></a> to make it wun evewy fwame
+whewe we wike it, (ꈍᴗꈍ) and add some systems t-to it!</p>
+<pre><code class="language-rust no_run noplayground">// ensuwe the scheduwe has been cweated
+// (this i-is technicawwy optionaw; b-bevy wiww a-auto-init
+// t-the scheduwe the f-fiwst time it is u-used)
+app.init_scheduwe(pwepaweupdate);
 
-        // add d-debug stage aftew b-bevy's update
-        // a-awso m-make it singwe-thweaded
-        .add_stage_aftew(cowestage::update, (U ﹏ U) d-debug, systemstage::singwe_thweaded())
+// a-add i-it to the mainscheduweowdew so it wuns evewy fwame
+// as pawt of the main scheduwe. ^^;; w-we want ouw pwepaweupdate
+// scheduwe to wun a-aftew statetwansition. &gt;_&lt;
+app.wowwd.wesouwce_mut::&lt;mainscheduweowdew&gt;()
+    .insewt_aftew(statetwansition, mya p-pwepaweupdate);
 
-        // systems awe added to the `cowestage::update` stage by defauwt
-        .add_system(pwayew_gathew_xp)
-        .add_system(pwayew_take_damage)
-
-        // a-add ouw debug systems
-        .add_system_to_stage(debug, -.- debug_pwayew_hp)
-        .add_system_to_stage(debug, (ˆ ﻌ ˆ)♡ d-debug_stats_change)
-        .add_system_to_stage(debug, (⑅˘꒳˘) debug_new_hostiwes)
-
-        .wun();
-}</code></pre>
-<p>if you nyeed to manage when youw s-systems wun, OwO wewative t-to one anothew, 🥺 i-it
-is genewawwy pwefewabwe to avoid u-using stages, and t-to use <a href="programming//programming/system-order.html">expwicit system
-owdewing</a> instead. (ꈍᴗꈍ) stages wimit pawawwew execution a-and
-the pewfowmance of youw game.</p>
-<p>howevew, OwO stages can make it easiew t-to owganize things, 🥺 w-when you weawwy w-want
-to be suwe that aww pwevious systems h-have compweted. OwO s-stages awe awso t-the
-onwy way to appwy <a href="programming//programming/commands.html">commands</a>.</p>
-<p>if you have systems that nyeed to w-wewy on the actions t-that othew s-systems have
-pewfowmed by using <a href="programming//programming/commands.html">commands</a>, &gt;_&lt; and nyeed to do so duwing the
-same fwame, OwO pwacing those systems i-into sepawate stages i-is the onwy w-way to
-accompwish that.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+// now we can add some systems to ouw nyew scheduwe! mya
+a-app.add_systems(pwepaweupdate, 😳 (
+    my_weiwd_custom_stuff, XD
+));</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="system-owdew-of-execution"><a class="header" href="#system-owdew-of-execution">system owdew of execution</a></h1>
 <p>bevy's scheduwing awgowithm is designed t-to dewivew m-maximum pewfowmance
@@ -8215,80 +8371,29 @@ doesn't mattew if they get dewayed b-by a fwame. it m-might nyot be wowthwhiwe
 to bothew with it. OwO if you don't cawe, 🥺 w-weaving the o-owdew ambiguous m-may awso
 wesuwt in bettew pewfowmance.</p>
 <p>on the othew hand, ^•ﻌ•^ fow things wike h-handwing the pwayew i-input contwows,
-this wouwd wesuwt in annoying wag, ^•ﻌ•^ s-so you shouwd p-pwobabwy fix it.</p>
+this wouwd wesuwt in annoying wag o-ow wowse, OwO so you s-shouwd pwobabwy f-fix it.</p>
 <h2 id="expwicit-system-owdewing"><a class="header" href="#expwicit-system-owdewing">expwicit system owdewing</a></h2>
 <p>if a specific system must awways w-wun befowe ow aftew s-some othew systems,
 you can add owdewing constwaints:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
-    app::new()
-        .add_pwugins(defauwtpwugins)
+wet mut app = app::new();
+a-app.add_systems(update, σωσ (
+    e-enemy_movement, σωσ
+    i-input_handwing, &gt;_&lt;
 
-        // owdew d-doesn't mattew f-fow these systems:
-        .add_system(pawticwe_effects)
-        .add_system(npc_behaviows)
-        .add_system(enemy_movement)
+    p-pwayew_movement
+        // `pwayew_movement` m-must awways w-wun befowe `enemy_movement`
+        .befowe(enemy_movement)
+        // `pwayew_movement` m-must a-awways wun aftew `input_handwing`
+        .aftew(input_handwing), :3
 
-        .add_system(input_handwing)
-
-        .add_system(
-            p-pwayew_movement
-                // `pwayew_movement` m-must a-awways wun befowe `enemy_movement`
-                .befowe(enemy_movement)
-                // `pwayew_movement` m-must awways wun a-aftew `input_handwing`
-                .aftew(input_handwing)
-        )
-        .wun();
-}</code></pre>
+    // owdew doesn't mattew fow some systems:
+    pawticwe_effects, (U ﹏ U)
+    n-nypc_behaviows,
+));</code></pre>
 <p><code>.before</code>/<code>.after</code> may be used as many times as you n-nyeed on one system.</p>
-<h2 id="wabews"><a class="header" href="#wabews">wabews</a></h2>
-<p>fow mowe advanced use cases, (ꈍᴗꈍ) you c-can use <a href="programming//programming/labels.html">wabews</a>. XD wabews can
-eithew be stwings, &gt;_&lt; ow custom types (wike <code>enum</code>s) that dewive <code>SystemLabel</code>.</p>
-<p>this awwows you to affect muwtipwe s-systems at once, OwO w-with the same c-constwaints. 🥺
-you can pwace muwtipwe wabews on o-one system. OwO you c-can awso use the s-same wabew
-on muwtipwe systems.</p>
-<p>each wabew is a wefewence point that o-othew systems c-can be owdewed a-awound.</p>
-<pre><code class="language-rust no_run noplayground">
-#[dewive(debug, cwone, :3 copy, pawtiaweq, 😳😳😳 eq, hash)]
-#[dewive(systemwabew)]
-e-enum mywabew {
-    /// e-evewything that h-handwes input
-    i-input, -.-
-    /// e-evewything that u-updates pwayew s-state
-    pwayew, ( ͡o ω ͡o )
-    /// e-evewything that moves things (wowks with twansfowms)
-    movement, rawr x3
-    /// s-systems that update the wowwd map
-    map, nyaa~~
-}
-
-f-fn main() {
-    app::new()
-        .add_pwugins(defauwtpwugins)
-
-        // u-use wabews, /(^•ω•^) because we want to have muwtipwe affected systems
-        .add_system(input_joystick.wabew(mywabew::input))
-        .add_system(input_keyboawd.wabew(mywabew::input))
-        .add_system(input_touch.wabew(mywabew::input))
-
-        .add_system(input_pawametews.befowe(mywabew::input))
-
-        .add_system(
-            p-pwayew_movement
-                .befowe(mywabew::map)
-                .aftew(mywabew::input)
-                // we can h-have muwtipwe wabews o-on this system
-                .wabew(mywabew::pwayew)
-                .wabew(mywabew::movement)
-                // can awso use woose stwings as wabews
-                .wabew("pwayew_movement")
-        )
-
-        // … and so on …
-
-        .wun();
-}</code></pre>
-<p>when you have muwtipwe systems with c-common wabews o-ow owdewing, OwO it m-may be
-convenient to use <a href="programming//programming/system-sets.html">system sets</a>.</p>
+<p>if you nyeed to appwy the same owdewing c-constwaints t-to many systems,
+considew using <a href="programming//programming/system-sets.html">system sets</a>.</p>
 <h2 id="ciwcuwaw-dependencies"><a class="header" href="#ciwcuwaw-dependencies">ciwcuwaw dependencies</a></h2>
 <p>if you have muwtipwe systems mutuawwy d-depending on e-each othew, OwO then i-it is
 cweawwy impossibwe to wesowve the s-situation compwetewy w-wike that.</p>

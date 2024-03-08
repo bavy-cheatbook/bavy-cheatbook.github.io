@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="system-owdew-of-execution"><a class="header" href="#system-owdew-of-execution">system owdew of execution</a></h1>
 <p>bevy's scheduwing awgowithm is designed t-to dewivew m-maximum pewfowmance
@@ -207,80 +207,29 @@ doesn't mattew if they get dewayed b-by a fwame. it m-might nyot be wowthwhiwe
 to bothew with it. OwO if you don't cawe, 🥺 w-weaving the o-owdew ambiguous m-may awso
 wesuwt in bettew pewfowmance.</p>
 <p>on the othew hand, ^•ﻌ•^ fow things wike h-handwing the pwayew i-input contwows,
-this wouwd wesuwt in annoying wag, ^•ﻌ•^ s-so you shouwd p-pwobabwy fix it.</p>
+this wouwd wesuwt in annoying wag o-ow wowse, OwO so you s-shouwd pwobabwy f-fix it.</p>
 <h2 id="expwicit-system-owdewing"><a class="header" href="#expwicit-system-owdewing">expwicit system owdewing</a></h2>
 <p>if a specific system must awways w-wun befowe ow aftew s-some othew systems,
 you can add owdewing constwaints:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
-    app::new()
-        .add_pwugins(defauwtpwugins)
+wet mut app = app::new();
+a-app.add_systems(update, σωσ (
+    e-enemy_movement, σωσ
+    i-input_handwing, &gt;_&lt;
 
-        // owdew d-doesn't mattew f-fow these systems:
-        .add_system(pawticwe_effects)
-        .add_system(npc_behaviows)
-        .add_system(enemy_movement)
+    p-pwayew_movement
+        // `pwayew_movement` m-must awways w-wun befowe `enemy_movement`
+        .befowe(enemy_movement)
+        // `pwayew_movement` m-must a-awways wun aftew `input_handwing`
+        .aftew(input_handwing), :3
 
-        .add_system(input_handwing)
-
-        .add_system(
-            p-pwayew_movement
-                // `pwayew_movement` m-must a-awways wun befowe `enemy_movement`
-                .befowe(enemy_movement)
-                // `pwayew_movement` m-must awways wun a-aftew `input_handwing`
-                .aftew(input_handwing)
-        )
-        .wun();
-}</code></pre>
+    // owdew doesn't mattew fow some systems:
+    pawticwe_effects, (U ﹏ U)
+    n-nypc_behaviows,
+));</code></pre>
 <p><code>.before</code>/<code>.after</code> may be used as many times as you n-nyeed on one system.</p>
-<h2 id="wabews"><a class="header" href="#wabews">wabews</a></h2>
-<p>fow mowe advanced use cases, (ꈍᴗꈍ) you c-can use <a href="/programming/labels.html">wabews</a>. XD wabews can
-eithew be stwings, &gt;_&lt; ow custom types (wike <code>enum</code>s) that dewive <code>SystemLabel</code>.</p>
-<p>this awwows you to affect muwtipwe s-systems at once, OwO w-with the same c-constwaints. 🥺
-you can pwace muwtipwe wabews on o-one system. OwO you c-can awso use the s-same wabew
-on muwtipwe systems.</p>
-<p>each wabew is a wefewence point that o-othew systems c-can be owdewed a-awound.</p>
-<pre><code class="language-rust no_run noplayground">
-#[dewive(debug, cwone, :3 copy, pawtiaweq, 😳😳😳 eq, hash)]
-#[dewive(systemwabew)]
-e-enum mywabew {
-    /// e-evewything that h-handwes input
-    i-input, -.-
-    /// e-evewything that u-updates pwayew s-state
-    pwayew, ( ͡o ω ͡o )
-    /// e-evewything that moves things (wowks with twansfowms)
-    movement, rawr x3
-    /// s-systems that update the wowwd map
-    map, nyaa~~
-}
-
-f-fn main() {
-    app::new()
-        .add_pwugins(defauwtpwugins)
-
-        // u-use wabews, /(^•ω•^) because we want to have muwtipwe affected systems
-        .add_system(input_joystick.wabew(mywabew::input))
-        .add_system(input_keyboawd.wabew(mywabew::input))
-        .add_system(input_touch.wabew(mywabew::input))
-
-        .add_system(input_pawametews.befowe(mywabew::input))
-
-        .add_system(
-            p-pwayew_movement
-                .befowe(mywabew::map)
-                .aftew(mywabew::input)
-                // we can h-have muwtipwe wabews o-on this system
-                .wabew(mywabew::pwayew)
-                .wabew(mywabew::movement)
-                // can awso use woose stwings as wabews
-                .wabew("pwayew_movement")
-        )
-
-        // … and so on …
-
-        .wun();
-}</code></pre>
-<p>when you have muwtipwe systems with c-common wabews o-ow owdewing, OwO it m-may be
-convenient to use <a href="/programming/system-sets.html">system sets</a>.</p>
+<p>if you nyeed to appwy the same owdewing c-constwaints t-to many systems,
+considew using <a href="/programming/system-sets.html">system sets</a>.</p>
 <h2 id="ciwcuwaw-dependencies"><a class="header" href="#ciwcuwaw-dependencies">ciwcuwaw dependencies</a></h2>
 <p>if you have muwtipwe systems mutuawwy d-depending on e-each othew, OwO then i-it is
 cweawwy impossibwe to wesowve the s-situation compwetewy w-wike that.</p>
