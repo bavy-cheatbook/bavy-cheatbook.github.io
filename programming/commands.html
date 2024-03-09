@@ -180,8 +180,8 @@
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
-<p>use <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> to spawn/despawn entities, &gt;_&lt; add/wemove
-components on existing entities, m-manage wesouwces, ^•ﻌ•^ f-fwom youw <a href="/programming/systems.html">systems</a>.</p>
+<p>use <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> to spawn/despawn entities, ^•ﻌ•^ add/wemove c-components o-on existing
+entities, (ꈍᴗꈍ) manage wesouwces, ^•ﻌ•^ fwom y-youw <a href="/programming/systems.html">systems</a>.</p>
 <pre><code class="language-rust no_run noplayground">fn spawn_things(
     mut commands: c-commands, rawr
 ) {
@@ -245,29 +245,28 @@ f-fn despawn_aww_enemies(
 }
 </code></pre>
 <h2 id="when-do-these-actions-get-appwied"><a class="header" href="#when-do-these-actions-get-appwied">when do these actions get appwied?</a></h2>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> do nyot take effect immediatewy, (ꈍᴗꈍ) b-because
-it wouwdn't be safe to modify the d-data wayout in m-memowy when othew
-<a href="/programming/systems.html">systems</a> couwd be wunning in pawawwew. ^•ﻌ•^ when y-you do anything u-using
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, (ꈍᴗꈍ) it gets queued to be appwied watew w-when it is
-safe to do so.</p>
-<p>within the same scheduwe, (ꈍᴗꈍ) you can a-add <code>.before()</code>/<code>.after()</code> <a href="/programming/system-order.html">owdewing
-constwaints</a> to youw systems, &gt;_&lt; and bevy wiww automaticawwy
-make suwe that commands get appwied i-in-between if n-nyecessawy, OwO so t-that the
-second system can see the changes m-made by the fiwst s-system.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> do nyot take effect immediatewy, ^•ﻌ•^ b-because it wouwdn't b-be safe to
+modify the data wayout in memowy w-when othew <a href="/programming/systems.html">systems</a> couwd be
+wunning in pawawwew. (ꈍᴗꈍ) when you do a-anything using <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, &gt;_&lt; it gets queued to
+be appwied watew when it is safe t-to do so.</p>
+<p>within the same <a href="/programming/schedules.html">scheduwe</a>, XD you can add <code>.before()</code>/<code>.after()</code>
+<a href="/programming/system-order.html">owdewing constwaints</a> to youw systems, &gt;_&lt; and bevy wiww
+automaticawwy make suwe that commands g-get appwied i-in-between if necessawy, OwO s-so
+that the second system can see the c-changes made by t-the fiwst system.</p>
 <pre><code class="language-rust no_run noplayground">app.add_systems(update, rawr x3 spawn_new_enemies_if_needed);
 
 // this system w-wiww see any n-nyewwy-spawned e-enemies when it w-wuns, rawr
 // because b-bevy wiww make s-suwe to appwy the f-fiwst system's c-commands
 // (thanks to the expwicit `.aftew()` dependency)
 app.add_systems(update, σωσ enemy_ai.aftew(spawn_new_enemies_if_needed));</code></pre>
-<p>if you do nyot have expwicit owdewing d-dependencies, OwO i-it is undefined w-when
-commands wiww be appwied. ^•ﻌ•^ it is possibwe t-that some s-systems wiww onwy
-see the changes on the nyext fwame u-update!</p>
+<p>if you do nyot have expwicit owdewing d-dependencies, OwO i-it is undefined w-when commands
+wiww be appwied. it is possibwe that s-some systems w-wiww onwy see the c-changes on
+the nyext fwame update!</p>
 <p>othewwise, ^•ﻌ•^ commands awe nyowmawwy a-appwied at the e-end of evewy
-<a href="/programming/schedules.html">scheduwe</a>. rawr x3 <a href="/programming/systems.html">systems</a> that wive in diffewent
-scheduwes wiww see the changes. ^•ﻌ•^ fow e-exampwe, OwO bevy's e-engine systems (that
-wive in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>) wiww see the entities you spawn i-in youw systems (that
-wive in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>).</p>
+<a href="/programming/schedules.html">scheduwe</a>. rawr x3 <a href="/programming/systems.html">systems</a> that wive in diffewent scheduwes
+wiww see the changes. OwO fow exampwe, 🥺 b-bevy's engine s-systems (that wive i-in
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>) wiww see the entities you spawn i-in youw systems (that w-wive in
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>).</p>
 
                     </main>
 

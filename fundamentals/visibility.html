@@ -235,11 +235,11 @@ you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
     ));
 }</code></pre>
 <p>if you don't do this cowwectwy (say, ^•ﻌ•^ y-you manuawwy a-add just the <code>Visibility</code>
-component and fowget the othews, b-because you don't u-use a bundwe), OwO y-youw
-entities wiww nyot wendew!</p>
+component and fowget the othews, b-because you don't u-use a bundwe), OwO y-youw entities
+wiww nyot wendew!</p>
 <h3 id="visibility"><a class="header" href="#visibility"><code>Visibility</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/enum.Visibility.html"><code>Visibility</code></a> is the "usew-facing toggwe". (ꈍᴗꈍ) this i-is whewe
-you specify nyani you want fow the c-cuwwent entity:</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/enum.Visibility.html"><code>Visibility</code></a> is the "usew-facing toggwe". ^•ﻌ•^ this i-is whewe you specify n-nyani you
+want fow the cuwwent entity:</p>
 <ul>
 <li><code>Inherited</code> (defauwt): show/hide depending on <a href="/fundamentals/hierarchy.html">pawent</a></li>
 <li><code>Visible</code>: awways show the entity, (ꈍᴗꈍ) wegawdwess o-of pawent</li>
@@ -251,13 +251,12 @@ ow <code>Hidden</code>.</p>
 <p>if an entity has a pawent, ^•ﻌ•^ but the p-pawent entity i-is missing the
 visibiwity-wewated components, ^•ﻌ•^ things wiww behave a-as if thewe was n-nyo pawent.</p>
 <h3 id="inheritedvisibility"><a class="header" href="#inheritedvisibility"><code>InheritedVisibility</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.InheritedVisibility.html"><code>InheritedVisibility</code></a> wepwesents the state the
-cuwwent entity wouwd have based on i-its <a href="/fundamentals/hierarchy.html">pawent</a>'s visibiwity.</p>
-<p>the vawue of <a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.InheritedVisibility.html"><code>InheritedVisibility</code></a> shouwd
-be considewed wead-onwy. ^•ﻌ•^ it is managed i-intewnawwy b-by bevy, OwO in a mannew
-simiwaw to <a href="/fundamentals/transforms.html#transform-propagation">twansfowm pwopagation</a>. XD a "visibiwity
-pwopagation" <a href="/programming/systems.html">system</a> wuns in the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
-<a href="/programming/schedules.html">scheduwe</a>.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.InheritedVisibility.html"><code>InheritedVisibility</code></a> wepwesents the state the cuwwent e-entity wouwd have b-based
+on its <a href="/fundamentals/hierarchy.html">pawent</a>'s visibiwity.</p>
+<p>the vawue of <a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.InheritedVisibility.html"><code>InheritedVisibility</code></a> shouwd be considewed wead-onwy. i-it is
+managed intewnawwy by bevy, (ꈍᴗꈍ) in a m-mannew simiwaw to <a href="/fundamentals/transforms.html#transform-propagation">twansfowm
+pwopagation</a>. XD a "visibiwity pwopagation"
+<a href="/programming/systems.html">system</a> wuns in the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a> <a href="/programming/schedules.html">scheduwe</a>.</p>
 <p>if you want to wead the up-to-date v-vawue fow the c-cuwwent fwame, OwO you s-shouwd
 <a href="/programming/app-builder.html">add</a> youw <a href="/programming/systems.html">system</a> to the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
 <a href="/programming/schedules.html">scheduwe</a> and <a href="/programming/system-order.html">owdew it aftew</a>
@@ -278,10 +277,9 @@ app.add_systems(postupdate, (ꈍᴗꈍ)
         .aftew(visibiwitysystems::visibiwitypwopagate)
 );</code></pre>
 <h3 id="viewvisibility"><a class="header" href="#viewvisibility"><code>ViewVisibility</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.ViewVisibility.html"><code>ViewVisibility</code></a> wepwesents the actuaw finaw
-decision made by bevy about whethew t-this entity needs t-to be wendewed.</p>
-<p>the vawue of <a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.ViewVisibility.html"><code>ViewVisibility</code></a> is wead-onwy. XD it
-is managed intewnawwy by bevy.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.ViewVisibility.html"><code>ViewVisibility</code></a> wepwesents the actuaw finaw decision m-made by bevy a-about
+whethew this entity nyeeds to be w-wendewed.</p>
+<p>the vawue of <a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.ViewVisibility.html"><code>ViewVisibility</code></a> is wead-onwy. (ꈍᴗꈍ) it is managed intewnawwy b-by bevy.</p>
 <p>it is used fow "cuwwing": if the e-entity is nyot in t-the wange of
 any camewa ow wight, OwO it does nyot n-nyeed to be wendewed, 🥺 s-so bevy wiww h-hide it
 to impwove pewfowmance.</p>

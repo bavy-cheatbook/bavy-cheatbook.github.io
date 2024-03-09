@@ -385,19 +385,17 @@ the twansition fow you.</p>
 <li>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnTransition.html"><code>OnTransition { from: old_state, to: new_state }</code></a> <a href="/programming/schedules.html">scheduwe</a> is wun.</li>
 <li>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter(new_state)</code></a> <a href="/programming/schedules.html">scheduwe</a> is wun.</li>
 </ul>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.StateTransitionEvent.html"><code>StateTransitionEvent</code></a> is usefuw in any
-<a href="/programming/systems.html">systems</a> that wun wegawdwess of state, ^•ﻌ•^ but w-want to know if a-a
-twansition has occuwwed. ^•ﻌ•^ you can u-use it to detect s-state twansitions.</p>
-<p>the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.StateTransition.html"><code>StateTransition</code></a> <a href="/programming/schedules.html">scheduwe</a> wuns
-aftew <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a> (which contains bevy engine intewnaws),
-but befowe <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> (<a href="/fundamentals/fixed-timestep.html">fixed timestep</a>)
-and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>, XD whewe youw game's <a href="/programming/systems.html">systems</a>
-usuawwy wive.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.StateTransitionEvent.html"><code>StateTransitionEvent</code></a> is usefuw in any <a href="/programming/systems.html">systems</a> that wun
+wegawdwess of state, OwO but want to k-know if a twansition h-has occuwwed. 🥺 y-you can use
+it to detect state twansitions.</p>
+<p>the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.StateTransition.html"><code>StateTransition</code></a> <a href="/programming/schedules.html">scheduwe</a> wuns aftew <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a> (which
+contains bevy engine intewnaws), b-but befowe <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> (<a href="/fundamentals/fixed-timestep.html">fixed
+timestep</a>) and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>, XD whewe youw game's
+<a href="/programming/systems.html">systems</a> usuawwy wive.</p>
 <p>thewefowe, OwO state twansitions happen b-befowe youw game w-wogic fow the c-cuwwent fwame.</p>
-<p>if doing state twansitions once pew f-fwame is nyot e-enough fow
-you, ^•ﻌ•^ you can add additionaw twansition p-points, by a-adding bevy's
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/fn.apply_state_transition.html"><code>apply_state_transition</code></a> <a href="/programming/systems.html">system</a>
-whewevew you wike.</p>
+<p>if doing state twansitions once pew f-fwame is nyot e-enough fow you, OwO y-you can add
+additionaw twansition points, (ꈍᴗꈍ) by a-adding bevy's <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/fn.apply_state_transition.html"><code>apply_state_transition</code></a>
+<a href="/programming/systems.html">system</a> whewevew you wike.</p>
 <pre><code class="language-rust no_run noplayground">// exampwe: awso do state twansitions f-fow mypausedstate
 // b-befowe m-mygamepwayset on e-each fixed timestep w-wun
 app.add_systems(
@@ -407,15 +405,13 @@ app.add_systems(
 );</code></pre>
 <h2 id="known-pitfawws"><a class="header" href="#known-pitfawws">known pitfawws</a></h2>
 <h3 id="system-set-configuwation-is-pew-scheduwe"><a class="header" href="#system-set-configuwation-is-pew-scheduwe">system set configuwation is pew-scheduwe!</a></h3>
-<p>this is the same genewaw caveat that a-appwies any t-time you configuwe [system sets][cb::set].</p>
+<p>this is the same genewaw caveat that a-appwies any t-time you configuwe <a href="/programming/system-sets.html">system sets</a>.</p>
 <p>note that <code>app.configure_sets()</code> is <em>pew-<a href="/programming/schedules.html">scheduwe</a>!</em> if you configuwe some sets
 in one <a href="/programming/schedules.html">scheduwe</a>, ^•ﻌ•^ that configuwation does nyot cawwy o-ovew to othew s-scheduwes.</p>
 <p>because states awe so scheduwe-heavy, OwO y-you have to b-be especiawwy cawefuw. 🥺 d-don't assume
 that just because you configuwed a-a set, ^•ﻌ•^ you can use i-it anywhewe.</p>
-<p>fow exampwe, &gt;_&lt; youw sets fwom <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>
-and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> wiww nyot wowk in
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnExit.html"><code>OnExit</code></a> fow youw vawious state
-twansitions.</p>
+<p>fow exampwe, &gt;_&lt; youw sets fwom <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a> and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> wiww nyot wowk in
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnExit.html"><code>OnExit</code></a> fow youw vawious state twansitions.</p>
 <h3 id="events"><a class="header" href="#events">events</a></h3>
 <p>this is the same genewaw caveat that a-appwies to any <a href="/programming/systems.html">systems</a> with
 <a href="/programming/run-criteria.html">wun conditions</a> that want to weceive <a href="/programming/events.html">events</a>.</p>

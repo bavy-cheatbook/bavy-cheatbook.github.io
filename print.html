@@ -414,16 +414,15 @@ hewpew fow genewic system abstwactions, ^•ﻌ•^ t-to avoid w-wifetime annota
 </ul>
 <p>in <a href="/programming/exclusive.html">excwusive systems</a>:</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.11.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>:
+<li>[<code>&amp;mut World</code>]:
 fuww <a href="/programming/world.html">diwect access to the ecs wowwd</a></li>
-<li><a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
+<li>[<code>Local&lt;T&gt;</code>]:
 data <a href="/programming/local.html">wocaw</a> to the system</li>
-<li><a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.SystemState.html"><code>&amp;mut SystemState&lt;P&gt;</code></a>:
+<li>[<code>&amp;mut SystemState&lt;P&gt;</code>][<code>SystemState</code>]:
 emuwates a weguwaw system, OwO awwowing y-you to easiwy a-access data fwom t-the wowwd.
 <code>P</code> awe the system pawametews.</li>
-<li><a href="https://docs.rs/bevy/0.11.0/bevy/ecs/query/struct.QueryState.html"><code>&amp;mut QueryState&lt;Q, F = ()&gt;</code></a>:
-awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a <a href="https://docs.rs/bevy/0.11.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a>
-in weguwaw systems.</li>
+<li>[<code>&amp;mut QueryState&lt;Q, F = ()&gt;</code>][<code>QueryState</code>]:
+awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a [<code>Query</code>] in weguwaw systems.</li>
 </ul>
 <p>youw function can have a maximum o-of 16 totaw pawametews. OwO i-if you need m-mowe,
 gwoup them into tupwes to wowk awound t-the wimit. OwO t-tupwes can contain u-up to
@@ -1894,7 +1893,7 @@ about additionaw extewnaw dev toows t-that may be hewpfuw.</p>
 <h2 id="nanis-nyext"><a class="header" href="#nanis-nyext">nani's nyext?</a></h2>
 <p>have a wook at the <a href="setup//tutorial.html">guided tutowiaw</a> page of this book,
 and bevy's <a href="https://github.com/bevyengine/bevy/tree/latest/examples#examples">officiaw exampwes</a>.</p>
-<p>check out the <a href="https://docs.rs/bevy/0.13.0/bevy/asset/struct.Assets.html">bevy assets website</a> to find othew tutowiaws
+<p>check out the <a href="https://bevyengine.org/assets">bevy assets website</a> to find othew tutowiaws
 and weawning wesouwces fwom the community, (ꈍᴗꈍ) a-and <a href="setup//setup/unofficial-plugins.html">pwugins</a>
 to use in youw pwoject.</p>
 <p>join the community on <a href="https://discord.gg/bevy">discowd</a> to chat with us!</p>
@@ -3054,19 +3053,17 @@ wet thing = thing.into_innew();</code></pre>
 you don't modify the data aftewwawds, OwO t-the component g-gets mawked as c-changed.</p>
 <h2 id="expwanation"><a class="header" href="#expwanation">expwanation</a></h2>
 <p>bevy typicawwy gives you access to y-youw data via s-speciaw wwappew t-types (wike
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, XD and <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.Mut.html"><code>Mut&lt;T&gt;</code></a>
-(when <a href="pitfalls//programming/queries.html">quewying</a> fow components mutabwy)). (ꈍᴗꈍ) this wets b-bevy twack
-access to the data.</p>
-<p>these awe "smawt pointew" types that u-use the wust <a href="https://doc.rust-lang.org/stable/std/ops/trait.Deref.html"><code>Deref</code></a>
-twait to dewefewence to youw data. OwO t-they usuawwy wowk s-seamwesswy and y-you
-don't even nyotice them.</p>
-<p>howevew, ^•ﻌ•^ in a sense, OwO they awe opaque t-to the compiwew. 🥺 t-the wust wanguage
-awwows fiewds of a stwuct to be bowwowed i-individuawwy, OwO w-when you have d-diwect
-access to the stwuct, OwO but this does n-nyot wowk when i-it is wwapped i-in anothew type.</p>
-<p>the "webowwow" twick shown above, ^•ﻌ•^ e-effectivewy convewts t-the wwappew
-into a weguwaw wust wefewence. &gt;<em>&lt; <code>*thing</code> dewefewences the wwappew via
-<a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>, XD and then <code>&amp;mut</code> bowwows it mutabwy. &gt;</em>&lt; you nyow have
-<code>&amp;mut MyStuff</code> instead of <code>Mut&lt;MyStuff&gt;</code>.</p>
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, XD and <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.Mut.html"><code>Mut&lt;T&gt;</code></a> (when <a href="pitfalls//programming/queries.html">quewying</a> fow
+components mutabwy)). ^•ﻌ•^ this wets bevy t-twack access t-to the data.</p>
+<p>these awe "smawt pointew" types that u-use the wust <a href="https://doc.rust-lang.org/stable/std/ops/trait.Deref.html"><code>Deref</code></a> twait to dewefewence
+to youw data. OwO they usuawwy wowk seamwesswy a-and you d-don't even nyotice t-them.</p>
+<p>howevew, OwO in a sense, 🥺 they awe opaque t-to the compiwew. òωó t-the wust wanguage a-awwows
+fiewds of a stwuct to be bowwowed i-individuawwy, OwO when y-you have diwect a-access to
+the stwuct, OwO but this does nyot wowk w-when it is wwapped i-in anothew t-type.</p>
+<p>the "webowwow" twick shown above, OwO e-effectivewy convewts t-the wwappew i-into a
+weguwaw wust wefewence. XD <code>*thing</code> dewefewences the wwappew via <a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>, XD and
+then <code>&amp;mut</code> bowwows it mutabwy. &gt;_&lt; you nyow have <code>&amp;mut MyStuff</code> instead of
+<code>Mut&lt;MyStuff&gt;</code>.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="pitfalls//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="bevy-time-vs-_-wustos-time"><a class="header" href="#bevy-time-vs-_-wustos-time">bevy time vs. &gt;_&lt; wust/os time</a></h1>
@@ -3078,8 +3075,8 @@ function. (ꈍᴗꈍ) howevew, ^•ﻌ•^ that's nyot nyani y-you want.</p>
 <p>youw game systems awe wun by bevy's p-pawawwew scheduwew, OwO w-which means t-that they
 couwd be cawwed at vastwy diffewent i-instants evewy f-fwame! OwO this wiww w-wesuwt in
 inconsistent / jittewy timings and m-make youw game m-misbehave ow wook s-stuttewy.</p>
-<p>bevy's <a href="https://docs.rs/bevy/0.13.0/bevy/time/struct.Time.html"><code>Time</code></a> gives you timing infowmation that i-is consistent
-thwoughout the fwame update cycwe. OwO i-it is intended t-to be used fow g-game wogic.</p>
+<p>bevy's <a href="https://docs.rs/bevy/0.13.0/bevy/time/struct.Time.html"><code>Time</code></a> gives you timing infowmation that i-is consistent t-thwoughout the
+fwame update cycwe. ^•ﻌ•^ it is intended t-to be used fow g-game wogic.</p>
 <p>this is nyot bevy-specific, OwO but appwies t-to game devewopment i-in genewaw. 🥺 a-awways
 get youw time fwom youw game engine, OwO n-nyot fwom youw p-pwogwamming wanguage o-ow
 opewating system.</p>
@@ -3244,13 +3241,12 @@ you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
     ));
 }</code></pre>
 <h3 id="transform"><a class="header" href="#transform"><code>Transform</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> is nyani you typicawwy wowk with. (ꈍᴗꈍ) i-it is
-a <code>struct</code> containing the twanswation, ^•ﻌ•^ wotation, OwO a-and scawe. 🥺 t-to wead ow
-manipuwate these vawues, (ꈍᴗꈍ) access it f-fwom youw <a href="fundamentals//programming/systems.html">systems</a> using a
-<a href="fundamentals//programming/queries.html">quewy</a>.</p>
-<p>if the entity has a <a href="fundamentals//fundamentals/hierarchy.html">pawent</a>, XD the <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>
-component is wewative to the pawent. OwO t-this means that t-the chiwd object w-wiww
-move/wotate/scawe awong with the pawent.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> is nyani you typicawwy wowk with. (ꈍᴗꈍ) i-it is a <code>struct</code> containing the
+twanswation, OwO wotation, 🥺 and scawe. òωó t-to wead ow manipuwate t-these vawues, o.O a-access it
+fwom youw <a href="fundamentals//programming/systems.html">systems</a> using a <a href="fundamentals//programming/queries.html">quewy</a>.</p>
+<p>if the entity has a <a href="fundamentals//fundamentals/hierarchy.html">pawent</a>, XD the <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> component is
+wewative to the pawent. ^•ﻌ•^ this means t-that the chiwd o-object wiww move/wotate/scawe
+awong with the pawent.</p>
 <pre><code class="language-rust no_run noplayground">fn infwate_bawwoons(
     mut quewy: q-quewy&lt;&amp;mut twansfowm, &gt;_&lt; w-with&lt;bawwoon&gt;&gt;, rawr x3
     k-keyboawd: w-wes&lt;buttoninput&lt;keycode&gt;&gt;, mya
@@ -3277,19 +3273,18 @@ fn thwowabwe_fwy(
     }
 }</code></pre>
 <h3 id="globaltransform"><a class="header" href="#globaltransform"><code>GlobalTransform</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> wepwesents the absowute gwobaw
-position in the wowwd.</p>
-<p>if the entity does nyot have a <a href="fundamentals//fundamentals/hierarchy.html">pawent</a>, &gt;_&lt; then this wiww match
-the <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>.</p>
-<p>the vawue of <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is cawcuwated/managed
-intewnawwy by bevy (<a href="fundamentals/transforms.html#transform-propagation">"twansfowm pwopagation"</a>).</p>
-<p>unwike <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, &gt;_&lt; the twanswation/wotation/scawe awe nyot
-accessibwe diwectwy. ^•ﻌ•^ the data is s-stowed in an optimized w-way (using <code>Affine3A</code>)
-and it is possibwe to have compwex t-twansfowmations i-in a hiewawchy t-that cannot
-be wepwesented as a simpwe twansfowm. OwO f-fow exampwe, 🥺 a-a combination o-of wotation
-and scawe acwoss muwtipwe pawents, (ꈍᴗꈍ) w-wesuwting in sheawing.</p>
-<p>if you want to twy to convewt a <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> back
-into a wowkabwe twanswation/wotation/scawe wepwesentation, ^•ﻌ•^ y-you can t-twy the methods:</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> wepwesents the absowute gwobaw position i-in the wowwd.</p>
+<p>if the entity does nyot have a <a href="fundamentals//fundamentals/hierarchy.html">pawent</a>, &gt;_&lt; then this wiww match the
+<a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>.</p>
+<p>the vawue of <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is cawcuwated/managed intewnawwy b-by bevy
+(<a href="fundamentals/transforms.html#transform-propagation">"twansfowm pwopagation"</a>).</p>
+<p>unwike <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, &gt;_&lt; the twanswation/wotation/scawe awe nyot accessibwe
+diwectwy. (ꈍᴗꈍ) the data is stowed in an o-optimized way (using <a href="https://docs.rs/bevy/0.13.0/bevy/math/struct.Affine3A.html"><code>Affine3A</code></a>) and it is
+possibwe to have compwex twansfowmations i-in a hiewawchy t-that cannot b-be
+wepwesented as a simpwe twansfowm. OwO f-fow exampwe, 🥺 a c-combination of w-wotation and
+scawe acwoss muwtipwe pawents, (ꈍᴗꈍ) wesuwting i-in sheawing.</p>
+<p>if you want to twy to convewt a <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> back into a wowkabwe
+twanswation/wotation/scawe wepwesentation, (ꈍᴗꈍ) you can t-twy the methods:</p>
 <ul>
 <li><code>.translation()</code></li>
 <li><code>.to_scale_rotation_translation()</code> (may be invawid)</li>
@@ -3297,16 +3292,13 @@ into a wowkabwe twanswation/wotation/scawe wepwesentation, ^•ﻌ•^ y-you can
 </ul>
 <h2 id="twansfowm-pwopagation"><a class="header" href="#twansfowm-pwopagation">twansfowm pwopagation</a></h2>
 <p>the two components awe synchwonized b-by a bevy-intewnaw s-system (the "twansfowm
-pwopagation system"), (ꈍᴗꈍ) which wuns i-in the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
-<a href="fundamentals//programming/schedules.html">scheduwe</a>.</p>
-<p>bewawe: when you mutate the <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, XD the
-<a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is nyot updated immediatewy. &gt;_&lt; they
-wiww be out-of-sync untiw the twansfowm p-pwopagation s-system wuns.</p>
-<p>if you nyeed to wowk with <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>
-diwectwy, XD you shouwd <a href="fundamentals//programming/app-builder.html">add</a> youw
-<a href="fundamentals//programming/systems.html">system</a> to the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
-<a href="fundamentals//programming/schedules.html">scheduwe</a> and <a href="fundamentals//programming/system-order.html">owdew it aftew</a>
-<a href="https://docs.rs/bevy/0.13.0/bevy/transform/enum.TransformSystem.html"><code>TransformSystem::TransformPropagate</code></a>.</p>
+pwopagation system"), (ꈍᴗꈍ) which wuns i-in the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a> <a href="fundamentals//programming/schedules.html">scheduwe</a>.</p>
+<p>bewawe: when you mutate the <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>, XD the <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> is nyot
+updated immediatewy. OwO they wiww be o-out-of-sync untiw t-the twansfowm p-pwopagation
+system wuns.</p>
+<p>if you nyeed to wowk with <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> diwectwy, XD you shouwd <a href="fundamentals//programming/app-builder.html">add</a>
+youw <a href="fundamentals//programming/systems.html">system</a> to the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a> <a href="fundamentals//programming/schedules.html">scheduwe</a> and
+<a href="fundamentals//programming/system-order.html">owdew it aftew</a> <a href="https://docs.rs/bevy/0.13.0/bevy/transform/enum.TransformSystem.html"><code>TransformSystem::TransformPropagate</code></a>.</p>
 <pre><code class="language-rust no_run noplayground">/// pwint the up-to-date gwobaw coowdinates o-of the p-pwayew
 fn debug_gwobawtwansfowm(
     q-quewy: quewy&lt;&amp;gwobawtwansfowm, ( ͡o ω ͡o ) w-with&lt;pwayew&gt;&gt;, UwU
@@ -3324,17 +3316,16 @@ a-app.add_systems(postupdate, UwU
         .aftew(twansfowmsystem::twansfowmpwopagate)
 );</code></pre>
 <h2 id="transformhelper"><a class="header" href="#transformhelper"><code>TransformHelper</code></a></h2>
-<p>if you nyeed to get an up-to-date <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>
-in a <a href="fundamentals//programming/systems.html">system</a> that has to wun befowe twansfowm p-pwopagation,
-you can use the speciaw <a href="https://docs.rs/bevy/0.13.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a> system pawametew.</p>
-<p>it awwows you to compute a specific e-entity's
-<a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> immediatewy, &gt;_&lt; on demand.</p>
-<p>an exampwe of whewe this couwd be u-usefuw might be a-a system to make
-a camewa fowwow an entity on-scween. ^•ﻌ•^ y-you nyeed to u-update the camewa's
-<a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> (which means you have to do it befowe b-bevy's
-twansfowm pwopagation, ^•ﻌ•^ so it can a-account fow the c-camewa's nyew twansfowm),
-but you awso nyeed to know the cuwwent u-up-to-date p-position of the e-entity you
-awe fowwowing.</p>
+<p>if you nyeed to get an up-to-date <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> in a <a href="fundamentals//programming/systems.html">system</a>
+that has to wun befowe twansfowm p-pwopagation, ^•ﻌ•^ you c-can use the speciaw
+<a href="https://docs.rs/bevy/0.13.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a> system pawametew.</p>
+<p>it awwows you to compute a specific e-entity's <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a> immediatewy, XD on
+demand.</p>
+<p>an exampwe of whewe this couwd be u-usefuw might be a-a system to make a-a camewa
+fowwow an entity on-scween. ^•ﻌ•^ you need t-to update the c-camewa's <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> (which
+means you have to do it befowe bevy's t-twansfowm pwopagation, OwO s-so it c-can account
+fow the camewa's nyew twansfowm), OwO b-but you awso nyeed t-to know the c-cuwwent
+up-to-date position of the entity y-you awe fowwowing.</p>
 <pre><code class="language-rust no_run noplayground">fn camewa_wook_fowwow(
     q_tawget: q-quewy&lt;entity, 😳 w-with&lt;myspeciawmawkew&gt;&gt;, XD
     m-mut t-twansfowm_pawams: p-pawamset&lt;(
@@ -3352,19 +3343,17 @@ awe fowwowing.</p>
     // g-get camewa twansfowm and make i-it wook at the g-gwobaw twanswation
     twansfowm_pawams.p1().singwe_mut().wook_at(gwobaw.twanswation(), rawr x3 vec3::y);
 }</code></pre>
-<p>intewnawwy, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a> behaves wike two
-wead-onwy <a href="fundamentals//programming/queries.html">quewies</a>. &gt;<em>&lt; it nyeeds access to the <a href="https://docs.rs/bevy/0.13.0/bevy/hierarchy/struct.Parent.html"><code>Parent</code></a>
-and <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> components to do its job. &gt;</em>&lt; it wouwd
-confwict with ouw othew <code>&amp;mut Transform</code> quewy. (ꈍᴗꈍ) that's why we have to use a-a
-<a href="fundamentals//programming/paramset.html">pawam set</a> in the exampwe above.</p>
-<p>note: if you ovew-use <a href="https://docs.rs/bevy/0.13.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a>, XD it
-couwd become a pewfowmance issue. ^•ﻌ•^ i-it cawcuwates the g-gwobaw twansfowm
-fow you, ^•ﻌ•^ but it does nyot update t-the data stowed i-in the entity's
-<a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>. &gt;_&lt; bevy wiww stiww do the same
+<p>intewnawwy, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a> behaves wike two wead-onwy <a href="fundamentals//programming/queries.html">quewies</a>.
+it nyeeds access to the <a href="https://docs.rs/bevy/0.13.0/bevy/hierarchy/struct.Parent.html"><code>Parent</code></a> and <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> components to do its job. &gt;<em>&lt; it
+wouwd confwict with ouw othew <code>&amp;mut Transform</code> quewy. &gt;</em>&lt; that's why we have to use
+a <a href="fundamentals//programming/paramset.html">pawam set</a> in the exampwe above.</p>
+<p>note: if you ovew-use <a href="https://docs.rs/bevy/0.13.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a>, &gt;<em>&lt; it couwd become a pewfowmance issue.
+it cawcuwates the gwobaw twansfowm f-fow you, OwO but it d-does nyot update t-the data
+stowed in the entity's <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.GlobalTransform.html"><code>GlobalTransform</code></a>. &gt;</em>&lt; bevy wiww stiww do the same
 computation again watew, OwO duwing twansfowm p-pwopagation. 🥺 i-it weads to w-wepetitive
-wowk. OwO if youw system can wun aftew t-twansfowm pwopagation, 🥺 s-so it can j-just
-wead the vawue aftew bevy updates i-it, OwO you shouwd p-pwefew to do that i-instead
-of using <a href="https://docs.rs/bevy/0.13.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a>.</p>
+wowk. OwO if youw system can wun aftew t-twansfowm pwopagation, 🥺 s-so it can j-just wead
+the vawue aftew bevy updates it, y-you shouwd pwefew t-to do that instead o-of using
+<a href="https://docs.rs/bevy/0.13.0/bevy/transform/helper/struct.TransformHelper.html"><code>TransformHelper</code></a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="fundamentals//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="visibiwity"><a class="header" href="#visibiwity">visibiwity</a></h1>
@@ -3426,11 +3415,11 @@ you can use one of the fowwowing t-to ensuwe you don't m-miss them:</p>
     ));
 }</code></pre>
 <p>if you don't do this cowwectwy (say, ^•ﻌ•^ y-you manuawwy a-add just the <code>Visibility</code>
-component and fowget the othews, b-because you don't u-use a bundwe), OwO y-youw
-entities wiww nyot wendew!</p>
+component and fowget the othews, b-because you don't u-use a bundwe), OwO y-youw entities
+wiww nyot wendew!</p>
 <h3 id="visibility"><a class="header" href="#visibility"><code>Visibility</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/enum.Visibility.html"><code>Visibility</code></a> is the "usew-facing toggwe". (ꈍᴗꈍ) this i-is whewe
-you specify nyani you want fow the c-cuwwent entity:</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/enum.Visibility.html"><code>Visibility</code></a> is the "usew-facing toggwe". ^•ﻌ•^ this i-is whewe you specify n-nyani you
+want fow the cuwwent entity:</p>
 <ul>
 <li><code>Inherited</code> (defauwt): show/hide depending on <a href="fundamentals//fundamentals/hierarchy.html">pawent</a></li>
 <li><code>Visible</code>: awways show the entity, (ꈍᴗꈍ) wegawdwess o-of pawent</li>
@@ -3442,13 +3431,12 @@ ow <code>Hidden</code>.</p>
 <p>if an entity has a pawent, ^•ﻌ•^ but the p-pawent entity i-is missing the
 visibiwity-wewated components, ^•ﻌ•^ things wiww behave a-as if thewe was n-nyo pawent.</p>
 <h3 id="inheritedvisibility"><a class="header" href="#inheritedvisibility"><code>InheritedVisibility</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.InheritedVisibility.html"><code>InheritedVisibility</code></a> wepwesents the state the
-cuwwent entity wouwd have based on i-its <a href="fundamentals//fundamentals/hierarchy.html">pawent</a>'s visibiwity.</p>
-<p>the vawue of <a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.InheritedVisibility.html"><code>InheritedVisibility</code></a> shouwd
-be considewed wead-onwy. ^•ﻌ•^ it is managed i-intewnawwy b-by bevy, OwO in a mannew
-simiwaw to <a href="fundamentals//fundamentals/transforms.html#transform-propagation">twansfowm pwopagation</a>. XD a "visibiwity
-pwopagation" <a href="fundamentals//programming/systems.html">system</a> wuns in the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
-<a href="fundamentals//programming/schedules.html">scheduwe</a>.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.InheritedVisibility.html"><code>InheritedVisibility</code></a> wepwesents the state the cuwwent e-entity wouwd have b-based
+on its <a href="fundamentals//fundamentals/hierarchy.html">pawent</a>'s visibiwity.</p>
+<p>the vawue of <a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.InheritedVisibility.html"><code>InheritedVisibility</code></a> shouwd be considewed wead-onwy. i-it is
+managed intewnawwy by bevy, (ꈍᴗꈍ) in a m-mannew simiwaw to <a href="fundamentals//fundamentals/transforms.html#transform-propagation">twansfowm
+pwopagation</a>. XD a "visibiwity pwopagation"
+<a href="fundamentals//programming/systems.html">system</a> wuns in the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a> <a href="fundamentals//programming/schedules.html">scheduwe</a>.</p>
 <p>if you want to wead the up-to-date v-vawue fow the c-cuwwent fwame, OwO you s-shouwd
 <a href="fundamentals//programming/app-builder.html">add</a> youw <a href="fundamentals//programming/systems.html">system</a> to the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>
 <a href="fundamentals//programming/schedules.html">scheduwe</a> and <a href="fundamentals//programming/system-order.html">owdew it aftew</a>
@@ -3469,10 +3457,9 @@ app.add_systems(postupdate, (ꈍᴗꈍ)
         .aftew(visibiwitysystems::visibiwitypwopagate)
 );</code></pre>
 <h3 id="viewvisibility"><a class="header" href="#viewvisibility"><code>ViewVisibility</code></a></h3>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.ViewVisibility.html"><code>ViewVisibility</code></a> wepwesents the actuaw finaw
-decision made by bevy about whethew t-this entity needs t-to be wendewed.</p>
-<p>the vawue of <a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.ViewVisibility.html"><code>ViewVisibility</code></a> is wead-onwy. XD it
-is managed intewnawwy by bevy.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.ViewVisibility.html"><code>ViewVisibility</code></a> wepwesents the actuaw finaw decision m-made by bevy a-about
+whethew this entity nyeeds to be w-wendewed.</p>
+<p>the vawue of <a href="https://docs.rs/bevy/0.13.0/bevy/render/view/struct.ViewVisibility.html"><code>ViewVisibility</code></a> is wead-onwy. (ꈍᴗꈍ) it is managed intewnawwy b-by bevy.</p>
 <p>it is used fow "cuwwing": if the e-entity is nyot in t-the wange of
 any camewa ow wight, OwO it does nyot n-nyeed to be wendewed, 🥺 s-so bevy wiww h-hide it
 to impwove pewfowmance.</p>
@@ -3907,11 +3894,11 @@ app.add_systems(fixedupdate, (⑅˘꒳˘) (
     enemy_ai, -.-
     g-gamepway_simuwation, ^^;;
 ));</code></pre>
-<p>evewy fwame update, (ꈍᴗꈍ) bevy wiww wun t-the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>
-scheduwe as many times as nyeeded t-to catch up. if t-the game is wunning s-swow,
-it might wun muwtipwe times. OwO if the g-game is wunning f-fast, 🥺 it might b-be skipped.</p>
-<p>this happens befowe the weguwaw <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a> scheduwe wuns fow that fwame,
-but aftew <a href="fundamentals//programming/states.html">state twansitions</a>.</p>
+<p>evewy fwame update, (ꈍᴗꈍ) bevy wiww wun t-the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> scheduwe as many times as
+needed to catch up. OwO if the game is w-wunning swow, 🥺 i-it might wun muwtipwe t-times. òωó if
+the game is wunning fast, (ꈍᴗꈍ) it might b-be skipped.</p>
+<p>this happens befowe the weguwaw <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a> scheduwe wuns fow that fwame, &gt;_&lt; but
+aftew <a href="fundamentals//programming/states.html">state twansitions</a>.</p>
 <p>the defauwt fixed timestep intewvaw i-is 64 hz. OwO if y-you want something e-ewse,
 you can configuwe it as fowwows:</p>
 <pre><code class="language-rust no_run noplayground">// set the fixed timestep intewvaw t-to 96 hz
@@ -3921,9 +3908,9 @@ app.insewt_wesouwce(time::&lt;fixed&gt;::fwom_hz(96.0));
 a-app.insewt_wesouwce(time::&lt;fixed&gt;::fwom_seconds(0.25));</code></pre>
 <h2 id="checking-the-time"><a class="header" href="#checking-the-time">checking the time</a></h2>
 <p>just use <a href="https://docs.rs/bevy/0.13.0/bevy/time/struct.Time.html"><code>Res&lt;Time&gt;</code></a> as nyowmaw. (ꈍᴗꈍ) when youw system is w-wunning in
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, (ꈍᴗꈍ) bevy wiww automaticawwy detect t-that,
-and aww the timing infowmation (such a-as dewta) wiww w-wepwesent the f-fixed
-timestep instead of the dispway fwame w-wate.</p>
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, ^•ﻌ•^ bevy wiww automaticawwy detect t-that, OwO and aww the t-timing
+infowmation (such as dewta) wiww wepwesent the fixed t-timestep instead o-of the
+dispway fwame wate.</p>
 <pre><code class="language-rust no_run noplayground">fn pwint_time_dewta(time: wes&lt;time&gt;) {
     // i-if w-we add this system t-to `update`, (˘ω˘) t-this wiww pwint t-the time dewta
     // b-between subsequent f-fwames (the d-dispway fwame wate)
@@ -3989,23 +3976,22 @@ you awso have game mechanics that n-nyeed to wespond t-to it.</p>
 <p>the most ewegant sowution to both o-of these pwobwems i-is to handwe s-synchonization
 youwsewf using custom types.</p>
 <h4 id="movement"><a class="header" href="#movement">movement</a></h4>
-<p>fow pwayew (and othew) movement, y-you couwd cweate y-youw own custom c-component
-type to use instead of <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>. &gt;<em>&lt; impwement youw pwayew
-movement using youw own types. ^•ﻌ•^ then h-have a system i-in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>
-to sync/update <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> fwom that, &gt;</em>&lt; with some
-intewpowation to make it wook smooth.</p>
+<p>fow pwayew (and othew) movement, y-you couwd cweate y-youw own custom c-component type
+to use instead of <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a>. (ꈍᴗꈍ) impwement youw pwayew movement u-using youw own
+types. &gt;_&lt; then have a system in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a> to sync/update <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> fwom that,
+with some intewpowation to make it w-wook smooth.</p>
 <pre><code class="language-rust no_run noplayground">// todo show how to do this</code></pre>
 <h4 id="input-handwing"><a class="header" href="#input-handwing">input handwing</a></h4>
-<p>if you use <code>Res&lt;ButtonInput&lt;...&gt;&gt;</code> and <code>.just_pressed</code>/<code>.just_released</code>
-to check fow key/button pwesses, b-bewawe that the s-state is updated o-once pew
-fwame. (ꈍᴗꈍ) this api is nyot wewiabwe i-inside <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>. XD use
-<a href="fundamentals//programming/events.html">events</a> fow input handwing instead, (ꈍᴗꈍ) ow woww y-youw own abstwactions.</p>
-<p>one way to do this is to put youw i-input handwing s-systems
-in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a>, &gt;_&lt; owdew them aftew the
-<a href="https://docs.rs/bevy/0.13.0/bevy/input/struct.InputSystem.html"><code>bevy::input::InputSystem</code></a> <a href="fundamentals//programming/system-sets.html">set</a>, XD and do
-youw input handwing thewe. ^•ﻌ•^ convewt i-it into youw own c-custom <a href="fundamentals//programming/events.html">event</a>
-types ow some othew usefuw wepwesentation, OwO w-which y-you can then handwe f-fwom
-youw gamepway code in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>.</p>
+<p>if you use <a href="https://docs.rs/bevy/0.13.0/bevy/input/struct.ButtonInput.html"><code>Res&lt;ButtonInput&lt;...&gt;&gt;</code></a> and
+<code>.just_pressed</code>/<code>.just_released</code> to check fow key/button pwesses, (ꈍᴗꈍ) b-bewawe that
+the state is updated once pew fwame. ^•ﻌ•^ t-this api is n-nyot wewiabwe inside
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>. XD use <a href="fundamentals//programming/events.html">events</a> fow input handwing instead, &gt;_&lt; ow woww
+youw own abstwactions.</p>
+<p>one way to do this is to put youw i-input handwing s-systems in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a>, XD owdew
+them aftew bevy's <a href="https://docs.rs/bevy/0.13.0/bevy/input/struct.InputSystem.html"><code>InputSystem</code></a> <a href="fundamentals//programming/system-sets.html">set</a>, XD and do youw input
+handwing thewe. (ꈍᴗꈍ) convewt it into youw o-own custom <a href="fundamentals//programming/events.html">event</a> types ow some
+othew usefuw wepwesentation, OwO which y-you can then handwe f-fwom youw g-gamepway code
+in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>.</p>
 <pre><code class="language-rust no_run noplayground">// todo show how to do this</code></pre>
 <h2 id="timing-caveats"><a class="header" href="#timing-caveats">timing caveats</a></h2>
 <p>fixed timestep does nyot wun in weaw-wowwd t-time! OwO y-you cannot wewy o-on it fow timing!</p>
@@ -4024,8 +4010,8 @@ wiww skip the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.htm
 <li>if the dispway fwame wate is swowew t-than the timestep, OwO s-some fwame u-update cycwes
 wiww wun the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> muwtipwe times.</li>
 </ul>
-<p>in any case, XD <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> wiww wun wight befowe [<code>Update</code>], XD whewe
-youw pew-fwame systems wive.</p>
+<p>in any case, XD <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> wiww wun wight befowe
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>, &gt;_&lt; whewe youw pew-fwame systems wive.</p>
 <h2 id="additionaw-scheduwes"><a class="header" href="#additionaw-scheduwes">additionaw scheduwes</a></h2>
 <p><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> is actuawwy pawt of a wawgew <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a>
 <a href="fundamentals//programming/schedules.html">scheduwe</a>, &gt;_&lt; which awso contains othew <a href="fundamentals//programming/schedules.html">scheduwes</a>:</p>
@@ -4036,9 +4022,9 @@ youw pew-fwame systems wive.</p>
 <li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedPostUpdate.html"><code>FixedPostUpdate</code></a></li>
 <li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedLast.html"><code>FixedLast</code></a></li>
 </ul>
-<p>they awe anawogous to the <a href="fundamentals//programming/schedules.html">scheduwes</a> in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a>,
-that wun evewy fwame update. ^•ﻌ•^ they c-can be used fow a-anawogous puwposes (to
-contain "engine systems" fwom bevy and pwugins).</p>
+<p>they awe anawogous to the <a href="fundamentals//programming/schedules.html">scheduwes</a> in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a>, XD that wun evewy
+fwame update. ^•ﻌ•^ they can be used fow a-anawogous puwposes (to c-contain "engine
+systems" fwom bevy and pwugins).</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="fundamentals//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="gizmos"><a class="header" href="#gizmos">gizmos</a></h1>
@@ -5983,9 +5969,9 @@ knowing the cuwsow position.</p>
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/window/clear_color.rs"><code>clear_color</code></a>.</p>
 <hr />
-<p>use the <a href="https://docs.rs/bevy/0.13.0/bevy/render/camera/struct.ClearColor.html"><code>ClearColor</code></a> <a href="window//programming/res.html">wesouwce</a> to choose the
-defauwt backgwound cowow. OwO this cowow w-wiww be used a-as the defauwt f-fow aww
-<a href="window//graphics/camera.html">camewas</a>, XD unwess ovewwiden.</p>
+<p>use the <a href="https://docs.rs/bevy/0.13.0/bevy/render/camera/struct.ClearColor.html"><code>ClearColor</code></a> <a href="window//programming/res.html">wesouwce</a> to choose the defauwt backgwound
+cowow. ^•ﻌ•^ this cowow wiww be used as t-the defauwt fow a-aww <a href="window//graphics/camera.html">camewas</a>,
+unwess ovewwiden.</p>
 <p>note that the window wiww be bwack i-if nyo camewas e-exist. OwO you must s-spawn at
 weast one camewa.</p>
 <pre><code class="language-rust no_run noplayground">fn setup(
@@ -6003,8 +5989,8 @@ f-fn main() {
         .add_systems(stawtup, rawr x3 setup)
         .wun();
 }</code></pre>
-<p>to ovewwide the defauwt and use a d-diffewent cowow f-fow a specific c-camewa,
-you can set it using the <a href="https://docs.rs/bevy/0.13.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a> <a href="window//programming/ec.html#components">component</a>.</p>
+<p>to ovewwide the defauwt and use a d-diffewent cowow f-fow a specific c-camewa, OwO you can
+set it using the <a href="https://docs.rs/bevy/0.13.0/bevy/render/camera/struct.Camera.html"><code>Camera</code></a> <a href="window//programming/ec.html#components">component</a>.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::wendew::camewa::cweawcowowconfig;
 
 // configuwe the backgwound c-cowow (if a-any), mya fow a specific c-camewa (3d)
@@ -6027,11 +6013,10 @@ commands.spawn(camewa2dbundwe {
     }, -.-
     ..defauwt::defauwt()
 });</code></pre>
-<p>aww of these wocations (the components o-on specific c-camewas, ^•ﻌ•^ the gwobaw
-defauwt wesouwce) can be mutated a-at wuntime, OwO and b-bevy wiww use youw n-nyew cowow.
-changing the defauwt cowow using t-the wesouwce wiww a-appwy the nyew c-cowow to aww
-existing camewas that do nyot specify a-a custom cowow, ^•ﻌ•^ n-nyot just nyewwy-spawned
-camewas.</p>
+<p>aww of these wocations (the components o-on specific c-camewas, OwO the gwobaw d-defauwt
+wesouwce) can be mutated at wuntime, OwO a-and bevy wiww u-use youw nyew c-cowow. 🥺 changing
+the defauwt cowow using the wesouwce w-wiww appwy the n-nyew cowow to a-aww existing
+camewas that do not specify a custom c-cowow, OwO nyot j-just nyewwy-spawned c-camewas.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="window//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="gwabbing-the-mouse"><a class="header" href="#gwabbing-the-mouse">gwabbing the mouse</a></h1>
@@ -6040,6 +6025,15 @@ camewas.</p>
 <hr />
 <p>fow some genwes of games, OwO you want t-to the mouse to b-be westwicted t-to the window,
 to pwevent it fwom weaving the window d-duwing gamepway.</p>
+<p>thewe awe two vawiations on this b-behaviow (<a href="https://docs.rs/bevy/0.13.0/bevy/window/enum.CursorGrabMode.html"><code>CursorGrabMode</code></a>):</p>
+<ul>
+<li><code>Confined</code> awwows the cuwsow to be moved, OwO but o-onwy within the b-bounds of the w-window.</li>
+<li><code>Locked</code> fixes the cuwsow in pwace and does n-nyot awwow it t-to move.
+<ul>
+<li>wewative <a href="window//input/mouse.html#mouse-motion">mouse motion</a> <a href="window//programming/events.html">events</a> stiww wowk.</li>
+</ul>
+</li>
+</ul>
 <p>to gwab the cuwsow:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::window::{cuwsowgwabmode, 😳 pwimawywindow};
 
@@ -6137,8 +6131,7 @@ fn main() {
         .add_systems(stawtup, rawr x3 set_window_icon)
         .wun();
 }</code></pre>
-<p>note: that <a href="https://docs.rs/bevy/0.13.0/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a> is a <a href="window//programming/non-send.html">non-send
-wesouwce</a>.</p>
+<p>note: that <a href="https://docs.rs/bevy/0.13.0/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a> is a <a href="window//programming/non-send.html">non-send wesouwce</a>.</p>
 <p>note: you nyeed to add <code>winit</code> and <code>image</code> to youw pwoject's dependencies,
 and they must be the same vewsions a-as used by bevy. OwO a-as of bevy 0.13, 🥺 t-that
 shouwd be <code>winit = "0.29"</code> and <code>image = "0.24"</code>. &gt;<em>&lt; if you don't know which
@@ -6196,8 +6189,8 @@ even if you awe stiww howding some w-weak handwes.</p>
 <p>bevy awso has a <a href="https://docs.rs/bevy/0.9.1/bevy/asset/struct.HandleUntyped.html"><code>HandleUntyped</code></a> type. XD use this type
 of handwe if you nyeed to be abwe t-to wefew to any a-asset, OwO wegawdwess o-of the
 asset type.</p>
-<p>this awwows you to stowe a cowwection (such a-as <a href="https://doc.rust-lang.org/stable/std/vec/struct.Vec.html"><code>Vec</code></a> ow
-<a href="https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html"><code>HashMap</code></a>) containing assets of mixed types.</p>
+<p>this awwows you to stowe a cowwection (such a-as <a href="https://doc.rust-lang.org/stable/std/vec/struct.Vec.html"><code>Vec</code></a> ow <a href="https://doc.rust-lang.org/stable/std/collections/struct.HashMap.html"><code>HashMap</code></a>)
+containing assets of mixed types.</p>
 <p>you can cweate an untyped handwe u-using <code>.clone_untyped()</code> on an existing
 handwe.</p>
 <p>just wike weguwaw handwes, ^•ﻌ•^ untyped h-handwes can be s-stwong ow weak.</p>
@@ -6739,11 +6732,10 @@ monowithic <code>struct Player</code> containing aww the fiewds / pwopewties o-o
 in bevy, OwO this is considewed bad pwactice, 🥺 b-because d-doing it that way c-can make it
 mowe difficuwt to wowk with youw d-data and wimit pewfowmance. OwO i-instead, 🥺 y-you shouwd
 make things gwanuwaw, OwO when diffewent p-pieces of data m-may be accessed i-independentwy.</p>
-<p>fow exampwe, ^•ﻌ•^ wepwesent the pwayew i-in youw game as a-an entity, composed
-of sepawate component types (sepawate <code>struct</code>s) fow things wike the
-heawth, ^•ﻌ•^ xp, ow nyanievew is wewevant t-to youw game. OwO y-you can awso attach
-standawd bevy components wike <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> (<a href="programming//fundamentals/transforms.html">twansfowms
-expwained</a>) to it.</p>
+<p>fow exampwe, OwO wepwesent the pwayew i-in youw game as a-an entity, composed o-of
+sepawate component types (sepawate <code>struct</code>s) fow things wike the heawth, (ꈍᴗꈍ) xp, ^•ﻌ•^ o-ow
+nanievew is wewevant to youw game. OwO y-you can awso attach s-standawd bevy c-components
+wike <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> (<a href="programming//fundamentals/transforms.html">twansfowms expwained</a>) to it.</p>
 <p>then, &gt;_&lt; each piece of functionawity (each <a href="programming//programming/systems.html">system</a>) can just
 <a href="programming//programming/queries.html">quewy</a> fow the data it nyeeds. (ꈍᴗꈍ) common functionawity (wike a-a
 heawth/damage system) can be appwied t-to any entity w-with the matching c-components,
@@ -6753,9 +6745,9 @@ you can use a <a href="programming//programming/ec.html#marker-components">mawke
 to nyawwow down youw quewy (using a-a <a href="programming//programming/queries.html#query-filters">quewy fiwtew</a> wike
 <code>With&lt;Player&gt;</code>).</p>
 <p>howevew, OwO if some data awways makes s-sense to be accessed t-togethew, 🥺 t-then you
-shouwd put it in a singwe <code>struct</code>. XD fow exampwe, bevy's
-<a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> ow <a href="https://docs.rs/bevy/0.13.0/bevy/render/color/enum.Color.html"><code>Color</code></a>. &gt;_&lt; with these types, (ꈍᴗꈍ) the
-fiewds awe nyot wikewy to be usefuw i-independentwy.</p>
+shouwd put it in a singwe <code>struct</code>. XD fow exampwe, bevy's <a href="https://docs.rs/bevy/0.13.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> ow
+<a href="https://docs.rs/bevy/0.13.0/bevy/render/color/enum.Color.html"><code>Color</code></a>. ^•ﻌ•^ with these types, OwO the fiewds awe n-nyot wikewy to b-be usefuw
+independentwy.</p>
 <h3 id="additionaw-intewnaw-detaiws"><a class="header" href="#additionaw-intewnaw-detaiws">additionaw intewnaw detaiws</a></h3>
 <p>the set / combination of components t-that a given e-entity has is cawwed t-the
 entity's awchetype. OwO bevy keeps twack o-of that intewnawwy, 🥺 t-to owganize t-the
@@ -6982,14 +6974,14 @@ app.add_systems(update, 😳 (
 <a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/games/alien_cake_addict.rs"><code>alien_cake_addict</code></a>,
 <a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/games/breakout.rs"><code>breakout</code></a>.</p>
 <hr />
-<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a>. XD the app
-is how you define the stwuctuwe of a-aww the things t-that make up youw p-pwoject:
+<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a>. &gt;_&lt; the app is how you
+define the stwuctuwe of aww the things t-that make u-up youw pwoject:
 <a href="programming//programming/plugins.html">pwugins</a>, rawr x3 <a href="programming//programming/systems.html">systems</a> (and theiw configuwation/metadata:
 <a href="programming//programming/run-criteria.html">wun conditions</a>, rawr x3 <a href="programming//programming/system-order.html">owdewing</a>, rawr x3 <a href="programming//programming/system-sets.html">sets</a>),
 <a href="programming//programming/events.html">event</a> types, XD <a href="programming//programming/states.html">states</a>, rawr x3 <a href="programming//programming/schedules.html">scheduwes</a>…</p>
-<p>you typicawwy cweate youw <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a> in youw pwoject's <code>main</code> function.
-howevew, OwO you don't have to add evewything f-fwom thewe. 🥺 i-if you want t-to add things
-to youw app fwom muwtipwe pwaces (wike o-othew wust f-fiwes ow cwates), OwO u-use
+<p>you typicawwy cweate youw <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a> in youw pwoject's <code>main</code> function. XD  howevew,
+you don't have to add evewything f-fwom thewe. OwO if you w-want to add things t-to youw
+app fwom muwtipwe pwaces (wike othew w-wust fiwes ow c-cwates), ^•ﻌ•^ use
 <a href="programming//programming/plugins.html">pwugins</a>. ^•ﻌ•^ as youw pwoject gwows, OwO you wiww n-nyeed to do that t-to keep
 evewything owganized.</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
@@ -7020,11 +7012,11 @@ evewything owganized.</p>
 <p>note: use tupwes with <code>add_systems</code>/<code>add_plugins</code>/<code>configure_sets</code> to add
 muwtipwe things at once.</p>
 <p><a href="programming//programming/ec.html#components">component</a> types do nyot nyeed to be wegistewed.</p>
-<p>scheduwes cannot <a href="https://github.com/bevyengine/bevy/issues/279">(yet)</a> be modified at wuntime; aww
-<a href="programming//programming/systems.html">systems</a> you want to wun must be added/configuwed i-in the
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a> ahead of time. ^•ﻌ•^ you can contwow individuaw s-systems u-using <a href="programming//programming/run-criteria.html">wun
-conditions</a>. ^•ﻌ•^ you can awso dynamicawwy enabwe/disabwe e-entiwe s-scheduwes
-using the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.MainScheduleOrder.html"><code>MainScheduleOrder</code></a> <a href="programming//programming/res.html">wesouwce</a>.</p>
+<p>scheduwes cannot [(yet)] be modified at wuntime; aww <a href="programming//programming/systems.html">systems</a> you
+want to wun must be added/configuwed i-in the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a> ahead of time. &gt;_&lt; you can
+contwow individuaw systems using <a href="programming//programming/run-criteria.html">wun conditions</a>. XD you can awso
+dynamicawwy enabwe/disabwe entiwe s-scheduwes using t-the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.MainScheduleOrder.html"><code>MainScheduleOrder</code></a>
+<a href="programming//programming/res.html">wesouwce</a>.</p>
 <h2 id="buiwtin-bevy-functionawity"><a class="header" href="#buiwtin-bevy-functionawity">buiwtin bevy functionawity</a></h2>
 <p>the bevy game engine's own functionawity i-is wepwesented a-as a <a href="programming//programming/plugins.html#plugin-groups">pwugin gwoup</a>.
 evewy typicaw bevy app must fiwst a-add it, (ꈍᴗꈍ) using eithew:</p>
@@ -7053,8 +7045,8 @@ app.init_wesouwce::&lt;myfancywesouwce&gt;();
 // (in this exampwe, σωσ to spawn an entity, &gt;_&lt; but you can d-do anything)
 app.wowwd.spawn(somebundwe::defauwt());</code></pre>
 <h2 id="quitting-the-app"><a class="header" href="#quitting-the-app">quitting the app</a></h2>
-<p>to cweanwy shut down bevy, &gt;_&lt; send an <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.AppExit.html"><code>AppExit</code></a>
-<a href="programming//programming/events.html">event</a> fwom any <a href="programming//programming/systems.html">system</a>:</p>
+<p>to cweanwy shut down bevy, &gt;_&lt; send an <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.AppExit.html"><code>AppExit</code></a> <a href="programming//programming/events.html">event</a> fwom any
+<a href="programming//programming/systems.html">system</a>:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::app::appexit;
 
 fn exit_system(mut e-exit: e-eventwwitew&lt;appexit&gt;) {
@@ -7129,10 +7121,10 @@ cases, (ꈍᴗꈍ) you shouwd use weguwaw pawawwew s-systems.</p>
 common mistake! OwO if you wun youw pwoject a-and youw n-nyew code doesn't s-seem to be
 wunning, (ꈍᴗꈍ) make suwe you added the s-system!</p>
 <p>the above is enough fow simpwe pwojects.</p>
-<p>systems awe contained in <a href="programming//programming/schedules.html">scheduwes</a>. rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a> is the
-scheduwe whewe you typicawwy add a-any systems you w-want to wun evewy f-fwame.
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Startup.html"><code>Startup</code></a> is whewe you typicawwy add systems t-that shouwd wun
-onwy once on app stawtup. (ꈍᴗꈍ) thewe awe a-awso <a href="programming//builtins.html#schedules">othew possibiwities</a>.</p>
+<p>systems awe contained in <a href="programming//programming/schedules.html">scheduwes</a>. rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a> is the scheduwe
+whewe you typicawwy add any systems y-you want to wun e-evewy fwame. ^•ﻌ•^ <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Startup.html"><code>Startup</code></a> is
+whewe you typicawwy add systems that s-shouwd wun onwy o-once on app s-stawtup. OwO thewe
+awe awso <a href="programming//builtins.html#schedules">othew possibiwities</a>.</p>
 <p>as youw pwoject gwows mowe compwex, OwO y-you might want t-to make use of s-some of the
 powewfuw toows that bevy offews fow m-managing when/how y-youw systems w-wun, OwO such as:
 <a href="programming//programming/system-order.html">expwicit owdewing</a>, rawr x3 <a href="programming//programming/run-criteria.html">wun conditions</a>, rawr x3 <a href="programming//programming/system-sets.html">system
@@ -7163,7 +7155,8 @@ you might nyeed muwtipwe, (ꈍᴗꈍ) considew u-using <a href="programming//pro
 wesouwces to access vawious featuwes o-of the engine. OwO t-they wowk just w-wike youw own
 custom types.</p>
 <h2 id="accessing-wesouwces"><a class="header" href="#accessing-wesouwces">accessing wesouwces</a></h2>
-<p>to access the vawue of a wesouwce f-fwom <a href="programming//programming/systems.html">systems</a>, XD use <code>Res</code>/<code>ResMut</code>:</p>
+<p>to access the vawue of a wesouwce f-fwom <a href="programming//programming/systems.html">systems</a>, XD use
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">fn my_system(
     // these wiww panic i-if the wesouwces d-don't exist
     m-mut goaws: w-wesmut&lt;goawsweached&gt;, (U ﹏ U)
@@ -7433,7 +7426,7 @@ on youw entities. OwO the wust compiwew w-wiww give an e-ewwow if you do n-nyot 
 the fiewds of a stwuct, ^•ﻌ•^ thus hewping y-you make suwe y-youw code is cowwect.</p>
 <p>bevy pwovides many <a href="programming//builtins.html#bundles">buiwt-in bundwe types</a> that you can use
 to spawn common kinds of entities.</p>
-<p>hewe is how to cweate youw own bundwe:</p>
+<p>to cweate youw own bundwe, &gt;_&lt; dewive <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/bundle/trait.Bundle.html"><code>Bundle</code></a> on a <code>struct</code>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(bundwe)]
 stwuct pwayewbundwe {
     xp: pwayewxp, rawr
@@ -7573,9 +7566,8 @@ fn quewy_entities(q: q-quewy&lt;(entity, (U ᵕ U❁) /* ... */)&gt;) {
 }</code></pre>
 <p>if you know that the quewy is expected t-to onwy evew m-match a singwe e-entity, you
 can use <code>single</code>/<code>single_mut</code> (panic on ewwow) ow <code>get_single</code>/<code>get_single_mut</code>
-(wetuwn <a href="https://doc.rust-lang.org/stable/std/result/enum.Result.html"><code>Result</code></a>). (ꈍᴗꈍ) these methods ensuwe that thewe e-exists exactwy
-one candidate entity that can match y-youw quewy, OwO and w-wiww pwoduce a-an ewwow
-othewwise.</p>
+(wetuwn <a href="https://doc.rust-lang.org/stable/std/result/enum.Result.html"><code>Result</code></a>). ^•ﻌ•^ these methods ensuwe that thewe e-exists exactwy o-one
+candidate entity that can match youw q-quewy, OwO and wiww p-pwoduce an ewwow o-othewwise.</p>
 <pre><code class="language-rust no_run noplayground">fn quewy_pwayew(mut q: quewy&lt;(&amp;pwayew, (U ᵕ U❁) &amp;mut t-twansfowm)&gt;) {
     w-wet (pwayew, (⑅˘꒳˘) m-mut twansfowm) = q-q.singwe_mut();
 
@@ -7627,8 +7619,8 @@ the fiwst pawt of the quewy (as shown p-pweviouswy), OwO i-instead of using a-a 
 <p>wewevant officiaw exampwes:
 <a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
-<p>use <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> to spawn/despawn entities, &gt;_&lt; add/wemove
-components on existing entities, m-manage wesouwces, ^•ﻌ•^ f-fwom youw <a href="programming//programming/systems.html">systems</a>.</p>
+<p>use <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> to spawn/despawn entities, ^•ﻌ•^ add/wemove c-components o-on existing
+entities, (ꈍᴗꈍ) manage wesouwces, ^•ﻌ•^ fwom y-youw <a href="programming//programming/systems.html">systems</a>.</p>
 <pre><code class="language-rust no_run noplayground">fn spawn_things(
     mut commands: c-commands, rawr
 ) {
@@ -7692,29 +7684,28 @@ f-fn despawn_aww_enemies(
 }
 </code></pre>
 <h2 id="when-do-these-actions-get-appwied"><a class="header" href="#when-do-these-actions-get-appwied">when do these actions get appwied?</a></h2>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> do nyot take effect immediatewy, (ꈍᴗꈍ) b-because
-it wouwdn't be safe to modify the d-data wayout in m-memowy when othew
-<a href="programming//programming/systems.html">systems</a> couwd be wunning in pawawwew. ^•ﻌ•^ when y-you do anything u-using
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, (ꈍᴗꈍ) it gets queued to be appwied watew w-when it is
-safe to do so.</p>
-<p>within the same scheduwe, (ꈍᴗꈍ) you can a-add <code>.before()</code>/<code>.after()</code> <a href="programming//programming/system-order.html">owdewing
-constwaints</a> to youw systems, &gt;_&lt; and bevy wiww automaticawwy
-make suwe that commands get appwied i-in-between if n-nyecessawy, OwO so t-that the
-second system can see the changes m-made by the fiwst s-system.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> do nyot take effect immediatewy, ^•ﻌ•^ b-because it wouwdn't b-be safe to
+modify the data wayout in memowy w-when othew <a href="programming//programming/systems.html">systems</a> couwd be
+wunning in pawawwew. (ꈍᴗꈍ) when you do a-anything using <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, &gt;_&lt; it gets queued to
+be appwied watew when it is safe t-to do so.</p>
+<p>within the same <a href="programming//programming/schedules.html">scheduwe</a>, XD you can add <code>.before()</code>/<code>.after()</code>
+<a href="programming//programming/system-order.html">owdewing constwaints</a> to youw systems, &gt;_&lt; and bevy wiww
+automaticawwy make suwe that commands g-get appwied i-in-between if necessawy, OwO s-so
+that the second system can see the c-changes made by t-the fiwst system.</p>
 <pre><code class="language-rust no_run noplayground">app.add_systems(update, rawr x3 spawn_new_enemies_if_needed);
 
 // this system w-wiww see any n-nyewwy-spawned e-enemies when it w-wuns, rawr
 // because b-bevy wiww make s-suwe to appwy the f-fiwst system's c-commands
 // (thanks to the expwicit `.aftew()` dependency)
 app.add_systems(update, σωσ enemy_ai.aftew(spawn_new_enemies_if_needed));</code></pre>
-<p>if you do nyot have expwicit owdewing d-dependencies, OwO i-it is undefined w-when
-commands wiww be appwied. ^•ﻌ•^ it is possibwe t-that some s-systems wiww onwy
-see the changes on the nyext fwame u-update!</p>
+<p>if you do nyot have expwicit owdewing d-dependencies, OwO i-it is undefined w-when commands
+wiww be appwied. it is possibwe that s-some systems w-wiww onwy see the c-changes on
+the nyext fwame update!</p>
 <p>othewwise, ^•ﻌ•^ commands awe nyowmawwy a-appwied at the e-end of evewy
-<a href="programming//programming/schedules.html">scheduwe</a>. rawr x3 <a href="programming//programming/systems.html">systems</a> that wive in diffewent
-scheduwes wiww see the changes. ^•ﻌ•^ fow e-exampwe, OwO bevy's e-engine systems (that
-wive in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>) wiww see the entities you spawn i-in youw systems (that
-wive in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>).</p>
+<a href="programming//programming/schedules.html">scheduwe</a>. rawr x3 <a href="programming//programming/systems.html">systems</a> that wive in diffewent scheduwes
+wiww see the changes. OwO fow exampwe, 🥺 b-bevy's engine s-systems (that wive i-in
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>) wiww see the entities you spawn i-in youw systems (that w-wive in
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>).</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="events-1"><a class="header" href="#events-1">events</a></h1>
@@ -7784,12 +7775,11 @@ when youw systems awe nyot wunning!</p>
 <p>if you don't wike this, &gt;_&lt; <a href="programming//patterns/manual-event-clear.html">you can have manuaw contwow ovew w-when events awe
 cweawed</a> (at the wisk of weaking / wasting m-memowy if you
 fowget to cweaw them).</p>
-<p>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a> system pawametew is just syntax s-sugaw
-fow mutabwy accessing the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a> <a href="programming//programming/res.html">wesouwce</a> to
-add events to the queue. &gt;_&lt; the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a> is a wittwe
-mowe compwex: it accesses the events s-stowage immutabwy, OwO b-but awso s-stowes an
-integew countew to keep twack of h-how many events y-you have wead. OwO this i-is why it
-awso nyeeds the <code>mut</code> keywowd.</p>
+<p>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a> system pawametew is just syntax s-sugaw fow mutabwy
+accessing the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a> <a href="programming//programming/res.html">wesouwce</a> to add events to the queue. &gt;_&lt; the
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a> is a wittwe mowe compwex: it accesses t-the events s-stowage
+immutabwy, OwO but awso stowes an integew c-countew to k-keep twack of how m-many events
+you have wead. (ꈍᴗꈍ) this is why it awso n-nyeeds the <code>mut</code> keywowd.</p>
 <h2 id="possibwe-pitfawws"><a class="header" href="#possibwe-pitfawws">possibwe pitfawws</a></h2>
 <p>bewawe of fwame deway / 1-fwame-wag. ^•ﻌ•^ this can occuw i-if bevy wuns t-the
 weceiving system befowe the sending s-system. OwO the weceiving s-system w-wiww onwy
@@ -7814,13 +7804,12 @@ onwy do this fow youw own event types. ^•ﻌ•^ t-thewe is no s-sowution fow 
 is nyot stowed in the ecs wowwd, b-but wathew togethew w-with youw system.
 nothing outside of youw system can a-access it. OwO the v-vawue wiww be kept a-acwoss
 subsequent wuns of the system.</p>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is a system pawametew simiwaw to
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, (ꈍᴗꈍ) which gives you fuww mutabwe access t-to an
-instance of some data type, OwO that i-is independent fwom e-entities and c-components.</p>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a> wefew to a singwe gwobaw
-instance of the type, OwO shawed between a-aww systems. 🥺 o-on the othew hand, òωó e-evewy
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> pawametew is a sepawate instance, (ꈍᴗꈍ) e-excwusivewy fow
-that system.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is a system pawametew simiwaw to <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, XD which gives you
+fuww mutabwe access to an instance o-of some data type, OwO t-that is independent f-fwom
+entities and components.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a> wefew to a singwe gwobaw instance o-of the type, (ꈍᴗꈍ) shawed
+between aww systems. (ꈍᴗꈍ) on the othew h-hand, ^•ﻌ•^ evewy <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> pawametew is a
+sepawate instance, (ꈍᴗꈍ) excwusivewy fow t-that system.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
 stwuct mystate {
     // ...
@@ -7833,19 +7822,18 @@ fn my_system1(mut w-wocaw: wocaw&lt;mystate&gt;) {
 f-fn my_system2(mut w-wocaw: w-wocaw&lt;mystate&gt;) {
     // t-the wocaw in this system is a diffewent instance
 }</code></pre>
-<p>the type must impwement <a href="https://doc.rust-lang.org/stable/std/default/trait.Default.html"><code>Default</code></a> ow
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>. &gt;_&lt; it is automaticawwy initiawized.
-it is nyot possibwe to specify a c-custom initiaw vawue.</p>
+<p>the type must impwement <a href="https://doc.rust-lang.org/stable/std/default/trait.Default.html"><code>Default</code></a> ow <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>. XD it is automaticawwy
+initiawized. ^•ﻌ•^  it is nyot possibwe t-to specify a custom i-initiaw vawue.</p>
 <p>a system can have muwtipwe <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local</code></a>s of the same type.</p>
 <h2 id="specify-an-initiaw-vawue"><a class="header" href="#specify-an-initiaw-vawue">specify an initiaw vawue</a></h2>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is awways automaticawwy initiawized u-using the
-defauwt vawue fow the type. OwO if that d-doesn't wowk f-fow you, 🥺 thewe is a-an
-awtewnative way to pass data into a-a system.</p>
-<p>if you nyeed specific data, ^•ﻌ•^ you can u-use a cwosuwe i-instead. OwO wust cwosuwes
-that take system pawametews awe vawid b-bevy systems, ^•ﻌ•^ j-just wike standawone
-functions. ^•ﻌ•^ using a cwosuwe awwows y-you to "move data i-into the function".</p>
-<p>this exampwe shows how to initiawize s-some data to c-configuwe a system,
-without using <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is awways automaticawwy initiawized u-using the defauwt v-vawue fow t-the
+type. OwO if that doesn't wowk fow you, 🥺 t-thewe is an awtewnative w-way to p-pass data
+into a system.</p>
+<p>if you nyeed specific data, OwO you can u-use a cwosuwe i-instead. 🥺 wust cwosuwes t-that
+take system pawametews awe vawid b-bevy systems, just w-wike standawone f-functions.
+using a cwosuwe awwows you to "move d-data into the f-function".</p>
+<p>this exampwe shows how to initiawize s-some data to c-configuwe a system, OwO w-without
+using <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
 stwuct myconfig {
     magic: usize, OwO
@@ -7880,8 +7868,8 @@ fn main() {
         })
         .wun();
 }</code></pre>
-<p>anothew way to accompwish the same t-thing is to "wetuwn" t-the system
-fwom "constwuctow" hewpew function that cweates it:</p>
+<p>anothew way to accompwish the same t-thing is to "wetuwn" t-the system f-fwom
+"constwuctow" hewpew function that c-cweates it:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
 stwuct myconfig {
     magic: usize, rawr x3
@@ -7918,7 +7906,7 @@ fn main() {
 <h1 id="excwusive-systems-1"><a class="header" href="#excwusive-systems-1">excwusive systems</a></h1>
 <p>excwusive systems awe <a href="programming//programming/systems.html">systems</a> that bevy wiww not wun in pawawwew
 with any othew system. &gt;_&lt; they can have <a href="programming//programming/world.html">fuww unwestwicted access</a>
-to the whowe ecs <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>, XD by taking a <code>&amp;mut World</code> pawametew.</p>
+to the whowe ecs <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>, XD by taking a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a> pawametew.</p>
 <p>inside of an excwusive system, OwO you h-have fuww contwow o-ovew aww data s-stowed
 in the ecs. (ꈍᴗꈍ) you can do nyanievew y-you want.</p>
 <p>some exampwe situations whewe excwusive s-systems awe u-usefuw:</p>
@@ -7926,7 +7914,7 @@ in the ecs. (ꈍᴗꈍ) you can do nyanievew y-you want.</p>
 <li>dump vawious entities and components t-to a fiwe, OwO to i-impwement things w-wike
 saving and woading of game save fiwes, ^•ﻌ•^ o-ow scene expowt f-fwom an editow</li>
 <li>diwectwy spawn/despawn <a href="programming//programming/intro-data.html#entities--components">entities</a>, XD ow insewt/wemove <a href="programming//programming/res.html">wesouwces</a>,
-immediatewy with nyo deway (unwike w-when using <a href="programming//programming/commands.html"><code>Commands</code></a>
+immediatewy with nyo deway (unwike w-when using <a href="programming//programming/commands.html">commands</a>
 fwom a weguwaw system)</li>
 <li>wun awbitwawy <a href="programming//programming/systems.html">systems</a> and <a href="programming//programming/schedules.html">scheduwes</a> with youw
 own custom contwow fwow wogic</li>
@@ -7948,7 +7936,7 @@ as with weguwaw systems.</p>
         .befowe(othew_things)
 );</code></pre>
 <h2 id="excwusive-system-pawametews"><a class="header" href="#excwusive-system-pawametews">excwusive system pawametews</a></h2>
-<p>thewe awe a few othew things, &gt;<em>&lt; besides <code>&amp;mut World</code>, &gt;</em>&lt; that can be used as
+<p>thewe awe a few othew things, &gt;<em>&lt; besides <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>, &gt;</em>&lt; that can be used as
 pawametews fow excwusive systems:</p>
 <ul>
 <li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>:
@@ -7959,16 +7947,15 @@ data <a href="programming//programming/local.html">wocaw</a> to the system</li>
 emuwates a weguwaw system, OwO awwowing y-you to easiwy a-access data fwom t-the wowwd.
 <code>P</code> awe the system pawametews.</li>
 <li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.QueryState.html"><code>&amp;mut QueryState&lt;Q, F = ()&gt;</code></a>:
-awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a>
-in weguwaw systems.</li>
+awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a> in weguwaw systems.</li>
 </ul>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> can be used to emuwate a nyowmaw s-system.
-you can put weguwaw system pawametews i-inside. OwO this a-awwows you to a-access the
-<code>World</code> as you wouwd fwom a nyowmaw system, ^•ﻌ•^ b-but you can c-confine it to a
-specific scope inside youw function b-body, ^•ﻌ•^ making i-it mowe fwexibwe.</p>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.QueryState.html"><code>QueryState</code></a> is the same thing, (ꈍᴗꈍ) but fow a singwe q-quewy.
-it is a simpwew awtewnative to <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> fow when
-you just nyeed to be abwe to quewy f-fow some data.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> can be used to emuwate a nyowmaw s-system. ^•ﻌ•^  you can p-put weguwaw
+system pawametews inside. ^•ﻌ•^ this awwows y-you to access t-the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a> as you wouwd
+fwom a nyowmaw system, OwO but you can c-confine it to a-a specific scope i-inside youw
+function body, &gt;_&lt; making it mowe fwexibwe.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.QueryState.html"><code>QueryState</code></a> is the same thing, ^•ﻌ•^ but fow a singwe q-quewy. OwO  it is a-a simpwew
+awtewnative to <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> fow when you just nyeed to be abwe t-to quewy fow
+some data.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::ecs::system::systemstate;
 
 fn spawn_pawticwes_fow_enemies(
@@ -8022,10 +8009,9 @@ intwoduce a pewfowmance bottweneck.</p>
 to do something that is onwy possibwe w-with them.</p>
 <p>on the othew hand, ^•ﻌ•^ they can have w-wess ovewhead (by a-avoiding
 <a href="programming//programming/commands.html">commands</a>), (ꈍᴗꈍ) and so can be fastew fow some u-use cases.</p>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> has a wot of ovewhead, (ꈍᴗꈍ) as it nyeeds t-to stowe youw
-data in a queue and then pwocess / c-copy it into the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>
-watew. (ꈍᴗꈍ) diwectwy spawning entities i-into the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a> is much
-mowe efficient.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> has a wot of ovewhead, ^•ﻌ•^ as it nyeeds t-to stowe youw d-data in a queue
+and then pwocess / copy it into the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a> watew. &gt;_&lt; diwectwy spawning entities
+into the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a> is much mowe efficient.</p>
 <p>some exampwes fow when excwusive s-systems can be fastew:</p>
 <ul>
 <li>you want to spawn/despawn a ton of e-entities.
@@ -8133,10 +8119,12 @@ of bevy's scheduwing fwamewowk.</p>
 <p>aww <a href="programming//programming/systems.html">systems</a> to be wun by bevy awe contained a-and owganized using
 scheduwes. OwO a scheduwe is a cowwection o-of systems, 🥺 w-with metadata fow h-how they
 shouwd wun, ^•ﻌ•^ and an associated executow a-awgowithm t-to wun the systems.</p>
+<p>a bevy app has many diffewent scheduwes f-fow diffewent p-puwposes, OwO to w-wun them
+in diffewent situations.</p>
 <h2 id="scheduwing-systems"><a class="header" href="#scheduwing-systems">scheduwing systems</a></h2>
 <p>if you want a <a href="programming//programming/systems.html">system</a> to be wun by bevy, (ꈍᴗꈍ) you nyeed to a-add it to a
-scheduwe. OwO wwiting a nyew wust function a-and fowgetting t-to add it / w-wegistew it
-with bevy is a common mistake.</p>
+scheduwe via the <a href="programming//programming/app-builder.html">app buiwdew</a>. &gt;_&lt; wwiting a nyew wust function and
+fowgetting to add it / wegistew it w-with bevy is a c-common mistake.</p>
 <p>whenevew you add a system, ^•ﻌ•^ you specify n-nyani scheduwe t-to put it in:</p>
 <pre><code class="language-rust no_run noplayground">// add something to the update scheduwe (wuns e-evewy f-fwame)
 app.add_systems(update, ( ͡o ω ͡o ) c-camewa_movement);
@@ -8170,77 +8158,67 @@ you nyeed to configuwe evewything a-ahead of time.</p>
 <a href="programming//programming/run-criteria.html">wun conditions</a>. (ꈍᴗꈍ) that is the mechanism fow disabwing t-them if they
 shouwdn't wun.</p>
 <h2 id="bevys-app-stwuctuwe"><a class="header" href="#bevys-app-stwuctuwe">bevy's app stwuctuwe</a></h2>
-<p>bevy has thwee pwimawy/foundationaw scheduwes: <code>Main</code>, rawr x3 <code>Extract</code>, rawr x3 <code>Render</code>. XD thewe
-awe awso othew scheduwes, ^•ﻌ•^ which awe m-managed and wun w-within <code>Main</code>.</p>
-<p>in a nyowmaw bevy app, &gt;_&lt; the <code>Main</code>+<code>Extract</code>+<code>Render</code> scheduwes awe wun wepeatedwy
-in a woop. ^•ﻌ•^ togethew, OwO they pwoduce o-one fwame of youw g-game. 🥺 evewy time <code>Main</code>
+<p>bevy has thwee pwimawy/foundationaw scheduwes: <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/render/struct.Extract.html"><code>Extract</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/render/struct.Render.html"><code>Render</code></a>.
+thewe awe awso othew scheduwes, ^•ﻌ•^ which a-awe managed a-and wun within <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a>.</p>
+<p>in a nyowmaw bevy app, &gt;_&lt; the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a>+<a href="https://docs.rs/bevy/0.13.0/bevy/render/struct.Extract.html"><code>Extract</code></a>+<a href="https://docs.rs/bevy/0.13.0/bevy/render/struct.Render.html"><code>Render</code></a> scheduwes awe wun wepeatedwy
+in a woop. ^•ﻌ•^ togethew, OwO they pwoduce o-one fwame of youw g-game. 🥺 evewy time <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a>
 wuns, OwO it wuns a sequence of othew s-scheduwes. 🥺 on its f-fiwst wun, òωó it a-awso fiwst
 wuns a sequence of "stawtup" scheduwes.</p>
-<p>most bevy usews onwy have to deaw w-with the sub-scheduwes o-of <code>Main</code>. rawr x3 <code>Extract</code>
-and <code>Render</code> awe onwy wewevant to gwaphics devewopews w-who want t-to devewop
-new/custom wendewing featuwes fow t-the engine. OwO this p-page is onwy focused o-on
-<code>Main</code>. &gt;_&lt; if you want to weawn mowe about <code>Extract</code> and <code>Render</code>, rawr x3 <a href="programming//gpu/intro.html">see this
-page about bevy's wendewing awchitectuwe</a>.</p>
+<p>most bevy usews onwy have to deaw w-with the sub-scheduwes o-of <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a>.
+<a href="https://docs.rs/bevy/0.13.0/bevy/render/struct.Extract.html"><code>Extract</code></a> and <a href="https://docs.rs/bevy/0.13.0/bevy/render/struct.Render.html"><code>Render</code></a> awe onwy wewevant to gwaphics devewopews w-who want t-to
+devewop nyew/custom wendewing featuwes f-fow the engine. OwO t-this page i-is onwy focused
+on <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a>. &gt;_&lt; if you want to weawn mowe about <a href="https://docs.rs/bevy/0.13.0/bevy/render/struct.Extract.html"><code>Extract</code></a> and <a href="https://docs.rs/bevy/0.13.0/bevy/render/struct.Render.html"><code>Render</code></a>, rawr x3 <a href="programming//gpu/intro.html">see
+this page about bevy's wendewing a-awchitectuwe</a>.</p>
 <h2 id="the-main-scheduwe"><a class="header" href="#the-main-scheduwe">the main scheduwe</a></h2>
-<p><code>Main</code> is whewe aww the appwication wogic w-wuns. ^•ﻌ•^ it is a s-sowt of meta-scheduwe,
-whose job is to wun othew scheduwes i-in a specific o-owdew. OwO you shouwd n-nyot add
-any custom systems diwectwy to <code>Main</code>. (ꈍᴗꈍ) you shouwd add youw systems to t-the vawious
-scheduwes managed by <code>Main</code>.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a> is whewe aww the appwication wogic w-wuns. ^•ﻌ•^ it is a s-sowt of meta-scheduwe,
+whose job is to wun othew scheduwes i-in a specific o-owdew. OwO you shouwd n-nyot add any
+custom systems diwectwy to <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a>. (ꈍᴗꈍ) you shouwd add youw systems to t-the vawious
+scheduwes managed by <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a>.</p>
 <p>bevy pwovides the fowwowing scheduwes, ^•ﻌ•^ t-to owganize a-aww the systems:</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.First.html"><code>First</code></a>,
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a>,
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.StateTransition.html"><code>StateTransition</code></a>,
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.RunFixedMainLoop.html"><code>RunFixedMainLoop</code></a>,
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>,
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>,
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Last.html"><code>Last</code></a>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.First.html"><code>First</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.StateTransition.html"><code>StateTransition</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.RunFixedMainLoop.html"><code>RunFixedMainLoop</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Last.html"><code>Last</code></a>
 <ul>
-<li>these scheduwes awe wun by <code>Main</code> evewy time it wuns</li>
+<li>these scheduwes awe wun by <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a> evewy time it wuns</li>
 </ul>
 </li>
-<li><code>PreStartup</code>, rawr x3 <code>Startup</code>, rawr x3 <code>PostStartup</code>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreStartup.html"><code>PreStartup</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Startup.html"><code>Startup</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostStartup.html"><code>PostStartup</code></a>
 <ul>
-<li>these scheduwes awe wun by <code>Main</code> once, &gt;_&lt; the fiwst time it wuns</li>
+<li>these scheduwes awe wun by <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a> once, &gt;_&lt; the fiwst time it wuns</li>
 </ul>
 </li>
 <li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a>
 <ul>
-<li>the <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a> equivawent of the <code>Main</code> scheduwe.</li>
-<li>wun by <code>RunFixedMainLoop</code> as many times as nyeeded, ^•ﻌ•^ to catch u-up to the fixed t-timestep intewvaw.</li>
+<li>the <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a> equivawent of the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a> scheduwe.</li>
+<li>wun by <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.RunFixedMainLoop.html"><code>RunFixedMainLoop</code></a> as many times as nyeeded, ^•ﻌ•^ to catch u-up to the fixed t-timestep intewvaw.</li>
 </ul>
 </li>
-<li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedFirst.html"><code>FixedFirst</code></a>,
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedPreUpdate.html"><code>FixedPreUpdate</code></a>,
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>,
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedPostUpdate.html"><code>FixedPostUpdate</code></a>,
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedLast.html"><code>FixedLast</code></a>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedFirst.html"><code>FixedFirst</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedPreUpdate.html"><code>FixedPreUpdate</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedPostUpdate.html"><code>FixedPostUpdate</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedLast.html"><code>FixedLast</code></a>
 <ul>
-<li>the <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a> equivawents of the <code>Main</code> sub-scheduwes.</li>
+<li>the <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a> equivawents of the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a> sub-scheduwes.</li>
 </ul>
 </li>
-<li><code>OnEnter(…)</code>/<code>OnExit(…)</code>/<code>OnTransition(…)</code>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter(…)</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnExit.html"><code>OnExit(…)</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnTransition.html"><code>OnTransition(…)</code></a>
 <ul>
-<li>these scheduwes awe wun by <code>StateTransition</code> on <a href="programming//programming/states.html">state</a> changes</li>
+<li>these scheduwes awe wun by <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.StateTransition.html"><code>StateTransition</code></a> on <a href="programming//programming/states.html">state</a> changes</li>
 </ul>
 </li>
 </ul>
-<p>the intended pwaces fow most usew s-systems (youw game w-wogic) awe <code>Update</code>,
-<code>FixedUpdate</code>, rawr x3 <code>Startup</code>, XD and the <a href="programming//programming/states.html">state</a> twansition scheduwes.</p>
-<p><code>Update</code> is fow youw usuaw game wogic that s-shouwd wun evewy f-fwame. ^•ﻌ•^ <code>Startup</code> is
+<p>the intended pwaces fow most usew s-systems (youw game w-wogic) awe <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Startup.html"><code>Startup</code></a>, XD and the <a href="programming//programming/states.html">state</a> twansition scheduwes.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a> is fow youw usuaw game wogic that s-shouwd wun evewy f-fwame. ^•ﻌ•^ <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Startup.html"><code>Startup</code></a> is
 usefuw to pewfowm initiawization t-tasks, OwO befowe the f-fiwst nyowmaw f-fwame update
-woop. rawr x3 <code>FixedUpdate</code> is if you want to use a <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a>.</p>
+woop. rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> is if you want to use a <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a>.</p>
 <p>the othew scheduwes awe intended f-fow engine-intewnaw f-functionawity. OwO s-spwitting
 them wike that ensuwes that bevy's i-intewnaw engine s-systems wiww wun c-cowwectwy
 with wespect to youw systems, ^•ﻌ•^ without a-any configuwation o-on youw pawt.
 wemembew: bevy's intewnaws awe impwemented u-using o-owdinawy systems
 and ecs, &gt;_&lt; just wike youw own stuff!</p>
 <p>if you awe devewoping pwugins to b-be used by othew p-peopwe, OwO you might b-be
-intewested in adding functionawity t-to <code>PreUpdate</code>/<code>PostUpdate</code> (ow the <code>Fixed</code>
+intewested in adding functionawity t-to <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a> (ow the <code>Fixed</code>
 equivawents), OwO so it can wun awongside o-othew "engine s-systems". 🥺 awso c-considew
-<code>PreStartup</code> and <code>PostStartup</code> if you have stawtup systems that s-shouwd be
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreStartup.html"><code>PreStartup</code></a> and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostStartup.html"><code>PostStartup</code></a> if you have stawtup systems that s-shouwd be
 sepawated fwom youw usews' stawtup s-systems.</p>
-<p><code>First</code> and <code>Last</code> exist onwy fow speciaw edge cases, ^•ﻌ•^ i-if you weawwy n-nyeed to
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.First.html"><code>First</code></a> and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Last.html"><code>Last</code></a> exist onwy fow speciaw edge cases, ^•ﻌ•^ i-if you weawwy n-nyeed to
 ensuwe something wuns befowe/aftew <em>evewything</em> ewse, &gt;_&lt; incwuding aww the nyowmaw
 "engine-intewnaw" code.</p>
 <h2 id="configuwing-scheduwes"><a class="header" href="#configuwing-scheduwes">configuwing scheduwes</a></h2>
@@ -8290,7 +8268,7 @@ the sync points, you can do that.</p>
         ..defauwt()
     });
 });</code></pre>
-<p>now, (ꈍᴗꈍ) to manuawwy cweate sync points, ^•ﻌ•^ a-add speciaw <code>apply_deferred</code> systems
+<p>now, (ꈍᴗꈍ) to manuawwy cweate sync points, ^•ﻌ•^ a-add speciaw [<code>apply_deferred</code>] systems
 whewe you wike them:</p>
 <pre><code class="language-rust no_run noplayground">app.add_systems(
     update, 🥺
@@ -8306,23 +8284,20 @@ a-app.add_systems(update, òωó (
     ).chain(), ( ͡o ω ͡o )
 ));</code></pre>
 <h2 id="main-scheduwe-configuwation"><a class="header" href="#main-scheduwe-configuwation">main scheduwe configuwation</a></h2>
-<p>the owdew of scheduwes to be wun b-by <code>Main</code> evewy fwame is configuwed in
-the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.MainScheduleOrder.html"><code>MainScheduleOrder</code></a> <a href="programming//programming/res.html">wesouwce</a>.
-fow advanced use cases, OwO if bevy's p-pwedefined scheduwes d-don't wowk f-fow youw
-needs, &gt;_&lt; you can change it.</p>
+<p>the owdew of scheduwes to be wun b-by <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Main.html"><code>Main</code></a> evewy fwame is configuwed in the
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.MainScheduleOrder.html"><code>MainScheduleOrder</code></a> <a href="programming//programming/res.html">wesouwce</a>. &gt;_&lt; fow advanced use cases, (ꈍᴗꈍ) if bevy's
+pwedefined scheduwes don't wowk fow y-youw nyeeds, ^•ﻌ•^ y-you can change it.</p>
 <h3 id="cweating-a-nyew-custom-scheduwe"><a class="header" href="#cweating-a-nyew-custom-scheduwe">cweating a nyew custom scheduwe</a></h3>
 <p>as an exampwe, OwO wet's say we want t-to add an additionaw s-scheduwe, 🥺 that w-wuns evewy
-fwame (wike <code>Update</code>), XD but wuns befowe <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a>.</p>
+fwame (wike <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>), XD but wuns befowe <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a>.</p>
 <p>fiwst, OwO we nyeed to cweate a nyame/wabew f-fow ouw nyew s-scheduwe, 🥺 by c-cweating a wust
-type (a <code>struct</code> ow <code>enum</code>) and dewiving <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/trait.ScheduleLabel.html"><code>ScheduleLabel</code></a></p>
-<ul>
-<li>an assowtment of wequiwed standawd w-wust twaits.</li>
-</ul>
+type (a <code>struct</code> ow <code>enum</code>) and dewiving <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/trait.ScheduleLabel.html"><code>ScheduleLabel</code></a> + an assowtment of
+wequiwed standawd wust twaits.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(scheduwewabew, ^•ﻌ•^ debug, cwone, OwO pawtiaweq, e-eq, 🥺 hash)]
 stwuct p-pwepaweupdate;</code></pre>
 <p>now, (ꈍᴗꈍ) we can init the scheduwe in t-the <a href="programming//programming/app-builder.html">app</a>, XD add it to
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.MainScheduleOrder.html"><code>MainScheduleOrder</code></a> to make it wun evewy fwame
-whewe we wike it, (ꈍᴗꈍ) and add some systems t-to it!</p>
+<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.MainScheduleOrder.html"><code>MainScheduleOrder</code></a> to make it wun evewy fwame whewe w-we wike it, ^•ﻌ•^ and a-add some
+systems to it!</p>
 <pre><code class="language-rust no_run noplayground">// ensuwe the scheduwe has been cweated
 // (this i-is technicawwy optionaw; b-bevy wiww a-auto-init
 // t-the scheduwe the f-fiwst time it is u-used)
@@ -8352,26 +8327,6 @@ system's function signatuwe (the t-types of the pawametews i-it takes).</p>
 <p>in such situations, &gt;<em>&lt; the owdew is <em>nondetewministic</em> by defauwt. &gt;</em>&lt; bevy takes
 no wegawd fow when each system wiww w-wun, OwO and the o-owdew couwd even c-change
 evewy fwame!</p>
-<h2 id="does-it-even-mattew"><a class="header" href="#does-it-even-mattew">does it even mattew?</a></h2>
-<p>in many cases, (ꈍᴗꈍ) you don't nyeed to w-wowwy about this.</p>
-<p>howevew, OwO sometimes you nyeed to wewy o-on specific s-systems to wun in a-a pawticuwaw
-owdew. XD fow exampwe:</p>
-<ul>
-<li>maybe the wogic you wwote in one o-of youw systems n-nyeeds any modifications
-done to that data by anothew system t-to awways happen f-fiwst?</li>
-<li>one system nyeeds to weceive <a href="programming//programming/events.html">events</a> sent by anothew system.</li>
-<li>you awe using <a href="programming//programming/change-detection.html">change detection</a>.</li>
-</ul>
-<p>in such situations, OwO systems wunning i-in the wwong o-owdew typicawwy c-causes
-theiw behaviow to be dewayed untiw t-the nyext fwame. OwO i-in wawe cases, 🥺 d-depending
-on youw game wogic, ^•ﻌ•^ it may even wesuwt i-in mowe sewious w-wogic bugs!</p>
-<p>it is up to you to decide if this i-is impowtant.</p>
-<p>with many things in typicaw games, OwO s-such as juicy v-visuaw effects, 🥺 i-it pwobabwy
-doesn't mattew if they get dewayed b-by a fwame. it m-might nyot be wowthwhiwe
-to bothew with it. OwO if you don't cawe, 🥺 w-weaving the o-owdew ambiguous m-may awso
-wesuwt in bettew pewfowmance.</p>
-<p>on the othew hand, ^•ﻌ•^ fow things wike h-handwing the pwayew i-input contwows,
-this wouwd wesuwt in annoying wag o-ow wowse, OwO so you s-shouwd pwobabwy f-fix it.</p>
 <h2 id="expwicit-system-owdewing"><a class="header" href="#expwicit-system-owdewing">expwicit system owdewing</a></h2>
 <p>if a specific system must awways w-wun befowe ow aftew s-some othew systems,
 you can add owdewing constwaints:</p>
@@ -8394,6 +8349,26 @@ a-app.add_systems(update, σωσ (
 <p><code>.before</code>/<code>.after</code> may be used as many times as you n-nyeed on one system.</p>
 <p>if you nyeed to appwy the same owdewing c-constwaints t-to many systems,
 considew using <a href="programming//programming/system-sets.html">system sets</a>.</p>
+<h2 id="does-it-even-mattew"><a class="header" href="#does-it-even-mattew">does it even mattew?</a></h2>
+<p>in many cases, (ꈍᴗꈍ) you don't nyeed to w-wowwy about this.</p>
+<p>howevew, OwO sometimes you nyeed to wewy o-on specific s-systems to wun in a-a pawticuwaw
+owdew. XD fow exampwe:</p>
+<ul>
+<li>maybe the wogic you wwote in one o-of youw systems n-nyeeds any modifications
+done to that data by anothew system t-to awways happen f-fiwst?</li>
+<li>one system nyeeds to weceive <a href="programming//programming/events.html">events</a> sent by anothew system.</li>
+<li>you awe using <a href="programming//programming/change-detection.html">change detection</a>.</li>
+</ul>
+<p>in such situations, OwO systems wunning i-in the wwong o-owdew typicawwy c-causes
+theiw behaviow to be dewayed untiw t-the nyext fwame. OwO i-in wawe cases, 🥺 d-depending
+on youw game wogic, ^•ﻌ•^ it may even wesuwt i-in mowe sewious w-wogic bugs!</p>
+<p>it is up to you to decide if this i-is impowtant.</p>
+<p>with many things in typicaw games, OwO s-such as juicy v-visuaw effects, 🥺 i-it pwobabwy
+doesn't mattew if they get dewayed b-by a fwame. it m-might nyot be wowthwhiwe
+to bothew with it. OwO if you don't cawe, 🥺 w-weaving the o-owdew ambiguous m-may awso
+wesuwt in bettew pewfowmance.</p>
+<p>on the othew hand, ^•ﻌ•^ fow things wike h-handwing the pwayew i-input contwows,
+this wouwd wesuwt in annoying wag o-ow wowse, OwO so you s-shouwd pwobabwy f-fix it.</p>
 <h2 id="ciwcuwaw-dependencies"><a class="header" href="#ciwcuwaw-dependencies">ciwcuwaw dependencies</a></h2>
 <p>if you have muwtipwe systems mutuawwy d-depending on e-each othew, OwO then i-it is
 cweawwy impossibwe to wesowve the s-situation compwetewy w-wike that.</p>
@@ -8585,9 +8560,9 @@ initiawizes the sets in each scheduwe), OwO b-but wiww n-nyot wowk cowwectwy, �
 wiww nyot have any of youw configuwations.</p>
 <p>some common scenawios whewe this c-can occuw:</p>
 <ul>
-<li>you configuwe youw set in <code>Update</code> and twy to awso use it in <code>FixedUpdate</code>, XD ow vice vewsa.</li>
-<li>you twy to use youw sets in the <code>OnEnter</code>/<code>OnExit</code> scheduwes of vawious <a href="programming//programming/states.html">app states</a>.</li>
-<li>you add a system to <code>PostUpdate</code> ow <code>PreUpdate</code>.</li>
+<li>you configuwe youw set in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a> and twy to awso use it in <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, XD ow vice vewsa.</li>
+<li>you twy to use youw sets in the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnExit.html"><code>OnExit</code></a> scheduwes of vawious <a href="programming//programming/states.html">app states</a>.</li>
+<li>you add a system to <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a> ow <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a>.</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
@@ -8800,19 +8775,17 @@ the twansition fow you.</p>
 <li>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnTransition.html"><code>OnTransition { from: old_state, to: new_state }</code></a> <a href="programming//programming/schedules.html">scheduwe</a> is wun.</li>
 <li>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter(new_state)</code></a> <a href="programming//programming/schedules.html">scheduwe</a> is wun.</li>
 </ul>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.StateTransitionEvent.html"><code>StateTransitionEvent</code></a> is usefuw in any
-<a href="programming//programming/systems.html">systems</a> that wun wegawdwess of state, ^•ﻌ•^ but w-want to know if a-a
-twansition has occuwwed. ^•ﻌ•^ you can u-use it to detect s-state twansitions.</p>
-<p>the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.StateTransition.html"><code>StateTransition</code></a> <a href="programming//programming/schedules.html">scheduwe</a> wuns
-aftew <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a> (which contains bevy engine intewnaws),
-but befowe <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> (<a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a>)
-and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>, XD whewe youw game's <a href="programming//programming/systems.html">systems</a>
-usuawwy wive.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.StateTransitionEvent.html"><code>StateTransitionEvent</code></a> is usefuw in any <a href="programming//programming/systems.html">systems</a> that wun
+wegawdwess of state, OwO but want to k-know if a twansition h-has occuwwed. 🥺 y-you can use
+it to detect state twansitions.</p>
+<p>the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.StateTransition.html"><code>StateTransition</code></a> <a href="programming//programming/schedules.html">scheduwe</a> wuns aftew <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a> (which
+contains bevy engine intewnaws), b-but befowe <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> (<a href="programming//fundamentals/fixed-timestep.html">fixed
+timestep</a>) and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>, XD whewe youw game's
+<a href="programming//programming/systems.html">systems</a> usuawwy wive.</p>
 <p>thewefowe, OwO state twansitions happen b-befowe youw game w-wogic fow the c-cuwwent fwame.</p>
-<p>if doing state twansitions once pew f-fwame is nyot e-enough fow
-you, ^•ﻌ•^ you can add additionaw twansition p-points, by a-adding bevy's
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/fn.apply_state_transition.html"><code>apply_state_transition</code></a> <a href="programming//programming/systems.html">system</a>
-whewevew you wike.</p>
+<p>if doing state twansitions once pew f-fwame is nyot e-enough fow you, OwO y-you can add
+additionaw twansition points, (ꈍᴗꈍ) by a-adding bevy's <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/fn.apply_state_transition.html"><code>apply_state_transition</code></a>
+<a href="programming//programming/systems.html">system</a> whewevew you wike.</p>
 <pre><code class="language-rust no_run noplayground">// exampwe: awso do state twansitions f-fow mypausedstate
 // b-befowe m-mygamepwayset on e-each fixed timestep w-wun
 app.add_systems(
@@ -8822,15 +8795,13 @@ app.add_systems(
 );</code></pre>
 <h2 id="known-pitfawws-2"><a class="header" href="#known-pitfawws-2">known pitfawws</a></h2>
 <h3 id="system-set-configuwation-is-pew-scheduwe"><a class="header" href="#system-set-configuwation-is-pew-scheduwe">system set configuwation is pew-scheduwe!</a></h3>
-<p>this is the same genewaw caveat that a-appwies any t-time you configuwe [system sets][cb::set].</p>
+<p>this is the same genewaw caveat that a-appwies any t-time you configuwe <a href="programming//programming/system-sets.html">system sets</a>.</p>
 <p>note that <code>app.configure_sets()</code> is <em>pew-<a href="programming//programming/schedules.html">scheduwe</a>!</em> if you configuwe some sets
 in one <a href="programming//programming/schedules.html">scheduwe</a>, ^•ﻌ•^ that configuwation does nyot cawwy o-ovew to othew s-scheduwes.</p>
 <p>because states awe so scheduwe-heavy, OwO y-you have to b-be especiawwy cawefuw. 🥺 d-don't assume
 that just because you configuwed a-a set, ^•ﻌ•^ you can use i-it anywhewe.</p>
-<p>fow exampwe, &gt;_&lt; youw sets fwom <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>
-and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> wiww nyot wowk in
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnExit.html"><code>OnExit</code></a> fow youw vawious state
-twansitions.</p>
+<p>fow exampwe, &gt;_&lt; youw sets fwom <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a> and <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> wiww nyot wowk in
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnEnter.html"><code>OnEnter</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/struct.OnExit.html"><code>OnExit</code></a> fow youw vawious state twansitions.</p>
 <h3 id="events-2"><a class="header" href="#events-2">events</a></h3>
 <p>this is the same genewaw caveat that a-appwies to any <a href="programming//programming/systems.html">systems</a> with
 <a href="programming//programming/run-criteria.html">wun conditions</a> that want to weceive <a href="programming//programming/events.html">events</a>.</p>
@@ -9186,9 +9157,8 @@ f-fn detect_wemovaws(
 <a href="programming//programming/commands.html"><code>Commands::entity()</code></a> ow <a href="programming//programming/queries.html"><code>Query::get()</code></a>.)</p>
 <h2 id="wesouwces-4"><a class="header" href="#wesouwces-4">wesouwces</a></h2>
 <p>bevy does nyot pwovide any api fow d-detecting when <a href="programming//programming/res.html">wesouwces</a> awe wemoved.</p>
-<p>you can wowk awound this using <a href="https://doc.rust-lang.org/stable/std/option/enum.Option.html"><code>Option</code></a> and a sepawate
-<a href="programming//programming/local.html"><code>Local</code></a> system pawametew, ^•ﻌ•^ effectivewy impwementing y-youw o-own
-detection.</p>
+<p>you can wowk awound this using <a href="https://doc.rust-lang.org/stable/std/option/enum.Option.html"><code>Option</code></a> and a sepawate <a href="programming//programming/local.html"><code>Local</code></a>
+system pawametew, ^•ﻌ•^ effectivewy impwementing y-youw own d-detection.</p>
 <pre><code class="language-rust no_run noplayground">fn detect_wemoved_wes(
     my_wes: o-option&lt;wes&lt;mywesouwce&gt;&gt;, ^^;;
     mut m-my_wes_existed: w-wocaw&lt;boow&gt;, &gt;_&lt;
@@ -9280,7 +9250,7 @@ same data.</p>
 <p>the two <a href="programming//programming/queries.html">quewies</a> awe both twying to mutabwy access <code>Health</code>. XD they
 have diffewent <a href="programming//programming/queries.html#query-filters">fiwtews</a>, (ꈍᴗꈍ) but nyani if thewe awe entities t-that
 have both <code>Player</code> and <code>Enemy</code> components? if we know that shouwdn't h-happen, we
-can add <code>Without</code> fiwtews, ^•ﻌ•^ but nyani if it is actuawwy v-vawid fow ouw g-game?</p>
+can add <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.Without.html"><code>Without</code></a> fiwtews, ^•ﻌ•^ but nyani if it is actuawwy v-vawid fow ouw g-game?</p>
 <p>such code wiww compiwe (wust cannot k-know about bevy e-ecs semantics), OwO b-but wiww
 wesuwt in a wuntime panic. OwO when bevy t-twies to wun t-the system, 🥺 it w-wiww panic with
 a message about confwicting system p-pawametews:</p>
@@ -9333,17 +9303,16 @@ thwead-poow, OwO making use of many cpu c-cowes. 🥺 howevew, òωó y-you migh
 that some code awways wuns on the "main t-thwead", OwO o-ow access data that i-is nyot
 safe to access in a muwtithweaded w-way.</p>
 <h2 id="non-send-systems-and-data-access"><a class="header" href="#non-send-systems-and-data-access">non-send systems and data access</a></h2>
-<p>to do this, &gt;<em>&lt; you can use a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a> /
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a> system pawametew. (ꈍᴗꈍ) this behaves just w-wike
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a> / <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, &gt;</em>&lt; wetting you access an
-ecs <a href="programming//programming/res.html">wesouwce</a> (singwe gwobaw instance of some d-data), (ꈍᴗꈍ) except that
-the pwesence of such a pawametew f-fowces the bevy s-scheduwew to awways w-wun the
-<a href="programming//programming/systems.html">system</a> on the main thwead. ^•ﻌ•^ this ensuwes t-that data nyevew h-has
-to be sent between thweads ow accessed f-fwom diffewent t-thweads.</p>
-<p>one exampwe of such a wesouwce is <a href="https://docs.rs/bevy/0.13.0/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a> in bevy.
-this is the wow-wevew wayew behind t-the <a href="programming//window/props.html">window entities</a> that you
-typicawwy use fow window management. OwO i-it gives you m-mowe diwect access t-to os
-window management functionawity.</p>
+<p>to do this, &gt;<em>&lt; you can use a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a> / <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a> system pawametew.
+this behaves just wike <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a> / <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, &gt;</em>&lt; wetting you access an ecs
+<a href="programming//programming/res.html">wesouwce</a> (singwe gwobaw instance of some d-data), ^•ﻌ•^ except that t-the
+pwesence of such a pawametew fowces t-the bevy scheduwew t-to awways w-wun the
+<a href="programming//programming/systems.html">system</a> on the main thwead. ^•ﻌ•^ this ensuwes t-that data nyevew h-has to be
+sent between thweads ow accessed f-fwom diffewent thweads.</p>
+<p>one exampwe of such a wesouwce is <a href="https://docs.rs/bevy/0.13.0/bevy/winit/struct.WinitWindows.html"><code>WinitWindows</code></a> in bevy. &gt;_&lt;  this is the
+wow-wevew wayew behind the <a href="programming//window/props.html">window entities</a> that you typicawwy use
+fow window management. OwO it gives you m-mowe diwect access t-to os window m-management
+functionawity.</p>
 <pre><code class="language-rust no_run noplayground">fn setup_waw_window(
     q_pwimawy: q-quewy&lt;entity, ( ͡o ω ͡o ) w-with&lt;pwimawywindow&gt;&gt;, UwU
     m-mut windows: n-nyonsend&lt;winitwindows&gt;
@@ -9356,16 +9325,13 @@ window management functionawity.</p>
 // a-and ensuwe it wuns o-on the main t-thwead
 app.add_systems(stawtup, (U ᵕ U❁) s-setup_waw_window);</code></pre>
 <h2 id="custom-nyon-send-wesouwces"><a class="header" href="#custom-nyon-send-wesouwces">custom nyon-send wesouwces</a></h2>
-<p>nowmawwy, XD to insewt <a href="programming//programming/res.html">wesouwces</a>, &gt;_&lt; theiw types must be
-<a href="https://doc.rust-lang.org/stable/std/marker/trait.Send.html"><code>Send</code></a>.</p>
-<p>bevy twacks nyon-send wesouwces sepawatewy, ^•ﻌ•^ t-to ensuwe t-that they
-can onwy be accessed using <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a> /
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a>.</p>
+<p>nowmawwy, XD to insewt <a href="programming//programming/res.html">wesouwces</a>, &gt;_&lt; theiw types must be <a href="https://doc.rust-lang.org/stable/std/marker/trait.Send.html"><code>Send</code></a>.</p>
+<p>bevy twacks nyon-send wesouwces sepawatewy, OwO t-to ensuwe t-that they can o-onwy be
+accessed using <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.NonSend.html"><code>NonSend&lt;T&gt;</code></a> / <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.NonSendMut.html"><code>NonSendMut&lt;T&gt;</code></a>.</p>
 <p>it is nyot possibwe to insewt nyon-send w-wesouwces u-using
-<a href="programming//programming/commands.html"><code>Commands</code></a>, XD onwy using <a href="programming//programming/world.html">diwect wowwd access</a>.
-this means that you have to initiawize t-them in an <a href="programming//programming/exclusive.html">excwusive
-system</a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> impw,
-ow fwom the <a href="programming//programming/app-builder.html">app buiwdew</a>.</p>
+<a href="programming//programming/commands.html"><code>Commands</code></a>, XD onwy using <a href="programming//programming/world.html">diwect wowwd access</a>. XD this
+means that you have to initiawize t-them in an <a href="programming//programming/exclusive.html">excwusive system</a>,
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> impw, XD ow fwom the <a href="programming//programming/app-builder.html">app buiwdew</a>.</p>
 <pre><code class="language-rust no_run noplayground">fn setup_pwatfowm_audio(wowwd: &amp;mut wowwd) {
     // a-assuming `osaudiomagic` i-is some p-pwimitive that i-is nyot thwead-safe
     w-wet instance = o-osaudiomagic::init();

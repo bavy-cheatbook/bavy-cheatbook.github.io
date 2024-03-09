@@ -179,7 +179,7 @@
 <h1 id="excwusive-systems"><a class="header" href="#excwusive-systems">excwusive systems</a></h1>
 <p>excwusive systems awe <a href="/programming/systems.html">systems</a> that bevy wiww not wun in pawawwew
 with any othew system. &gt;_&lt; they can have <a href="/programming/world.html">fuww unwestwicted access</a>
-to the whowe ecs <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>, XD by taking a <code>&amp;mut World</code> pawametew.</p>
+to the whowe ecs <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>, XD by taking a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a> pawametew.</p>
 <p>inside of an excwusive system, OwO you h-have fuww contwow o-ovew aww data s-stowed
 in the ecs. (ꈍᴗꈍ) you can do nyanievew y-you want.</p>
 <p>some exampwe situations whewe excwusive s-systems awe u-usefuw:</p>
@@ -187,7 +187,7 @@ in the ecs. (ꈍᴗꈍ) you can do nyanievew y-you want.</p>
 <li>dump vawious entities and components t-to a fiwe, OwO to i-impwement things w-wike
 saving and woading of game save fiwes, ^•ﻌ•^ o-ow scene expowt f-fwom an editow</li>
 <li>diwectwy spawn/despawn <a href="/programming/intro-data.html#entities--components">entities</a>, XD ow insewt/wemove <a href="/programming/res.html">wesouwces</a>,
-immediatewy with nyo deway (unwike w-when using <a href="/programming/commands.html"><code>Commands</code></a>
+immediatewy with nyo deway (unwike w-when using <a href="/programming/commands.html">commands</a>
 fwom a weguwaw system)</li>
 <li>wun awbitwawy <a href="/programming/systems.html">systems</a> and <a href="/programming/schedules.html">scheduwes</a> with youw
 own custom contwow fwow wogic</li>
@@ -209,7 +209,7 @@ as with weguwaw systems.</p>
         .befowe(othew_things)
 );</code></pre>
 <h2 id="excwusive-system-pawametews"><a class="header" href="#excwusive-system-pawametews">excwusive system pawametews</a></h2>
-<p>thewe awe a few othew things, &gt;<em>&lt; besides <code>&amp;mut World</code>, &gt;</em>&lt; that can be used as
+<p>thewe awe a few othew things, &gt;<em>&lt; besides <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>, &gt;</em>&lt; that can be used as
 pawametews fow excwusive systems:</p>
 <ul>
 <li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>:
@@ -220,16 +220,15 @@ data <a href="/programming/local.html">wocaw</a> to the system</li>
 emuwates a weguwaw system, OwO awwowing y-you to easiwy a-access data fwom t-the wowwd.
 <code>P</code> awe the system pawametews.</li>
 <li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.QueryState.html"><code>&amp;mut QueryState&lt;Q, F = ()&gt;</code></a>:
-awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a>
-in weguwaw systems.</li>
+awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a> in weguwaw systems.</li>
 </ul>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> can be used to emuwate a nyowmaw s-system.
-you can put weguwaw system pawametews i-inside. OwO this a-awwows you to a-access the
-<code>World</code> as you wouwd fwom a nyowmaw system, ^•ﻌ•^ b-but you can c-confine it to a
-specific scope inside youw function b-body, ^•ﻌ•^ making i-it mowe fwexibwe.</p>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.QueryState.html"><code>QueryState</code></a> is the same thing, (ꈍᴗꈍ) but fow a singwe q-quewy.
-it is a simpwew awtewnative to <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> fow when
-you just nyeed to be abwe to quewy f-fow some data.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> can be used to emuwate a nyowmaw s-system. ^•ﻌ•^  you can p-put weguwaw
+system pawametews inside. ^•ﻌ•^ this awwows y-you to access t-the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a> as you wouwd
+fwom a nyowmaw system, OwO but you can c-confine it to a-a specific scope i-inside youw
+function body, &gt;_&lt; making it mowe fwexibwe.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.QueryState.html"><code>QueryState</code></a> is the same thing, ^•ﻌ•^ but fow a singwe q-quewy. OwO  it is a-a simpwew
+awtewnative to <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> fow when you just nyeed to be abwe t-to quewy fow
+some data.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::ecs::system::systemstate;
 
 fn spawn_pawticwes_fow_enemies(
@@ -283,10 +282,9 @@ intwoduce a pewfowmance bottweneck.</p>
 to do something that is onwy possibwe w-with them.</p>
 <p>on the othew hand, ^•ﻌ•^ they can have w-wess ovewhead (by a-avoiding
 <a href="/programming/commands.html">commands</a>), (ꈍᴗꈍ) and so can be fastew fow some u-use cases.</p>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> has a wot of ovewhead, (ꈍᴗꈍ) as it nyeeds t-to stowe youw
-data in a queue and then pwocess / c-copy it into the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>
-watew. (ꈍᴗꈍ) diwectwy spawning entities i-into the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a> is much
-mowe efficient.</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> has a wot of ovewhead, ^•ﻌ•^ as it nyeeds t-to stowe youw d-data in a queue
+and then pwocess / copy it into the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a> watew. &gt;_&lt; diwectwy spawning entities
+into the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a> is much mowe efficient.</p>
 <p>some exampwes fow when excwusive s-systems can be fastew:</p>
 <ul>
 <li>you want to spawn/despawn a ton of e-entities.

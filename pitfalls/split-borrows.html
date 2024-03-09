@@ -213,19 +213,17 @@ wet thing = thing.into_innew();</code></pre>
 you don't modify the data aftewwawds, OwO t-the component g-gets mawked as c-changed.</p>
 <h2 id="expwanation"><a class="header" href="#expwanation">expwanation</a></h2>
 <p>bevy typicawwy gives you access to y-youw data via s-speciaw wwappew t-types (wike
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, XD and <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.Mut.html"><code>Mut&lt;T&gt;</code></a>
-(when <a href="/programming/queries.html">quewying</a> fow components mutabwy)). (ꈍᴗꈍ) this wets b-bevy twack
-access to the data.</p>
-<p>these awe "smawt pointew" types that u-use the wust <a href="https://doc.rust-lang.org/stable/std/ops/trait.Deref.html"><code>Deref</code></a>
-twait to dewefewence to youw data. OwO t-they usuawwy wowk s-seamwesswy and y-you
-don't even nyotice them.</p>
-<p>howevew, ^•ﻌ•^ in a sense, OwO they awe opaque t-to the compiwew. 🥺 t-the wust wanguage
-awwows fiewds of a stwuct to be bowwowed i-individuawwy, OwO w-when you have d-diwect
-access to the stwuct, OwO but this does n-nyot wowk when i-it is wwapped i-in anothew type.</p>
-<p>the "webowwow" twick shown above, ^•ﻌ•^ e-effectivewy convewts t-the wwappew
-into a weguwaw wust wefewence. &gt;<em>&lt; <code>*thing</code> dewefewences the wwappew via
-<a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>, XD and then <code>&amp;mut</code> bowwows it mutabwy. &gt;</em>&lt; you nyow have
-<code>&amp;mut MyStuff</code> instead of <code>Mut&lt;MyStuff&gt;</code>.</p>
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, XD and <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.Mut.html"><code>Mut&lt;T&gt;</code></a> (when <a href="/programming/queries.html">quewying</a> fow
+components mutabwy)). ^•ﻌ•^ this wets bevy t-twack access t-to the data.</p>
+<p>these awe "smawt pointew" types that u-use the wust <a href="https://doc.rust-lang.org/stable/std/ops/trait.Deref.html"><code>Deref</code></a> twait to dewefewence
+to youw data. OwO they usuawwy wowk seamwesswy a-and you d-don't even nyotice t-them.</p>
+<p>howevew, OwO in a sense, 🥺 they awe opaque t-to the compiwew. òωó t-the wust wanguage a-awwows
+fiewds of a stwuct to be bowwowed i-individuawwy, OwO when y-you have diwect a-access to
+the stwuct, OwO but this does nyot wowk w-when it is wwapped i-in anothew t-type.</p>
+<p>the "webowwow" twick shown above, OwO e-effectivewy convewts t-the wwappew i-into a
+weguwaw wust wefewence. XD <code>*thing</code> dewefewences the wwappew via <a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>, XD and
+then <code>&amp;mut</code> bowwows it mutabwy. &gt;_&lt; you nyow have <code>&amp;mut MyStuff</code> instead of
+<code>Mut&lt;MyStuff&gt;</code>.</p>
 
                     </main>
 
