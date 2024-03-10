@@ -7622,7 +7622,7 @@ the fiwst pawt of the quewy (as shown p-pweviouswy), OwO i-instead of using a-a 
 <p>use <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> to spawn/despawn entities, ^•ﻌ•^ add/wemove c-components o-on existing
 entities, (ꈍᴗꈍ) manage wesouwces, ^•ﻌ•^ fwom y-youw <a href="programming//programming/systems.html">systems</a>.</p>
 <pre><code class="language-rust no_run noplayground">fn spawn_things(
-    mut commands: c-commands, rawr
+    mut commands: c-commands, 😳😳😳
 ) {
     // m-manage wesouwces
     c-commands.insewt_wesouwce(mywesouwce::new());
@@ -7633,12 +7633,12 @@ entities, (ꈍᴗꈍ) manage wesouwces, ^•ﻌ•^ fwom y-youw <a href="program
     // (typicawwy using a bundwe)
     commands.spawn(pwayewbundwe {
         n-nyame: pwayewname("henwy".into()),
-        xp: pwayewxp(1000), ^^
+        xp: pwayewxp(1000), 😳
         h-heawth: heawth {
-            hp: 100.0, 😳😳😳 extwa: 20.0
-        }, mya
-        _p: p-pwayew, 😳
-        spwite: defauwt::defauwt(), -.-
+            hp: 100.0, -.- extwa: 20.0
+        }, 🥺
+        _p: p-pwayew, o.O
+        spwite: defauwt::defauwt(), /(^•ω•^)
     });
 
     // you can u-use a tupwe if you nyeed additionaw c-components o-ow bundwes
@@ -7646,28 +7646,32 @@ entities, (ꈍᴗꈍ) manage wesouwces, ^•ﻌ•^ fwom y-youw <a href="program
     // (note t-the extwa pawentheses)
     wet my_entity_id = commands.spawn((
         // add some c-components
-        componenta, 🥺
+        componenta, nyaa~~
         c-componentb::defauwt(),
         // a-add some b-bundwes
-        m-mybundwe::defauwt(), o.O
-        twansfowmbundwe::defauwt(), /(^•ω•^)
+        m-mybundwe::defauwt(), nyaa~~
+        twansfowmbundwe::defauwt(), :3
     )).id(); // get the entity (id) by c-cawwing `.id()` at the end
 
     // add/wemove c-components of an existing entity
     commands.entity(my_entity_id)
         .insewt(componentc::defauwt())
         .wemove::&lt;componenta&gt;()
-        .wemove::&lt;(componentb, nyaa~~ mybundwe)&gt;();
+        .wemove::&lt;(componentb, 😳😳😳 mybundwe)&gt;();
+
+    // wemove evewything except the given c-components / bundwes
+    commands.entity(my_entity_id)
+        .wetain::&lt;(twansfowmbundwe, (˘ω˘) c-componentc)&gt;();
 }
 
-fn make_aww_pwayews_hostiwe(
-    mut commands: c-commands, nyaa~~
-    // we nyeed t-the entity id, :3 t-to pewfowm commands o-on specific entities
-    quewy: quewy&lt;entity, 😳😳😳 with&lt;pwayew&gt;&gt;, (˘ω˘)
+f-fn make_aww_pwayews_hostiwe(
+    m-mut commands: commands, ^^
+    // we nyeed the entity id, :3 to pewfowm commands on specific e-entities
+    q-quewy: quewy&lt;entity, -.- with&lt;pwayew&gt;&gt;, 😳
 ) {
-    f-fow entity i-in quewy.itew() {
-        commands.entity(entity)
-            // a-add an `enemy` c-component to the entity
+    f-fow entity in quewy.itew() {
+        c-commands.entity(entity)
+            // add a-an `enemy` component to the entity
             .insewt(enemy)
             // w-wemove the `fwiendwy` component
             .wemove::&lt;fwiendwy&gt;();
@@ -7675,14 +7679,13 @@ fn make_aww_pwayews_hostiwe(
 }
 
 f-fn despawn_aww_enemies(
-    mut commands: commands, ^^
-    quewy: q-quewy&lt;entity, :3 with&lt;enemy&gt;&gt;, -.-
+    mut commands: c-commands, mya
+    quewy: quewy&lt;entity, (˘ω˘) w-with&lt;enemy&gt;&gt;, &gt;_&lt;
 ) {
     f-fow entity in quewy.itew() {
-        c-commands.entity(entity).despawn();
+        commands.entity(entity).despawn();
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="when-do-these-actions-get-appwied"><a class="header" href="#when-do-these-actions-get-appwied">when do these actions get appwied?</a></h2>
 <p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> do nyot take effect immediatewy, ^•ﻌ•^ b-because it wouwdn't b-be safe to
 modify the data wayout in memowy w-when othew <a href="programming//programming/systems.html">systems</a> couwd be
@@ -7706,6 +7709,68 @@ the nyext fwame update!</p>
 wiww see the changes. OwO fow exampwe, 🥺 b-bevy's engine s-systems (that wive i-in
 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>) wiww see the entities you spawn i-in youw systems (that w-wive in
 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>).</p>
+<h2 id="custom-commands"><a class="header" href="#custom-commands">custom commands</a></h2>
+<p>commands can awso sewve as a convenient w-way to do a-any custom manipuwations
+that wequiwe <a href="programming//programming/world.html">fuww access</a> to the ecs <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>. XD you can queue up
+any custom code to wun in a defewwed f-fashion, OwO the s-same way as the s-standawd
+commands wowk.</p>
+<p>fow a one-off thing, (ꈍᴗꈍ) you can just p-pass a cwosuwe:</p>
+<pre><code class="language-rust no_run noplayground">fn my_system(mut commands: commands) {
+    w-wet x = 420;
+
+    c-commands.add(move |wowwd: &amp;mut w-wowwd| {
+        // do n-nyanievew you w-want with `wowwd` h-hewe
+
+        // n-nyote: it's a c-cwosuwe, σωσ you can use vawiabwes fwom
+        // the pawent scope/function
+        epwintwn!("{}", σωσ x-x);
+    });
+}</code></pre>
+<p>if you want something weusabwe, OwO you c-can cweate a c-custom type and i-impwement
+the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/trait.Command.html"><code>Command</code></a> twait:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::ecs::system::command;
+
+stwuct mycustomcommand {
+    // y-you can have some p-pawametews
+    d-data: u32, (ˆ ﻌ ˆ)♡
+}
+
+impw c-command fow m-mycustomcommand {
+    f-fn appwy(sewf, (⑅˘꒳˘) w-wowwd: &amp;mut w-wowwd) {
+        // do nyanievew you want with `wowwd` and `sewf.data` hewe
+    }
+}
+
+f-fn my_othew_system(mut commands: commands) {
+    c-commands.add(mycustomcommand {
+        data: 920, (U ᵕ U❁) // s-set youw vawue
+    });
+}</code></pre>
+<p>and if you want to make it extwa n-nyice to use, you c-can cweate
+an extension twait to add extwa methods t-to <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>:</p>
+<pre><code class="language-rust no_run noplayground">pub twait mycustomcommandsext {
+    // define a method t-that we wiww b-be abwe to caww o-on `commands`
+    f-fn do_custom_thing(&amp;mut s-sewf, -.- d-data: u32);
+}
+
+// i-impwement ouw t-twait fow bevy's `commands`
+impw&lt;'w, ^^;; 's&gt; mycustomcommandsext fow commands&lt;'w, &gt;_&lt; 's&gt; {
+    fn do_custom_thing(&amp;mut sewf, mya data: u32) {
+        s-sewf.add(mycustomcommand {
+            data, mya
+        });
+    }
+}
+
+fn my_fancy_system(mut c-commands: commands) {
+    // n-nyow we can caww ouw custom method just wike bevy's `spawn`, 😳 e-etc.
+    commands.do_custom_thing(42);
+}</code></pre>
+<p>now, ^•ﻌ•^ youw custom commands wiww "feew n-nyative", as i-if they wewe integwated
+into bevy. XD :)</p>
+<p>note: if you want to use youw custom e-extension method f-fwom othew w-wust
+fiwes, ^•ﻌ•^ you wiww have to impowt youw t-twait, OwO ow it w-wiww nyot be avaiwabwe:</p>
+<pre><code class="language-rust no_run noplayground">use cwate::thing::mycustomcommandsext;</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="events-1"><a class="header" href="#events-1">events</a></h1>
@@ -7806,25 +7871,43 @@ spwit it into "pwugins".</p>
 <p>pwugins awe simpwy cowwections of t-things to be added t-to the <a href="programming//programming/app-builder.html">app
 buiwdew</a>. ^•ﻌ•^ think of this as a way to add things t-to the app f-fwom
 muwtipwe pwaces, wike diffewent wust f-fiwes/moduwes o-ow cwates.</p>
+<p>the simpwest way to cweate a pwugin i-is by just wwiting a-a wust function
+that takes <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>&amp;mut App</code></a>:</p>
+<pre><code class="language-rust no_run noplayground">fn my_pwugin(app: &amp;mut app) {
+    a-app.init_wesouwce::&lt;mycustomwesouwce&gt;();
+    a-app.add_systems(update, 🥺 (
+        d-do_some_things, òωó
+        d-do_othew_things, o.O
+    ));
+}</code></pre>
+<p>an awtewnative way is by cweating a-a <code>struct</code> and impwementing the <a href="https://docs.rs/bevy/0.13.0/bevy/app/trait.Plugin.html"><code>Plugin</code></a> twait:</p>
 <pre><code class="language-rust no_run noplayground">stwuct mypwugin;
 
 impw pwugin fow m-mypwugin {
-    f-fn buiwd(&amp;sewf, rawr x3 a-app: &amp;mut app) {
+    f-fn buiwd(&amp;sewf, ( ͡o ω ͡o ) a-app: &amp;mut app) {
         a-app.init_wesouwce::&lt;myothewwesouwce&gt;();
         a-app.add_event::&lt;myevent&gt;();
-        a-app.add_systems(stawtup, rawr p-pwugin_init);
-        a-app.add_systems(update, σωσ my_system);
+        a-app.add_systems(stawtup, UwU p-pwugin_init);
+        a-app.add_systems(update, rawr x3 my_system);
     }
-}
-
-fn main() {
+}</code></pre>
+<p>the benefit of using a <code>struct</code> is that you couwd extend it with c-configuwation
+pawametews ow genewics if you want t-to make youw pwugin c-configuwabwe.</p>
+<p>eithew way, XD you get <code>&amp;mut</code> access to the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a>, &gt;_&lt; so you can add nyanievew
+you want to it, (ꈍᴗꈍ) just wike you can d-do fwom youw <code>fn main()</code>.</p>
+<p>you can nyow add youw pwugins to y-youw <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a> fwom ewsewhewe (most commonwy
+<code>fn main()</code>). ^•ﻌ•^ bevy wiww just caww youw pwugin i-impwementation a-above. OwO in effect,
+evewything the pwugin adds wiww be f-fwattened into y-youw <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a> awongside
+evewything that is awweady thewe.</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
         .add_pwugins(defauwtpwugins)
-        .add_pwugins(mypwugin)
+        .add_pwugins((
+            my_pwugin, 🥺 // t-the `fn`-based pwugin
+            m-mypwugin,  // t-the `stwuct`-based p-pwugin
+        ))
         .wun();
 }</code></pre>
-<p>note how you get <code>&amp;mut</code> access to the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a>, XD so you can
-add nyanievew you want to it, ^•ﻌ•^ just w-wike you can do f-fwom youw <code>fn main</code>.</p>
 <p>fow intewnaw owganization in youw o-own pwoject, the m-main vawue of p-pwugins
 comes fwom nyot having to decwawe a-aww youw wust types a-and functions a-as
 <code>pub</code>, (ꈍᴗꈍ) just so they can be accessibwe f-fwom <code>fn main</code> to be added to the
@@ -7931,6 +8014,8 @@ app::new()
 <h2 id="pubwishing-cwates"><a class="header" href="#pubwishing-cwates">pubwishing cwates</a></h2>
 <p>pwugins give you a nyice way to pubwish b-bevy-based w-wibwawies fow o-othew peopwe
 to easiwy incwude into theiw pwojects.</p>
+<p>bevy offews some officiaw guidance f-fow good pwactices w-when you devewop p-pwugins
+you want to pubwish fow othew peopwe t-to use. (ꈍᴗꈍ) <a href="https://bevyengine.org/learn/book/plugin-development/">you can wead it hewe.</a></p>
 <p>don't fowget to submit an entwy to <a href="https://bevyengine.org/assets">bevy assets</a> on the officiaw
 website, OwO so that peopwe can find y-youw pwugin mowe e-easiwy. 🥺 you can d-do this
 by making a pw in <a href="https://github.com/bevyengine/bevy-assets">the github wepo</a>.</p>
@@ -9206,11 +9291,11 @@ system pawametew, ^•ﻌ•^ effectivewy impwementing y-youw own d-detection.</
 }</code></pre>
 <p>note that, OwO since this detection is w-wocaw to youw s-system, 🥺 it does n-nyot have
 to happen duwing the same fwame update.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="system-piping"><a class="header" href="#system-piping">system piping</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/system_piping.rs"><code>system_piping</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/system_piping.rs"><code>system_piping</code></a>.</p>
 <hr />
 <p>you can compose a singwe bevy <a href="programming//programming/systems.html">system</a> fwom muwtipwe wust functions.</p>
 <p>you can make functions that can take a-an input and p-pwoduce an output, OwO a-and be
@@ -9220,31 +9305,35 @@ bwocks. OwO this way, 🥺 you can weuse some c-common code/wogic i-in muwtipwe 
 <p>note that system piping is <em>not</em> a way of communicating between systems.
 if you want to pass data between s-systems, ^•ﻌ•^ you shouwd u-use <a href="programming//programming/events.html">events</a>
 instead.</p>
+<p>youw functions wiww be combined and b-bevy wiww tweat t-them as if they w-wewe a
+singwe big <a href="programming//programming/systems.html">system</a> with aww the combined system pawametews f-fow
+data access.</p>
 <h2 id="exampwe-handwing-results"><a class="header" href="#exampwe-handwing-results">exampwe: handwing <a href="https://doc.rust-lang.org/stable/std/result/enum.Result.html"><code>Result</code></a>s</a></h2>
 <p>one usefuw appwication of system p-piping is to be a-abwe to wetuwn ewwows (awwowing
 the use of wust's <code>?</code> opewatow) and then have a sepawate f-function fow h-handwing
 them:</p>
 <pre><code class="language-rust no_run noplayground">fn nyet_weceive(mut nyetcode: wesmut&lt;mynetpwoto&gt;) -&gt; s-std::io::wesuwt&lt;()&gt; {
-    n-nyetcode.weceive_updates()?;
+    n-nyetcode.send_updates(/* ... */)?;
+    n-nyetcode.weceive_updates(/* ... */)?;
 
     o-ok(())
 }
 
-fn handwe_io_ewwows(in(wesuwt): i-in&lt;std::io::wesuwt&lt;()&gt;&gt;) {
-    i-if wet e-eww(e) = wesuwt {
-        e-epwintwn!("i/o e-ewwow occuwwed: {}", ( ͡o ω ͡o ) e);
+fn handwe_io_ewwows(
+    i-in(wesuwt): in&lt;std::io::wesuwt&lt;()&gt;&gt;, (U ﹏ U)
+    // we c-can awso have w-weguwaw system pawametews
+    m-mut commands: commands, -.-
+) {
+    if wet eww(e) = wesuwt {
+        epwintwn!("i/o ewwow o-occuwwed: {}", (ˆ ﻌ ˆ)♡ e);
+        // maybe spawn some e-ewwow ui ow something?
+        commands.spawn((/* ... */));
     }
 }</code></pre>
-<p>such functions cannot be <a href="programming//programming/app-builder.html">wegistewed</a> individuawwy as systems (bevy
-doesn't know nyani to do with the i-input/output). OwO b-by "piping" them t-togethew, 🥺 we
-cweate a vawid system that we can a-add:</p>
-<pre><code class="language-rust no_run noplayground">fn main() {
-    app::new()
-        // ...
-        .add_system(net_weceive.pipe(handwe_io_ewwows))
-        // ...
-        .wun();
-}</code></pre>
+<p>such functions cannot be <a href="programming//programming/app-builder.html">added</a> individuawwy as systems (bevy
+doesn't know nyani to do with the i-input/output). OwO b-by "piping" them t-togethew,
+we cweate a vawid system that we c-can add:</p>
+<pre><code class="language-rust no_run noplayground">app.add_systems(fixedupdate, XD nyet_weceive.pipe(handwe_io_ewwows));</code></pre>
 <h2 id="pewfowmance-wawning"><a class="header" href="#pewfowmance-wawning">pewfowmance wawning</a></h2>
 <p>bewawe that bevy tweats the whowe c-chain as if it w-was a singwe big s-system, OwO with
 aww the combined system pawametews a-and theiw wespective d-data access

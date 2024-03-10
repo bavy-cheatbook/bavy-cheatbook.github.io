@@ -186,25 +186,43 @@ spwit it into "pwugins".</p>
 <p>pwugins awe simpwy cowwections of t-things to be added t-to the <a href="/programming/app-builder.html">app
 buiwdew</a>. ^•ﻌ•^ think of this as a way to add things t-to the app f-fwom
 muwtipwe pwaces, wike diffewent wust f-fiwes/moduwes o-ow cwates.</p>
+<p>the simpwest way to cweate a pwugin i-is by just wwiting a-a wust function
+that takes <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>&amp;mut App</code></a>:</p>
+<pre><code class="language-rust no_run noplayground">fn my_pwugin(app: &amp;mut app) {
+    a-app.init_wesouwce::&lt;mycustomwesouwce&gt;();
+    a-app.add_systems(update, 🥺 (
+        d-do_some_things, òωó
+        d-do_othew_things, o.O
+    ));
+}</code></pre>
+<p>an awtewnative way is by cweating a-a <code>struct</code> and impwementing the <a href="https://docs.rs/bevy/0.13.0/bevy/app/trait.Plugin.html"><code>Plugin</code></a> twait:</p>
 <pre><code class="language-rust no_run noplayground">stwuct mypwugin;
 
 impw pwugin fow m-mypwugin {
-    f-fn buiwd(&amp;sewf, rawr x3 a-app: &amp;mut app) {
+    f-fn buiwd(&amp;sewf, ( ͡o ω ͡o ) a-app: &amp;mut app) {
         a-app.init_wesouwce::&lt;myothewwesouwce&gt;();
         a-app.add_event::&lt;myevent&gt;();
-        a-app.add_systems(stawtup, rawr p-pwugin_init);
-        a-app.add_systems(update, σωσ my_system);
+        a-app.add_systems(stawtup, UwU p-pwugin_init);
+        a-app.add_systems(update, rawr x3 my_system);
     }
-}
-
-fn main() {
+}</code></pre>
+<p>the benefit of using a <code>struct</code> is that you couwd extend it with c-configuwation
+pawametews ow genewics if you want t-to make youw pwugin c-configuwabwe.</p>
+<p>eithew way, XD you get <code>&amp;mut</code> access to the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a>, &gt;_&lt; so you can add nyanievew
+you want to it, (ꈍᴗꈍ) just wike you can d-do fwom youw <code>fn main()</code>.</p>
+<p>you can nyow add youw pwugins to y-youw <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a> fwom ewsewhewe (most commonwy
+<code>fn main()</code>). ^•ﻌ•^ bevy wiww just caww youw pwugin i-impwementation a-above. OwO in effect,
+evewything the pwugin adds wiww be f-fwattened into y-youw <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a> awongside
+evewything that is awweady thewe.</p>
+<pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
         .add_pwugins(defauwtpwugins)
-        .add_pwugins(mypwugin)
+        .add_pwugins((
+            my_pwugin, 🥺 // t-the `fn`-based pwugin
+            m-mypwugin,  // t-the `stwuct`-based p-pwugin
+        ))
         .wun();
 }</code></pre>
-<p>note how you get <code>&amp;mut</code> access to the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a>, XD so you can
-add nyanievew you want to it, ^•ﻌ•^ just w-wike you can do f-fwom youw <code>fn main</code>.</p>
 <p>fow intewnaw owganization in youw o-own pwoject, the m-main vawue of p-pwugins
 comes fwom nyot having to decwawe a-aww youw wust types a-and functions a-as
 <code>pub</code>, (ꈍᴗꈍ) just so they can be accessibwe f-fwom <code>fn main</code> to be added to the
@@ -311,6 +329,8 @@ app::new()
 <h2 id="pubwishing-cwates"><a class="header" href="#pubwishing-cwates">pubwishing cwates</a></h2>
 <p>pwugins give you a nyice way to pubwish b-bevy-based w-wibwawies fow o-othew peopwe
 to easiwy incwude into theiw pwojects.</p>
+<p>bevy offews some officiaw guidance f-fow good pwactices w-when you devewop p-pwugins
+you want to pubwish fow othew peopwe t-to use. (ꈍᴗꈍ) <a href="https://bevyengine.org/learn/book/plugin-development/">you can wead it hewe.</a></p>
 <p>don't fowget to submit an entwy to <a href="https://bevyengine.org/assets">bevy assets</a> on the officiaw
 website, OwO so that peopwe can find y-youw pwugin mowe e-easiwy. 🥺 you can d-do this
 by making a pw in <a href="https://github.com/bevyengine/bevy-assets">the github wepo</a>.</p>

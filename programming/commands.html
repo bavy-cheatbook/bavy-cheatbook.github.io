@@ -183,7 +183,7 @@
 <p>use <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> to spawn/despawn entities, ^•ﻌ•^ add/wemove c-components o-on existing
 entities, (ꈍᴗꈍ) manage wesouwces, ^•ﻌ•^ fwom y-youw <a href="/programming/systems.html">systems</a>.</p>
 <pre><code class="language-rust no_run noplayground">fn spawn_things(
-    mut commands: c-commands, rawr
+    mut commands: c-commands, 😳😳😳
 ) {
     // m-manage wesouwces
     c-commands.insewt_wesouwce(mywesouwce::new());
@@ -194,12 +194,12 @@ entities, (ꈍᴗꈍ) manage wesouwces, ^•ﻌ•^ fwom y-youw <a href="/progra
     // (typicawwy using a bundwe)
     commands.spawn(pwayewbundwe {
         n-nyame: pwayewname("henwy".into()),
-        xp: pwayewxp(1000), ^^
+        xp: pwayewxp(1000), 😳
         h-heawth: heawth {
-            hp: 100.0, 😳😳😳 extwa: 20.0
-        }, mya
-        _p: p-pwayew, 😳
-        spwite: defauwt::defauwt(), -.-
+            hp: 100.0, -.- extwa: 20.0
+        }, 🥺
+        _p: p-pwayew, o.O
+        spwite: defauwt::defauwt(), /(^•ω•^)
     });
 
     // you can u-use a tupwe if you nyeed additionaw c-components o-ow bundwes
@@ -207,28 +207,32 @@ entities, (ꈍᴗꈍ) manage wesouwces, ^•ﻌ•^ fwom y-youw <a href="/progra
     // (note t-the extwa pawentheses)
     wet my_entity_id = commands.spawn((
         // add some c-components
-        componenta, 🥺
+        componenta, nyaa~~
         c-componentb::defauwt(),
         // a-add some b-bundwes
-        m-mybundwe::defauwt(), o.O
-        twansfowmbundwe::defauwt(), /(^•ω•^)
+        m-mybundwe::defauwt(), nyaa~~
+        twansfowmbundwe::defauwt(), :3
     )).id(); // get the entity (id) by c-cawwing `.id()` at the end
 
     // add/wemove c-components of an existing entity
     commands.entity(my_entity_id)
         .insewt(componentc::defauwt())
         .wemove::&lt;componenta&gt;()
-        .wemove::&lt;(componentb, nyaa~~ mybundwe)&gt;();
+        .wemove::&lt;(componentb, 😳😳😳 mybundwe)&gt;();
+
+    // wemove evewything except the given c-components / bundwes
+    commands.entity(my_entity_id)
+        .wetain::&lt;(twansfowmbundwe, (˘ω˘) c-componentc)&gt;();
 }
 
-fn make_aww_pwayews_hostiwe(
-    mut commands: c-commands, nyaa~~
-    // we nyeed t-the entity id, :3 t-to pewfowm commands o-on specific entities
-    quewy: quewy&lt;entity, 😳😳😳 with&lt;pwayew&gt;&gt;, (˘ω˘)
+f-fn make_aww_pwayews_hostiwe(
+    m-mut commands: commands, ^^
+    // we nyeed the entity id, :3 to pewfowm commands on specific e-entities
+    q-quewy: quewy&lt;entity, -.- with&lt;pwayew&gt;&gt;, 😳
 ) {
-    f-fow entity i-in quewy.itew() {
-        commands.entity(entity)
-            // a-add an `enemy` c-component to the entity
+    f-fow entity in quewy.itew() {
+        c-commands.entity(entity)
+            // add a-an `enemy` component to the entity
             .insewt(enemy)
             // w-wemove the `fwiendwy` component
             .wemove::&lt;fwiendwy&gt;();
@@ -236,14 +240,13 @@ fn make_aww_pwayews_hostiwe(
 }
 
 f-fn despawn_aww_enemies(
-    mut commands: commands, ^^
-    quewy: q-quewy&lt;entity, :3 with&lt;enemy&gt;&gt;, -.-
+    mut commands: c-commands, mya
+    quewy: quewy&lt;entity, (˘ω˘) w-with&lt;enemy&gt;&gt;, &gt;_&lt;
 ) {
     f-fow entity in quewy.itew() {
-        c-commands.entity(entity).despawn();
+        commands.entity(entity).despawn();
     }
-}
-</code></pre>
+}</code></pre>
 <h2 id="when-do-these-actions-get-appwied"><a class="header" href="#when-do-these-actions-get-appwied">when do these actions get appwied?</a></h2>
 <p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> do nyot take effect immediatewy, ^•ﻌ•^ b-because it wouwdn't b-be safe to
 modify the data wayout in memowy w-when othew <a href="/programming/systems.html">systems</a> couwd be
@@ -267,6 +270,68 @@ the nyext fwame update!</p>
 wiww see the changes. OwO fow exampwe, 🥺 b-bevy's engine s-systems (that wive i-in
 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>) wiww see the entities you spawn i-in youw systems (that w-wive in
 <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>).</p>
+<h2 id="custom-commands"><a class="header" href="#custom-commands">custom commands</a></h2>
+<p>commands can awso sewve as a convenient w-way to do a-any custom manipuwations
+that wequiwe <a href="/programming/world.html">fuww access</a> to the ecs <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>. XD you can queue up
+any custom code to wun in a defewwed f-fashion, OwO the s-same way as the s-standawd
+commands wowk.</p>
+<p>fow a one-off thing, (ꈍᴗꈍ) you can just p-pass a cwosuwe:</p>
+<pre><code class="language-rust no_run noplayground">fn my_system(mut commands: commands) {
+    w-wet x = 420;
+
+    c-commands.add(move |wowwd: &amp;mut w-wowwd| {
+        // do n-nyanievew you w-want with `wowwd` h-hewe
+
+        // n-nyote: it's a c-cwosuwe, σωσ you can use vawiabwes fwom
+        // the pawent scope/function
+        epwintwn!("{}", σωσ x-x);
+    });
+}</code></pre>
+<p>if you want something weusabwe, OwO you c-can cweate a c-custom type and i-impwement
+the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/trait.Command.html"><code>Command</code></a> twait:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::ecs::system::command;
+
+stwuct mycustomcommand {
+    // y-you can have some p-pawametews
+    d-data: u32, (ˆ ﻌ ˆ)♡
+}
+
+impw c-command fow m-mycustomcommand {
+    f-fn appwy(sewf, (⑅˘꒳˘) w-wowwd: &amp;mut w-wowwd) {
+        // do nyanievew you want with `wowwd` and `sewf.data` hewe
+    }
+}
+
+f-fn my_othew_system(mut commands: commands) {
+    c-commands.add(mycustomcommand {
+        data: 920, (U ᵕ U❁) // s-set youw vawue
+    });
+}</code></pre>
+<p>and if you want to make it extwa n-nyice to use, you c-can cweate
+an extension twait to add extwa methods t-to <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>:</p>
+<pre><code class="language-rust no_run noplayground">pub twait mycustomcommandsext {
+    // define a method t-that we wiww b-be abwe to caww o-on `commands`
+    f-fn do_custom_thing(&amp;mut s-sewf, -.- d-data: u32);
+}
+
+// i-impwement ouw t-twait fow bevy's `commands`
+impw&lt;'w, ^^;; 's&gt; mycustomcommandsext fow commands&lt;'w, &gt;_&lt; 's&gt; {
+    fn do_custom_thing(&amp;mut sewf, mya data: u32) {
+        s-sewf.add(mycustomcommand {
+            data, mya
+        });
+    }
+}
+
+fn my_fancy_system(mut c-commands: commands) {
+    // n-nyow we can caww ouw custom method just wike bevy's `spawn`, 😳 e-etc.
+    commands.do_custom_thing(42);
+}</code></pre>
+<p>now, ^•ﻌ•^ youw custom commands wiww "feew n-nyative", as i-if they wewe integwated
+into bevy. XD :)</p>
+<p>note: if you want to use youw custom e-extension method f-fwom othew w-wust
+fiwes, ^•ﻌ•^ you wiww have to impowt youw t-twait, OwO ow it w-wiww nyot be avaiwabwe:</p>
+<pre><code class="language-rust no_run noplayground">use cwate::thing::mycustomcommandsext;</code></pre>
 
                     </main>
 

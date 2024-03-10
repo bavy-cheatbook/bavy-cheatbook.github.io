@@ -174,11 +174,11 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="system-piping"><a class="header" href="#system-piping">system piping</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/system_piping.rs"><code>system_piping</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/system_piping.rs"><code>system_piping</code></a>.</p>
 <hr />
 <p>you can compose a singwe bevy <a href="/programming/systems.html">system</a> fwom muwtipwe wust functions.</p>
 <p>you can make functions that can take a-an input and p-pwoduce an output, OwO a-and be
@@ -188,31 +188,35 @@ bwocks. OwO this way, 🥺 you can weuse some c-common code/wogic i-in muwtipwe 
 <p>note that system piping is <em>not</em> a way of communicating between systems.
 if you want to pass data between s-systems, ^•ﻌ•^ you shouwd u-use <a href="/programming/events.html">events</a>
 instead.</p>
+<p>youw functions wiww be combined and b-bevy wiww tweat t-them as if they w-wewe a
+singwe big <a href="/programming/systems.html">system</a> with aww the combined system pawametews f-fow
+data access.</p>
 <h2 id="exampwe-handwing-results"><a class="header" href="#exampwe-handwing-results">exampwe: handwing <a href="https://doc.rust-lang.org/stable/std/result/enum.Result.html"><code>Result</code></a>s</a></h2>
 <p>one usefuw appwication of system p-piping is to be a-abwe to wetuwn ewwows (awwowing
 the use of wust's <code>?</code> opewatow) and then have a sepawate f-function fow h-handwing
 them:</p>
 <pre><code class="language-rust no_run noplayground">fn nyet_weceive(mut nyetcode: wesmut&lt;mynetpwoto&gt;) -&gt; s-std::io::wesuwt&lt;()&gt; {
-    n-nyetcode.weceive_updates()?;
+    n-nyetcode.send_updates(/* ... */)?;
+    n-nyetcode.weceive_updates(/* ... */)?;
 
     o-ok(())
 }
 
-fn handwe_io_ewwows(in(wesuwt): i-in&lt;std::io::wesuwt&lt;()&gt;&gt;) {
-    i-if wet e-eww(e) = wesuwt {
-        e-epwintwn!("i/o e-ewwow occuwwed: {}", ( ͡o ω ͡o ) e);
+fn handwe_io_ewwows(
+    i-in(wesuwt): in&lt;std::io::wesuwt&lt;()&gt;&gt;, (U ﹏ U)
+    // we c-can awso have w-weguwaw system pawametews
+    m-mut commands: commands, -.-
+) {
+    if wet eww(e) = wesuwt {
+        epwintwn!("i/o ewwow o-occuwwed: {}", (ˆ ﻌ ˆ)♡ e);
+        // maybe spawn some e-ewwow ui ow something?
+        commands.spawn((/* ... */));
     }
 }</code></pre>
-<p>such functions cannot be <a href="/programming/app-builder.html">wegistewed</a> individuawwy as systems (bevy
-doesn't know nyani to do with the i-input/output). OwO b-by "piping" them t-togethew, 🥺 we
-cweate a vawid system that we can a-add:</p>
-<pre><code class="language-rust no_run noplayground">fn main() {
-    app::new()
-        // ...
-        .add_system(net_weceive.pipe(handwe_io_ewwows))
-        // ...
-        .wun();
-}</code></pre>
+<p>such functions cannot be <a href="/programming/app-builder.html">added</a> individuawwy as systems (bevy
+doesn't know nyani to do with the i-input/output). OwO b-by "piping" them t-togethew,
+we cweate a vawid system that we c-can add:</p>
+<pre><code class="language-rust no_run noplayground">app.add_systems(fixedupdate, XD nyet_weceive.pipe(handwe_io_ewwows));</code></pre>
 <h2 id="pewfowmance-wawning"><a class="header" href="#pewfowmance-wawning">pewfowmance wawning</a></h2>
 <p>bewawe that bevy tweats the whowe c-chain as if it w-was a singwe big s-system, OwO with
 aww the combined system pawametews a-and theiw wespective d-data access
