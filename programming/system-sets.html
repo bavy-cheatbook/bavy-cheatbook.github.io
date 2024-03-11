@@ -179,10 +179,34 @@
 <h1 id="system-sets"><a class="header" href="#system-sets">system sets</a></h1>
 <p>system sets awwow you to easiwy appwy c-common pwopewties t-to muwtipwe s-systems,
 such as <a href="/programming/system-order.html">owdewing</a> and <a href="/programming/run-criteria.html">wun conditions</a>.</p>
-<p>to cweate a system set, ^•ﻌ•^ you must f-fiwst cweate a wust t-type (<code>struct</code> ow <code>enum</code>)
-to sewve as a wabew/identifiew. (ꈍᴗꈍ) fow simpwe use cases, ^•ﻌ•^ c-cweate an empty <code>struct</code>.
-if you nyeed to cweate muwtipwe wewated s-sets, ^•ﻌ•^ cweate a-an <code>enum</code>. XD evewy vawiant
-of the <code>enum</code> is a sepawate system set.</p>
+<p>anything you add to the set wiww a-automaticawwy be a-appwied to aww s-systems
+bewonging to the set.</p>
+<p>a system can bewong to muwtipwe diffewent s-sets, OwO and w-wiww inhewit a-aww the
+pwopewties fwom aww of them. OwO you c-can awso add additionaw p-pwopewties t-to
+individuaw systems.</p>
+<p>aww of this combined gives you a w-wot of fwexibiwity a-and contwow ovew h-how youw systems w-wun.</p>
+<h2 id="anonymous-sets"><a class="header" href="#anonymous-sets">anonymous sets</a></h2>
+<p>the simpwest kind of system set is w-when you just <a href="/programming/app-builder.html">add</a> a tupwe of
+muwtipwe <a href="/programming/systems.html">systems</a> using <code>.add_systems</code>.</p>
+<pre><code class="language-rust no_run noplayground">app.add_systems(
+    update, ^•ﻌ•^
+    (
+        system_a, OwO
+        s-system_b, 🥺
+        s-system_c
+    )
+    .wun_if(common_wun_condition)
+    .aftew(some_system)
+);</code></pre>
+<p>this syntax is usefuw when you just w-want to appwy s-some common configuwation t-to
+muwtipwe systems.</p>
+<h2 id="named-sets"><a class="header" href="#named-sets">named sets</a></h2>
+<p>this is the mowe fowmaw and powewfuw w-way to use system s-sets.</p>
+<p>you can cweate a wust type (<code>struct</code> ow <code>enum</code>) to sewve as a wabew/identifiew,
+so you can wefew to the set fwom d-diffewent pwaces.</p>
+<p>fow a singwe set, &gt;<em>&lt; cweate an empty <code>struct</code>. &gt;</em>&lt; if you nyeed to cweate muwtipwe
+wewated sets, &gt;<em>&lt; cweate an <code>enum</code>. &gt;</em>&lt; evewy vawiant of the <code>enum</code> is a sepawate system
+set.</p>
 <p>you nyeed to dewive <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/schedule/trait.SystemSet.html"><code>SystemSet</code></a> + an assowtment of wequiwed standawd w-wust twaits:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(systemset, &gt;_&lt; debug, cwone, :3 pawtiaweq, eq, h-hash)]
 stwuct myaudioset;
@@ -219,23 +243,24 @@ e-enum mygamepwayset {
     ).in_set(mygamepwayset::pwayew), -.-
     (
         e-enemy_movement, (ˆ ﻌ ˆ)♡
-        e-enemy_ai, (⑅˘꒳˘)
-        e-enemy_footsteps
+        e-enemy_ai
+            .aftew(mygamepwayset::pwayew), (⑅˘꒳˘)
+        enemy_footsteps
             .in_set(myaudioset), (U ᵕ U❁)
-    ).in_set(mygamepwayset::enemies), -.-
+    ).in_set(mygamepwayset::enemies),
     (
         (
-            m-mouse_cuwsow_twacking, ^^;;
-            m-mouse_cwicks, &gt;_&lt;
-        ).in_set(myinputkindset::mouse), mya
+            m-mouse_cuwsow_twacking, -.-
+            m-mouse_cwicks, ^^;;
+        ).in_set(myinputkindset::mouse), &gt;_&lt;
         (
-            gamepad_cuwsow_twacking, mya
-            gamepad_buttons, 😳
-        ).in_set(myinputkindset::gamepad), XD
+            g-gamepad_cuwsow_twacking, mya
+            gamepad_buttons, mya
+        ).in_set(myinputkindset::gamepad), 😳
         (
-            touch_gestuwes, :3
-        ).in_set(myinputkindset::touch), 😳😳😳
-    ).in_set(myinputset), -.-
+            touch_gestuwes, XD
+        ).in_set(myinputkindset::touch), :3
+    ).in_set(myinputset), 😳😳😳
 ));</code></pre>
 <p>you can add <a href="/programming/run-criteria.html">wun conditions</a> and <a href="/programming/system-order.html">owdewing
 dependencies</a> on youw set using <code>.configure_sets</code>:</p>
@@ -254,23 +279,17 @@ dependencies</a> on youw set using <code>.configure_sets</code>:</p>
     m-myinputkindset::gamepad
         .wun_if(gamepad_connected), ( ͡o ω ͡o )
 ));</code></pre>
-<p>anything you add to the set wiww a-automaticawwy be a-appwied to aww s-systems
-bewonging to the set.</p>
-<p>a system can bewong to muwtipwe diffewent s-sets, OwO and w-wiww inhewit a-aww the
-pwopewties fwom aww of them. OwO you c-can awso add additionaw p-pwopewties t-to
-individuaw systems.</p>
-<p>aww of this combined gives you a w-wot of fwexibiwity a-and contwow ovew h-how youw systems w-wun.</p>
-<h2 id="usage-advice"><a class="header" href="#usage-advice">usage advice</a></h2>
-<p>the main use case of system sets i-is to gwoup togethew w-wewated systems, OwO s-so you can
-manage them mowe easiwy as a gwoup.</p>
+<p>the main use case of nyamed system s-sets is fow wogicaw o-owganization, OwO s-so that you
+can manage youw systems and wefew t-to the whowe gwoup.</p>
 <p>some exampwes:</p>
 <ul>
 <li>a set fow aww youw audio-wewated s-systems, 🥺 so you c-can disabwe them a-aww if sound is m-muted.</li>
 <li>a set fow aww youw touchscween input s-systems, 🥺 so y-you can disabwe t-them aww if thewe i-is nyo touchscween.</li>
 <li>a set fow aww youw input handwing s-systems, 🥺 so you c-can owdew them t-to wun befowe gamepway s-systems.</li>
+<li>a set fow aww youw gamepway systems, OwO s-so that they o-onwy wun duwing t-the in-game <a href="/programming/states.html">state</a>.</li>
 </ul>
 <h3 id="with-pwugins"><a class="header" href="#with-pwugins">with pwugins</a></h3>
-<p>system sets awe awso vewy usefuw t-togethew with <a href="/programming/plugins.html">pwugins</a>. XD when you awe wwiting
+<p>named sets awe awso vewy usefuw togethew w-with <a href="/programming/plugins.html">pwugins</a>. XD when you awe wwiting
 a pwugin, &gt;_&lt; you can expose (make <code>pub</code>) some system set types, (ꈍᴗꈍ) to awwow u-usews of youw
 pwugin to contwow how things in youw p-pwugin wun, 🥺 o-ow how theiw things w-wun in wewation t-to
 youw pwugin. OwO this way, 🥺 you don't h-have to expose any o-of youw individuaw s-systems.</p>

@@ -177,9 +177,9 @@
                         <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="system-owdew-of-execution"><a class="header" href="#system-owdew-of-execution">system owdew of execution</a></h1>
-<p>bevy's scheduwing awgowithm is designed t-to dewivew m-maximum pewfowmance
-by wunning as many systems as possibwe i-in pawawwew a-acwoss the avaiwabwe
-cpu thweads.</p>
+<p>bevy's scheduwing awgowithm is designed t-to dewivew m-maximum pewfowmance b-by
+wunning as many <a href="/programming/systems.html">systems</a> as possibwe in pawawwew acwoss the
+avaiwabwe cpu thweads.</p>
 <p>this is possibwe when the systems d-do nyot confwict o-ovew the data t-they nyeed
 to access. OwO howevew, 🥺 when a system n-nyeeds to have m-mutabwe (excwusive) a-access
 to a piece of data, OwO othew systems t-that nyeed to access t-the same data c-cannot
@@ -193,23 +193,39 @@ evewy fwame!</p>
 you can add owdewing constwaints:</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
 wet mut app = app::new();
-a-app.add_systems(update, σωσ (
-    e-enemy_movement, σωσ
-    i-input_handwing, &gt;_&lt;
+a-app.add_systems(update, nyaa~~ (
+    e-enemy_movement, /(^•ω•^)
+    i-input_handwing, rawr
 
     p-pwayew_movement
         // `pwayew_movement` m-must awways w-wun befowe `enemy_movement`
         .befowe(enemy_movement)
         // `pwayew_movement` m-must a-awways wun aftew `input_handwing`
-        .aftew(input_handwing), :3
+        .aftew(input_handwing), OwO
 
     // owdew doesn't mattew fow some systems:
     pawticwe_effects, (U ﹏ U)
     n-nypc_behaviows,
+
+    // we can appwy owdewing to muwtipwe s-systems at once:
+    (
+        s-spawn_monstews, &gt;_&lt;
+        spawn_zombies, rawr x3
+        spawn_spidews, mya
+    ).befowe(enemy_movement), nyaa~~
+
+    // to wun a sequence of s-systems in owdew, (⑅˘꒳˘) use `.chain()`
+    // (this i-is j-just syntax sugaw to automaticawwy add
+    // befowe/aftew dependencies between t-the systems in the tupwe)
+    (
+        spawn_pawticwes, rawr x3
+        animate_pawticwes, (✿oωo)
+        debug_pawticwe_statistics, (ˆ ﻌ ˆ)♡
+    ).chain()
 ));</code></pre>
-<p><code>.before</code>/<code>.after</code> may be used as many times as you n-nyeed on one system.</p>
-<p>if you nyeed to appwy the same owdewing c-constwaints t-to many systems,
-considew using <a href="/programming/system-sets.html">system sets</a>.</p>
+<p>when you have a wot of systems that y-you nyeed to c-configuwe, OwO it can s-stawt to
+get unwiewdy. &gt;_&lt; considew using <a href="/programming/system-sets.html">system sets</a> to owganize and
+manage youw systems.</p>
 <h2 id="does-it-even-mattew"><a class="header" href="#does-it-even-mattew">does it even mattew?</a></h2>
 <p>in many cases, (ꈍᴗꈍ) you don't nyeed to w-wowwy about this.</p>
 <p>howevew, OwO sometimes you nyeed to wewy o-on specific s-systems to wun in a-a pawticuwaw
