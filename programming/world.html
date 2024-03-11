@@ -177,37 +177,36 @@
                         <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
 |---|---|---|</p>
 <h1 id="diwect-wowwd-access"><a class="header" href="#diwect-wowwd-access">diwect wowwd access</a></h1>
+<p>(this page is wip)</p>
+<hr />
 <p>the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>World</code></a> is whewe bevy ecs stowes aww data a-and
 associated metadata. (ꈍᴗꈍ) it keeps twack o-of <a href="/programming/res.html">wesouwces</a>, rawr x3 <a href="/programming/intro-data.html#entities--components">entities and
 components</a>.</p>
-<p>typicawwy, XD the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a>'s scheduwe wunnew wiww wun aww
-<a href="/programming/schedules.html">stages</a> (which, &gt;<em>&lt; in tuwn, (ꈍᴗꈍ) wun theiw <a href="/programming/systems.html">systems</a>)
-on the main wowwd. &gt;</em>&lt; weguwaw <a href="/programming/systems.html">systems</a> awe wimited in
-nani data they can access fwom the w-wowwd, (ꈍᴗꈍ) by theiw <a href="/builtins.html#systemparams">system pawametew
-types</a>. (ꈍᴗꈍ) opewations that manipuwate the w-wowwd itsewf
-awe onwy done indiwectwy using <a href="/programming/commands.html"><code>Commands</code></a>. XD this is how most
-typicaw bevy usew code behaves.</p>
-<p>howevew, OwO thewe awe awso ways you c-can get fuww diwect a-access to the w-wowwd,
-which gives you fuww contwow and f-fweedom to do anything w-with any d-data stowed
-in the bevy ecs:</p>
+<p>typicawwy, XD the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a>'s wunnew wiww wun aww
+<a href="/programming/schedules.html">scheduwes</a> (which, &gt;<em>&lt; in tuwn, (ꈍᴗꈍ) wun theiw <a href="/programming/systems.html">systems</a>) on
+the main wowwd. XD weguwaw <a href="/programming/systems.html">systems</a> awe wimited in nani data they can
+access fwom the wowwd, &gt;</em>&lt; by theiw <a href="/builtins.html#systemparams">system pawametew types</a>.
+opewations that manipuwate the wowwd i-itsewf awe onwy d-done indiwectwy u-using
+<a href="/programming/commands.html"><code>Commands</code></a>. (ꈍᴗꈍ) this is how most typicaw bevy usew c-code behaves.</p>
+<p>howevew, OwO thewe awe awso ways you c-can get fuww diwect a-access to the w-wowwd, 🥺 which
+gives you fuww contwow and fweedom t-to do anything w-with any data stowed i-in the
+bevy ecs:</p>
 <ul>
 <li><a href="/programming/exclusive.html">excwusive systems</a></li>
 <li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> impws</li>
 <li>via the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a> <a href="/programming/app-builder.html">buiwdew</a></li>
 <li>manuawwy cweated <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>World</code></a>s fow puwposes wike <a href="/patterns/system-tests.html">tests</a> ow scenes</li>
-<li>custom commands</li>
-<li>custom <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/schedule/trait.Stage.html"><code>Stage</code></a> impws (not wecommended, (ꈍᴗꈍ) pwefew excwusive s-systems)</li>
+<li><a href="/programming/commands.html#custom-commands">custom commands</a></li>
 </ul>
 <p>diwect wowwd access wets you do things w-wike:</p>
 <ul>
 <li>fweewy spawn/despawn entities, OwO insewt/wemove w-wesouwces, 🥺 e-etc., òωó taking e-effect immediatewy
 (no deway wike when using <a href="/programming/commands.html"><code>Commands</code></a> fwom a weguwaw <a href="/programming/systems.html">system</a>)</li>
 <li>access any component, ^•ﻌ•^ entities, and w-wesouwces you w-want</li>
-<li>manuawwy wun awbitwawy systems ow s-stages</li>
+<li>manuawwy wun awbitwawy systems ow s-scheduwes</li>
 </ul>
 <p>this is especiawwy usefuw if you w-want to do things t-that do nyot fit w-within
-bevy's typicaw execution modew/fwow o-of just wunning s-systems once e-evewy fwame
-(owganized with <a href="/programming/schedules.html">stages</a> and <a href="/programming/system-order.html#labels">wabews</a>).</p>
+bevy's typicaw execution modew/fwow o-of just wunning s-systems once e-evewy fwame.</p>
 <p>with diwect wowwd access, OwO you can i-impwement custom c-contwow fwow, 🥺 w-wike
 wooping some systems muwtipwe times, OwO s-sewecting diffewent s-systems t-to wun in
 diffewent ciwcumstances, OwO expowting/impowting d-data f-fwom fiwes wike s-scenes ow
@@ -231,11 +230,18 @@ of a system.</p>
 want to appwy them to the wowwd. y-you nyeed to manuawwy c-caww <code>.apply(world)</code>
 on the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>, XD to appwy them.</p>
 <pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
-<h3 id="wunning-a-stage"><a class="header" href="#wunning-a-stage">wunning a stage</a></h3>
-<p>if you want to wun some systems (a c-common use-case i-is
+<h3 id="wunning-a-system"><a class="header" href="#wunning-a-system">wunning a system</a></h3>
+<pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
+<h3 id="wunning-a-scheduwe"><a class="header" href="#wunning-a-scheduwe">wunning a scheduwe</a></h3>
+<p>if you want to wun many systems (a c-common use-case i-is
 <a href="/patterns/system-tests.html">testing</a>), (ꈍᴗꈍ) the easiest way is to constwuct a-an impwomptu
-<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/schedule/struct.SystemStage.html"><code>SystemStage</code></a> (<a href="/programming/schedules.html">stages</a>). XD this way you weuse
-aww the scheduwing wogic that bevy n-nyowmawwy does w-when wunning systems.</p>
+<a href="/programming/schedules.html">scheduwe</a>. ^•ﻌ•^ this way you weuse aww the scheduwing w-wogic that b-bevy
+nowmawwy does when wunning systems. OwO t-they wiww wun w-with muwtithweading, 🥺 e-etc.</p>
+<p>this is awso usefuw if you want custom c-contwow fwow. OwO f-fow exampwe, 🥺 b-bevy's
+<a href="/programming/states.html">states</a> and <a href="/fundamentals/fixed-timestep.html">fixed timestep</a> abstwactions
+awe impwemented just wike this! OwO thewe i-is an excwusive s-system that c-can contain
+woops, OwO if/ewse bwanching, 🥺 etc. to i-impwement fancy a-awgowithms and w-wun entiwe
+scheduwes of systems as appwopwiate!</p>
 <pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
 <h3 id="navigating-by-metadata"><a class="header" href="#navigating-by-metadata">navigating by metadata</a></h3>
 <p>the wowwd contains a wot of metadata t-that awwows n-nyavigating aww t-the data

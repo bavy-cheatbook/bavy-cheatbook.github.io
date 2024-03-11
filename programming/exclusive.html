@@ -232,47 +232,56 @@ some data.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::ecs::system::systemstate;
 
 fn spawn_pawticwes_fow_enemies(
-    w-wowwd: &amp;mut w-wowwd, o.O
+    w-wowwd: &amp;mut w-wowwd, 😳😳😳
     // b-behaves sowt of w-wike a quewy in a-a weguwaw system
-    q-q_enemies: &amp;mut q-quewystate&lt;&amp;twansfowm, ( ͡o ω ͡o ) w-with&lt;enemy&gt;&gt;, (U ﹏ U)
+    q-q_enemies: &amp;mut q-quewystate&lt;&amp;twansfowm, mya w-with&lt;enemy&gt;&gt;, 😳
     // emuwates a weguwaw system with an awbitwawy set of pawametews
     p-pawams: &amp;mut systemstate&lt;(
-        wesmut&lt;mygamesettings&gt;, (///ˬ///✿)
-        w-wesmut&lt;mypawticwetwackew&gt;, &gt;w&lt;
-        quewy&lt;&amp;mut t-twansfowm, rawr with&lt;pwayew&gt;&gt;, mya
-        eventweadew&lt;mydamageevent&gt;, ^^
+        wesmut&lt;mygamesettings&gt;, -.-
+        w-wesmut&lt;mypawticwetwackew&gt;, 🥺
+        quewy&lt;&amp;mut t-twansfowm, o.O with&lt;pwayew&gt;&gt;, /(^•ω•^)
+        eventweadew&lt;mydamageevent&gt;, nyaa~~
+        // yes, nyaa~~ even commands ;)
+        c-commands, :3
     )&gt;, 😳😳😳
-    // wocaw wesouwce, mya j-just wike in a weguwaw system
-    m-mut has_wun_once: w-wocaw&lt;boow&gt;,
+    // wocaw wesouwce, (˘ω˘) j-just wike i-in a weguwaw system
+    mut has_wun_once: wocaw&lt;boow&gt;, ^^
 ) {
-    // note: unwike with a weguwaw quewy, 😳 we nyeed to pwovide the wowwd a-as an awgument. -.-
-    // the wowwd wiww onwy be "wocked" fow the duwation of this w-woop
-    fow twansfowm in q_enemies.itew(wowwd) {
-        // t-todo: d-do something w-with the twansfowms
+    // nyote: unwike with a weguwaw quewy, :3 w-we nyeed to pwovide the wowwd as an awgument. -.-
+    // the wowwd wiww onwy be "wocked" f-fow the duwation of this w-woop
+    fow t-twansfowm in q_enemies.itew(wowwd) {
+        // t-todo: do something w-with the twansfowms
     }
 
-    // c-cweate a scope whewe we can access ouw things w-wike a weguwaw system
+    // cweate a scope whewe we can a-access ouw things wike a weguwaw system
     {
-        wet (mut settings, 🥺 mut twackew, m-mut q_pwayew, o.O mut evw) =
+        w-wet (mut settings, 😳 mut twackew, mya mut q_pwayew, (˘ω˘) mut evw, commands) =
             pawams.get_mut(wowwd);
 
-        // todo: do things with ouw wesouwces, /(^•ω•^) q-quewy, nyaa~~ events, ... nyaa~~
+        // todo: d-do things with ouw wesouwces, &gt;_&lt; quewy, -.- e-events, commands, 🥺 ...
     }
 
-    // we awe nyow fwee t-to diwectwy spawn e-entities
-    // b-because the wowwd is nyo wongew used by anything
-    // (the systemstate and t-the quewystate a-awe nyo wongew accessing it)
+    // b-because o-ouw systemstate incwudes commands, (U ﹏ U)
+    // we must appwy them when w-we awe done
+    p-pawams.appwy(wowwd);
 
-    w-wowwd.spawn_batch((0..10000) // e-efficientwy spawn 10000 pawticwes
+    // we awe nyow fwee t-to diwectwy spawn e-entities
+    // because the wowwd i-is nyo wongew used by anything
+    // (the s-systemstate and the quewystate awe no wongew accessing i-it)
+
+    wowwd.spawn_batch((0..10000) // e-efficientwy spawn 10000 pawticwes
         .map(|_| s-spwitebundwe {
             // ...
             ..defauwt::defauwt()
         })
     );
 
-    // and, :3 of couwse, w-we can use ouw wocaw
+    // a-and, &gt;w&lt; of couwse, mya we can use ouw wocaw
     *has_wun_once = twue;
 }</code></pre>
+<p>note: if youw <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> incwudes <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, XD you must caww <code>.apply()</code>
+aftew you awe done! ^•ﻌ•^ that is when t-the defewwed opewations q-queued via
+<a href="/programming/commands.html">commands</a> wiww be appwied to the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>.</p>
 <h2 id="pewfowmance-considewations"><a class="header" href="#pewfowmance-considewations">pewfowmance considewations</a></h2>
 <p>excwusive systems, OwO by definition, 🥺 w-wimit pawawwewism a-and muwti-thweading, òωó a-as
 nothing ewse can access the same e-ecs wowwd whiwe t-they wun. OwO the whowe s-scheduwe

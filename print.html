@@ -8186,47 +8186,56 @@ some data.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::ecs::system::systemstate;
 
 fn spawn_pawticwes_fow_enemies(
-    w-wowwd: &amp;mut w-wowwd, o.O
+    w-wowwd: &amp;mut w-wowwd, 😳😳😳
     // b-behaves sowt of w-wike a quewy in a-a weguwaw system
-    q-q_enemies: &amp;mut q-quewystate&lt;&amp;twansfowm, ( ͡o ω ͡o ) w-with&lt;enemy&gt;&gt;, (U ﹏ U)
+    q-q_enemies: &amp;mut q-quewystate&lt;&amp;twansfowm, mya w-with&lt;enemy&gt;&gt;, 😳
     // emuwates a weguwaw system with an awbitwawy set of pawametews
     p-pawams: &amp;mut systemstate&lt;(
-        wesmut&lt;mygamesettings&gt;, (///ˬ///✿)
-        w-wesmut&lt;mypawticwetwackew&gt;, &gt;w&lt;
-        quewy&lt;&amp;mut t-twansfowm, rawr with&lt;pwayew&gt;&gt;, mya
-        eventweadew&lt;mydamageevent&gt;, ^^
+        wesmut&lt;mygamesettings&gt;, -.-
+        w-wesmut&lt;mypawticwetwackew&gt;, 🥺
+        quewy&lt;&amp;mut t-twansfowm, o.O with&lt;pwayew&gt;&gt;, /(^•ω•^)
+        eventweadew&lt;mydamageevent&gt;, nyaa~~
+        // yes, nyaa~~ even commands ;)
+        c-commands, :3
     )&gt;, 😳😳😳
-    // wocaw wesouwce, mya j-just wike in a weguwaw system
-    m-mut has_wun_once: w-wocaw&lt;boow&gt;,
+    // wocaw wesouwce, (˘ω˘) j-just wike i-in a weguwaw system
+    mut has_wun_once: wocaw&lt;boow&gt;, ^^
 ) {
-    // note: unwike with a weguwaw quewy, 😳 we nyeed to pwovide the wowwd a-as an awgument. -.-
-    // the wowwd wiww onwy be "wocked" fow the duwation of this w-woop
-    fow twansfowm in q_enemies.itew(wowwd) {
-        // t-todo: d-do something w-with the twansfowms
+    // nyote: unwike with a weguwaw quewy, :3 w-we nyeed to pwovide the wowwd as an awgument. -.-
+    // the wowwd wiww onwy be "wocked" f-fow the duwation of this w-woop
+    fow t-twansfowm in q_enemies.itew(wowwd) {
+        // t-todo: do something w-with the twansfowms
     }
 
-    // c-cweate a scope whewe we can access ouw things w-wike a weguwaw system
+    // cweate a scope whewe we can a-access ouw things wike a weguwaw system
     {
-        wet (mut settings, 🥺 mut twackew, m-mut q_pwayew, o.O mut evw) =
+        w-wet (mut settings, 😳 mut twackew, mya mut q_pwayew, (˘ω˘) mut evw, commands) =
             pawams.get_mut(wowwd);
 
-        // todo: do things with ouw wesouwces, /(^•ω•^) q-quewy, nyaa~~ events, ... nyaa~~
+        // todo: d-do things with ouw wesouwces, &gt;_&lt; quewy, -.- e-events, commands, 🥺 ...
     }
 
-    // we awe nyow fwee t-to diwectwy spawn e-entities
-    // b-because the wowwd is nyo wongew used by anything
-    // (the systemstate and t-the quewystate a-awe nyo wongew accessing it)
+    // b-because o-ouw systemstate incwudes commands, (U ﹏ U)
+    // we must appwy them when w-we awe done
+    p-pawams.appwy(wowwd);
 
-    w-wowwd.spawn_batch((0..10000) // e-efficientwy spawn 10000 pawticwes
+    // we awe nyow fwee t-to diwectwy spawn e-entities
+    // because the wowwd i-is nyo wongew used by anything
+    // (the s-systemstate and the quewystate awe no wongew accessing i-it)
+
+    wowwd.spawn_batch((0..10000) // e-efficientwy spawn 10000 pawticwes
         .map(|_| s-spwitebundwe {
             // ...
             ..defauwt::defauwt()
         })
     );
 
-    // and, :3 of couwse, w-we can use ouw wocaw
+    // a-and, &gt;w&lt; of couwse, mya we can use ouw wocaw
     *has_wun_once = twue;
 }</code></pre>
+<p>note: if youw <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> incwudes <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, XD you must caww <code>.apply()</code>
+aftew you awe done! ^•ﻌ•^ that is when t-the defewwed opewations q-queued via
+<a href="programming//programming/commands.html">commands</a> wiww be appwied to the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>.</p>
 <h2 id="pewfowmance-considewations"><a class="header" href="#pewfowmance-considewations">pewfowmance considewations</a></h2>
 <p>excwusive systems, OwO by definition, 🥺 w-wimit pawawwewism a-and muwti-thweading, òωó a-as
 nothing ewse can access the same e-ecs wowwd whiwe t-they wun. OwO the whowe s-scheduwe
@@ -8272,37 +8281,36 @@ you avoid making it a bottweneck f-fow pawawwewism.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
 |---|---|---|</p>
 <h1 id="diwect-wowwd-access"><a class="header" href="#diwect-wowwd-access">diwect wowwd access</a></h1>
+<p>(this page is wip)</p>
+<hr />
 <p>the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>World</code></a> is whewe bevy ecs stowes aww data a-and
 associated metadata. (ꈍᴗꈍ) it keeps twack o-of <a href="programming//programming/res.html">wesouwces</a>, rawr x3 <a href="programming//programming/intro-data.html#entities--components">entities and
 components</a>.</p>
-<p>typicawwy, XD the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a>'s scheduwe wunnew wiww wun aww
-<a href="programming//programming/schedules.html">stages</a> (which, &gt;<em>&lt; in tuwn, (ꈍᴗꈍ) wun theiw <a href="programming//programming/systems.html">systems</a>)
-on the main wowwd. &gt;</em>&lt; weguwaw <a href="programming//programming/systems.html">systems</a> awe wimited in
-nani data they can access fwom the w-wowwd, (ꈍᴗꈍ) by theiw <a href="programming//builtins.html#systemparams">system pawametew
-types</a>. (ꈍᴗꈍ) opewations that manipuwate the w-wowwd itsewf
-awe onwy done indiwectwy using <a href="programming//programming/commands.html"><code>Commands</code></a>. XD this is how most
-typicaw bevy usew code behaves.</p>
-<p>howevew, OwO thewe awe awso ways you c-can get fuww diwect a-access to the w-wowwd,
-which gives you fuww contwow and f-fweedom to do anything w-with any d-data stowed
-in the bevy ecs:</p>
+<p>typicawwy, XD the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a>'s wunnew wiww wun aww
+<a href="programming//programming/schedules.html">scheduwes</a> (which, &gt;<em>&lt; in tuwn, (ꈍᴗꈍ) wun theiw <a href="programming//programming/systems.html">systems</a>) on
+the main wowwd. XD weguwaw <a href="programming//programming/systems.html">systems</a> awe wimited in nani data they can
+access fwom the wowwd, &gt;</em>&lt; by theiw <a href="programming//builtins.html#systemparams">system pawametew types</a>.
+opewations that manipuwate the wowwd i-itsewf awe onwy d-done indiwectwy u-using
+<a href="programming//programming/commands.html"><code>Commands</code></a>. (ꈍᴗꈍ) this is how most typicaw bevy usew c-code behaves.</p>
+<p>howevew, OwO thewe awe awso ways you c-can get fuww diwect a-access to the w-wowwd, 🥺 which
+gives you fuww contwow and fweedom t-to do anything w-with any data stowed i-in the
+bevy ecs:</p>
 <ul>
 <li><a href="programming//programming/exclusive.html">excwusive systems</a></li>
 <li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> impws</li>
 <li>via the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a> <a href="programming//programming/app-builder.html">buiwdew</a></li>
 <li>manuawwy cweated <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>World</code></a>s fow puwposes wike <a href="programming//patterns/system-tests.html">tests</a> ow scenes</li>
-<li>custom commands</li>
-<li>custom <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/schedule/trait.Stage.html"><code>Stage</code></a> impws (not wecommended, (ꈍᴗꈍ) pwefew excwusive s-systems)</li>
+<li><a href="programming//programming/commands.html#custom-commands">custom commands</a></li>
 </ul>
 <p>diwect wowwd access wets you do things w-wike:</p>
 <ul>
 <li>fweewy spawn/despawn entities, OwO insewt/wemove w-wesouwces, 🥺 e-etc., òωó taking e-effect immediatewy
 (no deway wike when using <a href="programming//programming/commands.html"><code>Commands</code></a> fwom a weguwaw <a href="programming//programming/systems.html">system</a>)</li>
 <li>access any component, ^•ﻌ•^ entities, and w-wesouwces you w-want</li>
-<li>manuawwy wun awbitwawy systems ow s-stages</li>
+<li>manuawwy wun awbitwawy systems ow s-scheduwes</li>
 </ul>
 <p>this is especiawwy usefuw if you w-want to do things t-that do nyot fit w-within
-bevy's typicaw execution modew/fwow o-of just wunning s-systems once e-evewy fwame
-(owganized with <a href="programming//programming/schedules.html">stages</a> and <a href="programming//programming/system-order.html#labels">wabews</a>).</p>
+bevy's typicaw execution modew/fwow o-of just wunning s-systems once e-evewy fwame.</p>
 <p>with diwect wowwd access, OwO you can i-impwement custom c-contwow fwow, 🥺 w-wike
 wooping some systems muwtipwe times, OwO s-sewecting diffewent s-systems t-to wun in
 diffewent ciwcumstances, OwO expowting/impowting d-data f-fwom fiwes wike s-scenes ow
@@ -8326,11 +8334,18 @@ of a system.</p>
 want to appwy them to the wowwd. y-you nyeed to manuawwy c-caww <code>.apply(world)</code>
 on the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>, XD to appwy them.</p>
 <pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
-<h3 id="wunning-a-stage"><a class="header" href="#wunning-a-stage">wunning a stage</a></h3>
-<p>if you want to wun some systems (a c-common use-case i-is
+<h3 id="wunning-a-system"><a class="header" href="#wunning-a-system">wunning a system</a></h3>
+<pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
+<h3 id="wunning-a-scheduwe"><a class="header" href="#wunning-a-scheduwe">wunning a scheduwe</a></h3>
+<p>if you want to wun many systems (a c-common use-case i-is
 <a href="programming//patterns/system-tests.html">testing</a>), (ꈍᴗꈍ) the easiest way is to constwuct a-an impwomptu
-<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/schedule/struct.SystemStage.html"><code>SystemStage</code></a> (<a href="programming//programming/schedules.html">stages</a>). XD this way you weuse
-aww the scheduwing wogic that bevy n-nyowmawwy does w-when wunning systems.</p>
+<a href="programming//programming/schedules.html">scheduwe</a>. ^•ﻌ•^ this way you weuse aww the scheduwing w-wogic that b-bevy
+nowmawwy does when wunning systems. OwO t-they wiww wun w-with muwtithweading, 🥺 e-etc.</p>
+<p>this is awso usefuw if you want custom c-contwow fwow. OwO f-fow exampwe, 🥺 b-bevy's
+<a href="programming//programming/states.html">states</a> and <a href="programming//fundamentals/fixed-timestep.html">fixed timestep</a> abstwactions
+awe impwemented just wike this! OwO thewe i-is an excwusive s-system that c-can contain
+woops, OwO if/ewse bwanching, 🥺 etc. to i-impwement fancy a-awgowithms and w-wun entiwe
+scheduwes of systems as appwopwiate!</p>
 <pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
 <h3 id="navigating-by-metadata"><a class="header" href="#navigating-by-metadata">navigating by metadata</a></h3>
 <p>the wowwd contains a wot of metadata t-that awwows n-nyavigating aww t-the data
@@ -9093,11 +9108,11 @@ the weceiving systems awe nyot wunning!</p>
 <p>to mitigate this, (ꈍᴗꈍ) you couwd impwement a-a <a href="programming//patterns/manual-event-clear.html">custom cweanup
 stwategy</a>, (ꈍᴗꈍ) to manuawwy manage the wifetime o-of the wewevant
 event types.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="change-detection"><a class="header" href="#change-detection">change detection</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/component_change_detection.rs"><code>component_change_detection</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/component_change_detection.rs"><code>component_change_detection</code></a>.</p>
 <hr />
 <p>bevy awwows you to easiwy detect w-when data is changed. OwO y-you can use t-this to
 pewfowm actions in wesponse to changes.</p>
@@ -9111,22 +9126,21 @@ the data somewhewe.</p>
 <a href="programming//programming/ec.html#components">components</a> on them have been modified.</p>
 <p>use <a href="programming//programming/queries.html#query-filters">quewy fiwtews</a>:</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Added.html"><code>Added&lt;T&gt;</code></a>: detect nyew component instances
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.Added.html"><code>Added&lt;T&gt;</code></a>: detect nyew component instances
 <ul>
 <li>if the component was added to an e-existing entity</li>
 <li>if a nyew entity with the component w-was spawned</li>
 </ul>
 </li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Changed.html"><code>Changed&lt;T&gt;</code></a>: detect component instances that h-have been changed
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.Changed.html"><code>Changed&lt;T&gt;</code></a>: detect component instances that h-have been changed
 <ul>
-<li>twiggews when the component is accessed m-mutabwy</li>
-<li>awso twiggews if the component is n-nyewwy-added (as p-pew <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Added.html"><code>Added</code></a>)</li>
+<li>twiggews when the component is mutated</li>
+<li>awso twiggews if the component is n-nyewwy-added (as p-pew <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.Added.html"><code>Added</code></a>)</li>
 </ul>
 </li>
 </ul>
-<p>(if you want to weact to wemovaws, (ꈍᴗꈍ) s-see the page on <a href="programming//programming/change-detection.html#removal-detection">wemovaw
-detection</a>. &gt;_&lt; it wowks diffewentwy and is much
-twickiew to use.)</p>
+<p>(if you want to weact to wemovaws, (ꈍᴗꈍ) s-see <a href="programming//programming/change-detection.html#removal-detection">wemovaw
+detection</a>. XD it wowks diffewentwy.)</p>
 <pre><code class="language-rust no_run noplayground">/// pwint the stats of fwiendwy pwayews w-when they c-change
 fn debug_stats_change(
     q-quewy: quewy&lt;
@@ -9154,29 +9168,29 @@ f-fn debug_new_hostiwes(
 }</code></pre>
 <h3 id="checking"><a class="header" href="#checking">checking</a></h3>
 <p>if you want to access aww the entities, OwO a-as nyowmaw, 🥺 w-wegawdwess of i-if they have
-been modified, OwO but you just want t-to check the status, 🥺 y-you can use t-the speciaw
-<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.ChangeTrackers.html"><code>ChangeTrackers&lt;T&gt;</code></a> quewy pawametew.</p>
+been modified, OwO but you just want t-to know if a component h-has been c-changed,
+you can use speciaw [<code>Ref&lt;T&gt;</code>] quewy pawametews instead of <code>&amp;</code> fow immutabwe access.</p>
+<p>fow mutabwe access, ^•ﻌ•^ the change detection m-methods a-awe awways avaiwabwe (because
+bevy quewies actuawwy wetuwn a speciaw <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.Mut.html"><code>Mut&lt;T&gt;</code></a> type whenevew you have <code>&amp;mut</code>
+in the quewy).</p>
 <pre><code class="language-rust no_run noplayground">/// make spwites fwash wed on fwames w-when the heawth c-changes
 fn debug_damage(
-    m-mut quewy: quewy&lt;(&amp;mut s-spwite, &gt;_&lt; c-changetwackews&lt;heawth&gt;)&gt;, mya
+    m-mut quewy: quewy&lt;(&amp;mut s-spwite, (⑅˘꒳˘) w-wef&lt;heawth&gt;)&gt;, (U ᵕ U❁)
 ) {
-    f-fow (mut spwite, mya t-twackew) in quewy.itew_mut() {
-        // d-detect if the heawth changed this fwame
-        if twackew.is_changed() {
-            s-spwite.cowow = cowow::wed;
-        } ewse {
-            // e-extwa check so we d-don't mutate on evewy fwame without changes
-            if spwite.cowow != c-cowow::white {
-                spwite.cowow = c-cowow::white;
+    f-fow (mut s-spwite, -.- heawth) i-in quewy.itew_mut() {
+        // detect if the heawth changed this fwame
+        if heawth.is_changed() {
+            e-epwintwn!("hp is: {}", ^^;; heawth.hp);
+            // we can awso c-check if the spwite has been c-changed
+            if !spwite.is_changed() {
+                spwite.cowow = cowow::wed;
             }
         }
     }
 }</code></pre>
-<p>this is usefuw fow pwocessing aww e-entities, ^•ﻌ•^ but doing d-diffewent things
-depending on if they have been modified.</p>
 <h2 id="wesouwces-3"><a class="header" href="#wesouwces-3">wesouwces</a></h2>
 <p>fow <a href="programming//programming/res.html">wesouwces</a>, (ꈍᴗꈍ) change detection is pwovided via m-methods on the
-<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a> system pawametews.</p>
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a> system pawametews.</p>
 <pre><code class="language-rust no_run noplayground">fn check_wes_changed(
     my_wes: w-wes&lt;mywesouwce&gt;, (U ﹏ U)
 ) {
@@ -9198,18 +9212,17 @@ f-fn check_wes_added(
         }
     }
 }</code></pre>
-<p>note that change detection cannot c-cuwwentwy be used t-to detect
-<a href="programming//programming/states.html">states</a> changes (via the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/schedule/struct.State.html"><code>State</code></a>
-<a href="programming//programming/res.html">wesouwce</a>) (<a href="https://github.com/bevyengine/bevy/issues/2343">bug</a>).</p>
 <h2 id="nani-gets-detected"><a class="header" href="#nani-gets-detected">nani gets detected?</a></h2>
-<p><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Changed.html"><code>Changed</code></a> detection is twiggewed by
-<a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>. (ꈍᴗꈍ) simpwy accessing components via a-a mutabwe quewy,
-without actuawwy pewfowming a <code>&amp;mut</code> access, XD wiww <em>not</em> twiggew it.</p>
-<p>this makes change detection quite a-accuwate. OwO you can w-wewy on it to o-optimize
-youw game's pewfowmance, ^•ﻌ•^ ow to othewwise t-twiggew t-things to happen.</p>
-<p>awso nyote that when you mutate a c-component, OwO bevy d-does nyot twack i-if the nyew
-vawue is actuawwy diffewent fwom t-the owd vawue. OwO it w-wiww awways twiggew t-the
-change detection. ^•ﻌ•^ if you want to a-avoid that, OwO simpwy c-check it youwsewf:</p>
+<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.Changed.html"><code>Changed</code></a> detection is twiggewed by <a href="https://doc.rust-lang.org/stable/std/ops/trait.DerefMut.html"><code>DerefMut</code></a>. XD simpwy accessing
+<a href="programming//programming/ec.html#components">components</a> via a mutabwe <a href="programming//programming/queries.html">quewy</a>, XD ow
+<a href="programming//programming/res.html">wesouwces</a> via <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>, &gt;_&lt; without actuawwy pewfowming a <code>&amp;mut</code>
+access, XD wiww <em>not</em> twiggew it. (ꈍᴗꈍ) this makes change detection q-quite accuwate.</p>
+<p>note: if you caww a wust function t-that takes a <code>&amp;mut T</code> (mutabwe bowwow),
+that counts! OwO it wiww twiggew change d-detection even i-if the function d-does
+not actuawwy do any mutation. ^•ﻌ•^ be c-cawefuw with hewpew f-functions!</p>
+<p>awso, OwO when you mutate a component, 🥺 b-bevy does nyot c-check if the nyew v-vawue
+is actuawwy diffewent fwom the owd v-vawue. OwO it wiww a-awways twiggew t-the change
+detection. ^•ﻌ•^ if you want to avoid that, OwO s-simpwy check i-it youwsewf:</p>
 <pre><code class="language-rust no_run noplayground">fn update_pwayew_xp(
     mut quewy: q-quewy&lt;&amp;mut pwayewxp&gt;, UwU
 ) {
@@ -9223,23 +9236,21 @@ change detection. ^•ﻌ•^ if you want to a-avoid that, OwO simpwy c-check it
     }
 }</code></pre>
 <p>change detection wowks on a pew-<a href="programming//programming/systems.html">system</a> gwanuwawity, &gt;_&lt; and is
-wewiabwe. OwO a system wiww nyot detect c-changes that i-it made itsewf, 🥺 o-onwy those
-done by othew systems, OwO and onwy if i-it has nyot seen t-them befowe (the c-changes
-happened since the wast time it wan). ^•ﻌ•^ i-if youw system o-onwy wuns sometimes
-(such as with <a href="programming//programming/states.html">states</a> ow <a href="programming//programming/run-criteria.html">wun cwitewia</a>),
-you do <em>not</em> have to wowwy about missing changes.</p>
+wewiabwe. OwO a system wiww detect changes o-onwy if it h-has nyot seen them b-befowe
+(the changes happened since the wast t-time it wan).</p>
+<p>unwike <a href="programming//programming/events.html">events</a>, XD you do <em>not</em> have to wowwy about missing changes
+if youw system onwy wuns sometimes (such a-as when u-using <a href="programming//programming/states.html">states</a>
+ow <a href="programming//programming/run-criteria.html">wun conditions</a>).</p>
 <h2 id="possibwe-pitfawws-1"><a class="header" href="#possibwe-pitfawws-1">possibwe pitfawws</a></h2>
 <p>bewawe of fwame deway / 1-fwame-wag. ^•ﻌ•^ this can occuw i-if bevy wuns t-the detecting
 system befowe the changing system. OwO t-the detecting s-system wiww see t-the change
 the nyext time it wuns, ^•ﻌ•^ typicawwy o-on the nyext fwame u-update.</p>
 <p>if you nyeed to ensuwe that changes a-awe handwed immediatewy / d-duwing t-the same
 fwame, XD you can use <a href="programming//programming/system-order.html">expwicit system owdewing</a>.</p>
-<p>howevew, (ꈍᴗꈍ) when detecting component a-additions with <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Added.html"><code>Added&lt;T&gt;</code></a>
-(which awe typicawwy done using <a href="programming//programming/commands.html"><code>Commands</code></a>), XD this is nyot
-enough; you nyeed <a href="programming//programming/schedules.html">stages</a>.</p>
+<hr />
 <h1 id="wemovaw-detection"><a class="header" href="#wemovaw-detection">wemovaw detection</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/removal_detection.rs"><code>removal_detection</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/removal_detection.rs"><code>removal_detection</code></a>.</p>
 <hr />
 <p>wemovaw detection is speciaw. ^•ﻌ•^ this i-is because, unwike w-with <a href="programming//programming/change-detection.html">change
 detection</a>, (ꈍᴗꈍ) the data does not exist in the e-ecs anymowe
@@ -9247,54 +9258,22 @@ detection</a>, (ꈍᴗꈍ) the data does not exist in the e-ecs anymowe
 <p>nevewthewess, OwO being abwe to wespond t-to wemovaws is i-impowtant fow s-some
 appwications, (ꈍᴗꈍ) so bevy offews a wimited f-fowm of it.</p>
 <h2 id="components-3"><a class="header" href="#components-3">components</a></h2>
-<p>you can check fow <a href="programming//programming/ec.html#components">components</a> that have been wemoved duwing
-the cuwwent fwame. OwO the data is cweawed a-at the end o-of evewy fwame u-update. 🥺 nyote
-that this makes this featuwe twicky t-to use, OwO and wequiwes y-you to use m-muwtipwe
-<a href="programming//programming/schedules.html">stages</a>.</p>
-<p>when you wemove a component (using <a href="programming//programming/commands.html">commands</a>
-(<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>)), (ꈍᴗꈍ) the opewation is appwied at the e-end of the
-<a href="programming//programming/schedules.html">stage</a>. XD the <a href="programming//programming/systems.html">system</a> that checks fow the wemovaw
-must wun in a watew stage duwing t-the same fwame update. OwO o-othewwise, 🥺 i-it wiww
-not detect the wemovaw.</p>
-<p>use the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.RemovedComponents.html"><code>RemovedComponents&lt;T&gt;</code></a> speciaw system
-pawametew type, (ꈍᴗꈍ) to get an itewatow f-fow the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> ids of
-aww the entities that had a component o-of type <code>T</code> that was wemoved eawwiew
-this fwame.</p>
-<pre><code class="language-rust no_run noplayground">/// some component type fow the sake o-of this exampwe. OwO
-#[dewive(component)]
-s-stwuct s-seen;
-
-fn main() {
-    a-app::new()
-        .add_pwugins(defauwtpwugins)
-        // w-we couwd add o-ouw system to bevy's `pweupdate` s-stage
-        // (awtewnativewy, y-you couwd cweate youw own stage)
-        .add_system_to_stage(cowestage::pweupdate, (U ﹏ U) wemove_components)
-        // ouw detection system wuns in a-a watew stage
-        // (in this case: bevy's d-defauwt `update` stage)
-        .add_system(detect_wemovaws)
-        .wun();
-}
-
-f-fn wemove_components(
-    mut commands: commands, &gt;_&lt;
-    q: quewy&lt;(entity, rawr x3 &amp;twansfowm), mya w-with&lt;seen&gt;&gt;, nyaa~~
+<p>you can check fow <a href="programming//programming/ec.html#components">components</a> that have been wemoved duwing the
+cuwwent fwame. OwO the data is cweawed a-at the end of e-evewy fwame update. 🥺 y-you must
+make suwe youw detecting <a href="programming//programming/systems.html">system</a> <a href="programming//programming/system-order.html">is owdewed aftew</a>
+(ow is in anothew <a href="programming//programming/schedules.html">scheduwe</a> that wuns aftew) the system that
+does the wemoving.</p>
+<p>note: wemovaw detection awso incwudes d-despawned entities!</p>
+<p>use the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/removal_detection/struct.RemovedComponents.html"><code>RemovedComponents&lt;T&gt;</code></a> speciaw system pawametew type. (ꈍᴗꈍ) intewnawwy, ^•ﻌ•^ i-it
+is impwemented using <a href="programming//programming/events.html">events</a> and behaves wike an <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader</code></a>,
+but it gives you the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> ids of entities whose component <code>T</code> was wemoved.</p>
+<pre><code class="language-rust no_run noplayground">fn detect_wemovaws(
+    mut wemovaws: w-wemovedcomponents&lt;enemyistwackingpwayew&gt;, UwU
+    // ... (maybe c-commands ow a quewy ?) ...
 ) {
-    fow (e, (⑅˘꒳˘) t-twansfowm) in q-q.itew() {
-        if twansfowm.twanswation.y &lt; -10.0 {
-            // wemove the `seen` component fwom the entity
-            commands.entity(e)
-                .wemove::&lt;seen&gt;();
-        }
-    }
-}
-
-f-fn detect_wemovaws(
-    wemovaws: wemovedcomponents&lt;seen&gt;, rawr x3
-    // ... (maybe commands ow a quewy ?) ...
-) {
-    fow entity i-in wemovaws.itew() {
-        // do something w-with the entity
+    f-fow entity in w-wemovaws.wead() {
+        // do s-something with t-the entity
+        e-epwintwn!("entity {:?} h-had the component wemoved.", rawr x3 entity);
     }
 }</code></pre>
 <p>(to do things with these entities, ^•ﻌ•^ y-you can just use t-the <code>Entity</code> ids with
