@@ -7507,25 +7507,26 @@ that youw <a href="programming//programming/systems.html">system</a> nyeeds to a
   // ...
 }</code></pre>
 <p>(ow nyanievew specific components y-you nyeed in that s-system)</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="quewies"><a class="header" href="#quewies">quewies</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.9.1/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
 <p>quewies wet you access <a href="programming//programming/ecs-intro.html">components of entities</a>.</p>
-<p>use the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a> <a href="programming//programming/systems.html">system pawametew</a>, XD whewe you can
-specify the data you want to access, ^•ﻌ•^ a-and optionawwy a-additionaw
-<a href="programming//programming/queries.html#query-filters">fiwtews</a> fow sewecting entities.</p>
-<p>think of the types you put in youw <code>Query</code> as a "specification" fow sewecting
+<p>use the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a> <a href="programming//programming/systems.html">system pawametew</a>, &gt;_&lt; whewe you can specify the data
+you want to access, (ꈍᴗꈍ) and optionawwy a-additionaw <a href="programming//programming/queries.html#query-filters">fiwtews</a>.</p>
+<p>think of the types you put in youw <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a> as a "specification" fow sewecting
 nani entities you want to access. OwO q-quewies wiww match o-onwy those entities i-in the
 ecs wowwd that fit youw specification. OwO y-you awe then a-abwe to access t-the wewevant
-data fwom individuaw such entities (using a-an <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> id), XD ow
-itewate to access aww entities that q-quawify.</p>
+data fwom any such entities.</p>
 <p>the fiwst type pawametew fow a quewy i-is the data y-you want to access. OwO u-use <code>&amp;</code> fow
-shawed/weadonwy access and <code>&amp;mut</code> fow excwusive/mutabwe access. &gt;_&lt; use <code>Option</code> if
+shawed/weadonwy access and <code>&amp;mut</code> fow excwusive/mutabwe access. &gt;_&lt; use <a href="https://doc.rust-lang.org/stable/std/option/enum.Option.html"><code>Option</code></a> if
 the component is nyot wequiwed (you w-want to find e-entities with ow w-without that
 component. ^•ﻌ•^ if you want muwtipwe components, OwO p-put them i-in a tupwe.</p>
+<h3 id="itewating"><a class="header" href="#itewating">itewating</a></h3>
+<p>the most common opewation is to simpwy i-itewate to a-access the component v-vawues of
+evewy entity that matches the quewy:</p>
 <pre><code class="language-rust no_run noplayground">fn check_zewo_heawth(
     // access e-entities that h-have `heawth` and `twansfowm` components
     // g-get wead-onwy access t-to `heawth` a-and mutabwe access t-to `twansfowm`
@@ -7547,31 +7548,91 @@ component. ^•ﻌ•^ if you want muwtipwe components, OwO p-put them i-in a tu
         }
     }
 }</code></pre>
-<p>the above exampwe used itewation t-to access aww entities t-that the q-quewy couwd find.</p>
-<p>to access the <a href="programming//programming/ec.html#components">components</a> fwom specific <a href="programming//programming/ec.html#entities">entity</a>
-onwy:</p>
-<pre><code class="language-rust no_run noplayground">    if wet ok((heawth, ( ͡o ω ͡o ) mut twansfowm)) = q-quewy.get_mut(entity) {
-        // d-do something w-with the c-components
-    } e-ewse {
-        // t-the entity does n-nyot have the c-components fwom the quewy
-    }</code></pre>
 <p>if you want to know the entity ids o-of the entities y-you awe accessing, OwO y-you can
-put the speciaw <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> type in youw quewy. &gt;_&lt; this is usefuw
-togethew with itewation, OwO so you can i-identify the e-entities that the q-quewy found:</p>
+put the speciaw <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> type in youw quewy. (ꈍᴗꈍ) this is usefuw i-if you nyeed
+to watew pewfowm specific opewations o-on those entities.</p>
 <pre><code class="language-rust no_run noplayground">// add `entity` to `quewy` to get e-entity ids
 fn quewy_entities(q: q-quewy&lt;(entity, (U ᵕ U❁) /* ... */)&gt;) {
     f-fow (e, (⑅˘꒳˘) /* ... */) i-in q.itew() {
         // `e` i-is the entity i-id of the entity w-we awe accessing
     }
 }</code></pre>
-<p>if you know that the quewy is expected t-to onwy evew m-match a singwe e-entity, you
-can use <code>single</code>/<code>single_mut</code> (panic on ewwow) ow <code>get_single</code>/<code>get_single_mut</code>
-(wetuwn <a href="https://doc.rust-lang.org/stable/std/result/enum.Result.html"><code>Result</code></a>). ^•ﻌ•^ these methods ensuwe that thewe e-exists exactwy o-one
-candidate entity that can match youw q-quewy, OwO and wiww p-pwoduce an ewwow o-othewwise.</p>
+<h3 id="accessing-specific-entities"><a class="header" href="#accessing-specific-entities">accessing specific entities</a></h3>
+<p>to access the <a href="programming//programming/ec.html#components">components</a> fwom one specific <a href="programming//programming/ec.html#entities">entity</a>
+onwy, &gt;_&lt; you nyeed to know the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> id:</p>
+<pre><code class="language-rust no_run noplayground">if wet ok((heawth, (⑅˘꒳˘) mut twansfowm)) = q-quewy.get_mut(entity) {
+    // d-do something w-with the components
+} e-ewse {
+    // t-the entity does n-nyot have the c-components fwom t-the quewy
+}</code></pre>
+<p>if you want to access the data fwom s-sevewaw entities a-aww at once, OwO y-you can use
+<code>many</code>/<code>many_mut</code> (panic on ewwow) ow <code>get_many</code>/<code>get_many_mut</code> (wetuwn
+<a href="https://doc.rust-lang.org/stable/std/result/enum.Result.html"><code>Result</code></a>). ^•ﻌ•^  these methods ensuwe that aww t-the wequested entities e-exist and
+match the quewy, and wiww pwoduce a-an ewwow othewwise.</p>
+<pre><code class="language-rust no_run noplayground">#[dewive(wesouwce)]
+stwuct uihudindicatows {
+    // say we have 3 s-speciaw ui ewements
+    e-entities_ui: [entity; 3], rawr x3
+    e-entities_text: [entity; 3], nyaa~~
+}
+
+f-fn update_ui_hud_indicatows(
+    i-indicatows: w-wes&lt;uihudindicatows&gt;, /(^•ω•^)
+    q-quewy_text: q-quewy&lt;&amp;text&gt;, rawr
+    quewy_ui: quewy&lt;(&amp;stywe, OwO &amp;backgwoundcowow)&gt;, (U ﹏ U)
+) {
+    // we can get evewything as an awway
+    i-if wet ok(my_texts) = quewy_text.get_many(indicatows.entities_text) {
+        // the entities e-exist and match the quewy
+        // t-todo: something with `my_texts[0]`, &gt;_&lt; `my_texts[1]`, rawr x3 `my_texts[2]`
+    } ewse {
+        // quewy unsuccessfuw
+    };
+
+    // w-we can use "destwuctuwing syntax"
+    // i-if we want to unpack e-evewything into sepawate vawiabwes
+    wet [(stywe0, mya cowow0), (stywe1, nyaa~~ cowow1), (⑅˘꒳˘) (stywe2, c-cowow2)] =
+        quewy_ui.many(indicatows.entities_ui);
+
+    // todo: something with aww these vawiabwes
+}</code></pre>
+<h3 id="unique-entities"><a class="header" href="#unique-entities">unique entities</a></h3>
+<p>if you know that onwy one matching e-entity is supposed t-to exist (the q-quewy is
+expected to onwy evew match a singwe e-entity), ^•ﻌ•^ you c-can use <code>single</code>/<code>single_mut</code>
+(panic on ewwow) ow <code>get_single</code>/<code>get_single_mut</code> (wetuwn <a href="https://doc.rust-lang.org/stable/std/result/enum.Result.html"><code>Result</code></a>). XD these
+methods ensuwe that thewe exists e-exactwy one candidate e-entity that c-can match
+youw quewy, (ꈍᴗꈍ) and wiww pwoduce an ewwow o-othewwise.</p>
+<p>you do nyot nyeed to know the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> id.</p>
 <pre><code class="language-rust no_run noplayground">fn quewy_pwayew(mut q: quewy&lt;(&amp;pwayew, (U ᵕ U❁) &amp;mut t-twansfowm)&gt;) {
     w-wet (pwayew, (⑅˘꒳˘) m-mut twansfowm) = q-q.singwe_mut();
 
     // d-do something w-with the pwayew a-and its twansfowm
+}</code></pre>
+<h3 id="combinations"><a class="header" href="#combinations">combinations</a></h3>
+<p>if you want to itewate ovew aww possibwe c-combinations o-of ny entities, OwO b-bevy
+pwovides a method fow that too. OwO be c-cawefuw: with a-a wot of entities, 🥺 t-this
+can easiwy become vewy swow!</p>
+<pre><code class="language-rust no_run noplayground">fn pwint_potentiaw_fwiends(
+    q_pwayew_names: quewy&lt;&amp;pwayewname&gt;, nyaa~~
+) {
+    // this w-wiww itewate o-ovew evewy possibwe p-paiw of two e-entities
+    // (that h-have the pwayewname c-component)
+
+    f-fow [pwayew1, /(^•ω•^) p-pwayew2] in q_pwayew_names.itew_combinations() {
+        pwintwn!("maybe {} couwd be fwiends with {}?", p-pwayew1.0, rawr pwayew2.0);
+    }
+}
+
+fn appwy_gwavity_to_pwanets(
+    mut quewy: quewy&lt;&amp;mut t-twansfowm, OwO with&lt;pwanet&gt;&gt;, (U ﹏ U)
+) {
+    // t-this wiww itewate ovew evewy possibwe paiw of two pwanets
+
+    // f-fow mutabiwity, &gt;_&lt; we n-nyeed a diffewent s-syntax
+    wet mut combinations = quewy.itew_combinations_mut();
+    whiwe wet some([pwanet1, rawr x3 p-pwanet2]) = combinations.fetch_next() {
+        // todo: cawcuwate the gwavity fowce between the pwanets
+    }
 }</code></pre>
 <h2 id="bundwes-2"><a class="header" href="#bundwes-2">bundwes</a></h2>
 <p>quewies wowk with individuaw components. OwO i-if you cweated a-an entity u-using a
@@ -7581,12 +7642,11 @@ that bundwe that you cawe about.</p>
 <h2 id="quewy-fiwtews"><a class="header" href="#quewy-fiwtews">quewy fiwtews</a></h2>
 <p>add quewy fiwtews to nyawwow down t-the entities you g-get fwom the quewy.</p>
 <p>this is done using the second (optionaw) g-genewic t-type pawametew of t-the
-<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Query.html"><code>Query</code></a> type.</p>
+<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a> type.</p>
 <p>note the syntax of the quewy: fiwst y-you specify the d-data you want t-to access
 (using a tupwe to access muwtipwe t-things), ^•ﻌ•^ and then y-you add any additionaw
 fiwtews (can awso be a tupwe, (ꈍᴗꈍ) to a-add muwtipwe).</p>
-<p>use <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.With.html"><code>With</code></a>/<a href="https://docs.rs/bevy/0.9.1/bevy/ecs/query/struct.Without.html"><code>Without</code></a> to onwy get entities
-that have specific components.</p>
+<p>use <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.With.html"><code>With</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/query/struct.Without.html"><code>Without</code></a> to onwy get entities that have specific c-components.</p>
 <pre><code class="language-rust no_run noplayground">fn debug_pwayew_hp(
     // access t-the heawth (and o-optionawwy the p-pwayewname, -.- if pwesent), o-onwy fow f-fwiendwy pwayews
     q-quewy: quewy&lt;(&amp;heawth, ^^;; o-option&lt;&amp;pwayewname&gt;), &gt;_&lt; (with&lt;pwayew&gt;, mya w-without&lt;enemy&gt;)&gt;, mya
@@ -7613,6 +7673,45 @@ the fiwst pawt of the quewy (as shown p-pweviouswy), OwO i-instead of using a-a 
 </ul>
 </li>
 </ul>
+<h2 id="quewy-twansmutation"><a class="header" href="#quewy-twansmutation">quewy twansmutation</a></h2>
+<p>if you want one function with a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a> pawametew to caww anothew function
+with a diffewent (but compatibwe) <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a> pawametew, &gt;_&lt; you can cweate the
+needed <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a> fwom the one you have using something c-cawwed <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.QueryLens.html"><code>QueryLens</code></a>.</p>
+<pre><code class="language-rust no_run noplayground">fn debug_positions(
+    quewy: quewy&lt;&amp;twansfowm&gt;, ( ͡o ω ͡o )
+) {
+    f-fow twansfowm i-in quewy.itew() {
+        e-epwintwn!("{:?}", rawr x3 t-twansfowm.twanswation);
+    }
+}
+
+f-fn move_pwayew(
+    m-mut quewy_pwayew: q-quewy&lt;&amp;mut t-twansfowm, with&lt;pwayew&gt;&gt;, nyaa~~
+) {
+    // todo: mutate the twansfowm to move the p-pwayew
+
+    // say we want to caww ouw debug_positions f-function
+
+    // fiwst, /(^•ω•^) c-convewt into a quewy fow `&amp;twansfowm`
+    wet mut wens = quewy_pwayew.twansmute_wens::&lt;&amp;twansfowm&gt;();
+    d-debug_positions(wens.quewy());
+}
+
+fn move_enemies(
+    m-mut quewy_enemies: q-quewy&lt;&amp;mut twansfowm, rawr with&lt;enemy&gt;&gt;, OwO
+) {
+    // todo: mutate the twansfowm to move ouw enemies
+
+    w-wet mut wens = quewy_enemies.twansmute_wens::&lt;&amp;twansfowm&gt;();
+    debug_positions(wens.quewy());
+}</code></pre>
+<p>note: when we caww <code>debug_positions</code> fwom each function, &gt;<em>&lt; it wiww access
+diffewent entities! &gt;</em>&lt; even though the <code>Query&lt;&amp;Transform&gt;</code> pawametew type does nyot
+have any additionaw <a href="programming//programming/queries.html#query-filters">fiwtews</a>, &gt;_&lt; it was cweated by twansmuting
+via <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.QueryLens.html"><code>QueryLens</code></a>, ^•ﻌ•^ and thewefowe it can onwy access t-the entities and c-components
+of the owiginaw <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a> that it was dewived fwom. (ꈍᴗꈍ) if we w-wewe to add
+<code>debug_positions</code> to bevy as a weguwaw system, ^•ﻌ•^ it w-wouwd access the t-twansfowms of
+aww entities.</p>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="commands"><a class="header" href="#commands">commands</a></h1>
@@ -8278,28 +8377,27 @@ you avoid making it a bottweneck f-fow pawawwewism.</p>
 </ul>
 </li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-9">0.9</a> |(outdated!)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="diwect-wowwd-access"><a class="header" href="#diwect-wowwd-access">diwect wowwd access</a></h1>
 <p>(this page is wip)</p>
 <hr />
-<p>the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>World</code></a> is whewe bevy ecs stowes aww data a-and
-associated metadata. (ꈍᴗꈍ) it keeps twack o-of <a href="programming//programming/res.html">wesouwces</a>, rawr x3 <a href="programming//programming/intro-data.html#entities--components">entities and
-components</a>.</p>
-<p>typicawwy, XD the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a>'s wunnew wiww wun aww
-<a href="programming//programming/schedules.html">scheduwes</a> (which, &gt;<em>&lt; in tuwn, (ꈍᴗꈍ) wun theiw <a href="programming//programming/systems.html">systems</a>) on
-the main wowwd. XD weguwaw <a href="programming//programming/systems.html">systems</a> awe wimited in nani data they can
-access fwom the wowwd, &gt;</em>&lt; by theiw <a href="programming//builtins.html#systemparams">system pawametew types</a>.
-opewations that manipuwate the wowwd i-itsewf awe onwy d-done indiwectwy u-using
+<p>the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a> is whewe bevy ecs stowes aww data a-and associated m-metadata. ^•ﻌ•^ it
+keeps twack of <a href="programming//programming/res.html">wesouwces</a>, rawr x3 <a href="programming//programming/intro-data.html#entities--components">entities and components</a>.</p>
+<p>typicawwy, XD the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a>'s wunnew wiww wun aww <a href="programming//programming/schedules.html">scheduwes</a> (which,
+in tuwn, XD wun theiw <a href="programming//programming/systems.html">systems</a>) on the main wowwd. &gt;_&lt; weguwaw
+<a href="programming//programming/systems.html">systems</a> awe wimited in nani data they can a-access fwom the w-wowwd,
+by theiw <a href="programming//builtins.html#systemparams">system pawametew types</a>. XD  opewations that
+manipuwate the wowwd itsewf awe onwy d-done indiwectwy u-using
 <a href="programming//programming/commands.html"><code>Commands</code></a>. (ꈍᴗꈍ) this is how most typicaw bevy usew c-code behaves.</p>
 <p>howevew, OwO thewe awe awso ways you c-can get fuww diwect a-access to the w-wowwd, 🥺 which
 gives you fuww contwow and fweedom t-to do anything w-with any data stowed i-in the
 bevy ecs:</p>
 <ul>
 <li><a href="programming//programming/exclusive.html">excwusive systems</a></li>
-<li><a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> impws</li>
-<li>via the <a href="https://docs.rs/bevy/0.9.1/bevy/app/struct.App.html"><code>App</code></a> <a href="programming//programming/app-builder.html">buiwdew</a></li>
-<li>manuawwy cweated <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/world/struct.World.html"><code>World</code></a>s fow puwposes wike <a href="programming//patterns/system-tests.html">tests</a> ow scenes</li>
+<li><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> impws</li>
+<li>via the <a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.App.html"><code>App</code></a> <a href="programming//programming/app-builder.html">buiwdew</a></li>
+<li>manuawwy cweated <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>s fow puwposes wike <a href="programming//patterns/system-tests.html">tests</a> ow scenes</li>
 <li><a href="programming//programming/commands.html#custom-commands">custom commands</a></li>
 </ul>
 <p>diwect wowwd access wets you do things w-wike:</p>
@@ -8318,21 +8416,20 @@ game saves, XD …</p>
 <h2 id="wowking-with-the-world"><a class="header" href="#wowking-with-the-world">wowking with the <code>World</code></a></h2>
 <p>hewe awe some ways that you can make u-use of the diwect w-wowwd access a-apis.</p>
 <h3 id="systemstate"><a class="header" href="#systemstate"><code>SystemState</code></a></h3>
-<p>the easiest way to do things is using a-a <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>.</p>
+<p>the easiest way to do things is using a-a <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>.</p>
 <p>this is a type that "imitates a system", OwO b-behaving t-the same way as a-a
-<a href="programming//programming/systems.html">system</a> with vawious pawametews wouwd. (ꈍᴗꈍ) aww t-the same behaviows
-wike <a href="programming//programming/queries.html">quewies</a>, rawr x3 <a href="programming//programming/change-detection.html">change detection</a>, XD and
-even <a href="programming//programming/commands.html"><code>Commands</code></a> awe avaiwabwe. &gt;_&lt; you can use any <a href="programming//builtins.html#systemparams">system
+<a href="programming//programming/systems.html">system</a> with vawious pawametews wouwd. ^•ﻌ•^ aww t-the same behaviows w-wike
+<a href="programming//programming/queries.html">quewies</a>, rawr x3 <a href="programming//programming/change-detection.html">change detection</a>, XD and even
+<a href="programming//programming/commands.html"><code>Commands</code></a> awe avaiwabwe. &gt;_&lt; you can use any <a href="programming//builtins.html#systemparams">system
 pawams</a>.</p>
 <p>it awso twacks any pewsistent state, ^•ﻌ•^ u-used fow things w-wike <a href="programming//programming/change-detection.html">change
 detection</a> ow caching to impwove pewfowmance. (ꈍᴗꈍ) t-thewefowe,
-if you pwan on weusing the same <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> muwtipwe
-times, OwO you shouwd stowe it somewhewe, 🥺 w-wathew than c-cweating a nyew o-one evewy
-time. &gt;<em>&lt; evewy time you caww <code>.get(world)</code>, &gt;</em>&lt; it behaves wike anothew "wun"
-of a system.</p>
-<p>if you awe using <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, &gt;_&lt; you can choose when you
-want to appwy them to the wowwd. y-you nyeed to manuawwy c-caww <code>.apply(world)</code>
-on the <a href="https://docs.rs/bevy/0.9.1/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>, XD to appwy them.</p>
+if you pwan on weusing the same <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> muwtipwe times, you shouwd stowe
+it somewhewe, OwO wathew than cweating a-a nyew one evewy t-time. 🥺 evewy time y-you caww
+<code>.get(world)</code>, (ꈍᴗꈍ) it behaves wike anothew "wun" of a-a system.</p>
+<p>if you awe using <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, (ꈍᴗꈍ) you can choose when you want to a-appwy them to the
+wowwd. &gt;_&lt; you nyeed to manuawwy caww <code>.apply(world)</code> on the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a>, XD to
+appwy them.</p>
 <pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
 <h3 id="wunning-a-system"><a class="header" href="#wunning-a-system">wunning a system</a></h3>
 <pre><code class="language-rust no_run noplayground">// todo: wwite code exampwe</code></pre>
