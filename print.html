@@ -11435,12 +11435,6 @@ about devewoping fow windows genewawwy)</p>
 <p>the instwuctions on this page use t-the <code>x86_64</code> awchitectuwe, &gt;_&lt; but you couwd awso
 set up a toowchain to tawget <code>i686</code> (32-bit) ow <code>aarch64</code> (windows-on-awm) the
 same way.</p>
-<p>as of bevy 0.12, cwoss-compiwing w-with msvc nyo wongew w-wowks, because t-thewe
-awe some dependencies that assume y-you awe wunning w-windows and that t-they can
-wun windows exes fwom theiw buiwd s-scwipts. ^•ﻌ•^ as such, OwO i-it is nyow wecommended
-that you use the gnu toowchain fow c-cwoss-compiwing. OwO i-instwuctions f-fow setting
-up msvc awe stiww pwovided on this p-page fow compweteness (and i-it c-couwd be
-usefuw fow youw othew wust pwojects).</p>
 <h2 id="fiwst-time-setup-gnu"><a class="header" href="#fiwst-time-setup-gnu">fiwst-time setup (gnu)</a></h2>
 <p>on many winux distwos, OwO the gnu/mingw t-toowchain is t-the easiew option. 🥺 y-youw
 distwo wikewy pwovides packages that y-you can easiwy i-instaww. awso, OwO y-you do
@@ -11523,6 +11517,20 @@ fow windows:</p>
 <p>msvc:</p>
 <pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-msvc --wewease
 </code></pre>
+<h2 id="bevy-caveats"><a class="header" href="#bevy-caveats">bevy caveats</a></h2>
+<p>as of bevy 0.12, a wowkawound is n-nyeeded fow buiwding w-with msvc. OwO i-if you
+use the msvc toowchain, &gt;_&lt; the <code>blake3</code> dependency assumes you awe buiwding
+on windows and twies to wun some e-exes duwing its b-buiwd pwocess, OwO which d-do
+not exist in the winux cwoss-compiwation e-enviwonment. OwO t-the sowution i-is
+to teww it to nyot do that and use p-puwe wust code i-instead.</p>
+<p>set an enviwonment vawiabwe when b-buiwding:</p>
+<pre><code class="language-sh">expowt cawgo_featuwe_puwe=1
+cawgo b-buiwd --tawget=x86_64-pc-windows-msvc --wewease
+</code></pre>
+<p>ow add <code>blake3</code> to youw <code>Cargo.toml</code> if you want to pewsist the configuwation:</p>
+<pre><code class="language-toml">[dependencies]
+bwake3 = { vewsion = "1.5", (ꈍᴗꈍ) f-featuwes = [ "puwe" ] }
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="setup/cross//introduction.html#maintenance-policy">bevy vewsion:</a>|(any)
 |---|---|</p>
 <h1 id="buiwd-windows-exes-fwom-macos"><a class="header" href="#buiwd-windows-exes-fwom-macos">buiwd windows exes fwom macos</a></h1>
@@ -11537,12 +11545,6 @@ about devewoping fow windows genewawwy)</p>
 <p>the instwuctions on this page use t-the <code>x86_64</code> awchitectuwe, &gt;_&lt; but you couwd awso
 set up a toowchain to tawget <code>i686</code> (32-bit) ow <code>aarch64</code> (windows-on-awm) the
 same way.</p>
-<p>as of bevy 0.12, cwoss-compiwing w-with msvc nyo wongew w-wowks, because t-thewe
-awe some dependencies that assume y-you awe wunning w-windows and that t-they can
-wun windows exes fwom theiw buiwd s-scwipts. ^•ﻌ•^ as such, OwO i-it is nyow wecommended
-that you use the gnu toowchain fow c-cwoss-compiwing. OwO i-instwuctions f-fow setting
-up msvc awe stiww pwovided on this p-page fow compweteness (and i-it c-couwd be
-usefuw fow youw othew wust pwojects).</p>
 <h2 id="fiwst-time-setup-gnu-1"><a class="header" href="#fiwst-time-setup-gnu-1">fiwst-time setup (gnu)</a></h2>
 <p>the gnu/mingw toowchain is the easiew o-option. OwO it d-does nyot nyeed m-much in tewms of
 speciaw configuwation. OwO awso, you d-do nyot nyeed to a-accept any micwosoft w-wicenses.</p>
@@ -11652,6 +11654,20 @@ fow windows:</p>
 </code></pre>
 <p>msvc:</p>
 <pre><code class="language-sh">cawgo buiwd --tawget=x86_64-pc-windows-msvc --wewease
+</code></pre>
+<h2 id="bevy-caveats-1"><a class="header" href="#bevy-caveats-1">bevy caveats</a></h2>
+<p>as of bevy 0.12, a wowkawound is n-nyeeded fow buiwding w-with msvc. OwO i-if you
+use the msvc toowchain, &gt;_&lt; the <code>blake3</code> dependency assumes you awe buiwding
+on windows and twies to wun some e-exes duwing its b-buiwd pwocess, OwO which d-do
+not exist in the winux cwoss-compiwation e-enviwonment. OwO t-the sowution i-is
+to teww it to nyot do that and use p-puwe wust code i-instead.</p>
+<p>set an enviwonment vawiabwe when b-buiwding:</p>
+<pre><code class="language-sh">expowt cawgo_featuwe_puwe=1
+cawgo b-buiwd --tawget=x86_64-pc-windows-msvc --wewease
+</code></pre>
+<p>ow add <code>blake3</code> to youw <code>Cargo.toml</code> if you want to pewsist the configuwation:</p>
+<pre><code class="language-toml">[dependencies]
+bwake3 = { vewsion = "1.5", (ꈍᴗꈍ) f-featuwes = [ "puwe" ] }
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|(any)
 |---|---|</p>
