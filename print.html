@@ -7652,20 +7652,19 @@ don't add it to a scheduwe.</p>
 <p>if you awe a wwiting a system that y-you want to caww y-youwsewf whenevew
 you want (such as on a button pwess), ^•ﻌ•^ y-you can do t-that using <a href="programming//programming/one-shot-systems.html">one-shot
 systems</a>.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
 |---|---|---|</p>
 <h1 id="wesouwces-2"><a class="header" href="#wesouwces-2">wesouwces</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.14.0-rc.2/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
 <p>wesouwces awwow you to stowe a singwe g-gwobaw instance o-of some data t-type,
 independentwy of <a href="programming//programming/intro-data.html#entities--components">entities</a>.</p>
 <p>use them fow <a href="programming//programming/intro-data.html">data</a> that is twuwy gwobaw fow youw app, (ꈍᴗꈍ) s-such
 as configuwation / settings. OwO wesouwces m-make it easy f-fow you to access s-such data
 fwom anywhewe.</p>
-<hr />
 <p>to cweate a nyew wesouwce type, (ꈍᴗꈍ) simpwy d-define a wust <code>struct</code> ow <code>enum</code>, XD and
-dewive the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/trait.Resource.html"><code>Resource</code></a> twait, XD simiwaw to
+dewive the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/trait.Resource.html"><code>Resource</code></a> twait, XD simiwaw to
 <a href="programming//programming/ec.html#components">components</a> and <a href="programming//programming/events.html">events</a>.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(wesouwce)]
 stwuct goawsweached {
@@ -7679,7 +7678,7 @@ wesouwces to access vawious featuwes o-of the engine. OwO t-they wowk just w-wik
 custom types.</p>
 <h2 id="accessing-wesouwces"><a class="header" href="#accessing-wesouwces">accessing wesouwces</a></h2>
 <p>to access the vawue of a wesouwce f-fwom <a href="programming//programming/systems.html">systems</a>, XD use
-<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>:</p>
+<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">fn my_system(
     // these wiww panic i-if the wesouwces d-don't exist
     m-mut goaws: w-wesmut&lt;goawsweached&gt;, (U ﹏ U)
@@ -7694,7 +7693,7 @@ custom types.</p>
 }</code></pre>
 <h2 id="managing-wesouwces"><a class="header" href="#managing-wesouwces">managing wesouwces</a></h2>
 <p>if you nyeed to cweate/wemove wesouwces a-at wuntime, OwO y-you can do so u-using
-<a href="programming//programming/commands.html">commands</a> (<a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>):</p>
+<a href="programming//programming/commands.html">commands</a> (<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>):</p>
 <pre><code class="language-rust no_run noplayground">fn my_setup(mut commands: commands, (U ﹏ U) /* ... */) {
     // a-add (ow ovewwwite i-if existing) a-a wesouwce, -.- w-with the given v-vawue
     commands.insewt_wesouwce(goawsweached { m-main_goaw: fawse, (ˆ ﻌ ˆ)♡ b-bonus: 100 });
@@ -7753,7 +7752,7 @@ enum gamemode {
     singwepwayew, :3
     m-muwtipwayew, 😳😳😳
 }</code></pre>
-<p>fow wesouwces that nyeed compwex i-initiawization, ^•ﻌ•^ i-impwement <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>:</p>
+<p>fow wesouwces that nyeed compwex i-initiawization, ^•ﻌ•^ i-impwement <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(wesouwce)]
 stwuct myfancywesouwce { /* stuff */ }
 
@@ -7774,7 +7773,7 @@ impw f-fwomwowwd fow myfancywesouwce {
     }
 }</code></pre>
 <p>bewawe: it can be easy to get youwsewf i-into a mess o-of unmaintainabwe c-code
-if you ovewuse <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> to do compwex things.</p>
+if you ovewuse <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> to do compwex things.</p>
 <h2 id="usage-advice"><a class="header" href="#usage-advice">usage advice</a></h2>
 <p>the choice of when to use <a href="programming//programming/intro-data.html#entities--components">entities/components</a> vs. XD wesouwces is
 typicawwy about how you want to access t-the <a href="programming//programming/intro-data.html">data</a>: gwobawwy
@@ -7808,10 +7807,10 @@ functions. OwO that can give you an easy w-way to intewface w-with it fwom b-bev
 common fow nyon-wust (e.g c++ and o-os-wevew) wibwawies, OwO y-you shouwd u-use a
 <a href="programming//programming/non-send.html">non-send</a> bevy wesouwce instead. (ꈍᴗꈍ) this wiww m-make suwe any bevy
 system that touches it wiww wun on t-the main thwead.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
 |---|---|---|</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.14.0-rc.2/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
 <h1 id="entities"><a class="header" href="#entities">entities</a></h1>
 <p><a href="programming//programming/intro-data.html">see hewe fow mowe expwanation on h-how stowing data i-in the ecs wowks.</a></p>
@@ -7821,7 +7820,7 @@ stowe a vawue of that type.</p>
 <p>technicawwy, OwO an entity is just a s-simpwe integew id (imagine t-the "wow n-nyumbew" in
 a tabwe/spweadsheet) that can be u-used to find wewated d-data vawues (in d-diffewent
 "cowumns" of that tabwe).</p>
-<p>in bevy, XD <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> is this vawue. (ꈍᴗꈍ) it consists of two i-integews:
+<p>in bevy, XD <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/entity/struct.Entity.html"><code>Entity</code></a> is this vawue. (ꈍᴗꈍ) it consists of two i-integews:
 the id and the "genewation" (awwowing ids to be weused, ^•ﻌ•^ a-aftew you d-despawn owd
 entities).</p>
 <p>you can cweate ("spawn") nyew entities a-and destwoy ("despawn") e-entities u-using
@@ -7850,7 +7849,7 @@ entities).</p>
 <h1 id="components-1"><a class="header" href="#components-1">components</a></h1>
 <p>components awe the data associated w-with entities.</p>
 <p>to cweate a nyew component type, s-simpwy define a w-wust <code>struct</code> ow <code>enum</code>, XD and
-dewive the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/component/trait.Component.html"><code>Component</code></a> twait.</p>
+dewive the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/component/trait.Component.html"><code>Component</code></a> twait.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(component)]
 stwuct heawth {
     hp: f32, 🥺
@@ -7934,22 +7933,23 @@ fn die(
             .insewt(fwiendwy);
     }
 }</code></pre>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
 |---|---|---|</p>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.14.0-rc.2/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
 <h1 id="bundwes-1"><a class="header" href="#bundwes-1">bundwes</a></h1>
-<p>you can think of bundwes wike "tempwates" o-ow "bwuepwints" f-fow cweating e-entities.
+<p>you can think of bundwes wike "tempwates" f-fow cweating e-entities.
 they make it easy to cweate <a href="programming//programming/ec.html#entities">entities</a> with a common set of
-<a href="programming//programming/ec.html#components">components</a>.</p>
+<a href="programming//programming/ec.html#components">components</a> types.</p>
 <p>by cweating a bundwe type, OwO instead o-of adding youw c-components one b-by one, 🥺 you
 can make suwe that you wiww nyevew a-accidentawwy fowget s-some impowtant c-component
 on youw entities. OwO the wust compiwew w-wiww give an e-ewwow if you do n-nyot set aww
 the fiewds of a stwuct, ^•ﻌ•^ thus hewping y-you make suwe y-youw code is cowwect.</p>
 <p>bevy pwovides many <a href="programming//builtins.html#bundles">buiwt-in bundwe types</a> that you can use
 to spawn common kinds of entities.</p>
-<p>to cweate youw own bundwe, &gt;_&lt; dewive <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/bundle/trait.Bundle.html"><code>Bundle</code></a> on a <code>struct</code>:</p>
+<h2 id="cweating-bundwes"><a class="header" href="#cweating-bundwes">cweating bundwes</a></h2>
+<p>to cweate youw own bundwe, &gt;_&lt; dewive <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/bundle/trait.Bundle.html"><code>Bundle</code></a> on a <code>struct</code>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(bundwe)]
 stwuct pwayewbundwe {
     xp: pwayewxp, rawr
@@ -7959,8 +7959,12 @@ stwuct pwayewbundwe {
 
     // w-we can nyest/incwude a-anothew bundwe. :3
     // a-add the components fow a standawd bevy spwite:
-    spwite: spwitesheetbundwe, (U ﹏ U)
+    spwite: spwitebundwe, (U ﹏ U)
 }</code></pre>
+<p>when you have nyested bundwes, (ꈍᴗꈍ) evewything g-gets fwattened.
+you end up with an entity that has a-aww the incwuded c-component
+types. ^•ﻌ•^ if a type appeaws mowe than o-once, OwO that's an e-ewwow.</p>
+<h3 id="using-bundwes"><a class="header" href="#using-bundwes">using bundwes</a></h3>
 <p>you can then use youw bundwe when y-you spawn youw e-entities:</p>
 <pre><code class="language-rust no_run noplayground">commands.spawn(pwayewbundwe {
     xp: pwayewxp(0), o.O
@@ -7970,7 +7974,7 @@ stwuct pwayewbundwe {
         e-extwa: 0.0, ( ͡o ω ͡o )
     }, UwU
     m-mawkew: pwayew, rawr x3
-    s-spwite: spwitesheetbundwe {
+    s-spwite: spwitebundwe {
         // t-todo
         ..defauwt::defauwt()
     }, rawr
@@ -7995,6 +7999,22 @@ stwuct pwayewbundwe {
     nyame: pwayewname("pwayew 1".into()), XD
     ..defauwt::defauwt()
 });</code></pre>
+<h3 id="bundwes-fow-wemovaw"><a class="header" href="#bundwes-fow-wemovaw">bundwes fow wemovaw</a></h3>
+<p>bundwes can awso be usefuw to wepwesent a-a set of c-components that y-you
+want to be abwe to easiwy wemove f-fwom an entity.</p>
+<pre><code class="language-rust no_run noplayground">/// contains aww components to wemove w-when
+/// wesetting t-the pwayew b-between wooms/wevews. σωσ
+#[dewive(bundwe)]
+s-stwuct p-pwayewwesetcweanupbundwe {
+    s-status_effect: s-statuseffect, σωσ
+    p-pending_action: pwayewpendingaction, &gt;_&lt;
+    modifiew: cuwwentmodifiew, :3
+    wow_hp_mawkew: w-wowhpmawkew, (U ﹏ U)
+}</code></pre>
+<pre><code class="language-rust no_run noplayground">commands.entity(e_pwayew)
+    .wemove::&lt;pwayewwesetcweanupbundwe&gt;();</code></pre>
+<p>the component types incwuded in the b-bundwe wiww be w-wemoved fwom the
+entity, (ꈍᴗꈍ) if any of them exist on the e-entity.</p>
 <h2 id="woose-components-as-bundwes"><a class="header" href="#woose-components-as-bundwes">woose components as bundwes</a></h2>
 <p>technicawwy, OwO bevy awso considews a-awbitwawy tupwes o-of components as b-bundwes:</p>
 <pre><code>(componenta, &gt;_&lt; componentb, (ꈍᴗꈍ) componentc)
@@ -8238,13 +8258,13 @@ aww entities.</p>
 <p>awso nyote: this has some pewfowmance o-ovewhead; the t-twansmute opewation i-is nyot
 fwee. OwO bevy nyowmawwy caches some q-quewy metadata acwoss m-muwtipwe wuns o-of a
 system. OwO when you cweate the nyew q-quewy, 🥺 it has to m-make a copy of i-it.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-13">0.13</a>|(cuwwent)|
+<div style="break-before: page; page-break-before: always;"></div><p>|<a href="programming//introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
 |---|---|---|</p>
 <h1 id="commands"><a class="header" href="#commands">commands</a></h1>
 <p>wewevant officiaw exampwes:
-<a href="https://github.com/bevyengine/bevy/blob/v0.13.0/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
+<a href="https://github.com/bevyengine/bevy/blob/v0.14.0-rc.2/examples/ecs/ecs_guide.rs"><code>ecs_guide</code></a>.</p>
 <hr />
-<p>use <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> to spawn/despawn entities, ^•ﻌ•^ add/wemove c-components o-on existing
+<p>use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> to spawn/despawn entities, ^•ﻌ•^ add/wemove c-components o-on existing
 entities, (ꈍᴗꈍ) manage wesouwces, ^•ﻌ•^ fwom y-youw <a href="programming//programming/systems.html">systems</a>.</p>
 <pre><code class="language-rust no_run noplayground">fn spawn_things(
     mut commands: c-commands, 😳😳😳
@@ -8312,9 +8332,9 @@ f-fn despawn_aww_enemies(
     }
 }</code></pre>
 <h2 id="when-do-these-actions-get-appwied"><a class="header" href="#when-do-these-actions-get-appwied">when do these actions get appwied?</a></h2>
-<p><a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> do nyot take effect immediatewy, ^•ﻌ•^ b-because it wouwdn't b-be safe to
+<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> do nyot take effect immediatewy, ^•ﻌ•^ b-because it wouwdn't b-be safe to
 modify the data wayout in memowy w-when othew <a href="programming//programming/systems.html">systems</a> couwd be
-wunning in pawawwew. (ꈍᴗꈍ) when you do a-anything using <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, &gt;_&lt; it gets queued to
+wunning in pawawwew. (ꈍᴗꈍ) when you do a-anything using <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, &gt;_&lt; it gets queued to
 be appwied watew when it is safe t-to do so.</p>
 <p>within the same <a href="programming//programming/schedules.html">scheduwe</a>, XD you can add <code>.before()</code>/<code>.after()</code>
 <a href="programming//programming/system-order.html">owdewing constwaints</a> to youw systems, &gt;_&lt; and bevy wiww
@@ -8332,11 +8352,11 @@ the nyext fwame update!</p>
 <p>othewwise, ^•ﻌ•^ commands awe nyowmawwy a-appwied at the e-end of evewy
 <a href="programming//programming/schedules.html">scheduwe</a>. rawr x3 <a href="programming//programming/systems.html">systems</a> that wive in diffewent scheduwes
 wiww see the changes. OwO fow exampwe, 🥺 b-bevy's engine s-systems (that wive i-in
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>) wiww see the entities you spawn i-in youw systems (that w-wive in
-<a href="https://docs.rs/bevy/0.13.0/bevy/app/struct.Update.html"><code>Update</code></a>).</p>
+<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.PostUpdate.html"><code>PostUpdate</code></a>) wiww see the entities you spawn i-in youw systems (that w-wive in
+<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.Update.html"><code>Update</code></a>).</p>
 <h2 id="custom-commands"><a class="header" href="#custom-commands">custom commands</a></h2>
 <p>commands can awso sewve as a convenient w-way to do a-any custom manipuwations
-that wequiwe <a href="programming//programming/world.html">fuww access</a> to the ecs <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/world/struct.World.html"><code>World</code></a>. XD you can queue up
+that wequiwe <a href="programming//programming/world.html">fuww access</a> to the ecs <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>World</code></a>. XD you can queue up
 any custom code to wun in a defewwed f-fashion, OwO the s-same way as the s-standawd
 commands wowk.</p>
 <p>fow a one-off thing, (ꈍᴗꈍ) you can just p-pass a cwosuwe:</p>
@@ -8351,28 +8371,33 @@ commands wowk.</p>
         epwintwn!("{}", σωσ x-x);
     });
 }</code></pre>
-<p>if you want something weusabwe, OwO you c-can cweate a c-custom type and i-impwement
-the <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/trait.Command.html"><code>Command</code></a> twait:</p>
-<pre><code class="language-rust no_run noplayground">use bevy::ecs::system::command;
+<p>if you want something weusabwe, &gt;_&lt; considew <a href="programming//programming/one-shot-systems.html">one-shot systems</a>.
+they awe a way to wwite weguwaw bevy s-systems and w-wun them on-demand.</p>
+<h3 id="extending-the-commands-api"><a class="header" href="#extending-the-commands-api">extending the commands api</a></h3>
+<p>if you want something mowe integwated, ^•ﻌ•^ t-that feews w-wike as if it was
+pawt of bevy's commands api, (ꈍᴗꈍ) hewe i-is how to do it.</p>
+<p>cweate a custom type and impwement t-the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/trait.Command.html"><code>Command</code></a> twait:</p>
+<pre><code class="language-rust no_run noplayground">use bevy::ecs::wowwd::command;
 
 stwuct mycustomcommand {
-    // y-you can have some p-pawametews
-    d-data: u32, (ˆ ﻌ ˆ)♡
+    // you c-can have some p-pawametews
+    d-data: u32, (U ﹏ U)
 }
 
-impw c-command fow m-mycustomcommand {
-    f-fn appwy(sewf, (⑅˘꒳˘) w-wowwd: &amp;mut w-wowwd) {
-        // do nyanievew you want with `wowwd` and `sewf.data` hewe
+impw c-command fow mycustomcommand {
+    f-fn appwy(sewf, -.- w-wowwd: &amp;mut w-wowwd) {
+        // d-do nyanievew you want with `wowwd` and `sewf.data` hewe
     }
 }
 
-f-fn my_othew_system(mut commands: commands) {
-    c-commands.add(mycustomcommand {
-        data: 920, (U ᵕ U❁) // s-set youw vawue
+// use it wike t-this
+fn my_othew_system(mut commands: commands) {
+    commands.add(mycustomcommand {
+        d-data: 920, // set youw vawue
     });
 }</code></pre>
 <p>and if you want to make it extwa n-nyice to use, you c-can cweate
-an extension twait to add extwa methods t-to <a href="https://docs.rs/bevy/0.13.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>:</p>
+an extension twait to add extwa methods t-to <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">pub twait mycustomcommandsext {
     // define a method t-that we wiww b-be abwe to caww o-on `commands`
     f-fn do_custom_thing(&amp;mut s-sewf, -.- d-data: u32);
@@ -8391,8 +8416,6 @@ fn my_fancy_system(mut c-commands: commands) {
     // n-nyow we can caww ouw custom method just wike bevy's `spawn`, 😳 e-etc.
     commands.do_custom_thing(42);
 }</code></pre>
-<p>now, ^•ﻌ•^ youw custom commands wiww "feew n-nyative", as i-if they wewe integwated
-into bevy. XD :)</p>
 <p>note: if you want to use youw custom e-extension method f-fwom othew w-wust
 fiwes, ^•ﻌ•^ you wiww have to impowt youw t-twait, OwO ow it w-wiww nyot be avaiwabwe:</p>
 <pre><code class="language-rust no_run noplayground">use cwate::thing::mycustomcommandsext;</code></pre>
