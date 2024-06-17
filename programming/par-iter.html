@@ -295,6 +295,108 @@ a minimum and maximum using <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/b
         // todo: do some heavy wowk
     });
 }</code></pre>
+<h2 id="pawawwew-pwocessing-of-awbitwawy-d-data"><a class="header" href="#pawawwew-pwocessing-of-awbitwawy-d-data">pawawwew pwocessing of awbitwawy d-data</a></h2>
+<p>intewnaw pawawwewism isn't wimited t-to just ecs constwucts w-wike
+<a href="/programming/intro-data.html">entities/components</a> ow <a href="/programming/events.html">events</a>.</p>
+<p>it is awso possibwe to pwocess a s-swice (ow anything t-that can be wefewenced
+as a swice, &gt;_&lt; such as a <a href="https://doc.rust-lang.org/stable/std/vec/struct.Vec.html"><code>Vec</code></a>) in pawawwew chunks. (ꈍᴗꈍ) if you just h-have a big
+buffew of awbitwawy data, (ꈍᴗꈍ) this is f-fow you.</p>
+<p>use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/trait.ParallelSlice.html"><code>.par_splat_map</code></a>/<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/trait.ParallelSliceMut.html"><code>.par_splat_map_mut</code></a>
+to spwead the wowk acwoss a nyumbew o-of pawawwew tasks. ^•ﻌ•^ s-specify <code>None</code> fow
+the task count to automaticawwy use t-the totaw nyumbew o-of cpu thweads a-avaiwabwe.</p>
+<p>use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/trait.ParallelSlice.html"><code>.par_chunk_map</code></a>/<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/trait.ParallelSliceMut.html"><code>.par_chunk_map_mut</code></a>
+to manuawwy specify a specific chunk s-size.</p>
+<p>in both cases, OwO you pwovide a cwosuwe t-to pwocess each c-chunk (sub-swice). 🥺 i-it wiww
+be given the stawting index of its c-chunk + the wefewence t-to its chunk s-swice.
+you can wetuwn vawues fwom the cwosuwe, OwO a-and they w-wiww be concatenated a-and
+wetuwned to the caww site as a <a href="https://doc.rust-lang.org/stable/std/vec/struct.Vec.html"><code>Vec</code></a>.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::tasks::{pawawwewswice, pawawwewswicemut};
+
+f-fn pawawwew_swices(/* ... */) {
+    // s-say we h-have a big vec w-with a bunch of d-data
+    wet mut m-my_data = vec![something; 10000];
+
+    // a-and w-we want to pwocess it acwoss the nyumbew of
+    // avaiwabwe cpu thweads, 🥺 spwitting i-it into equaw chunks
+    my_data.paw_spwat_map_mut(computetaskpoow::get(), mya nyone, |i, data| {
+        // `i` i-is the stawting index of the cuwwent c-chunk
+        // `data` is the sub-swice / chunk to pwocess
+        f-fow item in data.itew_mut() {
+            p-pwocess_thing(item);
+        }
+    });
+
+    // e-exampwe: we have a bunch of nyumbews
+    wet mut my_vawues = vec![10; 8192];
+
+    // e-exampwe: pwocess it in chunks of 1024
+    // to compute the sums of each s-sequence of 1024 vawues. 🥺
+    wet s-sums = my_vawues.paw_chunk_map(computetaskpoow::get(), &gt;_&lt; 1024, &gt;_&lt; |_, d-data| {
+        // s-sum the cuwwent c-chunk of 1024 vawues
+        wet sum: u64 = d-data.itew().sum();
+        // wetuwn it out of the cwosuwe
+        s-sum
+    });
+
+    // `sums` is nyow a `vec&lt;u64&gt;` containing
+    // the wetuwned vawue fwom each chunk, (⑅˘꒳˘) in owdew
+}</code></pre>
+<p>when you awe using this api fwom w-within a bevy <a href="/programming/systems.html">system</a>, XD spawn
+youw tasks on the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.ComputeTaskPool.html"><code>ComputeTaskPool</code></a>.</p>
+<p>this api can awso be usefuw when y-you awe doing <a href="/fundamentals/async-compute.html">backgwound
+computation</a>, &gt;<em>&lt; to get some extwa pawawwewism.
+in that case, &gt;</em>&lt; use the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a> instead.</p>
+<h2 id="scoped-tasks"><a class="header" href="#scoped-tasks">scoped tasks</a></h2>
+<p>scoped tasks awe actuawwy the undewwying p-pwimitive t-that aww of the
+above abstwactions (pawawwew itewatows a-and swices) a-awe buiwt on. OwO i-if the
+pweviouswy-discussed abstwactions awen't usefuw to y-you, (ꈍᴗꈍ) you can impwement
+nanievew custom pwocessing fwow you w-want, OwO by spawning s-scoped tasks y-youwsewf.</p>
+<p>scoped tasks wet you bowwow nyanievew y-you want out o-of the pawent f-function. the
+<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.Scope.html"><code>Scope</code></a> wiww wait untiw the tasks wetuwn, ^•ﻌ•^ b-befowe wetuwning b-back to the pawent
+function. OwO this ensuwes youw pawawwew t-tasks do nyot o-outwive the pawent f-function,
+thus accompwishing "intewnaw pawawwewism".</p>
+<p>to get a pewfowmance benefit, OwO make s-suwe each of youw t-tasks has a s-significant
+and woughwy simiwaw amount of wowk t-to do. OwO if youw t-tasks compwete v-vewy quickwy,
+it is possibwe that the ovewhead o-of pawawwewism outweighs t-the gains.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::tasks::computetaskpoow;
+
+fn my_system(/* ... */) {
+    // s-say we have a b-bunch of vawiabwes
+    w-wet mut a-a = something;
+    w-wet mut b = something;
+    w-wet m-mut mowe_things = [something; 5];
+
+    // a-and we want to pwocess the above things in pawawwew
+    computetaskpoow::get().scope(|scope| {
+        // s-spawn ouw tasks using the scope:
+        scope.spawn(async {
+            pwocess_thing(&amp;mut a-a);
+        });
+        scope.spawn(async {
+            p-pwocess_thing(&amp;mut b);
+        });
+
+        // nyested spawning is awso p-possibwe:
+        // you can use t-the scope fwom w-within a task, mya
+        // to spawn mowe tasks
+        scope.spawn(async {
+            fow thing i-in mowe_things.itew_mut() {
+                scope.spawn(async {
+                    pwocess_thing(thing);
+                })
+            }
+            debug!("`mowe_things` awway done pwocessing.");
+        });
+    });
+
+    // a-at this point, nyaa~~ aftew the task p-poow scope wetuwns, (⑅˘꒳˘)
+    // a-aww o-ouw tasks awe d-done and evewything has been pwocessed
+}</code></pre>
+<p>when you awe using this api fwom w-within a bevy <a href="/programming/systems.html">system</a>, XD spawn
+youw tasks on the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.ComputeTaskPool.html"><code>ComputeTaskPool</code></a>.</p>
+<p>this api can awso be usefuw when y-you awe doing <a href="/fundamentals/async-compute.html">backgwound
+computation</a>, (ꈍᴗꈍ) to dispatch additionaw tasks fow e-extwa
+pawawwewism. &gt;_&lt; in that case, (ꈍᴗꈍ) use the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a> instead.</p>
 
                     </main>
 

@@ -240,6 +240,17 @@ fn weceive_genewated_map_chunks(
 a-app.add_systems(update, rawr x3 (
     b-begin_genewating_map_chunks, rawr w-weceive_genewated_map_chunks
 ));</code></pre>
+<h3 id="intewnaw-pawawwewism"><a class="header" href="#intewnaw-pawawwewism">intewnaw pawawwewism</a></h3>
+<p>youw tasks can awso spawn additionaw i-independent t-tasks themsewves, OwO f-fow extwa
+pawawwewism, ^•ﻌ•^ using the same api as s-shown above, OwO fwom w-within the cwosuwe.</p>
+<p>if you'd wike youw backgwound computation t-tasks to p-pwocess data in p-pawawwew,
+you can use <a href="/programming/par-iter.html#scoped-tasks">scoped tasks</a>. &gt;_&lt; this awwows you to cweate
+tasks that bowwow data fwom the function t-that spawns t-them.</p>
+<p>using the scoped api can awso be e-easiew, OwO even if y-you don't nyeed t-to bowwow data,
+because you don't have to wowwy about s-stowing and <code>await</code>ing the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.Task.html"><code>Task</code></a> handwes.</p>
+<p>a common pattewn is to have youw m-main task (the one y-you initiate f-fwom youw
+<a href="/programming/systems.html">systems</a>, ^•ﻌ•^ as shown eawwiew) act as a "dispachew", OwO s-spawning a-a bunch
+of <a href="/programming/par-iter.html#scoped-tasks">scoped tasks</a> to do the actuaw wowk.</p>
 <h2 id="using-youw-own-thweads"><a class="header" href="#using-youw-own-thweads">using youw own thweads</a></h2>
 <p>whiwe nyot typicawwy wecommended, OwO s-sometimes you might w-want to manage a-an
 actuaw dedicated cpu thwead of youw o-own. OwO fow exampwe, 🥺 i-if you awso w-want to wun
