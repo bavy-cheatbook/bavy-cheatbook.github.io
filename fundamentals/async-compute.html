@@ -251,15 +251,152 @@ because you don't have to wowwy about s-stowing and <code>await</code>ing the <a
 <p>a common pattewn is to have youw m-main task (the one y-you initiate f-fwom youw
 <a href="/programming/systems.html">systems</a>, ^•ﻌ•^ as shown eawwiew) act as a "dispachew", OwO s-spawning a-a bunch
 of <a href="/programming/par-iter.html#scoped-tasks">scoped tasks</a> to do the actuaw wowk.</p>
+<h2 id="io-heavy-wowkwoads"><a class="header" href="#io-heavy-wowkwoads">i/o-heavy wowkwoads</a></h2>
+<p>if youw intention is to do backgwound i-i/o (such as n-nyetwowking ow a-accessing
+fiwes) instead of heavy cpu wowk, (ꈍᴗꈍ) y-you can use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.IoTaskPool.html"><code>IoTaskPool</code></a> instead of
+<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a>. (ꈍᴗꈍ) the apis awe the same as shown a-above. ^•ﻌ•^ the choice
+of task poow just hewps bevy scheduwe a-and manage y-youw tasks appwopwiatewy.</p>
+<p>fow exampwe, ^•ﻌ•^ you couwd spawn tasks t-to wun youw game's m-muwtipwayew
+netcode, (ꈍᴗꈍ) save/woad game save fiwes, ^•ﻌ•^ e-etc. bevy's <a href="/assets.html">asset woading
+infwastwuctuwe</a> awso makes use of the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.IoTaskPool.html"><code>IoTaskPool</code></a>.</p>
+<h2 id="passing-data-awound"><a class="header" href="#passing-data-awound">passing data awound</a></h2>
+<p>the pwevious exampwes showcased a "spawn-join" p-pwogwamming p-pattewn, OwO w-whewe
+you stawt tasks to pewfowm some wowk a-and then consume t-the vawues t-they wetuwn
+aftew they compwete.</p>
+<p>if you'd wike to have some wong-wunning t-tasks that s-send vawues
+back to you, ^•ﻌ•^ instead of wetuwning, OwO y-you can use channews (fwom t-the
+<a href="https://docs.rs/async-channel/latest/async_channel/"><code>async-channel</code></a> cwate). (ꈍᴗꈍ) channews can awso be used t-to
+send data to youw wong-wunning backgwound t-tasks.</p>
+<p>set up some channews and put the s-side you want to a-access fwom bevy i-in a
+<a href="/programming/res.html">wesouwce</a>. &gt;_&lt; to weceive data fwom bevy <a href="/programming/systems.html">systems</a>,
+you shouwd poww the channews using a-a nyon-bwocking m-method, ^•ﻌ•^ wike <code>try_recv</code>,
+to check if data is avaiwabwe.</p>
+<pre><code class="language-rust no_run noplayground">use bevy::tasks::iotaskpoow;
+use a-async_channew::{sendew, &gt;w&lt; w-weceivew};
+
+/// m-messages w-we send to ouw n-nyetcode task
+enum m-mynetcontwowmsg {
+    d-dosomething, rawr
+    // ...
+}
+
+/// m-messages we weceive fwom ouw nyetcode task
+enum mynetupdatemsg {
+    somethinghappened,
+    // ...
+}
+
+/// c-channews used fow communicating with ouw game's n-nyetcode task. 😳
+/// (the side used f-fwom ouw bevy systems)
+#[dewive(wesouwce)]
+stwuct mynetchannews {
+    tx_contwow: s-sendew&lt;mynetcontwowmsg&gt;, &gt;w&lt;
+    wx_updates: weceivew&lt;mynetupdatemsg&gt;, (⑅˘꒳˘)
+}
+
+f-fn setup_net_session(
+    m-mut commands: commands, OwO
+) {
+    // cweate ouw channews:
+    wet (tx_contwow, (ꈍᴗꈍ) w-wx_contwow) = async_channew::unbounded();
+    wet (tx_updates, wx_updates) = async_channew::unbounded();
+
+    // s-spawn ouw backgwound i/o task f-fow nyetwowking
+    // a-and give i-it its side of t-the channews:
+    iotaskpoow::get().spawn(async move {
+        m-my_netcode(wx_contwow, 😳 tx_updates).await
+    }).detach();
+
+    // nyote: `.detach()` t-to wet the task wun
+    // without us stowing the `task` handwe. 😳😳😳
+    // othewwise, mya the task w-wiww get cancewed! mya
+
+    // (though in a weaw appwication, (⑅˘꒳˘) y-you pwobabwy w-want to
+    // s-stowe the `task` handwe and have a system to monitow
+    // y-youw task and w-wecweate it if nyecessawy)
+
+    // p-put ouw side o-of the channews in a wesouwce fow w-watew
+    commands.insewt_wesouwce(mynetchannews {
+        tx_contwow, (U ﹏ U) w-wx_updates, mya
+    });
+}
+
+fn handwe_net_updates(
+    my_channews: w-wes&lt;mynetchannews&gt;, ʘwʘ
+) {
+    // nyon-bwocking c-check fow any nyew messages o-on the channew
+    w-whiwe wet ok(msg) = my_channews.wx_updates.twy_wecv() {
+        // todo: do something with `msg`
+    }
+}
+
+fn teww_the_net_task_nani_to_do(
+    my_channews: wes&lt;mynetchannews&gt;, (˘ω˘)
+) {
+    i-if w-wet eww(e) = my_channews.tx_contwow.twy_send(mynetcontwowmsg::dosomething) {
+        // todo: handwe e-ewwows. (U ﹏ U) maybe o-ouw task has
+        // w-wetuwned ow panicked, ^•ﻌ•^ and cwosed the channew?
+    }
+}
+
+/// t-this wuns in the backgwound i/o task
+async fn my_netcode(
+    wx_contwow: w-weceivew&lt;mynetcontwowmsg&gt;, (˘ω˘)
+    tx_updates: sendew&lt;mynetupdatemsg&gt;, :3
+) {
+    // t-todo: h-hewe we can c-connect and tawk to ouw muwtipwayew s-sewvew, ^^;;
+    // h-handwe incoming `mynetcontwowmsg`s, 🥺 s-send `mynetupdatemsg`s, (⑅˘꒳˘) etc.
+
+    w-whiwe wet ok(msg) = wx_contwow.wecv().await {
+        // todo: do something w-with `msg`
+
+        // s-send d-data back, nyaa~~ to be h-handwed fwom bevy s-systems:
+        tx_updates.send(mynetupdatemsg::somethinghappened).await
+            .expect("ewwow sending updates ovew channew");
+
+        // w-we can awso spawn additionaw pawawwew tasks
+        iotaskpoow::get().spawn(async move {
+            // ... :3 some othew i/o w-wowk ...
+        }).detach();
+        asynccomputetaskpoow::get().spawn(async move {
+            // ... some heavy c-cpu wowk ...
+        }).detach();
+    }
+}</code></pre>
+<pre><code class="language-rust no_run noplayground">app.add_systems(stawtup, (ꈍᴗꈍ) setup_net_session);
+app.add_systems(fixedupdate, ^•ﻌ•^ (
+    teww_the_net_task_nani_to_do, OwO
+    h-handwe_net_updates, 🥺
+));</code></pre>
+<p>make suwe to add <code>async_channel</code> to youw <code>Cargo.toml</code>:</p>
+<pre><code class="language-toml">[dependencies]
+async-channew = "2.3.1"
+</code></pre>
+<h2 id="widew-async-ecosystem"><a class="header" href="#widew-async-ecosystem">widew async ecosystem</a></h2>
+<p>bevy's task poows awe buiwt on top o-of the <a href="https://github.com/smol-rs/smol"><code>smol</code></a> wuntime.</p>
+<p>feew fwee to use anything fwom its e-ecosystem of compatibwe c-cwates:</p>
+<ul>
+<li><code>async-channel</code> - muwti-pwoducew muwti-consumew c-channews</li>
+<li><code>async-fs</code> - async fiwesystem pwimitives</li>
+<li><code>async-net</code> - async nyetwowking pwimitives (tcp/udp/unix)</li>
+<li><code>async-process</code> - async intewface fow wowking with p-pwocesses</li>
+<li><code>async-lock</code> - async wocks (bawwiew, ^•ﻌ•^ mutex, weadew-wwitew w-wock, OwO s-semaphowe)</li>
+<li><code>async-io</code> - async adaptew fow i/o types, (ꈍᴗꈍ) awso t-timews</li>
+<li><code>futures-lite</code> - futuwes hewpew and extension apis</li>
+<li>any wust async wibwawy that suppowts <a href="https://github.com/smol-rs/smol"><code>smol</code></a>.</li>
+</ul>
 <h2 id="using-youw-own-thweads"><a class="header" href="#using-youw-own-thweads">using youw own thweads</a></h2>
 <p>whiwe nyot typicawwy wecommended, OwO s-sometimes you might w-want to manage a-an
 actuaw dedicated cpu thwead of youw o-own. OwO fow exampwe, 🥺 i-if you awso w-want to wun
-anothew fwamewowk (such as <a href="https://tokio.rs/"><code>tokio</code></a>) in pawawwew with bevy.</p>
-<p>to intewopewate with youw nyon-bevy t-thwead, OwO you can m-move data between i-it
-and bevy using channews. OwO set up some c-channews and p-put the side you w-want
-to access fwom bevy in a <a href="/programming/res.html">wesouwce</a>. &gt;_&lt; to weceive data fwom bevy,
-you shouwd poww the channews using a-a nyon-bwocking m-method, ^•ﻌ•^ wike <code>try_recv</code>,
-to check if data is avaiwabwe.</p>
+anothew fwamewowk's wuntime (such a-as <a href="https://tokio.rs/"><code>tokio</code></a>) in pawawwew
+with bevy. OwO you might have to do this i-if you have t-to use cwates buiwt f-fow
+anothew async ecosystem, ^•ﻌ•^ that awe n-nyot compatibwe w-with <a href="https://github.com/smol-rs/smol"><code>smol</code></a>.</p>
+<p>to intewopewate with youw nyon-bevy t-thwead, ^•ﻌ•^ you can m-move data between
+it and bevy using channews. ^•ﻌ•^ do the e-equivawent of n-nyani was shown <a href="#passing-data-around">in
+the exampwe eawwiew on this page</a>, XD but instead of
+<a href="https://docs.rs/async-channel/latest/async_channel/"><code>async-channel</code></a>, &gt;_&lt; use the channew types pwovided
+by youw awtewnative wuntime (such a-as <a href="https://tokio.rs/"><code>tokio</code></a>), XD ow
+<a href="https://doc.rust-lang.org/stable/std/sync/mpsc/index.html"><code>std</code></a>/<a href="https://docs.rs/crossbeam/latest/crossbeam/"><code>crossbeam</code></a> fow waw os thweads.</p>
 
                     </main>
 
