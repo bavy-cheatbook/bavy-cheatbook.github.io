@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="dwag-and-dwop-fiwes"><a class="header" href="#dwag-and-dwop-fiwes">dwag-and-dwop (fiwes)</a></h1>
 <p>wewevant officiaw exampwes:
@@ -183,7 +183,7 @@
 <p>bevy suppowts the dwag-and-dwop gestuwe c-common on m-most desktop opewating
 systems, ^•ﻌ•^ but onwy fow fiwes, OwO nyot a-awbitwawy data / o-objects.</p>
 <p>if you dwag a fiwe (say, OwO fwom the f-fiwe managew app) i-into a bevy app, 🥺 b-bevy
-wiww pwoduce a <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/enum.FileDragAndDrop.html"><code>FileDragAndDrop</code></a> <a href="/programming/events.html">event</a>, &gt;_&lt; containing the path
+wiww pwoduce a <a href="https://docs.rs/bevy/0.14.0/bevy/window/enum.FileDragAndDrop.html"><code>FileDragAndDrop</code></a> <a href="/programming/events.html">event</a>, &gt;_&lt; containing the path
 of the fiwe that was dwopped in.</p>
 <pre><code class="language-rust no_run noplayground">fn fiwe_dwop(
     mut evw_dnd: eventweadew&lt;fiwedwaganddwop&gt;, UwU
@@ -199,17 +199,17 @@ of the fiwe that was dwopped in.</p>
 dwop gestuwe ended. OwO fow exampwe, a-add the fiwe to s-some cowwection, 🥺 i-if it was
 dwopped ovew a specific ui ewement/panew.</p>
 <p>unfowtunatewy, OwO this is cuwwentwy s-somenani twicky t-to impwement, 🥺 due t-to <a href="https://github.com/rust-windowing/winit/issues/1550"><code>winit</code>
-bug #1550</a>. &gt;_&lt; bevy does nyot get <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a> <a href="/programming/events.html">events</a>
+bug #1550</a>. &gt;_&lt; bevy does nyot get <a href="https://docs.rs/bevy/0.14.0/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a> <a href="/programming/events.html">events</a>
 whiwe the dwag gestuwe is ongoing, OwO a-and thewefowe d-does nyot wespond t-to the
 mouse cuwsow. ^•ﻌ•^ bevy compwetewy woses t-twack of the c-cuwsow position.</p>
-<p>checking the cuwsow position fwom t-the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/struct.Window.html"><code>Window</code></a> wiww awso nyot wowk.</p>
+<p>checking the cuwsow position fwom t-the <a href="https://docs.rs/bevy/0.14.0/bevy/window/struct.Window.html"><code>Window</code></a> wiww awso nyot wowk.</p>
 <p>systems that use cuwsow events to w-wespond to cuwsow m-movements wiww n-nyot wowk
-duwing a dwag gestuwe. (ꈍᴗꈍ) this incwudes b-bevy ui's <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ui/enum.Interaction.html"><code>Interaction</code></a> detection,
+duwing a dwag gestuwe. (ꈍᴗꈍ) this incwudes b-bevy ui's <a href="https://docs.rs/bevy/0.14.0/bevy/ui/enum.Interaction.html"><code>Interaction</code></a> detection,
 which is the usuaw way of detecting w-when a ui ewement i-is hovewed o-ovew.</p>
 <h3 id="wowkawound"><a class="header" href="#wowkawound">wowkawound</a></h3>
 <p>the onwy way to wowkawound this issue i-is to stowe t-the fiwe path somewhewe
 tempowawiwy aftew weceiving the dwop e-event. OwO then, 🥺 w-wait untiw the n-nyext
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a> event, &gt;_&lt; and then pwocess the fiwe.</p>
+<a href="https://docs.rs/bevy/0.14.0/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a> event, &gt;_&lt; and then pwocess the fiwe.</p>
 <p>note that this might nyot even be o-on the nyext fwame u-update. the n-nyext cuwsow
 update wiww happen whenevew the usew m-moves the cuwsow. OwO i-if the usew d-does nyot
 immediatewy move the mouse aftew d-dwopping the fiwe a-and weaves the c-cuwsow in the

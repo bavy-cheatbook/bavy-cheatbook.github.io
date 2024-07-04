@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="backgwound-computation"><a class="header" href="#backgwound-computation">backgwound computation</a></h1>
 <p>wewevant officiaw exampwes:
@@ -184,10 +184,10 @@
 <p>sometimes you nyeed to pewfowm wong-wunning b-backgwound c-computations. OwO y-you want
 to do that in a way that does nyot h-howd up bevy's m-main fwame update w-woop, OwO so
 that youw game can keep wefweshing a-and feewing wesponsive w-with nyo w-wag spikes.</p>
-<p>to do this, &gt;_&lt; bevy offews a speciaw <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a>. XD you can spawn
+<p>to do this, &gt;_&lt; bevy offews a speciaw <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a>. XD you can spawn
 tasks thewe, OwO and bevy wiww wun them o-on speciaw cpu t-thweads dedicated f-fow
 the puwpose of wunning backgwound c-computations.</p>
-<p>when you initiate the task, (ꈍᴗꈍ) you get a-a <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.Task.html"><code>Task</code></a> handwe, &gt;_&lt; which you can use
+<p>when you initiate the task, (ꈍᴗꈍ) you get a-a <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.Task.html"><code>Task</code></a> handwe, &gt;_&lt; which you can use
 to check fow compwetion.</p>
 <p>it is common to wwite two sepawate <a href="/programming/systems.html">systems</a>, XD one fow initiating
 tasks and stowing the handwes, OwO and o-one fow handwing t-the finished w-wowk when
@@ -247,18 +247,18 @@ pawawwewism, ^•ﻌ•^ using the same api as s-shown above, OwO fwom w-within 
 you can use <a href="/programming/par-iter.html#scoped-tasks">scoped tasks</a>. &gt;_&lt; this awwows you to cweate
 tasks that bowwow data fwom the function t-that spawns t-them.</p>
 <p>using the scoped api can awso be e-easiew, OwO even if y-you don't nyeed t-to bowwow data,
-because you don't have to wowwy about s-stowing and <code>await</code>ing the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.Task.html"><code>Task</code></a> handwes.</p>
+because you don't have to wowwy about s-stowing and <code>await</code>ing the <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.Task.html"><code>Task</code></a> handwes.</p>
 <p>a common pattewn is to have youw m-main task (the one y-you initiate f-fwom youw
 <a href="/programming/systems.html">systems</a>, ^•ﻌ•^ as shown eawwiew) act as a "dispachew", OwO s-spawning a-a bunch
 of <a href="/programming/par-iter.html#scoped-tasks">scoped tasks</a> to do the actuaw wowk.</p>
 <h2 id="io-heavy-wowkwoads"><a class="header" href="#io-heavy-wowkwoads">i/o-heavy wowkwoads</a></h2>
 <p>if youw intention is to do backgwound i-i/o (such as n-nyetwowking ow a-accessing
-fiwes) instead of heavy cpu wowk, (ꈍᴗꈍ) y-you can use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.IoTaskPool.html"><code>IoTaskPool</code></a> instead of
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a>. (ꈍᴗꈍ) the apis awe the same as shown a-above. ^•ﻌ•^ the choice
+fiwes) instead of heavy cpu wowk, (ꈍᴗꈍ) y-you can use <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.IoTaskPool.html"><code>IoTaskPool</code></a> instead of
+<a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a>. (ꈍᴗꈍ) the apis awe the same as shown a-above. ^•ﻌ•^ the choice
 of task poow just hewps bevy scheduwe a-and manage y-youw tasks appwopwiatewy.</p>
 <p>fow exampwe, ^•ﻌ•^ you couwd spawn tasks t-to wun youw game's m-muwtipwayew
 netcode, (ꈍᴗꈍ) save/woad game save fiwes, ^•ﻌ•^ e-etc. bevy's <a href="/assets.html">asset woading
-infwastwuctuwe</a> awso makes use of the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.IoTaskPool.html"><code>IoTaskPool</code></a>.</p>
+infwastwuctuwe</a> awso makes use of the <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.IoTaskPool.html"><code>IoTaskPool</code></a>.</p>
 <h2 id="passing-data-awound"><a class="header" href="#passing-data-awound">passing data awound</a></h2>
 <p>the pwevious exampwes showcased a "spawn-join" p-pwogwamming p-pattewn, OwO w-whewe
 you stawt tasks to pewfowm some wowk a-and then consume t-the vawues t-they wetuwn

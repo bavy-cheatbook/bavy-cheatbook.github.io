@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="pwugins"><a class="header" href="#pwugins">pwugins</a></h1>
 <p>wewevant officiaw exampwes:
@@ -187,7 +187,7 @@ spwit it into "pwugins".</p>
 buiwdew</a>. ^•ﻌ•^ think of this as a way to add things t-to the app f-fwom
 muwtipwe pwaces, wike diffewent wust f-fiwes/moduwes o-ow cwates.</p>
 <p>the simpwest way to cweate a pwugin i-is by just wwiting a-a wust function
-that takes <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.App.html"><code>&amp;mut App</code></a>:</p>
+that takes <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.App.html"><code>&amp;mut App</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">fn my_pwugin(app: &amp;mut app) {
     a-app.init_wesouwce::&lt;mycustomwesouwce&gt;();
     a-app.add_systems(update, 🥺 (
@@ -195,7 +195,7 @@ that takes <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.App.html"><
         d-do_othew_things, o.O
     ));
 }</code></pre>
-<p>an awtewnative way is by cweating a-a <code>struct</code> and impwementing the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/trait.Plugin.html"><code>Plugin</code></a> twait:</p>
+<p>an awtewnative way is by cweating a-a <code>struct</code> and impwementing the <a href="https://docs.rs/bevy/0.14.0/bevy/app/trait.Plugin.html"><code>Plugin</code></a> twait:</p>
 <pre><code class="language-rust no_run noplayground">stwuct mypwugin;
 
 impw pwugin fow m-mypwugin {
@@ -208,11 +208,11 @@ impw pwugin fow m-mypwugin {
 }</code></pre>
 <p>the benefit of using a <code>struct</code> is that you couwd extend it with c-configuwation
 pawametews ow genewics if you want t-to make youw pwugin c-configuwabwe.</p>
-<p>eithew way, XD you get <code>&amp;mut</code> access to the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.App.html"><code>App</code></a>, &gt;_&lt; so you can add nyanievew
+<p>eithew way, XD you get <code>&amp;mut</code> access to the <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.App.html"><code>App</code></a>, &gt;_&lt; so you can add nyanievew
 you want to it, (ꈍᴗꈍ) just wike you can d-do fwom youw <code>fn main()</code>.</p>
-<p>you can nyow add youw pwugins to y-youw <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.App.html"><code>App</code></a> fwom ewsewhewe (most commonwy
+<p>you can nyow add youw pwugins to y-youw <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.App.html"><code>App</code></a> fwom ewsewhewe (most commonwy
 <code>fn main()</code>). ^•ﻌ•^ bevy wiww just caww youw pwugin i-impwementation a-above. OwO in effect,
-evewything the pwugin adds wiww be f-fwattened into y-youw <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.App.html"><code>App</code></a> awongside
+evewything the pwugin adds wiww be f-fwattened into y-youw <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.App.html"><code>App</code></a> awongside
 evewything that is awweady thewe.</p>
 <pre><code class="language-rust no_run noplayground">fn main() {
     app::new()
@@ -235,9 +235,9 @@ diffewent pwaces, (ꈍᴗꈍ) wike sepawate wust f-fiwes / moduwes.</p>
 <li>cweate pwugins fow vawious sub-systems, ^•ﻌ•^ w-wike physics o-ow input handwing.</li>
 </ul>
 <h2 id="pwugin-gwoups"><a class="header" href="#pwugin-gwoups">pwugin gwoups</a></h2>
-<p>pwugin gwoups wegistew muwtipwe pwugins a-at once. ^•ﻌ•^  b-bevy's <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a>
-and <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/struct.MinimalPlugins.html"><code>MinimalPlugins</code></a> awe exampwes of this.</p>
-<p>to cweate youw own pwugin gwoup, i-impwement the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/trait.PluginGroup.html"><code>PluginGroup</code></a> twait:</p>
+<p>pwugin gwoups wegistew muwtipwe pwugins a-at once. ^•ﻌ•^  b-bevy's <a href="https://docs.rs/bevy/0.14.0/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a>
+and <a href="https://docs.rs/bevy/0.14.0/bevy/struct.MinimalPlugins.html"><code>MinimalPlugins</code></a> awe exampwes of this.</p>
+<p>to cweate youw own pwugin gwoup, i-impwement the <a href="https://docs.rs/bevy/0.14.0/bevy/app/trait.PluginGroup.html"><code>PluginGroup</code></a> twait:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::app::pwugingwoupbuiwdew;
 
 stwuct mypwugingwoup;
@@ -259,7 +259,7 @@ f-fn main() {
 <p>when adding a pwugin gwoup to the <a href="/programming/app-builder.html">app</a>, &gt;_&lt; you can disabwe some
 pwugins whiwe keeping the west.</p>
 <p>fow exampwe, ^•ﻌ•^ if you want to manuawwy s-set up wogging (with y-youw own <code>tracing</code>
-subscwibew), &gt;_&lt; you can disabwe bevy's <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>:</p>
+subscwibew), &gt;_&lt; you can disabwe bevy's <a href="https://docs.rs/bevy/0.14.0/bevy/log/struct.LogPlugin.html"><code>LogPlugin</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">app::new()
     .add_pwugins(
         defauwtpwugins.buiwd()
@@ -310,7 +310,7 @@ fn main() {
         .wun();
 }</code></pre>
 <p>pwugins that awe added using <a href="/programming/plugins.html#plugin-groups">pwugin gwoups</a> can awso be
-configuwed. &gt;_&lt; many of bevy's <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> wowk this way.</p>
+configuwed. &gt;_&lt; many of bevy's <a href="https://docs.rs/bevy/0.14.0/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> wowk this way.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::window::windowwesowution;
 
 app::new()

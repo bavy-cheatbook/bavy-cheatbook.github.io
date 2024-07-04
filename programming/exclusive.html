@@ -174,12 +174,12 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="excwusive-systems"><a class="header" href="#excwusive-systems">excwusive systems</a></h1>
 <p>excwusive systems awe <a href="/programming/systems.html">systems</a> that bevy wiww not wun in pawawwew
 with any othew system. &gt;_&lt; they can have <a href="/programming/world.html">fuww unwestwicted access</a>
-to the whowe ecs <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>World</code></a>, XD by taking a <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a> pawametew.</p>
+to the whowe ecs <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/struct.World.html"><code>World</code></a>, XD by taking a <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a> pawametew.</p>
 <p>inside of an excwusive system, OwO you h-have fuww contwow o-ovew aww data s-stowed
 in the ecs. (ꈍᴗꈍ) you can do nyanievew y-you want.</p>
 <p>some exampwe situations whewe excwusive s-systems awe u-usefuw:</p>
@@ -209,25 +209,25 @@ as with weguwaw systems.</p>
         .befowe(othew_things)
 );</code></pre>
 <h2 id="excwusive-system-pawametews"><a class="header" href="#excwusive-system-pawametews">excwusive system pawametews</a></h2>
-<p>thewe awe a few othew things, &gt;<em>&lt; besides <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>, &gt;</em>&lt; that can be used as
+<p>thewe awe a few othew things, &gt;<em>&lt; besides <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>, &gt;</em>&lt; that can be used as
 pawametews fow excwusive systems:</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>:
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/struct.World.html"><code>&amp;mut World</code></a>:
 fuww <a href="/programming/world.html">diwect access to the ecs wowwd</a></li>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:
 data <a href="/programming/local.html">wocaw</a> to the system</li>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.SystemState.html"><code>&amp;mut SystemState&lt;P&gt;</code></a>:
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.SystemState.html"><code>&amp;mut SystemState&lt;P&gt;</code></a>:
 emuwates a weguwaw system, OwO awwowing y-you to easiwy a-access data fwom t-the wowwd.
 <code>P</code> awe the system pawametews.</li>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/query/struct.QueryState.html"><code>&amp;mut QueryState&lt;Q, F = ()&gt;</code></a>:
-awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Query.html"><code>Query</code></a> in weguwaw systems.</li>
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/query/struct.QueryState.html"><code>&amp;mut QueryState&lt;Q, F = ()&gt;</code></a>:
+awwows you to pewfowm quewies on t-the wowwd, ^•ﻌ•^ simiwaw t-to a <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Query.html"><code>Query</code></a> in weguwaw systems.</li>
 </ul>
-<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> can be used to emuwate a nyowmaw s-system. ^•ﻌ•^  you can p-put weguwaw
-system pawametews inside. ^•ﻌ•^ this awwows y-you to access t-the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>World</code></a> as you wouwd
+<p><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> can be used to emuwate a nyowmaw s-system. ^•ﻌ•^  you can p-put weguwaw
+system pawametews inside. ^•ﻌ•^ this awwows y-you to access t-the <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/struct.World.html"><code>World</code></a> as you wouwd
 fwom a nyowmaw system, OwO but you can c-confine it to a-a specific scope i-inside youw
 function body, &gt;_&lt; making it mowe fwexibwe.</p>
-<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/query/struct.QueryState.html"><code>QueryState</code></a> is the same thing, ^•ﻌ•^ but fow a singwe q-quewy. OwO  it is a-a simpwew
-awtewnative to <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> fow when you just nyeed to be abwe t-to quewy fow
+<p><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/query/struct.QueryState.html"><code>QueryState</code></a> is the same thing, ^•ﻌ•^ but fow a singwe q-quewy. OwO  it is a-a simpwew
+awtewnative to <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> fow when you just nyeed to be abwe t-to quewy fow
 some data.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::ecs::system::systemstate;
 
@@ -279,9 +279,9 @@ fn spawn_pawticwes_fow_enemies(
     // a-and, &gt;w&lt; of couwse, mya we can use ouw wocaw
     *has_wun_once = twue;
 }</code></pre>
-<p>note: if youw <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> incwudes <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, XD you must caww <code>.apply()</code>
+<p>note: if youw <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.SystemState.html"><code>SystemState</code></a> incwudes <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>, XD you must caww <code>.apply()</code>
 aftew you awe done! ^•ﻌ•^ that is when t-the defewwed opewations q-queued via
-<a href="/programming/commands.html">commands</a> wiww be appwied to the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>World</code></a>.</p>
+<a href="/programming/commands.html">commands</a> wiww be appwied to the <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/struct.World.html"><code>World</code></a>.</p>
 <h2 id="pewfowmance-considewations"><a class="header" href="#pewfowmance-considewations">pewfowmance considewations</a></h2>
 <p>excwusive systems, OwO by definition, 🥺 w-wimit pawawwewism a-and muwti-thweading, òωó a-as
 nothing ewse can access the same e-ecs wowwd whiwe t-they wun. OwO the whowe s-scheduwe
@@ -291,7 +291,7 @@ intwoduce a pewfowmance bottweneck.</p>
 to do something that is onwy possibwe w-with them.</p>
 <p>on the othew hand, (ꈍᴗꈍ) if youw awtewnative i-is to use <a href="/programming/commands.html">commands</a>,
 and you nyeed to pwocess a huge nyumbew o-of entities, OwO e-excwusive systems a-awe fastew.</p>
-<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> is effectivewy just a way to ask b-bevy do to excwusive <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>World</code></a>
+<p><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> is effectivewy just a way to ask b-bevy do to excwusive <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/struct.World.html"><code>World</code></a>
 access fow you, OwO at a watew time. g-going thwough the c-commands queue i-is much
 swowew than just doing the excwusive a-access youwsewf.</p>
 <p>some exampwes fow when excwusive s-systems can be fastew:</p>
@@ -307,7 +307,7 @@ swowew than just doing the excwusive a-access youwsewf.</p>
 </ul>
 </li>
 </ul>
-<p>some exampwes fow when nyowmaw systems w-with <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> can be fastew:</p>
+<p>some exampwes fow when nyowmaw systems w-with <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> can be fastew:</p>
 <ul>
 <li>you nyeed to check some stuff evewy f-fwame, ^•ﻌ•^ but onwy u-use <a href="/programming/commands.html">commands</a> sometimes.
 <ul>

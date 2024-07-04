@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="events"><a class="header" href="#events">events</a></h1>
 <p>wewevant officiaw exampwes:
@@ -183,12 +183,12 @@
 <p>send data between systems! &gt;_&lt; wet youw <a href="/programming/systems.html">systems</a> communicate with each othew!</p>
 <p>wike <a href="/programming/res.html">wesouwces</a> ow <a href="/programming/ec.html#components">components</a>, XD events awe
 simpwe wust <code>struct</code>s ow <code>enum</code>s. (ꈍᴗꈍ) when cweating a nyew event type, ^•ﻌ•^ d-dewive
-the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/trait.Event.html"><code>Event</code></a> twait.</p>
+the <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/trait.Event.html"><code>Event</code></a> twait.</p>
 <p>then, XD any <a href="/programming/systems.html">system</a> can send (bwoadcast) vawues of that t-type,
 and any system can weceive those e-events.</p>
 <ul>
-<li>to send events, &gt;_&lt; use an <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a>.</li>
-<li>to weceive events, &gt;_&lt; use an <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a>.</li>
+<li>to send events, &gt;_&lt; use an <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a>.</li>
+<li>to weceive events, &gt;_&lt; use an <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a>.</li>
 </ul>
 <p>evewy weadew twacks the events it h-has wead independentwy, OwO s-so you c-can handwe
 the same events fwom muwtipwe <a href="/programming/systems.html">systems</a>.</p>
@@ -230,7 +230,7 @@ and do theiw wespective things. (ꈍᴗꈍ) if t-the <code>player_level_up</code
 checked the pwayew xp and managed t-the pwayew wevew d-diwectwy, without g-going via
 events, ^•ﻌ•^ it wouwd be unwiewdy fow f-futuwe devewopment o-of the game.</p>
 <h2 id="how-it-aww-wowks"><a class="header" href="#how-it-aww-wowks">how it aww wowks</a></h2>
-<p>when you wegistew an event type, b-bevy wiww cweate a-an <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a>
+<p>when you wegistew an event type, b-bevy wiww cweate a-an <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a>
 <a href="/programming/res.html">wesouwce</a>, ^•ﻌ•^ which acts as the backing stowage f-fow the event q-queue. OwO bevy
 awso adds an "event maintenance" <a href="/programming/systems.html">system</a> to cweaw events pewiodicawwy,
 pweventing them fwom accumuwating a-and using up memowy.</p>
@@ -243,12 +243,12 @@ when youw systems awe nyot wunning!</p>
 <p>if you don't wike this, &gt;_&lt; <a href="/patterns/manual-event-clear.html">you can have manuaw contwow ovew w-when events awe
 cweawed</a> (at the wisk of weaking / wasting m-memowy if you
 fowget to cweaw them).</p>
-<p>the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a> system pawametew is just syntax s-sugaw fow mutabwy
-accessing the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a> <a href="/programming/res.html">wesouwce</a> to add events to the queue. &gt;_&lt; the
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a> is a wittwe mowe compwex: it accesses t-the events s-stowage
+<p>the <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/struct.EventWriter.html"><code>EventWriter&lt;T&gt;</code></a> system pawametew is just syntax s-sugaw fow mutabwy
+accessing the <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a> <a href="/programming/res.html">wesouwce</a> to add events to the queue. &gt;_&lt; the
+<a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a> is a wittwe mowe compwex: it accesses t-the events s-stowage
 immutabwy, OwO but awso stowes an integew c-countew to k-keep twack of how m-many events
 you have wead. (ꈍᴗꈍ) this is why it awso n-nyeeds the <code>mut</code> keywowd.</p>
-<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a> itsewf is intewnawwy impwemented u-using simpwe <a href="https://doc.rust-lang.org/stable/std/vec/struct.Vec.html"><code>Vec</code></a>s. XD sending
+<p><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/struct.Events.html"><code>Events&lt;T&gt;</code></a> itsewf is intewnawwy impwemented u-using simpwe <a href="https://doc.rust-lang.org/stable/std/vec/struct.Vec.html"><code>Vec</code></a>s. XD sending
 events is equivawent to just pushing t-to a <a href="https://doc.rust-lang.org/stable/std/vec/struct.Vec.html"><code>Vec</code></a>. XD it is vewy fast,
 wow ovewhead. OwO events awe often the m-most pewfowmant w-way to impwement t-things
 in bevy, &gt;_&lt; bettew than using <a href="/programming/change-detection.html">change detection</a>.</p>

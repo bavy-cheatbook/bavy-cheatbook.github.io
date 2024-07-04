@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="gamepad-contwowwew-xd-joystick"><a class="header" href="#gamepad-contwowwew-xd-joystick">gamepad (contwowwew, XD joystick)</a></h1>
 <p>wewevant officiaw exampwes:
@@ -186,10 +186,10 @@ consowe contwowwews, OwO joysticks, etc. 🥺 m-many diffewent k-kinds of hawdwa
 wowk, OwO but if youw device is nyot s-suppowted, 🥺 you shouwd f-fiwe an issue w-with the
 <a href="https://gitlab.com/gilrs-project/gilrs">giwws</a> pwoject.</p>
 <h2 id="gamepad-ids"><a class="header" href="#gamepad-ids">gamepad ids</a></h2>
-<p>bevy assigns a unique id (<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/struct.Gamepad.html"><code>Gamepad</code></a>) to each connected gamepad. (ꈍᴗꈍ) fow w-wocaw
+<p>bevy assigns a unique id (<a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/struct.Gamepad.html"><code>Gamepad</code></a>) to each connected gamepad. (ꈍᴗꈍ) fow w-wocaw
 muwtipwayew, OwO this wets you associate e-each device w-with a specific p-pwayew and
 distinguish which one youw inputs a-awe coming fwom.</p>
-<p>you can use the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/struct.Gamepads.html"><code>Gamepads</code></a> <a href="/programming/res.html">wesouwce</a> to wist the ids of aww the
+<p>you can use the <a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/struct.Gamepads.html"><code>Gamepads</code></a> <a href="/programming/res.html">wesouwce</a> to wist the ids of aww the
 cuwwentwy connected gamepad devices, OwO o-ow to check t-the status of a s-specific one.</p>
 <pre><code class="language-rust no_run noplayground">fn wist_gamepads(
     gamepads: wes&lt;gamepads&gt;, (U ᵕ U❁)
@@ -204,7 +204,7 @@ cuwwentwy connected gamepad devices, OwO o-ow to check t-the status of a s-speci
 }</code></pre>
 <h3 id="handwing-connections--disconnections"><a class="header" href="#handwing-connections--disconnections">handwing connections / disconnections</a></h3>
 <p>to detect when gamepads awe connected o-ow disconnected, ^•ﻌ•^ y-you can use
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/enum.GamepadEvent.html"><code>GamepadEvent</code></a> <a href="/programming/events.html">events</a>.</p>
+<a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/enum.GamepadEvent.html"><code>GamepadEvent</code></a> <a href="/programming/events.html">events</a>.</p>
 <p>exampwe showing how to wemembew the f-fiwst connected g-gamepad id:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::input::gamepad::{gamepadconnection, mya gamepadevent};
 
@@ -247,11 +247,11 @@ fn gamepad_connections(
     }
 }</code></pre>
 <h2 id="handwing-gamepad-inputs"><a class="header" href="#handwing-gamepad-inputs">handwing gamepad inputs</a></h2>
-<p>the <code>Axis&lt;GamepadAxis&gt;</code> (<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/struct.Axis.html"><code>Axis</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/struct.GamepadAxis.html"><code>GamepadAxis</code></a>) <a href="/programming/res.html">wesouwce</a>
+<p>the <code>Axis&lt;GamepadAxis&gt;</code> (<a href="https://docs.rs/bevy/0.14.0/bevy/input/struct.Axis.html"><code>Axis</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/struct.GamepadAxis.html"><code>GamepadAxis</code></a>) <a href="/programming/res.html">wesouwce</a>
 keeps twack of the cuwwent vawue o-of the diffewent a-axes: x/y fow each t-thumb
 stick, (ꈍᴗꈍ) and the z axes (the anawog t-twiggews).</p>
 <p>buttons can be handwed with the <code>ButtonInput&lt;GamepadButton&gt;</code>
-(<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/struct.ButtonInput.html"><code>ButtonInput</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/struct.GamepadButton.html"><code>GamepadButton</code></a>) <a href="/programming/res.html">wesouwce</a>, XD simiwaw to <a href="/input/mouse.html#mouse-buttons">mouse
+(<a href="https://docs.rs/bevy/0.14.0/bevy/input/struct.ButtonInput.html"><code>ButtonInput</code></a>, rawr x3 <a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/struct.GamepadButton.html"><code>GamepadButton</code></a>) <a href="/programming/res.html">wesouwce</a>, XD simiwaw to <a href="/input/mouse.html#mouse-buttons">mouse
 buttons</a> ow <a href="/input/keyboard.html">keyboawd keys</a>.</p>
 <pre><code class="language-rust no_run noplayground">fn gamepad_input(
     axes: wes&lt;axis&lt;gamepadaxis&gt;&gt;, rawr x3
@@ -297,7 +297,7 @@ buttons</a> ow <a href="/input/keyboard.html">keyboawd keys</a>.</p>
         // b-button being hewd down: heaw the pwayew
     }
 }</code></pre>
-<p>notice that the names of buttons i-in the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/struct.GamepadButton.html"><code>GamepadButton</code></a> <code>enum</code> awe
+<p>notice that the names of buttons i-in the <a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/struct.GamepadButton.html"><code>GamepadButton</code></a> <code>enum</code> awe
 vendow-neutwaw (wike <code>South</code> and <code>East</code> instead of x/o ow a/b).</p>
 <p>some game contwowwews have additionaw b-buttons and a-axes beyond nyani i-is avaiwabwe
 on a standawd contwowwew, &gt;_&lt; fow exampwe:</p>
@@ -305,12 +305,12 @@ on a standawd contwowwew, &gt;_&lt; fow exampwe:</p>
 <li>hotas (stick fow fwight sim)</li>
 <li>steewing wheew + pedaws (fow caw d-dwiving games)</li>
 </ul>
-<p>these awe wepwesented by the <code>Other(u8)</code> vawiant in <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/struct.GamepadButton.html"><code>GamepadButton</code></a>/<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/struct.GamepadAxis.html"><code>GamepadAxis</code></a>.
+<p>these awe wepwesented by the <code>Other(u8)</code> vawiant in <a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/struct.GamepadButton.html"><code>GamepadButton</code></a>/<a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/struct.GamepadAxis.html"><code>GamepadAxis</code></a>.
 the <code>u8</code> vawue is hawdwawe-specific, ^•ﻌ•^ so if y-you want to suppowt s-such devices,
 youw game nyeeds to have a way fow y-youw usews to c-configuwe theiw i-input bindings.</p>
 <h3 id="events"><a class="header" href="#events">events</a></h3>
 <p>awtewnativewy, OwO if you want to detect a-aww activity a-as it comes in, 🥺 y-you
-can awso handwe gamepad inputs using <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/enum.GamepadEvent.html"><code>GamepadEvent</code></a> <a href="/programming/events.html">events</a>:</p>
+can awso handwe gamepad inputs using <a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/enum.GamepadEvent.html"><code>GamepadEvent</code></a> <a href="/programming/events.html">events</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn gamepad_input_events(
     mut e-evw_gamepad: eventweadew&lt;gamepadevent&gt;, ( ͡o ω ͡o )
 ) {
@@ -338,7 +338,7 @@ can awso handwe gamepad inputs using <a href="https://docs.rs/bevy/0.14.0-rc.2/b
     }
 }</code></pre>
 <h2 id="gamepad-settings"><a class="header" href="#gamepad-settings">gamepad settings</a></h2>
-<p>you can use the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/struct.GamepadSettings.html"><code>GamepadSettings</code></a> <a href="/programming/res.html">wesouwce</a> to configuwe dead-zones
+<p>you can use the <a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/struct.GamepadSettings.html"><code>GamepadSettings</code></a> <a href="/programming/res.html">wesouwce</a> to configuwe dead-zones
 and othew pawametews of the vawious a-axes and buttons. OwO y-you can set t-the gwobaw
 defauwts, (ꈍᴗꈍ) as weww as individuawwy p-pew-axis/button.</p>
 <p>hewe is an exampwe showing how to c-configuwe gamepads w-with custom s-settings
@@ -411,7 +411,7 @@ sewected to be used:</p>
         .wun_if(wesouwce_exists_and_changed::&lt;mygamepad&gt;)
 );</code></pre>
 <h2 id="gamepad-wumbwe"><a class="header" href="#gamepad-wumbwe">gamepad wumbwe</a></h2>
-<p>to cause wumbwe/vibwation, &gt;_&lt; use the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/gamepad/enum.GamepadRumbleRequest.html"><code>GamepadRumbleRequest</code></a> event. XD evewy
+<p>to cause wumbwe/vibwation, &gt;_&lt; use the <a href="https://docs.rs/bevy/0.14.0/bevy/input/gamepad/enum.GamepadRumbleRequest.html"><code>GamepadRumbleRequest</code></a> event. XD evewy
 event you send wiww add a "wumbwe" w-with a given intensity t-that wasts f-fow
 a given duwation of time. OwO as you s-send muwtipwe events, 🥺 e-each wequested w-wumbwe
 wiww be twacked independentwy, OwO and t-the actuaw hawdwawe v-vibwation i-intensity

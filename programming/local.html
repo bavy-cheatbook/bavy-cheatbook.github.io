@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="wocaw-wesouwces"><a class="header" href="#wocaw-wesouwces">wocaw wesouwces</a></h1>
 <p>wewevant officiaw exampwes:
@@ -184,11 +184,11 @@
 is nyot stowed in the ecs wowwd, b-but wathew togethew w-with youw system.
 nothing outside of youw system can a-access it. OwO the v-vawue wiww be kept a-acwoss
 subsequent wuns of the system.</p>
-<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is a system pawametew simiwaw to <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, XD which gives
+<p><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is a system pawametew simiwaw to <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a>, XD which gives
 you fuww mutabwe access to a singwe v-vawue of the g-given data type, OwO t-that is
 independent fwom entities and components.</p>
-<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>/<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a> wefew to a singwe gwobaw instance o-of the type, (ꈍᴗꈍ) shawed
-between aww systems. (ꈍᴗꈍ) on the othew h-hand, ^•ﻌ•^ evewy <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> pawametew is a
+<p><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Res.html"><code>Res&lt;T&gt;</code></a>/<a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut&lt;T&gt;</code></a> wefew to a singwe gwobaw instance o-of the type, (ꈍᴗꈍ) shawed
+between aww systems. (ꈍᴗꈍ) on the othew h-hand, ^•ﻌ•^ evewy <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> pawametew is a
 sepawate instance, (ꈍᴗꈍ) excwusivewy fow t-that system.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
 stwuct mystate {
@@ -202,18 +202,18 @@ fn my_system1(mut w-wocaw: wocaw&lt;mystate&gt;) {
 f-fn my_system2(mut w-wocaw: w-wocaw&lt;mystate&gt;) {
     // t-the wocaw in this system is a diffewent instance
 }</code></pre>
-<p>the type must impwement <a href="https://doc.rust-lang.org/stable/std/default/trait.Default.html"><code>Default</code></a> ow <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>. XD it is automaticawwy
+<p>the type must impwement <a href="https://doc.rust-lang.org/stable/std/default/trait.Default.html"><code>Default</code></a> ow <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>. XD it is automaticawwy
 initiawized. ^•ﻌ•^ it is nyot possibwe t-to specify a custom i-initiaw vawue.</p>
-<p>a system can have muwtipwe <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Local.html"><code>Local</code></a>s of the same type.</p>
+<p>a system can have muwtipwe <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Local.html"><code>Local</code></a>s of the same type.</p>
 <h2 id="specify-an-initiaw-vawue"><a class="header" href="#specify-an-initiaw-vawue">specify an initiaw vawue</a></h2>
-<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is awways automaticawwy initiawized u-using the defauwt v-vawue fow
+<p><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a> is awways automaticawwy initiawized u-using the defauwt v-vawue fow
 the type. OwO if that doesn't wowk fow y-you, 🥺 thewe is a-an awtewnative way t-to pass
 data into a system.</p>
 <p>if you nyeed specific data, OwO you can u-use a cwosuwe i-instead. 🥺 wust cwosuwes t-that
 take system pawametews awe vawid b-bevy systems, just w-wike standawone f-functions.
 using a cwosuwe awwows you to "move d-data into the f-function".</p>
 <p>this exampwe shows how to initiawize s-some data to c-configuwe a system, OwO w-without
-using <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:</p>
+using <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Local.html"><code>Local&lt;T&gt;</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(defauwt)]
 stwuct myconfig {
     magic: usize, OwO

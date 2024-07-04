@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="intewnaw-pawawwewism"><a class="header" href="#intewnaw-pawawwewism">intewnaw pawawwewism</a></h1>
 <p>intewnaw pawawwewism is muwtithweading <em>within</em> a <a href="/programming/systems.html">system</a>.</p>
@@ -217,8 +217,8 @@ any data outside of the cuwwent entity's o-own <a href="/programming/ec.html#com
 but bewawe of the added ovewhead. ^•ﻌ•^ i-it couwd easiwy d-dwown out any benefits
 you get fwom pawawwew itewation.</p>
 <h2 id="pawawwew-commands"><a class="header" href="#pawawwew-commands">pawawwew commands</a></h2>
-<p>if you nyeed to use <a href="/programming/commands.html">commands</a>, XD thewe is the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.ParallelCommands.html"><code>ParallelCommands</code></a>
-system pawametew. (ꈍᴗꈍ) it awwows you to g-get access to <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> fwom within
+<p>if you nyeed to use <a href="/programming/commands.html">commands</a>, XD thewe is the <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.ParallelCommands.html"><code>ParallelCommands</code></a>
+system pawametew. (ꈍᴗꈍ) it awwows you to g-get access to <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a> fwom within
 the pawawwew itewation cwosuwe.</p>
 <pre><code class="language-rust no_run noplayground">fn my_pawticwe_timews(
     time: w-wes&lt;time&gt;, σωσ
@@ -246,7 +246,7 @@ time has ewapsed. (ꈍᴗꈍ) it is a good use o-of <a href="/programming/comman
 timews nyeed to be ticked fow aww e-entities, OwO but onwy a-a few entities a-awe wikewy
 to nyeed despawning at once.</p>
 <h2 id="pawawwew-event-itewation"><a class="header" href="#pawawwew-event-itewation">pawawwew event itewation</a></h2>
-<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a> offews pawawwew itewation fow <a href="/programming/events.html">events</a>,
+<p><a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/struct.EventReader.html"><code>EventReader&lt;T&gt;</code></a> offews pawawwew itewation fow <a href="/programming/events.html">events</a>,
 awwowing you to pwocess a huge nyumbew o-of events a-acwoss muwtipwe c-cpu thweads.</p>
 <pre><code class="language-rust no_run noplayground">fn handwe_many_events(
     mut evw: e-eventweadew&lt;myevent&gt;, 🥺
@@ -257,8 +257,8 @@ awwowing you to pwocess a huge nyumbew o-of events a-acwoss muwtipwe c-cpu thwea
 }</code></pre>
 <p>howevew, OwO one downside is that you c-cannot use it fow e-events that need t-to be
 handwed in owdew. ^•ﻌ•^ with pawawwew itewation, OwO t-the owdew b-becomes undefined.</p>
-<p>though, XD if you use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/struct.EventParIter.html"><code>.for_each_with_id</code></a>, XD youw cwosuwe wiww
-be given an <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/event/struct.EventId.html"><code>EventId</code></a>, (ꈍᴗꈍ) which is a sequentiaw index to i-indicate which event
+<p>though, XD if you use <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/struct.EventParIter.html"><code>.for_each_with_id</code></a>, XD youw cwosuwe wiww
+be given an <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/event/struct.EventId.html"><code>EventId</code></a>, (ꈍᴗꈍ) which is a sequentiaw index to i-indicate which event
 you awe cuwwentwy pwocessing. OwO that c-can hewp you know w-whewe you awe i-in the
 event queue, OwO even though you awe s-stiww pwocessing e-events in an undefined o-owdew.</p>
 <p>anothew downside is that typicawwy y-you nyeed to be a-abwe to mutate s-some data in
@@ -275,7 +275,7 @@ and how bevy ecs has stowed/owganized t-the entity/component d-data in m-memowy.
 howevew, OwO it assumes that the amount o-of wowk/computation y-you do fow e-each
 entity is woughwy the same.</p>
 <p>if you find that you want to manuawwy c-contwow the b-batch size, OwO you c-can specify
-a minimum and maximum using <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/batching/struct.BatchingStrategy.html"><code>BatchingStrategy</code></a>.</p>
+a minimum and maximum using <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/batching/struct.BatchingStrategy.html"><code>BatchingStrategy</code></a>.</p>
 <pre><code class="language-rust no_run noplayground">fn paw_itew_custom_batch_size(
     q: quewy&lt;&amp;mycomponent&gt;, rawr
 ) {
@@ -301,10 +301,10 @@ a minimum and maximum using <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/b
 <p>it is awso possibwe to pwocess a s-swice (ow anything t-that can be wefewenced
 as a swice, &gt;_&lt; such as a <a href="https://doc.rust-lang.org/stable/std/vec/struct.Vec.html"><code>Vec</code></a>) in pawawwew chunks. (ꈍᴗꈍ) if you just h-have a big
 buffew of awbitwawy data, (ꈍᴗꈍ) this is f-fow you.</p>
-<p>use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/trait.ParallelSlice.html"><code>.par_splat_map</code></a>/<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/trait.ParallelSliceMut.html"><code>.par_splat_map_mut</code></a>
+<p>use <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/trait.ParallelSlice.html"><code>.par_splat_map</code></a>/<a href="https://docs.rs/bevy/0.14.0/bevy/tasks/trait.ParallelSliceMut.html"><code>.par_splat_map_mut</code></a>
 to spwead the wowk acwoss a nyumbew o-of pawawwew tasks. ^•ﻌ•^ s-specify <code>None</code> fow
 the task count to automaticawwy use t-the totaw nyumbew o-of cpu thweads a-avaiwabwe.</p>
-<p>use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/trait.ParallelSlice.html"><code>.par_chunk_map</code></a>/<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/trait.ParallelSliceMut.html"><code>.par_chunk_map_mut</code></a>
+<p>use <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/trait.ParallelSlice.html"><code>.par_chunk_map</code></a>/<a href="https://docs.rs/bevy/0.14.0/bevy/tasks/trait.ParallelSliceMut.html"><code>.par_chunk_map_mut</code></a>
 to manuawwy specify a specific chunk s-size.</p>
 <p>in both cases, OwO you pwovide a cwosuwe t-to pwocess each c-chunk (sub-swice). 🥺 i-it wiww
 be given the stawting index of its c-chunk + the wefewence t-to its chunk s-swice.
@@ -342,17 +342,17 @@ f-fn pawawwew_swices(/* ... */) {
     // the wetuwned vawue fwom each chunk, (⑅˘꒳˘) in owdew
 }</code></pre>
 <p>when you awe using this api fwom w-within a bevy <a href="/programming/systems.html">system</a>, XD spawn
-youw tasks on the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.ComputeTaskPool.html"><code>ComputeTaskPool</code></a>.</p>
+youw tasks on the <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.ComputeTaskPool.html"><code>ComputeTaskPool</code></a>.</p>
 <p>this api can awso be usefuw when y-you awe doing <a href="/fundamentals/async-compute.html">backgwound
 computation</a>, &gt;<em>&lt; to get some extwa pawawwewism.
-in that case, &gt;</em>&lt; use the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a> instead.</p>
+in that case, &gt;</em>&lt; use the <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a> instead.</p>
 <h2 id="scoped-tasks"><a class="header" href="#scoped-tasks">scoped tasks</a></h2>
 <p>scoped tasks awe actuawwy the undewwying p-pwimitive t-that aww of the
 above abstwactions (pawawwew itewatows a-and swices) a-awe buiwt on. OwO i-if the
 pweviouswy-discussed abstwactions awen't usefuw to y-you, (ꈍᴗꈍ) you can impwement
 nanievew custom pwocessing fwow you w-want, OwO by spawning s-scoped tasks y-youwsewf.</p>
 <p>scoped tasks wet you bowwow nyanievew y-you want out o-of the pawent f-function. the
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.Scope.html"><code>Scope</code></a> wiww wait untiw the tasks wetuwn, ^•ﻌ•^ b-befowe wetuwning b-back to the pawent
+<a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.Scope.html"><code>Scope</code></a> wiww wait untiw the tasks wetuwn, ^•ﻌ•^ b-befowe wetuwning b-back to the pawent
 function. OwO this ensuwes youw pawawwew t-tasks do nyot o-outwive the pawent f-function,
 thus accompwishing "intewnaw pawawwewism".</p>
 <p>to get a pewfowmance benefit, OwO make s-suwe each of youw t-tasks has a s-significant
@@ -393,10 +393,10 @@ fn my_system(/* ... */) {
     // a-aww o-ouw tasks awe d-done and evewything has been pwocessed
 }</code></pre>
 <p>when you awe using this api fwom w-within a bevy <a href="/programming/systems.html">system</a>, XD spawn
-youw tasks on the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.ComputeTaskPool.html"><code>ComputeTaskPool</code></a>.</p>
+youw tasks on the <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.ComputeTaskPool.html"><code>ComputeTaskPool</code></a>.</p>
 <p>this api can awso be usefuw when y-you awe doing <a href="/fundamentals/async-compute.html">backgwound
 computation</a>, (ꈍᴗꈍ) to dispatch additionaw tasks fow e-extwa
-pawawwewism. &gt;_&lt; in that case, (ꈍᴗꈍ) use the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a> instead.</p>
+pawawwewism. &gt;_&lt; in that case, (ꈍᴗꈍ) use the <a href="https://docs.rs/bevy/0.14.0/bevy/tasks/struct.AsyncComputeTaskPool.html"><code>AsyncComputeTaskPool</code></a> instead.</p>
 
                     </main>
 

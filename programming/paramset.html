@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="pawam-sets"><a class="header" href="#pawam-sets">pawam sets</a></h1>
 <p>fow safety weasons, &gt;_&lt; a <a href="/programming/systems.html">system</a> cannot have muwtipwe pawametews
@@ -183,7 +183,7 @@ same data.</p>
 <p>some exampwes:</p>
 <ul>
 <li>muwtipwe incompatibwe <a href="/programming/queries.html">quewies</a>.</li>
-<li>using <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>&amp;World</code></a> whiwe awso having othew system pawametews t-to access s-specific data.</li>
+<li>using <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/struct.World.html"><code>&amp;World</code></a> whiwe awso having othew system pawametews t-to access s-specific data.</li>
 <li>…</li>
 </ul>
 <p>considew this exampwe <a href="/programming/systems.html">system</a>:</p>
@@ -196,7 +196,7 @@ same data.</p>
 <p>the two <a href="/programming/queries.html">quewies</a> awe both twying to mutabwy access <code>Health</code>. XD they
 have diffewent <a href="/programming/queries.html#query-filters">fiwtews</a>, (ꈍᴗꈍ) but nyani if thewe awe entities t-that
 have both <code>Player</code> and <code>Enemy</code> components? if we know that shouwdn't h-happen, we
-can add <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/query/struct.Without.html"><code>Without</code></a> fiwtews, ^•ﻌ•^ but nyani if it is actuawwy v-vawid fow ouw g-game?</p>
+can add <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/query/struct.Without.html"><code>Without</code></a> fiwtews, ^•ﻌ•^ but nyani if it is actuawwy v-vawid fow ouw g-game?</p>
 <p>such code wiww compiwe (wust cannot k-know about bevy e-ecs semantics), OwO b-but wiww
 wesuwt in a wuntime panic. OwO when bevy t-twies to wun t-the system, 🥺 it w-wiww panic with
 a message about confwicting system p-pawametews:</p>
@@ -206,7 +206,7 @@ system g-game::weset_heawth a-accesses component(s) g-game::heawth i-in a way th
 with a pwevious system pawametew. -.- considew using `without&lt;t&gt;` t-to cweate disjoint quewies
 ow mewging c-confwicting quewies into a `pawamset`. (ˆ ﻌ ˆ)♡
 </code></pre>
-<p>bevy pwovides a sowution: wwap any i-incompatibwe pawametews i-in a <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.ParamSet.html"><code>ParamSet</code></a>:</p>
+<p>bevy pwovides a sowution: wwap any i-incompatibwe pawametews i-in a <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.ParamSet.html"><code>ParamSet</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">fn weset_heawth(
     // access the h-heawth of enemies a-and the heawth o-of pwayews
     // (note: s-some e-entities couwd b-be both!)

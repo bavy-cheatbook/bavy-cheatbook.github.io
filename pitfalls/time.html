@@ -174,12 +174,12 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="jittewing-time-_-choppy-movementanimation"><a class="header" href="#jittewing-time-_-choppy-movementanimation">jittewing time, &gt;_&lt; choppy movement/animation</a></h1>
 <h2 id="fixed-timestep"><a class="header" href="#fixed-timestep">fixed timestep</a></h2>
 <p>gamepway movement/simuwation code i-is typicawwy wun o-on a <a href="/fundamentals/fixed-timestep.html">fixed
-timestep</a> (in the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> <a href="/programming/schedules.html">scheduwe</a>).
+timestep</a> (in the <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> <a href="/programming/schedules.html">scheduwe</a>).
 this is impowtant to make suwe these c-computations h-happen consistentwy a-and
 cowwectwy, (ꈍᴗꈍ) wegawdwess of dispway f-fwamewate.</p>
 <p>howevew, OwO obviouswy, 🥺 that means they d-do nyot fowwow t-the dispway's f-fwame wate.
@@ -189,13 +189,13 @@ intewpowation/extwapowation</a>.</p>
 <h2 id="bevy-time-vs-_-wustos-time"><a class="header" href="#bevy-time-vs-_-wustos-time">bevy time vs. &gt;_&lt; wust/os time</a></h2>
 <p>do <em>not</em> use <a href="https://doc.rust-lang.org/stable/std/time/struct.Instant.html"><code>std::time::Instant::now()</code></a> to get the
 cuwwent time. XD <a href="/fundamentals/time.html">get youw timing infowmation fwom b-bevy</a>, XD using
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/time/struct.Time.html"><code>Res&lt;Time&gt;</code></a>.</p>
+<a href="https://docs.rs/bevy/0.14.0/bevy/time/struct.Time.html"><code>Res&lt;Time&gt;</code></a>.</p>
 <p>wust (and the os) give you the pwecise t-time of the m-moment you caww t-that
 function. (ꈍᴗꈍ) howevew, ^•ﻌ•^ that's nyot nyani y-you want.</p>
 <p>youw game systems awe wun by bevy's p-pawawwew scheduwew, OwO w-which means t-that they
 couwd be cawwed at vastwy diffewent i-instants evewy f-fwame! OwO this wiww w-wesuwt in
 inconsistent / jittewy timings and m-make youw game m-misbehave ow wook s-stuttewy.</p>
-<p>bevy's <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/time/struct.Time.html"><code>Time</code></a> gives you timing infowmation that i-is consistent t-thwoughout the
+<p>bevy's <a href="https://docs.rs/bevy/0.14.0/bevy/time/struct.Time.html"><code>Time</code></a> gives you timing infowmation that i-is consistent t-thwoughout the
 fwame update cycwe. ^•ﻌ•^ it is intended t-to be used fow g-game wogic.</p>
 <p>this is nyot bevy-specific, OwO but appwies t-to game devewopment i-in genewaw. 🥺 a-awways
 get youw time fwom youw game engine, OwO n-nyot fwom youw p-pwogwamming wanguage o-ow

@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="keyboawd-input"><a class="header" href="#keyboawd-input">keyboawd input</a></h1>
 <p>wewevant officiaw exampwes:
@@ -184,13 +184,13 @@
 <p>this page shows how to handwe keyboawd k-keys being p-pwessed and weweased.</p>
 <p>note: command key on mac cowwesponds t-to the supew/windows k-key on p-pc.</p>
 <p>simiwaw to <a href="/input/mouse.html#mouse-buttons">mouse buttons</a>, &gt;_&lt; keyboawd input is avaiwabwe
-as a <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/struct.ButtonInput.html"><code>ButtonInput</code></a> <a href="/programming/res.html">wesouwce</a>, rawr x3 <a href="/programming/events.html">events</a>, XD and <a href="/programming/run-criteria.html">wun
-conditions</a> (<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/common_conditions/index.html">see wist</a>). XD use
+as a <a href="https://docs.rs/bevy/0.14.0/bevy/input/struct.ButtonInput.html"><code>ButtonInput</code></a> <a href="/programming/res.html">wesouwce</a>, rawr x3 <a href="/programming/events.html">events</a>, XD and <a href="/programming/run-criteria.html">wun
+conditions</a> (<a href="https://docs.rs/bevy/0.14.0/bevy/input/common_conditions/index.html">see wist</a>). XD use
 whichevew pattewn feews most appwopwiate t-to youw u-use case.</p>
 <h2 id="checking-key-state"><a class="header" href="#checking-key-state">checking key state</a></h2>
 <p>most commonwy fow games, OwO you might b-be intewested i-in specific known k-keys and
 detecting when they awe pwessed ow w-weweased. OwO you c-can check specific k-keys
-using the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/struct.ButtonInput.html"><code>ButtonInput&lt;KeyCode&gt;</code></a> <a href="/programming/res.html">wesouwce</a>.</p>
+using the <a href="https://docs.rs/bevy/0.14.0/bevy/input/struct.ButtonInput.html"><code>ButtonInput&lt;KeyCode&gt;</code></a> <a href="/programming/res.html">wesouwce</a>.</p>
 <ul>
 <li>use <code>.pressed(…)</code>/<code>.released(…)</code> to check if a key is being hewd d-down
 <ul>
@@ -252,7 +252,7 @@ app.add_systems(update, ^•ﻌ•^ (
         .wun_if(input_pwessed(keycode::entew)), 🥺
 ));</code></pre>
 <h2 id="keyboawd-events"><a class="header" href="#keyboawd-events">keyboawd events</a></h2>
-<p>to get aww keyboawd activity, (ꈍᴗꈍ) you c-can use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/keyboard/struct.KeyboardInput.html"><code>KeyboardInput</code></a> <a href="/programming/events.html">events</a>:</p>
+<p>to get aww keyboawd activity, (ꈍᴗꈍ) you c-can use <a href="https://docs.rs/bevy/0.14.0/bevy/input/keyboard/struct.KeyboardInput.html"><code>KeyboardInput</code></a> <a href="/programming/events.html">events</a>:</p>
 <pre><code class="language-rust no_run noplayground">fn keyboawd_events(
     mut evw_kbd: e-eventweadew&lt;keyboawdinput&gt;, &gt;_&lt;
 ) {
@@ -267,21 +267,21 @@ app.add_systems(update, ^•ﻌ•^ (
         }
     }
 }</code></pre>
-<h3 id="physicaw-keycode-vs-xd-wogicaw-key"><a class="header" href="#physicaw-keycode-vs-xd-wogicaw-key">physicaw <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/keyboard/enum.KeyCode.html"><code>KeyCode</code></a> vs. XD wogicaw <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/keyboard/enum.Key.html"><code>Key</code></a></a></h3>
+<h3 id="physicaw-keycode-vs-xd-wogicaw-key"><a class="header" href="#physicaw-keycode-vs-xd-wogicaw-key">physicaw <a href="https://docs.rs/bevy/0.14.0/bevy/input/keyboard/enum.KeyCode.html"><code>KeyCode</code></a> vs. XD wogicaw <a href="https://docs.rs/bevy/0.14.0/bevy/input/keyboard/enum.Key.html"><code>Key</code></a></a></h3>
 <p>when a key is pwessed, &gt;_&lt; the <a href="/programming/events.html">event</a> contains two impowtant pieces of i-infowmation:</p>
 <ul>
-<li>the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/keyboard/enum.KeyCode.html"><code>KeyCode</code></a>, (ꈍᴗꈍ) which awways wepwesents a specific k-key on the keyboawd,
+<li>the <a href="https://docs.rs/bevy/0.14.0/bevy/input/keyboard/enum.KeyCode.html"><code>KeyCode</code></a>, (ꈍᴗꈍ) which awways wepwesents a specific k-key on the keyboawd,
 wegawdwess of the os wayout ow wanguage s-settings.</li>
-<li>the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/keyboard/enum.Key.html"><code>Key</code></a>, OwO which contains the wogicaw meaning o-of the key as i-intewpweted by t-the os.</li>
+<li>the <a href="https://docs.rs/bevy/0.14.0/bevy/input/keyboard/enum.Key.html"><code>Key</code></a>, OwO which contains the wogicaw meaning o-of the key as i-intewpweted by t-the os.</li>
 </ul>
-<p>when you want to impwement gamepway m-mechanics, you w-want to use the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/keyboard/enum.KeyCode.html"><code>KeyCode</code></a>.
+<p>when you want to impwement gamepway m-mechanics, you w-want to use the <a href="https://docs.rs/bevy/0.14.0/bevy/input/keyboard/enum.KeyCode.html"><code>KeyCode</code></a>.
 this wiww give you wewiabwe keybindings t-that awways w-wowk, OwO incwuding f-fow muwtiwinguaw
 usews with muwtipwe keyboawd wayouts c-configuwed in t-theiw os.</p>
-<p>when you want to impwement text/chawactew i-input, OwO y-you want to use t-the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/keyboard/enum.Key.html"><code>Key</code></a>.
+<p>when you want to impwement text/chawactew i-input, OwO y-you want to use t-the <a href="https://docs.rs/bevy/0.14.0/bevy/input/keyboard/enum.Key.html"><code>Key</code></a>.
 this can give you unicode chawactews t-that you can a-append to youw t-text stwing and
 wiww awwow youw usews to type just w-wike they do in o-othew appwications.</p>
 <p>if you'd wike to handwe speciaw function k-keys ow m-media keys on keyboawds t-that
-have them, (ꈍᴗꈍ) that can awso be done v-via the wogicaw <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/keyboard/enum.Key.html"><code>Key</code></a>.</p>
+have them, (ꈍᴗꈍ) that can awso be done v-via the wogicaw <a href="https://docs.rs/bevy/0.14.0/bevy/input/keyboard/enum.Key.html"><code>Key</code></a>.</p>
 <h2 id="text-input"><a class="header" href="#text-input">text input</a></h2>
 <p>hewe is a simpwe exampwe of how to i-impwement text i-input into a stwing (hewe
 stowed as a <a href="/programming/local.html">wocaw</a>).</p>
@@ -335,7 +335,7 @@ sequences ow combinations of keys, ^•ﻌ•^ y-you might end u-up in an incons
 state if the bevy os window woses f-focus in the middwe o-of keyboawd i-input,
 such as with awt-tab ow simiwaw os w-window switching m-mechanisms.</p>
 <p>if you awe doing such things and y-you think youw awgowithm m-might be g-getting
-stuck, &gt;_&lt; bevy offews a <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/keyboard/struct.KeyboardFocusLost.html"><code>KeyboardFocusLost</code></a> <a href="/programming/events.html">event</a> to wet you
+stuck, &gt;_&lt; bevy offews a <a href="https://docs.rs/bevy/0.14.0/bevy/input/keyboard/struct.KeyboardFocusLost.html"><code>KeyboardFocusLost</code></a> <a href="/programming/events.html">event</a> to wet you
 know when you shouwd weset youw state.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::input::keyboawd::keyboawdfocuswost;
 

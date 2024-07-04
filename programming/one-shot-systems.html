@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="one-shot-systems"><a class="header" href="#one-shot-systems">one-shot systems</a></h1>
 <p>one-shot systems awe <a href="/programming/systems.html">systems</a> that you intend to caww youwsewf,
@@ -196,11 +196,11 @@ f-fn item_handwew_magic_potion(
 }</code></pre>
 <h2 id="wegistwation"><a class="header" href="#wegistwation">wegistwation</a></h2>
 <p>you shouwd nyot add these systems t-to a <a href="/programming/schedules.html">scheduwe</a>.</p>
-<p>instead, (ꈍᴗꈍ) you can wegistew them into t-the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>World</code></a>, XD to get a <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.SystemId.html"><code>SystemId</code></a>.
-you can then stowe that <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.SystemId.html"><code>SystemId</code></a> somewhewe and use it to wun the
+<p>instead, (ꈍᴗꈍ) you can wegistew them into t-the <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/struct.World.html"><code>World</code></a>, XD to get a <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.SystemId.html"><code>SystemId</code></a>.
+you can then stowe that <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.SystemId.html"><code>SystemId</code></a> somewhewe and use it to wun the
 system watew.</p>
-<p>the most convenient way is pwobabwy t-to use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> and put youw
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.SystemId.html"><code>SystemId</code></a>s in a <a href="/programming/res.html">wesouwce</a>:</p>
+<p>the most convenient way is pwobabwy t-to use <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> and put youw
+<a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.SystemId.html"><code>SystemId</code></a>s in a <a href="/programming/res.html">wesouwce</a>:</p>
 <pre><code class="language-rust no_run noplayground">/// fow this simpwe exampwe, -.- we wiww j-just owganize o-ouw systems
 /// u-using stwing keys i-in a hash map. (ˆ ﻌ ˆ)♡
 #[dewive(wesouwce)]
@@ -261,7 +261,7 @@ i-impw fwomwowwd f-fow myitemsystems {
 }</code></pre>
 </details>
 <h2 id="wunning"><a class="header" href="#wunning">wunning</a></h2>
-<p>the easiest way is using <a href="/programming/commands.html">commands</a> (<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>):</p>
+<p>the easiest way is using <a href="/programming/commands.html">commands</a> (<a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>):</p>
 <pre><code class="language-rust no_run noplayground">fn twiggew_heawth_item(
     mut commands: c-commands, ( ͡o ω ͡o )
     s-systems: w-wes&lt;myitemsystems&gt;, UwU
@@ -300,7 +300,7 @@ them befowehand:</p>
 <p>it is thewefowe wecommended to wegistew y-youw one-shot s-systems, ^•ﻌ•^ unwess
 you weawwy onwy intend to wun them o-once.</p>
 <h2 id="pewfowmance-considewations"><a class="header" href="#pewfowmance-considewations">pewfowmance considewations</a></h2>
-<p>to wun a one-shot system, &gt;<em>&lt; excwusive <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/struct.World.html"><code>World</code></a> access is wequiwed. &gt;</em>&lt; the
+<p>to wun a one-shot system, &gt;<em>&lt; excwusive <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/struct.World.html"><code>World</code></a> access is wequiwed. &gt;</em>&lt; the
 system can have awbitwawy pawametews, OwO a-and bevy cannot v-vawidate its d-data
 access against othew systems, OwO wike i-it does when the s-system is pawt o-of a
 <a href="/programming/schedules.html">scheduwe</a>. &gt;_&lt; so, nyo muwti-thweading awwowed.</p>

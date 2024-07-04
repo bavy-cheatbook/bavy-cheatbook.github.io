@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="ime-input"><a class="header" href="#ime-input">ime input</a></h1>
 <p>bevy has suppowt fow imes (input m-method editows), OwO w-which is how peopwe p-pewfowm
@@ -194,25 +194,25 @@ theiw text befowe confiwming it. t-the text suggestions a-awe pwovided b-by the 
 but youw app nyeeds to dispway them f-fow the usew.</p>
 <p>fow exampwe, OwO imagine you have a text i-input box in y-youw ui. 🥺 you show t-the text
 that the usew has awweady inputted, ^•ﻌ•^ w-with a cuwsow a-at the end.</p>
-<p>if ime is enabwed, &gt;_&lt; you wiww get <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/enum.Ime.html"><code>Ime::Preedit</code></a> <a href="/programming/events.html">events</a>
+<p>if ime is enabwed, &gt;_&lt; you wiww get <a href="https://docs.rs/bevy/0.14.0/bevy/window/enum.Ime.html"><code>Ime::Preedit</code></a> <a href="/programming/events.html">events</a>
 fow "pending" text. OwO  you shouwd show t-that "unconfiwmed" t-text in the t-text
 input box, ^•ﻌ•^ but with diffewent fowmatting t-to be visuawwy d-distinct.</p>
 <p>when the usew confiwms theiw desiwed i-input, ^•ﻌ•^ you wiww g-get an
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/enum.Ime.html"><code>Ime::Commit</code></a> <a href="/programming/events.html">event</a> with the finaw text. &gt;_&lt; you shouwd
+<a href="https://docs.rs/bevy/0.14.0/bevy/window/enum.Ime.html"><code>Ime::Commit</code></a> <a href="/programming/events.html">event</a> with the finaw text. &gt;_&lt; you shouwd
 then discawd any pwevious "uncofiwmed" t-text and append t-the nyew text t-to youw
 actuaw text input stwing.</p>
 <h2 id="how-to-suppowt-imes-in-youw-bevy-a-app"><a class="header" href="#how-to-suppowt-imes-in-youw-bevy-a-app">how to suppowt imes in youw bevy a-app</a></h2>
 <p>fiwst, OwO you nyeed to infowm the os w-when youw appwication i-is expecting t-text input.
 you don't want the ime to accidentawwy a-activate duwing g-gamepway, OwO e-etc.</p>
-<p>whenevew you want the usew to input t-text, OwO you enabwe "ime m-mode" on t-the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/struct.Window.html"><code>Window</code></a>.
+<p>whenevew you want the usew to input t-text, OwO you enabwe "ime m-mode" on t-the <a href="https://docs.rs/bevy/0.14.0/bevy/window/struct.Window.html"><code>Window</code></a>.
 when you awe done, &gt;_&lt; disabwe it.</p>
 <p>if the usew is nyot using an ime, OwO n-nyothing happens w-when you enabwe "ime m-mode". 🥺 you
 wiww stiww get <a href="/input/keyboard.html">keyboawd</a> <a href="/programming/events.html">events</a> as usuaw and you
 can <a href="/input/keyboard.html#text-input">accept text input that way</a>.</p>
-<p>if the usew has an ime, (ꈍᴗꈍ) you wiww g-get an <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/enum.Ime.html"><code>Ime::Enabled</code></a> event. XD at that point,
-youw appwication wiww nyo wongew w-weceive any <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/keyboard/struct.KeyboardInput.html"><code>KeyboardInput</code></a> <a href="/programming/events.html">events</a>.</p>
-<p>you can then handwe <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/enum.Ime.html"><code>Ime::Preedit</code></a> <a href="/programming/events.html">events</a> fow pending/unconfiwmed
-text, XD and <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/enum.Ime.html"><code>Ime::Commit</code></a> fow finaw/confiwmed text.</p>
+<p>if the usew has an ime, (ꈍᴗꈍ) you wiww g-get an <a href="https://docs.rs/bevy/0.14.0/bevy/window/enum.Ime.html"><code>Ime::Enabled</code></a> event. XD at that point,
+youw appwication wiww nyo wongew w-weceive any <a href="https://docs.rs/bevy/0.14.0/bevy/input/keyboard/struct.KeyboardInput.html"><code>KeyboardInput</code></a> <a href="/programming/events.html">events</a>.</p>
+<p>you can then handwe <a href="https://docs.rs/bevy/0.14.0/bevy/window/enum.Ime.html"><code>Ime::Preedit</code></a> <a href="/programming/events.html">events</a> fow pending/unconfiwmed
+text, XD and <a href="https://docs.rs/bevy/0.14.0/bevy/window/enum.Ime.html"><code>Ime::Commit</code></a> fow finaw/confiwmed text.</p>
 <pre><code class="language-rust no_run noplayground">// fow this simpwe exampwe, 🥺 we wiww j-just enabwe/disabwe i-ime mode o-on mouse cwick
 fn i-ime_toggwe(
     m-mousebtn: wes&lt;buttoninput&lt;mousebutton&gt;&gt;, &gt;_&lt;

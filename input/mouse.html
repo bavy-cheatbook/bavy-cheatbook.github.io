@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="mouse"><a class="header" href="#mouse">mouse</a></h1>
 <p>wewevant officiaw exampwes:
@@ -183,12 +183,12 @@
 <hr />
 <h2 id="mouse-buttons"><a class="header" href="#mouse-buttons">mouse buttons</a></h2>
 <p>simiwaw to <a href="/input/keyboard.html">keyboawd input</a>, (ꈍᴗꈍ) mouse buttons awe avaiwabwe as a-a
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/struct.ButtonInput.html"><code>ButtonInput</code></a> <a href="/programming/res.html">wesouwce</a>, rawr x3 <a href="/programming/events.html">events</a>, XD and <a href="/programming/run-criteria.html">wun
-conditions</a> (<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/common_conditions/index.html">see wist</a>). XD use whichevew
+<a href="https://docs.rs/bevy/0.14.0/bevy/input/struct.ButtonInput.html"><code>ButtonInput</code></a> <a href="/programming/res.html">wesouwce</a>, rawr x3 <a href="/programming/events.html">events</a>, XD and <a href="/programming/run-criteria.html">wun
+conditions</a> (<a href="https://docs.rs/bevy/0.14.0/bevy/input/common_conditions/index.html">see wist</a>). XD use whichevew
 pattewn feews most appwopwiate to y-youw use case.</p>
 <h3 id="checking-button-state"><a class="header" href="#checking-button-state">checking button state</a></h3>
 <p>you can check the state of specific m-mouse buttons u-using the
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/mouse/enum.MouseButton.html"><code>ButtonInput&lt;MouseButton&gt;</code></a> <a href="/programming/res.html">wesouwce</a>:</p>
+<a href="https://docs.rs/bevy/0.14.0/bevy/input/mouse/enum.MouseButton.html"><code>ButtonInput&lt;MouseButton&gt;</code></a> <a href="/programming/res.html">wesouwce</a>:</p>
 <ul>
 <li>use <code>.pressed(…)</code>/<code>.released(…)</code> to check if a button is being hewd d-down
 <ul>
@@ -247,7 +247,7 @@ app.add_systems(update, ^•ﻌ•^ (
         .wun_if(input_pwessed(mousebutton::weft)), 🥺
 ));</code></pre>
 <h3 id="mouse-button-events"><a class="header" href="#mouse-button-events">mouse button events</a></h3>
-<p>awtewnativewy, &gt;_&lt; you can use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/mouse/struct.MouseButtonInput.html"><code>MouseButtonInput</code></a> <a href="/programming/events.html">events</a> to get
+<p>awtewnativewy, &gt;_&lt; you can use <a href="https://docs.rs/bevy/0.14.0/bevy/input/mouse/struct.MouseButtonInput.html"><code>MouseButtonInput</code></a> <a href="/programming/events.html">events</a> to get
 aww activity:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::input::mouse::mousebuttoninput;
 
@@ -268,7 +268,7 @@ fn mouse_button_events(
     }
 }</code></pre>
 <h2 id="mouse-scwowwing--wheew"><a class="header" href="#mouse-scwowwing--wheew">mouse scwowwing / wheew</a></h2>
-<p>to detect scwowwing input, &gt;_&lt; use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/mouse/struct.MouseWheel.html"><code>MouseWheel</code></a> <a href="/programming/events.html">events</a>:</p>
+<p>to detect scwowwing input, &gt;_&lt; use <a href="https://docs.rs/bevy/0.14.0/bevy/input/mouse/struct.MouseWheel.html"><code>MouseWheel</code></a> <a href="/programming/events.html">events</a>:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::input::mouse::mousewheew;
 
 fn scwoww_events(
@@ -286,7 +286,7 @@ fn scwoww_events(
         }
     }
 }</code></pre>
-<p>the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/mouse/enum.MouseScrollUnit.html"><code>MouseScrollUnit</code></a> enum is impowtant: it tewws you t-the type of scwoww
+<p>the <a href="https://docs.rs/bevy/0.14.0/bevy/input/mouse/enum.MouseScrollUnit.html"><code>MouseScrollUnit</code></a> enum is impowtant: it tewws you t-the type of scwoww
 input. rawr x3 <code>Line</code> is fow hawdwawe with fixed steps, ^•ﻌ•^ w-wike the wheew o-on desktop
 mice. rawr x3 <code>Pixel</code> is fow hawdwawe with smooth (fine-gwained) s-scwowwing, ^•ﻌ•^ w-wike
 waptop touchpads.</p>
@@ -300,7 +300,7 @@ of wines, OwO even when using a weguwaw p-pc mouse with a-a fixed-stepping s-scw
 <p>use this if you don't cawe about t-the exact position o-of the mouse c-cuwsow,
 but wathew you just want to see how m-much the mouse m-moved fwom fwame t-to
 fwame. ^•ﻌ•^ this is usefuw fow things w-wike contwowwing a-a 3d camewa.</p>
-<p>use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/mouse/struct.MouseMotion.html"><code>MouseMotion</code></a> <a href="/programming/events.html">events</a>. &gt;_&lt; whenevew the mouse is moved, (ꈍᴗꈍ) you
+<p>use <a href="https://docs.rs/bevy/0.14.0/bevy/input/mouse/struct.MouseMotion.html"><code>MouseMotion</code></a> <a href="/programming/events.html">events</a>. &gt;_&lt; whenevew the mouse is moved, (ꈍᴗꈍ) you
 wiww get an event with the dewta.</p>
 <pre><code class="language-rust no_run noplayground">use bevy::input::mouse::mousemotion;
 
@@ -318,7 +318,7 @@ window</a>.</p>
 cuwsow. OwO this is usefuw fow things w-wike cwicking and h-hovewing ovew o-objects
 in youw game ow ui.</p>
 <p>you can get the cuwwent coowdinates o-of the mouse p-pointew, OwO fwom the w-wespective
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/struct.Window.html"><code>Window</code></a> (if the mouse is cuwwentwy inside t-that window):</p>
+<a href="https://docs.rs/bevy/0.14.0/bevy/window/struct.Window.html"><code>Window</code></a> (if the mouse is cuwwentwy inside t-that window):</p>
 <pre><code class="language-rust no_run noplayground">use bevy::window::pwimawywindow;
 
 fn cuwsow_position(
@@ -331,7 +331,7 @@ fn cuwsow_position(
         p-pwintwn!("cuwsow is nyot in the g-game window.");
     }
 }</code></pre>
-<p>to detect when the pointew is moved, (ꈍᴗꈍ) u-use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a> <a href="/programming/events.html">events</a>
+<p>to detect when the pointew is moved, (ꈍᴗꈍ) u-use <a href="https://docs.rs/bevy/0.14.0/bevy/window/struct.CursorMoved.html"><code>CursorMoved</code></a> <a href="/programming/events.html">events</a>
 to get the updated coowdinates:</p>
 <pre><code class="language-rust no_run noplayground">fn cuwsow_events(
     mut evw_cuwsow: e-eventweadew&lt;cuwsowmoved&gt;, rawr x3
@@ -352,7 +352,7 @@ pixews, &gt;_&lt; and the owigin is the <strong>top weft</strong> cownew of the 
 this cookbook exampwe</a> fow convewting these window
 cuwsow coowdinates into wowwd-space c-coowdinates.</p>
 <p>to twack when the mouse cuwsow entews a-and weaves y-youw window(s), OwO u-use
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/struct.CursorEntered.html"><code>CursorEntered</code></a> and <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/window/struct.CursorLeft.html"><code>CursorLeft</code></a> <a href="/programming/events.html">events</a>.</p>
+<a href="https://docs.rs/bevy/0.14.0/bevy/window/struct.CursorEntered.html"><code>CursorEntered</code></a> and <a href="https://docs.rs/bevy/0.14.0/bevy/window/struct.CursorLeft.html"><code>CursorLeft</code></a> <a href="/programming/events.html">events</a>.</p>
 
                     </main>
 

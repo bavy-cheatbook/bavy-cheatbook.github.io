@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="wesouwces"><a class="header" href="#wesouwces">wesouwces</a></h1>
 <p>wewevant officiaw exampwes:
@@ -186,7 +186,7 @@ independentwy of <a href="/programming/intro-data.html#entities--components">ent
 as configuwation / settings. OwO wesouwces m-make it easy f-fow you to access s-such data
 fwom anywhewe.</p>
 <p>to cweate a nyew wesouwce type, (ꈍᴗꈍ) simpwy d-define a wust <code>struct</code> ow <code>enum</code>, XD and
-dewive the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/trait.Resource.html"><code>Resource</code></a> twait, XD simiwaw to
+dewive the <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/trait.Resource.html"><code>Resource</code></a> twait, XD simiwaw to
 <a href="/programming/ec.html#components">components</a> and <a href="/programming/events.html">events</a>.</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(wesouwce)]
 stwuct goawsweached {
@@ -200,7 +200,7 @@ wesouwces to access vawious featuwes o-of the engine. OwO t-they wowk just w-wik
 custom types.</p>
 <h2 id="accessing-wesouwces"><a class="header" href="#accessing-wesouwces">accessing wesouwces</a></h2>
 <p>to access the vawue of a wesouwce f-fwom <a href="/programming/systems.html">systems</a>, XD use
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>:</p>
+<a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Res.html"><code>Res</code></a>/<a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.ResMut.html"><code>ResMut</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">fn my_system(
     // these wiww panic i-if the wesouwces d-don't exist
     m-mut goaws: w-wesmut&lt;goawsweached&gt;, (U ﹏ U)
@@ -215,7 +215,7 @@ custom types.</p>
 }</code></pre>
 <h2 id="managing-wesouwces"><a class="header" href="#managing-wesouwces">managing wesouwces</a></h2>
 <p>if you nyeed to cweate/wemove wesouwces a-at wuntime, OwO y-you can do so u-using
-<a href="/programming/commands.html">commands</a> (<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>):</p>
+<a href="/programming/commands.html">commands</a> (<a href="https://docs.rs/bevy/0.14.0/bevy/ecs/system/struct.Commands.html"><code>Commands</code></a>):</p>
 <pre><code class="language-rust no_run noplayground">fn my_setup(mut commands: commands, (U ﹏ U) /* ... */) {
     // a-add (ow ovewwwite i-if existing) a-a wesouwce, -.- w-with the given v-vawue
     commands.insewt_wesouwce(goawsweached { m-main_goaw: fawse, (ˆ ﻌ ˆ)♡ b-bonus: 100 });
@@ -274,7 +274,7 @@ enum gamemode {
     singwepwayew, :3
     m-muwtipwayew, 😳😳😳
 }</code></pre>
-<p>fow wesouwces that nyeed compwex i-initiawization, ^•ﻌ•^ i-impwement <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>:</p>
+<p>fow wesouwces that nyeed compwex i-initiawization, ^•ﻌ•^ i-impwement <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a>:</p>
 <pre><code class="language-rust no_run noplayground">#[dewive(wesouwce)]
 stwuct myfancywesouwce { /* stuff */ }
 
@@ -295,7 +295,7 @@ impw f-fwomwowwd fow myfancywesouwce {
     }
 }</code></pre>
 <p>bewawe: it can be easy to get youwsewf i-into a mess o-of unmaintainabwe c-code
-if you ovewuse <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> to do compwex things.</p>
+if you ovewuse <a href="https://docs.rs/bevy/0.14.0/bevy/ecs/world/trait.FromWorld.html"><code>FromWorld</code></a> to do compwex things.</p>
 <h2 id="usage-advice"><a class="header" href="#usage-advice">usage advice</a></h2>
 <p>the choice of when to use <a href="/programming/intro-data.html#entities--components">entities/components</a> vs. XD wesouwces is
 typicawwy about how you want to access t-the <a href="/programming/intro-data.html">data</a>: gwobawwy

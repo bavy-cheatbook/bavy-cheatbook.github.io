@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="fixed-timestep"><a class="header" href="#fixed-timestep">fixed timestep</a></h1>
 <p>wewevant officiaw exampwes:
@@ -197,10 +197,10 @@ app.add_systems(fixedupdate, (⑅˘꒳˘) (
     enemy_ai, -.-
     g-gamepway_simuwation, ^^;;
 ));</code></pre>
-<p>evewy fwame update, (ꈍᴗꈍ) bevy wiww wun t-the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> scheduwe as many times as
+<p>evewy fwame update, (ꈍᴗꈍ) bevy wiww wun t-the <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> scheduwe as many times as
 needed to catch up. OwO if the game is w-wunning swow, 🥺 i-it might wun muwtipwe t-times. òωó if
 the game is wunning fast, (ꈍᴗꈍ) it might b-be skipped.</p>
-<p>this happens befowe the weguwaw <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.Update.html"><code>Update</code></a> scheduwe wuns fow that fwame, &gt;_&lt; but
+<p>this happens befowe the weguwaw <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.Update.html"><code>Update</code></a> scheduwe wuns fow that fwame, &gt;_&lt; but
 aftew <a href="/programming/states.html">state twansitions</a>.</p>
 <p>the defauwt fixed timestep intewvaw i-is 64 hz. OwO if y-you want something e-ewse,
 you can configuwe it as fowwows:</p>
@@ -210,8 +210,8 @@ app.insewt_wesouwce(time::&lt;fixed&gt;::fwom_hz(96.0));
 // s-set the fixed t-timestep intewvaw t-to 250 miwwiseconds
 a-app.insewt_wesouwce(time::&lt;fixed&gt;::fwom_seconds(0.25));</code></pre>
 <h2 id="checking-the-time"><a class="header" href="#checking-the-time">checking the time</a></h2>
-<p>just use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/time/struct.Time.html"><code>Res&lt;Time&gt;</code></a> as nyowmaw. (ꈍᴗꈍ) when youw system is w-wunning in
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, ^•ﻌ•^ bevy wiww automaticawwy detect t-that, OwO and aww the t-timing
+<p>just use <a href="https://docs.rs/bevy/0.14.0/bevy/time/struct.Time.html"><code>Res&lt;Time&gt;</code></a> as nyowmaw. (ꈍᴗꈍ) when youw system is w-wunning in
+<a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, ^•ﻌ•^ bevy wiww automaticawwy detect t-that, OwO and aww the t-timing
 infowmation (such as dewta) wiww wepwesent the fixed t-timestep instead o-of the
 dispway fwame wate.</p>
 <pre><code class="language-rust no_run noplayground">fn pwint_time_dewta(time: wes&lt;time&gt;) {
@@ -250,7 +250,7 @@ gives you the weaw (waww-cwock) time, (ꈍᴗꈍ) without pausing o-ow scawing.<
 and wewiabwy. OwO things such as physics a-and simuwation w-wowk best if t-they awe
 computed with fixed time intewvaws, OwO a-as that avoids f-fwoating point e-ewwows
 fwom accumuwating and gwitchy behaviow f-fwom vawiabwe f-fwamewate.</p>
-<p>the fowwowing things shouwd pwobabwy b-be done in <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>:</p>
+<p>the fowwowing things shouwd pwobabwy b-be done in <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>:</p>
 <ul>
 <li>physics and cowwision detection</li>
 <li>netwowking / nyetcode</li>
@@ -261,7 +261,7 @@ fwom accumuwating and gwitchy behaviow f-fwom vawiabwe f-fwamewate.</p>
 <p>howevew, OwO anything that diwectwy affects n-nyani is d-dispwayed on-scween s-shouwd
 wun pew-fwame, OwO in owdew to wook smooth. 🥺 i-if you do m-movement ow animation u-undew
 fixed timestep, OwO it wiww wook choppy, 🥺 e-especiawwy on h-high-wefwesh-wate s-scweens.</p>
-<p>the fowwowing things shouwd pwobabwy b-be done in <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.Update.html"><code>Update</code></a>:</p>
+<p>the fowwowing things shouwd pwobabwy b-be done in <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.Update.html"><code>Update</code></a>:</p>
 <ul>
 <li>camewa movement and contwows</li>
 <li>animations</li>
@@ -271,20 +271,20 @@ fixed timestep, OwO it wiww wook choppy, 🥺 e-especiawwy on h-high-wefwesh-wat
 <li><a href="/programming/states.html">app state</a> twansitions</li>
 </ul>
 <p>pwayew movement and othew movement t-that is pawt of g-gamepway
-shouwd be done in <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, &gt;<em>&lt; so it wowks wewiabwy and
+shouwd be done in <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, &gt;<em>&lt; so it wowks wewiabwy and
 consistentwy. XD to <em>awso</em> make it wook smooth on-scween, &gt;</em>&lt; see <a href="/cookbook/smooth-movement.html">twansfowm
 intewpowation/extwapowation</a>.</p>
 <h2 id="input-handwing"><a class="header" href="#input-handwing">input handwing</a></h2>
-<p>if you use <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/struct.ButtonInput.html"><code>Res&lt;ButtonInput&lt;...&gt;&gt;</code></a> and
+<p>if you use <a href="https://docs.rs/bevy/0.14.0/bevy/input/struct.ButtonInput.html"><code>Res&lt;ButtonInput&lt;...&gt;&gt;</code></a> and
 <code>.just_pressed</code>/<code>.just_released</code> to check fow key/button pwesses, (ꈍᴗꈍ) b-bewawe that
 the state is updated once pew fwame. ^•ﻌ•^ t-this api is n-nyot wewiabwe inside
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>. XD use <a href="/programming/events.html">events</a> fow input handwing instead, &gt;_&lt; ow woww
+<a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>. XD use <a href="/programming/events.html">events</a> fow input handwing instead, &gt;_&lt; ow woww
 youw own abstwactions.</p>
-<p>one way to do this is to put youw i-input handwing s-systems in <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a>, XD owdew
-them aftew bevy's <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/input/struct.InputSystem.html"><code>InputSystem</code></a> <a href="/programming/system-sets.html">set</a>, XD and do youw input
+<p>one way to do this is to put youw i-input handwing s-systems in <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.PreUpdate.html"><code>PreUpdate</code></a>, XD owdew
+them aftew bevy's <a href="https://docs.rs/bevy/0.14.0/bevy/input/struct.InputSystem.html"><code>InputSystem</code></a> <a href="/programming/system-sets.html">set</a>, XD and do youw input
 handwing thewe. (ꈍᴗꈍ) convewt it into youw o-own custom <a href="/programming/events.html">event</a> types ow some
 othew usefuw wepwesentation, OwO which y-you can then handwe f-fwom youw g-gamepway code
-in <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>.</p>
+in <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>.</p>
 <pre><code class="language-rust no_run noplayground">// todo show how to do this</code></pre>
 <h2 id="timing-caveats"><a class="header" href="#timing-caveats">timing caveats</a></h2>
 <p>fixed timestep does nyot wun in weaw-wowwd t-time! OwO y-you cannot wewy o-on it fow timing!</p>
@@ -292,30 +292,30 @@ in <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><
 notice that they don't actuawwy occuw a-at the fixed t-timestep intewvaw. OwO t-they wiww
 not be evenwy spaced!</p>
 <p>youw <a href="/programming/systems.html">systems</a> awe stiww cawwed as pawt of the w-weguwaw fwame-update
-cycwe. (ꈍᴗꈍ) evewy fwame update, ^•ﻌ•^ bevy wiww w-wun the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a>
+cycwe. (ꈍᴗꈍ) evewy fwame update, ^•ﻌ•^ bevy wiww w-wun the <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a>
 <a href="/programming/schedules.html">scheduwe</a> as many times as nyeeded to catch u-up.</p>
 <p>this means if you specify, OwO fow exampwe, 🥺 a-a 60 hz fixed t-timestep intewvaw, òωó y-youw
 systems wiww nyot actuawwy wun in 1/60 s-second intewvaws i-in weaw time.</p>
 <p>nani wiww happen is the fowwowing:</p>
 <ul>
 <li>if the dispway fwame wate is fastew t-than the timestep, OwO s-some fwame u-update cycwes
-wiww skip the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> scheduwe entiwewy.</li>
+wiww skip the <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> scheduwe entiwewy.</li>
 <li>if the dispway fwame wate is swowew t-than the timestep, OwO s-some fwame u-update cycwes
-wiww wun the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> muwtipwe times.</li>
+wiww wun the <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> muwtipwe times.</li>
 </ul>
-<p>in any case, XD <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> wiww wun wight befowe
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.Update.html"><code>Update</code></a>, &gt;_&lt; whewe youw pew-fwame systems wive.</p>
+<p>in any case, XD <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a> wiww wun wight befowe
+<a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.Update.html"><code>Update</code></a>, &gt;_&lt; whewe youw pew-fwame systems wive.</p>
 <h2 id="additionaw-scheduwes"><a class="header" href="#additionaw-scheduwes">additionaw scheduwes</a></h2>
-<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> is actuawwy pawt of a wawgew <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a>
+<p><a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a> is actuawwy pawt of a wawgew <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedMain.html"><code>FixedMain</code></a>
 <a href="/programming/schedules.html">scheduwe</a>, &gt;_&lt; which awso contains othew <a href="/programming/schedules.html">scheduwes</a>:</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedFirst.html"><code>FixedFirst</code></a></li>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedPreUpdate.html"><code>FixedPreUpdate</code></a></li>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a></li>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedPostUpdate.html"><code>FixedPostUpdate</code></a></li>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedLast.html"><code>FixedLast</code></a></li>
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedFirst.html"><code>FixedFirst</code></a></li>
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedPreUpdate.html"><code>FixedPreUpdate</code></a></li>
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a></li>
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedPostUpdate.html"><code>FixedPostUpdate</code></a></li>
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedLast.html"><code>FixedLast</code></a></li>
 </ul>
-<p>they awe anawogous to the <a href="/programming/schedules.html">scheduwes</a> in <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.Main.html"><code>Main</code></a>, XD that wun evewy
+<p>they awe anawogous to the <a href="/programming/schedules.html">scheduwes</a> in <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.Main.html"><code>Main</code></a>, XD that wun evewy
 fwame update. ^•ﻌ•^ they can be used fow a-anawogous puwposes (to c-contain "engine
 systems" fwom bevy and pwugins).</p>
 

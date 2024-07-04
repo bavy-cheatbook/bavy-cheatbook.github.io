@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="the-app"><a class="header" href="#the-app">the app</a></h1>
 <p>wewevant officiaw exampwes: aww of t-them ;)</p>
@@ -182,12 +182,12 @@
 <a href="https://github.com/bevyengine/bevy/blob/v0.14.0-rc.2/examples/games/alien_cake_addict.rs"><code>alien_cake_addict</code></a>,
 <a href="https://github.com/bevyengine/bevy/blob/v0.14.0-rc.2/examples/games/breakout.rs"><code>breakout</code></a>.</p>
 <hr />
-<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.App.html"><code>App</code></a>. &gt;_&lt; the app is how you
+<p>to entew the bevy wuntime, ^•ﻌ•^ you nyeed t-to configuwe a-an <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.App.html"><code>App</code></a>. &gt;_&lt; the app is how you
 define the stwuctuwe of aww the things t-that make u-up youw pwoject:
 <a href="/programming/plugins.html">pwugins</a>, rawr x3 <a href="/programming/systems.html">systems</a> (and theiw configuwation/metadata:
 <a href="/programming/run-criteria.html">wun conditions</a>, rawr x3 <a href="/programming/system-order.html">owdewing</a>, rawr x3 <a href="/programming/system-sets.html">sets</a>),
 <a href="/programming/events.html">event</a> types, XD <a href="/programming/states.html">states</a>, rawr x3 <a href="/programming/schedules.html">scheduwes</a>…</p>
-<p>you typicawwy cweate youw <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.App.html"><code>App</code></a> in youw pwoject's <code>main</code> function. XD  howevew,
+<p>you typicawwy cweate youw <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.App.html"><code>App</code></a> in youw pwoject's <code>main</code> function. XD  howevew,
 you don't have to add evewything f-fwom thewe. OwO if you w-want to add things t-to youw
 app fwom muwtipwe pwaces (wike othew w-wust fiwes ow c-cwates), ^•ﻌ•^ use
 <a href="/programming/plugins.html">pwugins</a>. ^•ﻌ•^ as youw pwoject gwows, OwO you wiww n-nyeed to do that t-to keep
@@ -221,22 +221,22 @@ evewything owganized.</p>
 muwtipwe things at once.</p>
 <p><a href="/programming/ec.html#components">component</a> types do nyot nyeed to be wegistewed.</p>
 <p>scheduwes cannot (yet) be modified a-at wuntime; aww <a href="/programming/systems.html">systems</a> you
-want to wun must be added/configuwed i-in the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.App.html"><code>App</code></a> ahead of time. &gt;_&lt; you can
+want to wun must be added/configuwed i-in the <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.App.html"><code>App</code></a> ahead of time. &gt;_&lt; you can
 contwow individuaw systems using <a href="/programming/run-criteria.html">wun conditions</a>. XD you can awso
-dynamicawwy enabwe/disabwe entiwe s-scheduwes using t-the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.MainScheduleOrder.html"><code>MainScheduleOrder</code></a>
+dynamicawwy enabwe/disabwe entiwe s-scheduwes using t-the <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.MainScheduleOrder.html"><code>MainScheduleOrder</code></a>
 <a href="/programming/res.html">wesouwce</a>.</p>
 <h2 id="buiwtin-bevy-functionawity"><a class="header" href="#buiwtin-bevy-functionawity">buiwtin bevy functionawity</a></h2>
 <p>the bevy game engine's own functionawity i-is wepwesented a-as a <a href="/programming/plugins.html#plugin-groups">pwugin gwoup</a>.
 evewy typicaw bevy app must fiwst a-add it, (ꈍᴗꈍ) using eithew:</p>
 <ul>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> if you awe making a fuww game/app.</li>
-<li><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/struct.MinimalPlugins.html"><code>MinimalPlugins</code></a> fow something wike a headwess sewvew.</li>
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/struct.DefaultPlugins.html"><code>DefaultPlugins</code></a> if you awe making a fuww game/app.</li>
+<li><a href="https://docs.rs/bevy/0.14.0/bevy/struct.MinimalPlugins.html"><code>MinimalPlugins</code></a> fow something wike a headwess sewvew.</li>
 </ul>
 <h2 id="setting-up-data"><a class="header" href="#setting-up-data">setting up data</a></h2>
 <p>nowmawwy, &gt;<em>&lt; you can set up <a href="/programming/intro-data.html">youw data</a> fwom
 <a href="/programming/systems.html">systems</a>. XD use <a href="/programming/commands.html">commands</a> fwom weguwaw systems, &gt;</em>&lt; ow
 use <a href="/programming/exclusive.html">excwusive systems</a> to get <a href="/programming/world.html">fuww wowwd access</a>.</p>
-<p>add youw setup systems to the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.Startup.html"><code>Startup</code></a> <a href="/programming/schedules.html">scheduwe</a> fow
+<p>add youw setup systems to the <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.Startup.html"><code>Startup</code></a> <a href="/programming/schedules.html">scheduwe</a> fow
 things you want to initiawize at w-waunch, (ꈍᴗꈍ) ow use <a href="/programming/states.html">state</a> entew/exit
 systems to do things when twansitioning b-between menus, OwO g-game modes, 🥺 w-wevews, etc.</p>
 <p>howevew, OwO you can awso initiawize d-data diwectwy fwom t-the app buiwdew. 🥺 t-this
@@ -253,7 +253,7 @@ app.init_wesouwce::&lt;myfancywesouwce&gt;();
 // (in this exampwe, σωσ to spawn an entity, &gt;_&lt; but you can d-do anything)
 app.wowwd_mut().spawn(somebundwe::defauwt());</code></pre>
 <h2 id="quitting-the-app"><a class="header" href="#quitting-the-app">quitting the app</a></h2>
-<p>to cweanwy shut down bevy, &gt;_&lt; send an <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/enum.AppExit.html"><code>AppExit</code></a> <a href="/programming/events.html">event</a> fwom any
+<p>to cweanwy shut down bevy, &gt;_&lt; send an <a href="https://docs.rs/bevy/0.14.0/bevy/app/enum.AppExit.html"><code>AppExit</code></a> <a href="/programming/events.html">event</a> fwom any
 <a href="/programming/systems.html">system</a>:</p>
 <pre><code class="language-rust no_run noplayground">use bevy::app::appexit;
 
@@ -261,7 +261,7 @@ fn exit_system(mut e-exit: e-eventwwitew&lt;appexit&gt;) {
     e-exit.send(appexit::success);
 }</code></pre>
 <p>you can specify the exit code to w-wetuwn to the os. ^•ﻌ•^ i-if bevy weceives
-muwtipwe <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/enum.AppExit.html"><code>AppExit</code></a> events, (ꈍᴗꈍ) success wiww onwy be wetuwned i-if aww
+muwtipwe <a href="https://docs.rs/bevy/0.14.0/bevy/app/enum.AppExit.html"><code>AppExit</code></a> events, (ꈍᴗꈍ) success wiww onwy be wetuwned i-if aww
 of them wepowt success. ^•ﻌ•^ if some wepowt a-an ewwow, OwO t-the wast event wiww
 detewmine the actuaw exit code of t-the pwocess.</p>
 

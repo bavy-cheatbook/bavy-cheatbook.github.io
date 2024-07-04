@@ -174,7 +174,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|0.14|(upcoming / wewease candidate)|
+                        <p>|<a href="/introduction.html#maintenance-policy">bevy vewsion:</a>|<a href="https://bevyengine.org/news/bevy-0-14">0.14</a>|(cuwwent)|
 |---|---|---|</p>
 <h1 id="twansfowm-intewpowation--extwapowation"><a class="header" href="#twansfowm-intewpowation--extwapowation">twansfowm intewpowation / extwapowation</a></h1>
 <p>movement code fow contwowwing the p-pwayew (and othew g-gamepway entities)
@@ -184,17 +184,17 @@ simuwation, &gt;_&lt; which means doing it <a href="/fundamentals/fixed-timestep
 is to ensuwe consistent gamepway b-behaviow wegawdwess o-of the dispway
 fwamewate. OwO it is a must, 🥺 to avoid g-gwitchy behaviow w-wike cwipping i-into wawws.</p>
 <p>howevew, OwO you awso want movement to w-wook smooth on-scween. 🥺 i-if you s-simpwy
-mutate the <a href="/fundamentals/transforms.html">twansfowms</a> fwom within <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, XD that
+mutate the <a href="/fundamentals/transforms.html">twansfowms</a> fwom within <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>, XD that
 wiww wook choppy, ^•ﻌ•^ especiawwy on modewn h-high-wefwesh-wate g-gaming dispways.</p>
-<p>the sowution is to nyot manipuwate <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> diwectwy, &gt;_&lt; but to cweate youw
+<p>the sowution is to nyot manipuwate <a href="https://docs.rs/bevy/0.14.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> diwectwy, &gt;_&lt; but to cweate youw
 own custom <a href="/programming/ec.html#components">component</a> types to use instead. (ꈍᴗꈍ) impwement y-youw
-gamepway using youw own types. ^•ﻌ•^ then, OwO h-have a system i-in <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.Update.html"><code>Update</code></a>, XD which uses
-youw custom components to compute t-the <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> that bevy shouwd use to
+gamepway using youw own types. ^•ﻌ•^ then, OwO h-have a system i-in <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.Update.html"><code>Update</code></a>, XD which uses
+youw custom components to compute t-the <a href="https://docs.rs/bevy/0.14.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> that bevy shouwd use to
 dispway the entity on evewy fwame.</p>
 <h2 id="intewpowation-vs-_-extwapowation"><a class="header" href="#intewpowation-vs-_-extwapowation">intewpowation vs. &gt;_&lt; extwapowation</a></h2>
-<p>intewpowation means computing a <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> that is somewhewe in-between the
+<p>intewpowation means computing a <a href="https://docs.rs/bevy/0.14.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> that is somewhewe in-between the
 cuwwent state of the entity, OwO and t-the owd state fwom t-the pwevious g-gamepway tick.</p>
-<p>extwapowation means computing a <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> that is somewhewe in-between
+<p>extwapowation means computing a <a href="https://docs.rs/bevy/0.14.0/bevy/transform/components/struct.Transform.html"><code>Transform</code></a> that is somewhewe in-between
 the cuwwent state of the entity, a-and the pwedicted f-futuwe state on t-the nyext
 gamepway tick.</p>
 <p>intewpowation cweates movement that a-awways wooks b-both smooth and a-accuwate,
@@ -224,7 +224,7 @@ s-stwuct o-owdmovementstate {
     p-position: v-vec3, (U ᵕ U❁)
 }</code></pre>
 <p>now, &gt;_&lt; you can cweate youw <a href="/programming/systems.html">systems</a> to impwement youw movement
-simuwation. (ꈍᴗꈍ) these systems shouwd w-wun in <a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>. XD fow this simpwe
+simuwation. (ꈍᴗꈍ) these systems shouwd w-wun in <a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.FixedUpdate.html"><code>FixedUpdate</code></a>. XD fow this simpwe
 exampwe, (ꈍᴗꈍ) we just appwy ouw vewocity v-vawue.</p>
 <pre><code class="language-rust no_run noplayground">fn my_movement(
     time: wes&lt;time&gt;, 😳😳😳
@@ -246,9 +246,9 @@ exampwe, (ꈍᴗꈍ) we just appwy ouw vewocity v-vawue.</p>
 }</code></pre>
 <pre><code class="language-rust no_run noplayground">app.add_systems(fixedupdate, XD my_movement);</code></pre>
 <p>now we nyeed to cweate the <a href="/programming/systems.html">system</a> to wun evewy fwame in
-<a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/app/struct.Update.html"><code>Update</code></a>, &gt;_&lt; which computes the actuaw <a href="/fundamentals/transforms.html">twansfowm</a> that bevy
+<a href="https://docs.rs/bevy/0.14.0/bevy/app/struct.Update.html"><code>Update</code></a>, &gt;_&lt; which computes the actuaw <a href="/fundamentals/transforms.html">twansfowm</a> that bevy
 wiww use to dispway ouw entity on-scween.</p>
-<p><a href="https://docs.rs/bevy/0.14.0-rc.2/bevy/time/struct.Time.html"><code>Time&lt;Fixed&gt;</code></a> can give us the "ovewstep fwaction", (ꈍᴗꈍ) w-which is a
+<p><a href="https://docs.rs/bevy/0.14.0/bevy/time/struct.Time.html"><code>Time&lt;Fixed&gt;</code></a> can give us the "ovewstep fwaction", (ꈍᴗꈍ) w-which is a
 vawue between <code>0.0</code> and <code>1.0</code> indicating how much of a "pawtiaw t-timestep"
 has accumuwated since the wast <a href="/fundamentals/fixed-timestep.html">fixed timestep</a> wun.
 this vawue is ouw wewp coefficient.</p>
